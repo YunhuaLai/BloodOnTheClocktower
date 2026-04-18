@@ -22,6 +22,23 @@ const state = {
   terms: [],
 };
 
+const importantAbilityPhrases = [
+  "善良方失败",
+  "善良方获胜",
+  "邪恶方失败",
+  "邪恶方获胜",
+  "不会死亡",
+  "不能死亡",
+  "立刻被处决",
+  "立即被处决",
+  "失去能力",
+  "必定为假",
+  "不生效",
+  "交换角色与阵营",
+  "变成恶魔",
+  "变成邪恶",
+];
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
@@ -126,6 +143,73 @@ function renderKeywordLinks(keywords) {
         })
         .join("")}
     </div>
+  `;
+}
+
+function getInlineTermMatches() {
+  return state.terms.flatMap((term) => {
+    const names = [term.name, ...(term.aliases || [])];
+    return names.map((name) => ({
+      text: name,
+      type: "term",
+      id: term.id,
+    }));
+  });
+}
+
+function renderRichText(value) {
+  const source = String(value || "");
+  const candidates = [
+    ...getInlineTermMatches(),
+    ...importantAbilityPhrases.map((text) => ({ text, type: "strong" })),
+  ]
+    .filter((item) => item.text)
+    .sort((a, b) => b.text.length - a.text.length);
+  const matches = [];
+
+  candidates.forEach((candidate) => {
+    let start = source.indexOf(candidate.text);
+    while (start !== -1) {
+      const end = start + candidate.text.length;
+      const overlaps = matches.some(
+        (match) => start < match.end && end > match.start,
+      );
+
+      if (!overlaps) {
+        matches.push({ ...candidate, start, end });
+      }
+
+      start = source.indexOf(candidate.text, end);
+    }
+  });
+
+  matches.sort((a, b) => a.start - b.start);
+
+  let html = "";
+  let cursor = 0;
+  matches.forEach((match) => {
+    html += escapeHtml(source.slice(cursor, match.start));
+    const text = escapeHtml(source.slice(match.start, match.end));
+
+    if (match.type === "term") {
+      html += `<a class="inline-term" href="/terms/${escapeHtml(match.id)}" data-link>${text}</a>`;
+    } else {
+      html += `<strong>${text}</strong>`;
+    }
+
+    cursor = match.end;
+  });
+
+  html += escapeHtml(source.slice(cursor));
+  return html;
+}
+
+function abilityBlock(role) {
+  return `
+    <section class="ability-block">
+      <p class="eyebrow">角色能力</p>
+      <p>${renderRichText(role.ability || role.detail.abilitySummary)}</p>
+    </section>
   `;
 }
 
@@ -421,7 +505,7 @@ function renderRoleDetail(id) {
 
     <section class="detail-layout">
       <article class="detail-main">
-        ${detailBlock("能力概括", role.detail.abilitySummary)}
+        ${abilityBlock(role)}
         ${detailBlock("玩家玩法提示", role.detail.playTips)}
         ${detailBlock("说书人注意", role.detail.storytellerTips)}
         ${detailBlock("常见误区", role.detail.commonMistakes)}

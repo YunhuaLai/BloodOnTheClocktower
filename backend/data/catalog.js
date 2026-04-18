@@ -35,6 +35,138 @@ const ROLE_CORRECTIONS = {
   },
 };
 
+const ROLE_ABILITIES = {
+  washerwoman:
+    "首夜得知一个镇民角色，并看到两名玩家；其中一名玩家是该镇民。",
+  librarian:
+    "首夜得知一个外来者角色，并看到两名玩家；其中一名玩家是该外来者。若场上没有外来者，你会得知这一点。",
+  investigator:
+    "首夜得知一个爪牙角色，并看到两名玩家；其中一名玩家是该爪牙。",
+  chef: "首夜得知场上有多少对相邻而坐的邪恶玩家。",
+  empath: "每晚得知与你相邻的存活玩家中有几名邪恶玩家。",
+  "fortune-teller":
+    "每晚选择两名玩家，得知其中是否有恶魔。会有一名善良玩家被当作恶魔干扰项。",
+  undertaker: "每晚得知今天白天死于处决的玩家是什么角色。",
+  monk: "每晚选择除自己以外的一名玩家；该玩家今晚免受恶魔影响。",
+  ravenkeeper: "如果你在夜晚死亡，你会被唤醒并选择一名玩家，得知其角色。",
+  virgin:
+    "第一次被提名时，如果提名者是镇民，提名者立刻被处决。",
+  slayer:
+    "每局一次，在白天公开选择一名玩家；如果该玩家是恶魔，该玩家死亡。",
+  soldier: "你免受恶魔影响。",
+  mayor:
+    "如果只剩三名玩家存活且白天没有处决，善良方获胜。若你在夜晚死亡，可能由其他玩家代替你死亡。",
+  butler:
+    "每晚选择一名玩家作为主人；明天白天，只有当主人投票时你才能投票。",
+  drunk:
+    "你不知道自己是酒鬼。你以为自己是一个镇民角色，但其实你没有该能力。",
+  recluse:
+    "即使死亡，你也可能被侦测为邪恶阵营，或被当作爪牙、恶魔。",
+  saint: "如果你死于处决，邪恶方获胜。",
+  poisoner:
+    "每晚选择一名玩家；该玩家今晚和明天白天中毒。",
+  spy:
+    "每晚查看魔典。即使死亡，你也可能被侦测为善良阵营、镇民或外来者。",
+  baron: "场上增加两个外来者。",
+  "scarlet-woman":
+    "如果存活玩家不少于五名且恶魔死亡，你会变成恶魔。",
+  imp:
+    "每晚*选择一名玩家；该玩家死亡。如果你选择自己死亡，一名爪牙会变成小恶魔。",
+
+  grandmother:
+    "首夜得知一名善良玩家及其角色。如果恶魔杀死该玩家，你也会死亡。",
+  sailor:
+    "每晚选择一名存活玩家；你或该玩家醉酒直到明天黄昏。你不能死亡。",
+  chambermaid:
+    "每晚选择除自己以外的两名存活玩家，得知其中有几人因自身能力在今晚被唤醒。",
+  exorcist:
+    "每晚选择一名玩家，不能与上一晚相同。若选中恶魔，恶魔得知你是谁，且今晚不会因自身能力醒来。",
+  innkeeper:
+    "每晚选择两名玩家；他们今晚不能死亡，但其中一人会醉酒直到明天黄昏。",
+  gambler:
+    "每晚选择一名玩家并猜测其角色；如果猜错，你死亡。",
+  gossip:
+    "每天白天可以公开发表一个声明。如果该声明为真，今晚会有一名玩家死亡。",
+  courtier:
+    "每局一次，在夜晚选择一个角色；该角色相关玩家醉酒三天三夜。",
+  professor:
+    "每局一次，在夜晚选择一名死亡玩家；如果该玩家是镇民，该玩家复活。",
+  minstrel:
+    "当一名爪牙死于处决时，除你以外所有玩家醉酒直到明天黄昏。",
+  "tea-lady":
+    "如果与你相邻的两个存活玩家都是善良阵营，他们不能死亡。",
+  pacifist: "死于处决的善良玩家可能不会死亡。",
+  fool: "你第一次将要死亡时，不会死亡。",
+  tinker: "你可能在任意时间死亡。",
+  moonchild:
+    "当你得知自己死亡时，选择一名存活玩家。如果该玩家是善良阵营，今晚该玩家死亡。",
+  goon:
+    "每晚第一个用能力选择你的玩家醉酒直到明天黄昏；你变成该玩家的阵营。",
+  lunatic:
+    "你以为自己是恶魔，但你不是。恶魔知道你是谁，以及你每晚选择了谁。",
+  godfather:
+    "首夜得知有哪些外来者在场。若今天有外来者死亡，今晚选择一名玩家死亡。本局外来者数量增减一名。",
+  "devils-advocate":
+    "每晚选择一名存活玩家，不能与上一晚相同。若该玩家明天死于处决，该玩家不会死亡。",
+  assassin:
+    "每局一次，在夜晚选择一名玩家；该玩家死亡，即使他本来不会死亡。",
+  mastermind:
+    "如果恶魔死于处决且游戏本应结束，游戏继续一天。若次日有玩家被处决，其阵营失败。",
+  zombuul:
+    "每晚*如果今天白天无人死亡，选择一名玩家死亡。你第一次死亡时仍然存活，但被当作死亡。",
+  pukka:
+    "每晚选择一名玩家中毒。上一个因你中毒的玩家死亡，然后恢复健康。",
+  shabaloth:
+    "每晚*选择两名玩家死亡。上一晚被你选择且当前死亡的玩家之一可能复活。",
+  po:
+    "每晚*可以选择一名玩家死亡；如果你上一晚没有选择玩家，今晚选择三名玩家死亡。",
+
+  clockmaker: "首夜得知恶魔与最近爪牙之间相隔多少步。",
+  dreamer:
+    "每晚选择一名玩家，得知一个善良角色和一个邪恶角色；其中一个是该玩家的真实角色。",
+  "snake-charmer":
+    "每晚选择一名存活玩家。如果选中恶魔，你和恶魔交换角色与阵营，然后你中毒。",
+  mathematician:
+    "每晚得知自上个黎明以来，有多少名玩家的能力因其他角色能力影响而未正常生效。",
+  flowergirl: "每晚*得知今天白天是否有恶魔投过票。",
+  "town-crier": "每晚*得知今天白天是否有爪牙发起过提名。",
+  oracle: "每晚*得知当前死亡玩家中有多少名邪恶玩家。",
+  savant: "每天白天拜访说书人，获得两条信息：一条为真，一条为假。",
+  seamstress:
+    "每局一次，在夜晚选择除自己以外的两名玩家，得知他们是否属于同一阵营。",
+  philosopher:
+    "每局一次，在夜晚选择一个善良角色；你获得该角色能力。若该角色在场，原角色醉酒。",
+  artist:
+    "每局一次，在白天私下向说书人提出一个是非问题，并得到回答。",
+  juggler:
+    "第一天白天公开猜测最多五名玩家的角色；当晚得知你猜对了几个。",
+  sage:
+    "如果你被恶魔杀死，你会得知两名玩家；其中一名是杀死你的恶魔。",
+  mutant:
+    "如果你疯狂地表现出自己是外来者，你可能被处决。",
+  sweetheart: "当你死亡时，一名玩家从此醉酒。",
+  barber:
+    "如果你死亡，恶魔可以选择两名玩家交换角色，但不能选择另一个恶魔。",
+  klutz:
+    "当你得知自己死亡时，公开选择一名存活玩家。如果该玩家是邪恶阵营，善良方失败。",
+  "evil-twin":
+    "你和一名敌对玩家互相知道彼此角色。如果善良双子死于处决，邪恶方获胜。若你们都存活，善良方不能获胜。",
+  witch:
+    "每晚选择一名玩家。如果明天白天该玩家发起提名，该玩家死亡。若只剩三名玩家存活，该能力不生效。",
+  cerenovus:
+    "每晚选择一名玩家和一个善良角色；明天该玩家若不疯狂地表现为该角色，可能被处决。",
+  "pit-hag":
+    "每晚选择一名玩家和一个不在场角色；该玩家变成该角色。如果因此创造恶魔，今晚的死亡由说书人决定。",
+  "fang-gu":
+    "每晚*选择一名玩家死亡。你第一次选择外来者时，该外来者不死，变成邪恶方古；你死亡。场上增加一个外来者。",
+  vigormortis:
+    "每晚*选择一名玩家死亡。被你杀死的爪牙保留能力，并让一个相邻镇民中毒。场上减少一个外来者。",
+  "no-dashii":
+    "每晚*选择一名玩家死亡。与你相邻的两个镇民中毒。",
+  vortox:
+    "每晚*选择一名玩家死亡。镇民能力获得的信息必定为假。如果白天无人被处决，邪恶方获胜。",
+};
+
 const TERMS = [
   term(
     "day",
@@ -96,7 +228,7 @@ const TERMS = [
   term(
     "other-night",
     "其他夜晚",
-    ["后续夜晚", "非首夜"],
+    ["后续夜晚", "非首夜", "每晚*"],
     "流程",
     "首夜之后的夜晚，更多持续能力、击杀、保护和信息结算会发生。",
     [
@@ -710,6 +842,7 @@ function replaceTerms(value) {
 
 function makeDetail(roleData) {
   const typeLabel = ROLE_TYPES[roleData.type] || "角色";
+  const abilityText = ROLE_ABILITIES[roleData.id] || roleData.summary;
   const typeTips = {
     townsfolk: [
       "先判断这条信息或能力适合公开、半公开还是暂时保留。",
@@ -758,7 +891,7 @@ function makeDetail(roleData) {
 
   return {
     overview: `${roleData.name}是《${roleData.script}》中的${typeLabel}。${roleData.summary}`,
-    abilitySummary: roleData.summary,
+    abilitySummary: abilityText,
     playTips: typeTips[roleData.type] || typeTips.townsfolk,
     storytellerTips: storytellerTips[roleData.type] || storytellerTips.townsfolk,
     commonMistakes: [
@@ -779,6 +912,7 @@ function normalizeRole(rawRole) {
   const normalized = {
     ...corrected,
     scriptId: corrected.scriptId || "trouble-brewing",
+    ability: ROLE_ABILITIES[corrected.id] || corrected.summary,
   };
 
   if (!normalized.detail) {
@@ -788,6 +922,7 @@ function normalizeRole(rawRole) {
   normalized.detail = {
     ...makeDetail(normalized),
     ...replaceTerms(normalized.detail),
+    abilitySummary: ROLE_ABILITIES[normalized.id] || normalized.detail.abilitySummary,
     relatedRoleIds: normalized.detail.relatedRoleIds || [],
   };
 
