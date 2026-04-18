@@ -19,6 +19,7 @@ const state = {
   rules: [],
   scripts: [],
   roles: [],
+  terms: [],
 };
 
 function escapeHtml(value) {
@@ -36,6 +37,24 @@ function getScriptById(id) {
 
 function getRoleById(id) {
   return state.roles.find((role) => role.id === id);
+}
+
+function getTermById(id) {
+  return state.terms.find((term) => term.id === id);
+}
+
+function getTermForKeyword(keyword) {
+  return state.terms.find((term) => {
+    const names = [term.name, ...(term.aliases || [])];
+    return names.some((name) => name === keyword);
+  });
+}
+
+function splitKeywords(keywords) {
+  return String(keywords || "")
+    .split(/\s+/)
+    .map((keyword) => keyword.trim())
+    .filter(Boolean);
 }
 
 function listItems(items) {
@@ -67,10 +86,44 @@ function compactListLinks(items, type) {
           (item) => `
             <a href="/${type}/${escapeHtml(item.id)}" data-link>
               <span>${escapeHtml(item.name)}</span>
-              <small>${type === "roles" ? escapeHtml(typeLabels[item.type] || item.type) : escapeHtml(item.level)}</small>
+              <small>${getCompactLabel(item, type)}</small>
             </a>
           `,
         )
+        .join("")}
+    </div>
+  `;
+}
+
+function getCompactLabel(item, type) {
+  if (type === "roles") {
+    return escapeHtml(typeLabels[item.type] || item.type);
+  }
+
+  if (type === "terms") {
+    return escapeHtml(item.category);
+  }
+
+  return escapeHtml(item.level);
+}
+
+function renderKeywordLinks(keywords) {
+  const tokens = splitKeywords(keywords);
+  if (!tokens.length) {
+    return `<p class="muted">当前没有关键词。</p>`;
+  }
+
+  return `
+    <div class="keyword-list">
+      ${tokens
+        .map((keyword) => {
+          const term = getTermForKeyword(keyword);
+          if (!term) {
+            return `<span class="keyword-chip">${escapeHtml(keyword)}</span>`;
+          }
+
+          return `<a class="keyword-chip" href="/terms/${escapeHtml(term.id)}" data-link>${escapeHtml(keyword)}</a>`;
+        })
         .join("")}
     </div>
   `;
@@ -94,6 +147,10 @@ function renderHome() {
           <div>
             <strong>${state.roles.length}</strong>
             <span>个角色</span>
+          </div>
+          <div>
+            <strong>${state.terms.length}</strong>
+            <span>个术语</span>
           </div>
           <div>
             <strong>4</strong>
@@ -124,6 +181,14 @@ function renderHome() {
         <h2 id="rulesTitle">游戏速览</h2>
       </div>
       <div class="rule-grid" id="ruleGrid"></div>
+    </section>
+
+    <section class="section terms-section" id="terms" aria-labelledby="termsTitle">
+      <div class="section-heading">
+        <p class="eyebrow">关键词 / 术语</p>
+        <h2 id="termsTitle">先把黑话对齐</h2>
+      </div>
+      <div class="term-grid" id="termGrid"></div>
     </section>
 
     <section class="section" id="scripts" aria-labelledby="scriptsTitle">
@@ -159,10 +224,28 @@ function renderHome() {
   `;
 
   renderRules();
+  renderTerms();
   renderScripts();
   renderRoles();
   syncFilterButtons();
   scrollToHash();
+}
+
+function renderTerms() {
+  const termGrid = document.querySelector("#termGrid");
+
+  termGrid.innerHTML = state.terms
+    .map(
+      (term) => `
+        <a class="term-card" href="/terms/${escapeHtml(term.id)}" data-link>
+          <small>${escapeHtml(term.category)}</small>
+          <h3>${escapeHtml(term.name)}</h3>
+          <p>${escapeHtml(term.summary)}</p>
+          ${(term.aliases || []).length ? `<div class="term-aliases">${term.aliases.map((alias) => `<span>${escapeHtml(alias)}</span>`).join("")}</div>` : ""}
+        </a>
+      `,
+    )
+    .join("");
 }
 
 function renderRules() {
@@ -354,6 +437,64 @@ function renderRoleDetail(id) {
           }
         </section>
         <section class="side-panel">
+          <p class="eyebrow">关键词</p>
+          ${renderKeywordLinks(role.keywords)}
+        </section>
+        <section class="side-panel">
+          <p class="eyebrow">关联角色</p>
+          ${compactListLinks(relatedRoles, "roles")}
+        </section>
+      </aside>
+    </section>
+  `;
+}
+
+function renderTermDetail(id) {
+  const term = getTermById(id);
+
+  if (!term) {
+    renderNotFound("没有找到这个术语。");
+    return;
+  }
+
+  const relatedTerms = (term.relatedTermIds || []).map(getTermById).filter(Boolean);
+  const relatedRoles = (term.relatedRoleIds || []).map(getRoleById).filter(Boolean);
+
+  document.title = `${term.name} · 血染钟楼百科`;
+  app.innerHTML = `
+    <section class="detail-hero term-detail-hero">
+      <a class="back-link" href="/#terms" data-link>返回术语列表</a>
+      <div class="detail-hero-grid">
+        <div>
+          <p class="eyebrow">${escapeHtml(term.category)}</p>
+          <h1>${escapeHtml(term.name)}</h1>
+          <p class="lead">${escapeHtml(term.detail.overview)}</p>
+          ${
+            (term.aliases || []).length
+              ? `<div class="script-meta detail-tags">${term.aliases.map((alias) => `<span class="tag">${escapeHtml(alias)}</span>`).join("")}</div>`
+              : ""
+          }
+        </div>
+        <div class="term-token">
+          <span>${escapeHtml(term.name.slice(0, 1))}</span>
+          <strong>${escapeHtml(term.category)}</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="detail-layout">
+      <article class="detail-main">
+        ${detailBlock("怎么理解", term.detail.howItWorks)}
+        ${detailBlock("常见误区", term.detail.commonMistakes)}
+        ${detailBlock("实战提示", term.detail.examples)}
+      </article>
+
+      <aside class="detail-side">
+        <section class="side-panel">
+          <p class="eyebrow">关联术语</p>
+          ${compactListLinks(relatedTerms, "terms")}
+        </section>
+        <section class="side-panel">
           <p class="eyebrow">关联角色</p>
           ${compactListLinks(relatedRoles, "roles")}
         </section>
@@ -419,6 +560,11 @@ function renderRoute() {
     return;
   }
 
+  if (segments.length === 2 && segments[0] === "terms") {
+    renderTermDetail(segments[1]);
+    return;
+  }
+
   renderNotFound();
 }
 
@@ -441,6 +587,7 @@ async function loadEncyclopedia() {
     state.rules = data.rules || [];
     state.scripts = data.scripts || [];
     state.roles = data.roles || [];
+    state.terms = data.terms || [];
     renderRoute();
   } catch (error) {
     console.error(error);

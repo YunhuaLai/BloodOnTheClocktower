@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const http = require("node:http");
 const path = require("node:path");
+const { augmentEncyclopedia } = require("./data/catalog");
 
 const PORT = Number(process.env.PORT || 3000);
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -34,7 +35,7 @@ function readData(callback) {
     }
 
     try {
-      callback(null, JSON.parse(content));
+      callback(null, augmentEncyclopedia(JSON.parse(content)));
     } catch (parseError) {
       callback(parseError);
     }
@@ -128,6 +129,29 @@ function handleApi(request, response) {
       }
 
       sendRawJson(response, 200, role);
+    });
+    return;
+  }
+
+  if (segments[0] === "api" && segments[1] === "terms") {
+    readData((error, data) => {
+      if (error) {
+        sendJson(response, 500, { error: "Failed to read term data" });
+        return;
+      }
+
+      if (!segments[2]) {
+        sendRawJson(response, 200, data.terms || []);
+        return;
+      }
+
+      const term = (data.terms || []).find((item) => item.id === segments[2]);
+      if (!term) {
+        sendJson(response, 404, { error: "Term not found" });
+        return;
+      }
+
+      sendRawJson(response, 200, term);
     });
     return;
   }
