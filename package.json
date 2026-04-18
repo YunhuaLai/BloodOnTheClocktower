@@ -1,0 +1,13 @@
+{
+  "name": "blood-on-the-clocktower-encyclopedia",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A web encyclopedia prototype for Blood on the Clocktower.",
+  "scripts": {
+    "start": "node backend/server.js",
+    "check": "node --check backend/server.js && node --check frontend/app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
