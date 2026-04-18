@@ -5,105 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>血染钟楼百科</title>
     <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
     <header class="topbar">
-      <a class="brand" href="#overview" aria-label="回到概览">
+      <a class="brand" href="/" data-link aria-label="回到概览">
         <span class="brand-mark">钟</span>
         <span>血染钟楼百科</span>
       </a>
       <nav class="nav" aria-label="主导航">
-        <a href="#overview">游戏</a>
-        <a href="#scripts">板子</a>
-        <a href="#roles">角色</a>
+        <a href="/#overview" data-link>游戏</a>
+        <a href="/#scripts" data-link>板子</a>
+        <a href="/#roles" data-link>角色</a>
       </nav>
     </header>
 
-    <main>
-      <section class="workspace" id="overview">
-        <div class="intro-panel">
-          <p class="eyebrow">社交推理 · 说书人 · 阵营博弈</p>
-          <h1>查规则、看板子、找角色，一局开始前够用了。</h1>
-          <p class="lead">
-            这里先整理《血染钟楼》的基础概念、官方入门板子和常见角色定位。所有能力说明都采用概括性转述，方便快速理解，不替代官方规则书。
-          </p>
-          <div class="quick-stats" aria-label="资料概览">
-            <div>
-              <strong id="scriptCount">0</strong>
-              <span>个板子</span>
-            </div>
-            <div>
-              <strong id="roleCount">0</strong>
-              <span>个角色</span>
-            </div>
-            <div>
-              <strong>4</strong>
-              <span>类阵营/身份</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="image-strip" aria-label="氛围图">
-          <img
-            src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=900&q=80"
-            alt="夜晚烛光"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
-            alt="山谷村庄"
-          />
-          <img
-            src="https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?auto=format&fit=crop&w=900&q=80"
-            alt="旧书与桌面"
-          />
-        </div>
-      </section>
-
-      <section class="section rules-section" aria-labelledby="rulesTitle">
-        <div class="section-heading">
-          <p class="eyebrow">先懂这几个词</p>
-          <h2 id="rulesTitle">游戏速览</h2>
-        </div>
-        <div class="rule-grid" id="ruleGrid"></div>
-      </section>
-
-      <section class="section" id="scripts" aria-labelledby="scriptsTitle">
-        <div class="section-heading">
-          <p class="eyebrow">剧本 / 板子</p>
-          <h2 id="scriptsTitle">从入门到混乱</h2>
-        </div>
-        <div class="script-grid" id="scriptGrid"></div>
-      </section>
-
-      <section class="section role-browser" id="roles" aria-labelledby="rolesTitle">
-        <div class="section-heading role-heading">
-          <div>
-            <p class="eyebrow">角色百科</p>
-            <h2 id="rolesTitle">按板子、身份和关键词筛选</h2>
-          </div>
-          <label class="search-box">
-            <span>搜索</span>
-            <input id="searchInput" type="search" placeholder="输入角色、能力关键词或板子" />
-          </label>
-        </div>
-
-        <div class="filters" aria-label="角色筛选">
-          <button class="filter active" data-filter="all">全部</button>
-          <button class="filter" data-filter="townsfolk">镇民</button>
-          <button class="filter" data-filter="outsider">外来者</button>
-          <button class="filter" data-filter="minion">爪牙</button>
-          <button class="filter" data-filter="demon">恶魔</button>
-        </div>
-
-        <div class="role-grid" id="roleGrid"></div>
-      </section>
-    </main>
+    <main id="app"></main>
 
     <footer class="footer">
       <p>粉丝向资料整理。角色能力为概括性中文摘要，请以官方规则与当地版本为准。</p>
     </footer>
 
-    <script src="./app.js"></script>
+    <script src="/app.js"></script>
   </body>
 </html>

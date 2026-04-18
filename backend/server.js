@@ -21,6 +21,30 @@ const contentTypes = {
 function sendJson(response, statusCode, payload) {
   response.writeHead(statusCode, {
     "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store",
+  });
+  response.end(JSON.stringify(payload));
+}
+
+function readData(callback) {
+  fs.readFile(DATA_FILE, "utf8", (error, content) => {
+    if (error) {
+      callback(error);
+      return;
+    }
+
+    try {
+      callback(null, JSON.parse(content));
+    } catch (parseError) {
+      callback(parseError);
+    }
+  });
+}
+
+function sendRawJson(response, statusCode, payload) {
+  response.writeHead(statusCode, {
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store",
   });
   response.end(JSON.stringify(payload));
 }
@@ -35,29 +59,75 @@ function sendFile(response, filePath) {
     const extension = path.extname(filePath).toLowerCase();
     response.writeHead(200, {
       "Content-Type": contentTypes[extension] || "application/octet-stream",
+      "Cache-Control": "no-store",
     });
     response.end(content);
   });
 }
 
 function handleApi(request, response) {
-  if (request.url === "/api/health") {
+  const requestUrl = new URL(request.url, `http://${request.headers.host}`);
+  const segments = requestUrl.pathname.split("/").filter(Boolean);
+
+  if (requestUrl.pathname === "/api/health") {
     sendJson(response, 200, { ok: true, service: "botc-encyclopedia" });
     return;
   }
 
-  if (request.url === "/api/encyclopedia") {
-    fs.readFile(DATA_FILE, "utf8", (error, content) => {
+  if (requestUrl.pathname === "/api/encyclopedia") {
+    readData((error, data) => {
       if (error) {
         sendJson(response, 500, { error: "Failed to read encyclopedia data" });
         return;
       }
 
-      response.writeHead(200, {
-        "Content-Type": "application/json; charset=utf-8",
-        "Cache-Control": "no-store",
-      });
-      response.end(content);
+      sendRawJson(response, 200, data);
+    });
+    return;
+  }
+
+  if (segments[0] === "api" && segments[1] === "scripts") {
+    readData((error, data) => {
+      if (error) {
+        sendJson(response, 500, { error: "Failed to read script data" });
+        return;
+      }
+
+      if (!segments[2]) {
+        sendRawJson(response, 200, data.scripts || []);
+        return;
+      }
+
+      const script = (data.scripts || []).find((item) => item.id === segments[2]);
+      if (!script) {
+        sendJson(response, 404, { error: "Script not found" });
+        return;
+      }
+
+      sendRawJson(response, 200, script);
+    });
+    return;
+  }
+
+  if (segments[0] === "api" && segments[1] === "roles") {
+    readData((error, data) => {
+      if (error) {
+        sendJson(response, 500, { error: "Failed to read role data" });
+        return;
+      }
+
+      if (!segments[2]) {
+        sendRawJson(response, 200, data.roles || []);
+        return;
+      }
+
+      const role = (data.roles || []).find((item) => item.id === segments[2]);
+      if (!role) {
+        sendJson(response, 404, { error: "Role not found" });
+        return;
+      }
+
+      sendRawJson(response, 200, role);
     });
     return;
   }
@@ -70,13 +140,27 @@ function handleStatic(request, response) {
   const pathname = decodeURIComponent(requestUrl.pathname);
   const relativePath = pathname === "/" ? "index.html" : pathname.slice(1);
   const filePath = path.resolve(FRONTEND_DIR, relativePath);
+  const isInsideFrontend =
+    filePath === FRONTEND_DIR || filePath.startsWith(`${FRONTEND_DIR}${path.sep}`);
 
-  if (!filePath.startsWith(FRONTEND_DIR)) {
+  if (!isInsideFrontend) {
     sendJson(response, 403, { error: "Forbidden" });
     return;
   }
 
-  sendFile(response, filePath);
+  fs.stat(filePath, (error, stats) => {
+    if (!error && stats.isFile()) {
+      sendFile(response, filePath);
+      return;
+    }
+
+    if (path.extname(filePath)) {
+      sendJson(response, 404, { error: "Not found" });
+      return;
+    }
+
+    sendFile(response, path.join(FRONTEND_DIR, "index.html"));
+  });
 }
 
 const server = http.createServer((request, response) => {
