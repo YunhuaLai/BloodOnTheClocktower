@@ -224,6 +224,65 @@ function abilityBlock(role) {
   `;
 }
 
+function getRoleTypeSummary() {
+  return Object.entries(typeLabels)
+    .map(([type, label]) => {
+      const count = state.roles.filter((role) => role.type === type).length;
+      return count ? `${label} ${count}` : "";
+    })
+    .filter(Boolean)
+    .join(" · ");
+}
+
+function renderHomeDirectory() {
+  const cards = [
+    {
+      eyebrow: "角色百科",
+      title: "角色目录",
+      href: "/roles",
+      count: state.roles.length,
+      countLabel: "个角色",
+      text: "按身份筛选，或直接搜索能力、板子和关键词。",
+      action: "查角色",
+    },
+    {
+      eyebrow: "剧本 / 板子",
+      title: "板子目录",
+      href: "/scripts",
+      count: state.scripts.length,
+      countLabel: "个板子",
+      text: "先看每个板子的节奏、适合人群和常见坑。",
+      action: "看板子",
+    },
+    {
+      eyebrow: "关键词 / 术语",
+      title: "术语目录",
+      href: "/terms",
+      count: state.terms.length,
+      countLabel: "个术语",
+      text: "把中毒、醉酒、疯狂等容易混淆的词先对齐。",
+      action: "查术语",
+    },
+  ];
+
+  return cards
+    .map(
+      (card) => `
+        <a class="directory-card" href="${card.href}" data-link>
+          <p class="eyebrow">${escapeHtml(card.eyebrow)}</p>
+          <h3>${escapeHtml(card.title)}</h3>
+          <p>${escapeHtml(card.text)}</p>
+          <div class="directory-meta">
+            <strong>${card.count}</strong>
+            <span>${escapeHtml(card.countLabel)}</span>
+          </div>
+          <span class="card-action">${escapeHtml(card.action)}</span>
+        </a>
+      `,
+    )
+    .join("");
+}
+
 function renderHome() {
   document.title = "血染钟楼百科";
   app.innerHTML = `
@@ -232,8 +291,12 @@ function renderHome() {
         <p class="eyebrow">社交推理 · 说书人 · 阵营博弈</p>
         <h1>查规则、看板子、找角色，一局开始前够用了。</h1>
         <p class="lead">
-          这里先整理《血染钟楼》的基础概念、官方入门板子和常见角色定位。所有能力说明都采用概括性转述，方便快速理解，不替代官方规则书。
+          开局前先定位问题：查角色能力、挑今晚的板子，或把容易混淆的术语对齐。
         </p>
+        <div class="home-actions" aria-label="常用入口">
+          <a class="primary-link" href="/roles" data-link>直接查角色</a>
+          <a class="secondary-link" href="/scripts" data-link>看板子目录</a>
+        </div>
         <div class="quick-stats" aria-label="资料概览">
           <div>
             <strong>${state.scripts.length}</strong>
@@ -282,35 +345,128 @@ function renderHome() {
       </div>
     </section>
 
+    <section class="section directory-section" aria-labelledby="directoryTitle">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">从哪开始</p>
+          <h2 id="directoryTitle">先选一个方向</h2>
+        </div>
+        <p class="section-note">遇到角色、板子、术语，直接进对应目录。</p>
+      </div>
+      <div class="directory-grid">
+        ${renderHomeDirectory()}
+      </div>
+    </section>
+
     <section class="section rules-section" aria-labelledby="rulesTitle">
       <div class="section-heading">
-        <p class="eyebrow">先懂这几个词</p>
-        <h2 id="rulesTitle">游戏速览</h2>
+        <div>
+          <p class="eyebrow">先懂这几个词</p>
+          <h2 id="rulesTitle">游戏速览</h2>
+        </div>
+        <p class="section-note">点开当下需要的规则点，先把开局会用到的概念看明白。</p>
       </div>
       <div class="rule-grid" id="ruleGrid"></div>
     </section>
+  `;
 
-    <section class="section terms-section" id="terms" aria-labelledby="termsTitle">
+  renderRules();
+  scrollToHash();
+}
+
+function renderTermIndex() {
+  document.title = "术语目录 · 血染钟楼百科";
+  app.innerHTML = `
+    <section class="collection-hero terms-hero">
+      <a class="back-link" href="/" data-link>返回首页</a>
+      <div class="collection-hero-grid">
+        <div>
+          <p class="eyebrow">关键词 / 术语</p>
+          <h1>先把黑话对齐。</h1>
+          <p class="lead">
+            中毒、醉酒、疯狂、处决这些词会影响整局判断。这里先按概念查，再去角色详情看它们怎么落到实战里。
+          </p>
+        </div>
+        <div class="collection-stats" aria-label="术语目录概览">
+          <strong>${state.terms.length}</strong>
+          <span>个术语</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section terms-section catalog-section" id="terms" aria-labelledby="termsTitle">
       <div class="section-heading">
-        <p class="eyebrow">关键词 / 术语</p>
-        <h2 id="termsTitle">先把黑话对齐</h2>
+        <div>
+          <p class="eyebrow">术语目录</p>
+          <h2 id="termsTitle">按概念查</h2>
+        </div>
       </div>
       <div class="term-grid" id="termGrid"></div>
     </section>
+  `;
 
-    <section class="section" id="scripts" aria-labelledby="scriptsTitle">
+  renderTerms();
+}
+
+function renderScriptIndex() {
+  document.title = "板子目录 · 血染钟楼百科";
+  app.innerHTML = `
+    <section class="collection-hero scripts-hero">
+      <a class="back-link" href="/" data-link>返回首页</a>
+      <div class="collection-hero-grid">
+        <div>
+          <p class="eyebrow">剧本 / 板子</p>
+          <h1>从入门到混乱。</h1>
+          <p class="lead">
+            先看板子的节奏、适合玩家和说书人提醒，再决定这一局要开哪一张。
+          </p>
+        </div>
+        <div class="collection-stats" aria-label="板子目录概览">
+          <strong>${state.scripts.length}</strong>
+          <span>个板子</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section catalog-section" id="scripts" aria-labelledby="scriptsTitle">
       <div class="section-heading">
-        <p class="eyebrow">剧本 / 板子</p>
-        <h2 id="scriptsTitle">从入门到混乱</h2>
+        <div>
+          <p class="eyebrow">板子目录</p>
+          <h2 id="scriptsTitle">选择今晚的局</h2>
+        </div>
       </div>
       <div class="script-grid" id="scriptGrid"></div>
     </section>
+  `;
 
-    <section class="section role-browser" id="roles" aria-labelledby="rolesTitle">
-      <div class="section-heading role-heading">
+  renderScripts();
+}
+
+function renderRoleIndex() {
+  document.title = "角色目录 · 血染钟楼百科";
+  app.innerHTML = `
+    <section class="collection-hero roles-hero">
+      <a class="back-link" href="/" data-link>返回首页</a>
+      <div class="collection-hero-grid">
         <div>
           <p class="eyebrow">角色百科</p>
-          <h2 id="rolesTitle">按板子、身份和关键词筛选</h2>
+          <h1>按身份、板子和关键词查。</h1>
+          <p class="lead">
+            ${escapeHtml(getRoleTypeSummary())}。输入角色名、能力关键词或所属板子，快速缩小范围。
+          </p>
+        </div>
+        <div class="collection-stats" aria-label="角色目录概览">
+          <strong>${state.roles.length}</strong>
+          <span>个角色</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section role-browser catalog-section" id="roles" aria-labelledby="rolesTitle">
+      <div class="section-heading role-heading">
+        <div>
+          <p class="eyebrow">角色目录</p>
+          <h2 id="rolesTitle">筛一下再看</h2>
         </div>
         <label class="search-box">
           <span>搜索</span>
@@ -331,16 +487,15 @@ function renderHome() {
     </section>
   `;
 
-  renderRules();
-  renderTerms();
-  renderScripts();
   renderRoles();
   syncFilterButtons();
-  scrollToHash();
 }
 
 function renderTerms() {
   const termGrid = document.querySelector("#termGrid");
+  if (!termGrid) {
+    return;
+  }
 
   termGrid.innerHTML = state.terms
     .map(
@@ -358,13 +513,17 @@ function renderTerms() {
 
 function renderRules() {
   const ruleGrid = document.querySelector("#ruleGrid");
+  if (!ruleGrid) {
+    return;
+  }
+
   ruleGrid.innerHTML = state.rules
     .map(
-      (rule) => `
-        <article class="rule-card">
-          <h3>${escapeHtml(rule.title)}</h3>
+      (rule, index) => `
+        <details class="rule-card" ${index === 0 ? "open" : ""}>
+          <summary>${escapeHtml(rule.title)}</summary>
           <p>${escapeHtml(rule.text)}</p>
-        </article>
+        </details>
       `,
     )
     .join("");
@@ -372,6 +531,10 @@ function renderRules() {
 
 function renderScripts() {
   const scriptGrid = document.querySelector("#scriptGrid");
+  if (!scriptGrid) {
+    return;
+  }
+
   scriptGrid.innerHTML = state.scripts
     .map(
       (script) => `
@@ -412,6 +575,10 @@ function roleMatchesSearch(role, query) {
 
 function renderRoles() {
   const roleGrid = document.querySelector("#roleGrid");
+  if (!roleGrid) {
+    return;
+  }
+
   const searchInput = document.querySelector("#searchInput");
   const query = searchInput?.value.trim() || "";
   const visibleRoles = state.roles.filter((role) => {
@@ -461,7 +628,7 @@ function renderScriptDetail(id) {
   document.title = `${script.name} · 血染钟楼百科`;
   app.innerHTML = `
     <section class="detail-hero">
-      <a class="back-link" href="/#scripts" data-link>返回板子列表</a>
+      <a class="back-link" href="/scripts" data-link>返回板子目录</a>
       <div class="detail-hero-grid">
         <div>
           <p class="eyebrow">${escapeHtml(script.en)} · ${escapeHtml(script.level)}</p>
@@ -511,7 +678,7 @@ function renderRoleDetail(id) {
   document.title = `${role.name} · 血染钟楼百科`;
   app.innerHTML = `
     <section class="detail-hero role-detail-hero" data-type="${escapeHtml(role.type)}">
-      <a class="back-link" href="/#roles" data-link>返回角色列表</a>
+      <a class="back-link" href="/roles" data-link>返回角色目录</a>
       <div class="detail-hero-grid">
         <div>
           <p class="eyebrow">${escapeHtml(getRoleScriptLabel(role))} · ${escapeHtml(typeLabels[role.type] || role.type)}</p>
@@ -573,7 +740,7 @@ function renderTermDetail(id) {
   document.title = `${term.name} · 血染钟楼百科`;
   app.innerHTML = `
     <section class="detail-hero term-detail-hero">
-      <a class="back-link" href="/#terms" data-link>返回术语列表</a>
+      <a class="back-link" href="/terms" data-link>返回术语目录</a>
       <div class="detail-hero-grid">
         <div>
           <p class="eyebrow">${escapeHtml(term.category)}</p>
@@ -659,6 +826,21 @@ function renderRoute() {
   }
 
   window.scrollTo({ top: 0, behavior: "auto" });
+
+  if (segments.length === 1 && segments[0] === "scripts") {
+    renderScriptIndex();
+    return;
+  }
+
+  if (segments.length === 1 && segments[0] === "roles") {
+    renderRoleIndex();
+    return;
+  }
+
+  if (segments.length === 1 && segments[0] === "terms") {
+    renderTermIndex();
+    return;
+  }
 
   if (segments.length === 2 && segments[0] === "scripts") {
     renderScriptDetail(segments[1]);
