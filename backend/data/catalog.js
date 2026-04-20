@@ -2,6 +2,7 @@ const SCRIPT_NAMES = {
   "trouble-brewing": "暗流涌动",
   "bad-moon-rising": "黯月初升",
   "sects-and-violets": "梦殒春宵",
+  "musical-chairs": "抢凳游戏",
 };
 
 const ROLE_TYPES = {
@@ -9,7 +10,72 @@ const ROLE_TYPES = {
   outsider: "外来者",
   minion: "爪牙",
   demon: "恶魔",
+  fabled: "传奇角色",
 };
+
+const ADDITIONAL_SCRIPTS = [
+  {
+    id: "musical-chairs",
+    name: "抢凳游戏",
+    en: "Musical Chairs",
+    level: "社区变体",
+    mood: "低人数、换位谜题、公开恶魔压力",
+    text: "Will 创作的 Musical Chairs v2 社区剧本。它围绕座位、换位信息与利维坦的公开压力展开，更适合作为熟人局或低人数变体尝试。",
+    image: "/assets/clock-tower-night.jpg",
+    tags: ["ClockTracker v2", "社区剧本", "利维坦"],
+    sourceUrl: "https://clocktracker.app/scripts/Musical_Chairs?version=2&id=A56MQV2D",
+    detail: {
+      overview:
+        "抢凳游戏是 Musical Chairs 的中文整理名，原剧本名为 Musical Chairs，作者 Will。它把常规剧本中的推理信息压缩到更小、更紧的座位结构里，并用园丁与利维坦制造开局可控但压力很高的局面。",
+      bestFor: [
+        "已经熟悉基础规则，想尝试低人数或特殊结构的玩家。",
+        "喜欢座位距离、阵营变化、信息反复校验的玩家。",
+        "说书人想用公开恶魔压力推动白天讨论，而不是依赖夜晚死亡节奏的场合。",
+      ],
+      playStyle: [
+        "善良方需要持续追踪座位、阵营信息、醉酒来源和谁推动处决。",
+        "邪恶方通常要利用利维坦的公开压力，让善良方在处决次数上犯错。",
+        "村夫、赏金猎人、钟表匠和共情者的信息要放在同一张座位图里一起读。",
+      ],
+      storytellerNotes: [
+        "这是社区剧本，不是三大基础板；开局前最好说明来源、版本和特殊角色。",
+        "园丁用于分配一个或多个玩家的角色，应在开局配置阶段处理清楚。",
+        "利维坦会改变胜负节奏，要明确玩家知道它在场，以及第五天后的胜负压力。",
+      ],
+      commonPitfalls: [
+        "把它当成常规 15 人官方板来跑，忽略低人数变体的节奏。",
+        "没有记录座位距离与阵营变化，导致信息链无法复盘。",
+        "忘记园丁是说书人工具，不能按普通玩家角色去理解。",
+      ],
+    },
+  },
+];
+
+const MUSICAL_CHAIRS_ROLE_IDS = [
+  "mastermind",
+  "grandmother",
+  "village-idiot",
+  "artist",
+  "fisherman",
+  "philosopher",
+  "baron",
+  "leviathan",
+  "empath",
+  "bounty-hunter",
+  "dreamer",
+  "puzzlemaster",
+  "evil-twin",
+  "washerwoman",
+  "clockmaker",
+  "juggler",
+  "recluse",
+  "lunatic",
+  "mutant",
+  "fortune-teller",
+  "snake-charmer",
+  "organ-grinder",
+  "gardener",
+];
 
 const TERM_REPLACEMENTS = [
   ["市长", "镇长"],
@@ -122,6 +188,8 @@ const ROLE_ABILITIES = {
     "每晚*可以选择一名玩家死亡；如果你上一晚没有选择玩家，今晚选择三名玩家死亡。",
 
   clockmaker: "首夜得知恶魔与最近爪牙之间相隔多少步。",
+  "village-idiot":
+    "每晚选择一名玩家，得知其阵营。场上可能额外加入0到2名村夫，其中一名额外村夫会醉酒。",
   dreamer:
     "每晚选择一名玩家，得知一个善良角色和一个邪恶角色；其中一个是该玩家的真实角色。",
   "snake-charmer":
@@ -138,12 +206,18 @@ const ROLE_ABILITIES = {
     "每局一次，在夜晚选择一个善良角色；你获得该角色能力。若该角色在场，原角色醉酒。",
   artist:
     "每局一次，在白天私下向说书人提出一个是非问题，并得到回答。",
+  fisherman:
+    "每局一次，在白天私下拜访说书人，获得一条能帮助你的阵营获胜的建议。",
   juggler:
     "第一天白天公开猜测最多五名玩家的角色；当晚得知你猜对了几个。",
+  "bounty-hunter":
+    "首夜得知一名邪恶玩家。若你得知的玩家死亡，今晚得知另一名邪恶玩家。一名镇民会转为邪恶。",
   sage:
     "如果你被恶魔杀死，你会得知两名玩家；其中一名是杀死你的恶魔。",
   mutant:
     "如果你疯狂地表现出自己是外来者，你可能被处决。",
+  puzzlemaster:
+    "一名玩家醉酒，即使你死亡仍然如此。你每局可猜一次谁醉酒；猜对得知恶魔玩家，猜错得到错误信息。",
   sweetheart: "当你死亡时，一名玩家从此醉酒。",
   barber:
     "如果你死亡，恶魔可以选择两名玩家交换角色，但不能选择另一个恶魔。",
@@ -153,6 +227,8 @@ const ROLE_ABILITIES = {
     "你和一名敌对玩家互相知道彼此角色。如果善良双子死于处决，邪恶方获胜。若你们都存活，善良方不能获胜。",
   witch:
     "每晚选择一名玩家。如果明天白天该玩家发起提名，该玩家死亡。若只剩三名玩家存活，该能力不生效。",
+  "organ-grinder":
+    "所有玩家投票时闭眼，票数保密。每晚选择自己是否醉酒直到黄昏。",
   cerenovus:
     "每晚选择一名玩家和一个善良角色；明天该玩家若不疯狂地表现为该角色，可能被处决。",
   "pit-hag":
@@ -163,8 +239,11 @@ const ROLE_ABILITIES = {
     "每晚*选择一名玩家死亡。被你杀死的爪牙保留能力，并让一个相邻镇民中毒。场上减少一个外来者。",
   "no-dashii":
     "每晚*选择一名玩家死亡。与你相邻的两个镇民中毒。",
+  leviathan:
+    "如果超过一名善良玩家被处决，邪恶方获胜。所有玩家都知道利维坦在场。第五天结束后邪恶方获胜。",
   vortox:
     "每晚*选择一名玩家死亡。镇民能力获得的信息必定为假。如果白天无人被处决，邪恶方获胜。",
+  gardener: "说书人指定一名或多名玩家的角色。",
 };
 
 const TERMS = [
@@ -774,16 +853,49 @@ const ADDITIONAL_ROLES = [
   role("fang-gu", "方古", "demon", "sects-and-violets", "攻击外来者时可能转移恶魔身份并改变对方阵营。", "转移 外来者 恶魔"),
   role("vigormortis", "亡骨魔", "demon", "sects-and-violets", "杀死爪牙后可让其能力继续运作，但会污染附近镇民。", "爪牙 中毒 恶魔"),
   role("no-dashii", "诺-达鲺", "demon", "sects-and-violets", "让相邻镇民中毒，制造稳定且隐蔽的信息污染。", "中毒 邻座 恶魔"),
-  role("vortox", "涡流", "demon", "sects-and-violets", "让善良玩家获得的信息系统性错误，迫使全桌反向解读。", "错误信息 恶魔 混乱")
+  role("vortox", "涡流", "demon", "sects-and-violets", "让善良玩家获得的信息系统性错误，迫使全桌反向解读。", "错误信息 恶魔 混乱"),
+
+  role("village-idiot", "村夫", "townsfolk", "musical-chairs", "每晚读取一名玩家的阵营，但额外村夫与醉酒设置会让座位信息变得更难拆。", "每晚 阵营 醉酒 信息 座位"),
+  role("fisherman", "渔夫", "townsfolk", "musical-chairs", "一次性向说书人获取获胜建议，适合在信息卡住或残局前寻找方向。", "建议 一次性 白天 信息"),
+  role("bounty-hunter", "赏金猎人", "townsfolk", "musical-chairs", "开局得知一名邪恶玩家，但会让一名镇民转为邪恶，是强信息与结构代价并存的角色。", "开局 邪恶 阵营转变 信息"),
+  role("puzzlemaster", "解谜大师", "outsider", "musical-chairs", "让一名玩家持续醉酒；若猜中醉酒者可定位恶魔，猜错则会收到错误信息。", "醉酒 猜测 恶魔 错误信息"),
+  role("organ-grinder", "街头风琴手", "minion", "musical-chairs", "让投票闭眼且票数保密，并能控制自己是否醉酒来切换这层压力。", "投票 保密 醉酒 爪牙"),
+  role("leviathan", "利维坦", "demon", "musical-chairs", "公开在场并用处决次数与第五天倒计时压迫善良方决策。", "公开 恶魔 处决 胜负"),
+  role("gardener", "园丁", "fabled", "musical-chairs", "说书人用于指定玩家角色的辅助工具，适合需要固定配置或低人数结构的剧本。", "传奇角色 说书人 配置 分配")
 ];
 
+function uniqueValues(values) {
+  return Array.from(new Set(values.filter(Boolean)));
+}
+
+function getScriptNames(scriptIds) {
+  return scriptIds.map((scriptId) => SCRIPT_NAMES[scriptId] || scriptId);
+}
+
+function withScript(roleData, scriptId) {
+  const scriptIds = uniqueValues([...(roleData.scriptIds || [roleData.scriptId]), scriptId]);
+  const scriptNames = getScriptNames(scriptIds);
+
+  return {
+    ...roleData,
+    scriptIds,
+    scriptNames,
+    script: scriptNames.join(" / "),
+  };
+}
+
 function role(id, name, type, scriptId, summary, keywords) {
+  const scriptIds = [scriptId];
+  const scriptNames = getScriptNames(scriptIds);
+
   return {
     id,
     name,
     type,
-    script: SCRIPT_NAMES[scriptId],
+    script: scriptNames.join(" / "),
     scriptId,
+    scriptIds,
+    scriptNames,
     summary,
     keywords,
   };
@@ -864,6 +976,11 @@ function makeDetail(roleData) {
       "主动设计一个能解释死亡、信息异常和投票行为的身份故事。",
       "残局前要确认哪些玩家会阻碍胜利路线，优先处理他们。"
     ],
+    fabled: [
+      "把它视为说书人工具或特殊规则提示，而不是普通玩家角色。",
+      "开局前确认全桌理解它如何改变配置、流程或信息结构。",
+      "如果剧本依赖它成立，记录清楚它影响了哪些玩家和角色。"
+    ],
   };
 
   const storytellerTips = {
@@ -887,6 +1004,11 @@ function makeDetail(roleData) {
       "给邪恶方足够伪装空间，也给善良方足够追查线索。",
       "复杂恶魔需要提前理清夜晚顺序和异常结算。"
     ],
+    fabled: [
+      "只在剧本结构确实需要时使用，避免让玩家觉得配置被任意操控。",
+      "开局宣布和执行方式要一致，尤其是影响角色分配时。",
+      "如果它是线上工具型角色，线下局需要先说明替代流程。"
+    ],
   };
 
   return {
@@ -908,10 +1030,18 @@ function normalizeRole(rawRole) {
     ...rawRole,
     ...(ROLE_CORRECTIONS[rawRole.id] || {}),
   });
+  const scriptIds = uniqueValues([
+    ...(corrected.scriptIds || []),
+    corrected.scriptId || "trouble-brewing",
+  ]);
+  const scriptNames = getScriptNames(scriptIds);
 
   const normalized = {
     ...corrected,
-    scriptId: corrected.scriptId || "trouble-brewing",
+    scriptId: scriptIds[0],
+    scriptIds,
+    scriptNames,
+    script: scriptNames.join(" / "),
     ability: ROLE_ABILITIES[corrected.id] || corrected.summary,
   };
 
@@ -930,6 +1060,13 @@ function normalizeRole(rawRole) {
 }
 
 function augmentEncyclopedia(data) {
+  const scriptsById = new Map((data.scripts || []).map((script) => [script.id, script]));
+  ADDITIONAL_SCRIPTS.forEach((script) => {
+    if (!scriptsById.has(script.id)) {
+      scriptsById.set(script.id, script);
+    }
+  });
+
   const existingRoles = (data.roles || []).map(normalizeRole);
   const byId = new Map(existingRoles.map((item) => [item.id, item]));
 
@@ -939,8 +1076,16 @@ function augmentEncyclopedia(data) {
     }
   });
 
+  MUSICAL_CHAIRS_ROLE_IDS.forEach((roleId) => {
+    const existing = byId.get(roleId);
+    if (existing) {
+      byId.set(roleId, withScript(existing, "musical-chairs"));
+    }
+  });
+
   return {
     ...data,
+    scripts: Array.from(scriptsById.values()),
     roles: Array.from(byId.values()),
     terms: TERMS,
   };

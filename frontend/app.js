@@ -5,6 +5,7 @@ const typeLabels = {
   outsider: "外来者",
   minion: "爪牙",
   demon: "恶魔",
+  fabled: "传奇角色",
 };
 
 const typeDescriptions = {
@@ -12,6 +13,7 @@ const typeDescriptions = {
   outsider: "善良阵营，但能力常带来负担或干扰",
   minion: "邪恶阵营，负责保护恶魔并制造混乱",
   demon: "邪恶阵营核心，通常决定夜晚死亡",
+  fabled: "由说书人使用的特殊规则或配置工具",
 };
 
 const state = {
@@ -58,6 +60,15 @@ function getRoleById(id) {
 
 function getTermById(id) {
   return state.terms.find((term) => term.id === id);
+}
+
+function getScriptsForRole(role) {
+  const scriptIds = role.scriptIds || [role.scriptId];
+  return scriptIds.map(getScriptById).filter(Boolean);
+}
+
+function getRoleScriptLabel(role) {
+  return (role.scriptNames || []).join(" / ") || role.script || "未归属剧本";
 }
 
 function getTermForKeyword(keyword) {
@@ -237,7 +248,7 @@ function renderHome() {
             <span>个术语</span>
           </div>
           <div>
-            <strong>4</strong>
+            <strong>${Object.keys(typeLabels).length}</strong>
             <span>类阵营/身份</span>
           </div>
         </div>
@@ -245,16 +256,28 @@ function renderHome() {
 
       <div class="image-strip" aria-label="氛围图">
         <img
-          src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?auto=format&fit=crop&w=900&q=80"
-          alt="夜晚烛光"
+          src="/assets/clock-tower-night.jpg"
+          alt="夜色中的钟楼"
+          width="1200"
+          height="1600"
+          decoding="async"
+          fetchpriority="high"
         />
         <img
-          src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
-          alt="山谷村庄"
+          src="/assets/medieval-town-night.jpg"
+          alt="夜晚的中世纪街巷"
+          width="1280"
+          height="887"
+          loading="lazy"
+          decoding="async"
         />
         <img
-          src="https://images.unsplash.com/photo-1518562180175-34a163b1a9a6?auto=format&fit=crop&w=900&q=80"
-          alt="旧书与桌面"
+          src="/assets/candle-book.jpg"
+          alt="烛光下的旧书"
+          width="1280"
+          height="853"
+          loading="lazy"
+          decoding="async"
         />
       </div>
     </section>
@@ -301,6 +324,7 @@ function renderHome() {
         <button class="filter" data-filter="outsider">外来者</button>
         <button class="filter" data-filter="minion">爪牙</button>
         <button class="filter" data-filter="demon">恶魔</button>
+        <button class="filter" data-filter="fabled">传奇</button>
       </div>
 
       <div class="role-grid" id="roleGrid"></div>
@@ -375,7 +399,7 @@ function roleMatchesSearch(role, query) {
 
   const haystack = [
     role.name,
-    role.script,
+    getRoleScriptLabel(role),
     typeLabels[role.type],
     role.summary,
     role.keywords,
@@ -410,7 +434,7 @@ function renderRoles() {
             <small>${escapeHtml(typeLabels[role.type] || role.type)}</small>
           </header>
           <p>${escapeHtml(role.summary)}</p>
-          <div class="script-name">${escapeHtml(role.script)}</div>
+          <div class="script-name">${escapeHtml(getRoleScriptLabel(role))}</div>
         </a>
       `,
     )
@@ -431,7 +455,9 @@ function renderScriptDetail(id) {
     return;
   }
 
-  const roles = state.roles.filter((role) => role.scriptId === script.id);
+  const roles = state.roles.filter((role) =>
+    (role.scriptIds || [role.scriptId]).includes(script.id),
+  );
   document.title = `${script.name} · 血染钟楼百科`;
   app.innerHTML = `
     <section class="detail-hero">
@@ -477,7 +503,7 @@ function renderRoleDetail(id) {
     return;
   }
 
-  const script = getScriptById(role.scriptId);
+  const scripts = getScriptsForRole(role);
   const relatedRoles = (role.detail.relatedRoleIds || [])
     .map(getRoleById)
     .filter(Boolean);
@@ -488,7 +514,7 @@ function renderRoleDetail(id) {
       <a class="back-link" href="/#roles" data-link>返回角色列表</a>
       <div class="detail-hero-grid">
         <div>
-          <p class="eyebrow">${escapeHtml(role.script)} · ${escapeHtml(typeLabels[role.type] || role.type)}</p>
+          <p class="eyebrow">${escapeHtml(getRoleScriptLabel(role))} · ${escapeHtml(typeLabels[role.type] || role.type)}</p>
           <h1>${escapeHtml(role.name)}</h1>
           <p class="lead">${escapeHtml(role.detail.overview)}</p>
           <div class="script-meta detail-tags">
@@ -515,9 +541,9 @@ function renderRoleDetail(id) {
         <section class="side-panel">
           <p class="eyebrow">所属剧本</p>
           ${
-            script
-              ? `<h2><a href="/scripts/${escapeHtml(script.id)}" data-link>${escapeHtml(script.name)}</a></h2><p>${escapeHtml(script.text)}</p>`
-              : `<h2>${escapeHtml(role.script)}</h2>`
+            scripts.length
+              ? compactListLinks(scripts, "scripts")
+              : `<h2>${escapeHtml(getRoleScriptLabel(role))}</h2>`
           }
         </section>
         <section class="side-panel">
