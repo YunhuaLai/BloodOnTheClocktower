@@ -1,0 +1,198 @@
+@media (max-width: 1080px) {
+  .workspace,
+  .directory-grid,
+  .rule-grid,
+  .script-grid,
+  .term-grid,
+  .role-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .workspace {
+    min-height: auto;
+  }
+
+  .quick-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .image-strip {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 260px;
+    min-height: 0;
+  }
+
+  .detail-hero-grid,
+  .collection-hero-grid,
+  .detail-layout,
+  .notes-hero,
+  .notes-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .notes-meta-grid,
+  .note-player-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notes-side {
+    position: static;
+  }
+
+  .notes-hero-image {
+    max-height: 320px;
+  }
+
+  h1 {
+    font-size: 58px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  .lead {
+    font-size: 19px;
+  }
+
+  .collection-stats {
+    justify-self: start;
+    width: min(100%, 260px);
+  }
+
+  .role-token {
+    width: min(100%, 260px);
+    margin-left: 0;
+  }
+
+  .term-token {
+    width: min(100%, 260px);
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .workspace,
+  .directory-grid,
+  .rule-grid,
+  .script-grid,
+  .term-grid,
+  .role-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .notes-meta-grid,
+  .note-player-grid,
+  .note-player-fields,
+  .storyteller-fields,
+  .claim-control,
+  .timeline-form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .claim-field {
+    grid-column: auto;
+  }
+
+  .notes-toolbar,
+  .notes-panel-heading,
+  .note-player-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .notes-hero-image {
+    min-height: 190px;
+  }
+
+  .claim-row {
+    grid-template-columns: 1fr;
+  }
+
+  .claim-row small {
+    justify-self: start;
+  }
+
+  h1 {
+    font-size: 40px;
+    line-height: 1.06;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .lead {
+    font-size: 17px;
+  }
+
+  .quick-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quick-stats div {
+    min-height: 82px;
+    padding: 14px;
+  }
+
+  .quick-stats strong {
+    font-size: 28px;
+  }
+
+  .image-strip {
+    grid-template-columns: 1fr;
+    grid-template-rows: 220px;
+  }
+
+  .image-strip img:not(:first-child) {
+    display: none;
+  }
+
+  .section-heading,
+  .role-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .script-card {
+    grid-template-rows: 150px 1fr;
+  }
+
+  .directory-card {
+    min-height: 230px;
+  }
+
+  .directory-card h3 {
+    font-size: 24px;
+  }
+
+  .directory-meta strong,
+  .collection-stats strong {
+    font-size: 42px;
+  }
+
+  .detail-block h2,
+  .side-panel h2 {
+    font-size: 24px;
+  }
+
+  .ability-block p:last-child {
+    font-size: 19px;
+  }
+
+  .role-token span,
+  .term-token span {
+    font-size: 56px;
+  }
+}

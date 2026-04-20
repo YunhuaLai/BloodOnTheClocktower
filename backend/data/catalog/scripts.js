@@ -1,0 +1,71 @@
+const ADDITIONAL_SCRIPTS = [
+  {
+    id: "one-in-one-out",
+    name: "抢凳游戏",
+    en: "One In One Out",
+    level: "官方推荐自定义剧本",
+    mood: "阵营变化、外来者压力、方古路线",
+    text: "Baron von Klutz 创作的官方推荐自定义剧本。核心围绕莽夫、村夫、方古与圣洁之魂的阵营边界展开。",
+    image: "/assets/clock-tower-night.jpg",
+    tags: ["官方推荐", "自定义剧本", "圣洁之魂"],
+    sourceUrl: "https://bloodontheclocktower.com/pages/custom-scripts",
+    detail: {
+      overview:
+        "抢凳游戏是 One In One Out 的中文整理名，作者 Baron von Klutz。它是官网推荐自定义剧本，重点利用莽夫、村夫、方古与圣洁之魂制造阵营变化和额外邪恶数量的压力。",
+      bestFor: [
+        "已经熟悉基础规则，想尝试实验性角色组合的玩家。",
+        "喜欢阵营变化、额外邪恶、外来者数量推理的玩家。",
+        "说书人想练习方古、卡扎力、奥赫这类复杂恶魔结构的场合。",
+      ],
+      playStyle: [
+        "善良方需要持续追踪谁可能改变阵营，以及圣洁之魂是否限制了额外邪恶。",
+        "村夫、神谕者、女祭司、事务官等信息要和中毒、酒鬼、莽夫互动一起读。",
+        "邪恶方可以围绕方古跳转、梅兹菲勒斯词语和卡扎力开局构造多层伪装。",
+      ],
+      storytellerNotes: [
+        "这是官网推荐自定义剧本，不是三大基础板；开局前最好说明来源与复杂度。",
+        "圣洁之魂需要在开局宣布，并持续限制额外邪恶玩家数量。",
+        "如果出现方古、莽夫、梅兹菲勒斯、卡扎力的阵营变化链，要及时记录谁在何时改变阵营。",
+      ],
+      commonPitfalls: [
+        "忽略圣洁之魂，导致场上出现过多额外邪恶玩家。",
+        "把所有异常都归因于方古，忘记酒鬼、投毒者、间谍和莽夫也会污染信息。",
+        "没有记录阵营变化时间点，导致后续复盘断线。",
+      ],
+    },
+  },
+];
+
+const ONE_IN_ONE_OUT_ROLE_IDS = [
+  "steward",
+  "knight",
+  "high-priestess",
+  "village-idiot",
+  "snake-charmer",
+  "fortune-teller",
+  "oracle",
+  "monk",
+  "amnesiac",
+  "fisherman",
+  "seamstress",
+  "farmer",
+  "cannibal",
+  "ogre",
+  "goon",
+  "recluse",
+  "drunk",
+  "poisoner",
+  "harpy",
+  "spy",
+  "mezepheles",
+  "kazali",
+  "imp",
+  "ojo",
+  "fang-gu",
+  "spirit-of-ivory",
+];
+
+module.exports = {
+  ADDITIONAL_SCRIPTS,
+  ONE_IN_ONE_OUT_ROLE_IDS,
+};
