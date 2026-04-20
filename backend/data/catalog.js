@@ -2,7 +2,7 @@ const SCRIPT_NAMES = {
   "trouble-brewing": "暗流涌动",
   "bad-moon-rising": "黯月初升",
   "sects-and-violets": "梦殒春宵",
-  "musical-chairs": "抢凳游戏",
+  "one-in-one-out": "抢凳游戏",
 };
 
 const ROLE_TYPES = {
@@ -15,66 +15,69 @@ const ROLE_TYPES = {
 
 const ADDITIONAL_SCRIPTS = [
   {
-    id: "musical-chairs",
+    id: "one-in-one-out",
     name: "抢凳游戏",
-    en: "Musical Chairs",
-    level: "社区变体",
-    mood: "低人数、换位谜题、公开恶魔压力",
-    text: "Will 创作的 Musical Chairs v2 社区剧本。它围绕座位、换位信息与利维坦的公开压力展开，更适合作为熟人局或低人数变体尝试。",
+    en: "One In One Out",
+    level: "官方推荐自定义剧本",
+    mood: "阵营变化、外来者压力、方古路线",
+    text: "Baron von Klutz 创作的官方推荐自定义剧本。核心围绕莽夫、村夫、方古与圣洁之魂的阵营边界展开。",
     image: "/assets/clock-tower-night.jpg",
-    tags: ["ClockTracker v2", "社区剧本", "利维坦"],
-    sourceUrl: "https://clocktracker.app/scripts/Musical_Chairs?version=2&id=A56MQV2D",
+    tags: ["官方推荐", "自定义剧本", "圣洁之魂"],
+    sourceUrl: "https://bloodontheclocktower.com/pages/custom-scripts",
     detail: {
       overview:
-        "抢凳游戏是 Musical Chairs 的中文整理名，原剧本名为 Musical Chairs，作者 Will。它把常规剧本中的推理信息压缩到更小、更紧的座位结构里，并用园丁与利维坦制造开局可控但压力很高的局面。",
+        "抢凳游戏是 One In One Out 的中文整理名，作者 Baron von Klutz。它是官网推荐自定义剧本，重点利用莽夫、村夫、方古与圣洁之魂制造阵营变化和额外邪恶数量的压力。",
       bestFor: [
-        "已经熟悉基础规则，想尝试低人数或特殊结构的玩家。",
-        "喜欢座位距离、阵营变化、信息反复校验的玩家。",
-        "说书人想用公开恶魔压力推动白天讨论，而不是依赖夜晚死亡节奏的场合。",
+        "已经熟悉基础规则，想尝试实验性角色组合的玩家。",
+        "喜欢阵营变化、额外邪恶、外来者数量推理的玩家。",
+        "说书人想练习方古、卡扎力、奥赫这类复杂恶魔结构的场合。",
       ],
       playStyle: [
-        "善良方需要持续追踪座位、阵营信息、醉酒来源和谁推动处决。",
-        "邪恶方通常要利用利维坦的公开压力，让善良方在处决次数上犯错。",
-        "村夫、赏金猎人、钟表匠和共情者的信息要放在同一张座位图里一起读。",
+        "善良方需要持续追踪谁可能改变阵营，以及圣洁之魂是否限制了额外邪恶。",
+        "村夫、神谕者、女祭司、事务官等信息要和中毒、酒鬼、莽夫互动一起读。",
+        "邪恶方可以围绕方古跳转、梅兹菲勒斯词语和卡扎力开局构造多层伪装。",
       ],
       storytellerNotes: [
-        "这是社区剧本，不是三大基础板；开局前最好说明来源、版本和特殊角色。",
-        "园丁用于分配一个或多个玩家的角色，应在开局配置阶段处理清楚。",
-        "利维坦会改变胜负节奏，要明确玩家知道它在场，以及第五天后的胜负压力。",
+        "这是官网推荐自定义剧本，不是三大基础板；开局前最好说明来源与复杂度。",
+        "圣洁之魂需要在开局宣布，并持续限制额外邪恶玩家数量。",
+        "如果出现方古、莽夫、梅兹菲勒斯、卡扎力的阵营变化链，要及时记录谁在何时改变阵营。",
       ],
       commonPitfalls: [
-        "把它当成常规 15 人官方板来跑，忽略低人数变体的节奏。",
-        "没有记录座位距离与阵营变化，导致信息链无法复盘。",
-        "忘记园丁是说书人工具，不能按普通玩家角色去理解。",
+        "忽略圣洁之魂，导致场上出现过多额外邪恶玩家。",
+        "把所有异常都归因于方古，忘记酒鬼、投毒者、间谍和莽夫也会污染信息。",
+        "没有记录阵营变化时间点，导致后续复盘断线。",
       ],
     },
   },
 ];
 
-const MUSICAL_CHAIRS_ROLE_IDS = [
-  "mastermind",
-  "grandmother",
+const ONE_IN_ONE_OUT_ROLE_IDS = [
+  "steward",
+  "knight",
+  "high-priestess",
   "village-idiot",
-  "artist",
-  "fisherman",
-  "philosopher",
-  "baron",
-  "leviathan",
-  "empath",
-  "bounty-hunter",
-  "dreamer",
-  "puzzlemaster",
-  "evil-twin",
-  "washerwoman",
-  "clockmaker",
-  "juggler",
-  "recluse",
-  "lunatic",
-  "mutant",
-  "fortune-teller",
   "snake-charmer",
-  "organ-grinder",
-  "gardener",
+  "fortune-teller",
+  "oracle",
+  "monk",
+  "amnesiac",
+  "fisherman",
+  "seamstress",
+  "farmer",
+  "cannibal",
+  "ogre",
+  "goon",
+  "recluse",
+  "drunk",
+  "poisoner",
+  "harpy",
+  "spy",
+  "mezepheles",
+  "kazali",
+  "imp",
+  "ojo",
+  "fang-gu",
+  "spirit-of-ivory",
 ];
 
 const TERM_REPLACEMENTS = [
@@ -243,7 +246,25 @@ const ROLE_ABILITIES = {
     "如果超过一名善良玩家被处决，邪恶方获胜。所有玩家都知道利维坦在场。第五天结束后邪恶方获胜。",
   vortox:
     "每晚*选择一名玩家死亡。镇民能力获得的信息必定为假。如果白天无人被处决，邪恶方获胜。",
-  gardener: "说书人指定一名或多名玩家的角色。",
+  steward: "首夜得知一名善良玩家。",
+  knight: "首夜得知两名玩家，其中至少一名不是恶魔。",
+  "high-priestess": "每晚得知一名说书人认为你最应该去交流的玩家。",
+  amnesiac:
+    "你不知道自己的能力是什么。每天白天私下猜测自己的能力，并得知猜得有多接近。",
+  farmer: "如果你在夜晚死亡，一名存活善良玩家变成农夫。",
+  cannibal:
+    "你获得上一名死于处决的玩家的能力；若该玩家属于邪恶阵营，你中毒直到下一名玩家死于处决。",
+  ogre:
+    "首夜选择除自己以外的一名玩家；你变成该玩家的阵营，即使你醉酒或中毒也会如此，但你不知道该阵营。",
+  harpy:
+    "每晚选择两名玩家；明天第一名玩家要疯狂地表现出第二名玩家是邪恶，否则其中一人或两人可能死亡。",
+  mezepheles:
+    "首夜得知一个秘密词语。第一名说出该词语的善良玩家会在当晚变成邪恶。",
+  kazali:
+    "每晚*选择一名玩家死亡。开局时由你选择哪些玩家成为哪些爪牙，外来者数量可能调整。",
+  ojo:
+    "每晚*选择一个角色；若该角色在场，该角色玩家死亡。若不在场，由说书人选择谁死亡。",
+  "spirit-of-ivory": "额外邪恶玩家不能超过一名。",
 };
 
 const TERMS = [
@@ -855,13 +876,20 @@ const ADDITIONAL_ROLES = [
   role("no-dashii", "诺-达鲺", "demon", "sects-and-violets", "让相邻镇民中毒，制造稳定且隐蔽的信息污染。", "中毒 邻座 恶魔"),
   role("vortox", "涡流", "demon", "sects-and-violets", "让善良玩家获得的信息系统性错误，迫使全桌反向解读。", "错误信息 恶魔 混乱"),
 
-  role("village-idiot", "村夫", "townsfolk", "musical-chairs", "每晚读取一名玩家的阵营，但额外村夫与醉酒设置会让座位信息变得更难拆。", "每晚 阵营 醉酒 信息 座位"),
-  role("fisherman", "渔夫", "townsfolk", "musical-chairs", "一次性向说书人获取获胜建议，适合在信息卡住或残局前寻找方向。", "建议 一次性 白天 信息"),
-  role("bounty-hunter", "赏金猎人", "townsfolk", "musical-chairs", "开局得知一名邪恶玩家，但会让一名镇民转为邪恶，是强信息与结构代价并存的角色。", "开局 邪恶 阵营转变 信息"),
-  role("puzzlemaster", "解谜大师", "outsider", "musical-chairs", "让一名玩家持续醉酒；若猜中醉酒者可定位恶魔，猜错则会收到错误信息。", "醉酒 猜测 恶魔 错误信息"),
-  role("organ-grinder", "街头风琴手", "minion", "musical-chairs", "让投票闭眼且票数保密，并能控制自己是否醉酒来切换这层压力。", "投票 保密 醉酒 爪牙"),
-  role("leviathan", "利维坦", "demon", "musical-chairs", "公开在场并用处决次数与第五天倒计时压迫善良方决策。", "公开 恶魔 处决 胜负"),
-  role("gardener", "园丁", "fabled", "musical-chairs", "说书人用于指定玩家角色的辅助工具，适合需要固定配置或低人数结构的剧本。", "传奇角色 说书人 配置 分配")
+  role("steward", "事务官", "townsfolk", "one-in-one-out", "开局确认一名善良玩家，是建立初始信任链的干净信息位。", "开局 善良 信息"),
+  role("knight", "骑士", "townsfolk", "one-in-one-out", "开局看到两名玩家并知道至少一人不是恶魔，适合压缩恶魔候选范围。", "开局 恶魔 二选一 信息"),
+  role("high-priestess", "女祭司", "townsfolk", "one-in-one-out", "每晚得到一名最值得交流的玩家，能把社交推理导向关键节点。", "每晚 交流 信息"),
+  role("village-idiot", "村夫", "townsfolk", "one-in-one-out", "每晚读取一名玩家的阵营，但额外村夫与醉酒设置会让信息需要反复校验。", "每晚 阵营 醉酒 信息"),
+  role("amnesiac", "失忆者", "townsfolk", "one-in-one-out", "不知道自己的能力，需要每天通过猜测和说书人反馈逐步逼近真相。", "未知能力 猜测 每日"),
+  role("fisherman", "渔夫", "townsfolk", "one-in-one-out", "一次性向说书人获取获胜建议，适合在信息卡住或残局前寻找方向。", "建议 一次性 白天 信息"),
+  role("farmer", "农夫", "townsfolk", "one-in-one-out", "夜晚死亡后会把农夫能力传给另一名善良玩家，形成接力式确认空间。", "死亡 传承 善良"),
+  role("cannibal", "食人族", "townsfolk", "one-in-one-out", "获得上一名被处决玩家的能力，但若吃到邪恶角色会中毒。", "处决 获得能力 中毒"),
+  role("ogre", "食人魔", "outsider", "one-in-one-out", "首夜绑定一名玩家并变成其阵营，为阵营数量和信任关系制造压力。", "阵营转变 外来者 选择"),
+  role("harpy", "鹰身女妖", "minion", "one-in-one-out", "迫使一名玩家疯狂地指认另一名玩家为邪恶，否则可能制造死亡。", "疯狂 邪恶 死亡 爪牙"),
+  role("mezepheles", "梅兹菲勒斯", "minion", "one-in-one-out", "用秘密词语诱导善良玩家转为邪恶，是圣洁之魂需要限制的重要风险。", "秘密词语 阵营转变 爪牙"),
+  role("kazali", "卡扎力", "demon", "one-in-one-out", "开局亲自选择爪牙玩家与爪牙角色，并在后续夜晚正常击杀。", "恶魔 爪牙 配置 击杀"),
+  role("ojo", "奥赫", "demon", "one-in-one-out", "每晚按角色名点杀，若点到不在场角色则由说书人决定死亡。", "恶魔 角色 击杀"),
+  role("spirit-of-ivory", "圣洁之魂", "fabled", "one-in-one-out", "限制额外邪恶玩家数量，避免阵营变化角色让邪恶方人数失衡。", "传奇角色 额外邪恶 阵营平衡 象牙精魂")
 ];
 
 function uniqueValues(values) {
@@ -1076,10 +1104,10 @@ function augmentEncyclopedia(data) {
     }
   });
 
-  MUSICAL_CHAIRS_ROLE_IDS.forEach((roleId) => {
+  ONE_IN_ONE_OUT_ROLE_IDS.forEach((roleId) => {
     const existing = byId.get(roleId);
     if (existing) {
-      byId.set(roleId, withScript(existing, "musical-chairs"));
+      byId.set(roleId, withScript(existing, "one-in-one-out"));
     }
   });
 
