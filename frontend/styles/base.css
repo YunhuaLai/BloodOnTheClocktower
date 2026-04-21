@@ -108,6 +108,15 @@ main {
   overflow: hidden;
 }
 
+body.notes-route main {
+  overflow: visible;
+}
+
+body.notes-route .topbar,
+body.notes-route .footer {
+  display: none;
+}
+
 
 .not-found {
   display: grid;

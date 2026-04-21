@@ -3,6 +3,13 @@ function normalizeMatchText(value) {
 }
 
 function getGameScript(game) {
+  if (game?.scriptId) {
+    const exactById = state.scripts.find((script) => script.id === game.scriptId);
+    if (exactById) {
+      return exactById;
+    }
+  }
+
   const query = normalizeMatchText(game?.scriptName);
   if (!query) {
     return null;
@@ -44,15 +51,11 @@ function getClaimRoleOptions(game) {
 
 function getClaimPickerHint(game) {
   const script = getGameScript(game);
-  if (!game?.scriptName) {
-    return "先选具体剧本后，自称身份会优先从该剧本角色中提示；仍然可以手动输入。";
-  }
-
   if (!script) {
-    return "还没匹配到已录入剧本，自称身份暂时显示全部角色候选。";
+    return "先选具体剧本，自称身份才会收窄到该剧本角色；输入框仍然可以手动填写。";
   }
 
-  return `自称身份候选已按《${script.name}》筛选，也可以直接输入其他说法。`;
+  return `当前只提示《${script.name}》角色，也可以直接输入其他跳身份。`;
 }
 
 function renderRoleNameDatalist(game) {
@@ -70,10 +73,11 @@ function renderRoleNameDatalist(game) {
   `;
 }
 
-function renderScriptNameDatalist() {
-  return `
-    <datalist id="scriptNameList">
-      ${state.scripts.map((script) => `<option value="${escapeHtml(script.name)}"></option>`).join("")}
-    </datalist>
-  `;
+function renderScriptSelectOptions(selectedScriptId) {
+  return state.scripts
+    .map(
+      (script) =>
+        `<option value="${escapeHtml(script.id)}"${script.id === selectedScriptId ? " selected" : ""}>${escapeHtml(script.name)}</option>`,
+    )
+    .join("");
 }

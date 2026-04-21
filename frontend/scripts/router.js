@@ -14,6 +14,9 @@ function scrollToHash() {
 
 function renderRoute() {
   const segments = window.location.pathname.split("/").filter(Boolean);
+  const isNotesRoute = segments.length === 1 && segments[0] === "notes";
+
+  document.body.classList.toggle("notes-route", isNotesRoute);
 
   if (!segments.length) {
     renderHome();
@@ -129,13 +132,13 @@ document.addEventListener("input", (event) => {
     return;
   }
 
-  if (event.target.closest(".notes-workspace")) {
+  if (event.target.closest(".notes-setup, .notes-shell")) {
     handleNotesFieldChange(event.target);
   }
 });
 
 document.addEventListener("change", (event) => {
-  if (event.target.closest(".notes-workspace")) {
+  if (event.target.closest(".notes-setup, .notes-shell")) {
     handleNotesFieldChange(event.target, true);
   }
 });

@@ -1,62 +1,252 @@
+function getSelectedPlayerIdForGame(game) {
+  return (
+    game?.players.find((player) => player.seat === game.selfSeat)?.id ||
+    game?.players[0]?.id ||
+    ""
+  );
+}
+
+function ensurePlayerDraftForId(playerId) {
+  const game = getActiveGame();
+  const player = game?.players.find((item) => item.id === playerId);
+  if (!player) {
+    return null;
+  }
+
+  const existingDraft = getPlayerDraft(playerId);
+  if (existingDraft) {
+    return existingDraft;
+  }
+
+  const draft = clonePlayerForDraft(player);
+  draft.roleInfo = ensureRoleInfoMatchesClaim(draft);
+  setPlayerDraft(playerId, draft);
+  return draft;
+}
+
+function trimRoleInfoEntries(roleInfo) {
+  const info = cloneRoleInfo(roleInfo);
+  info.entries = info.entries.filter((entry) =>
+    Object.values(entry || {}).some((value) => String(value || "").trim()),
+  );
+  return info;
+}
+
+function updatePlayerDraftField(playerId, field, value) {
+  const draft = ensurePlayerDraftForId(playerId);
+  if (!draft || !(field in draft)) {
+    return false;
+  }
+
+  if (field === "condition") {
+    draft.condition = noteConditionOptions.some((option) => option.value === value)
+      ? value
+      : "unknown";
+  } else if (field === "status") {
+    draft.status = noteStatusOptions.some((option) => option.value === value)
+      ? value
+      : "alive";
+  } else if (field === "alignment" || field === "trueAlignment") {
+    draft[field] = noteAlignmentOptions.some((option) => option.value === value)
+      ? value
+      : "unknown";
+  } else {
+    draft[field] = value;
+  }
+
+  if (field === "claim") {
+    draft.roleInfo = ensureRoleInfoMatchesClaim(draft);
+  }
+
+  return ["claim", "name", "status", "alignment", "condition", "extraInfo"].includes(field);
+}
+
+function updatePlayerDraftRoleInfo(playerId, index, field, value) {
+  const draft = ensurePlayerDraftForId(playerId);
+  if (!draft) {
+    return;
+  }
+
+  draft.roleInfo = ensureRoleInfoMatchesClaim(draft);
+  while (draft.roleInfo.entries.length <= index) {
+    draft.roleInfo.entries.push({});
+  }
+
+  draft.roleInfo.entries[index] = {
+    ...draft.roleInfo.entries[index],
+    [field]: value,
+  };
+}
+
+function buildPlayerSaveSummary(player) {
+  const parts = [];
+  if (player.claim) {
+    parts.push(`自称 ${player.claim}`);
+  }
+
+  const roleInfoSummary = getRoleInfoSummary(player);
+  if (roleInfoSummary && roleInfoSummary !== "--") {
+    parts.push(`信息 ${roleInfoSummary}`);
+  }
+
+  if (player.extraInfo) {
+    parts.push(player.extraInfo);
+  }
+
+  parts.push(`判断 ${getOptionLabel(noteAlignmentOptions, player.alignment)}`);
+  parts.push(`状态 ${getOptionLabel(noteStatusOptions, player.status)}`);
+  parts.push(`状态词 ${getOptionLabel(noteConditionOptions, player.condition)}`);
+  return parts.join("；");
+}
+
+function savePlayerDraft(playerId) {
+  const game = getActiveGame();
+  const player = game?.players.find((item) => item.id === playerId);
+  const draft = getPlayerDraft(playerId);
+  if (!player || !draft) {
+    return;
+  }
+
+  const savedDraft = clonePlayerForDraft(draft);
+  savedDraft.roleInfo = trimRoleInfoEntries(savedDraft.roleInfo);
+  Object.assign(player, savedDraft);
+  clearPlayerDraft(playerId);
+
+  game.timeline.unshift({
+    id: createId("note"),
+    type: "info",
+    phase: formatPhaseLabel(game.phaseType, game.phaseNumber),
+    text: `${getPlayerLabel(player, game)} 更新：${buildPlayerSaveSummary(player)}`,
+    createdAt: new Date().toISOString(),
+  });
+  saveNotesState();
+}
+
+function updateSetupDraftField(field, value) {
+  const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
+  const nextDraft = { ...draft };
+
+  if (field === "playerCount") {
+    nextDraft.playerCount = clampNumber(Number(value) || draft.playerCount, 5, 15);
+    nextDraft.selfSeat = clampNumber(nextDraft.selfSeat, 1, nextDraft.playerCount);
+  } else if (field === "selfSeat") {
+    nextDraft.selfSeat = clampNumber(
+      Number(value) || draft.selfSeat,
+      1,
+      draft.playerCount,
+    );
+  } else {
+    nextDraft[field] = value;
+  }
+
+  state.notes.ui.setupDraft = nextDraft;
+  return field === "playerCount";
+}
+
 function updateGameField(field, value) {
   const game = getActiveGame();
   if (!game || !(field in game)) {
     return false;
   }
 
-  game[field] = value;
+  if (field === "phaseType") {
+    game.phaseType = phaseTypeOptions.some((option) => option.value === value)
+      ? value
+      : "day";
+  } else if (field === "phaseNumber") {
+    game.phaseNumber = clampNumber(Number(value) || 1, 1, 99);
+  } else {
+    game[field] = value;
+  }
+
   saveNotesState();
-  return field === "mode";
+  return ["title", "phaseType", "phaseNumber", "mode", "scriptName"].includes(field);
+}
+
+function updateInferenceField(field, value) {
+  const game = getActiveGame();
+  if (!game || !(field in game.inference)) {
+    return;
+  }
+
+  game.inference[field] = value;
+  saveNotesState();
 }
 
 function updatePlayerField(playerId, field, value) {
-  const game = getActiveGame();
-  const player = game?.players.find((item) => item.id === playerId);
-  if (!player || !(field in player)) {
-    return false;
-  }
-
-  player[field] = value;
-  saveNotesState();
-  return field === "status" || field === "alignment" || field === "trueAlignment";
+  return updatePlayerDraftField(playerId, field, value);
 }
 
-function handleNotesFieldChange(target, refreshSummaries = false) {
+function handleNotesFieldChange(target, refreshInterface = false) {
   if (target.id === "gameSelect") {
     const notes = ensureNotesState();
     notes.activeGameId = target.value;
+    notes.ui.creatingGame = false;
+    const game = getActiveGame();
+    notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(game);
     saveNotesState();
     renderNotesPage();
     return;
   }
 
-  const gameField = target.closest("[data-game-field]");
-  if (gameField) {
-    const field = gameField.dataset.gameField;
-    const shouldRerender = updateGameField(field, gameField.value);
-    if (shouldRerender || (refreshSummaries && ["title", "scriptName"].includes(field))) {
+  const setupField = target.closest("[data-setup-field]");
+  if (setupField) {
+    const shouldRerender = updateSetupDraftField(
+      setupField.dataset.setupField,
+      target.value,
+    );
+    if (shouldRerender) {
       renderNotesPage();
     }
     return;
   }
 
-  const playerField = target.closest("[data-player-id][data-field]");
-  if (playerField) {
-    const field = playerField.dataset.field;
-    const shouldRerender = updatePlayerField(
-      playerField.dataset.playerId,
-      field,
-      playerField.value,
+  const gameField = target.closest("[data-game-field]");
+  if (gameField) {
+    const shouldRerender = updateGameField(
+      gameField.dataset.gameField,
+      target.value,
     );
-    if (shouldRerender || (refreshSummaries && ["name", "claim"].includes(field))) {
+    if (shouldRerender || refreshInterface) {
       renderNotesPage();
     }
+    return;
+  }
+
+  const inferenceField = target.closest("[data-inference-field]");
+  if (inferenceField) {
+    updateInferenceField(inferenceField.dataset.inferenceField, target.value);
+    return;
+  }
+
+  const playerField = target.closest("[data-player-id][data-field]");
+  if (playerField) {
+    const shouldRerender = updatePlayerField(
+      playerField.dataset.playerId,
+      playerField.dataset.field,
+      target.value,
+    );
+    if (shouldRerender && refreshInterface) {
+      renderNotesPage();
+    }
+    return;
+  }
+
+  const roleInfoField = target.closest("[data-roleinfo-index][data-roleinfo-field]");
+  const playerCard = target.closest(".notes-player-detail");
+  if (roleInfoField && playerCard) {
+    const playerId = playerCard.dataset.playerId;
+    updatePlayerDraftRoleInfo(
+      playerId,
+      Number(roleInfoField.dataset.roleinfoIndex),
+      roleInfoField.dataset.roleinfoField,
+      target.value,
+    );
   }
 }
 
 function addTimelineEntry() {
   const game = getActiveGame();
-  const phaseInput = document.querySelector("#timelinePhase");
   const typeInput = document.querySelector("#timelineType");
   const textInput = document.querySelector("#timelineText");
   const text = textInput?.value.trim() || "";
@@ -69,7 +259,7 @@ function addTimelineEntry() {
   game.timeline.unshift({
     id: createId("note"),
     type: typeInput?.value || "info",
-    phase: phaseInput?.value.trim() || game.phase || "未标记阶段",
+    phase: formatPhaseLabel(game.phaseType, game.phaseNumber),
     text,
     createdAt: new Date().toISOString(),
   });
@@ -100,39 +290,92 @@ function exportActiveGame() {
   URL.revokeObjectURL(url);
 }
 
+function handleCreateGame() {
+  const form = document.querySelector("#notesSetupForm");
+  if (!form || !form.reportValidity()) {
+    return;
+  }
+
+  const formData = new FormData(form);
+  const setup = {
+    title: String(formData.get("title") || ""),
+    scriptId: String(formData.get("scriptId") || ""),
+    playerCount: Number(formData.get("playerCount") || 10),
+    selfSeat: Number(formData.get("selfSeat") || 1),
+    mode: String(formData.get("mode") || "player"),
+  };
+  const game = createGameFromSetup(setup);
+
+  state.notes.games.unshift(game);
+  state.notes.activeGameId = game.id;
+  state.notes.ui.activeTab = "overview";
+  state.notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(game);
+  state.notes.ui.creatingGame = false;
+  state.notes.ui.setupDraft = createDefaultSetupDraft();
+  saveNotesState();
+  renderNotesPage();
+}
+
+function handleDeleteGame(notes, game) {
+  if (!window.confirm("删除当前局次记录？这只会清除本机保存。")) {
+    return;
+  }
+
+  notes.games = notes.games.filter((item) => item.id !== game.id);
+  if (!notes.games.length) {
+    notes.activeGameId = "";
+    notes.ui.selectedPlayerId = "";
+    notes.ui.creatingGame = true;
+  } else {
+    notes.activeGameId = notes.games[0].id;
+    notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(notes.games[0]);
+    notes.ui.activeTab = "overview";
+    notes.ui.creatingGame = false;
+  }
+  saveNotesState();
+  renderNotesPage();
+}
+
 function handleNotesAction(button) {
   const action = button.dataset.notesAction;
   const notes = ensureNotesState();
   const game = getActiveGame();
 
+  if (action === "create-game") {
+    handleCreateGame();
+    return;
+  }
+
   if (action === "new-game") {
-    const newGame = createDefaultGame();
-    notes.games.unshift(newGame);
-    notes.activeGameId = newGame.id;
-    saveNotesState();
+    notes.ui.creatingGame = true;
+    notes.ui.setupDraft = createDefaultSetupDraft();
     renderNotesPage();
     return;
   }
 
-  if (!game) {
+  if (action === "cancel-create") {
+    notes.ui.creatingGame = !notes.games.length;
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "open-current-game") {
+    notes.ui.creatingGame = false;
+    if (!notes.activeGameId && notes.games[0]) {
+      notes.activeGameId = notes.games[0].id;
+    }
+    const activeGame = getActiveGame();
+    notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(activeGame);
+    renderNotesPage();
+    return;
+  }
+
+  if (!game && action !== "open-current-game") {
     return;
   }
 
   if (action === "delete-game") {
-    if (!window.confirm("删除当前局次记录？这只会清除本机保存。")) {
-      return;
-    }
-
-    notes.games = notes.games.filter((item) => item.id !== game.id);
-    if (!notes.games.length) {
-      const newGame = createDefaultGame();
-      notes.games = [newGame];
-      notes.activeGameId = newGame.id;
-    } else {
-      notes.activeGameId = notes.games[0].id;
-    }
-    saveNotesState();
-    renderNotesPage();
+    handleDeleteGame(notes, game);
     return;
   }
 
@@ -141,33 +384,41 @@ function handleNotesAction(button) {
     return;
   }
 
-  if (action === "add-player") {
-    game.players.push(createDefaultPlayer(game.players.length + 1));
-    saveNotesState();
+  if (action === "switch-tab") {
+    notes.ui.activeTab = button.dataset.tab || "overview";
     renderNotesPage();
     return;
   }
 
-  if (action === "delete-player") {
-    game.players = game.players.filter(
-      (player) => player.id !== button.dataset.playerId,
-    );
-    saveNotesState();
+  if (action === "open-player" || action === "select-player") {
+    notes.ui.selectedPlayerId = button.dataset.playerId || "";
+    notes.ui.activeTab = "players";
     renderNotesPage();
     return;
   }
 
   if (action === "toggle-tag") {
-    const player = game.players.find((item) => item.id === button.dataset.playerId);
-    if (!player) {
+    const draft = ensurePlayerDraftForId(button.dataset.playerId);
+    if (!draft) {
       return;
     }
 
     const tag = button.dataset.tag;
-    player.tags = player.tags.includes(tag)
-      ? player.tags.filter((item) => item !== tag)
-      : [...player.tags, tag];
-    saveNotesState();
+    draft.tags = draft.tags.includes(tag)
+      ? draft.tags.filter((item) => item !== tag)
+      : [...draft.tags, tag];
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "save-player") {
+    savePlayerDraft(button.dataset.playerId);
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "discard-player") {
+    clearPlayerDraft(button.dataset.playerId);
     renderNotesPage();
     return;
   }

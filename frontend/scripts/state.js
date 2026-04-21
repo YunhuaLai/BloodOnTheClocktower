@@ -20,21 +20,40 @@ const notesStorageKey = "botc-game-notes-v1";
 
 const noteAlignmentOptions = [
   { value: "unknown", label: "未知" },
-  { value: "good", label: "偏好" },
-  { value: "evil", label: "偏邪" },
-  { value: "suspect", label: "存疑" },
+  { value: "good", label: "好" },
+  { value: "evil", label: "坏" },
+  { value: "suspect", label: "疑" },
 ];
 
 const noteStatusOptions = [
-  { value: "alive", label: "存活" },
-  { value: "dead", label: "死亡" },
-  { value: "executed", label: "已处决" },
-  { value: "unclear", label: "待确认" },
+  { value: "alive", label: "存" },
+  { value: "night-dead", label: "夜" },
+  { value: "executed", label: "处" },
+  { value: "unclear", label: "?" },
+];
+
+const noteConditionOptions = [
+  { value: "unknown", label: "?" },
+  { value: "sober", label: "清" },
+  { value: "poisoned", label: "毒" },
+  { value: "drunk", label: "醉" },
 ];
 
 const noteModeOptions = [
-  { value: "player", label: "玩家模式" },
-  { value: "storyteller", label: "说书人模式" },
+  { value: "player", label: "玩家" },
+  { value: "storyteller", label: "说书人" },
+];
+
+const noteTabOptions = [
+  { value: "overview", label: "总览" },
+  { value: "players", label: "玩家" },
+  { value: "timeline", label: "时间线" },
+  { value: "deduction", label: "推理" },
+];
+
+const phaseTypeOptions = [
+  { value: "day", label: "白天" },
+  { value: "night", label: "夜晚" },
 ];
 
 const timelineTypeOptions = [
@@ -93,6 +112,12 @@ const state = {
     activeGameId: "",
     games: [],
     loaded: false,
+    ui: {
+      activeTab: "overview",
+      selectedPlayerId: "",
+      creatingGame: false,
+      setupDraft: null,
+    },
   },
   rules: [],
   scripts: [],
