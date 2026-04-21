@@ -108,11 +108,13 @@ const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "fabled"];
 
 const state = {
   activeFilter: "all",
+  currentPath: "",
   notes: {
     activeGameId: "",
     games: [],
     loaded: false,
     ui: {
+      screen: "home",
       activeTab: "overview",
       selectedPlayerId: "",
       creatingGame: false,

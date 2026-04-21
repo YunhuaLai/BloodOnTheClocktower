@@ -290,6 +290,61 @@ function exportActiveGame() {
   URL.revokeObjectURL(url);
 }
 
+function shiftGamePhase(game, step) {
+  if (!game || !step) {
+    return;
+  }
+
+  let phaseType = game.phaseType;
+  let phaseNumber = clampNumber(Number(game.phaseNumber) || 1, 1, 99);
+
+  if (step > 0) {
+    for (let index = 0; index < step; index += 1) {
+      if (phaseType === "day") {
+        phaseType = "night";
+      } else {
+        phaseType = "day";
+        phaseNumber = clampNumber(phaseNumber + 1, 1, 99);
+      }
+    }
+  } else {
+    for (let index = 0; index < Math.abs(step); index += 1) {
+      if (phaseType === "night") {
+        phaseType = "day";
+      } else {
+        phaseType = "night";
+        phaseNumber = clampNumber(phaseNumber - 1 || 1, 1, 99);
+      }
+    }
+  }
+
+  game.phaseType = phaseType;
+  game.phaseNumber = phaseNumber;
+}
+
+function openGameById(gameId) {
+  const notes = ensureNotesState();
+  const nextGame =
+    notes.games.find((item) => item.id === gameId) ||
+    notes.games.find((item) => item.id === notes.activeGameId) ||
+    notes.games[0] ||
+    null;
+
+  if (!nextGame) {
+    notes.ui.screen = "home";
+    renderNotesPage();
+    return;
+  }
+
+  notes.activeGameId = nextGame.id;
+  notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(nextGame);
+  notes.ui.activeTab = "overview";
+  notes.ui.creatingGame = false;
+  notes.ui.screen = "game";
+  saveNotesState();
+  renderNotesPage();
+}
+
 function handleCreateGame() {
   const form = document.querySelector("#notesSetupForm");
   if (!form || !form.reportValidity()) {
@@ -304,13 +359,14 @@ function handleCreateGame() {
     selfSeat: Number(formData.get("selfSeat") || 1),
     mode: String(formData.get("mode") || "player"),
   };
-  const game = createGameFromSetup(setup);
+  const game = createGameFromSetup(setup, state.notes.games.length + 1);
 
   state.notes.games.unshift(game);
   state.notes.activeGameId = game.id;
   state.notes.ui.activeTab = "overview";
   state.notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(game);
   state.notes.ui.creatingGame = false;
+  state.notes.ui.screen = "game";
   state.notes.ui.setupDraft = createDefaultSetupDraft();
   saveNotesState();
   renderNotesPage();
@@ -325,12 +381,12 @@ function handleDeleteGame(notes, game) {
   if (!notes.games.length) {
     notes.activeGameId = "";
     notes.ui.selectedPlayerId = "";
-    notes.ui.creatingGame = true;
+    notes.ui.screen = "home";
   } else {
     notes.activeGameId = notes.games[0].id;
     notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(notes.games[0]);
     notes.ui.activeTab = "overview";
-    notes.ui.creatingGame = false;
+    notes.ui.screen = "home";
   }
   saveNotesState();
   renderNotesPage();
@@ -348,25 +404,29 @@ function handleNotesAction(button) {
 
   if (action === "new-game") {
     notes.ui.creatingGame = true;
+    notes.ui.screen = "setup";
     notes.ui.setupDraft = createDefaultSetupDraft();
     renderNotesPage();
     return;
   }
 
-  if (action === "cancel-create") {
-    notes.ui.creatingGame = !notes.games.length;
+  if (action === "cancel-create" || action === "go-home") {
+    notes.ui.creatingGame = false;
+    notes.ui.screen = "home";
     renderNotesPage();
     return;
   }
 
-  if (action === "open-current-game") {
-    notes.ui.creatingGame = false;
-    if (!notes.activeGameId && notes.games[0]) {
-      notes.activeGameId = notes.games[0].id;
-    }
-    const activeGame = getActiveGame();
-    notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(activeGame);
-    renderNotesPage();
+  if (action === "open-current-game" || action === "open-game") {
+    openGameById(button.dataset.gameId || notes.activeGameId);
+    return;
+  }
+
+  if (action === "view-saved") {
+    document.querySelector("#notesSavedSection")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
     return;
   }
 
@@ -381,6 +441,12 @@ function handleNotesAction(button) {
 
   if (action === "export-game") {
     exportActiveGame();
+    return;
+  }
+
+  if (action === "save-game") {
+    saveNotesState();
+    renderNotesPage();
     return;
   }
 
@@ -413,6 +479,7 @@ function handleNotesAction(button) {
 
   if (action === "save-player") {
     savePlayerDraft(button.dataset.playerId);
+    notes.ui.activeTab = "overview";
     renderNotesPage();
     return;
   }
@@ -432,6 +499,13 @@ function handleNotesAction(button) {
     game.timeline = game.timeline.filter(
       (entry) => entry.id !== button.dataset.entryId,
     );
+    saveNotesState();
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "advance-phase") {
+    shiftGamePhase(game, Number(button.dataset.step) || 1);
     saveNotesState();
     renderNotesPage();
   }

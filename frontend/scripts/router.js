@@ -13,8 +13,10 @@ function scrollToHash() {
 }
 
 function renderRoute() {
+  const previousPath = state.currentPath;
   const segments = window.location.pathname.split("/").filter(Boolean);
   const isNotesRoute = segments.length === 1 && segments[0] === "notes";
+  state.currentPath = window.location.pathname;
 
   document.body.classList.toggle("notes-route", isNotesRoute);
 
@@ -41,6 +43,12 @@ function renderRoute() {
   }
 
   if (segments.length === 1 && segments[0] === "notes") {
+    if (previousPath !== "/notes") {
+      const notes = ensureNotesState();
+      if (notes.ui.screen !== "setup") {
+        notes.ui.screen = "home";
+      }
+    }
     renderNotesPage();
     return;
   }

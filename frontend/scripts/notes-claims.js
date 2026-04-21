@@ -52,10 +52,10 @@ function getClaimRoleOptions(game) {
 function getClaimPickerHint(game) {
   const script = getGameScript(game);
   if (!script) {
-    return "先选具体剧本，自称身份才会收窄到该剧本角色；输入框仍然可以手动填写。";
+    return "先选具体剧本，自称身份才会收窄到该剧本角色。";
   }
 
-  return `当前只提示《${script.name}》角色，也可以直接输入其他跳身份。`;
+  return `当前只显示《${script.name}》角色。`;
 }
 
 function renderRoleNameDatalist(game) {

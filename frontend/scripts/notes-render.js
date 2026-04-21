@@ -80,14 +80,22 @@ function getRoleInfoSummary(player) {
       }
 
       if (roleInfo.profile === "seat-pair-alignment") {
-        return `${entry.seat || "_"} ${entry.first || "_"}${entry.second || "_"}`;
+        return `${entry.seat || "_"}${entry.first || "_"}${entry.second || "_"}`;
       }
 
       return "";
     })
     .filter(Boolean);
 
-  return items.length ? items.join(" / ") : "--";
+  if (!items.length) {
+    return "--";
+  }
+
+  if (roleInfo.profile === "yes-no-seq") {
+    return items.join("");
+  }
+
+  return items.join("/");
 }
 
 function renderRoleInfoInputs(player, game) {
@@ -273,14 +281,38 @@ function renderCompactBadge(prefix, value, text) {
 
 function getOverviewSecondaryText(player) {
   if (player.extraInfo) {
-    return player.extraInfo;
+    return String(player.extraInfo).trim().replace(/\s+/g, " ");
   }
 
   if (player.notes) {
-    return player.notes.split(/\r?\n/)[0];
+    return player.notes.split(/\r?\n/)[0].trim().replace(/\s+/g, " ");
   }
 
   return "--";
+}
+
+function getClaimAbbreviation(claim) {
+  const text = String(claim || "").trim();
+  if (!text) {
+    return "--";
+  }
+
+  const compact = text.replace(/\s+/g, "");
+  const chineseMatches = compact.match(/[\u4e00-\u9fff]/g);
+  if (chineseMatches?.length) {
+    return chineseMatches.slice(0, 2).join("");
+  }
+
+  if (compact.includes("-")) {
+    return compact
+      .split("-")
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((part) => part[0]?.toUpperCase() || "")
+      .join("");
+  }
+
+  return compact.slice(0, 2).toUpperCase();
 }
 
 function getShortStatusLabel(status) {
@@ -318,7 +350,23 @@ function renderNotesStageBar(game) {
     <header class="notes-stagebar">
       <div class="notes-stagebar-item">
         <span>当前阶段</span>
-        <strong>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))}</strong>
+        <div class="notes-stagebar-phase">
+          <button
+            type="button"
+            class="notes-stagebar-button"
+            data-notes-action="advance-phase"
+            data-step="-1"
+            aria-label="上一阶段"
+          >-</button>
+          <strong>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))}</strong>
+          <button
+            type="button"
+            class="notes-stagebar-button"
+            data-notes-action="advance-phase"
+            data-step="1"
+            aria-label="下一阶段"
+          >+</button>
+        </div>
       </div>
       <div class="notes-stagebar-item">
         <span>存活</span>
@@ -417,30 +465,20 @@ function renderClaimControl(player, game) {
   return `
     <label class="note-field note-field--wide">
       <span>自称身份</span>
-      <div class="notes-claim-control">
-        <input
-          class="notes-player-field"
-          data-player-id="${escapeHtml(player.id)}"
-          data-field="claim"
-          list="roleNameList"
-          value="${escapeHtml(player.claim)}"
-          placeholder="可直接输入，也可从右侧快选"
-        />
-        <select
-          class="notes-player-field"
-          data-player-id="${escapeHtml(player.id)}"
-          data-field="claim"
-          aria-label="按剧本快速选择身份"
-        >
-          <option value="">${script ? `《${script.name}》快选` : "先选剧本"}</option>
-          ${roleOptions
-            .map(
-              (role) =>
-                `<option value="${escapeHtml(role.name)}"${role.name === player.claim ? " selected" : ""}>${escapeHtml(role.name)}</option>`,
-            )
-            .join("")}
-        </select>
-      </div>
+      <select
+        class="notes-player-field"
+        data-player-id="${escapeHtml(player.id)}"
+        data-field="claim"
+        aria-label="按剧本选择自称身份"
+      >
+        <option value="">${script ? `《${script.name}》角色` : "先选剧本"}</option>
+        ${roleOptions
+          .map(
+            (role) =>
+              `<option value="${escapeHtml(role.name)}"${role.name === player.claim ? " selected" : ""}>${escapeHtml(role.name)}</option>`,
+          )
+          .join("")}
+      </select>
     </label>
   `;
 }
@@ -464,7 +502,6 @@ function renderSetupSeatOptions(playerCount, selectedSeat) {
 
 function renderSetupPage(notes) {
   const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
-  const currentGame = notes.games.find((game) => game.id === notes.activeGameId) || null;
   const config = getStandardSetup(draft.playerCount);
 
   document.title = "记录局创建";
@@ -509,8 +546,7 @@ function renderSetupPage(notes) {
               name="title"
               data-setup-field="title"
               value="${escapeHtml(draft.title)}"
-              placeholder="例如 周二 15 人局"
-              required
+              placeholder="可不填，默认用编号"
             />
           </label>
 
@@ -528,46 +564,77 @@ function renderSetupPage(notes) {
 
           <div class="notes-setup-actions">
             <button type="button" class="primary-link" data-notes-action="create-game">创建并进入总览</button>
-            ${
-              currentGame
-                ? `<button type="button" class="secondary-link" data-notes-action="cancel-create">返回当前局</button>`
-                : ""
-            }
+            <button type="button" class="secondary-link" data-notes-action="cancel-create">返回记录局</button>
           </div>
         </form>
-
-        ${
-          notes.games.length
-            ? `
-              <section class="notes-existing">
-                <p class="eyebrow">已有记录</p>
-                <label class="note-field note-field--wide">
-                  <span>快速切换</span>
-                  <select id="gameSelect">
-                    ${renderGameSelectOptions(notes)}
-                  </select>
-                </label>
-                <button type="button" class="secondary-link notes-existing-open" data-notes-action="open-current-game">打开当前局</button>
-              </section>
-            `
-            : ""
-        }
       </div>
     </section>
   `;
 }
 
-function renderGameToolbar(notes) {
+function renderNotesHome(notes) {
+  document.title = "记录局";
+  app.innerHTML = `
+    <section class="notes-home">
+      <div class="notes-home-panel">
+        <p class="eyebrow">记录局</p>
+        <h1>先选你要做什么</h1>
+        <div class="notes-home-actions">
+          <button type="button" class="primary-link" data-notes-action="new-game">新建记录</button>
+          ${
+            notes.games.length
+              ? `<button type="button" class="secondary-link" data-notes-action="view-saved">查看已保存</button>`
+              : ""
+          }
+        </div>
+      </div>
+
+      ${
+        notes.games.length
+          ? `
+            <section class="notes-home-saved" id="notesSavedSection">
+              <div class="notes-panel-header">
+                <div>
+                  <p class="eyebrow">已保存</p>
+                  <h2>继续上次的对局</h2>
+                </div>
+              </div>
+              <div class="notes-saved-list">
+                ${notes.games
+                  .map((game) => {
+                    const aliveCount = getAliveCount(game);
+                    return `
+                      <button
+                        type="button"
+                        class="notes-saved-card"
+                        data-notes-action="open-game"
+                        data-game-id="${escapeHtml(game.id)}"
+                      >
+                        <strong>${escapeHtml(game.title)}</strong>
+                        <span>${escapeHtml(game.scriptName || "未选剧本")}</span>
+                        <small>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))} / 存活 ${aliveCount} / ${game.playerCount}</small>
+                      </button>
+                    `;
+                  })
+                  .join("")}
+              </div>
+            </section>
+          `
+          : `
+            <section class="notes-home-empty">
+              <p>还没有已保存的记录，先新建一局。</p>
+            </section>
+          `
+      }
+    </section>
+  `;
+}
+
+function renderOverviewActions() {
   return `
-    <div class="notes-toolbar">
-      <label class="note-field notes-toolbar-field">
-        <span>当前局</span>
-        <select id="gameSelect">
-          ${renderGameSelectOptions(notes)}
-        </select>
-      </label>
-      <button type="button" class="secondary-link" data-notes-action="new-game">新建</button>
-      <button type="button" class="secondary-link" data-notes-action="export-game">导出</button>
+    <div class="notes-overview-actions">
+      <button type="button" class="primary-link" data-notes-action="save-game">保存</button>
+      <button type="button" class="secondary-link" data-notes-action="go-home">返回</button>
       <button type="button" class="secondary-link danger" data-notes-action="delete-game">删除</button>
     </div>
   `;
@@ -577,7 +644,7 @@ function renderOverviewRows(game) {
   return game.players
     .map((player) => {
       const isSelf = player.seat === game.selfSeat;
-      const claimText = player.claim || "--";
+      const claimText = getClaimAbbreviation(player.claim);
       const summaryText = getRoleInfoSummary(player);
       const judgementText = getJudgementSummary(player);
       const supplementText = getOverviewSecondaryText(player);
@@ -613,7 +680,6 @@ function renderOverviewTab(game) {
       <div class="notes-panel-header">
         <div>
           <p class="eyebrow">总览页</p>
-          <h2>一页扫全桌</h2>
         </div>
       </div>
       <div class="notes-overview-head">
@@ -627,6 +693,7 @@ function renderOverviewTab(game) {
       <div class="notes-overview-list">
         ${renderOverviewRows(game)}
       </div>
+      ${renderOverviewActions()}
     </section>
   `;
 }
@@ -980,7 +1047,6 @@ function renderGamePage(notes, game) {
     <section class="notes-shell">
       ${renderNotesStageBar(game)}
       ${renderGameMeta(game)}
-      ${renderGameToolbar(notes)}
 
       <main class="notes-tab-content">
         ${renderTabContent(game)}
@@ -996,8 +1062,13 @@ function renderNotesPage() {
   const notes = ensureNotesState();
   const game = getActiveGame();
 
-  if (!game || notes.ui.creatingGame) {
+  if (notes.ui.screen === "setup") {
     renderSetupPage(notes);
+    return;
+  }
+
+  if (notes.ui.screen !== "game" || !game) {
+    renderNotesHome(notes);
     return;
   }
 

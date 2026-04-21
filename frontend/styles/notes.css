@@ -1,13 +1,17 @@
+.notes-home,
 .notes-setup,
 .notes-shell {
   padding: 0 12px 104px;
   background: var(--paper);
 }
 
+.notes-home-panel,
 .notes-setup-panel,
 .notes-panel,
 .notes-player-detail,
 .notes-existing,
+.notes-home-saved,
+.notes-home-empty,
 .notes-game-meta,
 .notes-stagebar,
 .notes-toolbar {
@@ -16,19 +20,31 @@
   border-radius: 8px;
 }
 
+.notes-home,
+.notes-setup-panel {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+  margin: 18px auto 0;
+}
+
+.notes-home-panel,
+.notes-home-saved,
+.notes-home-empty,
 .notes-setup-panel {
   display: grid;
   gap: 18px;
-  max-width: 760px;
-  margin: 18px auto 0;
   padding: 20px;
 }
 
+.notes-home-panel h1,
+.notes-home-saved h2,
 .notes-setup-panel .lead {
   margin: 0;
   max-width: none;
 }
 
+.notes-home-actions,
 .notes-setup-form,
 .notes-existing {
   display: grid;
@@ -77,6 +93,44 @@
   justify-content: center;
 }
 
+.notes-home-actions .primary-link,
+.notes-home-actions .secondary-link {
+  margin: 0;
+  justify-content: center;
+}
+
+.notes-home-empty p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.notes-saved-list {
+  display: grid;
+  gap: 10px;
+}
+
+.notes-saved-card {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 14px;
+  color: inherit;
+  text-align: left;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-saved-card strong {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.notes-saved-card span,
+.notes-saved-card small {
+  color: var(--muted);
+}
+
 .notes-stagebar {
   position: sticky;
   top: 0;
@@ -100,6 +154,32 @@
 .notes-stagebar-item strong {
   font-size: 16px;
   line-height: 1.1;
+}
+
+.notes-stagebar-phase {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notes-stagebar-phase strong {
+  min-width: 0;
+}
+
+.notes-stagebar-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--ink);
+  background: #eef1ed;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
 }
 
 .notes-game-meta {
@@ -216,11 +296,24 @@
   gap: 10px;
 }
 
+.notes-overview-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.notes-overview-actions .primary-link,
+.notes-overview-actions .secondary-link {
+  margin: 0;
+  justify-content: center;
+}
+
 .notes-overview-head,
 .notes-overview-row {
   display: grid;
-  grid-template-columns: 34px 48px minmax(52px, 0.9fr) minmax(60px, 1fr) 52px minmax(64px, 1fr);
-  gap: 6px;
+  grid-template-columns: 32px 44px 44px minmax(52px, 0.9fr) 48px minmax(56px, 1fr);
+  gap: 4px;
   align-items: center;
 }
 
@@ -234,7 +327,7 @@
 
 .notes-overview-row {
   width: 100%;
-  padding: 8px 6px;
+  padding: 8px 5px;
   color: inherit;
   text-align: left;
   background: #f7f8f4;
@@ -252,12 +345,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  font-size: 12px;
+  font-size: 11px;
   line-height: 1.2;
 }
 
 .notes-overview-cell--seat,
 .notes-overview-cell--status,
+.notes-overview-cell--claim,
 .notes-overview-cell--judgement {
   text-align: center;
 }
@@ -599,6 +693,8 @@
 }
 
 .notes-overview-row:hover,
+.notes-stagebar-button:hover,
+.notes-saved-card:hover,
 .notes-seat-tab:hover,
 .note-tag:hover,
 .note-icon-button:hover,
@@ -609,6 +705,8 @@
 }
 
 .notes-overview-row:focus-visible,
+.notes-stagebar-button:focus-visible,
+.notes-saved-card:focus-visible,
 .notes-seat-tab:focus-visible,
 .note-tag:focus-visible,
 .note-icon-button:focus-visible,
@@ -621,9 +719,14 @@
 }
 
 @media (min-width: 721px) {
+  .notes-home,
   .notes-setup,
   .notes-shell {
     padding: 0 24px 120px;
+  }
+
+  .notes-home-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .notes-setup-grid,
@@ -656,11 +759,11 @@
   }
 
   .notes-overview-row {
-    grid-template-columns: 42px 60px minmax(88px, 1fr) minmax(110px, 1.2fr) 70px minmax(130px, 1.2fr);
+    grid-template-columns: 42px 60px 72px minmax(112px, 1fr) 72px minmax(132px, 1.2fr);
   }
 
   .notes-overview-head {
-    grid-template-columns: 42px 60px minmax(88px, 1fr) minmax(110px, 1.2fr) 70px minmax(130px, 1.2fr);
+    grid-template-columns: 42px 60px 72px minmax(112px, 1fr) 72px minmax(132px, 1.2fr);
   }
 }
 
@@ -670,6 +773,7 @@
     margin: 0 auto;
   }
 
+  .notes-home,
   .notes-setup-panel {
     max-width: 860px;
   }

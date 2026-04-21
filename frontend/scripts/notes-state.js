@@ -14,6 +14,7 @@ function createDefaultSetupDraft() {
 
 function createNotesUiState() {
   return {
+    screen: "home",
     activeTab: "overview",
     selectedPlayerId: "",
     creatingGame: false,
@@ -84,14 +85,15 @@ function createPlayersForCount(playerCount) {
   );
 }
 
-function createGameFromSetup(setup) {
+function createGameFromSetup(setup, nextIndex = 1) {
   const script = state.scripts.find((item) => item.id === setup.scriptId) || null;
   const playerCount = clampNumber(Number(setup.playerCount) || 10, 5, 15);
   const selfSeat = clampNumber(Number(setup.selfSeat) || 1, 1, playerCount);
+  const title = String(setup.title || "").trim() || `第 ${nextIndex} 局`;
 
   return {
     id: createId("game"),
-    title: setup.title.trim(),
+    title,
     scriptId: script?.id || "",
     scriptName: script?.name || "",
     playerCount,
@@ -275,7 +277,6 @@ function loadNotesState() {
   try {
     const raw = window.localStorage.getItem(notesStorageKey);
     if (!raw) {
-      fallback.ui.creatingGame = true;
       return fallback;
     }
 
@@ -288,12 +289,10 @@ function loadNotesState() {
       loaded: true,
       ui: {
         ...createNotesUiState(),
-        creatingGame: !games.length,
       },
     };
   } catch (error) {
     console.warn("Failed to load game notes", error);
-    fallback.ui.creatingGame = true;
     return fallback;
   }
 }
@@ -339,7 +338,7 @@ function ensureNotesState() {
 
   if (!state.notes.games.length) {
     state.notes.activeGameId = "";
-    state.notes.ui.creatingGame = true;
+    state.notes.ui.screen = state.notes.ui.creatingGame ? "setup" : "home";
     return state.notes;
   }
 
