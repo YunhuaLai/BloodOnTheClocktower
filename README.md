@@ -1,12 +1,25 @@
-﻿# BloodOnTheClocktower
+# BloodOnTheClocktower
 
-血染钟楼百科 Web 原型。
+血染钟楼百科 Web 原型，用于整理和展示游戏相关资料，包括角色、术语与剧本内容，并提供基础浏览与查询能力。
+
+项目目前采用轻量的前后端结构：
+
+- `frontend/` 负责页面展示、样式和浏览器交互
+- `backend/` 负责提供 API，并托管前端静态文件
+- `backend/data/encyclopedia.json` 保存当前百科资料数据
+
+## 项目目标
+
+- 以网页形式集中展示血染钟楼资料
+- 为后续的搜索、筛选、导航和内容扩展提供基础结构
+- 保持实现简单，方便快速迭代和验证想法
 
 ## 目录结构
 
 - `frontend/`: 前端页面、样式和浏览器交互逻辑
 - `backend/`: Node 后端服务
 - `backend/data/encyclopedia.json`: 当前百科资料数据
+- `scripts/`: 项目辅助脚本
 - `package.json`: 本地运行脚本
 
 ## 本地运行
@@ -17,41 +30,19 @@ npm start
 
 打开：`http://localhost:3000`
 
-## Render 部署
-
-项目已经包含 [render.yaml](C:/Users/laiyu/OneDrive/Documents/血染钟楼/render.yaml)，可以直接用于 Render 测试部署。
-
-### 方式 1：用 Blueprint
-
-1. 把当前分支推到 GitHub
-2. 在 Render 里选择 `New +` -> `Blueprint`
-3. 连接这个仓库
-4. 选择分支 `render-deploy-test`
-5. 确认创建 Web Service
-
-Render 会按下面的配置部署：
-
-- `buildCommand`: `npm install`
-- `startCommand`: `npm start`
-- `plan`: `free`
-
-### 方式 2：手动创建 Web Service
-
-1. 在 Render 里选择 `New +` -> `Web Service`
-2. 连接 GitHub 仓库并选中分支 `render-deploy-test`
-3. 环境选择 `Node`
-4. Build Command 填 `npm install`
-5. Start Command 填 `npm start`
-
-### 部署说明
-
-- 服务默认监听 `process.env.PORT`，本地默认为 `3000`
-- 首页由 `frontend/` 提供静态文件
-- API 入口包括 `GET /api/health` 和 `GET /api/encyclopedia`
-
 ## API
 
 - `GET /api/health`: 服务健康检查
-- `GET /api/encyclopedia`: 游戏速览、板子和角色资料
+- `GET /api/encyclopedia`: 返回游戏速览、板子和角色资料
+- `GET /api/scripts`: 返回剧本列表
+- `GET /api/scripts/:id`: 返回指定剧本详情
+- `GET /api/roles`: 返回角色列表
+- `GET /api/roles/:id`: 返回指定角色详情
+- `GET /api/terms`: 返回术语列表
+- `GET /api/terms/:id`: 返回指定术语详情
 
-现在没有引入第三方依赖，安装 Node.js 后即可运行。
+## 技术说明
+
+- 后端使用 Node.js 原生 `http` 模块
+- 前端当前使用原生 HTML、CSS 和 JavaScript
+- 当前没有引入第三方运行时依赖，安装 Node.js 后即可运行
