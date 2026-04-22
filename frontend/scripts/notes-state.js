@@ -44,30 +44,37 @@ function createDefaultPlayer(seat) {
     tags: [],
     extraInfo: "",
     notes: "",
-    roleInfo: {
-      profile: "",
-      entries: [],
-    },
+    roleInfo: createEmptyRoleInfo(),
     trueRole: "",
     trueAlignment: "unknown",
     storytellerNotes: "",
   };
 }
 
-function createEmptyRoleInfo() {
+function createEmptyRoleInfo(roleId = "") {
   return {
-    profile: "",
-    entries: [],
+    version: 2,
+    roleId,
+    targetEntries: [],
+    resultEntries: [],
   };
 }
 
+function cloneRoleInfoEntries(entries) {
+  return Array.isArray(entries)
+    ? entries.map((entry) => ({ ...(entry || {}) }))
+    : [];
+}
+
 function cloneRoleInfo(roleInfo) {
-  const info = roleInfo || createEmptyRoleInfo();
+  const info = roleInfo || {};
   return {
+    version: Number(info.version) === 2 ? 2 : info.version || 2,
+    roleId: info.roleId || "",
+    targetEntries: cloneRoleInfoEntries(info.targetEntries),
+    resultEntries: cloneRoleInfoEntries(info.resultEntries),
     profile: info.profile || "",
-    entries: Array.isArray(info.entries)
-      ? info.entries.map((entry) => ({ ...entry }))
-      : [],
+    entries: cloneRoleInfoEntries(info.entries),
   };
 }
 

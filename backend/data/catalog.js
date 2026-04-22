@@ -1,6 +1,7 @@
 const { ROLE_TYPES } = require("./catalog/constants");
 const { getScriptNames, uniqueValues, withScript } = require("./catalog/builders");
 const { ADDITIONAL_SCRIPTS, ONE_IN_ONE_OUT_ROLE_IDS } = require("./catalog/scripts");
+const { getRoleAbilityData } = require("./catalog/role-ability-data");
 const { ADDITIONAL_ROLES, ROLE_ABILITIES, ROLE_CORRECTIONS } = require("./catalog/roles");
 const { TERM_REPLACEMENTS, TERMS } = require("./catalog/terms");
 
@@ -128,6 +129,7 @@ function normalizeRole(rawRole) {
     abilitySummary: ROLE_ABILITIES[normalized.id] || normalized.detail.abilitySummary,
     relatedRoleIds: normalized.detail.relatedRoleIds || [],
   };
+  normalized.abilityData = getRoleAbilityData(normalized);
 
   return normalized;
 }

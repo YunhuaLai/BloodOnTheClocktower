@@ -19,17 +19,46 @@ function ensurePlayerDraftForId(playerId) {
   }
 
   const draft = clonePlayerForDraft(player);
-  draft.roleInfo = ensureRoleInfoMatchesClaim(draft);
+  draft.roleInfo = ensureRoleInfoMatchesClaim(draft, game);
   setPlayerDraft(playerId, draft);
   return draft;
 }
 
+function trimRoleInfoEntry(entry) {
+  return Object.fromEntries(
+    Object.entries(entry || {}).filter(([, value]) => {
+      if (typeof value === "number") {
+        return true;
+      }
+
+      return String(value ?? "").trim();
+    }),
+  );
+}
+
 function trimRoleInfoEntries(roleInfo) {
   const info = cloneRoleInfo(roleInfo);
-  info.entries = info.entries.filter((entry) =>
-    Object.values(entry || {}).some((value) => String(value || "").trim()),
-  );
-  return info;
+  const nextTargetEntries = [];
+  const nextResultEntries = [];
+  const rowCount = Math.max(info.targetEntries.length, info.resultEntries.length);
+
+  for (let index = 0; index < rowCount; index += 1) {
+    const targetEntry = trimRoleInfoEntry(info.targetEntries[index]);
+    const resultEntry = trimRoleInfoEntry(info.resultEntries[index]);
+    if (!isRoleInfoEntryFilled(targetEntry) && !isRoleInfoEntryFilled(resultEntry)) {
+      continue;
+    }
+
+    nextTargetEntries.push(targetEntry);
+    nextResultEntries.push(resultEntry);
+  }
+
+  return {
+    version: 2,
+    roleId: info.roleId || "",
+    targetEntries: nextTargetEntries,
+    resultEntries: nextResultEntries,
+  };
 }
 
 function updatePlayerDraftField(playerId, field, value) {
@@ -55,36 +84,99 @@ function updatePlayerDraftField(playerId, field, value) {
   }
 
   if (field === "claim") {
-    draft.roleInfo = ensureRoleInfoMatchesClaim(draft);
+    draft.roleInfo = ensureRoleInfoMatchesClaim(draft, getActiveGame());
   }
 
   return ["claim", "name", "status", "alignment", "condition", "extraInfo"].includes(field);
 }
 
-function updatePlayerDraftRoleInfo(playerId, index, field, value) {
+function getRoleInfoSectionKey(section) {
+  return section === "result" ? "resultEntries" : "targetEntries";
+}
+
+function getRoleInfoMinimumRows(node) {
+  return node.repeatMode === "once"
+    ? Math.max(node.defaultRows || 0, 1)
+    : Math.max(node.defaultRows || 0, 1);
+}
+
+function getLinkedRoleInfoSections(draft, requestedSection, game) {
+  const abilityData = getRoleAbilityData(draft, game);
+  const targetNode = getRoleInfoNode(abilityData, "target");
+  const resultNode = getRoleInfoNode(abilityData, "result");
+  const targetRepeatable = ["sequence", "variable"].includes(targetNode.repeatMode);
+  const resultRepeatable = ["sequence", "variable"].includes(resultNode.repeatMode);
+
+  if (targetRepeatable && resultRepeatable) {
+    return ["target", "result"];
+  }
+
+  return [requestedSection];
+}
+
+function updatePlayerDraftRoleInfo(playerId, section, index, field, value) {
   const draft = ensurePlayerDraftForId(playerId);
-  if (!draft) {
+  const game = getActiveGame();
+  if (!draft || !game) {
     return;
   }
 
-  draft.roleInfo = ensureRoleInfoMatchesClaim(draft);
-  while (draft.roleInfo.entries.length <= index) {
-    draft.roleInfo.entries.push({});
+  draft.roleInfo = ensureRoleInfoMatchesClaim(draft, game);
+  const entryKey = getRoleInfoSectionKey(section);
+  while (draft.roleInfo[entryKey].length <= index) {
+    draft.roleInfo[entryKey].push({});
   }
 
-  draft.roleInfo.entries[index] = {
-    ...draft.roleInfo.entries[index],
+  draft.roleInfo[entryKey][index] = {
+    ...draft.roleInfo[entryKey][index],
     [field]: value,
   };
 }
 
-function buildPlayerSaveSummary(player) {
+function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
+  const draft = ensurePlayerDraftForId(playerId);
+  const game = getActiveGame();
+  if (!draft || !game || !step) {
+    return;
+  }
+
+  draft.roleInfo = ensureRoleInfoMatchesClaim(draft, game);
+  const abilityData = getRoleAbilityData(draft, game);
+  const sections = getLinkedRoleInfoSections(draft, section, game);
+
+  if (step > 0) {
+    sections.forEach((sectionKey) => {
+      const node = getRoleInfoNode(abilityData, sectionKey);
+      if (!["sequence", "variable"].includes(node.repeatMode)) {
+        return;
+      }
+
+      draft.roleInfo[getRoleInfoSectionKey(sectionKey)].push({});
+    });
+    return;
+  }
+
+  sections.forEach((sectionKey) => {
+    const node = getRoleInfoNode(abilityData, sectionKey);
+    if (!["sequence", "variable"].includes(node.repeatMode)) {
+      return;
+    }
+
+    const entryKey = getRoleInfoSectionKey(sectionKey);
+    const minimumRows = getRoleInfoMinimumRows(node);
+    if (draft.roleInfo[entryKey].length > minimumRows) {
+      draft.roleInfo[entryKey].pop();
+    }
+  });
+}
+
+function buildPlayerSaveSummary(player, game = getActiveGame()) {
   const parts = [];
   if (player.claim) {
     parts.push(`自称 ${player.claim}`);
   }
 
-  const roleInfoSummary = getRoleInfoSummary(player);
+  const roleInfoSummary = getRoleInfoSummary(player, game);
   if (roleInfoSummary && roleInfoSummary !== "--") {
     parts.push(`信息 ${roleInfoSummary}`);
   }
@@ -108,7 +200,9 @@ function savePlayerDraft(playerId) {
   }
 
   const savedDraft = clonePlayerForDraft(draft);
-  savedDraft.roleInfo = trimRoleInfoEntries(savedDraft.roleInfo);
+  savedDraft.roleInfo = trimRoleInfoEntries(
+    ensureRoleInfoMatchesClaim(savedDraft, game),
+  );
   Object.assign(player, savedDraft);
   clearPlayerDraft(playerId);
 
@@ -116,7 +210,7 @@ function savePlayerDraft(playerId) {
     id: createId("note"),
     type: "info",
     phase: formatPhaseLabel(game.phaseType, game.phaseNumber),
-    text: `${getPlayerLabel(player, game)} 更新：${buildPlayerSaveSummary(player)}`,
+    text: `${getPlayerLabel(player, game)} 更新：${buildPlayerSaveSummary(player, game)}`,
     createdAt: new Date().toISOString(),
   });
   saveNotesState();
@@ -232,13 +326,16 @@ function handleNotesFieldChange(target, refreshInterface = false) {
     return;
   }
 
-  const roleInfoField = target.closest("[data-roleinfo-index][data-roleinfo-field]");
+  const roleInfoField = target.closest(
+    "[data-roleinfo-section][data-roleinfo-row][data-roleinfo-field]",
+  );
   const playerCard = target.closest(".notes-player-detail");
   if (roleInfoField && playerCard) {
     const playerId = playerCard.dataset.playerId;
     updatePlayerDraftRoleInfo(
       playerId,
-      Number(roleInfoField.dataset.roleinfoIndex),
+      roleInfoField.dataset.roleinfoSection,
+      Number(roleInfoField.dataset.roleinfoRow),
       roleInfoField.dataset.roleinfoField,
       target.value,
     );
@@ -473,6 +570,16 @@ function handleNotesAction(button) {
     draft.tags = draft.tags.includes(tag)
       ? draft.tags.filter((item) => item !== tag)
       : [...draft.tags, tag];
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "add-roleinfo-row" || action === "remove-roleinfo-row") {
+    adjustPlayerDraftRoleInfoRows(
+      button.dataset.playerId,
+      button.dataset.section || "target",
+      action === "add-roleinfo-row" ? 1 : -1,
+    );
     renderNotesPage();
     return;
   }
