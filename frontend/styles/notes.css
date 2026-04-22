@@ -498,31 +498,143 @@
   gap: 8px;
 }
 
+.notes-roleinfo-panel,
+.notes-roleinfo-section {
+  display: grid;
+  gap: 10px;
+}
+
+.notes-roleinfo-header {
+  display: grid;
+  gap: 10px;
+}
+
+.notes-roleinfo-header h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.notes-roleinfo-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.notes-roleinfo-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 3px 8px;
+  color: var(--muted);
+  background: #eef1ed;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.notes-roleinfo-empty {
+  padding: 12px;
+  color: var(--muted);
+  background: #f7f8f4;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .notes-roleinfo-list {
   display: grid;
   gap: 8px;
 }
 
+.notes-roleinfo-section {
+  padding: 12px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-roleinfo-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.notes-roleinfo-section-header strong {
+  font-size: 14px;
+}
+
+.notes-roleinfo-section-header small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
 .notes-roleinfo-row {
   display: grid;
-  grid-template-columns: minmax(70px, auto) 1fr;
+  grid-template-columns: 32px minmax(0, 1fr);
   gap: 8px;
+  align-items: start;
+}
+
+.notes-roleinfo-index {
+  display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 900;
 }
 
-.notes-roleinfo-row--dreamer {
-  grid-template-columns: minmax(70px, auto) repeat(3, minmax(0, 1fr));
+.notes-roleinfo-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
 }
 
-.notes-roleinfo-row input,
-.notes-roleinfo-row select {
+.notes-roleinfo-fields--1 {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.notes-roleinfo-field {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.notes-roleinfo-field span {
+  line-height: 1.1;
+}
+
+.notes-roleinfo-field input,
+.notes-roleinfo-field select {
   width: 100%;
   min-height: 40px;
   padding: 8px 10px;
   color: var(--ink);
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 6px;
+}
+
+.notes-roleinfo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.notes-roleinfo-actions .note-icon-button {
+  min-width: 92px;
 }
 
 .notes-savebar {
@@ -661,6 +773,11 @@
   font-weight: 800;
 }
 
+.note-icon-button[disabled] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .notes-tabbar {
   position: fixed;
   right: 0;
@@ -746,6 +863,15 @@
 
   .notes-form-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notes-roleinfo-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .notes-roleinfo-fields--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .notes-claim-control,

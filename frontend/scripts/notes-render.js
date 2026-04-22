@@ -2,238 +2,592 @@ function formatPhaseLabel(phaseType, phaseNumber) {
   return `${getOptionLabel(phaseTypeOptions, phaseType)} ${phaseNumber}`;
 }
 
-const roleInfoProfiles = [
-  {
-    key: "yes-no-seq",
-    names: ["城镇公告员", "town crier"],
-    label: "是否信息",
-  },
-  {
-    key: "seat-seq",
-    names: ["僧侣", "投毒者", "舞蛇人", "monk", "poisoner", "snake charmer"],
-    label: "号码序列",
-  },
-  {
-    key: "digit-seq",
-    names: ["共情者", "empath"],
-    label: "数字序列",
-  },
-  {
-    key: "seat-pair-alignment",
-    names: ["筑梦师", "dreamer"],
-    label: "号码 + 好坏",
-  },
-];
+const abilityPageTypeLabels = {
+  no_input: "无录入",
+  record_result_only: "只记结果",
+  pick_and_record: "选择并记录",
+  event_triggered: "事件触发",
+  rule_modifier: "规则型",
+};
+
+const abilityPhaseTimingLabels = {
+  setup: "开局",
+  first_night: "首夜",
+  each_night: "每晚",
+  each_night_star: "每晚*",
+  night: "夜间",
+  day: "白天",
+  each_day: "每天",
+  passive: "被动",
+  special: "特殊",
+};
+
+const abilityEventTimingLabels = {
+  on_nomination: "提名时",
+  on_execution: "处决时",
+  on_death: "死亡时",
+  on_attack: "受袭时",
+  on_vote: "投票时",
+  endgame: "残局",
+};
+
+const abilityUsagePatternLabels = {
+  once: "一次",
+  once_per_game: "本局一次",
+  once_per_day: "每天一次",
+  once_per_night: "每晚一次",
+  repeatable: "可重复",
+  passive: "被动",
+  variable: "不固定",
+};
+
+const abilityActivationModeLabels = {
+  active: "主动",
+  passive: "被动",
+  conditional: "条件触发",
+  reactive: "响应触发",
+};
+
+const abilityValueLabels = {
+  yes: "是",
+  no: "否",
+  good: "好",
+  evil: "坏",
+  sober: "清",
+  poisoned: "毒",
+  drunk: "醉",
+  self: "自己",
+  target: "目标",
+  unknown: "?",
+};
 
 function normalizeRoleName(value) {
   return String(value || "").trim().toLowerCase();
 }
 
-function getRoleInfoProfile(claim) {
+function getClaimedRole(playerOrClaim, game = getActiveGame()) {
+  const claim =
+    typeof playerOrClaim === "string"
+      ? playerOrClaim
+      : playerOrClaim?.claim;
   const normalizedClaim = normalizeRoleName(claim);
   if (!normalizedClaim) {
     return null;
   }
 
-  return (
-    roleInfoProfiles.find((profile) =>
-      profile.names.some((name) => normalizeRoleName(name) === normalizedClaim),
-    ) || null
-  );
+  const roleOptions = game ? getClaimRoleOptions(game) : state.roles;
+  const matchRole = (role) =>
+    [role.name, role.en, role.id].some(
+      (name) => normalizeRoleName(name) === normalizedClaim,
+    );
+
+  return roleOptions.find(matchRole) || state.roles.find(matchRole) || null;
 }
 
-function ensureRoleInfoMatchesClaim(player) {
-  const profile = getRoleInfoProfile(player.claim);
-  if (!profile) {
-    return createEmptyRoleInfo();
-  }
-
-  const current = cloneRoleInfo(player.roleInfo);
-  if (current.profile !== profile.key) {
-    return {
-      profile: profile.key,
-      entries: [],
-    };
-  }
-
-  return current;
+function getRoleAbilityData(playerOrClaim, game = getActiveGame()) {
+  return getClaimedRole(playerOrClaim, game)?.abilityData || null;
 }
 
-function getRoleInfoSummary(player) {
-  const roleInfo = ensureRoleInfoMatchesClaim(player);
-  if (!roleInfo.profile || !roleInfo.entries.length) {
-    return "--";
-  }
-
-  const items = roleInfo.entries
-    .map((entry) => {
-      if (roleInfo.profile === "yes-no-seq") {
-        return entry.value || "_";
-      }
-
-      if (roleInfo.profile === "seat-seq") {
-        return entry.seat || "_";
-      }
-
-      if (roleInfo.profile === "digit-seq") {
-        return entry.value ?? "_";
-      }
-
-      if (roleInfo.profile === "seat-pair-alignment") {
-        return `${entry.seat || "_"}${entry.first || "_"}${entry.second || "_"}`;
-      }
-
-      return "";
-    })
-    .filter(Boolean);
-
-  if (!items.length) {
-    return "--";
-  }
-
-  if (roleInfo.profile === "yes-no-seq") {
-    return items.join("");
-  }
-
-  return items.join("/");
+function getRoleInfoNode(abilityData, sectionKey) {
+  const node = abilityData?.interactionSchema?.[sectionKey];
+  return {
+    repeatMode: node?.repeatMode || "none",
+    defaultRows: clampNumber(Number(node?.defaultRows) || 0, 0, 99),
+    fields: Array.isArray(node?.fields) ? node.fields : [],
+  };
 }
 
-function renderRoleInfoInputs(player, game) {
-  const roleInfo = ensureRoleInfoMatchesClaim(player);
-  const profile = roleInfoProfiles.find((item) => item.key === roleInfo.profile);
-  if (!profile) {
-    return "";
+function isRoleInfoEntryFilled(entry) {
+  return Object.values(entry || {}).some((value) => String(value ?? "").trim());
+}
+
+function normalizeLegacyBooleanValue(value) {
+  const normalized = normalizeRoleName(value);
+  if (["yes", "true", "1", "是"].includes(normalized)) {
+    return "yes";
   }
 
-  const rows =
-    roleInfo.entries.length > 0
-      ? roleInfo.entries
-      : Array.from({ length: 3 }, () => ({}));
-  const maxSeat = clampNumber(Number(game?.playerCount) || 15, 1, 15);
-
-  if (profile.key === "yes-no-seq") {
-    return `
-      <section class="notes-detail-section">
-        <p class="eyebrow">${escapeHtml(profile.label)}</p>
-        <div class="notes-roleinfo-list">
-          ${rows
-            .map(
-              (entry, index) => `
-                <div class="notes-roleinfo-row">
-                  <span>第 ${index + 1} 次</span>
-                  <select data-roleinfo-index="${index}" data-roleinfo-field="value">
-                    <option value="">空</option>
-                    <option value="是"${entry.value === "是" ? " selected" : ""}>是</option>
-                    <option value="否"${entry.value === "否" ? " selected" : ""}>否</option>
-                  </select>
-                </div>
-              `,
-            )
-            .join("")}
-        </div>
-      </section>
-    `;
+  if (["no", "false", "0", "否"].includes(normalized)) {
+    return "no";
   }
 
-  if (profile.key === "seat-seq") {
-    return `
-      <section class="notes-detail-section">
-        <p class="eyebrow">${escapeHtml(profile.label)}</p>
-        <div class="notes-roleinfo-list">
-          ${rows
-            .map(
-              (entry, index) => `
-                <div class="notes-roleinfo-row">
-                  <span>第 ${index + 1} 夜</span>
-                  <input
-                    type="number"
-                    min="1"
-                    max="${maxSeat}"
-                    step="1"
-                    value="${escapeHtml(entry.seat || "")}"
-                    placeholder="空或号码"
-                    data-roleinfo-index="${index}"
-                    data-roleinfo-field="seat"
-                  />
-                </div>
-              `,
-            )
-            .join("")}
-        </div>
-      </section>
-    `;
+  return String(value || "").trim();
+}
+
+function migrateLegacyRoleInfo(roleInfo, role, abilityData) {
+  const legacyEntries = Array.isArray(roleInfo?.entries) ? roleInfo.entries : [];
+  const targetNode = getRoleInfoNode(abilityData, "target");
+  const resultNode = getRoleInfoNode(abilityData, "result");
+  const nextRoleInfo = createEmptyRoleInfo(role?.id || "");
+
+  if (roleInfo?.profile === "yes-no-seq") {
+    const resultKey = resultNode.fields[0]?.key || "answer";
+    nextRoleInfo.resultEntries = legacyEntries.map((entry) => ({
+      [resultKey]: normalizeLegacyBooleanValue(entry?.value),
+    }));
+    return nextRoleInfo;
   }
 
-  if (profile.key === "digit-seq") {
-    return `
-      <section class="notes-detail-section">
-        <p class="eyebrow">${escapeHtml(profile.label)}</p>
-        <div class="notes-roleinfo-list">
-          ${rows
-            .map(
-              (entry, index) => `
-                <div class="notes-roleinfo-row">
-                  <span>第 ${index + 1} 夜</span>
-                  <input
-                    type="number"
-                    min="0"
-                    max="9"
-                    step="1"
-                    value="${escapeHtml(entry.value ?? "")}"
-                    placeholder="空或数字"
-                    data-roleinfo-index="${index}"
-                    data-roleinfo-field="value"
-                  />
-                </div>
-              `,
-            )
-            .join("")}
-        </div>
-      </section>
-    `;
+  if (roleInfo?.profile === "seat-seq") {
+    const targetKey = targetNode.fields[0]?.key || "seat";
+    nextRoleInfo.targetEntries = legacyEntries.map((entry) => ({
+      [targetKey]: String(entry?.seat || "").trim(),
+    }));
+    return nextRoleInfo;
   }
 
-  if (profile.key === "seat-pair-alignment") {
-    return `
-      <section class="notes-detail-section">
-        <p class="eyebrow">${escapeHtml(profile.label)}</p>
-        <div class="notes-roleinfo-list">
-          ${rows
-            .map(
-              (entry, index) => `
-                <div class="notes-roleinfo-row notes-roleinfo-row--dreamer">
-                  <span>第 ${index + 1} 夜</span>
-                  <input
-                    type="number"
-                    min="1"
-                    max="${maxSeat}"
-                    step="1"
-                    value="${escapeHtml(entry.seat || "")}"
-                    placeholder="号码"
-                    data-roleinfo-index="${index}"
-                    data-roleinfo-field="seat"
-                  />
-                  <select data-roleinfo-index="${index}" data-roleinfo-field="first">
-                    <option value="">空</option>
-                    <option value="好"${entry.first === "好" ? " selected" : ""}>好</option>
-                    <option value="坏"${entry.first === "坏" ? " selected" : ""}>坏</option>
-                  </select>
-                  <select data-roleinfo-index="${index}" data-roleinfo-field="second">
-                    <option value="">空</option>
-                    <option value="好"${entry.second === "好" ? " selected" : ""}>好</option>
-                    <option value="坏"${entry.second === "坏" ? " selected" : ""}>坏</option>
-                  </select>
-                </div>
-              `,
-            )
-            .join("")}
-        </div>
-      </section>
-    `;
+  if (roleInfo?.profile === "digit-seq") {
+    const resultKey = resultNode.fields[0]?.key || "count";
+    nextRoleInfo.resultEntries = legacyEntries.map((entry) => ({
+      [resultKey]: entry?.value ?? "",
+    }));
+    return nextRoleInfo;
+  }
+
+  if (roleInfo?.profile === "seat-pair-alignment") {
+    const targetKey = targetNode.fields[0]?.key || "seat";
+    nextRoleInfo.targetEntries = legacyEntries.map((entry) => ({
+      [targetKey]: String(entry?.seat || "").trim(),
+    }));
+    nextRoleInfo.resultEntries = legacyEntries.map((entry) => ({
+      [resultNode.fields[0]?.key || "first"]: entry?.first || "",
+      [resultNode.fields[1]?.key || "second"]: entry?.second || "",
+    }));
+    return nextRoleInfo;
+  }
+
+  return nextRoleInfo;
+}
+
+function ensureRoleInfoMatchesClaim(player, game = getActiveGame()) {
+  const role = getClaimedRole(player, game);
+  const abilityData = role?.abilityData || null;
+  const current = cloneRoleInfo(player?.roleInfo);
+
+  if (!role || !abilityData?.abilityMeta?.recordable) {
+    return createEmptyRoleInfo(role?.id || "");
+  }
+
+  if (current.version === 2) {
+    if (current.roleId && current.roleId !== role.id) {
+      return createEmptyRoleInfo(role.id);
+    }
+
+    if (!current.profile && !current.entries.length) {
+      return {
+        version: 2,
+        roleId: role.id,
+        targetEntries: cloneRoleInfoEntries(current.targetEntries),
+        resultEntries: cloneRoleInfoEntries(current.resultEntries),
+      };
+    }
+  }
+
+  return migrateLegacyRoleInfo(current, role, abilityData);
+}
+
+function getRoleInfoEntries(roleInfo, sectionKey) {
+  if (sectionKey === "target") {
+    return cloneRoleInfoEntries(roleInfo?.targetEntries);
+  }
+
+  return cloneRoleInfoEntries(roleInfo?.resultEntries);
+}
+
+function getDisplayedRoleInfoEntries(roleInfo, node, sectionKey) {
+  const entries = getRoleInfoEntries(roleInfo, sectionKey);
+  if (node.repeatMode === "none" || !node.fields.length) {
+    return [];
+  }
+
+  const minimumRows =
+    node.repeatMode === "once"
+      ? Math.max(node.defaultRows || 0, 1)
+      : Math.max(node.defaultRows || 0, 1);
+  const totalRows = Math.max(entries.length, minimumRows);
+
+  return Array.from({ length: totalRows }, (_, index) => entries[index] || {});
+}
+
+function getAbilityTimingText(abilityMeta) {
+  if (abilityMeta?.eventTiming) {
+    return abilityEventTimingLabels[abilityMeta.eventTiming] || "";
+  }
+
+  if (abilityMeta?.phaseTiming) {
+    return abilityPhaseTimingLabels[abilityMeta.phaseTiming] || "";
   }
 
   return "";
 }
+
+function getAbilityMetaSummary(abilityData) {
+  const meta = abilityData?.abilityMeta || {};
+  return [
+    abilityPageTypeLabels[meta.pageType] || "",
+    getAbilityTimingText(meta),
+    abilityUsagePatternLabels[meta.usagePattern] || "",
+    abilityActivationModeLabels[meta.activationMode] || "",
+  ]
+    .filter(Boolean)
+    .join(" / ");
+}
+
+function getChoiceLabel(value) {
+  const normalized = normalizeRoleName(value);
+  if (abilityValueLabels[normalized]) {
+    return abilityValueLabels[normalized];
+  }
+
+  if (typeLabels[normalized]) {
+    return typeLabels[normalized];
+  }
+
+  return String(value || "");
+}
+
+function getCompactFieldValue(field, value) {
+  const text = String(value ?? "").trim();
+  if (!text) {
+    return "";
+  }
+
+  const normalized = normalizeRoleName(text);
+
+  if (field.type === "role") {
+    return getClaimAbbreviation(text);
+  }
+
+  if (field.type === "seat" || field.type === "player" || field.type === "number") {
+    return text;
+  }
+
+  if (field.type === "team" || field.type === "boolean" || field.type === "status") {
+    return getChoiceLabel(normalized);
+  }
+
+  if (field.type === "character_type") {
+    return typeLabels[normalized] || text;
+  }
+
+  if (field.type === "choice") {
+    return getChoiceLabel(normalized);
+  }
+
+  return text.replace(/\s+/g, "").slice(0, 8);
+}
+
+function formatRoleInfoEntrySummary(entry, fields) {
+  if (!fields.length || !isRoleInfoEntryFilled(entry)) {
+    return "";
+  }
+
+  return fields
+    .map((field) => getCompactFieldValue(field, entry?.[field.key]))
+    .filter(Boolean)
+    .join(",");
+}
+
+function getRoleInfoSummary(player, game = getActiveGame()) {
+  const abilityData = getRoleAbilityData(player, game);
+  const roleInfo = ensureRoleInfoMatchesClaim(player, game);
+  const targetNode = getRoleInfoNode(abilityData, "target");
+  const resultNode = getRoleInfoNode(abilityData, "result");
+  const targetEntries = getRoleInfoEntries(roleInfo, "target");
+  const resultEntries = getRoleInfoEntries(roleInfo, "result");
+  const rowCount = Math.max(targetEntries.length, resultEntries.length);
+
+  if (!abilityData?.abilityMeta?.recordable || !rowCount) {
+    return "--";
+  }
+
+  const rows = [];
+  for (let index = 0; index < rowCount; index += 1) {
+    const targetText = formatRoleInfoEntrySummary(targetEntries[index], targetNode.fields);
+    const resultText = formatRoleInfoEntrySummary(resultEntries[index], resultNode.fields);
+    if (!targetText && !resultText) {
+      continue;
+    }
+
+    rows.push([targetText, resultText].filter(Boolean).join(">"));
+  }
+
+  return rows.length ? rows.join("/") : "--";
+}
+
+function getRoleInfoSectionLabel(sectionKey, abilityData) {
+  const pageType = abilityData?.abilityMeta?.pageType;
+  if (sectionKey === "target") {
+    if (pageType === "event_triggered") {
+      return "触发对象";
+    }
+
+    return "目标";
+  }
+
+  if (pageType === "record_result_only") {
+    return "结果";
+  }
+
+  if (pageType === "event_triggered") {
+    return "触发结果";
+  }
+
+  return "记录";
+}
+
+function getRoleInfoFieldOptions(field, game) {
+  if (field.type === "role") {
+    return getClaimRoleOptions(game).map((role) => ({
+      value: role.name,
+      label: role.name,
+    }));
+  }
+
+  if (field.type === "team") {
+    return [
+      { value: "good", label: "好" },
+      { value: "evil", label: "坏" },
+    ];
+  }
+
+  if (field.type === "character_type") {
+    return roleTypeOrder
+      .filter((type) => type !== "fabled")
+      .map((type) => ({
+        value: type,
+        label: typeLabels[type] || type,
+      }));
+  }
+
+  if (field.type === "status") {
+    return [
+      { value: "sober", label: "清" },
+      { value: "poisoned", label: "毒" },
+      { value: "drunk", label: "醉" },
+    ];
+  }
+
+  if (field.type === "boolean" || field.type === "choice") {
+    const optionValues =
+      Array.isArray(field.options) && field.options.length
+        ? field.options
+        : field.type === "boolean"
+          ? ["yes", "no"]
+          : [];
+
+    return optionValues.map((value) => ({
+      value: String(value),
+      label: getChoiceLabel(value),
+    }));
+  }
+
+  return [];
+}
+
+function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, maxSeat) {
+  const currentValue = String(value ?? "");
+  const sharedData = `
+    data-roleinfo-section="${escapeHtml(sectionKey)}"
+    data-roleinfo-row="${rowIndex}"
+    data-roleinfo-field="${escapeHtml(field.key)}"
+  `;
+
+  if (["role", "team", "character_type", "status", "boolean", "choice"].includes(field.type)) {
+    const options = getRoleInfoFieldOptions(field, game);
+    const hasCurrentValue =
+      currentValue &&
+      options.some((option) => String(option.value) === currentValue);
+    const extraCurrentOption =
+      currentValue && !hasCurrentValue
+        ? `<option value="${escapeHtml(currentValue)}" selected>${escapeHtml(currentValue)}</option>`
+        : "";
+
+    return `
+      <label class="notes-roleinfo-field">
+        <span>${escapeHtml(field.label)}</span>
+        <select ${sharedData}>
+          <option value="">空</option>
+          ${extraCurrentOption}
+          ${options
+            .map(
+              (option) =>
+                `<option value="${escapeHtml(option.value)}"${String(option.value) === currentValue ? " selected" : ""}>${escapeHtml(option.label)}</option>`,
+            )
+            .join("")}
+        </select>
+      </label>
+    `;
+  }
+
+  const isNumericField = ["seat", "player", "number"].includes(field.type);
+  const inputType = isNumericField ? "number" : "text";
+  const minValue =
+    field.type === "seat" || field.type === "player"
+      ? 1
+      : field.min ?? "";
+  const maxValue =
+    field.type === "seat" || field.type === "player"
+      ? maxSeat
+      : field.max ?? "";
+
+  return `
+    <label class="notes-roleinfo-field">
+      <span>${escapeHtml(field.label)}</span>
+      <input
+        type="${inputType}"
+        ${minValue !== "" ? `min="${minValue}"` : ""}
+        ${maxValue !== "" ? `max="${maxValue}"` : ""}
+        ${isNumericField ? 'step="1"' : ""}
+        value="${escapeHtml(currentValue)}"
+        placeholder="${escapeHtml(field.placeholder || field.label)}"
+        ${sharedData}
+      />
+    </label>
+  `;
+}
+
+function renderRoleInfoInputs(player, game) {
+  if (!player.claim) {
+    return `
+      <section class="notes-detail-section notes-roleinfo-panel">
+        <p class="eyebrow">技能记录</p>
+        <p class="notes-inline-hint">先选择自称身份，这里再按角色类型展开录入项。</p>
+      </section>
+    `;
+  }
+
+  const role = getClaimedRole(player, game);
+  if (!role) {
+    return `
+      <section class="notes-detail-section notes-roleinfo-panel">
+        <p class="eyebrow">技能记录</p>
+        <p class="notes-inline-hint">当前身份还没有匹配到角色数据，先用额外信息或详细记录补充。</p>
+      </section>
+    `;
+  }
+
+  const abilityData = role.abilityData || null;
+  const roleInfo = ensureRoleInfoMatchesClaim(player, game);
+  const targetNode = getRoleInfoNode(abilityData, "target");
+  const resultNode = getRoleInfoNode(abilityData, "result");
+  const maxSeat = clampNumber(Number(game?.playerCount) || 15, 1, 15);
+  const renderSection = (sectionKey, node) => {
+    if (node.repeatMode === "none" || !node.fields.length) {
+      return "";
+    }
+
+    const rows = getDisplayedRoleInfoEntries(roleInfo, node, sectionKey);
+    const minimumRows =
+      node.repeatMode === "once"
+        ? Math.max(node.defaultRows || 0, 1)
+        : Math.max(node.defaultRows || 0, 1);
+
+    return `
+      <section class="notes-roleinfo-section">
+        <div class="notes-roleinfo-section-header">
+          <strong>${escapeHtml(getRoleInfoSectionLabel(sectionKey, abilityData))}</strong>
+          <small>${escapeHtml(node.repeatMode === "once" ? "单条" : "多条")}</small>
+        </div>
+        <div class="notes-roleinfo-list">
+          ${rows
+            .map(
+              (entry, index) => `
+                <div class="notes-roleinfo-row">
+                  <span class="notes-roleinfo-index">${index + 1}</span>
+                  <div class="notes-roleinfo-fields notes-roleinfo-fields--${Math.min(
+                    Math.max(node.fields.length, 1),
+                    3,
+                  )}">
+                    ${node.fields
+                      .map((field) =>
+                        renderRoleInfoFieldControl(
+                          sectionKey,
+                          index,
+                          field,
+                          entry?.[field.key],
+                          game,
+                          maxSeat,
+                        ),
+                      )
+                      .join("")}
+                  </div>
+                </div>
+              `,
+            )
+            .join("")}
+        </div>
+        ${
+          node.repeatMode === "sequence" || node.repeatMode === "variable"
+            ? `
+              <div class="notes-roleinfo-actions">
+                <button
+                  type="button"
+                  class="note-icon-button"
+                  data-notes-action="add-roleinfo-row"
+                  data-player-id="${escapeHtml(player.id)}"
+                  data-section="${escapeHtml(sectionKey)}"
+                >+ 一条</button>
+                <button
+                  type="button"
+                  class="note-icon-button"
+                  data-notes-action="remove-roleinfo-row"
+                  data-player-id="${escapeHtml(player.id)}"
+                  data-section="${escapeHtml(sectionKey)}"
+                  ${rows.length <= minimumRows ? "disabled" : ""}
+                >- 末条</button>
+              </div>
+            `
+            : ""
+        }
+      </section>
+    `;
+  };
+
+  const targetSection = renderSection("target", targetNode);
+  const resultSection = renderSection("result", resultNode);
+
+  return `
+    <section class="notes-detail-section notes-roleinfo-panel">
+      <div class="notes-roleinfo-header">
+        <div>
+          <p class="eyebrow">技能记录</p>
+          <h3>${escapeHtml(role.name)}</h3>
+        </div>
+        <div class="notes-roleinfo-meta">
+          <span class="notes-roleinfo-tag">${escapeHtml(
+            abilityPageTypeLabels[abilityData?.abilityMeta?.pageType] || "技能",
+          )}</span>
+          ${
+            getAbilityTimingText(abilityData?.abilityMeta)
+              ? `<span class="notes-roleinfo-tag">${escapeHtml(
+                  getAbilityTimingText(abilityData?.abilityMeta),
+                )}</span>`
+              : ""
+          }
+          ${
+            abilityUsagePatternLabels[abilityData?.abilityMeta?.usagePattern]
+              ? `<span class="notes-roleinfo-tag">${escapeHtml(
+                  abilityUsagePatternLabels[abilityData?.abilityMeta?.usagePattern],
+                )}</span>`
+              : ""
+          }
+        </div>
+      </div>
+      <p class="notes-inline-hint">${escapeHtml(getAbilityMetaSummary(abilityData))}</p>
+      ${
+        targetSection || resultSection
+          ? `${targetSection}${resultSection}`
+          : `
+            <div class="notes-roleinfo-empty">
+              这个身份目前更偏规则效果，先用“额外信息”或“详细记录”补充关键点。
+            </div>
+          `
+      }
+    </section>
+  `;
+}
+
 
 function getStandardSetup(playerCount) {
   const setups = {
@@ -645,7 +999,7 @@ function renderOverviewRows(game) {
     .map((player) => {
       const isSelf = player.seat === game.selfSeat;
       const claimText = getClaimAbbreviation(player.claim);
-      const summaryText = getRoleInfoSummary(player);
+      const summaryText = getRoleInfoSummary(player, game);
       const judgementText = getJudgementSummary(player);
       const supplementText = getOverviewSecondaryText(player);
 
