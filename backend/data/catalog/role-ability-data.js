@@ -542,6 +542,16 @@ const ROLE_ABILITY_OVERRIDES = {
     },
     onceNode([numberField("distance", "距离", 0, 10)]),
   ),
+  noble: recordResultOnly(
+    ["首夜", "信息型", "三选一"],
+    {
+      phaseTiming: "first_night",
+      usagePattern: "once",
+      activationMode: "passive",
+      drivenBy: "storyteller",
+    },
+    onceNode([seatField("seat1", "号码1"), seatField("seat2", "号码2"), seatField("seat3", "号码3")]),
+  ),
   balloonist: recordResultOnly(
     ["每晚", "信息型", "角色类型"],
     {
@@ -665,6 +675,19 @@ const ROLE_ABILITY_OVERRIDES = {
     },
     onceNode([textField("question", "问题"), booleanField("answer", "回答")]),
   ),
+  engineer: abilityData(
+    ["一次性", "主动选角色", "配置变更"],
+    {
+      pageType: "pick_and_record",
+      phaseTiming: "night",
+      usagePattern: "once_per_game",
+      activationMode: "active",
+      drivenBy: "player",
+      recordable: true,
+    },
+    variableNode([roleField("role", "新邪恶身份")], 3),
+    onceNode([choiceField("change_type", "变更类型", ["demon", "minions"])]),
+  ),
   fisherman: recordResultOnly(
     ["白天", "一次性", "建议型"],
     {
@@ -707,6 +730,25 @@ const ROLE_ABILITY_OVERRIDES = {
     noneNode(),
     onceNode([seatField("seat1", "号码1"), seatField("seat2", "号码2")]),
   ),
+  huntsman: pickAndRecord(
+    ["一次性", "主动选玩家", "转化型"],
+    {
+      phaseTiming: "night",
+      usagePattern: "once_per_game",
+      activationMode: "active",
+      drivenBy: "player",
+    },
+    onceNode([seatField("seat", "目标号码")]),
+    onceNode([booleanField("found_damsel", "命中落难少女")]),
+  ),
+  atheist: ruleModifier(["被动", "特殊胜利", "规则修饰"], {
+    phaseTiming: "setup",
+    drivenBy: "storyteller",
+  }),
+  "poppy-grower": ruleModifier(["被动", "邪恶不互认", "规则修饰"], {
+    phaseTiming: "setup",
+    drivenBy: "system",
+  }),
   mutant: ruleModifier(["被动", "疯狂机制", "外来者"]),
   puzzlemaster: abilityData(
     ["一次性", "猜测型", "特殊机制"],
@@ -732,6 +774,17 @@ const ROLE_ABILITY_OVERRIDES = {
     noneNode(),
     onceNode([seatField("seat", "醉酒玩家")]),
   ),
+  golem: pickAndRecord(
+    ["白天", "一次性", "提名触发"],
+    {
+      phaseTiming: "day",
+      usagePattern: "once_per_game",
+      activationMode: "active",
+      drivenBy: "player",
+    },
+    onceNode([seatField("seat", "提名号码")]),
+    onceNode([booleanField("hit_demon", "命中恶魔")]),
+  ),
   barber: eventTriggered(
     ["死亡触发", "换身份", "外来者"],
     {
@@ -743,6 +796,7 @@ const ROLE_ABILITY_OVERRIDES = {
     noneNode(),
     onceNode([seatField("seat1", "号码1"), seatField("seat2", "号码2")]),
   ),
+  damsel: ruleModifier(["被动", "公开猜测", "外来者"]),
   klutz: eventTriggered(
     ["死亡触发", "主动选玩家", "外来者"],
     {
@@ -835,6 +889,23 @@ const ROLE_ABILITY_OVERRIDES = {
       drivenBy: "player",
     },
     sequenceNode([seatField()]),
+  ),
+  "al-hadikhia": abilityData(
+    ["每晚", "主动选玩家", "多杀型"],
+    {
+      pageType: "pick_and_record",
+      phaseTiming: "each_night_star",
+      usagePattern: "once_per_night",
+      activationMode: "active",
+      drivenBy: "player",
+      recordable: true,
+    },
+    sequenceNode([seatField("seat1", "号码1"), seatField("seat2", "号码2"), seatField("seat3", "号码3")]),
+    sequenceNode([
+      choiceField("seat1_choice", "1号选择", ["live", "die"]),
+      choiceField("seat2_choice", "2号选择", ["live", "die"]),
+      choiceField("seat3_choice", "3号选择", ["live", "die"]),
+    ]),
   ),
   "no-dashii": pickAndRecord(
     ["每晚", "主动选玩家", "击杀型"],
@@ -934,6 +1005,19 @@ const ROLE_ABILITY_OVERRIDES = {
       drivenBy: "storyteller",
     },
     onceNode([textField("secret_word", "秘密词语")]),
+  ),
+  psychopath: abilityData(
+    ["白天", "公开击杀", "猜拳"],
+    {
+      pageType: "pick_and_record",
+      phaseTiming: "special",
+      usagePattern: "variable",
+      activationMode: "active",
+      drivenBy: "mixed",
+      recordable: true,
+    },
+    variableNode([seatField("seat", "白天击杀号码", false)], 3),
+    variableNode([textField("note", "猜拳/处决记录", false)], 3),
   ),
   kazali: abilityData(
     ["开局", "每晚", "特殊机制", "自定义"],

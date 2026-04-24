@@ -2,6 +2,7 @@ const { ROLE_TYPES } = require("./catalog/constants");
 const { getScriptNames, uniqueValues, withScript } = require("./catalog/builders");
 const {
   ADDITIONAL_SCRIPTS,
+  MIDNIGHT_OASIS_ROLE_IDS,
   ONE_IN_ONE_OUT_ROLE_IDS,
   WA_FU_LEI_MING_ROLE_IDS,
 } = require("./catalog/scripts");
@@ -156,6 +157,7 @@ function augmentEncyclopedia(data) {
   });
 
   [
+    ["midnight-oasis", MIDNIGHT_OASIS_ROLE_IDS],
     ["one-in-one-out", ONE_IN_ONE_OUT_ROLE_IDS],
     ["wa-fu-lei-ming", WA_FU_LEI_MING_ROLE_IDS],
   ].forEach(([scriptId, roleIds]) => {

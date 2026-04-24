@@ -4,6 +4,7 @@ const SCRIPT_NAMES = {
   "sects-and-violets": "梦殒春宵",
   "one-in-one-out": "抢凳游戏",
   "wa-fu-lei-ming": "瓦釜雷鸣",
+  "midnight-oasis": "夜半狂欢",
 };
 
 const ROLE_TYPES = {
