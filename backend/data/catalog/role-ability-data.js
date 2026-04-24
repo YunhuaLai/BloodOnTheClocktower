@@ -1042,6 +1042,79 @@ const ROLE_ABILITY_OVERRIDES = {
     },
     sequenceNode([roleField("role", "点名身份")]),
   ),
+
+  pixie: recordResultOnly(
+    ["首夜", "信息型", "疯狂机制", "能力继承"],
+    {
+      phaseTiming: "first_night",
+      usagePattern: "once",
+      activationMode: "passive",
+      drivenBy: "storyteller",
+    },
+    onceNode([roleField("role", "得知在场镇民")]),
+  ),
+  snitch: ruleModifier(["开局", "外来者", "伪装信息"], {
+    phaseTiming: "setup",
+    drivenBy: "storyteller",
+  }),
+  legion: abilityData(
+    ["每晚", "特殊恶魔", "投票规则"],
+    {
+      pageType: "pick_and_record",
+      phaseTiming: "special",
+      usagePattern: "variable",
+      activationMode: "active",
+      drivenBy: "mixed",
+      recordable: true,
+    },
+    variableNode([seatField("death_seat", "死亡号码", false)], 3),
+    variableNode([textField("vote_note", "投票/军团规则记录", false)], 3),
+  ),
+  shugenja: recordResultOnly(
+    ["首夜", "信息型", "方向"],
+    {
+      phaseTiming: "first_night",
+      usagePattern: "once",
+      activationMode: "passive",
+      drivenBy: "storyteller",
+    },
+    onceNode([choiceField("direction", "最近邪恶方向", ["clockwise", "counterclockwise", "storyteller_choice"])]),
+  ),
+  preacher: pickAndRecord(
+    ["每晚", "主动选玩家", "爪牙失能"],
+    {
+      phaseTiming: "each_night",
+      usagePattern: "once_per_night",
+      activationMode: "active",
+      drivenBy: "player",
+    },
+    sequenceNode([seatField()]),
+    sequenceNode([booleanField("hit_minion", "是否命中爪牙")]),
+  ),
+  "plague-doctor": eventTriggered(
+    ["死亡触发", "爪牙能力", "说书人"],
+    {
+      eventTiming: "on_death",
+      usagePattern: "once",
+      activationMode: "conditional",
+      drivenBy: "storyteller",
+    },
+    noneNode(),
+    onceNode([roleField("minion_role", "说书人获得的爪牙能力")]),
+  ),
+  "lil-monsta": abilityData(
+    ["每晚", "爪牙协作", "特殊恶魔"],
+    {
+      pageType: "pick_and_record",
+      phaseTiming: "each_night_star",
+      usagePattern: "once_per_night",
+      activationMode: "active",
+      drivenBy: "mixed",
+      recordable: true,
+    },
+    sequenceNode([seatField("babysitter", "照看者/恶魔号码")]),
+    sequenceNode([seatField("death_seat", "死亡号码", false)]),
+  ),
   "spirit-of-ivory": ruleModifier(["被动", "人数限制", "传说角色"]),
 };
 
