@@ -3,6 +3,7 @@ const SCRIPT_NAMES = {
   "bad-moon-rising": "黯月初升",
   "sects-and-violets": "梦殒春宵",
   "one-in-one-out": "抢凳游戏",
+  "wa-fu-lei-ming": "瓦釜雷鸣",
 };
 
 const ROLE_TYPES = {

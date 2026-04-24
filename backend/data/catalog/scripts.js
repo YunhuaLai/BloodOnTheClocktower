@@ -34,6 +34,41 @@ const ADDITIONAL_SCRIPTS = [
       ],
     },
   },
+  {
+    id: "wa-fu-lei-ming",
+    name: "瓦釜雷鸣",
+    en: "Wa Fu Lei Ming",
+    level: "民间进阶自定义剧本",
+    mood: "强信息、外来者压力、邪恶混淆",
+    text: "一套融合三大基础板与实验角色的民间剧本，兼顾持续验人、外来者扰动与邪恶方高操作空间。",
+    image: "/assets/medieval-town-night.jpg",
+    tags: ["民间剧本", "实验角色", "高信息量"],
+    sourceUrl: "https://www.gamersky.com/handbook/202208/1505231.shtml",
+    detail: {
+      overview:
+        "瓦釜雷鸣是一套以强信息镇民为骨架、用外来者和爪牙制造高噪音的民间剧本。热气球、舞蛇人、筑梦师、博学者等角色能不断给出线索，而疯子、酒鬼、寡妇、洗脑师与麻脸巫婆会让这些线索始终带着不确定性。",
+      bestFor: [
+        "已经熟悉三大基础板，想体验混合实验角色的玩家。",
+        "喜欢持续信息位，但也接受中毒、醉酒、疯狂和伪装压力的牌桌。",
+        "说书人想练习热气球、寡妇、麻脸巫婆这类需要精细记录的角色组合。",
+      ],
+      playStyle: [
+        "善良方通常会围绕热气球、筑梦师、占星师、调查员等信息位建立交叉校验链。",
+        "外来者数量与身份宣称很关键，教父、酒鬼、疯子、心上人都会扰乱配置判断。",
+        "邪恶方既能靠寡妇开局拿全图，也能用洗脑师、麻脸巫婆和方古制造多层伪装。",
+      ],
+      storytellerNotes: [
+        "开局前最好提醒玩家：这不是纯基础板，信息强度高，但污染源同样很多。",
+        "热气球与寡妇都需要额外记录，尤其要明确谁被长期中毒、谁是不同类型信息链上的下一环。",
+        "如果出现麻脸巫婆改角、舞蛇人换恶魔、方古跳转等变化，务必及时更新记录。",
+      ],
+      commonPitfalls: [
+        "把所有异常都归咎于酒鬼或寡妇，忽略洗脑师、疯子、方古和麻脸巫婆也会改写局面。",
+        "只看单个强信息位，不把热气球的类型链与玩家宣称、外来者数量一起读。",
+        "没有持续追踪谁中毒、谁换角、谁可能转阵营，导致后续复盘断线。",
+      ],
+    },
+  },
 ];
 
 const ONE_IN_ONE_OUT_ROLE_IDS = [
@@ -65,7 +100,36 @@ const ONE_IN_ONE_OUT_ROLE_IDS = [
   "spirit-of-ivory",
 ];
 
+const WA_FU_LEI_MING_ROLE_IDS = [
+  "chef",
+  "investigator",
+  "grandmother",
+  "gambler",
+  "balloonist",
+  "snake-charmer",
+  "dreamer",
+  "fortune-teller",
+  "savant",
+  "philosopher",
+  "cannibal",
+  "amnesiac",
+  "ravenkeeper",
+  "lunatic",
+  "drunk",
+  "recluse",
+  "sweetheart",
+  "mutant",
+  "godfather",
+  "cerenovus",
+  "pit-hag",
+  "widow",
+  "imp",
+  "vigormortis",
+  "fang-gu",
+];
+
 module.exports = {
   ADDITIONAL_SCRIPTS,
   ONE_IN_ONE_OUT_ROLE_IDS,
+  WA_FU_LEI_MING_ROLE_IDS,
 };

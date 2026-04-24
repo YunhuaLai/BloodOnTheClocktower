@@ -542,6 +542,16 @@ const ROLE_ABILITY_OVERRIDES = {
     },
     onceNode([numberField("distance", "距离", 0, 10)]),
   ),
+  balloonist: recordResultOnly(
+    ["每晚", "信息型", "角色类型"],
+    {
+      phaseTiming: "each_night",
+      usagePattern: "once_per_night",
+      activationMode: "passive",
+      drivenBy: "storyteller",
+    },
+    sequenceNode([seatField("seat", "得知玩家")]),
+  ),
   "village-idiot": pickAndRecord(
     ["每晚", "主动选玩家", "信息型"],
     {
@@ -792,6 +802,19 @@ const ROLE_ABILITY_OVERRIDES = {
       drivenBy: "player",
     },
     sequenceNode([seatField(), roleField("role", "新身份")]),
+  ),
+  widow: abilityData(
+    ["首夜", "魔典", "中毒型"],
+    {
+      pageType: "pick_and_record",
+      phaseTiming: "first_night",
+      usagePattern: "once",
+      activationMode: "active",
+      drivenBy: "mixed",
+      recordable: true,
+    },
+    onceNode([seatField("seat", "中毒号码")]),
+    onceNode([seatField("widow_call_seat", "得知寡妇在场的善良玩家", false)]),
   ),
   "fang-gu": pickAndRecord(
     ["每晚", "主动选玩家", "击杀型"],

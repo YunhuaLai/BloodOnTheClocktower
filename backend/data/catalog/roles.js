@@ -105,6 +105,7 @@ const ROLE_ABILITIES = {
     "每晚*可以选择一名玩家死亡；如果你上一晚没有选择玩家，今晚选择三名玩家死亡。",
 
   clockmaker: "首夜得知恶魔与最近爪牙之间相隔多少步。",
+  balloonist: "每晚得知一名与上一晚不同角色类型的玩家。[+0 或 +1 外来者]",
   "village-idiot":
     "每晚选择一名玩家，得知其阵营。场上可能额外加入0到2名村夫，其中一名额外村夫会醉酒。",
   dreamer:
@@ -150,6 +151,8 @@ const ROLE_ABILITIES = {
     "每晚选择一名玩家和一个善良角色；明天该玩家若不疯狂地表现为该角色，可能被处决。",
   "pit-hag":
     "每晚选择一名玩家和一个不在场角色；该玩家变成该角色。如果因此创造恶魔，今晚的死亡由说书人决定。",
+  widow:
+    "首夜查看魔典并选择一名玩家：其被中毒。一名善良玩家会得知寡妇在场。",
   "fang-gu":
     "每晚*选择一名玩家死亡。你第一次选择外来者时，该外来者不死，变成邪恶方古；你死亡。场上增加一个外来者。",
   vigormortis:
@@ -211,6 +214,7 @@ const ADDITIONAL_ROLES = [
   role("po", "珀", "demon", "bad-moon-rising", "可以蓄力跳过击杀，随后在下一晚造成大量死亡。", "蓄力 多杀 恶魔"),
 
   role("clockmaker", "钟表匠", "townsfolk", "sects-and-violets", "开局得知恶魔与最近爪牙之间的距离。", "开局 距离 邪恶"),
+  role("balloonist", "热气球", "townsfolk", "wa-fu-lei-ming", "每晚得知一名不同角色类型的玩家，并可能让场上额外增加一名外来者，是强力但需要持续校验的长期信息位。", "每晚 类型 外来者 信息"),
   role("dreamer", "筑梦师", "townsfolk", "sects-and-violets", "每晚查看一名玩家，得到一个善良身份和一个邪恶身份作为候选。", "每晚 身份 二选一"),
   role("snake-charmer", "舞蛇人", "townsfolk", "sects-and-violets", "每晚选择一名玩家；若选中恶魔，可能与恶魔交换身份和阵营。", "交换 恶魔 夜晚"),
   role("mathematician", "数学家", "townsfolk", "sects-and-violets", "每晚得知有多少角色能力未正常生效。", "每晚 数字 异常"),
@@ -231,6 +235,7 @@ const ADDITIONAL_ROLES = [
   role("witch", "女巫", "minion", "sects-and-violets", "每晚诅咒一名玩家；若其白天提名，可能死亡。", "诅咒 提名 死亡"),
   role("cerenovus", "洗脑师", "minion", "sects-and-violets", "让玩家疯狂地宣称自己是某个身份，否则可能被处决。", "疯狂 宣称 爪牙"),
   role("pit-hag", "麻脸巫婆", "minion", "sects-and-violets", "每晚改变一名玩家的角色，能重塑整局结构。", "换角色 变形 爪牙"),
+  role("widow", "寡妇", "minion", "wa-fu-lei-ming", "首夜查看魔典并长期毒住一名玩家，同时会有一名善良玩家得知寡妇在场，是兼具全图信息与持续压制的信息型爪牙。", "首夜 魔典 中毒 爪牙"),
   role("fang-gu", "方古", "demon", "sects-and-violets", "攻击外来者时可能转移恶魔身份并改变对方阵营。", "转移 外来者 恶魔"),
   role("vigormortis", "亡骨魔", "demon", "sects-and-violets", "杀死爪牙后可让其能力继续运作，但会污染附近镇民。", "爪牙 中毒 恶魔"),
   role("no-dashii", "诺-达鲺", "demon", "sects-and-violets", "让相邻镇民中毒，制造稳定且隐蔽的信息污染。", "中毒 邻座 恶魔"),
