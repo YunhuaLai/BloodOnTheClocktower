@@ -284,10 +284,70 @@
   gap: 8px;
 }
 
+.notes-player-detail-header {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+}
+
+.notes-player-title-block {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
 .notes-panel-header h2,
 .notes-player-detail-header h2 {
   margin: 0;
   font-size: 28px;
+}
+
+.notes-seat-editor {
+  width: fit-content;
+  min-width: 0;
+}
+
+.notes-seat-editor-summary {
+  display: grid;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.notes-seat-editor-summary::-webkit-details-marker {
+  display: none;
+}
+
+.notes-seat-editor-title {
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.notes-seat-editor-summary small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.notes-seat-editor[open] .notes-seat-editor-summary small {
+  color: var(--red);
+}
+
+.notes-seat-editor-summary:hover .notes-seat-editor-title {
+  color: var(--red);
+}
+
+.notes-seat-editor-summary:focus-visible {
+  outline: 3px solid rgba(178, 31, 45, 0.24);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.notes-seat-editor-field {
+  max-width: 320px;
+  margin-top: 10px;
 }
 
 .notes-overview-list,
