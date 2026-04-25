@@ -68,8 +68,9 @@ function updatePlayerDraftField(playerId, field, value) {
   }
 
   if (field === "condition") {
-    draft.condition = noteConditionOptions.some((option) => option.value === value)
-      ? value
+    const normalizedValue = value === "drunk" ? "poisoned" : value;
+    draft.condition = noteConditionOptions.some((option) => option.value === normalizedValue)
+      ? normalizedValue
       : "unknown";
   } else if (field === "status") {
     draft.status = noteStatusOptions.some((option) => option.value === value)
@@ -269,6 +270,40 @@ function updateInferenceField(field, value) {
 
 function updatePlayerField(playerId, field, value) {
   return updatePlayerDraftField(playerId, field, value);
+}
+
+function getPlayerFieldCycleValues(field) {
+  if (field === "status") {
+    return ["alive", "night-dead", "executed", "unclear"];
+  }
+
+  if (field === "alignment") {
+    return ["unknown", "good", "evil", "suspect"];
+  }
+
+  if (field === "condition") {
+    return ["unknown", "sober", "poisoned"];
+  }
+
+  return [];
+}
+
+function cyclePlayerFieldValue(playerId, field) {
+  const draft = ensurePlayerDraftForId(playerId);
+  if (!draft) {
+    return false;
+  }
+
+  const values = getPlayerFieldCycleValues(field);
+  if (!values.length) {
+    return false;
+  }
+
+  const currentValue =
+    field === "condition" && draft[field] === "drunk" ? "poisoned" : draft[field];
+  const currentIndex = values.indexOf(currentValue);
+  const nextValue = values[(currentIndex + 1 + values.length) % values.length];
+  return updatePlayerDraftField(playerId, field, nextValue);
 }
 
 function handleNotesFieldChange(target, refreshInterface = false) {
@@ -556,6 +591,12 @@ function handleNotesAction(button) {
   if (action === "open-player" || action === "select-player") {
     notes.ui.selectedPlayerId = button.dataset.playerId || "";
     notes.ui.activeTab = "players";
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "cycle-player-field") {
+    cyclePlayerFieldValue(button.dataset.playerId, button.dataset.field);
     renderNotesPage();
     return;
   }

@@ -160,10 +160,12 @@ function normalizePlayer(player, index) {
   const status = noteStatusOptions.some((option) => option.value === rawStatus)
     ? rawStatus
     : "alive";
+  const normalizedCondition =
+    player?.condition === "drunk" ? "poisoned" : player?.condition;
   const condition = noteConditionOptions.some(
-    (option) => option.value === player?.condition,
+    (option) => option.value === normalizedCondition,
   )
-    ? player.condition
+    ? normalizedCondition
     : "unknown";
   const alignment = noteAlignmentOptions.some(
     (option) => option.value === player?.alignment,

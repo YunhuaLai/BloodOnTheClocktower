@@ -964,3 +964,105 @@
     max-width: 860px;
   }
 }
+
+.notes-seat-tabs {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  padding-bottom: 0;
+  overflow: visible;
+}
+
+.notes-seat-tab {
+  min-height: 44px;
+  padding: 6px 4px;
+  place-items: center;
+}
+
+.notes-seat-tab span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.notes-seat-tab small {
+  display: none;
+}
+
+.notes-player-cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.notes-cycle-button {
+  display: grid;
+  gap: 4px;
+  align-items: center;
+  justify-items: center;
+  min-height: 56px;
+  padding: 8px 6px;
+  color: var(--ink);
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.notes-cycle-button span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.notes-cycle-button strong {
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.notes-cycle-button--status-alive {
+  border-color: var(--teal);
+  background: rgba(33, 115, 102, 0.08);
+}
+
+.notes-cycle-button--status-night-dead,
+.notes-cycle-button--status-unclear,
+.notes-cycle-button--alignment-unknown,
+.notes-cycle-button--condition-unknown {
+  border-color: var(--outsider);
+  background: rgba(99, 103, 112, 0.08);
+}
+
+.notes-cycle-button--status-executed,
+.notes-cycle-button--alignment-evil {
+  border-color: var(--red);
+  background: rgba(178, 31, 45, 0.08);
+}
+
+.notes-cycle-button--alignment-good {
+  border-color: var(--blue);
+  background: rgba(35, 104, 162, 0.08);
+}
+
+.notes-cycle-button--alignment-suspect,
+.notes-cycle-button--condition-sober {
+  border-color: var(--gold);
+  background: rgba(221, 176, 51, 0.12);
+}
+
+.notes-cycle-button--condition-poisoned {
+  border-color: var(--green);
+  background: rgba(48, 112, 88, 0.12);
+}
+
+@media (min-width: 721px) {
+  .notes-seat-tabs {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .notes-seat-tab {
+    min-height: 48px;
+    padding: 8px 6px;
+  }
+}
