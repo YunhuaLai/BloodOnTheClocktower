@@ -1,5 +1,12 @@
-const { ROLE_TYPES } = require("./catalog/constants");
 const { TERM_REPLACEMENTS, TERMS } = require("./catalog/terms");
+
+const ROLE_TYPES = {
+  townsfolk: "镇民",
+  outsider: "外来者",
+  minion: "爪牙",
+  demon: "恶魔",
+  fabled: "传奇角色",
+};
 
 function uniqueValues(values) {
   return Array.from(new Set(values.filter(Boolean)));

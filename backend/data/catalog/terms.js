@@ -1,4 +1,32 @@
-const { term } = require("./builders");
+function term(
+  id,
+  name,
+  aliases,
+  category,
+  summary,
+  howItWorks,
+  commonMistakes,
+  relatedTermIds,
+  relatedRoleIds,
+) {
+  return {
+    id,
+    name,
+    aliases,
+    category,
+    summary,
+    detail: {
+      overview: summary,
+      howItWorks,
+      commonMistakes,
+      examples: relatedRoleIds.length
+        ? ["可以在关联角色的详情页里看到这个关键词如何影响实际局面。"]
+        : ["这是通用规则词，适合先理解概念，再结合具体角色查看。"],
+    },
+    relatedTermIds,
+    relatedRoleIds,
+  };
+}
 
 const TERM_REPLACEMENTS = [
   ["市长", "镇长"],

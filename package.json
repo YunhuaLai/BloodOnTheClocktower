@@ -6,7 +6,6 @@
   "scripts": {
     "start": "node backend/server.js",
     "check": "node scripts/check-js.js",
-    "migrate:data": "node scripts/migrate-encyclopedia-to-yaml.js",
     "rebuild:library": "node scripts/rebuild-library-from-catalog.js"
   },
   "dependencies": {
