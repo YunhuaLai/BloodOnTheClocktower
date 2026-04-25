@@ -1,0 +1,16 @@
+id: r052
+name: 舞蛇人
+type: townsfolk
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s004
+  - s005
+  - s006
+scriptNames:
+  - 梦殒春宵
+summary: 每晚选择一名玩家；若选中恶魔，可能与恶魔交换身份和阵营。
+keywords: 交换 恶魔 夜晚
+englishName: snake-charmer
+ability: 每晚选择一名存活玩家。如果选中恶魔，你和恶魔交换角色与阵营，然后你中毒。

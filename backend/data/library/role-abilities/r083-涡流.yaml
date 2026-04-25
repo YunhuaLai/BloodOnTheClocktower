@@ -1,0 +1,25 @@
+id: r083
+englishName: vortox
+name: 涡流
+schemaVersion: 1
+tags:
+  - 被动
+  - 错误信息
+  - 规则修饰
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

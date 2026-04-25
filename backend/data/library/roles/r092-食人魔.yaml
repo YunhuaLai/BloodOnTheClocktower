@@ -1,0 +1,13 @@
+id: r092
+name: 食人魔
+type: outsider
+script: 抢凳游戏
+scriptId: s004
+scriptIds:
+  - s004
+scriptNames:
+  - 抢凳游戏
+summary: 首夜绑定一名玩家并变成其阵营，为阵营数量和信任关系制造压力。
+keywords: 阵营转变 外来者 选择
+englishName: ogre
+ability: 首夜选择除自己以外的一名玩家；你变成该玩家的阵营，即使你醉酒或中毒也会如此，但你不知道该阵营。

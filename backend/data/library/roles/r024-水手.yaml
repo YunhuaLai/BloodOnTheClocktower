@@ -1,0 +1,13 @@
+id: r024
+name: 水手
+type: townsfolk
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+scriptNames:
+  - 黯月初升
+summary: 夜晚与一名玩家饮酒，可能让一方醉酒；自身很难死亡。
+keywords: 醉酒 生存 夜晚
+englishName: sailor
+ability: 每晚选择一名存活玩家；你或该玩家醉酒直到明天黄昏。你不能死亡。

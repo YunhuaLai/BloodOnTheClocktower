@@ -1,0 +1,15 @@
+id: r051
+name: 筑梦师
+type: townsfolk
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s005
+  - s009
+scriptNames:
+  - 梦殒春宵
+summary: 每晚查看一名玩家，得到一个善良身份和一个邪恶身份作为候选。
+keywords: 每晚 身份 二选一
+englishName: dreamer
+ability: 每晚选择一名玩家，得知一个善良角色和一个邪恶角色；其中一个是该玩家的真实角色。

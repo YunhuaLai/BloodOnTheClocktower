@@ -1,0 +1,14 @@
+id: r064
+name: 巡山人
+type: townsfolk
+script: 夜半狂欢
+scriptId: s006
+scriptIds:
+  - s006
+  - s008
+scriptNames:
+  - 夜半狂欢
+summary: 夜晚一次性寻找落难少女，命中后可把她变成不在场镇民，是对抗落难少女输法的关键功能位。
+keywords: 落难少女 一次性 变镇民 夜晚
+englishName: huntsman
+ability: 每局一次，在夜晚选择一名存活玩家；若其是落难少女，她会变成一个不在场的镇民。[+落难少女]

@@ -1,0 +1,25 @@
+id: r035
+englishName: fool
+name: 弄臣
+schemaVersion: 1
+tags:
+  - 被动
+  - 免死
+  - 一次性
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

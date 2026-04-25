@@ -4,7 +4,9 @@ function normalizeMatchText(value) {
 
 function getGameScript(game) {
   if (game?.scriptId) {
-    const exactById = state.scripts.find((script) => script.id === game.scriptId);
+    const exactById = state.scripts.find(
+      (script) => script.id === game.scriptId || script.englishName === game.scriptId,
+    );
     if (exactById) {
       return exactById;
     }
@@ -16,7 +18,7 @@ function getGameScript(game) {
   }
 
   const exactMatch = state.scripts.find((script) =>
-    [script.name, script.en, script.id].some(
+    [script.name, script.en, script.id, script.englishName].some(
       (value) => normalizeMatchText(value) === query,
     ),
   );
@@ -26,7 +28,7 @@ function getGameScript(game) {
 
   return (
     state.scripts.find((script) =>
-      [script.name, script.en, script.id].some((value) =>
+      [script.name, script.en, script.id, script.englishName].some((value) =>
         normalizeMatchText(value).includes(query),
       ),
     ) || null

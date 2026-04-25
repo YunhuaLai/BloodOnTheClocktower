@@ -1,0 +1,13 @@
+id: r096
+name: 奥赫
+type: demon
+script: 抢凳游戏
+scriptId: s004
+scriptIds:
+  - s004
+scriptNames:
+  - 抢凳游戏
+summary: 每晚按角色名点杀，若点到不在场角色则由说书人决定死亡。
+keywords: 恶魔 角色 击杀
+englishName: ojo
+ability: 每晚*选择一个角色；若该角色在场，该角色玩家死亡。若不在场，由说书人选择谁死亡。

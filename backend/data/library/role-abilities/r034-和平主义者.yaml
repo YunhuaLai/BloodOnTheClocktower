@@ -1,0 +1,25 @@
+id: r034
+englishName: pacifist
+name: 和平主义者
+schemaVersion: 1
+tags:
+  - 被动
+  - 保护型
+  - 处决
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

@@ -1,0 +1,25 @@
+id: r033
+englishName: tea-lady
+name: 茶艺师
+schemaVersion: 1
+tags:
+  - 被动
+  - 保护型
+  - 邻座
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

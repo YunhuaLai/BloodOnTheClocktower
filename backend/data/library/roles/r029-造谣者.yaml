@@ -1,0 +1,13 @@
+id: r029
+name: 造谣者
+type: townsfolk
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+scriptNames:
+  - 黯月初升
+summary: 白天发表一条公开声明；若为真，夜晚可能额外死亡一名玩家。
+keywords: 公开 声明 死亡 信息
+englishName: gossip
+ability: 每天白天可以公开发表一个声明。如果该声明为真，今晚会有一名玩家死亡。

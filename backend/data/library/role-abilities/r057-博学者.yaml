@@ -1,0 +1,43 @@
+id: r057
+englishName: savant
+name: 博学者
+schemaVersion: 1
+tags:
+  - 白天
+  - 信息型
+  - 双信息
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: each_day
+  eventTiming: null
+  usagePattern: repeatable
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: statement1
+        type: text
+        label: 信息1
+        required: true
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null
+      - key: statement2
+        type: text
+        label: 信息2
+        required: true
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null

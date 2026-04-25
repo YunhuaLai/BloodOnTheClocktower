@@ -77,7 +77,7 @@ function getClaimedRole(playerOrClaim, game = getActiveGame()) {
 
   const roleOptions = game ? getClaimRoleOptions(game) : state.roles;
   const matchRole = (role) =>
-    [role.name, role.en, role.id].some(
+    [role.name, role.en, role.id, role.englishName].some(
       (name) => normalizeRoleName(name) === normalizedClaim,
     );
 

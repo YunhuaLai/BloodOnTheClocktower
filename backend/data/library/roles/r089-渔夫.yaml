@@ -1,0 +1,15 @@
+id: r089
+name: 渔夫
+type: townsfolk
+script: 抢凳游戏
+scriptId: s004
+scriptIds:
+  - s004
+  - s006
+  - s008
+scriptNames:
+  - 抢凳游戏
+summary: 一次性向说书人获取获胜建议，适合在信息卡住或残局前寻找方向。
+keywords: 建议 一次性 白天 信息
+englishName: fisherman
+ability: 每局一次，在白天私下拜访说书人，获得一条能帮助你的阵营获胜的建议。

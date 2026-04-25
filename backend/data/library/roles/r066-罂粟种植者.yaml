@@ -1,0 +1,14 @@
+id: r066
+name: 罂粟种植者
+type: townsfolk
+script: 夜半狂欢
+scriptId: s006
+scriptIds:
+  - s006
+  - s007
+scriptNames:
+  - 夜半狂欢
+summary: 让恶魔与爪牙开局互不相认，直到自己死亡才恢复邪恶方协作，是强力的前期信息封锁位。
+keywords: 邪恶不互认 死亡触发 信息封锁
+englishName: poppy-grower
+ability: 爪牙和恶魔互不认识。如果你死亡，当晚他们会互相认识。

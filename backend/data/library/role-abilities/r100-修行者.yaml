@@ -1,0 +1,37 @@
+id: r100
+englishName: shugenja
+name: 修行者
+schemaVersion: 1
+tags:
+  - 首夜
+  - 信息型
+  - 方向
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: direction
+        type: choice
+        label: 最近邪恶方向
+        required: true
+        optionsSource: custom
+        options:
+          - clockwise
+          - counterclockwise
+          - storyteller_choice
+        min: null
+        max: null
+        placeholder: null

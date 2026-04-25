@@ -1,0 +1,18 @@
+id: r057
+name: 博学者
+type: townsfolk
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s005
+  - s006
+  - s007
+  - s008
+  - s009
+scriptNames:
+  - 梦殒春宵
+summary: 每天得到两条信息，其中一条为真、一条为假。
+keywords: 每日 信息 真话 假话
+englishName: savant
+ability: 每天白天拜访说书人，获得两条信息：一条为真，一条为假。

@@ -1,0 +1,13 @@
+id: r037
+name: 月之子
+type: outsider
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+scriptNames:
+  - 黯月初升
+summary: 死亡后选择一名玩家；若选中善良玩家，可能导致对方死亡。
+keywords: 死亡 选择 善良 风险
+englishName: moonchild
+ability: 当你得知自己死亡时，选择一名存活玩家。如果该玩家是善良阵营，今晚该玩家死亡。

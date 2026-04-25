@@ -1,0 +1,43 @@
+id: r040
+englishName: godfather
+name: 教父
+schemaVersion: 1
+tags:
+  - 特殊机制
+  - 开局信息
+  - 击杀型
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: special
+  eventTiming: null
+  usagePattern: variable
+  activationMode: active
+  drivenBy: mixed
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: variable
+    defaultRows: 2
+    fields:
+      - key: seat
+        type: seat
+        label: 击杀号码
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: variable
+    defaultRows: 2
+    fields:
+      - key: note
+        type: text
+        label: 外来者与击杀记录
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null

@@ -1,0 +1,25 @@
+id: r012
+englishName: mayor
+name: 镇长
+schemaVersion: 1
+tags:
+  - 被动
+  - 残局
+  - 规则修饰
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

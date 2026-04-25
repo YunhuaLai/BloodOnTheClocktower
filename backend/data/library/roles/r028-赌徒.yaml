@@ -1,0 +1,14 @@
+id: r028
+name: 赌徒
+type: townsfolk
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+  - s005
+scriptNames:
+  - 黯月初升
+summary: 每晚猜一名玩家的角色；猜错会让自己死亡。
+keywords: 猜测 风险 死亡 信息
+englishName: gambler
+ability: 每晚选择一名玩家并猜测其角色；如果猜错，你死亡。

@@ -1,0 +1,15 @@
+id: r049
+name: 贵族
+type: townsfolk
+script: 夜半狂欢
+scriptId: s006
+scriptIds:
+  - s006
+  - s008
+  - s009
+scriptNames:
+  - 夜半狂欢
+summary: 首夜锁定三名玩家，其中恰有一人邪恶，是早期缩圈但难以直接坐实的稳定信息位。
+keywords: 首夜 三选一 邪恶 信息
+englishName: noble
+ability: 首夜得知三名玩家，其中有且只有一名是邪恶玩家。

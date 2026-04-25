@@ -1,0 +1,13 @@
+id: r103
+name: 小怪宝
+type: demon
+script: 刀光剑影
+scriptId: s009
+scriptIds:
+  - s009
+scriptNames:
+  - 刀光剑影
+summary: 由爪牙每晚秘密决定谁照看并成为恶魔，隐藏真正恶魔归属。
+keywords: 恶魔 爪牙 照看 隐藏
+englishName: lil-monsta
+ability: 每晚所有爪牙秘密决定由哪名玩家照看小怪宝并成为恶魔。每晚*会有一名玩家死亡。场上增加一名爪牙。

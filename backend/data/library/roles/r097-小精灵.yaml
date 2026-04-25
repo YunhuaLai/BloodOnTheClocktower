@@ -1,0 +1,14 @@
+id: r097
+name: 小精灵
+type: townsfolk
+script: 罂粟花开
+scriptId: s007
+scriptIds:
+  - s007
+  - s008
+scriptNames:
+  - 罂粟花开
+summary: 开局得知一个在场镇民，并通过持续疯狂证明自己来等待获得该能力。
+keywords: 首夜 疯狂 能力继承 镇民
+englishName: pixie
+ability: 首夜得知一个在场镇民角色。如果你疯狂地表现为该角色，并且该角色死亡，你获得该角色能力。

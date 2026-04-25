@@ -1,0 +1,15 @@
+id: r040
+name: 教父
+type: minion
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+  - s005
+  - s009
+scriptNames:
+  - 黯月初升
+summary: 知道外来者情况；外来者死亡后可制造额外击杀。
+keywords: 外来者 击杀 爪牙
+englishName: godfather
+ability: 首夜得知有哪些外来者在场。若今天有外来者死亡，今晚选择一名玩家死亡。本局外来者数量增减一名。

@@ -1,0 +1,43 @@
+id: r099
+englishName: legion
+name: 军团
+schemaVersion: 1
+tags:
+  - 每晚
+  - 特殊恶魔
+  - 投票规则
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: special
+  eventTiming: null
+  usagePattern: variable
+  activationMode: active
+  drivenBy: mixed
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: variable
+    defaultRows: 3
+    fields:
+      - key: death_seat
+        type: seat
+        label: 死亡号码
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: variable
+    defaultRows: 3
+    fields:
+      - key: vote_note
+        type: text
+        label: 投票/军团规则记录
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null

@@ -1,0 +1,25 @@
+id: r104
+englishName: spirit-of-ivory
+name: 圣洁之魂
+schemaVersion: 1
+tags:
+  - 被动
+  - 人数限制
+  - 传说角色
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

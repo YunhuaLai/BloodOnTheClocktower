@@ -1,0 +1,14 @@
+id: r070
+name: 理发师
+type: outsider
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s006
+scriptNames:
+  - 梦殒春宵
+summary: 死亡后恶魔可能交换两名玩家的角色。
+keywords: 死亡 交换 角色
+englishName: barber
+ability: 如果你死亡，恶魔可以选择两名玩家交换角色，但不能选择另一个恶魔。

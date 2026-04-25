@@ -1,0 +1,14 @@
+id: r086
+name: 女祭司
+type: townsfolk
+script: 抢凳游戏
+scriptId: s004
+scriptIds:
+  - s004
+  - s008
+scriptNames:
+  - 抢凳游戏
+summary: 每晚得到一名最值得交流的玩家，能把社交推理导向关键节点。
+keywords: 每晚 交流 信息
+englishName: high-priestess
+ability: 每晚得知一名说书人认为你最应该去交流的玩家。

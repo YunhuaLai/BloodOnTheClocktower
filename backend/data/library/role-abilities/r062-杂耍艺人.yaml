@@ -1,0 +1,52 @@
+id: r062
+englishName: juggler
+name: 杂耍艺人
+schemaVersion: 1
+tags:
+  - 白天
+  - 一次性
+  - 多目标
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: day
+  eventTiming: null
+  usagePattern: once
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: variable
+    defaultRows: 5
+    fields:
+      - key: seat
+        type: seat
+        label: 目标号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+      - key: role
+        type: role
+        label: 猜测身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: correct_count
+        type: number
+        label: 猜中数量
+        required: true
+        optionsSource: null
+        options: null
+        min: 0
+        max: 5
+        placeholder: null

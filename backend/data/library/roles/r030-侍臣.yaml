@@ -1,0 +1,13 @@
+id: r030
+name: 侍臣
+type: townsfolk
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+scriptNames:
+  - 黯月初升
+summary: 一次性选择一个角色，使该角色相关玩家醉酒一段时间。
+keywords: 醉酒 角色 牵制 一次性
+englishName: courtier
+ability: 每局一次，在夜晚选择一个角色；该角色相关玩家醉酒三天三夜。

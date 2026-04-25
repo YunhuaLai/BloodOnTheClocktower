@@ -1,0 +1,13 @@
+id: r025
+name: 侍女
+type: townsfolk
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+scriptNames:
+  - 黯月初升
+summary: 每晚检查两名存活玩家，得知其中有几人因自身能力被唤醒。
+keywords: 每晚 唤醒 数字 信息
+englishName: chambermaid
+ability: 每晚选择除自己以外的两名存活玩家，得知其中有几人因自身能力在今晚被唤醒。

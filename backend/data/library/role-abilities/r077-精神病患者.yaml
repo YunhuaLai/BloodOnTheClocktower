@@ -1,0 +1,43 @@
+id: r077
+englishName: psychopath
+name: 精神病患者
+schemaVersion: 1
+tags:
+  - 白天
+  - 公开击杀
+  - 猜拳
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: special
+  eventTiming: null
+  usagePattern: variable
+  activationMode: active
+  drivenBy: mixed
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: variable
+    defaultRows: 3
+    fields:
+      - key: seat
+        type: seat
+        label: 白天击杀号码
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: variable
+    defaultRows: 3
+    fields:
+      - key: note
+        type: text
+        label: 猜拳/处决记录
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null

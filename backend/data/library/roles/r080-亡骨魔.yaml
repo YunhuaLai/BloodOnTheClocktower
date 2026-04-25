@@ -1,0 +1,17 @@
+id: r080
+name: 亡骨魔
+type: demon
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s005
+  - s006
+  - s007
+  - s009
+scriptNames:
+  - 梦殒春宵
+summary: 杀死爪牙后可让其能力继续运作，但会污染附近镇民。
+keywords: 爪牙 中毒 恶魔
+englishName: vigormortis
+ability: 每晚*选择一名玩家死亡。被你杀死的爪牙保留能力，并让一个相邻镇民中毒。场上减少一个外来者。

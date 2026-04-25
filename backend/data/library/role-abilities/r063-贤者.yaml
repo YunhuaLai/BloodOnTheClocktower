@@ -1,0 +1,43 @@
+id: r063
+englishName: sage
+name: 贤者
+schemaVersion: 1
+tags:
+  - 死亡触发
+  - 信息型
+  - 二选一
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: null
+  eventTiming: on_death
+  usagePattern: once
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat1
+        type: seat
+        label: 号码1
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+      - key: seat2
+        type: seat
+        label: 号码2
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null

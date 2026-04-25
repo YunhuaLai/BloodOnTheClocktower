@@ -1,0 +1,36 @@
+id: r010
+englishName: virgin
+name: 贞洁者
+schemaVersion: 1
+tags:
+  - 提名触发
+  - 一次性
+  - 特殊机制
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: null
+  eventTiming: on_nomination
+  usagePattern: once
+  activationMode: conditional
+  drivenBy: system
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: triggered
+        type: boolean
+        label: 是否触发
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

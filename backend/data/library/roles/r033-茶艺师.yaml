@@ -1,0 +1,13 @@
+id: r033
+name: 茶艺师
+type: townsfolk
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+scriptNames:
+  - 黯月初升
+summary: 若左右相邻存活玩家都为善良，他们可能受到死亡保护。
+keywords: 邻座 保护 善良
+englishName: tea-lady
+ability: 如果与你相邻的两个存活玩家都是善良阵营，他们不能死亡。

@@ -1,0 +1,34 @@
+id: r018
+englishName: spy
+name: 间谍
+schemaVersion: 1
+tags:
+  - 每晚
+  - 信息型
+  - 特殊机制
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: grimoire_note
+        type: text
+        label: 魔典记录
+        required: true
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: 记录当晚看到的关键信息

@@ -1,0 +1,14 @@
+id: r053
+name: 数学家
+type: townsfolk
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s009
+scriptNames:
+  - 梦殒春宵
+summary: 每晚得知有多少角色能力未正常生效。
+keywords: 每晚 数字 异常
+englishName: mathematician
+ability: 每晚得知自上个黎明以来，有多少名玩家的能力因其他角色能力影响而未正常生效。

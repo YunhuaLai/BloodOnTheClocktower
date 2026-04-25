@@ -1,0 +1,34 @@
+id: r048
+englishName: clockmaker
+name: 钟表匠
+schemaVersion: 1
+tags:
+  - 首夜
+  - 信息型
+  - 数字
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: distance
+        type: number
+        label: 距离
+        required: true
+        optionsSource: null
+        options: null
+        min: 0
+        max: 10
+        placeholder: null

@@ -1,0 +1,14 @@
+id: r062
+name: 杂耍艺人
+type: townsfolk
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s007
+scriptNames:
+  - 梦殒春宵
+summary: 白天猜测玩家身份，并在夜晚得知猜对数量。
+keywords: 猜测 身份 数字
+englishName: juggler
+ability: 第一天白天公开猜测最多五名玩家的角色；当晚得知你猜对了几个。

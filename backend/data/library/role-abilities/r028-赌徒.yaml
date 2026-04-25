@@ -1,0 +1,54 @@
+id: r028
+englishName: gambler
+name: 赌徒
+schemaVersion: 1
+tags:
+  - 每晚
+  - 主动选玩家
+  - 主动选角色
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: seat
+        type: seat
+        label: 目标号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+      - key: role
+        type: role
+        label: 猜测身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: correct
+        type: boolean
+        label: 是否猜中
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

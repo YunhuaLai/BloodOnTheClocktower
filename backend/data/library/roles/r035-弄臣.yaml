@@ -1,0 +1,13 @@
+id: r035
+name: 弄臣
+type: townsfolk
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+scriptNames:
+  - 黯月初升
+summary: 第一次将要死亡时可能不会死亡，能在关键时刻吸收一次风险。
+keywords: 免死 生存 一次性
+englishName: fool
+ability: 你第一次将要死亡时，不会死亡。

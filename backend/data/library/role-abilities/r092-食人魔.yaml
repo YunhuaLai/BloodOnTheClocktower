@@ -1,0 +1,43 @@
+id: r092
+englishName: ogre
+name: 食人魔
+schemaVersion: 1
+tags:
+  - 首夜
+  - 主动选玩家
+  - 阵营变化
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 目标号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: team
+        type: team
+        label: 结果阵营
+        required: false
+        optionsSource: teams
+        options: null
+        min: null
+        max: null
+        placeholder: null

@@ -1,0 +1,54 @@
+id: r058
+englishName: seamstress
+name: 女裁缝
+schemaVersion: 1
+tags:
+  - 一次性
+  - 主动选玩家
+  - 信息型
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: night
+  eventTiming: null
+  usagePattern: once_per_game
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat1
+        type: seat
+        label: 号码1
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+      - key: seat2
+        type: seat
+        label: 号码2
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: same_team
+        type: boolean
+        label: 是否同阵营
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

@@ -1,0 +1,43 @@
+id: r088
+englishName: amnesiac
+name: 失忆者
+schemaVersion: 1
+tags:
+  - 白天
+  - 特殊机制
+  - 自定义
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: each_day
+  eventTiming: null
+  usagePattern: repeatable
+  activationMode: active
+  drivenBy: mixed
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: guess
+        type: text
+        label: 能力猜测
+        required: true
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null
+      - key: feedback
+        type: text
+        label: 反馈
+        required: true
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null

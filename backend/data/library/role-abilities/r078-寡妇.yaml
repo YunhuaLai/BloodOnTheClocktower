@@ -1,0 +1,43 @@
+id: r078
+englishName: widow
+name: 寡妇
+schemaVersion: 1
+tags:
+  - 首夜
+  - 魔典
+  - 中毒型
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: active
+  drivenBy: mixed
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 中毒号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: widow_call_seat
+        type: seat
+        label: 得知寡妇在场的善良玩家
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null

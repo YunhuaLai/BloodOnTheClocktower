@@ -1,0 +1,45 @@
+id: r069
+englishName: golem
+name: 魔像
+schemaVersion: 1
+tags:
+  - 白天
+  - 一次性
+  - 提名触发
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: day
+  eventTiming: null
+  usagePattern: once_per_game
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 提名号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: hit_demon
+        type: boolean
+        label: 命中恶魔
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

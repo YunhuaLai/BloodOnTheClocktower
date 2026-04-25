@@ -1,0 +1,25 @@
+id: r019
+englishName: baron
+name: 男爵
+schemaVersion: 1
+tags:
+  - 开局
+  - 被动
+  - 规则修饰
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: setup
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

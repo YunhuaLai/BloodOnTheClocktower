@@ -1,0 +1,13 @@
+id: r060
+name: 艺术家
+type: townsfolk
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+scriptNames:
+  - 梦殒春宵
+summary: 一次性向说书人提出一个是非问题并得到回答。
+keywords: 是非问题 一次性 信息
+englishName: artist
+ability: 每局一次，在白天私下向说书人提出一个是非问题，并得到回答。

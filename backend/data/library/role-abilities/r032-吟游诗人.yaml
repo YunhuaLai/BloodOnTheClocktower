@@ -1,0 +1,25 @@
+id: r032
+englishName: minstrel
+name: 吟游诗人
+schemaVersion: 1
+tags:
+  - 处决触发
+  - 全局影响
+  - 特殊机制
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: null
+  eventTiming: on_execution
+  usagePattern: variable
+  activationMode: conditional
+  drivenBy: system
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

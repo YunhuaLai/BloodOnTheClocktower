@@ -1,0 +1,43 @@
+id: r009
+englishName: ravenkeeper
+name: 守鸦人
+schemaVersion: 1
+tags:
+  - 死亡触发
+  - 信息型
+  - 查看身份
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: null
+  eventTiming: on_death
+  usagePattern: once
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 目标号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: role
+        type: role
+        label: 查看身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null

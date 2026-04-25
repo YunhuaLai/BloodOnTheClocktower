@@ -1,0 +1,25 @@
+id: r091
+englishName: cannibal
+name: 食人族
+schemaVersion: 1
+tags:
+  - 被动
+  - 能力继承
+  - 特殊机制
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

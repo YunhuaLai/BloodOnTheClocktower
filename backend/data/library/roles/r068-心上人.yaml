@@ -1,0 +1,15 @@
+id: r068
+name: 心上人
+type: outsider
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s005
+  - s009
+scriptNames:
+  - 梦殒春宵
+summary: 死亡后会让一名玩家醉酒。
+keywords: 死亡 醉酒 外来者
+englishName: sweetheart
+ability: 当你死亡时，一名玩家从此醉酒。

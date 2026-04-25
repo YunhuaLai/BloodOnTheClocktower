@@ -1,0 +1,16 @@
+id: r079
+name: 方古
+type: demon
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s004
+  - s005
+  - s008
+scriptNames:
+  - 梦殒春宵
+summary: 攻击外来者时可能转移恶魔身份并改变对方阵营。
+keywords: 转移 外来者 恶魔
+englishName: fang-gu
+ability: 每晚*选择一名玩家死亡。你第一次选择外来者时，该外来者不死，变成邪恶方古；你死亡。场上增加一个外来者。

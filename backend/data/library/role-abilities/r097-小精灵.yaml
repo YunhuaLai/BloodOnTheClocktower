@@ -1,0 +1,35 @@
+id: r097
+englishName: pixie
+name: 小精灵
+schemaVersion: 1
+tags:
+  - 首夜
+  - 信息型
+  - 疯狂机制
+  - 能力继承
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: role
+        type: role
+        label: 得知在场镇民
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null

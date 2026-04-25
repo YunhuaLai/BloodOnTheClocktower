@@ -1,0 +1,14 @@
+id: r069
+name: 魔像
+type: outsider
+script: 夜半狂欢
+scriptId: s006
+scriptIds:
+  - s006
+  - s008
+scriptNames:
+  - 夜半狂欢
+summary: 整局只能提名一次，但若提到的不是恶魔会立刻杀死对方，制造极高风险的白天突破。
+keywords: 白天 提名 一次性 处决
+englishName: golem
+ability: 你每局只能提名一次。你提名时，若被提名者不是恶魔，他立刻死亡。

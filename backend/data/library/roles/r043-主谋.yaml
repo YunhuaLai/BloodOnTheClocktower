@@ -1,0 +1,13 @@
+id: r043
+name: 主谋
+type: minion
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+scriptNames:
+  - 黯月初升
+summary: 恶魔被处决后可能延长游戏一天，让邪恶方获得最后反打。
+keywords: 续局 恶魔 处决
+englishName: mastermind
+ability: 如果恶魔死于处决且游戏本应结束，游戏继续一天。若次日有玩家被处决，其阵营失败。

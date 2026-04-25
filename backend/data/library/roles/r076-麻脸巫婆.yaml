@@ -1,0 +1,17 @@
+id: r076
+name: 麻脸巫婆
+type: minion
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s005
+  - s006
+  - s007
+  - s008
+scriptNames:
+  - 梦殒春宵
+summary: 每晚改变一名玩家的角色，能重塑整局结构。
+keywords: 换角色 变形 爪牙
+englishName: pit-hag
+ability: 每晚选择一名玩家和一个不在场角色；该玩家变成该角色。如果因此创造恶魔，今晚的死亡由说书人决定。

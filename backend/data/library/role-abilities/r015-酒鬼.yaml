@@ -1,0 +1,25 @@
+id: r015
+englishName: drunk
+name: 酒鬼
+schemaVersion: 1
+tags:
+  - 被动
+  - 特殊机制
+  - 外来者
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

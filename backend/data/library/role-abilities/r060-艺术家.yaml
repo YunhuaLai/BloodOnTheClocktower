@@ -1,0 +1,45 @@
+id: r060
+englishName: artist
+name: 艺术家
+schemaVersion: 1
+tags:
+  - 白天
+  - 一次性
+  - 问答型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: day
+  eventTiming: null
+  usagePattern: once_per_game
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: question
+        type: text
+        label: 问题
+        required: true
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null
+      - key: answer
+        type: boolean
+        label: 回答
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

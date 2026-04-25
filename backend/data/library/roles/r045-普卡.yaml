@@ -1,0 +1,14 @@
+id: r045
+name: 普卡
+type: demon
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+  - s009
+scriptNames:
+  - 黯月初升
+summary: 通过中毒和延迟死亡制造节奏差，让死亡结果更难判断。
+keywords: 中毒 延迟死亡 恶魔
+englishName: pukka
+ability: 每晚选择一名玩家中毒。上一个因你中毒的玩家死亡，然后恢复健康。

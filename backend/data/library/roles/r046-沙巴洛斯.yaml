@@ -1,0 +1,13 @@
+id: r046
+name: 沙巴洛斯
+type: demon
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+scriptNames:
+  - 黯月初升
+summary: 每晚可造成多名玩家死亡，也可能让死者复活。
+keywords: 多杀 复活 恶魔
+englishName: shabaloth
+ability: 每晚*选择两名玩家死亡。上一晚被你选择且当前死亡的玩家之一可能复活。

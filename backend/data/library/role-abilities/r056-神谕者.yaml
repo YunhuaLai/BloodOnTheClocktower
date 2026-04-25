@@ -1,0 +1,34 @@
+id: r056
+englishName: oracle
+name: 神谕者
+schemaVersion: 1
+tags:
+  - 每晚
+  - 信息型
+  - 数字
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: each_night_star
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: count
+        type: number
+        label: 死亡邪恶数
+        required: true
+        optionsSource: null
+        options: null
+        min: 0
+        max: 15
+        placeholder: null

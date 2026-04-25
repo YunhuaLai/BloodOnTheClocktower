@@ -1,0 +1,34 @@
+id: r073
+englishName: evil-twin
+name: 镜像双子
+schemaVersion: 1
+tags:
+  - 开局
+  - 双生机制
+  - 特殊机制
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: setup
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 双子号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null

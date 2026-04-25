@@ -5,7 +5,12 @@
   "description": "A web encyclopedia prototype for Blood on the Clocktower.",
   "scripts": {
     "start": "node backend/server.js",
-    "check": "node scripts/check-js.js"
+    "check": "node scripts/check-js.js",
+    "migrate:data": "node scripts/migrate-encyclopedia-to-yaml.js",
+    "rebuild:library": "node scripts/rebuild-library-from-catalog.js"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0"
   },
   "engines": {
     "node": ">=18"

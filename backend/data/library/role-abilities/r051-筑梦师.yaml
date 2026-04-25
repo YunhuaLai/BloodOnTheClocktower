@@ -1,0 +1,52 @@
+id: r051
+englishName: dreamer
+name: 筑梦师
+schemaVersion: 1
+tags:
+  - 每晚
+  - 主动选玩家
+  - 身份提示
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: seat
+        type: seat
+        label: 目标号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: good_role
+        type: role
+        label: 好身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+      - key: evil_role
+        type: role
+        label: 坏身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null

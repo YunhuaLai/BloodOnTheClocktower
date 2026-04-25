@@ -1,0 +1,15 @@
+id: r058
+name: 女裁缝
+type: townsfolk
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s004
+  - s009
+scriptNames:
+  - 梦殒春宵
+summary: 一次性判断两名玩家是否同阵营。
+keywords: 阵营 一次性 信息
+englishName: seamstress
+ability: 每局一次，在夜晚选择除自己以外的两名玩家，得知他们是否属于同一阵营。

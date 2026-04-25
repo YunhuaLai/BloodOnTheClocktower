@@ -1,0 +1,15 @@
+id: r038
+name: 莽夫
+type: outsider
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+  - s004
+  - s009
+scriptNames:
+  - 黯月初升
+summary: 第一个影响他的玩家可能醉酒，且莽夫可能改变阵营。
+keywords: 醉酒 转阵营 目标
+englishName: goon
+ability: 每晚第一个用能力选择你的玩家醉酒直到明天黄昏；你变成该玩家的阵营。

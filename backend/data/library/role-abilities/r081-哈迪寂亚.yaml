@@ -1,0 +1,85 @@
+id: r081
+englishName: al-hadikhia
+name: 哈迪寂亚
+schemaVersion: 1
+tags:
+  - 每晚
+  - 主动选玩家
+  - 多杀型
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: each_night_star
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: seat1
+        type: seat
+        label: 号码1
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+      - key: seat2
+        type: seat
+        label: 号码2
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+      - key: seat3
+        type: seat
+        label: 号码3
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: seat1_choice
+        type: choice
+        label: 1号选择
+        required: true
+        optionsSource: custom
+        options:
+          - live
+          - die
+        min: null
+        max: null
+        placeholder: null
+      - key: seat2_choice
+        type: choice
+        label: 2号选择
+        required: true
+        optionsSource: custom
+        options:
+          - live
+          - die
+        min: null
+        max: null
+        placeholder: null
+      - key: seat3_choice
+        type: choice
+        label: 3号选择
+        required: true
+        optionsSource: custom
+        options:
+          - live
+          - die
+        min: null
+        max: null
+        placeholder: null

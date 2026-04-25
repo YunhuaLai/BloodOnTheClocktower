@@ -2,11 +2,11 @@ const fs = require("node:fs");
 const http = require("node:http");
 const path = require("node:path");
 const { augmentEncyclopedia } = require("./data/catalog");
+const { loadLibraryData } = require("./data/library");
 
 const PORT = Number(process.env.PORT || 3000);
 const ROOT_DIR = path.resolve(__dirname, "..");
 const FRONTEND_DIR = path.join(ROOT_DIR, "frontend");
-const DATA_FILE = path.join(__dirname, "data", "encyclopedia.json");
 
 const contentTypes = {
   ".css": "text/css; charset=utf-8",
@@ -28,18 +28,11 @@ function sendJson(response, statusCode, payload) {
 }
 
 function readData(callback) {
-  fs.readFile(DATA_FILE, "utf8", (error, content) => {
-    if (error) {
-      callback(error);
-      return;
-    }
-
-    try {
-      callback(null, augmentEncyclopedia(JSON.parse(content)));
-    } catch (parseError) {
-      callback(parseError);
-    }
-  });
+  try {
+    callback(null, augmentEncyclopedia(loadLibraryData()));
+  } catch (error) {
+    callback(error);
+  }
 }
 
 function sendRawJson(response, statusCode, payload) {

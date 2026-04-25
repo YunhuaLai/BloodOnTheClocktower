@@ -89,12 +89,12 @@ function getRoleTypeSortValue(role) {
 }
 
 function getOneInOneOutSortValue(role) {
-  const index = oneInOneOutRoleOrder.indexOf(role.id);
+  const index = oneInOneOutRoleOrder.indexOf(role.englishName || role.id);
   return index === -1 ? Number.MAX_SAFE_INTEGER : index;
 }
 
 function sortScriptRoles(script, roles) {
-  if (script.id !== "one-in-one-out") {
+  if ((script.englishName || script.id) !== "one-in-one-out") {
     return roles;
   }
 

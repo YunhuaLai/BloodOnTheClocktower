@@ -1,0 +1,13 @@
+id: r085
+name: 骑士
+type: townsfolk
+script: 抢凳游戏
+scriptId: s004
+scriptIds:
+  - s004
+scriptNames:
+  - 抢凳游戏
+summary: 开局看到两名玩家并知道至少一人不是恶魔，适合压缩恶魔候选范围。
+keywords: 开局 恶魔 二选一 信息
+englishName: knight
+ability: 首夜得知两名玩家，其中至少一名不是恶魔。

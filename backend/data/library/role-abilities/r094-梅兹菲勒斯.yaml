@@ -1,0 +1,34 @@
+id: r094
+englishName: mezepheles
+name: 梅兹菲勒斯
+schemaVersion: 1
+tags:
+  - 首夜
+  - 特殊机制
+  - 密语
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: secret_word
+        type: text
+        label: 秘密词语
+        required: true
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null

@@ -1,0 +1,16 @@
+id: r059
+name: 哲学家
+type: townsfolk
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s005
+  - s008
+  - s009
+scriptNames:
+  - 梦殒春宵
+summary: 一次性选择获得另一个善良角色能力，并可能让原角色醉酒。
+keywords: 能力复制 醉酒 一次性
+englishName: philosopher
+ability: 每局一次，在夜晚选择一个善良角色；你获得该角色能力。若该角色在场，原角色醉酒。

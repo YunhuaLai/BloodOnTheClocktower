@@ -1,0 +1,31 @@
+id: r011
+name: 士兵
+type: townsfolk
+script: 暗流涌动
+scriptId: s001
+summary: 不易被恶魔杀死。发言上可以用生存状态反推夜晚发生了什么。
+keywords: 免疫 恶魔 生存
+detail:
+  overview: 士兵是防御型镇民。它的信息不来自主动查验，而来自恶魔目标和死亡结果之间的异常。
+  abilitySummary: 免受恶魔造成的死亡影响。
+  playTips:
+    - 公开太早会让恶魔绕开你，公开太晚可能无法解释异常。
+    - 如果你声称被刀未死，要结合僧侣、镇长等其他可能解释。
+    - 残局时你的生存价值可能很高。
+  storytellerTips:
+    - 恶魔攻击士兵时要正确处理无死亡或转移目标相关情况。
+    - 新手局可用士兵解释免疫类角色如何产生间接信息。
+    - 注意不要让士兵的存在让邪恶方完全失去击杀选择。
+  commonMistakes:
+    - 把自己没死直接当作被恶魔攻击。
+    - 太早公开导致能力价值下降。
+    - 忽略中毒可能让防御失效。
+  relatedRoleIds:
+    - r008
+    - r012
+    - r021
+    - r017
+englishName: soldier
+scriptIds:
+  - s001
+ability: 你免受恶魔影响。

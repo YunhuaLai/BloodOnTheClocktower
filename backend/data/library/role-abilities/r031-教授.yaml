@@ -1,0 +1,45 @@
+id: r031
+englishName: professor
+name: 教授
+schemaVersion: 1
+tags:
+  - 一次性
+  - 主动选玩家
+  - 复活型
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: night
+  eventTiming: null
+  usagePattern: once_per_game
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 复活号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: revived
+        type: boolean
+        label: 是否复活成功
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

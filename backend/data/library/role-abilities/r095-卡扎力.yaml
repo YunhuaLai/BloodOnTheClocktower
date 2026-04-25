@@ -1,0 +1,53 @@
+id: r095
+englishName: kazali
+name: 卡扎力
+schemaVersion: 1
+tags:
+  - 开局
+  - 每晚
+  - 特殊机制
+  - 自定义
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: special
+  eventTiming: null
+  usagePattern: variable
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: variable
+    defaultRows: 3
+    fields:
+      - key: seat
+        type: seat
+        label: 号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+      - key: role
+        type: role
+        label: 爪牙身份
+        required: false
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: variable
+    defaultRows: 3
+    fields:
+      - key: kill_seat
+        type: seat
+        label: 击杀号码
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null

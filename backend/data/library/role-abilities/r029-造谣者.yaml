@@ -1,0 +1,34 @@
+id: r029
+englishName: gossip
+name: 造谣者
+schemaVersion: 1
+tags:
+  - 白天
+  - 信息型
+  - 公开声明
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: each_day
+  eventTiming: null
+  usagePattern: repeatable
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: statement
+        type: text
+        label: 公开声明
+        required: true
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null

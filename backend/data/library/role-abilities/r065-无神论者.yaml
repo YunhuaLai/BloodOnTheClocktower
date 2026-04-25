@@ -1,0 +1,25 @@
+id: r065
+englishName: atheist
+name: 无神论者
+schemaVersion: 1
+tags:
+  - 被动
+  - 特殊胜利
+  - 规则修饰
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: setup
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

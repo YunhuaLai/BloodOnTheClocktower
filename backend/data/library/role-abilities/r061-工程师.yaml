@@ -1,0 +1,45 @@
+id: r061
+englishName: engineer
+name: 工程师
+schemaVersion: 1
+tags:
+  - 一次性
+  - 主动选角色
+  - 配置变更
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: night
+  eventTiming: null
+  usagePattern: once_per_game
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: variable
+    defaultRows: 3
+    fields:
+      - key: role
+        type: role
+        label: 新邪恶身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: change_type
+        type: choice
+        label: 变更类型
+        required: true
+        optionsSource: custom
+        options:
+          - demon
+          - minions
+        min: null
+        max: null
+        placeholder: null

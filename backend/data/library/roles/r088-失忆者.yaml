@@ -1,0 +1,16 @@
+id: r088
+name: 失忆者
+type: townsfolk
+script: 抢凳游戏
+scriptId: s004
+scriptIds:
+  - s004
+  - s005
+  - s006
+  - s009
+scriptNames:
+  - 抢凳游戏
+summary: 不知道自己的能力，需要每天通过猜测和说书人反馈逐步逼近真相。
+keywords: 未知能力 猜测 每日
+englishName: amnesiac
+ability: 你不知道自己的能力是什么。每天白天私下猜测自己的能力，并得知猜得有多接近。

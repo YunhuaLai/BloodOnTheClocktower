@@ -1,0 +1,14 @@
+id: r031
+name: 教授
+type: townsfolk
+script: 黯月初升
+scriptId: s002
+scriptIds:
+  - s002
+  - s006
+scriptNames:
+  - 黯月初升
+summary: 一次性尝试复活一名死亡镇民，是强力但需要时机的资源。
+keywords: 复活 镇民 一次性
+englishName: professor
+ability: 每局一次，在夜晚选择一名死亡玩家；如果该玩家是镇民，该玩家复活。

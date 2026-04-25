@@ -1,0 +1,14 @@
+id: r055
+name: 城镇公告员
+type: townsfolk
+script: 梦殒春宵
+scriptId: s003
+scriptIds:
+  - s003
+  - s007
+scriptNames:
+  - 梦殒春宵
+summary: 得知白天是否有爪牙发起过提名。
+keywords: 提名 爪牙 信息
+englishName: town-crier
+ability: 每晚*得知今天白天是否有爪牙发起过提名。

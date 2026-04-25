@@ -1,0 +1,13 @@
+id: r087
+name: 村夫
+type: townsfolk
+script: 抢凳游戏
+scriptId: s004
+scriptIds:
+  - s004
+scriptNames:
+  - 抢凳游戏
+summary: 每晚读取一名玩家的阵营，但额外村夫与醉酒设置会让信息需要反复校验。
+keywords: 每晚 阵营 醉酒 信息
+englishName: village-idiot
+ability: 每晚选择一名玩家，得知其阵营。场上可能额外加入0到2名村夫，其中一名额外村夫会醉酒。
