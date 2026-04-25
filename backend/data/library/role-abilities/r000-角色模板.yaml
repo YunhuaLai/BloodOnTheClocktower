@@ -1,0 +1,33 @@
+id: r000
+englishName: role-template
+name: 角色模板
+schemaVersion: 1
+tags:
+  - 模板
+  - 示例
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: variable
+    defaultRows: 1
+    fields:
+      - key: note
+        type: text
+        label: 技能记录
+        required: true
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: 这里填写记录格式提示

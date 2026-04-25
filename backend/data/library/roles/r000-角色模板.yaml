@@ -1,0 +1,23 @@
+id: r000
+englishName: role-template
+name: 角色模板
+type: townsfolk
+script: 剧本模板
+scriptId: s000
+scriptIds:
+  - s000
+scriptNames:
+  - 剧本模板
+summary: 这里填写角色的简短说明。
+keywords: 模板 示例 技能
+detail:
+  overview: 这里填写角色的详细介绍。
+  abilitySummary: 这里填写角色技能摘要。
+  playTips:
+    - 这里填写玩家玩法提示
+  storytellerTips:
+    - 这里填写说书人提示
+  commonMistakes:
+    - 这里填写常见误区
+  relatedRoleIds: []
+ability: 这里填写完整技能文本。

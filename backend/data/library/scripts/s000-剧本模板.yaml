@@ -1,0 +1,23 @@
+id: s000
+englishName: script-template
+name: 剧本模板
+en: Script Template
+level: 入门
+mood: 信息、博弈、教学
+text: 这里填写剧本的简短介绍。
+image: /assets/clock-tower-night.jpg
+tags:
+  - 剧本模板
+  - 示例
+detail:
+  overview: 这里填写剧本的详细概述。
+  bestFor:
+    - 这里填写适合的玩家或场景
+  playStyle:
+    - 这里填写剧本的核心体验
+  storytellerNotes:
+    - 这里填写说书人提示
+  commonPitfalls:
+    - 这里填写常见误区
+roleIds:
+  - r000
