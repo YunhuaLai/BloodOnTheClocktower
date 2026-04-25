@@ -385,7 +385,7 @@ function getRoleInfoFieldOptions(field, game) {
   return [];
 }
 
-function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, maxSeat) {
+function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat) {
   const currentValue = String(value ?? "");
   const sharedData = `
     data-roleinfo-section="${escapeHtml(sectionKey)}"
@@ -393,7 +393,37 @@ function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, ma
     data-roleinfo-field="${escapeHtml(field.key)}"
   `;
 
-  if (["role", "team", "character_type", "status", "boolean", "choice"].includes(field.type)) {
+  if (field.type === "role") {
+    return `
+      <input
+        type="text"
+        list="roleNameList"
+        value="${escapeHtml(currentValue)}"
+        placeholder="${escapeHtml(field.placeholder || field.label)}"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        ${sharedData}
+      />
+    `;
+  }
+
+  if (field.type === "boolean") {
+    const buttonText = getChoiceLabel(currentValue || "?");
+    const buttonClass = currentValue ? ` notes-roleinfo-toggle--${escapeHtml(currentValue)}` : "";
+    return `
+      <button
+        type="button"
+        class="notes-roleinfo-toggle${buttonClass}"
+        data-notes-action="cycle-roleinfo-field"
+        data-section="${escapeHtml(sectionKey)}"
+        data-row="${rowIndex}"
+        data-field="${escapeHtml(field.key)}"
+      >${escapeHtml(buttonText)}</button>
+    `;
+  }
+
+  if (["team", "character_type", "status", "choice"].includes(field.type)) {
     const options = getRoleInfoFieldOptions(field, game);
     const hasCurrentValue =
       currentValue &&
@@ -404,8 +434,6 @@ function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, ma
         : "";
 
     return `
-      <label class="notes-roleinfo-field">
-        <span>${escapeHtml(field.label)}</span>
         <select ${sharedData}>
           <option value="">空</option>
           ${extraCurrentOption}
@@ -416,7 +444,6 @@ function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, ma
             )
             .join("")}
         </select>
-      </label>
     `;
   }
 
@@ -432,17 +459,23 @@ function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, ma
       : field.max ?? "";
 
   return `
-    <label class="notes-roleinfo-field">
-      <span>${escapeHtml(field.label)}</span>
-      <input
-        type="${inputType}"
+    <input
+      type="${inputType}"
         ${minValue !== "" ? `min="${minValue}"` : ""}
         ${maxValue !== "" ? `max="${maxValue}"` : ""}
         ${isNumericField ? 'step="1"' : ""}
         value="${escapeHtml(currentValue)}"
         placeholder="${escapeHtml(field.placeholder || field.label)}"
-        ${sharedData}
-      />
+      ${sharedData}
+    />
+  `;
+}
+
+function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, maxSeat) {
+  return `
+    <label class="notes-roleinfo-field">
+      <span>${escapeHtml(field.label)}</span>
+      ${renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat)}
     </label>
   `;
 }
@@ -1885,5 +1918,608 @@ function renderPlayerDetail(player, game) {
 
       ${renderStorytellerFields(draft, game)}
     </article>
+  `;
+}
+
+function renderOverviewInlineEditor(player, game) {
+  const draft = getDraftOrPlayer(player);
+  const extraExpanded = state.notes.ui.overviewExpandedExtraPlayerId === player.id;
+
+  return `
+    <section class="notes-overview-editor" data-player-id="${escapeHtml(player.id)}">
+      <div class="notes-overview-editor-main">
+        <div class="notes-player-cycle-grid">
+          ${renderPlayerCycleField(draft, "condition", "醉/毒")}
+        </div>
+        <label class="note-field note-field--wide">
+          <span>额外信息</span>
+          <input
+            class="notes-player-field"
+            data-player-id="${escapeHtml(draft.id)}"
+            data-field="extraInfo"
+            value="${escapeHtml(draft.extraInfo)}"
+            placeholder="例如 首夜报 3/8，或今天不该先出票"
+          />
+        </label>
+      </div>
+      <div class="notes-overview-editor-footer">
+        <span class="notes-inline-hint">自动保存中</span>
+        <button
+          type="button"
+          class="note-icon-button notes-overview-expand-button${extraExpanded ? " active" : ""}"
+          data-notes-action="toggle-overview-extra"
+          data-player-id="${escapeHtml(player.id)}"
+        >${extraExpanded ? "− 收起扩展" : "+ 展开扩展"}</button>
+      </div>
+      ${
+        extraExpanded
+          ? `
+            <div class="notes-overview-editor-extra">
+              ${renderRoleInfoInputs(draft, game)}
+            </div>
+          `
+          : ""
+      }
+    </section>
+  `;
+}
+
+function renderOverviewClaimInput(player, game) {
+  const script = getGameScript(game);
+
+  return `
+    <input
+      class="notes-overview-claim-input"
+      data-player-id="${escapeHtml(player.id)}"
+      data-field="claim"
+      list="roleNameList"
+      value="${escapeHtml(player.claim)}"
+      placeholder="${escapeHtml(script ? "身份" : "先选剧本")}"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      aria-label="输入自称身份"
+    />
+  `;
+}
+
+function renderOverviewRows(game) {
+  const expandedPlayerId = state.notes.ui.overviewExpandedPlayerId;
+
+  return game.players
+    .map((player) => {
+      const isSelf = player.seat === game.selfSeat;
+      const claimText = getClaimAbbreviation(player.claim);
+      const summaryText = getRoleInfoSummary(player, game);
+      const judgementText = getJudgementSummary(player);
+      const supplementText = getOverviewSecondaryText(player);
+      const isExpanded = expandedPlayerId === player.id;
+
+      return `
+        <article class="notes-overview-item${isExpanded ? " is-expanded" : ""}">
+          <div
+            class="notes-overview-row${isSelf ? " is-self" : ""}${isExpanded ? " is-expanded" : ""}"
+            aria-expanded="${isExpanded ? "true" : "false"}"
+          >
+            <button
+              type="button"
+              class="notes-overview-cell notes-overview-cell--seat notes-overview-toggle"
+              data-notes-action="toggle-overview-player"
+              data-player-id="${escapeHtml(player.id)}"
+              aria-label="${escapeHtml(`${player.seat}号位${isExpanded ? "，收起" : "，展开"}`)}"
+            >
+              ${player.seat}${isSelf ? "*" : ""}
+            </button>
+            <div class="notes-overview-cell notes-overview-cell--status">
+              ${renderPlayerCycleField(player, "status", "状态")}
+            </div>
+            <label class="notes-overview-cell notes-overview-cell--claim notes-overview-claim-cell">
+              ${renderOverviewClaimInput(player, game)}
+            </label>
+            <button
+              type="button"
+              class="notes-overview-cell notes-overview-cell--summary notes-overview-toggle"
+              data-notes-action="toggle-overview-player"
+              data-player-id="${escapeHtml(player.id)}"
+            >${escapeHtml(summaryText)}</button>
+            <div class="notes-overview-cell notes-overview-cell--judgement">
+              ${renderPlayerCycleField(player, "alignment", "判断")}
+            </div>
+            <button
+              type="button"
+              class="notes-overview-cell notes-overview-cell--extra notes-overview-toggle"
+              data-notes-action="toggle-overview-player"
+              data-player-id="${escapeHtml(player.id)}"
+            >${escapeHtml(supplementText)}</button>
+          </div>
+          ${isExpanded ? renderOverviewInlineEditor(player, game) : ""}
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function renderOverviewTab(game) {
+  return `
+    <section class="notes-panel">
+      <div class="notes-panel-header">
+        <div>
+          <p class="eyebrow">总览页</p>
+          <p class="notes-inline-hint">点任意玩家行直接展开编辑，复杂角色再用 + 展开扩展录入。</p>
+        </div>
+      </div>
+      <div class="notes-overview-head">
+        <span>编号</span>
+        <span>状态</span>
+        <span>身份</span>
+        <span>摘要</span>
+        <span>判断</span>
+        <span>补充</span>
+      </div>
+      <div class="notes-overview-list">
+        ${renderOverviewRows(game)}
+      </div>
+      ${renderOverviewActions()}
+    </section>
+  `;
+}
+
+function isCompactRoleInfoField(field) {
+  return ["number", "seat", "player", "boolean"].includes(field?.type);
+}
+
+function getRoleInfoFieldGridSize(fields) {
+  const safeFields = Array.isArray(fields) ? fields : [];
+  if (!safeFields.length) {
+    return 1;
+  }
+
+  if (safeFields.some((field) => field?.type === "role")) {
+    return Math.min(safeFields.length, 3);
+  }
+
+  if (safeFields.every((field) => isCompactRoleInfoField(field))) {
+    return Math.min(safeFields.length, 5);
+  }
+
+  return Math.min(safeFields.length, 4);
+}
+
+function getRoleInfoEntryGridSize(field) {
+  if (field?.type === "role") {
+    return 3;
+  }
+
+  if (isCompactRoleInfoField(field)) {
+    return 5;
+  }
+
+  return 4;
+}
+
+function chunkItems(items, size) {
+  const safeItems = Array.isArray(items) ? items : [];
+  const chunkSize = Math.max(Number(size) || 1, 1);
+  const chunks = [];
+
+  for (let index = 0; index < safeItems.length; index += chunkSize) {
+    chunks.push(safeItems.slice(index, index + chunkSize));
+  }
+
+  return chunks;
+}
+
+function renderRoleInfoFieldGroup(sectionKey, rowIndex, fields, entry, game, maxSeat) {
+  const safeFields = Array.isArray(fields) ? fields : [];
+  if (!safeFields.length) {
+    return "";
+  }
+
+  return `
+    <div class="notes-roleinfo-fields notes-roleinfo-fields--${getRoleInfoFieldGridSize(safeFields)}">
+      ${safeFields
+        .map((field) =>
+          renderRoleInfoFieldControl(
+            sectionKey,
+            rowIndex,
+            field,
+            entry?.[field.key],
+            game,
+            maxSeat,
+          ),
+        )
+        .join("")}
+    </div>
+  `;
+}
+
+function renderRoleInfoEntrySequence(sectionKey, field, entries, game, maxSeat) {
+  const gridSize = getRoleInfoEntryGridSize(field);
+  return chunkItems(entries, gridSize)
+    .map(
+      (chunk) => `
+        <div class="notes-roleinfo-row notes-roleinfo-row--compact">
+          <span class="notes-roleinfo-index">${
+            sectionKey === "target" ? "目" : "记"
+          }</span>
+          <div class="notes-roleinfo-fields notes-roleinfo-fields--${Math.max(chunk.length, 1)}">
+            ${chunk
+              .map(
+                (entry) => `
+                  <label class="notes-roleinfo-field notes-roleinfo-field--stacked">
+                    <span>${entry.index + 1}</span>
+                    ${renderRoleInfoFieldElement(
+                      sectionKey,
+                      entry.index,
+                      field,
+                      entry.value,
+                      game,
+                      maxSeat,
+                    )}
+                  </label>
+                `,
+              )
+              .join("")}
+          </div>
+        </div>
+      `,
+    )
+    .join("");
+}
+
+function renderOverviewRoleInfoInputs(player, game) {
+  if (!player.claim) {
+    return "";
+  }
+
+  const role = getClaimedRole(player, game);
+  const abilityData = role?.abilityData || null;
+  if (!role || !abilityData?.abilityMeta?.recordable) {
+    return "";
+  }
+
+  const roleInfo = ensureRoleInfoMatchesClaim(player, game);
+  const targetNode = getRoleInfoNode(abilityData, "target");
+  const resultNode = getRoleInfoNode(abilityData, "result");
+  const maxSeat = clampNumber(Number(game?.playerCount) || 15, 1, 15);
+  const targetRows =
+    targetNode.repeatMode === "none" || !targetNode.fields.length
+      ? []
+      : getDisplayedRoleInfoEntries(roleInfo, targetNode, "target");
+  const resultRows =
+    resultNode.repeatMode === "none" || !resultNode.fields.length
+      ? []
+      : getDisplayedRoleInfoEntries(roleInfo, resultNode, "result");
+  const rowCount = Math.max(targetRows.length, resultRows.length);
+
+  if (!rowCount) {
+    return "";
+  }
+
+  const minimumRows = Math.max(
+    targetNode.fields.length ? Math.max(targetNode.defaultRows || 0, 1) : 0,
+    resultNode.fields.length ? Math.max(resultNode.defaultRows || 0, 1) : 0,
+  );
+  const allowRowAdjust =
+    ["sequence", "variable"].includes(targetNode.repeatMode) ||
+    ["sequence", "variable"].includes(resultNode.repeatMode);
+  const rowAdjustSection =
+    ["sequence", "variable"].includes(targetNode.repeatMode)
+      ? "target"
+      : ["sequence", "variable"].includes(resultNode.repeatMode)
+        ? "result"
+        : "target";
+  const hasTargetFields = Boolean(targetNode.fields.length);
+  const hasResultFields = Boolean(resultNode.fields.length);
+  const targetSingleField = targetNode.fields.length === 1 ? targetNode.fields[0] : null;
+  const resultSingleField = resultNode.fields.length === 1 ? resultNode.fields[0] : null;
+  const usesSharedResultLayout =
+    hasTargetFields &&
+    hasResultFields &&
+    targetRows.length > 1 &&
+    resultRows.length <= 1 &&
+    resultNode.repeatMode === "once";
+  const usesTargetSequenceLayout =
+    hasTargetFields &&
+    !hasResultFields &&
+    targetRows.length > 1 &&
+    targetNode.fields.length === 1;
+  const usesResultSequenceLayout =
+    !hasTargetFields &&
+    hasResultFields &&
+    resultRows.length > 1 &&
+    resultNode.fields.length === 1;
+
+  return `
+    <section class="notes-roleinfo-section notes-roleinfo-section--overview">
+      <div class="notes-roleinfo-section-header">
+        <strong>${escapeHtml(getRoleInfoSectionLabel("result", abilityData))}</strong>
+        <small>${escapeHtml(
+          allowRowAdjust || rowCount > 1 ? "多条" : "单条",
+        )}</small>
+      </div>
+      <div class="notes-roleinfo-list">
+        ${
+          usesSharedResultLayout
+            ? `
+              ${targetRows
+                .map(
+                  (targetEntry, index) => `
+                    <div class="notes-roleinfo-row">
+                      <span class="notes-roleinfo-index">${index + 1}</span>
+                      ${renderRoleInfoFieldGroup(
+                        "target",
+                        index,
+                        targetNode.fields,
+                        targetEntry,
+                        game,
+                        maxSeat,
+                      )}
+                    </div>
+                  `,
+                )
+                .join("")}
+              <div class="notes-roleinfo-row notes-roleinfo-row--result">
+                <span class="notes-roleinfo-index">记</span>
+                ${renderRoleInfoFieldGroup(
+                  "result",
+                  0,
+                  resultNode.fields,
+                  resultRows[0] || {},
+                  game,
+                  maxSeat,
+                )}
+              </div>
+            `
+            : usesTargetSequenceLayout
+              ? renderRoleInfoEntrySequence(
+                  "target",
+                  targetSingleField,
+                  targetRows.map((entry, index) => ({
+                    index,
+                    value: entry?.[targetSingleField.key],
+                  })),
+                  game,
+                  maxSeat,
+                )
+            : usesResultSequenceLayout
+              ? renderRoleInfoEntrySequence(
+                  "result",
+                  resultSingleField,
+                  resultRows.map((entry, index) => ({
+                    index,
+                    value: entry?.[resultSingleField.key],
+                  })),
+                  game,
+                  maxSeat,
+                )
+              : hasTargetFields && hasResultFields
+              ? Array.from({ length: rowCount }, (_, index) => {
+                  const targetEntry = targetRows[index] || {};
+                  const resultEntry = resultRows[index] || {};
+                  const combinedFields = [...targetNode.fields, ...resultNode.fields];
+                  return `
+                    <div class="notes-roleinfo-row">
+                      <span class="notes-roleinfo-index">${index + 1}</span>
+                      <div class="notes-roleinfo-fields notes-roleinfo-fields--${getRoleInfoFieldGridSize(
+                        combinedFields,
+                      )}">
+                        ${targetNode.fields
+                          .map((field) =>
+                            renderRoleInfoFieldControl(
+                              "target",
+                              index,
+                              field,
+                              targetEntry?.[field.key],
+                              game,
+                              maxSeat,
+                            ),
+                          )
+                          .join("")}
+                        ${resultNode.fields
+                          .map((field) =>
+                            renderRoleInfoFieldControl(
+                              "result",
+                              index,
+                              field,
+                              resultEntry?.[field.key],
+                              game,
+                              maxSeat,
+                            ),
+                          )
+                          .join("")}
+                      </div>
+                    </div>
+                  `;
+                }).join("")
+              : hasTargetFields
+                ? targetRows
+                    .map(
+                      (targetEntry, index) => `
+                        <div class="notes-roleinfo-row">
+                          <span class="notes-roleinfo-index">${index + 1}</span>
+                          ${renderRoleInfoFieldGroup(
+                            "target",
+                            index,
+                            targetNode.fields,
+                            targetEntry,
+                            game,
+                            maxSeat,
+                          )}
+                        </div>
+                      `,
+                    )
+                    .join("")
+                : resultRows
+                    .map(
+                      (resultEntry, index) => `
+                        <div class="notes-roleinfo-row">
+                          <span class="notes-roleinfo-index">${index + 1}</span>
+                          ${renderRoleInfoFieldGroup(
+                            "result",
+                            index,
+                            resultNode.fields,
+                            resultEntry,
+                            game,
+                            maxSeat,
+                          )}
+                        </div>
+                      `,
+                    )
+                    .join("")
+        }
+      </div>
+      ${
+        allowRowAdjust
+          ? `
+            <div class="notes-roleinfo-actions">
+              <button
+                type="button"
+                class="note-icon-button"
+                data-notes-action="add-roleinfo-row"
+                data-player-id="${escapeHtml(player.id)}"
+                data-section="${rowAdjustSection}"
+              >+ 一条</button>
+              <button
+                type="button"
+                class="note-icon-button"
+                data-notes-action="remove-roleinfo-row"
+                data-player-id="${escapeHtml(player.id)}"
+                data-section="${rowAdjustSection}"
+                ${rowCount <= minimumRows ? "disabled" : ""}
+              >- 末条</button>
+            </div>
+          `
+          : ""
+      }
+    </section>
+  `;
+}
+
+function renderOverviewJudgementControls(player) {
+  return `
+    <div class="notes-overview-judgement-controls">
+      ${renderPlayerCycleField(player, "alignment", "判断")}
+      ${renderPlayerCycleField(player, "condition", "醉/毒")}
+    </div>
+  `;
+}
+
+function renderOverviewInlineEditor(player, game) {
+  const draft = getDraftOrPlayer(player);
+  const roleInfoInputs = renderOverviewRoleInfoInputs(draft, game);
+
+  return `
+    <section class="notes-overview-editor" data-player-id="${escapeHtml(player.id)}">
+      ${roleInfoInputs}
+      <label class="note-field note-field--wide">
+        <span>额外信息</span>
+        <input
+          class="notes-player-field"
+          data-player-id="${escapeHtml(draft.id)}"
+          data-field="extraInfo"
+          value="${escapeHtml(draft.extraInfo)}"
+          placeholder="例如 首夜报 3/8，或今天不该先出票"
+        />
+      </label>
+    </section>
+  `;
+}
+
+function renderOverviewClaimInput(player, game) {
+  const script = getGameScript(game);
+
+  return `
+    <input
+      class="notes-overview-claim-input"
+      data-player-id="${escapeHtml(player.id)}"
+      data-field="claim"
+      list="roleNameList"
+      value="${escapeHtml(player.claim)}"
+      placeholder="${escapeHtml(script ? "身份" : "先选剧本")}"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      aria-label="输入自称身份"
+    />
+  `;
+}
+
+function renderOverviewRows(game) {
+  const expandedPlayerId = state.notes.ui.overviewExpandedPlayerId;
+
+  return game.players
+    .map((player) => {
+      const draft = getDraftOrPlayer(player);
+      const isSelf = player.seat === game.selfSeat;
+      const summaryText = getRoleInfoSummary(draft, game);
+      const supplementText = getOverviewSecondaryText(draft);
+      const isExpanded = expandedPlayerId === player.id;
+
+      return `
+        <article class="notes-overview-item${isExpanded ? " is-expanded" : ""}">
+          <div
+            class="notes-overview-row${isSelf ? " is-self" : ""}${isExpanded ? " is-expanded" : ""}"
+            aria-expanded="${isExpanded ? "true" : "false"}"
+          >
+            <button
+              type="button"
+              class="notes-overview-cell notes-overview-cell--seat notes-overview-toggle"
+              data-notes-action="toggle-overview-player"
+              data-player-id="${escapeHtml(player.id)}"
+              aria-label="${escapeHtml(`${player.seat}号位${isExpanded ? "，收起" : "，展开"}`)}"
+            >
+              ${player.seat}${isSelf ? "*" : ""}
+            </button>
+            <div class="notes-overview-cell notes-overview-cell--status">
+              ${renderPlayerCycleField(draft, "status", "状态")}
+            </div>
+            <label class="notes-overview-cell notes-overview-cell--claim notes-overview-claim-cell">
+              ${renderOverviewClaimInput(draft, game)}
+            </label>
+            <button
+              type="button"
+              class="notes-overview-cell notes-overview-cell--summary notes-overview-toggle"
+              data-notes-action="toggle-overview-player"
+              data-player-id="${escapeHtml(player.id)}"
+            >${escapeHtml(summaryText)}</button>
+            <div class="notes-overview-cell notes-overview-cell--judgement">
+              ${renderOverviewJudgementControls(draft)}
+            </div>
+            <button
+              type="button"
+              class="notes-overview-cell notes-overview-cell--extra notes-overview-toggle"
+              data-notes-action="toggle-overview-player"
+              data-player-id="${escapeHtml(player.id)}"
+            >${escapeHtml(supplementText)}</button>
+          </div>
+          ${isExpanded ? renderOverviewInlineEditor(player, game) : ""}
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function renderOverviewTab(game) {
+  return `
+    <section class="notes-panel">
+      <div class="notes-panel-header">
+        <div>
+          <p class="eyebrow">总览页</p>
+        </div>
+      </div>
+      <div class="notes-overview-head">
+        <span>编号</span>
+        <span>状态</span>
+        <span>身份</span>
+        <span>摘要</span>
+        <span>判断</span>
+        <span>补充</span>
+      </div>
+      <div class="notes-overview-list">
+        ${renderOverviewRows(game)}
+      </div>
+      ${renderOverviewActions()}
+    </section>
   `;
 }

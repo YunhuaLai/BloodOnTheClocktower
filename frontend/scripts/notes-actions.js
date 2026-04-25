@@ -134,6 +134,41 @@ function updatePlayerDraftRoleInfo(playerId, section, index, field, value) {
   };
 }
 
+function getRoleInfoFieldCycleValues(field) {
+  if (field?.type === "boolean") {
+    return ["", "yes", "no"];
+  }
+
+  return [];
+}
+
+function cyclePlayerDraftRoleInfoField(playerId, section, index, fieldKey) {
+  const draft = ensurePlayerDraftForId(playerId);
+  const game = getActiveGame();
+  if (!draft || !game) {
+    return;
+  }
+
+  draft.roleInfo = ensureRoleInfoMatchesClaim(draft, game);
+  const abilityData = getRoleAbilityData(draft, game);
+  const node = getRoleInfoNode(abilityData, section);
+  const field = node.fields.find((item) => item.key === fieldKey);
+  const values = getRoleInfoFieldCycleValues(field);
+  if (!field || !values.length) {
+    return;
+  }
+
+  const entryKey = getRoleInfoSectionKey(section);
+  while (draft.roleInfo[entryKey].length <= index) {
+    draft.roleInfo[entryKey].push({});
+  }
+
+  const currentValue = String(draft.roleInfo[entryKey][index]?.[fieldKey] ?? "");
+  const currentIndex = values.indexOf(currentValue);
+  const nextValue = values[(currentIndex + 1 + values.length) % values.length];
+  updatePlayerDraftRoleInfo(playerId, section, index, fieldKey, nextValue);
+}
+
 function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
   const draft = ensurePlayerDraftForId(playerId);
   const game = getActiveGame();
@@ -214,6 +249,21 @@ function savePlayerDraft(playerId) {
     text: `${getPlayerLabel(player, game)} 更新：${buildPlayerSaveSummary(player, game)}`,
     createdAt: new Date().toISOString(),
   });
+  saveNotesState();
+}
+
+function persistPlayerDraft(playerId) {
+  const game = getActiveGame();
+  const player = game?.players.find((item) => item.id === playerId);
+  const draft = getPlayerDraft(playerId);
+  if (!player || !draft) {
+    return;
+  }
+
+  const savedDraft = clonePlayerForDraft(draft);
+  savedDraft.roleInfo = ensureRoleInfoMatchesClaim(savedDraft, game);
+  Object.assign(player, savedDraft);
+  setPlayerDraft(playerId, clonePlayerForDraft(savedDraft));
   saveNotesState();
 }
 
@@ -350,11 +400,16 @@ function handleNotesFieldChange(target, refreshInterface = false) {
 
   const playerField = target.closest("[data-player-id][data-field]");
   if (playerField) {
+    const playerId = playerField.dataset.playerId;
     const shouldRerender = updatePlayerField(
-      playerField.dataset.playerId,
+      playerId,
       playerField.dataset.field,
       target.value,
     );
+    const isOverviewInline = state.notes.ui.activeTab === "overview";
+    if (isOverviewInline) {
+      persistPlayerDraft(playerId);
+    }
     if (shouldRerender && refreshInterface) {
       renderNotesPage();
     }
@@ -364,7 +419,7 @@ function handleNotesFieldChange(target, refreshInterface = false) {
   const roleInfoField = target.closest(
     "[data-roleinfo-section][data-roleinfo-row][data-roleinfo-field]",
   );
-  const playerCard = target.closest(".notes-player-detail");
+  const playerCard = target.closest(".notes-player-detail, .notes-overview-editor");
   if (roleInfoField && playerCard) {
     const playerId = playerCard.dataset.playerId;
     updatePlayerDraftRoleInfo(
@@ -374,6 +429,9 @@ function handleNotesFieldChange(target, refreshInterface = false) {
       roleInfoField.dataset.roleinfoField,
       target.value,
     );
+    if (state.notes.ui.activeTab === "overview") {
+      persistPlayerDraft(playerId);
+    }
   }
 }
 
@@ -595,8 +653,51 @@ function handleNotesAction(button) {
     return;
   }
 
+  if (action === "toggle-overview-player") {
+    const playerId = button.dataset.playerId || "";
+    const wasExpanded = notes.ui.overviewExpandedPlayerId === playerId;
+    notes.ui.selectedPlayerId = playerId;
+    notes.ui.overviewExpandedPlayerId = wasExpanded ? "" : playerId;
+    if (wasExpanded || notes.ui.overviewExpandedExtraPlayerId !== playerId) {
+      notes.ui.overviewExpandedExtraPlayerId = "";
+    }
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "toggle-overview-extra") {
+    const playerId = button.dataset.playerId || "";
+    notes.ui.selectedPlayerId = playerId;
+    notes.ui.overviewExpandedPlayerId = playerId;
+    notes.ui.overviewExpandedExtraPlayerId =
+      notes.ui.overviewExpandedExtraPlayerId === playerId ? "" : playerId;
+    renderNotesPage();
+    return;
+  }
+
   if (action === "cycle-player-field") {
     cyclePlayerFieldValue(button.dataset.playerId, button.dataset.field);
+    if (state.notes.ui.activeTab === "overview") {
+      persistPlayerDraft(button.dataset.playerId);
+    }
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "cycle-roleinfo-field") {
+    const playerId =
+      button.dataset.playerId ||
+      button.closest(".notes-player-detail, .notes-overview-editor")?.dataset.playerId ||
+      "";
+    cyclePlayerDraftRoleInfoField(
+      playerId,
+      button.dataset.section || "result",
+      Number(button.dataset.row || 0),
+      button.dataset.field || "",
+    );
+    if (state.notes.ui.activeTab === "overview" && playerId) {
+      persistPlayerDraft(playerId);
+    }
     renderNotesPage();
     return;
   }
@@ -621,6 +722,9 @@ function handleNotesAction(button) {
       button.dataset.section || "target",
       action === "add-roleinfo-row" ? 1 : -1,
     );
+    if (state.notes.ui.activeTab === "overview") {
+      persistPlayerDraft(button.dataset.playerId);
+    }
     renderNotesPage();
     return;
   }

@@ -17,6 +17,8 @@ function createNotesUiState() {
     screen: "home",
     activeTab: "overview",
     selectedPlayerId: "",
+    overviewExpandedPlayerId: "",
+    overviewExpandedExtraPlayerId: "",
     creatingGame: false,
     setupDraft: createDefaultSetupDraft(),
     playerDrafts: {},
@@ -343,6 +345,14 @@ function ensureNotesState() {
 
   if (!state.notes.ui.playerDrafts) {
     state.notes.ui.playerDrafts = {};
+  }
+
+  if (typeof state.notes.ui.overviewExpandedPlayerId !== "string") {
+    state.notes.ui.overviewExpandedPlayerId = "";
+  }
+
+  if (typeof state.notes.ui.overviewExpandedExtraPlayerId !== "string") {
+    state.notes.ui.overviewExpandedExtraPlayerId = "";
   }
 
   if (!state.notes.games.length) {
