@@ -106,7 +106,7 @@ const ADDITIONAL_SCRIPTS = [
   },
 
   {
-    id: "lu-su-hua-kai",
+    id: "ying-su-hua-kai",
     name: "罂粟花开",
     en: "Lu Su Hua Kai",
     level: "民间自定义剧本",
@@ -141,8 +141,8 @@ const ADDITIONAL_SCRIPTS = [
     },
   },
   {
-    id: "ming-tian-guo-hai",
-    name: "暝天过海",
+    id: "man-tian-guo-hai",
+    name: "瞒天过海",
     en: "Ming Tian Guo Hai",
     level: "民间自定义剧本",
     mood: "外来者压力、一次性能力、方古转化",
@@ -152,7 +152,7 @@ const ADDITIONAL_SCRIPTS = [
     sourceUrl: "",
     detail: {
       overview:
-        "暝天过海是一张围绕外来者数量、一次性强能力和方古转化展开的自定义剧本。善良方拥有贵族、哲学家、巡山人、猎手、渔夫、食人族等关键资源，但暮滩少女、傀儡、呆瓜、酒鬼和提线木偶会让公开身份与处决路线变得危险。",
+        "瞒天过海是一张围绕外来者数量、一次性强能力和方古转化展开的自定义剧本。善良方拥有贵族、哲学家、巡山人、猎手、渔夫、食人族等关键资源，但暮滩少女、傀儡、呆瓜、酒鬼和提线木偶会让公开身份与处决路线变得危险。",
       bestFor: [
         "喜欢外来者配置推理和一次性技能时机判断的玩家。",
         "能接受暮滩少女、呆瓜、方古等特殊失败或转化机制的牌桌。",

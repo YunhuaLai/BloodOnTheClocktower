@@ -293,9 +293,9 @@ const ADDITIONAL_ROLES = [
   role("kazali", "卡扎力", "demon", "one-in-one-out", "开局亲自选择爪牙玩家与爪牙角色，并在后续夜晚正常击杀。", "恶魔 爪牙 配置 击杀"),
   role("ojo", "奥赫", "demon", "one-in-one-out", "每晚按角色名点杀，若点到不在场角色则由说书人决定死亡。", "恶魔 角色 击杀"),
 
-  role("pixie", "小精灵", "townsfolk", "lu-su-hua-kai", "开局得知一个在场镇民，并通过持续疯狂证明自己来等待获得该能力。", "首夜 疯狂 能力继承 镇民"),
-  role("snitch", "告密者", "outsider", "lu-su-hua-kai", "让爪牙各自得到三个不在场角色，为邪恶方提供伪装素材。", "首夜 不在场角色 伪装 外来者"),
-  role("legion", "军团", "demon", "lu-su-hua-kai", "多数玩家都是军团，投票结构和死亡节奏都与常规恶魔局不同。", "多数邪恶 投票无效 恶魔 军团"),
+  role("pixie", "小精灵", "townsfolk", "ying-su-hua-kai", "开局得知一个在场镇民，并通过持续疯狂证明自己来等待获得该能力。", "首夜 疯狂 能力继承 镇民"),
+  role("snitch", "告密者", "outsider", "ying-su-hua-kai", "让爪牙各自得到三个不在场角色，为邪恶方提供伪装素材。", "首夜 不在场角色 伪装 外来者"),
+  role("legion", "军团", "demon", "ying-su-hua-kai", "多数玩家都是军团，投票结构和死亡节奏都与常规恶魔局不同。", "多数邪恶 投票无效 恶魔 军团"),
   role("shugenja", "修行者", "townsfolk", "dao-guang-jian-ying", "首夜得知最近邪恶玩家所在方向，是早期建立座位方向压力的信息位。", "首夜 方向 邪恶 信息"),
   role("preacher", "传教士", "townsfolk", "dao-guang-jian-ying", "每晚选择玩家，命中爪牙后会关闭其能力，是压制爪牙的持续功能位。", "每晚 爪牙 失能 压制"),
   role("plague-doctor", "疯疫医生", "outsider", "dao-guang-jian-ying", "死亡后让说书人获得一个不在场爪牙能力，为局面加入额外异常来源。", "死亡 爪牙能力 说书人 外来者"),

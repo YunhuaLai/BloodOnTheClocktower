@@ -163,8 +163,8 @@ function augmentEncyclopedia(data) {
     ["midnight-oasis", MIDNIGHT_OASIS_ROLE_IDS],
     ["one-in-one-out", ONE_IN_ONE_OUT_ROLE_IDS],
     ["wa-fu-lei-ming", WA_FU_LEI_MING_ROLE_IDS],
-    ["lu-su-hua-kai", LU_SU_HUA_KAI_ROLE_IDS],
-    ["ming-tian-guo-hai", MING_TIAN_GUO_HAI_ROLE_IDS],
+    ["ying-su-hua-kai", LU_SU_HUA_KAI_ROLE_IDS],
+    ["man-tian-guo-hai", MING_TIAN_GUO_HAI_ROLE_IDS],
     ["dao-guang-jian-ying", DAO_GUANG_JIAN_YING_ROLE_IDS],
   ].forEach(([scriptId, roleIds]) => {
     roleIds.forEach((roleId) => {
