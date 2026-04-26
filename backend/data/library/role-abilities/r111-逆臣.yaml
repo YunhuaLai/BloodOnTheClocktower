@@ -1,0 +1,43 @@
+id: r111
+englishName: turncoat
+name: 逆臣
+schemaVersion: 1
+tags:
+  - 首夜
+  - 主动选玩家
+  - 阵营转变
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: first_night
+  eventTiming: on_death
+  usagePattern: once
+  activationMode: conditional
+  drivenBy: mixed
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 绑定号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: converted_seat
+        type: seat
+        label: 转变号码
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null

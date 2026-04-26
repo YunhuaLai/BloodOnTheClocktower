@@ -218,20 +218,44 @@ function renderRoles() {
     return;
   }
 
-  roleGrid.innerHTML = visibleRoles
-    .map(
-      (role) => `
-        <a class="role-card" href="/roles/${escapeHtml(role.id)}" data-link data-type="${escapeHtml(role.type)}">
-          <header>
-            <h3>${escapeHtml(role.name)}</h3>
-            <small>${escapeHtml(typeLabels[role.type] || role.type)}</small>
-          </header>
-          <p>${escapeHtml(role.summary)}</p>
-          <div class="script-name">${escapeHtml(getRoleScriptLabel(role))}</div>
-        </a>
-      `,
-    )
+  if (state.activeFilter !== "all") {
+    roleGrid.innerHTML = visibleRoles.map(renderRoleCard).join("");
+    return;
+  }
+
+  roleGrid.innerHTML = roleTypeOrder
+    .map((type) => {
+      const roles = visibleRoles.filter((role) => role.type === type);
+      if (!roles.length) {
+        return "";
+      }
+
+      return `
+        <section class="role-folder" data-type="${escapeHtml(type)}" aria-labelledby="roleFolder-${escapeHtml(type)}">
+          <div class="role-folder-heading">
+            <h3 id="roleFolder-${escapeHtml(type)}">${escapeHtml(typeLabels[type] || type)}</h3>
+            <span>${roles.length} 个角色</span>
+          </div>
+          <div class="role-folder-grid">
+            ${roles.map(renderRoleCard).join("")}
+          </div>
+        </section>
+      `;
+    })
     .join("");
+}
+
+function renderRoleCard(role) {
+  return `
+    <a class="role-card" href="/roles/${escapeHtml(role.id)}" data-link data-type="${escapeHtml(role.type)}">
+      <header>
+        <h3>${escapeHtml(role.name)}</h3>
+        <small>${escapeHtml(typeLabels[role.type] || role.type)}</small>
+      </header>
+      <p>${escapeHtml(role.summary)}</p>
+      <div class="script-name">${escapeHtml(getRoleScriptLabel(role))}</div>
+    </a>
+  `;
 }
 
 function syncFilterButtons() {

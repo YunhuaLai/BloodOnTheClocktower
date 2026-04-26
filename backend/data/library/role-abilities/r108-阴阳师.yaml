@@ -1,0 +1,61 @@
+id: r108
+englishName: yin-yang-master
+name: 阴阳师
+schemaVersion: 1
+tags:
+  - 首夜
+  - 信息型
+  - 角色提示
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: good_role_1
+        type: role
+        label: 善良角色1
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+      - key: good_role_2
+        type: role
+        label: 善良角色2
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+      - key: evil_role_1
+        type: role
+        label: 邪恶角色1
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+      - key: evil_role_2
+        type: role
+        label: 邪恶角色2
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null

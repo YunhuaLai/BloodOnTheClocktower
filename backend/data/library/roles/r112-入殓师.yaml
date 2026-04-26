@@ -1,0 +1,11 @@
+id: r112
+name: 入殓师
+type: outsider
+scriptIds:
+  - s011
+scriptNames:
+  - 各凭本事
+summary: 若提名并处决恶魔，会变成邪恶恶魔；四名或更少存活玩家时失去能力。
+keywords: 提名 处决 恶魔 阵营转变 失去能力
+englishName: embalmer
+ability: 如果你提名并处决了恶魔，你会变成邪恶的恶魔。当剩余存活玩家小于等于四人时，除旅行者外，你失去能力。

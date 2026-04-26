@@ -57,6 +57,62 @@
   gap: 14px;
 }
 
+.role-folder {
+  grid-column: 1 / -1;
+  display: grid;
+  gap: 14px;
+}
+
+.role-folder + .role-folder {
+  margin-top: 18px;
+}
+
+.role-folder-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--role-color, var(--line));
+}
+
+.role-folder-heading h3 {
+  font-size: 28px;
+}
+
+.role-folder-heading span {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.role-folder-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.role-folder[data-type="townsfolk"] {
+  --role-color: var(--blue);
+}
+
+.role-folder[data-type="outsider"] {
+  --role-color: var(--outsider);
+}
+
+.role-folder[data-type="minion"] {
+  --role-color: var(--green);
+}
+
+.role-folder[data-type="demon"] {
+  --role-color: var(--red);
+}
+
+.role-folder[data-type="fabled"] {
+  --role-color: var(--gold);
+}
+
 .role-card {
   display: flex;
   flex-direction: column;

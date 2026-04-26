@@ -1,0 +1,46 @@
+id: r112
+englishName: embalmer
+name: 入殓师
+schemaVersion: 1
+tags:
+  - 提名
+  - 处决
+  - 阵营转变
+  - 恶魔
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: day
+  eventTiming: on_execution
+  usagePattern: variable
+  activationMode: conditional
+  drivenBy: mixed
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: sequence
+    defaultRows: 2
+    fields:
+      - key: executed_seat
+        type: seat
+        label: 被处决号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: sequence
+    defaultRows: 2
+    fields:
+      - key: became_demon
+        type: boolean
+        label: 转为恶魔
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

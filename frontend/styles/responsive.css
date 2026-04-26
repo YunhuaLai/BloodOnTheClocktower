@@ -4,7 +4,8 @@
   .rule-grid,
   .script-grid,
   .term-grid,
-  .role-grid {
+  .role-grid,
+  .role-folder-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -88,8 +89,15 @@
   .rule-grid,
   .script-grid,
   .term-grid,
-  .role-grid {
+  .role-grid,
+  .role-folder-grid {
     grid-template-columns: 1fr;
+  }
+
+  .role-folder-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .notes-meta-grid,

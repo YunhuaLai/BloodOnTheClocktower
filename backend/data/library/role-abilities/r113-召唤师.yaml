@@ -1,0 +1,44 @@
+id: r113
+englishName: summoner
+name: 召唤师
+schemaVersion: 1
+tags:
+  - 首夜
+  - 第三夜
+  - 伪装
+  - 恶魔转化
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: special
+  eventTiming: null
+  usagePattern: once
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 转化号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+      - key: demon_role
+        type: role
+        label: 恶魔角色
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

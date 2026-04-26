@@ -1,0 +1,24 @@
+id: r110
+englishName: terracotta-maker
+name: 俑匠
+schemaVersion: 1
+tags:
+  - 被动
+  - 死亡保护
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: passive
+  eventTiming: on_death
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
