@@ -1,8 +1,6 @@
 id: r005
 name: 共情者
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 每晚关注左右邻座的邪恶数量。随着死亡和座位变化，能持续提供压力。
 keywords: 每晚 邻座 邪恶 数字
 detail:
@@ -26,10 +24,4 @@ detail:
     - r016
     - r018
 englishName: empath
-scriptIds:
-  - s001
-  - s011
-scriptNames:
-  - 暗流涌动
-  - 各凭本事
 ability: 每晚得知与你相邻的存活玩家中有几名邪恶玩家。

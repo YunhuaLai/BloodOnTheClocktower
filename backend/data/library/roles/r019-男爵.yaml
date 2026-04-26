@@ -1,8 +1,6 @@
 id: r019
 name: 男爵
 type: minion
-script: 暗流涌动
-scriptId: s001
 summary: 改变外来者数量，让善良方配置判断更困难。存在感常藏在开局结构里。
 keywords: 配置 外来者 数量 爪牙
 detail:
@@ -27,8 +25,4 @@ detail:
     - r015
     - r016
 englishName: baron
-scriptIds:
-  - s001
-  - s007
-  - s008
 ability: 场上增加两个外来者。

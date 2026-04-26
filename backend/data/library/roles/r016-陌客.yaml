@@ -1,13 +1,6 @@
 id: r016
 name: 陌客
 type: outsider
-script: 暗流涌动
-scriptId: s001
-scriptNames:
-  - 暗流涌动
-  - 抢凳游戏
-  - 瓦釜雷鸣
-  - 美愿成真
 summary: 在侦测中可能被视作邪恶身份。它会污染信息，但也能解释异常结果。
 keywords: 误判 信息污染 外来者 陌客
 detail:
@@ -31,9 +24,4 @@ detail:
     - r005
     - r006
 englishName: recluse
-scriptIds:
-  - s001
-  - s004
-  - s005
-  - s010
 ability: 即使死亡，你也可能被侦测为邪恶阵营，或被当作爪牙、恶魔。

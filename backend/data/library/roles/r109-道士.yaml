@@ -1,10 +1,6 @@
 id: r109
 name: 道士
 type: townsfolk
-scriptIds:
-  - s011
-scriptNames:
-  - 各凭本事
 summary: 每晚*选择玩家，若选中恶魔则自己死亡并让恶魔醉酒到下个黎明。
 keywords: 每晚 选择 恶魔 醉酒 死亡
 englishName: taoist

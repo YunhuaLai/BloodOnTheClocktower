@@ -1,13 +1,6 @@
 id: r023
 name: 祖母
 type: townsfolk
-script: 黯月初升
-scriptId: s002
-scriptIds:
-  - s002
-  - s005
-scriptNames:
-  - 黯月初升
 summary: 开局知道一名善良玩家及其角色；如果该玩家被恶魔杀死，祖母也会一同死亡。
 keywords: 开局 信息 连死 恶魔
 englishName: grandmother

@@ -1,16 +1,6 @@
 id: r091
 name: 食人族
 type: townsfolk
-script: 抢凳游戏
-scriptId: s004
-scriptIds:
-  - s004
-  - s005
-  - s006
-  - s008
-  - s009
-scriptNames:
-  - 抢凳游戏
 summary: 获得上一名被处决玩家的能力，但若吃到邪恶角色会中毒。
 keywords: 处决 获得能力 中毒
 englishName: cannibal

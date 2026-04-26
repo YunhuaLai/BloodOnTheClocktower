@@ -1,8 +1,6 @@
 id: r013
 name: 管家
 type: outsider
-script: 暗流涌动
-scriptId: s001
 summary: 投票会受主人选择限制。它制造投票行为异常，也给邪恶方留下伪装空间。
 keywords: 投票 限制 外来者
 detail:
@@ -26,6 +24,4 @@ detail:
     - r014
     - r015
 englishName: butler
-scriptIds:
-  - s001
 ability: 每晚选择一名玩家作为主人；明天白天，只有当主人投票时你才能投票。

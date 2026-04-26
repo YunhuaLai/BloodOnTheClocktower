@@ -1,8 +1,6 @@
 id: r009
 name: 守鸦人
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 如果夜晚死亡，可以立即查看一名玩家身份。死亡本身会变成一次反击机会。
 keywords: 死亡 查看 身份 夜晚
 detail:
@@ -26,8 +24,4 @@ detail:
     - r021
     - r017
 englishName: ravenkeeper
-scriptIds:
-  - s001
-  - s005
-  - s009
 ability: 如果你在夜晚死亡，你会被唤醒并选择一名玩家，得知其角色。

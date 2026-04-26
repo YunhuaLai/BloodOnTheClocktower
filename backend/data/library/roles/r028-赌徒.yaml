@@ -1,16 +1,6 @@
 id: r028
 name: 赌徒
 type: townsfolk
-script: 黯月初升
-scriptId: s002
-scriptIds:
-  - s002
-  - s005
-  - s011
-scriptNames:
-  - 黯月初升
-  - 瓦釜雷鸣
-  - 各凭本事
 summary: 每晚猜一名玩家的角色；猜错会让自己死亡。
 keywords: 猜测 风险 死亡 信息
 englishName: gambler

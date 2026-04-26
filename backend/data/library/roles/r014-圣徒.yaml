@@ -1,8 +1,6 @@
 id: r014
 name: 圣徒
 type: outsider
-script: 暗流涌动
-scriptId: s001
 summary: 被处决会带来灾难性后果。善良方需要谨慎处理他的可信度。
 keywords: 处决 风险 外来者
 detail:
@@ -26,6 +24,4 @@ detail:
     - r019
     - r021
 englishName: saint
-scriptIds:
-  - s001
 ability: 如果你死于处决，邪恶方获胜。

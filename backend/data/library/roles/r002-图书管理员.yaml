@@ -1,8 +1,6 @@
 id: r002
 name: 图书管理员
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 开局寻找外来者线索。人数配置、外来者真假和邪恶伪装会影响判断。
 keywords: 开局 信息 外来者
 detail:
@@ -27,7 +25,4 @@ detail:
     - r016
     - r019
 englishName: librarian
-scriptIds:
-  - s001
-  - s007
 ability: 首夜得知一个外来者角色，并看到两名玩家；其中一名玩家是该外来者。若场上没有外来者，你会得知这一点。

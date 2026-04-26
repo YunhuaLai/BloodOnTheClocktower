@@ -1,8 +1,6 @@
 id: r006
 name: 占卜师
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 每晚检查两名玩家中是否存在恶魔。强力但可能受到红鲱鱼等误导。
 keywords: 每晚 恶魔 检查 二选一
 detail:
@@ -26,10 +24,4 @@ detail:
     - r016
     - r018
 englishName: fortune-teller
-scriptIds:
-  - s001
-  - s011
-scriptNames:
-  - 暗流涌动
-  - 各凭本事
 ability: 每晚选择两名玩家，得知其中是否有恶魔。会有一名善良玩家被当作恶魔干扰项。

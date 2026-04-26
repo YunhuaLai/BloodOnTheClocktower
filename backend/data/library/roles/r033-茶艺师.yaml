@@ -1,14 +1,6 @@
 id: r033
 name: 茶艺师
 type: townsfolk
-script: 黯月初升
-scriptId: s002
-scriptIds:
-  - s002
-  - s010
-scriptNames:
-  - 黯月初升
-  - 美愿成真
 summary: 若左右相邻存活玩家都为善良，他们可能受到死亡保护。
 keywords: 邻座 保护 善良
 englishName: tea-lady

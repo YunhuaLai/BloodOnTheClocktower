@@ -1,14 +1,6 @@
 id: r087
 name: 村夫
 type: townsfolk
-script: 抢凳游戏
-scriptId: s004
-scriptIds:
-  - s004
-  - s011
-scriptNames:
-  - 抢凳游戏
-  - 各凭本事
 summary: 每晚读取一名玩家的阵营，但额外村夫与醉酒设置会让信息需要反复校验。
 keywords: 每晚 阵营 醉酒 信息
 englishName: village-idiot

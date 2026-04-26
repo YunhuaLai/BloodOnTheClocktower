@@ -1,13 +1,6 @@
 id: r090
 name: 农夫
 type: townsfolk
-script: 抢凳游戏
-scriptId: s004
-scriptIds:
-  - s004
-  - s006
-scriptNames:
-  - 抢凳游戏
 summary: 夜晚死亡后会把农夫能力传给另一名善良玩家，形成接力式确认空间。
 keywords: 死亡 传承 善良
 englishName: farmer

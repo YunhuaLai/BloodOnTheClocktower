@@ -1,8 +1,6 @@
 id: r011
 name: 士兵
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 不易被恶魔杀死。发言上可以用生存状态反推夜晚发生了什么。
 keywords: 免疫 恶魔 生存
 detail:
@@ -26,6 +24,4 @@ detail:
     - r021
     - r017
 englishName: soldier
-scriptIds:
-  - s001
 ability: 你免受恶魔影响。

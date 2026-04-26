@@ -112,7 +112,7 @@ function makeDetail(roleData) {
 
 function normalizeRole(rawRole, context) {
   const corrected = replaceTerms({ ...rawRole });
-  const scriptIds = uniqueValues(corrected.scriptIds || []);
+  const scriptIds = context.roleScriptIdsById.get(corrected.id) || [];
   const scriptNames = scriptIds.map((scriptId) => context.scriptNamesById.get(scriptId) || scriptId);
   const roleEnglishName = corrected.englishName || corrected.id;
   const normalized = {
@@ -166,13 +166,26 @@ function augmentEncyclopedia(data) {
   const roleAbilityByEnglishName = new Map(
     rawRoleAbilities.map((ability) => [ability.englishName || ability.id, ability]),
   );
+  const scripts = rawScripts.map((script) => normalizeScript(script, roleIds));
+  const roleScriptIdsById = new Map(rawRoles.map((role) => [role.id, []]));
+
+  scripts.forEach((script) => {
+    script.roleIds.forEach((roleId) => {
+      const scriptIds = roleScriptIdsById.get(roleId);
+
+      if (scriptIds) {
+        scriptIds.push(script.id);
+      }
+    });
+  });
 
   return {
     ...data,
-    scripts: rawScripts.map((script) => normalizeScript(script, roleIds)),
+    scripts,
     roles: rawRoles.map((role) =>
       normalizeRole(role, {
         scriptNamesById,
+        roleScriptIdsById,
         roleIdByEnglishName,
         roleIds,
         roleAbilityByEnglishName,

@@ -1,8 +1,6 @@
 id: r015
 name: 酒鬼
 type: outsider
-script: 暗流涌动
-scriptId: s001
 summary: 自以为是镇民，但能力不可靠。它会让一条看似漂亮的信息链出现裂缝。
 keywords: 醉酒 错误信息 外来者
 detail:
@@ -26,10 +24,4 @@ detail:
     - r010
     - r017
 englishName: drunk
-scriptIds:
-  - s001
-  - s011
-scriptNames:
-  - 暗流涌动
-  - 各凭本事
 ability: 你不知道自己是酒鬼。你以为自己是一个镇民角色，但其实你没有该能力。

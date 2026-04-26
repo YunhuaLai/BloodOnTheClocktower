@@ -1,14 +1,6 @@
 id: r058
 name: 女裁缝
 type: townsfolk
-script: 梦殒春宵
-scriptId: s003
-scriptIds:
-  - s003
-  - s004
-  - s009
-scriptNames:
-  - 梦殒春宵
 summary: 一次性判断两名玩家是否同阵营。
 keywords: 阵营 一次性 信息
 englishName: seamstress

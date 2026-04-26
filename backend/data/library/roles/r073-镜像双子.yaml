@@ -1,13 +1,6 @@
 id: r073
 name: 镜像双子
 type: minion
-script: 梦殒春宵
-scriptId: s003
-scriptIds:
-  - s003
-  - s007
-scriptNames:
-  - 梦殒春宵
 summary: 与一名善良玩家互为双子，若善良双子被处决可能导致善良方失败。
 keywords: 双子 处决 爪牙
 englishName: evil-twin

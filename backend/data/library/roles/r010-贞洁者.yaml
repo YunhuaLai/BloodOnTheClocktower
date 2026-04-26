@@ -1,8 +1,6 @@
 id: r010
 name: 贞洁者
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 被镇民提名时可能让提名者立刻死亡。常用于验证提名者或制造白天爆点。
 keywords: 提名 验证 死亡
 detail:
@@ -26,6 +24,4 @@ detail:
     - r017
     - r015
 englishName: virgin
-scriptIds:
-  - s001
 ability: 第一次被提名时，如果提名者是镇民，提名者立刻被处决。

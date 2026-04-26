@@ -1,8 +1,6 @@
 id: r012
 name: 镇长
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 残局能力很强，若善良方能保护其可信度，可能直接改变胜负路径。
 keywords: 残局 胜利 保护 镇长
 detail:
@@ -26,7 +24,4 @@ detail:
     - r021
     - r020
 englishName: mayor
-scriptIds:
-  - s001
-  - s007
 ability: 如果只剩三名玩家存活且白天没有处决，善良方获胜。若你在夜晚死亡，可能由其他玩家代替你死亡。

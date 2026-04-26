@@ -1,10 +1,6 @@
 id: r110
 name: 俑匠
 type: townsfolk
-scriptIds:
-  - s011
-scriptNames:
-  - 各凭本事
 summary: 只要已死亡玩家中没有邪恶玩家，就只会死于处决，能为死亡来源提供强约束。
 keywords: 被动 死亡 处决 保护
 englishName: terracotta-maker

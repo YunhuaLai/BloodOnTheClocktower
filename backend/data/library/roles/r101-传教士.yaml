@@ -1,14 +1,6 @@
 id: r101
 name: 传教士
 type: townsfolk
-script: 刀光剑影
-scriptId: s009
-scriptIds:
-  - s009
-  - s010
-scriptNames:
-  - 刀光剑影
-  - 美愿成真
 summary: 每晚选择玩家，命中爪牙后会关闭其能力，是压制爪牙的持续功能位。
 keywords: 每晚 爪牙 失能 压制
 englishName: preacher

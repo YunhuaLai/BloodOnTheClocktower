@@ -1,8 +1,6 @@
 id: r003
 name: 调查员
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 开局得到爪牙相关线索。适合压缩邪恶方空间，也容易被邪恶方反利用。
 keywords: 开局 信息 爪牙
 detail:
@@ -26,7 +24,4 @@ detail:
     - r019
     - r016
 englishName: investigator
-scriptIds:
-  - s001
-  - s005
 ability: 首夜得知一个爪牙角色，并看到两名玩家；其中一名玩家是该爪牙。

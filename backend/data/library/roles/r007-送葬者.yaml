@@ -1,8 +1,6 @@
 id: r007
 name: 送葬者
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 得知白天被处决玩家的身份。能验证处决结果，是善良方的重要锚点。
 keywords: 处决 验证 身份 白天
 detail:
@@ -26,6 +24,4 @@ detail:
     - r018
     - r021
 englishName: undertaker
-scriptIds:
-  - s001
 ability: 每晚得知今天白天死于处决的玩家是什么角色。

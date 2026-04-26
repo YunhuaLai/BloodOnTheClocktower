@@ -1,22 +1,6 @@
 id: r050
 name: 热气球
 type: townsfolk
-script: 瓦釜雷鸣
-scriptId: s005
-scriptIds:
-  - s005
-  - s006
-  - s008
-  - s009
-  - s010
-  - s011
-scriptNames:
-  - 瓦釜雷鸣
-  - 夜半狂欢
-  - 瞒天过海
-  - 刀光剑影
-  - 美愿成真
-  - 各凭本事
 summary: 每晚得知一名不同角色类型的玩家，并可能让场上额外增加一名外来者，是强力但需要持续校验的长期信息位。
 keywords: 每晚 类型 外来者 信息
 englishName: balloonist

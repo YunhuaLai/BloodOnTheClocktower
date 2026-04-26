@@ -1,13 +1,6 @@
 id: r022
 name: 猎手
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
-scriptIds:
-  - s001
-  - s008
-scriptNames:
-  - 暗流涌动
 summary: 可在白天尝试射杀一名玩家；若命中恶魔，能直接造成巨大突破。
 keywords: 白天 击杀 恶魔 一次性
 englishName: slayer

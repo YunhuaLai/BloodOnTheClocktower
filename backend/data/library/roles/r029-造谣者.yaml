@@ -1,16 +1,6 @@
 id: r029
 name: 造谣者
 type: townsfolk
-script: 黯月初升
-scriptId: s002
-scriptIds:
-  - s002
-  - s010
-  - s011
-scriptNames:
-  - 黯月初升
-  - 美愿成真
-  - 各凭本事
 summary: 白天发表一条公开声明；若为真，夜晚可能额外死亡一名玩家。
 keywords: 公开 声明 死亡 信息
 englishName: gossip

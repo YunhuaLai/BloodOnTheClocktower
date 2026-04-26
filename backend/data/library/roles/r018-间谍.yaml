@@ -1,8 +1,6 @@
 id: r018
 name: 间谍
 type: minion
-script: 暗流涌动
-scriptId: s001
 summary: 掌握大量局面信息，并可能在侦测中表现得像善良角色。
 keywords: 全局信息 伪装 爪牙
 detail:
@@ -26,7 +24,4 @@ detail:
     - r001
     - r021
 englishName: spy
-scriptIds:
-  - s001
-  - s004
 ability: 每晚查看魔典。即使死亡，你也可能被侦测为善良阵营、镇民或外来者。

@@ -1,8 +1,6 @@
 id: r021
 name: 小恶魔
 type: demon
-script: 暗流涌动
-scriptId: s001
 summary: 每晚造成死亡，并可能通过自杀转移恶魔身份。是入门板子的核心威胁。
 keywords: 恶魔 击杀 转移
 detail:
@@ -27,10 +25,4 @@ detail:
     - r012
     - r006
 englishName: imp
-scriptIds:
-  - s001
-  - s004
-  - s005
-  - s007
-  - s008
 ability: 每晚*选择一名玩家；该玩家死亡。如果你选择自己死亡，一名爪牙会变成小恶魔。

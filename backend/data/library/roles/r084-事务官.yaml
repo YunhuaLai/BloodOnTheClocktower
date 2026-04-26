@@ -1,12 +1,6 @@
 id: r084
 name: 事务官
 type: townsfolk
-script: 抢凳游戏
-scriptId: s004
-scriptIds:
-  - s004
-scriptNames:
-  - 抢凳游戏
 summary: 开局确认一名善良玩家，是建立初始信任链的干净信息位。
 keywords: 开局 善良 信息
 englishName: steward

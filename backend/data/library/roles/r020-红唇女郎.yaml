@@ -1,8 +1,6 @@
 id: r020
 name: 红唇女郎
 type: minion
-script: 暗流涌动
-scriptId: s001
 summary: 恶魔死亡后可能接替恶魔位置。让善良方不能只满足于一次处决。
 keywords: 继承 恶魔 续命 爪牙 红唇女郎
 detail:
@@ -26,10 +24,4 @@ detail:
     - r007
     - r006
 englishName: scarlet-woman
-scriptIds:
-  - s001
-  - s011
-scriptNames:
-  - 暗流涌动
-  - 各凭本事
 ability: 如果存活玩家不少于五名且恶魔死亡，你会变成恶魔。

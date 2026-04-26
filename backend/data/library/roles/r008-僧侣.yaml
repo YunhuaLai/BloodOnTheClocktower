@@ -1,8 +1,6 @@
 id: r008
 name: 僧侣
 type: townsfolk
-script: 暗流涌动
-scriptId: s001
 summary: 夜晚保护一名玩家免受恶魔影响。保护选择常常能改变邪恶方节奏。
 keywords: 保护 夜晚 恶魔
 detail:
@@ -26,10 +24,4 @@ detail:
     - r009
     - r021
 englishName: monk
-scriptIds:
-  - s001
-  - s011
-scriptNames:
-  - 暗流涌动
-  - 各凭本事
 ability: 每晚选择除自己以外的一名玩家；该玩家今晚免受恶魔影响。

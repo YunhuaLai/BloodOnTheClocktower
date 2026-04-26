@@ -1,12 +1,6 @@
 id: r026
 name: 驱魔人
 type: townsfolk
-script: 黯月初升
-scriptId: s002
-scriptIds:
-  - s002
-scriptNames:
-  - 黯月初升
 summary: 每晚选择一名玩家；若选中恶魔，可阻止其当晚行动并得知自己被选中。
 keywords: 阻止 恶魔 夜晚
 englishName: exorcist
