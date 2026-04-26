@@ -1143,9 +1143,26 @@
   gap: 6px;
 }
 
+.notes-overview-editor .notes-external-report-row {
+  grid-template-columns: 38px minmax(0, 1fr);
+}
+
 .notes-overview-editor .notes-roleinfo-index {
   min-height: 38px;
   font-size: 11px;
+}
+
+.notes-external-report-seat {
+  width: 100%;
+  padding: 4px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.notes-external-report-seat:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(178, 31, 45, 0.14);
+  outline: none;
 }
 
 .notes-overview-editor .notes-roleinfo-fields {

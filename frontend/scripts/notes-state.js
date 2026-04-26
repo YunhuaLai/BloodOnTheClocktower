@@ -47,6 +47,7 @@ function createDefaultPlayer(seat) {
     extraInfo: "",
     notes: "",
     roleInfo: createEmptyRoleInfo(),
+    externalReports: [],
     trueRole: "",
     trueAlignment: "unknown",
     storytellerNotes: "",
@@ -80,11 +81,21 @@ function cloneRoleInfo(roleInfo) {
   };
 }
 
+function cloneExternalReports(reports) {
+  return Array.isArray(reports)
+    ? reports.map((report) => ({
+        seat: String(report?.seat ?? ""),
+        note: String(report?.note ?? ""),
+      }))
+    : [];
+}
+
 function clonePlayerForDraft(player) {
   return {
     ...player,
     tags: [...(player.tags || [])],
     roleInfo: cloneRoleInfo(player.roleInfo),
+    externalReports: cloneExternalReports(player.externalReports),
   };
 }
 
@@ -198,6 +209,7 @@ function normalizePlayer(player, index) {
     extraInfo: player?.extraInfo || player?.summary || "",
     notes: notesParts.filter(Boolean).join("\n"),
     roleInfo: cloneRoleInfo(player?.roleInfo),
+    externalReports: cloneExternalReports(player?.externalReports),
     trueRole: player?.trueRole || "",
     trueAlignment,
     storytellerNotes: player?.storytellerNotes || "",

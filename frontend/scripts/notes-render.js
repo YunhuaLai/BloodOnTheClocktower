@@ -1921,6 +1921,74 @@ function renderPlayerDetail(player, game) {
   `;
 }
 
+function renderOverviewExternalReports(player, game) {
+  const reports = cloneExternalReports(player.externalReports);
+  const maxSeat = clampNumber(Number(game?.playerCount) || 15, 1, 15);
+
+  return `
+    <section class="notes-roleinfo-section notes-roleinfo-section--overview notes-external-reports">
+      <div class="notes-roleinfo-section-header">
+        <strong>外部能力记录</strong>
+        <small>${reports.length ? `${reports.length} 条` : "可添加"}</small>
+      </div>
+      ${
+        reports.length
+          ? `
+            <div class="notes-roleinfo-list">
+              ${reports
+                .map(
+                  (report, index) => `
+                    <div class="notes-roleinfo-row notes-external-report-row">
+                      <input
+                        class="notes-roleinfo-index notes-external-report-seat"
+                        type="number"
+                        min="1"
+                        max="${maxSeat}"
+                        step="1"
+                        value="${escapeHtml(report.seat)}"
+                        placeholder="号"
+                        data-external-report-row="${index}"
+                        data-external-report-field="seat"
+                        aria-label="能力来源号码"
+                      />
+                      <div class="notes-roleinfo-fields notes-roleinfo-fields--1">
+                        <label class="notes-roleinfo-field">
+                          <span>记录</span>
+                          <input
+                            value="${escapeHtml(report.note)}"
+                            placeholder="例如 中毒、被脑移、被美女表示等"
+                            data-external-report-row="${index}"
+                            data-external-report-field="note"
+                          />
+                        </label>
+                      </div>
+                    </div>
+                  `,
+                )
+                .join("")}
+            </div>
+          `
+          : ""
+      }
+      <div class="notes-roleinfo-actions">
+        <button
+          type="button"
+          class="note-icon-button"
+          data-notes-action="add-external-report"
+          data-player-id="${escapeHtml(player.id)}"
+        >+ 一条</button>
+        <button
+          type="button"
+          class="note-icon-button"
+          data-notes-action="remove-external-report"
+          data-player-id="${escapeHtml(player.id)}"
+          ${reports.length ? "" : "disabled"}
+        >- 末条</button>
+      </div>
+    </section>
+  `;
+}
+
 function renderOverviewInlineEditor(player, game) {
   const draft = getDraftOrPlayer(player);
   const extraExpanded = state.notes.ui.overviewExpandedExtraPlayerId === player.id;
@@ -2412,6 +2480,7 @@ function renderOverviewInlineEditor(player, game) {
   return `
     <section class="notes-overview-editor" data-player-id="${escapeHtml(player.id)}">
       ${roleInfoInputs}
+      ${renderOverviewExternalReports(draft, game)}
       <label class="note-field note-field--wide">
         <span>额外信息</span>
         <input

@@ -134,6 +134,40 @@ function updatePlayerDraftRoleInfo(playerId, section, index, field, value) {
   };
 }
 
+function updatePlayerDraftExternalReport(playerId, index, field, value) {
+  const draft = ensurePlayerDraftForId(playerId);
+  if (!draft || !["seat", "note"].includes(field)) {
+    return;
+  }
+
+  draft.externalReports = cloneExternalReports(draft.externalReports);
+  while (draft.externalReports.length <= index) {
+    draft.externalReports.push({ seat: "", note: "" });
+  }
+
+  draft.externalReports[index] = {
+    ...draft.externalReports[index],
+    [field]: value,
+  };
+}
+
+function adjustPlayerDraftExternalReports(playerId, step) {
+  const draft = ensurePlayerDraftForId(playerId);
+  if (!draft || !step) {
+    return;
+  }
+
+  draft.externalReports = cloneExternalReports(draft.externalReports);
+  if (step > 0) {
+    draft.externalReports.push({ seat: "", note: "" });
+    return;
+  }
+
+  if (draft.externalReports.length) {
+    draft.externalReports.pop();
+  }
+}
+
 function getRoleInfoFieldCycleValues(field) {
   if (field?.type === "boolean") {
     return ["", "yes", "no"];
@@ -432,6 +466,23 @@ function handleNotesFieldChange(target, refreshInterface = false) {
     if (state.notes.ui.activeTab === "overview") {
       persistPlayerDraft(playerId);
     }
+    return;
+  }
+
+  const externalReportField = target.closest(
+    "[data-external-report-row][data-external-report-field]",
+  );
+  if (externalReportField && playerCard) {
+    const playerId = playerCard.dataset.playerId;
+    updatePlayerDraftExternalReport(
+      playerId,
+      Number(externalReportField.dataset.externalReportRow),
+      externalReportField.dataset.externalReportField,
+      target.value,
+    );
+    if (state.notes.ui.activeTab === "overview") {
+      persistPlayerDraft(playerId);
+    }
   }
 }
 
@@ -724,6 +775,19 @@ function handleNotesAction(button) {
     );
     if (state.notes.ui.activeTab === "overview") {
       persistPlayerDraft(button.dataset.playerId);
+    }
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "add-external-report" || action === "remove-external-report") {
+    const playerId = button.dataset.playerId || "";
+    adjustPlayerDraftExternalReports(
+      playerId,
+      action === "add-external-report" ? 1 : -1,
+    );
+    if (state.notes.ui.activeTab === "overview" && playerId) {
+      persistPlayerDraft(playerId);
     }
     renderNotesPage();
     return;
