@@ -3,6 +3,11 @@ name: 投毒者
 type: minion
 script: 暗流涌动
 scriptId: s001
+scriptNames:
+  - 暗流涌动
+  - 抢凳游戏
+  - 夜半狂欢
+  - 美愿成真
 summary: 每晚让一名玩家能力不可靠。目标选择会决定善良方信息链的破坏程度。
 keywords: 中毒 每晚 信息污染 爪牙
 detail:
@@ -30,4 +35,5 @@ scriptIds:
   - s001
   - s004
   - s006
+  - s010
 ability: 每晚选择一名玩家；该玩家今晚和明天白天中毒。

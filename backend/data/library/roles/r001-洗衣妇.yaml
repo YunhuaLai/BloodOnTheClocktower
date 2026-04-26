@@ -3,6 +3,9 @@ name: 洗衣妇
 type: townsfolk
 script: 暗流涌动
 scriptId: s001
+scriptNames:
+  - 暗流涌动
+  - 美愿成真
 summary: 开局得知两名玩家中有一位是某个镇民。适合早期建立可信信息链。
 keywords: 开局 信息 镇民 二选一
 detail:
@@ -28,4 +31,5 @@ detail:
 englishName: washerwoman
 scriptIds:
   - s001
+  - s010
 ability: 首夜得知一个镇民角色，并看到两名玩家；其中一名玩家是该镇民。

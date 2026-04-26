@@ -112,7 +112,7 @@ function makeDetail(roleData) {
 
 function normalizeRole(rawRole, context) {
   const corrected = replaceTerms({ ...rawRole });
-  const scriptIds = uniqueValues([...(corrected.scriptIds || []), corrected.scriptId]);
+  const scriptIds = uniqueValues(corrected.scriptIds || []);
   const scriptNames = scriptIds.map((scriptId) => context.scriptNamesById.get(scriptId) || scriptId);
   const roleEnglishName = corrected.englishName || corrected.id;
   const normalized = {

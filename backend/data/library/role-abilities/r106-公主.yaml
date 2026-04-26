@@ -1,0 +1,46 @@
+id: r106
+englishName: princess
+name: 公主
+schemaVersion: 1
+tags:
+  - 首个白天
+  - 提名
+  - 处决
+  - 保护型
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: day
+  eventTiming: on_execution
+  usagePattern: once
+  activationMode: conditional
+  drivenBy: mixed
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: executed_seat
+        type: seat
+        label: 被处决号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: demon_death_blocked
+        type: boolean
+        label: 阻止恶魔杀人
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

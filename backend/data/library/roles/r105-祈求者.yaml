@@ -1,0 +1,11 @@
+id: r105
+name: 祈求者
+type: townsfolk
+scriptIds:
+  - s010
+scriptNames:
+  - 美愿成真
+summary: 每晚得到一个当前局面对某一阵营有较大帮助的角色，能为讨论提供方向性线索。
+keywords: 每晚 角色 信息 阵营帮助
+englishName: invoker
+ability: 每晚，你会得知一个目前情况下对某一阵营有较大帮助的角色。
