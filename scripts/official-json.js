@@ -28,8 +28,6 @@ const TYPE_TO_TEAM = {
   fabled: "fabled",
 };
 
-const TYPE_ORDER = ["traveller", "townsfolk", "outsider", "minion", "demon", "fabled"];
-
 function readYamlFile(filePath) {
   return yaml.load(fs.readFileSync(filePath, "utf8"));
 }
@@ -306,12 +304,16 @@ function importOfficialJson(inputPath) {
     }
   });
 
+  const roleIds = officialRoles
+    .filter((role) => isCoreScriptRole(TEAM_TO_TYPE[role.team]))
+    .map((role) => roleIdByOfficialName.get(role.name))
+    .filter(Boolean);
   const travellerIds = officialRoles
     .filter((role) => TEAM_TO_TYPE[role.team] === "traveller")
     .map((role) => roleIdByOfficialName.get(role.name))
     .filter(Boolean);
-  const roleIds = officialRoles
-    .filter((role) => TEAM_TO_TYPE[role.team] !== "traveller")
+  const fabledIds = officialRoles
+    .filter((role) => TEAM_TO_TYPE[role.team] === "fabled")
     .map((role) => roleIdByOfficialName.get(role.name))
     .filter(Boolean);
   const scriptData = {
@@ -332,8 +334,9 @@ function importOfficialJson(inputPath) {
     tags: existingScript?.data?.tags || ["官方剧本"],
     sourceUrl: existingScript?.data?.sourceUrl || "",
     detail: existingScript?.data?.detail || makeScriptDetail(meta),
-    travellerIds,
     roleIds,
+    travellerIds,
+    fabledIds,
     nightOrder: {
       first: orderRoleIds(officialRoles, roleIdByOfficialName, "firstNight"),
       other: orderRoleIds(officialRoles, roleIdByOfficialName, "otherNight"),
@@ -384,11 +387,14 @@ function exportOfficialJson(scriptId, outputPath) {
     townsfolkName: script.townsfolkName || "镇民",
     additional: script.additional || [],
   };
-  const orderedScriptRoleIds = [...(script.travellerIds || []), ...(script.roleIds || [])];
+  const orderedScriptRoleIds = [
+    ...(script.travellerIds || []),
+    ...(script.roleIds || []),
+    ...(script.fabledIds || []),
+  ];
   const officialRoles = orderedScriptRoleIds
     .map((roleId) => roleById.get(roleId))
     .filter(Boolean)
-    .sort((left, right) => getRoleSortValue(left) - getRoleSortValue(right))
     .map((role) => ({
       ability: role.ability || "",
       image: role.image || "",
@@ -413,9 +419,8 @@ function exportOfficialJson(scriptId, outputPath) {
   return { outputPath, roles: officialRoles.length };
 }
 
-function getRoleSortValue(role) {
-  const typeIndex = TYPE_ORDER.indexOf(role.type);
-  return typeIndex === -1 ? TYPE_ORDER.length : typeIndex;
+function isCoreScriptRole(type) {
+  return ["townsfolk", "outsider", "minion", "demon"].includes(type);
 }
 
 function printUsage() {

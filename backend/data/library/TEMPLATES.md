@@ -16,12 +16,15 @@
 
 官方 JSON 导入/导出约定：
 
-- 剧本归属只维护在 `scripts/*.yaml` 的 `roleIds` 中；旅行者可维护在 `travellerIds` 中；后端会从 `roleIds` 反向派生普通角色的 `scriptIds`、`scriptNames`、`script` 和 `scriptId`
+- `roleIds` 只维护常规剧本角色：`townsfolk`、`outsider`、`minion`、`demon`
+- 旅行者维护在 `travellerIds` 中；传奇角色维护在 `fabledIds` 中
+- 后端会从 `roleIds` 反向派生普通角色的 `scriptIds`、`scriptNames`、`script` 和 `scriptId`
 - `scripts` 中的 `author`、`logo`、`description`、`townsfolkName`、`additional` 对应官方 JSON 的 `_meta`
 - `scripts.nightOrder.first` 和 `scripts.nightOrder.other` 使用角色 id 的有序数组；导出官方 JSON 时由它们生成角色的 `firstNight` / `otherNight` 数字
 - `roles` 中的 `edition`、`image`、`flavor`、`setup`、`reminders`、`remindersGlobal`、`firstNightReminder`、`otherNightReminder` 对应官方角色对象字段
 - 导出官方 JSON 时，角色对象的 `id` 可以直接使用本站角色 id；不需要单独维护官方 `sourceId`
-- 官方 JSON 中的旅行者会导入到 `travellerIds`，导出时会放在普通剧本角色之前
+- 官方 JSON 中的旅行者会导入到 `travellerIds`，传奇角色会导入到 `fabledIds`
+- 导出官方 JSON 时顺序为 `_meta`、旅行者、常规剧本角色、传奇角色
 - `role-abilities` 是本站笔记页交互结构。官方 JSON 只能半自动生成初稿，复杂角色应标记 `needsReview: true`
 
 注意：
