@@ -9,14 +9,25 @@
 建议流程：
 
 1. 复制剧本模板，改成新的 `sxxx-中文名.yaml`
-2. 填写剧本 `id`、`englishName`、`name` 和 `roleIds`
+2. 填写剧本 `id`、`englishName`、`name`、官方导入/导出字段和 `roleIds`
 3. 复制角色模板，改成新的 `rxxx-中文名.yaml`
-4. 让角色里的 `scriptId` / `scriptIds` 指向对应剧本
+4. 填写角色自身字段，不要在角色里维护所属剧本
 5. 如果这个角色需要笔记页结构化记录，再复制 `role-abilities` 模板
+
+官方 JSON 导入/导出约定：
+
+- 剧本归属只维护在 `scripts/*.yaml` 的 `roleIds` 中；旅行者可维护在 `travellerIds` 中；后端会从 `roleIds` 反向派生普通角色的 `scriptIds`、`scriptNames`、`script` 和 `scriptId`
+- `scripts` 中的 `author`、`logo`、`description`、`townsfolkName`、`additional` 对应官方 JSON 的 `_meta`
+- `scripts.nightOrder.first` 和 `scripts.nightOrder.other` 使用角色 id 的有序数组；导出官方 JSON 时由它们生成角色的 `firstNight` / `otherNight` 数字
+- `roles` 中的 `edition`、`image`、`flavor`、`setup`、`reminders`、`remindersGlobal`、`firstNightReminder`、`otherNightReminder` 对应官方角色对象字段
+- 导出官方 JSON 时，角色对象的 `id` 可以直接使用本站角色 id；不需要单独维护官方 `sourceId`
+- 官方 JSON 中的旅行者会导入到 `travellerIds`，导出时会放在普通剧本角色之前
+- `role-abilities` 是本站笔记页交互结构。官方 JSON 只能半自动生成初稿，复杂角色应标记 `needsReview: true`
 
 注意：
 
 - 程序实际依赖的是文件内容里的 `id`，不是文件名
 - `id` 要保持唯一
 - `englishName` 建议保持英文稳定标识，后续不要频繁改
-- `roleIds`、`scriptId`、`relatedRoleIds` 这些关联字段都使用编号 id
+- `roleIds`、`nightOrder`、`relatedRoleIds` 这些关联字段都使用编号 id
+- 角色文件不再存放 `script`、`scriptId`、`scriptIds` 或 `scriptNames`

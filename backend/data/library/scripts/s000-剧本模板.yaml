@@ -2,6 +2,13 @@ id: s000
 englishName: script-template
 name: 剧本模板
 en: Script Template
+author: 作者名
+logo: /assets/clock-tower-night.jpg
+description: >-
+  这里填写官方格式 _meta.description 对应的剧本描述。可以由官方 JSON 导入，也可以在导出官方 JSON 时使用。
+townsfolkName: 镇民
+additional:
+  - 剧本介绍: 这里填写官方格式 _meta.additional 中的补充说明。
 level: 入门
 mood: 信息、博弈、教学
 text: 这里填写剧本的简短介绍。
@@ -21,3 +28,8 @@ detail:
     - 这里填写常见误区
 roleIds:
   - r000
+travellerIds: []
+nightOrder:
+  first:
+    - r000
+  other: []

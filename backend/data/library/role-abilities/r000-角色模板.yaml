@@ -2,6 +2,9 @@ id: r000
 englishName: role-template
 name: 角色模板
 schemaVersion: 1
+generatedFromOfficial: false
+needsReview: true
+reviewReason: 这里填写自动导入后需要人工复核的原因；人工维护的角色可留空。
 tags:
   - 模板
   - 示例

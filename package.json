@@ -6,6 +6,8 @@
   "scripts": {
     "start": "node backend/server.js",
     "check": "node scripts/check-js.js",
+    "official:import": "node scripts/official-json.js import",
+    "official:export": "node scripts/official-json.js export",
     "rebuild:library": "node scripts/rebuild-library-from-catalog.js"
   },
   "dependencies": {

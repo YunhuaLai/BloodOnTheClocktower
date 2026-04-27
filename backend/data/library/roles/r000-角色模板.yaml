@@ -2,6 +2,14 @@ id: r000
 englishName: role-template
 name: 角色模板
 type: townsfolk
+edition: custom
+image: /assets/clock-tower-night.jpg
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
 summary: 这里填写角色的简短说明。
 keywords: 模板 示例 技能
 detail:
