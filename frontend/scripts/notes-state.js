@@ -34,6 +34,14 @@ function createDefaultInference() {
   };
 }
 
+function createDefaultStorytellerState() {
+  return {
+    bluffs: [],
+    setupNotes: "",
+    publicNotes: "",
+  };
+}
+
 function createDefaultPlayer(seat) {
   return {
     id: createId("player"),
@@ -127,6 +135,7 @@ function createGameFromSetup(setup, nextIndex = 1) {
     players: createPlayersForCount(playerCount),
     timeline: [],
     inference: createDefaultInference(),
+    storyteller: createDefaultStorytellerState(),
   };
 }
 
@@ -240,6 +249,16 @@ function normalizeInference(inference) {
   };
 }
 
+function normalizeStorytellerState(storyteller) {
+  return {
+    ...createDefaultStorytellerState(),
+    ...(storyteller || {}),
+    bluffs: Array.isArray(storyteller?.bluffs)
+      ? storyteller.bluffs.slice(0, 3).map((value) => String(value || ""))
+      : [],
+  };
+}
+
 function normalizeGame(game, index) {
   const fallbackSetup = createDefaultSetupDraft();
   const fallbackPhase = parseLegacyPhase(game);
@@ -286,6 +305,7 @@ function normalizeGame(game, index) {
           .filter((entry) => entry.text)
       : [],
     inference: normalizeInference(game?.inference),
+    storyteller: normalizeStorytellerState(game?.storyteller),
   };
 }
 
