@@ -1,0 +1,187 @@
+/* Split from styles/notes.css. Imported by styles/notes.css. */
+
+.story-console {
+  display: grid;
+  gap: 12px;
+}
+
+.story-console-panel {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.story-panel-header {
+  display: grid;
+  gap: 10px;
+}
+
+.story-panel-header h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.story-toolbar-actions,
+.story-setup-counts,
+.story-row-cycles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.story-toolbar-actions .primary-link,
+.story-toolbar-actions .secondary-link {
+  margin: 0;
+}
+
+.story-count {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 4px 9px;
+  color: var(--ink);
+  background: #eef1ed;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.story-count.is-ok {
+  border-color: var(--teal);
+  background: rgba(33, 115, 102, 0.08);
+}
+
+.story-count.is-warn {
+  border-color: var(--gold);
+  background: rgba(221, 176, 51, 0.12);
+}
+
+.story-bluffs-grid,
+.story-player-list,
+.story-night-list,
+.story-public-board {
+  display: grid;
+  gap: 10px;
+}
+
+.story-player-row {
+  display: grid;
+  grid-template-columns: 54px minmax(0, 1fr);
+  gap: 10px;
+  align-items: end;
+  padding: 12px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.story-player-seat {
+  display: grid;
+  gap: 3px;
+  align-self: stretch;
+  align-content: center;
+  min-width: 0;
+  text-align: center;
+}
+
+.story-player-seat strong {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.story-player-seat span {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.story-row-cycles .notes-cycle-button {
+  min-width: 72px;
+}
+
+.story-role-badge {
+  justify-self: start;
+  min-height: 28px;
+  padding: 5px 8px;
+  color: #fff;
+  background: var(--outsider);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.story-role-badge--townsfolk {
+  background: var(--blue);
+}
+
+.story-role-badge--outsider {
+  background: var(--green);
+}
+
+.story-role-badge--minion {
+  background: var(--red);
+}
+
+.story-role-badge--demon {
+  color: var(--ink);
+  background: var(--gold);
+}
+
+.story-night-item {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--blue);
+  border-radius: 8px;
+}
+
+.story-night-item div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.story-night-item span,
+.story-night-item p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.story-public-board {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.story-public-player {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  gap: 6px;
+  align-items: center;
+  min-height: 36px;
+  padding: 6px 8px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.story-public-player span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.story-public-player small {
+  color: var(--muted);
+  font-weight: 800;
+}

@@ -1,0 +1,330 @@
+/* Split from styles/notes.css. Imported by styles/notes.css. */
+
+.notes-overview-row:hover,
+.notes-stagebar-button:hover,
+.notes-saved-card:hover,
+.notes-seat-tab:hover,
+.note-tag:hover,
+.note-icon-button:hover,
+.notes-tab:hover,
+.notes-existing-open:hover,
+.notes-toolbar .secondary-link:hover {
+  border-color: var(--ink);
+}
+
+.notes-overview-row:focus-visible,
+.notes-stagebar-button:focus-visible,
+.notes-saved-card:focus-visible,
+.notes-seat-tab:focus-visible,
+.note-tag:focus-visible,
+.note-icon-button:focus-visible,
+.notes-tab:focus-visible,
+.note-field input:focus-visible,
+.note-field select:focus-visible,
+.note-field textarea:focus-visible {
+  outline: 3px solid rgba(178, 31, 45, 0.24);
+  outline-offset: 2px;
+}
+
+@media (min-width: 721px) {
+  .notes-home,
+  .notes-setup,
+  .notes-shell {
+    padding: 0 24px 120px;
+  }
+
+  .notes-home-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notes-setup-grid,
+  .notes-phase-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notes-stagebar {
+    margin: 0 -24px;
+    padding: 12px 24px;
+  }
+
+  .notes-toolbar {
+    grid-template-columns: minmax(0, 1fr) auto auto auto;
+    align-items: end;
+  }
+
+  .notes-form-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notes-roleinfo-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .story-panel-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .story-bluffs-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .story-player-row {
+    grid-template-columns: 64px minmax(130px, 1fr) minmax(112px, 0.65fr) minmax(144px, 0.75fr) minmax(170px, 1.1fr) auto;
+  }
+
+  .story-public-board {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .notes-roleinfo-fields--3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .notes-claim-control,
+  .notes-timeline-compose {
+    grid-template-columns: minmax(0, 1fr) minmax(180px, 220px);
+  }
+
+  .notes-timeline-compose .note-field--wide,
+  .notes-timeline-submit {
+    grid-column: 1 / -1;
+  }
+
+  .notes-overview-row {
+    grid-template-columns: 42px 60px 72px minmax(112px, 1fr) 72px minmax(132px, 1.2fr);
+  }
+
+  .notes-overview-head {
+    grid-template-columns: 42px 60px 72px minmax(112px, 1fr) 72px minmax(132px, 1.2fr);
+  }
+}
+
+@media (min-width: 1081px) {
+  .notes-shell {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  .notes-home,
+  .notes-setup-panel {
+    max-width: 860px;
+  }
+}
+
+.notes-seat-tabs {
+  grid-auto-flow: row;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 6px;
+  padding-bottom: 0;
+  overflow: visible;
+}
+
+.notes-seat-tab {
+  min-height: 44px;
+  padding: 6px 4px;
+  place-items: center;
+}
+
+.notes-seat-tab span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.notes-seat-tab small {
+  display: none;
+}
+
+.notes-player-cycle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.notes-cycle-button {
+  display: grid;
+  gap: 4px;
+  align-items: center;
+  justify-items: center;
+  min-height: 56px;
+  padding: 8px 6px;
+  color: var(--ink);
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.notes-overview-cell .notes-cycle-button,
+.notes-overview-judgement-controls .notes-cycle-button {
+  min-height: 30px;
+  padding: 2px;
+  border-radius: 6px;
+}
+
+.notes-overview-cell .notes-cycle-button span,
+.notes-overview-judgement-controls .notes-cycle-button span {
+  display: none;
+}
+
+.notes-overview-cell .notes-cycle-button strong,
+.notes-overview-judgement-controls .notes-cycle-button strong {
+  font-size: 10px;
+}
+
+.notes-overview-editor .note-field {
+  gap: 4px;
+  font-size: 12px;
+}
+
+.notes-overview-editor .note-field input,
+.notes-overview-editor .note-field select,
+.notes-overview-editor .note-field textarea {
+  min-height: 38px;
+  padding: 7px 9px;
+}
+
+.notes-overview-editor .notes-roleinfo-section {
+  gap: 8px;
+  padding: 10px;
+}
+
+.notes-roleinfo-toggle {
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 8px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.notes-roleinfo-toggle--yes {
+  border-color: var(--teal);
+  background: rgba(33, 115, 102, 0.08);
+}
+
+.notes-roleinfo-toggle--no {
+  border-color: var(--red);
+  background: rgba(178, 31, 45, 0.08);
+}
+
+.notes-overview-editor .notes-roleinfo-row {
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 6px;
+}
+
+.notes-overview-editor .notes-external-report-row {
+  grid-template-columns: 38px minmax(0, 1fr);
+}
+
+.notes-overview-editor .notes-roleinfo-index {
+  min-height: 38px;
+  font-size: 11px;
+}
+
+.notes-external-report-seat {
+  width: 100%;
+  padding: 4px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.notes-external-report-seat:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(178, 31, 45, 0.14);
+  outline: none;
+}
+
+.notes-overview-editor .notes-roleinfo-fields {
+  gap: 6px;
+}
+
+.notes-overview-editor .notes-roleinfo-field {
+  gap: 3px;
+  font-size: 10px;
+}
+
+.notes-overview-editor .notes-roleinfo-field input,
+.notes-overview-editor .notes-roleinfo-field select {
+  min-height: 36px;
+  padding: 7px 8px;
+}
+
+.notes-overview-editor .notes-roleinfo-actions {
+  gap: 6px;
+}
+
+.notes-overview-editor .note-icon-button {
+  min-height: 32px;
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+.notes-cycle-button span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.notes-cycle-button strong {
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.notes-cycle-button--status-alive {
+  border-color: var(--teal);
+  background: rgba(33, 115, 102, 0.08);
+}
+
+.notes-cycle-button--status-night-dead,
+.notes-cycle-button--status-unclear,
+.notes-cycle-button--alignment-unknown,
+.notes-cycle-button--condition-unknown {
+  border-color: var(--outsider);
+  background: rgba(99, 103, 112, 0.08);
+}
+
+.notes-cycle-button--status-executed,
+.notes-cycle-button--alignment-evil {
+  border-color: var(--red);
+  background: rgba(178, 31, 45, 0.08);
+}
+
+.notes-cycle-button--alignment-good {
+  border-color: var(--blue);
+  background: rgba(35, 104, 162, 0.08);
+}
+
+.notes-cycle-button--alignment-suspect,
+.notes-cycle-button--condition-sober {
+  border-color: var(--gold);
+  background: rgba(221, 176, 51, 0.12);
+}
+
+.notes-cycle-button--condition-poisoned {
+  border-color: var(--green);
+  background: rgba(48, 112, 88, 0.12);
+}
+
+@media (min-width: 721px) {
+  .notes-overview-head,
+  .notes-overview-row {
+    grid-template-columns: 34px 44px minmax(84px, 0.82fr) minmax(120px, 1.28fr) 88px minmax(84px, 0.82fr);
+    gap: 3px;
+  }
+
+  .notes-seat-tabs {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .notes-seat-tab {
+    min-height: 48px;
+    padding: 8px 6px;
+  }
+}

@@ -1,0 +1,353 @@
+/* Split from styles/notes.css. Imported by styles/notes.css. */
+
+.notes-home,
+.notes-setup,
+.notes-shell {
+  padding: 0 12px 104px;
+  background: var(--paper);
+}
+
+.notes-home-panel,
+.notes-setup-panel,
+.notes-panel,
+.notes-player-detail,
+.notes-existing,
+.notes-home-saved,
+.notes-home-empty,
+.notes-game-meta,
+.notes-stagebar,
+.notes-toolbar {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-home,
+.notes-setup-panel {
+  display: grid;
+  gap: 14px;
+  max-width: 760px;
+  margin: 18px auto 0;
+}
+
+.notes-home-panel,
+.notes-home-saved,
+.notes-home-empty,
+.notes-setup-panel {
+  display: grid;
+  gap: 18px;
+  padding: 20px;
+}
+
+.notes-home-panel h1,
+.notes-home-saved h2,
+.notes-setup-panel .lead {
+  margin: 0;
+  max-width: none;
+}
+
+.notes-home-actions,
+.notes-setup-form,
+.notes-existing {
+  display: grid;
+  gap: 14px;
+}
+
+.notes-setup-grid,
+.notes-phase-row,
+.notes-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.notes-setup-preview {
+  display: grid;
+  gap: 4px;
+  padding: 14px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-setup-preview strong {
+  font-size: 18px;
+}
+
+.notes-setup-preview span,
+.notes-header-meta,
+.notes-inline-hint,
+.notes-game-meta-line,
+.notes-stagebar-item span {
+  color: var(--muted);
+}
+
+.notes-setup-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.notes-setup-actions .primary-link,
+.notes-setup-actions .secondary-link,
+.notes-existing-open {
+  margin: 0;
+  justify-content: center;
+}
+
+.notes-home-actions .primary-link,
+.notes-home-actions .secondary-link {
+  margin: 0;
+  justify-content: center;
+}
+
+.notes-home-empty p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.notes-saved-list {
+  display: grid;
+  gap: 10px;
+}
+
+.notes-saved-card {
+  display: grid;
+  gap: 4px;
+  width: 100%;
+  padding: 14px;
+  color: inherit;
+  text-align: left;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-saved-card strong {
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.notes-saved-card span,
+.notes-saved-card small {
+  color: var(--muted);
+}
+
+.notes-stagebar {
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 -12px;
+  padding: 10px 12px;
+  border-top: 0;
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.notes-stagebar-item {
+  display: grid;
+  gap: 2px;
+}
+
+.notes-stagebar-item strong {
+  font-size: 16px;
+  line-height: 1.1;
+}
+
+.notes-stagebar-phase {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.notes-stagebar-phase strong {
+  min-width: 0;
+}
+
+.notes-stagebar-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  color: var(--ink);
+  background: #eef1ed;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.notes-game-meta {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 14px;
+}
+
+.notes-game-meta-title {
+  display: grid;
+  gap: 4px;
+}
+
+.notes-game-meta-title h1 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.notes-game-meta-line {
+  margin: 0;
+  font-size: 13px;
+}
+
+.notes-header {
+  display: grid;
+  gap: 16px;
+}
+
+.notes-header h1 {
+  margin-bottom: 0;
+}
+
+.notes-toolbar {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px;
+}
+
+.notes-toolbar-field,
+.note-field {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.note-field span {
+  line-height: 1.2;
+}
+
+.note-field input,
+.note-field select,
+.note-field textarea,
+.notes-toolbar-field select {
+  width: 100%;
+  min-height: 44px;
+  padding: 9px 12px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  outline: none;
+}
+
+.note-field textarea {
+  min-height: 108px;
+  resize: vertical;
+}
+
+.note-field input:focus,
+.note-field select:focus,
+.note-field textarea:focus,
+.notes-toolbar-field select:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(178, 31, 45, 0.14);
+}
+
+.note-field--wide {
+  grid-column: 1 / -1;
+}
+
+.notes-tab-content {
+  margin-top: 12px;
+}
+
+.notes-panel,
+.notes-player-detail {
+  display: grid;
+  gap: 16px;
+  padding: 16px;
+}
+
+.notes-panel-header,
+.notes-player-detail-header,
+.notes-detail-section {
+  display: grid;
+  gap: 8px;
+}
+
+.notes-player-detail-header {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+}
+
+.notes-player-title-block {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+.notes-panel-header h2,
+.notes-player-detail-header h2 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.notes-seat-editor {
+  width: fit-content;
+  min-width: 0;
+}
+
+.notes-seat-editor-summary {
+  display: grid;
+  gap: 4px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.notes-seat-editor-summary::-webkit-details-marker {
+  display: none;
+}
+
+.notes-seat-editor-title {
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1.05;
+}
+
+.notes-seat-editor-summary small {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.notes-seat-editor[open] .notes-seat-editor-summary small {
+  color: var(--red);
+}
+
+.notes-seat-editor-summary:hover .notes-seat-editor-title {
+  color: var(--red);
+}
+
+.notes-seat-editor-summary:focus-visible {
+  outline: 3px solid rgba(178, 31, 45, 0.24);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+.notes-seat-editor-field {
+  max-width: 320px;
+  margin-top: 10px;
+}

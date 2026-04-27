@@ -1,0 +1,139 @@
+/* Split from styles/notes.css. Imported by styles/notes.css. */
+
+.notes-overview-list,
+.timeline-list {
+  display: grid;
+  gap: 10px;
+}
+
+.notes-overview-item {
+  display: grid;
+  gap: 6px;
+}
+
+.notes-overview-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.notes-overview-actions .primary-link,
+.notes-overview-actions .secondary-link {
+  margin: 0;
+  justify-content: center;
+}
+
+.notes-overview-head,
+.notes-overview-row {
+  display: grid;
+  grid-template-columns: 28px 38px minmax(40px, 0.56fr) minmax(92px, 1.62fr) 58px minmax(40px, 0.58fr);
+  gap: 1px;
+  align-items: center;
+}
+
+.notes-overview-head {
+  padding: 0 1px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.notes-overview-row {
+  width: 100%;
+  padding: 5px 2px;
+  color: inherit;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-overview-row.is-expanded {
+  border-color: var(--ink);
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.notes-overview-row.is-self {
+  border-color: var(--blue);
+  background: rgba(35, 104, 162, 0.06);
+}
+
+.notes-overview-cell {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 10px;
+  line-height: 1.1;
+}
+
+.notes-overview-toggle {
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  text-align: inherit;
+}
+
+.notes-overview-claim-cell {
+  display: block;
+}
+
+.notes-overview-claim-input {
+  width: 100%;
+  min-width: 0;
+  min-height: 30px;
+  padding: 3px 4px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.notes-overview-claim-input:focus {
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(178, 31, 45, 0.14);
+  outline: none;
+}
+
+.notes-overview-cell--seat,
+.notes-overview-cell--status,
+.notes-overview-cell--claim,
+.notes-overview-cell--judgement {
+  text-align: center;
+}
+
+.notes-overview-cell--seat {
+  font-weight: 900;
+}
+
+.notes-overview-cell--claim,
+.notes-overview-cell--summary {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.notes-overview-cell--extra {
+  color: var(--muted);
+}
+
+.notes-overview-editor {
+  display: grid;
+  gap: 10px;
+  padding: 10px;
+  background: #fbfbf8;
+  border: 1px solid var(--line);
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+}
+
+.notes-overview-judgement-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+}
