@@ -30,29 +30,70 @@ detail:
     - 没有记录阵营变化时间点，导致后续复盘断线。
 englishName: one-in-one-out
 roleIds:
-  - r084
   - r085
-  - r086
-  - r087
-  - r088
-  - r089
-  - r090
-  - r091
-  - r092
-  - r093
-  - r094
-  - r095
-  - r096
-  - r104
-  - r052
+  - r084
   - r006
-  - r056
+  - r052
+  - r087
+  - r086
   - r008
+  - r056
   - r058
-  - r038
-  - r016
+  - r089
+  - r088
+  - r091
+  - r090
   - r015
+  - r016
+  - r038
+  - r092
   - r017
   - r018
+  - r093
+  - r107
   - r021
   - r079
+  - r096
+  - r095
+author: Baron von Klutz
+logo: https://www.helloimg.com/i/2024/12/01/674c38245792f.png
+description: 抢凳游戏
+townsfolkName: 镇民
+additional: []
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r088
+    - r095
+    - r017
+    - r052
+    - r093
+    - r107
+    - r006
+    - r058
+    - r084
+    - r085
+    - r087
+    - r018
+    - r092
+    - r086
+  other:
+    - r088
+    - r017
+    - r052
+    - r008
+    - r093
+    - r107
+    - r021
+    - r079
+    - r096
+    - r095
+    - r090
+    - r006
+    - r056
+    - r058
+    - r087
+    - r018
+    - r086

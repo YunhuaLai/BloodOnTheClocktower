@@ -4,4 +4,13 @@ type: outsider
 summary: 死亡后选择一名玩家；若选中善良玩家，可能导致对方死亡。
 keywords: 死亡 选择 善良 风险
 englishName: moonchild
-ability: 当你得知自己死亡时，选择一名存活玩家。如果该玩家是善良阵营，今晚该玩家死亡。
+ability: 当你得知你死亡时，你要公开选择一名存活的玩家。如果他是善良的，在当晚他会死亡。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/moonchild.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果月之子在今天白天的时候使用自己的能力选择了一名善良玩家，那名玩家死亡。

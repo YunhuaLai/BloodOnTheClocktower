@@ -4,4 +4,13 @@ type: townsfolk
 summary: 开局确认一名善良玩家，是建立初始信任链的干净信息位。
 keywords: 开局 善良 信息
 englishName: steward
-ability: 首夜得知一名善良玩家。
+ability: 在你的首个夜晚，你会得知一名善良玩家。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/steward.png
+flavor: ''
+setup: false
+reminders:
+  - 得知
+remindersGlobal: []
+firstNightReminder: 唤醒事务官，对他指向一名善良玩家。
+otherNightReminder: ''

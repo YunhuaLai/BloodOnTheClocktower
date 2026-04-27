@@ -1,0 +1,16 @@
+id: r159
+englishName: scp-049049049
+name: 瘟疫医生
+type: outsider
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/plague_doctor.png
+flavor: ''
+setup: false
+reminders:
+  - 说书人能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果瘟疫医生死亡，说书人获得一项爪牙能力。
+summary: 当你死亡时，说书人会获得一个爪牙能力。
+keywords: outsider 夜晚 死亡
+ability: 当你死亡时，说书人会获得一个爪牙能力。

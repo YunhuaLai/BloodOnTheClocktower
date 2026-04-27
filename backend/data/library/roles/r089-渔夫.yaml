@@ -4,4 +4,13 @@ type: townsfolk
 summary: 一次性向说书人获取获胜建议，适合在信息卡住或残局前寻找方向。
 keywords: 建议 一次性 白天 信息
 englishName: fisherman
-ability: 每局一次，在白天私下拜访说书人，获得一条能帮助你的阵营获胜的建议。
+ability: 每局游戏限一次，在白天时，你可以让说书人给你一些能帮助你的阵营获胜的建议。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/fisherman.png
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

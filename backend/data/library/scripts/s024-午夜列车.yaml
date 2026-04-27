@@ -1,0 +1,53 @@
+id: s024
+englishName: item
+name: 午夜列车
+en: 午夜列车
+author: Aero
+logo: https://i.postimg.cc/909hRgNf/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/909hRgNf/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r052
+  - r150
+  - r022
+  - r035
+  - r155
+  - r032
+  - r036
+  - r016
+  - r069
+  - r040
+  - r077
+  - r020
+  - r045
+  - r021
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r155
+    - r052
+    - r040
+    - r045
+  other:
+    - r052
+    - r020
+    - r150
+    - r021
+    - r045
+    - r040
+    - r036

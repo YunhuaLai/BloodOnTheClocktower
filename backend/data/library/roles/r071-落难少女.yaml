@@ -4,4 +4,13 @@ type: outsider
 summary: 所有爪牙都知道场上有她；若爪牙公开猜中她，善良方立刻失败，是极强的身份保密压力源。
 keywords: 外来者 公开猜测 失败条件 保密
 englishName: damsel
-ability: 所有爪牙都知道场上有落难少女。若一名爪牙公开猜中你（全局一次），善良方失败。
+ability: 所有爪牙都知道落难少女在场。每局游戏限一次，任意爪牙可以公开猜测你是落难少女，如果猜对，你的阵营落败。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/damsel.png
+flavor: ''
+setup: false
+reminders:
+  - 已被猜测
+remindersGlobal: []
+firstNightReminder: 如果落难少女在场，对爪牙展示落难少女角色标记。
+otherNightReminder: '0'

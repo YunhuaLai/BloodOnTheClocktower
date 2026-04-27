@@ -1,0 +1,63 @@
+id: s018
+englishName: item
+name: 魔鬼党
+en: 魔鬼党
+author: Zets
+logo: https://i.postimg.cc/K8YwZpdq/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/K8YwZpdq/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r049
+  - r051
+  - r005
+  - r134
+  - r089
+  - r070
+  - r039
+  - r037
+  - r121
+  - r018
+  - r103
+  - r045
+travellerIds: []
+fabledIds:
+  - r127
+  - r143
+  - r118
+nightOrder:
+  first:
+    - r039
+    - r121
+    - r103
+    - r045
+    - r003
+    - r005
+    - r051
+    - r049
+    - r134
+    - r018
+  other:
+    - r039
+    - r045
+    - r103
+    - r070
+    - r037
+    - r005
+    - r051
+    - r134
+    - r018

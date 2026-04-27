@@ -4,4 +4,14 @@ type: townsfolk
 summary: 一次性尝试复活一名死亡镇民，是强力但需要时机的资源。
 keywords: 复活 镇民 一次性
 englishName: professor
-ability: 每局一次，在夜晚选择一名死亡玩家；如果该玩家是镇民，该玩家复活。
+ability: 每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：如果他是镇民，你会将他起死回生。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/professor.png
+flavor: ''
+setup: false
+reminders:
+  - 复活
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果教授未曾使用能力且在城镇广场上有玩家死亡，唤醒教授，他可以摇头不使用能力，或选择一名已死亡的玩家。如果该玩家是镇民，该玩家被起死回生。

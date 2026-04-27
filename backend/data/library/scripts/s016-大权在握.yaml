@@ -1,0 +1,80 @@
+id: s016
+englishName: item
+name: 大权在握
+en: 大权在握
+author: ''
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689598024_197011_9289.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689598024_197011_9289.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r023
+  - r097
+  - r140
+  - r052
+  - r028
+  - r029
+  - r057
+  - r060
+  - r115
+  - r010
+  - r088
+  - r091
+  - r067
+  - r015
+  - r039
+  - r119
+  - r040
+  - r017
+  - r076
+  - r078
+  - r045
+  - r082
+  - r046
+  - r141
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r088
+    - r141
+    - r017
+    - r078
+    - r052
+    - r040
+    - r045
+    - r097
+    - r023
+    - r140
+    - r139
+  other:
+    - r088
+    - r017
+    - r028
+    - r052
+    - r076
+    - r039
+    - r045
+    - r046
+    - r082
+    - r141
+    - r040
+    - r029
+    - r023
+    - r140
+    - r139

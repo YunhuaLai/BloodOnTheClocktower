@@ -1,0 +1,54 @@
+id: s026
+englishName: item
+name: 逐底竞争
+en: 逐底竞争
+author: Evin Donohoe
+logo: https://www.helloimg.com/i/2024/12/01/674c7879b1837.png
+description: 逐底竞争
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 逐底竞争
+image: https://www.helloimg.com/i/2024/12/01/674c7879b1837.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 逐底竞争
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r005
+  - r051
+  - r022
+  - r030
+  - r012
+  - r039
+  - r072
+  - r018
+  - r020
+  - r083
+travellerIds: []
+fabledIds:
+  - r160
+  - r127
+nightOrder:
+  first:
+    - r039
+    - r030
+    - r005
+    - r048
+    - r051
+    - r018
+  other:
+    - r030
+    - r020
+    - r039
+    - r083
+    - r005
+    - r051
+    - r018

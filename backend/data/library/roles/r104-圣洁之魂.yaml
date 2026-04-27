@@ -4,4 +4,13 @@ type: fabled
 summary: 限制额外邪恶玩家数量，避免阵营变化角色让邪恶方人数失衡。
 keywords: 传奇角色 额外邪恶 阵营平衡 象牙精魂
 englishName: spirit-of-ivory
-ability: 额外邪恶玩家不能超过一名。
+ability: 游戏过程中邪恶玩家的总数最多能比初始设置多一名。
+edition: custom
+image: https://clocktower-wiki.gstonegames.com/images/thumb/9/9f/Spiritofivory.png/600px-Spiritofivory.png
+flavor: ''
+setup: false
+reminders:
+  - 禁止邪恶
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

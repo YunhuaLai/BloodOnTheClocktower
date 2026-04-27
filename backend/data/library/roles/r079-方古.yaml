@@ -6,7 +6,7 @@ keywords: 转移 外来者 恶魔
 englishName: fang-gu
 ability: 每个夜晚*，你要选择一名玩家：他死亡。被该能力杀死的外来者改为变成邪恶的方古且你代替他死亡，但每局游戏仅能成功转化一次。[+1外来者]
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/fang_gu.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/fang_gu.png
 flavor: ''
 setup: true
 reminders:
@@ -15,4 +15,4 @@ remindersGlobal:
   - 限一次
 firstNightReminder: ''
 otherNightReminder: >-
-  让方古选择一名玩家。标记那名玩家死亡。如果他选择了外来者，且“首次”标记未放置在魔典中：用备用的方古角色标记替换那名外来者的角色标记。让方古重新入睡。唤醒方古的目标玩家。对该玩家展示“你是”信息标记和方古角色标记，并用拇指向下代表他阵营变为邪恶。将“首次”标记放置在魔典中。标记原本的方古玩家死亡，且他选择的玩家不会被标记为死亡。
+  让方古选择一名玩家。标记那名玩家死亡。如果他选择了外来者，且“限一次”标记未放置在魔典中：用备用的方古角色标记替换那名外来者的角色标记。让方古重新入睡。唤醒方古的目标玩家。对该玩家展示“你是”信息标记和方古角色标记，并用拇指向下代表他阵营变为邪恶。将“首次”标记放置在魔典中。标记原本的方古玩家死亡，且他选择的玩家不会被标记为死亡。

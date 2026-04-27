@@ -4,4 +4,13 @@ type: townsfolk
 summary: 让恶魔与爪牙开局互不相认，直到自己死亡才恢复邪恶方协作，是强力的前期信息封锁位。
 keywords: 邪恶不互认 死亡触发 信息封锁
 englishName: poppy-grower
-ability: 爪牙和恶魔互不认识。如果你死亡，当晚他们会互相认识。
+ability: 爪牙和恶魔互相不认识。如果你死亡，当晚他们会互相认识。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/poppy_grower.png
+flavor: ''
+setup: false
+reminders:
+  - 唤醒邪恶
+remindersGlobal: []
+firstNightReminder: 不要让恶魔和爪牙相认。
+otherNightReminder: 如果罂粟种植者死亡，安排恶魔和爪牙相认环节。

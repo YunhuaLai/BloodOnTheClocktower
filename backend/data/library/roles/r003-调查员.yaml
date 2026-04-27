@@ -24,4 +24,14 @@ detail:
     - r019
     - r016
 englishName: investigator
-ability: 首夜得知一个爪牙角色，并看到两名玩家；其中一名玩家是该爪牙。
+ability: 在你的首个夜晚，你会得知两名玩家和一个爪牙角色：这两名玩家之一是该角色（或者你会得知没有爪牙在场）。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/investigator.png
+flavor: ''
+setup: false
+reminders:
+  - 爪牙
+  - 错误
+remindersGlobal: []
+firstNightReminder: 展示那个爪牙角色标记。指向被你标记“爪牙”和“错误”的两名玩家。
+otherNightReminder: ''

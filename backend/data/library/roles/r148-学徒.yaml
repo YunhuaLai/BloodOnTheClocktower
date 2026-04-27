@@ -1,0 +1,16 @@
+id: r148
+englishName: xuetutututututututtutu111
+name: 学徒
+type: traveller
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/apprentice.png
+flavor: ''
+setup: false
+reminders:
+  - 是学徒
+remindersGlobal: []
+firstNightReminder: 对学徒展示一个镇民或爪牙标记。在魔典中，用那个角色标记代替学徒标记，并在一旁标识该玩家是学徒。
+otherNightReminder: ''
+summary: 在你的首个夜晚，如果你是善良的，你会获得一个镇民角色的能力；如果你是邪恶的，你会获得一个爪牙角色的能力。
+keywords: traveller 首夜 夜晚
+ability: 在你的首个夜晚，如果你是善良的，你会获得一个镇民角色的能力；如果你是邪恶的，你会获得一个爪牙角色的能力。

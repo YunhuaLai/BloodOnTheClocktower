@@ -4,4 +4,13 @@ type: townsfolk
 summary: 每晚猜一名玩家的角色；猜错会让自己死亡。
 keywords: 猜测 风险 死亡 信息
 englishName: gambler
-ability: 每晚选择一名玩家并猜测其角色；如果猜错，你死亡。
+ability: 每个夜晚*，你要选择一名玩家并猜测他的角色：如果你猜错了，你会死亡。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/gambler.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让赌徒选择一名玩家和一个角色。如果赌徒猜错了，标记赌徒死亡。

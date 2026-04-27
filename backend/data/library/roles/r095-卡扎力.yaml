@@ -4,4 +4,13 @@ type: demon
 summary: 开局亲自选择爪牙玩家与爪牙角色，并在后续夜晚正常击杀。
 keywords: 恶魔 爪牙 配置 击杀
 englishName: kazali
-ability: 每晚*选择一名玩家死亡。开局时由你选择哪些玩家成为哪些爪牙，外来者数量可能调整。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。[由你决定谁是什么爪牙，-或+任意数量外来者]
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/kazali.png
+flavor: ''
+setup: true
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒卡扎力，让他选择玩家变成邪恶爪牙。
+otherNightReminder: 唤醒卡扎力，让他攻击一名玩家。

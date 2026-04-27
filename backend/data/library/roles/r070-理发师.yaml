@@ -4,4 +4,13 @@ type: outsider
 summary: 死亡后恶魔可能交换两名玩家的角色。
 keywords: 死亡 交换 角色
 englishName: barber
-ability: 如果你死亡，恶魔可以选择两名玩家交换角色，但不能选择另一个恶魔。
+ability: 如果你死亡，在当晚恶魔可以选择两名玩家（不能选择其他恶魔）交换角色。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/barber.png
+flavor: ''
+setup: false
+reminders:
+  - 今晚理发
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果理发师死于白天，唤醒恶魔让他决定是否使用理发师的能力。如果理发师死于夜晚，（如果让除攻击理发师以外的恶魔进行选择则需要等当前恶魔入睡后）让一名恶魔决定是否使用理发师的能力。

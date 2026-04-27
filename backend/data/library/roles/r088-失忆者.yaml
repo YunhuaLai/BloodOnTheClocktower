@@ -12,5 +12,5 @@ setup: false
 reminders:
   - ？
 remindersGlobal: []
-firstNightReminder: 决定失忆者的能力。如果失忆者的能力会让他在今晚醒来：唤醒他并执行其能力。
-otherNightReminder: 如果失忆者的能力会让他在今晚醒来：唤醒他并执行其能力。
+firstNightReminder: 决定失忆者的能力，并根据具体能力决定是否需要唤醒失忆者、何时唤醒、唤醒后让他做出什么操作或得知什么信息。
+otherNightReminder: 根据失忆者的具体能力决定是否需要唤醒失忆者、何时唤醒、唤醒后让他做出什么操作或得知什么信息。

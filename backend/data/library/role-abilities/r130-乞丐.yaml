@@ -1,0 +1,35 @@
+id: r130
+englishName: qigaigaigai111
+name: 乞丐
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: null
+  eventTiming: on_death
+  usagePattern: passive
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: team
+        type: team
+        label: 阵营
+        required: true
+        optionsSource: teams
+        options: null
+        min: null
+        max: null
+        placeholder: null

@@ -1,0 +1,75 @@
+id: s023
+englishName: item
+name: 五星大厨
+en: 五星大厨
+author: Harald
+logo: https://i.postimg.cc/ydGKGP5m/1-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/ydGKGP5m/1-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r097
+  - r052
+  - r053
+  - r055
+  - r059
+  - r089
+  - r057
+  - r062
+  - r091
+  - r066
+  - r088
+  - r065
+  - r015
+  - r067
+  - r016
+  - r119
+  - r075
+  - r121
+  - r073
+  - r018
+  - r079
+  - r021
+  - r099
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r059
+    - r066
+    - r121
+    - r052
+    - r073
+    - r075
+    - r097
+    - r004
+    - r018
+    - r053
+  other:
+    - r088
+    - r059
+    - r066
+    - r052
+    - r075
+    - r021
+    - r079
+    - r099
+    - r055
+    - r062
+    - r018
+    - r053

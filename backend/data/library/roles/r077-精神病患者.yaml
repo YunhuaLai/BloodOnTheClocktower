@@ -4,4 +4,12 @@ type: minion
 summary: 可在提名前公开杀人，被处决时还可能靠猜拳活下，是会持续挤压白天节奏的公开爪牙。
 keywords: 白天击杀 公开 猜拳 免死
 englishName: psychopath
-ability: 每个白天，在提名开始前，你可以公开选择一名玩家：其死亡。如果你被处决，只有在猜拳输给提名者时你才会死亡。
+ability: 每个白天，在提名开始前，你可以公开选择一名玩家：他死亡。如果你被处决，提名你的玩家需要和你猜拳，只有你输了你才会死亡。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/psychopath.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

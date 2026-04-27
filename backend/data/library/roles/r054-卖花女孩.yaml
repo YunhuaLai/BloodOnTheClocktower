@@ -4,4 +4,14 @@ type: townsfolk
 summary: 得知白天是否有恶魔参与投票。
 keywords: 投票 恶魔 信息
 englishName: flowergirl
-ability: 每晚*得知今天白天是否有恶魔投过票。
+ability: 每个夜晚*，你会得知在今天白天时是否有恶魔投过票。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/flowergirl.png
+flavor: ''
+setup: false
+reminders:
+  - 恶魔未投票
+  - 恶魔已投票
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 对她点头或摇头来示意今天白天是否有恶魔投过票。

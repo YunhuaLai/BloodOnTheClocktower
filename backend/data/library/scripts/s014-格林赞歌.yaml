@@ -1,0 +1,86 @@
+id: s014
+englishName: item
+name: 格林赞歌
+en: 格林赞歌
+author: Zets
+logo: https://www.helloimg.com/i/2024/12/01/674c38247503f.png
+description: 格林赞歌
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 格林赞歌
+image: https://www.helloimg.com/i/2024/12/01/674c38247503f.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 格林赞歌
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r133
+  - r087
+  - r134
+  - r027
+  - r028
+  - r055
+  - r026
+  - r089
+  - r022
+  - r088
+  - r091
+  - r032
+  - r011
+  - r015
+  - r071
+  - r069
+  - r135
+  - r020
+  - r040
+  - r042
+  - r113
+  - r045
+  - r047
+  - r096
+  - r136
+travellerIds:
+  - r128
+  - r129
+  - r130
+  - r131
+  - r132
+fabledIds: []
+nightOrder:
+  first:
+    - r128
+    - r088
+    - r071
+    - r113
+    - r040
+    - r045
+    - r136
+    - r087
+    - r134
+    - r133
+  other:
+    - r128
+    - r132
+    - r088
+    - r027
+    - r028
+    - r020
+    - r113
+    - r026
+    - r045
+    - r047
+    - r096
+    - r136
+    - r042
+    - r040
+    - r055
+    - r087
+    - r134
+    - r133

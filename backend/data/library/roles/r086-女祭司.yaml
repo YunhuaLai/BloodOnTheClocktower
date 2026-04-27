@@ -4,4 +4,12 @@ type: townsfolk
 summary: 每晚得到一名最值得交流的玩家，能把社交推理导向关键节点。
 keywords: 每晚 交流 信息
 englishName: high-priestess
-ability: 每晚得知一名说书人认为你最应该去交流的玩家。
+ability: 每个夜晚，你会得知一名说书人认为你最应该与其交流的玩家。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/high_priestess.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: 唤醒女祭司，对她指向一名玩家。
+otherNightReminder: 唤醒女祭司，对她指向一名玩家。

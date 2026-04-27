@@ -4,4 +4,14 @@ type: townsfolk
 summary: 每晚保护两名玩家免死，但其中一人会醉酒。
 keywords: 保护 醉酒 夜晚
 englishName: innkeeper
-ability: 每晚选择两名玩家；他们今晚不能死亡，但其中一人会醉酒直到明天黄昏。
+ability: 每个夜晚*，你要选择两名玩家：他们当晚不会死亡，但其中一人会醉酒到下个黄昏。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/innkeeper.png
+flavor: ''
+setup: false
+reminders:
+  - 不会死亡
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒旅店老板，让他选择两名玩家。这两名玩家今晚不死，同时需要决定他俩其中谁因为旅店老板能力醉酒。

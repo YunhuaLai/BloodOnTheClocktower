@@ -24,4 +24,12 @@ detail:
     - r001
     - r021
 englishName: spy
-ability: 每晚查看魔典。即使死亡，你也可能被侦测为善良阵营、镇民或外来者。
+ability: 每个夜晚，你能查看魔典。你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/spy.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: 唤醒间谍，让他查看魔典。
+otherNightReminder: 唤醒间谍，让他查看魔典。

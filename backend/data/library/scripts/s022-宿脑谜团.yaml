@@ -1,0 +1,51 @@
+id: s022
+englishName: item
+name: 宿脑谜团
+en: 宿脑谜团
+author: OJ
+logo: https://www.helloimg.com/i/2024/12/01/674c7879746c4.png
+description: 宿脑谜团
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 宿脑谜团
+image: https://www.helloimg.com/i/2024/12/01/674c7879746c4.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 宿脑谜团
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r007
+  - r026
+  - r062
+  - r022
+  - r089
+  - r015
+  - r039
+  - r041
+  - r121
+  - r141
+travellerIds: []
+fabledIds:
+  - r127
+nightOrder:
+  first:
+    - r039
+    - r121
+    - r141
+    - r041
+    - r097
+  other:
+    - r041
+    - r039
+    - r026
+    - r141
+    - r007
+    - r062

@@ -4,4 +4,12 @@ type: outsider
 summary: 死亡后必须选择一名存活玩家；若选中邪恶玩家会导致善良方失败。
 keywords: 死亡 选择 风险
 englishName: klutz
-ability: 当你得知自己死亡时，公开选择一名存活玩家。如果该玩家是邪恶阵营，善良方失败。
+ability: 当你得知你死亡时，你要公开选择一名存活的玩家：如果他是邪恶的，你的阵营落败。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/klutz.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

@@ -4,4 +4,12 @@ type: townsfolk
 summary: 夜晚死亡后会把农夫能力传给另一名善良玩家，形成接力式确认空间。
 keywords: 死亡 传承 善良
 englishName: farmer
-ability: 如果你在夜晚死亡，一名存活善良玩家变成农夫。
+ability: 当你在夜晚死亡时，一名存活的善良玩家会变成农夫。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/farmer.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果农夫死于夜晚，唤醒一名存活的善良玩家告知他角色变化。

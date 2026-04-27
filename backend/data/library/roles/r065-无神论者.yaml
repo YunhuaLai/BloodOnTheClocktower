@@ -4,4 +4,12 @@ type: townsfolk
 summary: 把整局目标改成处决说书人，要求玩家从全局不一致中判断这是不是一局没有邪恶的游戏。
 keywords: 无邪恶 处决说书人 特殊胜利 规则
 englishName: atheist
-ability: 说书人可以违反游戏规则；若说书人被处决，善良方获胜，即使你已死亡。[无邪恶角色]
+ability: 说书人可以打破游戏规则。如果说书人被处决，善良阵营获胜，即使你已死亡。[无邪恶角色在场]
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/atheist.png
+flavor: ''
+setup: true
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

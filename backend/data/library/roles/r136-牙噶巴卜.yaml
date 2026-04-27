@@ -1,0 +1,16 @@
+id: r136
+englishName: waibibaboabbbb1111
+name: 牙噶巴卜
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/yaggababble.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒牙噶巴卜，对他展示他的秘密短语。
+otherNightReminder: 根据已放置的提示标记数量，选择最多等同于该数量的玩家死亡。该夜晚行动只是一个提示，死亡的造成时机可以是白天，也可以是夜晚的任何时候。
+summary: 在你的首个夜晚，你会得知一段秘密短语。每次你在白天公开说出这段短语，当天便可能会有一名玩家在这之后死亡。
+keywords: demon 首夜 夜晚 死亡
+ability: 在你的首个夜晚，你会得知一段秘密短语。每次你在白天公开说出这段短语，当天便可能会有一名玩家在这之后死亡。

@@ -1,0 +1,17 @@
+id: r122
+englishName: bishopbutton
+name: 主教
+type: traveller
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bishop.png
+flavor: ''
+setup: false
+reminders:
+  - 提名善良方
+  - 提名邪恶方
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 只有说书人可以发起提名。每个白天说书人至少要提名一名你对立阵营的玩家。
+keywords: traveller
+ability: 只有说书人可以发起提名。每个白天说书人至少要提名一名你对立阵营的玩家。

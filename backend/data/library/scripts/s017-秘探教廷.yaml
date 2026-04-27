@@ -1,0 +1,76 @@
+id: s017
+englishName: item
+name: 秘探教廷
+en: 秘探教廷
+author: Andrew Nathenson
+logo: https://i.postimg.cc/L8n6Sdw6/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/L8n6Sdw6/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r084
+  - r097
+  - r142
+  - r006
+  - r086
+  - r026
+  - r008
+  - r007
+  - r062
+  - r134
+  - r060
+  - r009
+  - r072
+  - r014
+  - r067
+  - r015
+  - r019
+  - r121
+  - r020
+  - r018
+  - r082
+  - r047
+  - r045
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r045
+    - r097
+    - r002
+    - r006
+    - r084
+    - r134
+    - r142
+    - r086
+    - r018
+  other:
+    - r008
+    - r020
+    - r026
+    - r045
+    - r047
+    - r082
+    - r009
+    - r006
+    - r007
+    - r062
+    - r134
+    - r142
+    - r086
+    - r018

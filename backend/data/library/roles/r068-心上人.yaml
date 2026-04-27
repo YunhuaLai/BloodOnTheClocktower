@@ -4,4 +4,13 @@ type: outsider
 summary: 死亡后会让一名玩家醉酒。
 keywords: 死亡 醉酒 外来者
 englishName: sweetheart
-ability: 当你死亡时，一名玩家从此醉酒。
+ability: 当你死亡时，会有一名玩家开始醉酒。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/sweetheart.png
+flavor: ''
+setup: false
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果心上人死亡，会有一名玩家立刻醉酒。如果你还没有让这件事情发生，那么现在为任意一位玩家放置醉酒标记。

@@ -4,4 +4,14 @@ type: minion
 summary: 知道外来者情况；外来者死亡后可制造额外击杀。
 keywords: 外来者 击杀 爪牙
 englishName: godfather
-ability: 首夜得知有哪些外来者在场。若今天有外来者死亡，今晚选择一名玩家死亡。本局外来者数量增减一名。
+ability: 在你的首个夜晚，你会得知有哪些外来者角色在场。如果有外来者在白天死亡，你会在当晚被唤醒并且你要选择一名玩家：他死亡。[-1或+1外来者]
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/godfather.png
+flavor: ''
+setup: true
+reminders:
+  - 死于今日
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 对他展示所有在场的外来者标记。
+otherNightReminder: 如果有外来者在今天白天死亡，让教父选择一名玩家。标记那名玩家死亡。

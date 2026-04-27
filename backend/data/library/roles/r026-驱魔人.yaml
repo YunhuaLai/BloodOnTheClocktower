@@ -4,4 +4,13 @@ type: townsfolk
 summary: 每晚选择一名玩家；若选中恶魔，可阻止其当晚行动并得知自己被选中。
 keywords: 阻止 恶魔 夜晚
 englishName: exorcist
-ability: 每晚选择一名玩家，不能与上一晚相同。若选中恶魔，恶魔得知你是谁，且今晚不会因自身能力醒来。
+ability: 每个夜晚*，你要选择一名玩家（与上个夜晚不同）：如果你选中了恶魔，他会得知你的角色，但他当晚不会因其自身能力而被唤醒。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/exorcist.png
+flavor: ''
+setup: false
+reminders:
+  - 被选择
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒驱魔人，让他选择一名与上一晚不同的玩家。如果他选中了恶魔，则在驱魔人入睡后通知该恶魔谁是驱魔人。

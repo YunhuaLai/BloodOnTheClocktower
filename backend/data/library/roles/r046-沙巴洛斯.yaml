@@ -4,4 +4,14 @@ type: demon
 summary: 每晚可造成多名玩家死亡，也可能让死者复活。
 keywords: 多杀 复活 恶魔
 englishName: shabaloth
-ability: 每晚*选择两名玩家死亡。上一晚被你选择且当前死亡的玩家之一可能复活。
+ability: 每个夜晚*，你要选择两名玩家：他们死亡。你上个夜晚选择过且当前死亡的玩家之一可能会被你反刍。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/shabaloth.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 复活
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 上一夜被沙巴洛斯选择且当前已死亡的玩家之一可能被反刍，如果被反刍，标记那名玩家被复活。让沙巴洛斯选择两名玩家。标记这两名玩家死亡。

@@ -1,0 +1,16 @@
+id: r124
+englishName: bureaucratbutton
+name: 官员
+type: traveller
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bureaucrat.png
+flavor: ''
+setup: false
+reminders:
+  - 3票
+remindersGlobal: []
+firstNightReminder: 官员指向一名玩家。将三票标记放在那名玩家旁。
+otherNightReminder: 官员指向一名玩家。将三票标记放在那名玩家旁。
+summary: 每个夜晚，你要选择除你以外的一名玩家：明天白天，他的投票算作三票。
+keywords: traveller 首夜 夜晚
+ability: 每个夜晚，你要选择除你以外的一名玩家：明天白天，他的投票算作三票。

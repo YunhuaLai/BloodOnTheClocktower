@@ -24,4 +24,14 @@ detail:
     - r007
     - r015
 englishName: washerwoman
-ability: 首夜得知一个镇民角色，并看到两名玩家；其中一名玩家是该镇民。
+ability: 在你的首个夜晚，你会得知两名玩家和一个镇民角色：这两名玩家之一是该角色。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/washerwoman.png
+flavor: ''
+setup: false
+reminders:
+  - 镇民
+  - 错误
+remindersGlobal: []
+firstNightReminder: 展示那个镇民角色标记。指向被你标记“镇民”和“错误”的两名玩家。
+otherNightReminder: ''

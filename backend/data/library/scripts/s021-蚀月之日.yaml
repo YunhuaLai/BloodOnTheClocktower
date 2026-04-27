@@ -1,0 +1,90 @@
+id: s021
+englishName: item
+name: 蚀月之日
+en: 蚀月之日
+author: Ekin
+logo: https://www.helloimg.com/i/2024/12/01/674c3822414e4.png
+description: 蚀月之日
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 蚀月之日
+image: https://www.helloimg.com/i/2024/12/01/674c3822414e4.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 蚀月之日
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r097
+  - r024
+  - r025
+  - r053
+  - r027
+  - r150
+  - r060
+  - r057
+  - r033
+  - r091
+  - r115
+  - r012
+  - r039
+  - r038
+  - r070
+  - r119
+  - r018
+  - r040
+  - r041
+  - r042
+  - r121
+  - r044
+  - r080
+  - r082
+travellerIds:
+  - r130
+  - r147
+  - r148
+  - r149
+  - r132
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r148
+    - r149
+    - r115
+    - r039
+    - r121
+    - r024
+    - r040
+    - r041
+    - r097
+    - r023
+    - r018
+    - r025
+    - r053
+  other:
+    - r148
+    - r149
+    - r132
+    - r024
+    - r027
+    - r041
+    - r039
+    - r150
+    - r044
+    - r082
+    - r080
+    - r042
+    - r040
+    - r023
+    - r070
+    - r018
+    - r025
+    - r053

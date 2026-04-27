@@ -4,4 +4,13 @@ type: outsider
 summary: 首夜绑定一名玩家并变成其阵营，为阵营数量和信任关系制造压力。
 keywords: 阵营转变 外来者 选择
 englishName: ogre
-ability: 首夜选择除自己以外的一名玩家；你变成该玩家的阵营，即使你醉酒或中毒也会如此，但你不知道该阵营。
+ability: 在你的首个夜晚，你要选择除你以外的一名玩家：你转变为他的阵营，即使你已醉酒或中毒，但你不知道你转变后的阵营。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/ogre.png
+flavor: ''
+setup: false
+reminders:
+  - 挚友
+remindersGlobal: []
+firstNightReminder: 唤醒食人魔，让他选择一名玩家。如果他选择了邪恶玩家，将他的角色标记在魔典中倒置以表示他转变为邪恶阵营。
+otherNightReminder: ''

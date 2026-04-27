@@ -1,0 +1,85 @@
+id: s013
+englishName: item
+name: 毒线蔓延
+en: 毒线蔓延
+author: Viva La Sam
+logo: https://i.postimg.cc/3JxYqwMN/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/3JxYqwMN/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r097
+  - r005
+  - r051
+  - r053
+  - r056
+  - r008
+  - r060
+  - r089
+  - r064
+  - r011
+  - r009
+  - r091
+  - r119
+  - r016
+  - r067
+  - r071
+  - r070
+  - r017
+  - r018
+  - r020
+  - r120
+  - r121
+  - r082
+travellerIds:
+  - r122
+  - r123
+  - r124
+  - r125
+  - r126
+fabledIds:
+  - r127
+  - r118
+nightOrder:
+  first:
+    - r124
+    - r121
+    - r017
+    - r097
+    - r064
+    - r071
+    - r003
+    - r005
+    - r051
+    - r018
+    - r053
+  other:
+    - r123
+    - r124
+    - r017
+    - r008
+    - r020
+    - r082
+    - r070
+    - r009
+    - r064
+    - r071
+    - r005
+    - r051
+    - r056
+    - r018
+    - r053

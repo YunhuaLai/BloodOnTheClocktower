@@ -24,4 +24,13 @@ detail:
     - r017
     - r015
 englishName: virgin
-ability: 第一次被提名时，如果提名者是镇民，提名者立刻被处决。
+ability: 当你首次被提名时，如果提名你的玩家是镇民，他立刻被处决。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/virgin.png
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

@@ -4,4 +4,14 @@ type: minion
 summary: 用关键词诱导善良玩家转变为邪恶阵营，给善良方的公开讨论制造压力。
 keywords: 关键词 阵营转变 爪牙 邪恶
 englishName: spirit-tongue
-ability: 首夜，你会得知一个关键词。首个说出该关键词的善良玩家会在当晚转变为邪恶阵营。
+ability: 在你的首个夜晚，你会得知一个关键词。首个说出该关键词的善良玩家会在当晚转变为邪恶阵营。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/mezepheles.png
+flavor: ''
+setup: false
+reminders:
+  - 转为邪恶
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 唤醒灵言师，对他展示他的关键词。
+otherNightReminder: 如果首次有善良玩家说出了灵言师的关键词，唤醒该玩家并通知他阵营变化。

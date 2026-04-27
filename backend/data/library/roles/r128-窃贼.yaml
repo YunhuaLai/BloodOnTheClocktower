@@ -1,0 +1,16 @@
+id: r128
+englishName: qiezeizeizei111
+name: 窃贼
+type: traveller
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/thief.png
+flavor: ''
+setup: false
+reminders:
+  - 负票
+remindersGlobal: []
+firstNightReminder: 唤醒窃贼。让窃贼指向任意一名玩家。用窃贼的“负票”提示标记那名被选中的玩家。让窃贼入睡。
+otherNightReminder: 唤醒窃贼。让窃贼指向任意一名玩家。用窃贼的“负票”提示标记那名被选中的玩家。让窃贼入睡。
+summary: 每个夜晚，你要选择除你以外的一名玩家：明天白天他的投票会被算作负数。
+keywords: traveller 首夜 夜晚
+ability: 每个夜晚，你要选择除你以外的一名玩家：明天白天他的投票会被算作负数。

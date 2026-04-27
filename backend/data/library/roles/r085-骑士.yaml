@@ -4,4 +4,13 @@ type: townsfolk
 summary: 开局看到两名玩家并知道至少一人不是恶魔，适合压缩恶魔候选范围。
 keywords: 开局 恶魔 二选一 信息
 englishName: knight
-ability: 首夜得知两名玩家，其中至少一名不是恶魔。
+ability: 在你的首个夜晚，你会得知两名非恶魔玩家。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/knight.png
+flavor: ''
+setup: false
+reminders:
+  - 得知
+remindersGlobal: []
+firstNightReminder: 唤醒骑士，对他指向两名非恶魔玩家。
+otherNightReminder: ''

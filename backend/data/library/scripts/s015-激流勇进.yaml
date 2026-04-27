@@ -1,0 +1,53 @@
+id: s015
+englishName: item
+name: 激流勇进
+en: 激流勇进
+author: Andrew Nathenson
+logo: https://www.helloimg.com/i/2024/11/05/67299b1adc7ee.png
+description: 激流勇进
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 激流勇进
+image: https://www.helloimg.com/i/2024/11/05/67299b1adc7ee.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 激流勇进
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r048
+  - r052
+  - r027
+  - r031
+  - r022
+  - r039
+  - r016
+  - r040
+  - r018
+  - r021
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r052
+    - r040
+    - r023
+    - r048
+    - r018
+  other:
+    - r027
+    - r052
+    - r039
+    - r021
+    - r040
+    - r023
+    - r031
+    - r018

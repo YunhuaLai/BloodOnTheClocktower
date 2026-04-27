@@ -1,0 +1,71 @@
+id: s019
+englishName: item
+name: 幕后操控
+en: 幕后操控
+author: Ben Burns
+logo: https://www.helloimg.com/i/2024/12/01/674c3823b42a0.png
+description: 幕后操控
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 幕后操控
+image: https://www.helloimg.com/i/2024/12/01/674c3823b42a0.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 幕后操控
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r003
+  - r004
+  - r005
+  - r006
+  - r007
+  - r008
+  - r009
+  - r010
+  - r022
+  - r011
+  - r012
+  - r013
+  - r015
+  - r016
+  - r014
+  - r121
+  - r017
+  - r018
+  - r020
+  - r019
+  - r021
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r017
+    - r001
+    - r002
+    - r003
+    - r004
+    - r005
+    - r006
+    - r013
+    - r018
+  other:
+    - r017
+    - r008
+    - r020
+    - r021
+    - r009
+    - r005
+    - r006
+    - r013
+    - r007
+    - r018

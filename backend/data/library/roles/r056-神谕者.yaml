@@ -4,4 +4,12 @@ type: townsfolk
 summary: 每晚得知死亡玩家中有多少人为邪恶。
 keywords: 死亡 邪恶 数字
 englishName: oracle
-ability: 每晚*得知当前死亡玩家中有多少名邪恶玩家。
+ability: 每个夜晚*，你会得知有多少名死亡的玩家是邪恶的。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/oracle.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒神谕者，对他用手势比划数字来告知他当前死亡玩家中邪恶玩家的数量。

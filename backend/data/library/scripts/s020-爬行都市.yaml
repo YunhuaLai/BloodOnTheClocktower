@@ -1,0 +1,78 @@
+id: s020
+englishName: item
+name: 爬行都市
+en: 爬行都市
+author: Aero
+logo: https://i.postimg.cc/sg24K4Yf/2-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/sg24K4Yf/2-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r002
+  - r001
+  - r024
+  - r025
+  - r052
+  - r133
+  - r054
+  - r027
+  - r007
+  - r059
+  - r035
+  - r033
+  - r010
+  - r015
+  - r070
+  - r068
+  - r014
+  - r072
+  - r017
+  - r018
+  - r019
+  - r041
+  - r077
+  - r081
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r024
+    - r017
+    - r052
+    - r041
+    - r001
+    - r002
+    - r004
+    - r018
+    - r133
+    - r025
+  other:
+    - r059
+    - r024
+    - r017
+    - r027
+    - r052
+    - r041
+    - r081
+    - r070
+    - r068
+    - r007
+    - r054
+    - r018
+    - r133
+    - r025

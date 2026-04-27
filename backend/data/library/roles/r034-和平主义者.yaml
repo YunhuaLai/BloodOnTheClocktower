@@ -4,4 +4,12 @@ type: townsfolk
 summary: 善良玩家被处决时，可能不会死亡。
 keywords: 处决 保护 善良
 englishName: pacifist
-ability: 死于处决的善良玩家可能不会死亡。
+ability: 被处决的善良玩家可能不会死亡。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/pacifist.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

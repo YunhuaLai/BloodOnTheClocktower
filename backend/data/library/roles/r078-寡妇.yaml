@@ -4,4 +4,14 @@ type: minion
 summary: 首夜查看魔典并长期毒住一名玩家，同时会有一名善良玩家得知寡妇在场，是兼具全图信息与持续压制的信息型爪牙。
 keywords: 首夜 魔典 中毒 爪牙
 englishName: widow
-ability: 首夜查看魔典并选择一名玩家：其被中毒。一名善良玩家会得知寡妇在场。
+ability: 在你的首个夜晚，你能查看魔典并选择一名玩家：他中毒。随后，始终会有一名善良玩家知道寡妇在场。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/widow.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+remindersGlobal:
+  - 被知晓
+firstNightReminder: 唤醒寡妇，让她查看魔典。在她查看完毕后让她选择一名玩家，那名玩家中毒。随后如果寡妇未醉酒中毒，唤醒一名善良玩家，对他展示寡妇角色标记。
+otherNightReminder: ''

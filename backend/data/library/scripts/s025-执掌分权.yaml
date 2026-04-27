@@ -1,0 +1,88 @@
+id: s025
+englishName: item
+name: 执掌分权
+en: 执掌分权
+author: Aero
+logo: https://www.helloimg.com/i/2024/12/01/674c38245c82f.png
+description: 执掌分权
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 执掌分权
+image: https://www.helloimg.com/i/2024/12/01/674c38245c82f.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 执掌分权
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r085
+  - r051
+  - r053
+  - r086
+  - r055
+  - r061
+  - r088
+  - r062
+  - r029
+  - r009
+  - r034
+  - r012
+  - r013
+  - r036
+  - r037
+  - r159
+  - r042
+  - r020
+  - r078
+  - r093
+  - r107
+  - r080
+  - r141
+  - r099
+travellerIds: []
+fabledIds:
+  - r158
+  - r127
+nightOrder:
+  first:
+    - r088
+    - r061
+    - r141
+    - r078
+    - r093
+    - r107
+    - r013
+    - r023
+    - r051
+    - r085
+    - r086
+    - r053
+  other:
+    - r088
+    - r061
+    - r093
+    - r107
+    - r020
+    - r099
+    - r080
+    - r141
+    - r042
+    - r029
+    - r036
+    - r037
+    - r023
+    - r009
+    - r159
+    - r013
+    - r051
+    - r055
+    - r062
+    - r086
+    - r053

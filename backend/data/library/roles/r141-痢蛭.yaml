@@ -1,0 +1,17 @@
+id: r141
+englishName: lleechbutton
+name: 痢蛭
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/lleech.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒痢蛭，让他选择一名玩家以寄生。
+otherNightReminder: 唤醒痢蛭，让他攻击一名玩家。
+summary: 每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒，只有他死亡时你才会一同死亡。
+keywords: demon 首夜 夜晚 死亡 中毒
+ability: 每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒，只有当他处于死亡状态时你才会立即死亡。

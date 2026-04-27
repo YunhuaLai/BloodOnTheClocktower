@@ -30,28 +30,78 @@ detail:
     - 没有持续追踪谁中毒、谁换角、谁可能转阵营，导致后续复盘断线。
 englishName: wa-fu-lei-ming
 roleIds:
-  - r050
-  - r078
-  - r004
   - r003
+  - r004
   - r023
-  - r028
-  - r052
+  - r140
   - r051
+  - r052
   - r006
+  - r028
   - r057
-  - r059
-  - r091
   - r088
+  - r059
   - r009
-  - r039
+  - r091
   - r015
   - r016
-  - r068
   - r067
+  - r068
+  - r039
   - r040
   - r075
   - r076
-  - r021
-  - r080
+  - r078
   - r079
+  - r080
+  - r021
+author: Emily
+logo: https://www.helloimg.com/i/2024/10/30/6721d89193675.png
+description: ''
+townsfolkName: 镇民
+additional: []
+travellerIds:
+  - r148
+  - r149
+  - r130
+  - r123
+  - r132
+fabledIds: []
+nightOrder:
+  first:
+    - r148
+    - r149
+    - r059
+    - r039
+    - r088
+    - r078
+    - r052
+    - r040
+    - r075
+    - r003
+    - r004
+    - r006
+    - r023
+    - r051
+    - r140
+  other:
+    - r149
+    - r123
+    - r132
+    - r059
+    - r088
+    - r028
+    - r052
+    - r075
+    - r076
+    - r039
+    - r021
+    - r079
+    - r080
+    - r040
+    - r068
+    - r009
+    - r023
+    - r006
+    - r051
+    - r140

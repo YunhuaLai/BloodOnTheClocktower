@@ -4,4 +4,13 @@ type: townsfolk
 summary: 爪牙被处决后，可能让所有其他玩家暂时醉酒。
 keywords: 处决 爪牙 醉酒
 englishName: minstrel
-ability: 当一名爪牙死于处决时，除你以外所有玩家醉酒直到明天黄昏。
+ability: 当一名爪牙死于处决时，除了你和旅行者以外的所有其他玩家醉酒直到明天黄昏。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/minstrel.png
+flavor: ''
+setup: false
+reminders:
+  - 全员醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

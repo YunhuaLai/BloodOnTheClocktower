@@ -4,4 +4,14 @@ type: demon
 summary: 可以蓄力跳过击杀，随后在下一晚造成大量死亡。
 keywords: 蓄力 多杀 恶魔
 englishName: po
-ability: 每晚*可以选择一名玩家死亡；如果你上一晚没有选择玩家，今晚选择三名玩家死亡。
+ability: 每个夜晚*，你可以选择一名玩家：他死亡。如果你上次选择时没有选择任何玩家，当晚你要选择三名玩家：他们死亡。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/po.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 攻击三次
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 珀可以选择一名玩家；或如果上一次他被唤醒时未做选择，让他选择三名玩家。标记这些玩家死亡。

@@ -1,0 +1,17 @@
+id: r119
+englishName: puzzlemasterbutton
+name: 解谜大师
+type: outsider
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/puzzlemaster.png
+flavor: ''
+setup: false
+reminders:
+  - 醉酒
+  - 已猜测
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 一名玩家醉酒，即使你已死亡。每局游戏限一次，你可以猜测谁是那个醉酒的玩家，如果猜对了，你会得知谁是恶魔，但如果猜错了，你会得知错误的“谁是恶魔”信息。
+keywords: outsider 死亡 醉酒
+ability: 一名玩家醉酒，即使你已死亡。每局游戏限一次，你可以猜测谁是那个醉酒的玩家，如果猜对了，你会得知谁是恶魔，但如果猜错了，你会得知错误的“谁是恶魔”信息。

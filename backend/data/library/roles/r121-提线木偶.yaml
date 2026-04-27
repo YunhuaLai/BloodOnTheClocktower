@@ -1,0 +1,16 @@
+id: r121
+englishName: marionettebutton
+name: 提线木偶
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/marionette.png
+flavor: ''
+setup: true
+reminders: []
+remindersGlobal:
+  - 是提线木偶
+firstNightReminder: 选择一个邻近恶魔的善良玩家放置提线木偶标记。唤醒恶魔并告知他谁是提线木偶。
+otherNightReminder: ''
+summary: 你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。[提线木偶会与恶魔邻座]
+keywords: minion 首夜 设置
+ability: 你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。[提线木偶会与恶魔邻座]

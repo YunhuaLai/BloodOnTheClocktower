@@ -32,5 +32,5 @@ setup: false
 reminders:
   - 中毒
 remindersGlobal: []
-firstNightReminder: 让投毒者选择一名玩家。标记那名玩家中毒。
-otherNightReminder: 让投毒者选择一名玩家。标记那名玩家中毒。
+firstNightReminder: 唤醒投毒者，让他选择一名玩家，那名玩家中毒。
+otherNightReminder: 唤醒投毒者，让他选择一名玩家，那名玩家中毒。

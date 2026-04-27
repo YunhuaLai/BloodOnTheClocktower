@@ -24,4 +24,13 @@ detail:
     - r014
     - r015
 englishName: butler
-ability: 每晚选择一名玩家作为主人；明天白天，只有当主人投票时你才能投票。
+ability: 每个夜晚，你要选择除你以外的一名玩家：明天白天，只有他投票时你才能投票。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/butler.png
+flavor: ''
+setup: false
+reminders:
+  - 主人
+remindersGlobal: []
+firstNightReminder: 唤醒管家，让他选择一名除自己以外的玩家，那名玩家成为他的主人。
+otherNightReminder: 唤醒管家，让他选择一名除自己以外的玩家，那名玩家成为他的主人。

@@ -4,4 +4,13 @@ type: minion
 summary: 每晚保护一名玩家免于被处决死亡。
 keywords: 保护 处决 爪牙
 englishName: devils-advocate
-ability: 每晚选择一名存活玩家，不能与上一晚相同。若该玩家明天死于处决，该玩家不会死亡。
+ability: 每个夜晚，你要选择一名存活的玩家（与上个夜晚不同）：如果明天白天他被处决，他不会死亡。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/devils_advocate.png
+flavor: ''
+setup: false
+reminders:
+  - 处决不死
+remindersGlobal: []
+firstNightReminder: 唤醒魔鬼代言人，让他选择一名玩家，那名玩家处决不死。
+otherNightReminder: 唤醒魔鬼代言人，让他选择一名与上一晚不同的玩家，那名玩家处决不死。

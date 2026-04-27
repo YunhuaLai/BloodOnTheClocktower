@@ -4,4 +4,14 @@ type: townsfolk
 summary: 开局知道一名善良玩家及其角色；如果该玩家被恶魔杀死，祖母也会一同死亡。
 keywords: 开局 信息 连死 恶魔
 englishName: grandmother
-ability: 首夜得知一名善良玩家及其角色。如果恶魔杀死该玩家，你也会死亡。
+ability: 在你的首个夜晚，你会得知一名善良玩家和他的角色。如果恶魔杀死了他，你也会死亡。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/grandmother.png
+flavor: ''
+setup: false
+reminders:
+  - 孙子
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒祖母，对她指向一名善良玩家，并展示该玩家的角色标记。
+otherNightReminder: 如果恶魔杀死了孙子，祖母死亡。
