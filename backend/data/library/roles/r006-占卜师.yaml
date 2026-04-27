@@ -24,4 +24,13 @@ detail:
     - r016
     - r018
 englishName: fortune-teller
-ability: 每晚选择两名玩家，得知其中是否有恶魔。会有一名善良玩家被当作恶魔干扰项。
+ability: 每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。会有一名善良玩家始终被你的能力当作恶魔。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/fortune_teller.png
+flavor: ''
+setup: false
+reminders:
+  - 干扰项
+remindersGlobal: []
+firstNightReminder: 让占卜师选择两名玩家。如果其中有恶魔或“干扰项”，点头示意，否则摇头。
+otherNightReminder: 让占卜师选择两名玩家。如果其中有恶魔或“干扰项”，点头示意，否则摇头。

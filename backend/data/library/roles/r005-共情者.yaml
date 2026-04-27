@@ -24,4 +24,12 @@ detail:
     - r016
     - r018
 englishName: empath
-ability: 每晚得知与你相邻的存活玩家中有几名邪恶玩家。
+ability: 每个夜晚，你会得知与你邻近的两名存活的玩家中邪恶玩家的数量。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/empath.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: 给他展示数字手势来告诉他与他邻近的存活玩家有几人是邪恶的。
+otherNightReminder: 给他展示数字手势来告诉他与他邻近的存活玩家有几人是邪恶的。

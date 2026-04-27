@@ -25,4 +25,13 @@ detail:
     - r012
     - r006
 englishName: imp
-ability: 每晚*选择一名玩家；该玩家死亡。如果你选择自己死亡，一名爪牙会变成小恶魔。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。如果你以这种方式自杀，一名爪牙会变成小恶魔。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/imp.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让小恶魔选择一名玩家。标记那名玩家死亡。如果小恶魔选择了自己：用一个备用的小恶魔标记替换一个存活的爪牙角色标记。让原来的小恶魔重新入睡。唤醒新的小恶魔。对他展示“你是”信息标记，和小恶魔角色标记。

@@ -4,4 +4,14 @@ type: townsfolk
 summary: 一次性选择获得另一个善良角色能力，并可能让原角色醉酒。
 keywords: 能力复制 醉酒 一次性
 englishName: philosopher
-ability: 每局一次，在夜晚选择一个善良角色；你获得该角色能力。若该角色在场，原角色醉酒。
+ability: 每局游戏限一次，在夜晚时，你可以选择一个善良角色：你获得该角色的能力。如果这个角色在场，他醉酒。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/philosopher.png
+flavor: ''
+setup: false
+reminders:
+  - 醉酒
+remindersGlobal:
+  - 是哲学家
+firstNightReminder: 哲学家可以选择一个角色。如果选择的角色不在场，将哲学家的角色标题替换成对应角色，并标记“是哲学家”，否则标记该角色对应的玩家醉酒。从现在开始，你需要以哲学家获得能力的那种角色的行动方式来唤醒哲学家。
+otherNightReminder: 哲学家可以选择一个角色。如果选择的角色不在场，将哲学家的角色标题替换成对应角色，并标记“是哲学家”，否则标记该角色对应的玩家醉酒。从现在开始，你需要以哲学家获得能力的那种角色的行动方式来唤醒哲学家。

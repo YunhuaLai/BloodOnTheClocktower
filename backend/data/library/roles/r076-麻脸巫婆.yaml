@@ -4,4 +4,12 @@ type: minion
 summary: 每晚改变一名玩家的角色，能重塑整局结构。
 keywords: 换角色 变形 爪牙
 englishName: pit-hag
-ability: 每晚选择一名玩家和一个不在场角色；该玩家变成该角色。如果因此创造恶魔，今晚的死亡由说书人决定。
+ability: 每个夜晚*，你要选择一名玩家和一个角色，如果该角色不在场，他变成该角色。如果因此创造了一个恶魔，当晚的死亡由说书⼈决定。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/pit-hag.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让麻脸巫婆选择一名玩家和一个角色。如果她选择的角色不在场：让麻脸巫婆重新入睡。唤醒她的目标玩家。对该玩家展示“你是”信息标记和他的新角色标记。

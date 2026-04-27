@@ -4,4 +4,15 @@ type: demon
 summary: 杀死爪牙后可让其能力继续运作，但会污染附近镇民。
 keywords: 爪牙 中毒 恶魔
 englishName: vigormortis
-ability: 每晚*选择一名玩家死亡。被你杀死的爪牙保留能力，并让一个相邻镇民中毒。场上减少一个外来者。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。被你杀死的爪牙保留他的能力，且与他邻近的两名镇民之一中毒。[-1外来者]
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/vigormortis.png
+flavor: ''
+setup: true
+reminders:
+  - 死亡
+  - 保留能力
+  - 中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让亡骨魔选择一名玩家。标记那名玩家死亡。如果该玩家是爪牙，标记该玩家保留能力，并标记与该玩家邻近的镇民玩家之一中毒。

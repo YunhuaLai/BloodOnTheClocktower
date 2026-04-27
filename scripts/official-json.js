@@ -98,6 +98,31 @@ function normalizeOfficialInput(filePath) {
   return { meta, roles };
 }
 
+function collectOfficialJsonFiles(inputPath) {
+  const stat = fs.statSync(inputPath);
+
+  if (stat.isFile()) {
+    return inputPath.endsWith(".json") ? [inputPath] : [];
+  }
+
+  if (!stat.isDirectory()) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(inputPath, { withFileTypes: true })
+    .flatMap((entry) => {
+      const entryPath = path.join(inputPath, entry.name);
+
+      if (entry.isDirectory()) {
+        return collectOfficialJsonFiles(entryPath);
+      }
+
+      return entry.isFile() && entry.name.endsWith(".json") ? [entryPath] : [];
+    })
+    .sort((left, right) => left.localeCompare(right, "zh-Hans-CN"));
+}
+
 function makeScriptId(existingScripts, scriptName) {
   const nextId = nextNumericId(existingScripts, "s");
   const existing = existingScripts.find((entry) => entry.data?.name === scriptName);
@@ -146,21 +171,15 @@ function makeRoleAbilityData(roleData, officialRole) {
   const ability = officialRole.ability || "";
   const hasFirstNight = Number(officialRole.firstNight) > 0;
   const hasOtherNight = Number(officialRole.otherNight) > 0;
-  const choosesPlayer = /选择.*玩家/.test(ability);
-  const learnsInfo = /得知|会知道|是否|数量|几/.test(ability);
-  const isEvent = /当|如果.*死亡|提名|处决/.test(ability) && !hasFirstNight && !hasOtherNight;
+  const target = inferTargetSchema(ability, hasFirstNight, hasOtherNight);
+  const result = inferResultSchema(ability, hasFirstNight, hasOtherNight);
+  const chooses = target.fields.length > 0;
+  const learnsInfo = result.fields.length > 0;
+  const isEvent = isEventTriggeredAbility(ability, hasFirstNight, hasOtherNight);
   const isSetupOnly = Boolean(officialRole.setup) && !hasFirstNight && !hasOtherNight;
-  const needsReview = /变成|交换|转变|疯狂|恶魔|角色|阵营|旅行者|说书人决定|可能/.test(ability);
-  const phaseTiming = hasFirstNight && !hasOtherNight
-    ? "first_night"
-    : hasOtherNight
-      ? "each_night"
-      : isSetupOnly
-        ? "setup"
-        : isEvent
-          ? null
-          : "passive";
-  const pageType = choosesPlayer
+  const needsReview = needsAbilityReview(ability, target, result);
+  const phaseTiming = inferPhaseTiming(ability, hasFirstNight, hasOtherNight, isSetupOnly, isEvent);
+  const pageType = chooses
     ? "pick_and_record"
     : learnsInfo
       ? "record_result_only"
@@ -184,12 +203,49 @@ function makeRoleAbilityData(roleData, officialRole) {
       phaseTiming,
       eventTiming: isEvent ? inferEventTiming(ability) : null,
       usagePattern: inferUsagePattern(ability, hasFirstNight, hasOtherNight),
-      activationMode: choosesPlayer ? "active" : isEvent ? "conditional" : "passive",
-      drivenBy: choosesPlayer ? "player" : "storyteller",
+      activationMode: chooses ? "active" : isEvent ? "conditional" : "passive",
+      drivenBy: chooses ? "player" : isSetupOnly ? "system" : "storyteller",
       recordable: pageType !== "no_input" && pageType !== "rule_modifier",
     },
-    interactionSchema: makeInteractionSchema(pageType, choosesPlayer, learnsInfo),
+    interactionSchema: {
+      target: stripSchemaNodeMeta(target),
+      result: stripSchemaNodeMeta(result),
+    },
   };
+}
+
+function stripSchemaNodeMeta(node) {
+  return {
+    repeatMode: node.repeatMode,
+    defaultRows: node.defaultRows,
+    fields: node.fields,
+  };
+}
+
+function inferPhaseTiming(ability, hasFirstNight, hasOtherNight, isSetupOnly, isEvent) {
+  if (/每个白天|每天白天/.test(ability)) return "each_day";
+  if (hasFirstNight && !hasOtherNight) return "first_night";
+  if (hasOtherNight && /夜晚\*|每晚\*/.test(ability)) return "each_night_star";
+  if (hasOtherNight) return "each_night";
+  if (isSetupOnly) return "setup";
+  if (isEvent) return null;
+  return "passive";
+}
+
+function isEventTriggeredAbility(ability, hasFirstNight, hasOtherNight) {
+  return /当|如果.*死亡|提名|处决|投票|落败|获胜/.test(ability) && !hasFirstNight && !hasOtherNight;
+}
+
+function needsAbilityReview(ability, target, result) {
+  if (/变成|交换|转变|疯狂|创造.*恶魔|代替|额外进行|互相知道|无法获胜|阵营落败|阵营获胜/.test(ability)) {
+    return true;
+  }
+
+  if (/说书人决定|可能|至多|任意|秘密|所有|全部|邻近|旅行者/.test(ability)) {
+    return true;
+  }
+
+  return target.needsReview || result.needsReview;
 }
 
 function buildAbilityTags(officialRole, pageType) {
@@ -220,47 +276,204 @@ function inferUsagePattern(ability, hasFirstNight, hasOtherNight) {
   return "passive";
 }
 
-function makeInteractionSchema(pageType, choosesPlayer, learnsInfo) {
-  const target = choosesPlayer
-    ? {
-        repeatMode: "sequence",
-        defaultRows: 3,
-        fields: [
-          {
-            key: "seat",
-            type: "seat",
-            label: "目标号码",
-            required: true,
-            optionsSource: null,
-            options: null,
-            min: 1,
-            max: 15,
-            placeholder: null,
-          },
-        ],
-      }
-    : { repeatMode: "none", defaultRows: 0, fields: [] };
-  const result = learnsInfo || pageType === "event_triggered"
-    ? {
-        repeatMode: "sequence",
-        defaultRows: 3,
-        fields: [
-          {
-            key: "note",
-            type: "text",
-            label: "记录",
-            required: false,
-            optionsSource: null,
-            options: null,
-            min: null,
-            max: null,
-            placeholder: "导入初稿，请按角色能力调整结构化字段。",
-          },
-        ],
-      }
-    : { repeatMode: "none", defaultRows: 0, fields: [] };
+function inferTargetSchema(ability, hasFirstNight, hasOtherNight) {
+  const fields = [];
+  const choosesPlayer = /选择.*玩家/.test(ability);
+  const choosesRole = /选择.*角色|猜测.*角色/.test(ability);
 
-  return { target, result };
+  if (choosesPlayer) {
+    const count = inferMentionedCount(ability, "玩家");
+
+    if (count >= 2 && count <= 3) {
+      for (let index = 1; index <= count; index += 1) {
+        fields.push(seatField(`seat${index}`, `目标号码${index}`));
+      }
+    } else {
+      fields.push(seatField("seat", ability.includes("死亡的玩家") ? "死亡玩家号码" : "目标号码"));
+    }
+  }
+
+  if (choosesRole) {
+    fields.push(roleField(fields.some((field) => field.key === "role") ? "guess_role" : "role", /猜测/.test(ability) ? "猜测角色" : "选择角色"));
+  }
+
+  return makeSchemaNode(fields, hasFirstNight && !hasOtherNight);
+}
+
+function inferResultSchema(ability, hasFirstNight, hasOtherNight) {
+  const fields = [];
+  const needsReview = false;
+
+  if (!/得知|会知道|是否|几|多少|数量|查看/.test(ability)) {
+    return makeSchemaNode(fields, hasFirstNight && !hasOtherNight);
+  }
+
+  if (/得知两名玩家和一个.*角色/.test(ability)) {
+    fields.push(seatField("seat1", "号码1"));
+    fields.push(seatField("seat2", "号码2"));
+    fields.push(roleField("role", "身份"));
+    return makeSchemaNode(fields, true);
+  }
+
+  if (/得知三名玩家/.test(ability)) {
+    fields.push(seatField("seat1", "号码1"));
+    fields.push(seatField("seat2", "号码2"));
+    fields.push(seatField("seat3", "号码3"));
+    return makeSchemaNode(fields, true);
+  }
+
+  if (/得知一名.*玩家和.*角色/.test(ability)) {
+    fields.push(seatField("seat", "号码"));
+    fields.push(roleField("role", "身份"));
+    return makeSchemaNode(fields, true);
+  }
+
+  if (/顺时针|逆时针|方向/.test(ability)) {
+    fields.push(choiceField("direction", "方向", ["clockwise", "counterclockwise"]));
+    return makeSchemaNode(fields, hasFirstNight && !hasOtherNight);
+  }
+
+  if (/是否/.test(ability)) {
+    fields.push(booleanField("answer", "是否"));
+  } else if (/几|多少|数量|有几/.test(ability)) {
+    fields.push(numberField("count", "数量"));
+  } else if (/阵营/.test(ability)) {
+    fields.push(teamField("team", "阵营"));
+  } else if (/角色|身份|查看/.test(ability)) {
+    fields.push(roleField("role", "身份"));
+  } else if (/得知一名.*玩家/.test(ability)) {
+    fields.push(seatField("seat", "号码"));
+  }
+
+  if (!fields.length) {
+    fields.push(textField("note", "记录", "导入初稿，请按角色能力调整结构化字段。"));
+  }
+
+  const node = makeSchemaNode(fields, hasFirstNight && !hasOtherNight);
+  node.needsReview = needsReview;
+  return node;
+}
+
+function inferMentionedCount(ability, noun) {
+  const patterns = [
+    [new RegExp(`三(?:名|个)?${noun}`), 3],
+    [new RegExp(`两(?:名|个)?${noun}`), 2],
+    [new RegExp(`二(?:名|个)?${noun}`), 2],
+    [new RegExp(`一(?:名|个)?${noun}`), 1],
+  ];
+  const match = patterns.find(([pattern]) => pattern.test(ability));
+  return match ? match[1] : 1;
+}
+
+function makeSchemaNode(fields, isOnce) {
+  if (!fields.length) {
+    return { repeatMode: "none", defaultRows: 0, fields: [], needsReview: false };
+  }
+
+  return {
+    repeatMode: isOnce ? "once" : "sequence",
+    defaultRows: isOnce ? 1 : 3,
+    fields,
+    needsReview: false,
+  };
+}
+
+function seatField(key, label) {
+  return {
+    key,
+    type: "seat",
+    label,
+    required: true,
+    optionsSource: null,
+    options: null,
+    min: 1,
+    max: 15,
+    placeholder: null,
+  };
+}
+
+function roleField(key, label) {
+  return {
+    key,
+    type: "role",
+    label,
+    required: true,
+    optionsSource: "current_script_roles",
+    options: null,
+    min: null,
+    max: null,
+    placeholder: null,
+  };
+}
+
+function teamField(key, label) {
+  return {
+    key,
+    type: "team",
+    label,
+    required: true,
+    optionsSource: "teams",
+    options: null,
+    min: null,
+    max: null,
+    placeholder: null,
+  };
+}
+
+function booleanField(key, label) {
+  return {
+    key,
+    type: "boolean",
+    label,
+    required: true,
+    optionsSource: "custom",
+    options: ["yes", "no"],
+    min: null,
+    max: null,
+    placeholder: null,
+  };
+}
+
+function numberField(key, label) {
+  return {
+    key,
+    type: "number",
+    label,
+    required: true,
+    optionsSource: null,
+    options: null,
+    min: 0,
+    max: 15,
+    placeholder: null,
+  };
+}
+
+function choiceField(key, label, options) {
+  return {
+    key,
+    type: "choice",
+    label,
+    required: true,
+    optionsSource: "custom",
+    options,
+    min: null,
+    max: null,
+    placeholder: null,
+  };
+}
+
+function textField(key, label, placeholder) {
+  return {
+    key,
+    type: "text",
+    label,
+    required: false,
+    optionsSource: null,
+    options: null,
+    min: null,
+    max: null,
+    placeholder,
+  };
 }
 
 function orderRoleIds(officialRoles, roleIdByOfficialName, fieldName) {
@@ -350,6 +563,23 @@ function importOfficialJson(inputPath) {
   return { scriptId, changed };
 }
 
+function importOfficialJsonPath(inputPath) {
+  const files = collectOfficialJsonFiles(inputPath);
+  const imported = [];
+  const failed = [];
+
+  files.forEach((filePath) => {
+    try {
+      const result = importOfficialJson(filePath);
+      imported.push({ filePath, ...result });
+    } catch (error) {
+      failed.push({ filePath, error: error.message });
+    }
+  });
+
+  return { files, imported, failed };
+}
+
 function stripHtml(value) {
   return String(value || "").replace(/<br\s*\/?>/gi, "\n").replace(/<[^>]*>/g, "").trim();
 }
@@ -425,11 +655,12 @@ function isCoreScriptRole(type) {
 
 function printUsage() {
   console.log(`用法:
-  node scripts/official-json.js import <official.json>
+  node scripts/official-json.js import <official.json|folder>
   node scripts/official-json.js export <scriptId|scriptName> <output.json>
 
 示例:
   node scripts/official-json.js import "C:\\path\\#暗流涌动.json"
+  node scripts/official-json.js import "C:\\path\\官方剧本文件夹"
   node scripts/official-json.js export s001 ".\\dist\\暗流涌动.json"`);
 }
 
@@ -437,9 +668,21 @@ function main() {
   const [, , command, firstArg, secondArg] = process.argv;
 
   if (command === "import" && firstArg) {
-    const result = importOfficialJson(path.resolve(firstArg));
-    console.log(`导入完成：${result.scriptId}`);
-    console.log(result.changed.join("\n"));
+    const result = importOfficialJsonPath(path.resolve(firstArg));
+
+    console.log(`扫描 JSON 文件：${result.files.length}`);
+    console.log(`导入成功：${result.imported.length}`);
+    result.imported.forEach((item) => {
+      console.log(`- ${item.scriptId}: ${path.relative(ROOT_DIR, item.filePath)}`);
+    });
+
+    if (result.failed.length) {
+      console.log(`导入失败：${result.failed.length}`);
+      result.failed.forEach((item) => {
+        console.log(`- ${path.relative(ROOT_DIR, item.filePath)}: ${item.error}`);
+      });
+      process.exitCode = 1;
+    }
     return;
   }
 
@@ -460,5 +703,6 @@ if (require.main === module) {
 
 module.exports = {
   importOfficialJson,
+  importOfficialJsonPath,
   exportOfficialJson,
 };

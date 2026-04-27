@@ -24,4 +24,12 @@ detail:
     - r016
     - r021
 englishName: chef
-ability: 首夜得知场上有多少对相邻而坐的邪恶玩家。
+ability: 在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/chef.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: 给他展示数字手势来告诉他场上邻座邪恶玩家有多少对。
+otherNightReminder: ''

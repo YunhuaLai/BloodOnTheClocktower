@@ -24,4 +24,13 @@ detail:
     - r010
     - r017
 englishName: drunk
-ability: 你不知道自己是酒鬼。你以为自己是一个镇民角色，但其实你没有该能力。
+ability: 你不知道你是酒鬼。你以为你是一个镇民角色，但其实你不是。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/drunk.png
+flavor: ''
+setup: true
+reminders: []
+remindersGlobal:
+  - 是酒鬼
+firstNightReminder: ''
+otherNightReminder: ''

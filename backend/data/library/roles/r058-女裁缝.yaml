@@ -4,4 +4,13 @@ type: townsfolk
 summary: 一次性判断两名玩家是否同阵营。
 keywords: 阵营 一次性 信息
 englishName: seamstress
-ability: 每局一次，在夜晚选择除自己以外的两名玩家，得知他们是否属于同一阵营。
+ability: 每局游戏限一次，在夜晚时，你可以选择除你以外的两名玩家：你会得知他们是否为同一阵营。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/seamstress.png
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 女裁缝可以选择除自己以外的两名玩家。如果她这么做了，对她点头或摇头示意这两名玩家是否为同一阵营，随后标记女裁缝失去能力。之后的夜晚无需再唤醒女裁缝。
+otherNightReminder: 女裁缝可以选择除自己以外的两名玩家。如果她这么做了，对她点头或摇头示意这两名玩家是否为同一阵营，随后标记女裁缝失去能力。之后的夜晚无需再唤醒女裁缝。

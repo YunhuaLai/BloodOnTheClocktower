@@ -4,4 +4,12 @@ type: townsfolk
 summary: 每天得到两条信息，其中一条为真、一条为假。
 keywords: 每日 信息 真话 假话
 englishName: savant
-ability: 每天白天拜访说书人，获得两条信息：一条为真，一条为假。
+ability: 每个白天，你可以私下询问说书人以得知两条信息：一个是正确的，一个是错误的。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/savant.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

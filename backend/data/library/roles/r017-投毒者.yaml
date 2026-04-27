@@ -24,4 +24,13 @@ detail:
     - r005
     - r015
 englishName: poisoner
-ability: 每晚选择一名玩家；该玩家今晚和明天白天中毒。
+ability: 每个夜晚，你要选择一名玩家：他在当晚和明天白天中毒。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/poisoner.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 让投毒者选择一名玩家。标记那名玩家中毒。
+otherNightReminder: 让投毒者选择一名玩家。标记那名玩家中毒。

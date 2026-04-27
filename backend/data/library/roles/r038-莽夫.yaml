@@ -4,4 +4,13 @@ type: outsider
 summary: 第一个影响他的玩家可能醉酒，且莽夫可能改变阵营。
 keywords: 醉酒 转阵营 目标
 englishName: goon
-ability: 每晚第一个用能力选择你的玩家醉酒直到明天黄昏；你变成该玩家的阵营。
+ability: 每个夜晚，首个使用其自身能力选择了你的玩家会醉酒直到下个黄昏。你会转变为他的阵营。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/goon.png
+flavor: ''
+setup: false
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

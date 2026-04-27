@@ -16,6 +16,9 @@
 
 官方 JSON 导入/导出约定：
 
+- 单文件导入：`npm run official:import -- "C:\path\#暗流涌动.json"`
+- 文件夹批量导入：`npm run official:import -- "C:\path\官方剧本文件夹"`，会递归导入所有子文件夹中的 `.json`
+- 导出官方格式：`npm run official:export -- s001 ".\dist\暗流涌动.json"`
 - `roleIds` 只维护常规剧本角色：`townsfolk`、`outsider`、`minion`、`demon`
 - 旅行者维护在 `travellerIds` 中；传奇角色维护在 `fabledIds` 中
 - 后端会从 `roleIds` 反向派生普通角色的 `scriptIds`、`scriptNames`、`script` 和 `scriptId`
@@ -25,6 +28,7 @@
 - 导出官方 JSON 时，角色对象的 `id` 可以直接使用本站角色 id；不需要单独维护官方 `sourceId`
 - 官方 JSON 中的旅行者会导入到 `travellerIds`，传奇角色会导入到 `fabledIds`
 - 导出官方 JSON 时顺序为 `_meta`、旅行者、常规剧本角色、传奇角色
+- 自动生成 `role-abilities` 时会优先生成结构化字段，如目标号码、选择角色、数字结果、是否结果、身份结果、阵营结果；复杂角色会标记 `needsReview: true`
 - `role-abilities` 是本站笔记页交互结构。官方 JSON 只能半自动生成初稿，复杂角色应标记 `needsReview: true`
 
 注意：

@@ -4,4 +4,13 @@ type: minion
 summary: 让玩家疯狂地宣称自己是某个身份，否则可能被处决。
 keywords: 疯狂 宣称 爪牙
 englishName: cerenovus
-ability: 每晚选择一名玩家和一个善良角色；明天该玩家若不疯狂地表现为该角色，可能被处决。
+ability: 每个夜晚，你要选择一名玩家和一个善良角色。他明天白天和夜晚需要“疯狂”地证明自己是这个角色，不然他可能被处决。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/cerenovus.png
+flavor: ''
+setup: false
+reminders:
+  - 疯狂
+remindersGlobal: []
+firstNightReminder: 让洗脑师选择一名玩家和一个善良角色。标记那名玩家疯狂。让洗脑师重新入睡。唤醒洗脑师的目标。对这名玩家展示“该角色的能力对你生效”信息标记，洗脑师角色标记，该玩家需要疯狂证明的角色标记。
+otherNightReminder: 让洗脑师选择一名玩家和一个善良角色。标记那名玩家疯狂。让洗脑师重新入睡。唤醒洗脑师的目标。对这名玩家展示“该角色的能力对你生效”信息标记，洗脑师角色标记，该玩家需要疯狂证明的角色标记。

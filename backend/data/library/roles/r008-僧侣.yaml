@@ -24,4 +24,13 @@ detail:
     - r009
     - r021
 englishName: monk
-ability: 每晚选择除自己以外的一名玩家；该玩家今晚免受恶魔影响。
+ability: 每个夜晚*，你要选择除你以外的一名玩家：当晚恶魔的负面能力对他无效。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/monk.png
+flavor: ''
+setup: false
+reminders:
+  - 保护
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让僧侣选择除自己外的一名玩家。标记那名玩家被保护。

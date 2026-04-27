@@ -1,0 +1,81 @@
+id: s012
+englishName: item
+name: 尔虞我诈
+en: 尔虞我诈
+author: ''
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689598234_197011_6241.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689598234_197011_6241.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r097
+  - r051
+  - r005
+  - r006
+  - r052
+  - r008
+  - r059
+  - r058
+  - r088
+  - r057
+  - r115
+  - r012
+  - r015
+  - r038
+  - r116
+  - r067
+  - r014
+  - r075
+  - r117
+  - r017
+  - r076
+  - r079
+  - r021
+  - r080
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r088
+    - r017
+    - r052
+    - r075
+    - r117
+    - r097
+    - r004
+    - r005
+    - r006
+    - r051
+    - r058
+  other:
+    - r059
+    - r088
+    - r017
+    - r052
+    - r008
+    - r075
+    - r076
+    - r117
+    - r021
+    - r079
+    - r080
+    - r005
+    - r006
+    - r051
+    - r058

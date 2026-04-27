@@ -4,4 +4,15 @@ type: townsfolk
 summary: 每晚选择一名玩家；若选中恶魔，可能与恶魔交换身份和阵营。
 keywords: 交换 恶魔 夜晚
 englishName: snake-charmer
-ability: 每晚选择一名存活玩家。如果选中恶魔，你和恶魔交换角色与阵营，然后你中毒。
+ability: 每个夜晚，你要选择一名存活的玩家：如果你选中了恶魔，你和他交换角色和阵营，然后他中毒。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/snake_charmer.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: >-
+  让舞蛇人选择一名玩家。如果舞蛇人选中了恶魔：展示“你是”信息标记和恶魔角色标记。用拇指向下代表他阵营变为邪恶。在魔典中交换舞蛇人和恶魔的角色标记。让原来的舞蛇人重新入睡。唤醒原来的恶魔。对老恶魔展示“你是”信息标记和舞蛇人角色标记，并用拇指向上代表他阵营变为善良。
+otherNightReminder: >-
+  让舞蛇人选择一名玩家。如果舞蛇人选中了恶魔：展示“你是”信息标记和恶魔角色标记。用拇指向下代表他阵营变为邪恶。在魔典中交换舞蛇人和恶魔的角色标记。让原来的舞蛇人重新入睡。唤醒原来的恶魔。对老恶魔展示“你是”信息标记和舞蛇人角色标记，并用拇指向上代表他阵营变为善良。
