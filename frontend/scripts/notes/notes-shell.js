@@ -63,13 +63,13 @@ function renderSetupPage(notes) {
   const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
   const config = getStandardSetup(draft.playerCount);
 
-  document.title = "记录局创建";
+  document.title = "创建对局房间";
   app.innerHTML = `
     <section class="notes-setup">
       <div class="notes-setup-panel">
-        <p class="eyebrow">记录局</p>
+        <p class="eyebrow">对局房间</p>
         <h1>先把这一局定下来</h1>
-        <p class="lead">先选剧本、人数和自己的位置，创建后就直接进入手机端总览。</p>
+        <p class="lead">先选剧本、人数和自己的位置，创建后就直接进入对局总览；之后这里可以接入房间码和多人加入。</p>
 
         <form id="notesSetupForm" class="notes-setup-form">
           <label class="note-field note-field--wide">
@@ -123,7 +123,7 @@ function renderSetupPage(notes) {
 
           <div class="notes-setup-actions">
             <button type="button" class="primary-link" data-notes-action="create-game">创建并进入总览</button>
-            <button type="button" class="secondary-link" data-notes-action="cancel-create">返回记录局</button>
+            <button type="button" class="secondary-link" data-notes-action="cancel-create">返回对局房间</button>
           </div>
         </form>
       </div>
@@ -132,14 +132,14 @@ function renderSetupPage(notes) {
 }
 
 function renderNotesHome(notes) {
-  document.title = "记录局";
+  document.title = "对局房间";
   app.innerHTML = `
     <section class="notes-home">
       <div class="notes-home-panel">
-        <p class="eyebrow">记录局</p>
-        <h1>先选你要做什么</h1>
+        <p class="eyebrow">对局房间</p>
+        <h1>新建一局，或继续之前的对局</h1>
         <div class="notes-home-actions">
-          <button type="button" class="primary-link" data-notes-action="new-game">新建记录</button>
+          <button type="button" class="primary-link" data-notes-action="new-game">创建对局</button>
           ${
             notes.games.length
               ? `<button type="button" class="secondary-link" data-notes-action="view-saved">查看已保存</button>`
@@ -154,7 +154,7 @@ function renderNotesHome(notes) {
             <section class="notes-home-saved" id="notesSavedSection">
               <div class="notes-panel-header">
                 <div>
-                  <p class="eyebrow">已保存</p>
+                  <p class="eyebrow">已保存对局</p>
                   <h2>继续上次的对局</h2>
                 </div>
               </div>
@@ -181,7 +181,7 @@ function renderNotesHome(notes) {
           `
           : `
             <section class="notes-home-empty">
-              <p>还没有已保存的记录，先新建一局。</p>
+              <p>还没有已保存的对局，先创建一局。</p>
             </section>
           `
       }
@@ -242,7 +242,7 @@ function renderTabBar() {
 }
 
 function renderGamePage(notes, game) {
-  document.title = `${game.title} · 记录局`;
+  document.title = `${game.title} · 对局房间`;
   app.innerHTML = `
     <section class="notes-shell">
       ${renderNotesStageBar(game)}

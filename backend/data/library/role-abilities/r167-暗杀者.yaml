@@ -1,0 +1,44 @@
+id: r167
+englishName: assassin-thrower
+name: 暗杀者
+schemaVersion: 1
+tags:
+  - 白天
+  - 提名阶段
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: day
+  eventTiming: on_nomination
+  usagePattern: once
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: target_seat
+        type: seat
+        label: 投掷目标
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: hit
+        type: boolean
+        label: 是否击中并处决
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

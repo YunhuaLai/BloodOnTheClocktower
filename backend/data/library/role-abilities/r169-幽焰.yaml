@@ -1,0 +1,44 @@
+id: r169
+englishName: ghostflame
+name: 幽焰
+schemaVersion: 1
+tags:
+  - 每晚*
+  - 恶魔杀人
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: each_night_star
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: target_seat
+        type: seat
+        label: 选择号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: died
+        type: boolean
+        label: 是否死亡
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

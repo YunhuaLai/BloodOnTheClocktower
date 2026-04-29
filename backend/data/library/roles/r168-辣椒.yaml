@@ -1,0 +1,17 @@
+id: r168
+englishName: chili
+name: 辣椒
+type: minion
+edition: custom
+image: /assets/clock-tower-night.jpg
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+remindersGlobal:
+  - 中毒
+firstNightReminder: 唤醒辣椒。让辣椒查看魔典，并选择剧本列表的一列；该列所有非爪牙角色中毒。
+otherNightReminder: ''
+summary: 首夜查看魔典并选择剧本一列，使该列所有非爪牙角色中毒。
+keywords: 首夜 魔典 列 中毒 非爪牙
+ability: 在你的首个夜晚，你要查看魔典，并选择剧本列表的一列：该列所有非爪牙角色中毒。

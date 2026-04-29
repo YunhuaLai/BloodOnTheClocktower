@@ -1,0 +1,42 @@
+id: r166
+englishName: chimney-ghost
+name: 烟囱幽灵
+schemaVersion: 1
+tags:
+  - 死亡触发
+  - 转变
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: special
+  eventTiming: on_death
+  usagePattern: once
+  activationMode: conditional
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: chosen_seat
+        type: seat
+        label: 公开选择号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: new_role
+        type: text
+        label: 转变为
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null

@@ -327,6 +327,27 @@ h2 {
   border-top-color: var(--blue);
 }
 
+.directory-card--featured {
+  grid-column: span 2;
+  color: #fff;
+  background:
+    linear-gradient(135deg, rgba(21, 21, 21, 0.94), rgba(67, 21, 27, 0.94)),
+    var(--ink);
+  border-color: var(--ink);
+  border-top-color: var(--red);
+}
+
+.directory-card--featured .eyebrow,
+.directory-card--featured > p:not(.eyebrow),
+.directory-card--featured .directory-meta span {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.directory-card--featured .card-action {
+  color: var(--ink);
+  background: #fff;
+}
+
 .directory-card h3 {
   margin: 0;
   font-size: 28px;

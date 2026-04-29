@@ -11,6 +11,16 @@ function getRoleTypeSummary() {
 function renderHomeDirectory() {
   const cards = [
     {
+      eyebrow: "对局房间",
+      title: "新建或继续一局",
+      href: "/notes",
+      count: getNotesGameCount(),
+      countLabel: "个本地对局",
+      text: "先把座位、声明、标签和每天得到的信息按局保存下来；之后可以扩展成创建房间，让玩家进入同一局。",
+      action: "进入对局房间",
+      featured: true,
+    },
+    {
       eyebrow: "角色百科",
       title: "角色目录",
       href: "/roles",
@@ -37,21 +47,12 @@ function renderHomeDirectory() {
       text: "把中毒、醉酒、疯狂等容易混淆的词先对齐。",
       action: "查术语",
     },
-    {
-      eyebrow: "局内记录",
-      title: "记录局",
-      href: "/notes",
-      count: getNotesGameCount(),
-      countLabel: "个本地记录",
-      text: "把座位、声明、标签和每天得到的信息按局保存下来。",
-      action: "开始记录",
-    },
   ];
 
   return cards
     .map(
       (card) => `
-        <a class="directory-card" href="${card.href}" data-link>
+        <a class="directory-card${card.featured ? " directory-card--featured" : ""}" href="${card.href}" data-link>
           <p class="eyebrow">${escapeHtml(card.eyebrow)}</p>
           <h3>${escapeHtml(card.title)}</h3>
           <p>${escapeHtml(card.text)}</p>
@@ -71,17 +72,21 @@ function renderHome() {
   app.innerHTML = `
     <section class="workspace" id="overview">
       <div class="intro-panel">
-        <p class="eyebrow">社交推理 · 说书人 · 阵营博弈</p>
-        <h1>查规则、看板子、找角色，一局开始前够用了。</h1>
+        <p class="eyebrow">对局房间 · 本地记录 · 多人房间预留</p>
+        <h1>先开一局，再把线索和判断都放进同一个房间。</h1>
         <p class="lead">
-          开局前先定位问题：查角色能力、挑今晚的板子，或把容易混淆的术语对齐。
+          现在可以本地记录座位、声明、标签和每日信息；后续再接上创建房间，让不同玩家进入同一个对局空间。
         </p>
         <div class="home-actions" aria-label="常用入口">
-          <a class="primary-link" href="/roles" data-link>直接查角色</a>
+          <a class="primary-link" href="/notes" data-link>进入对局房间</a>
+          <a class="secondary-link" href="/roles" data-link>查角色百科</a>
           <a class="secondary-link" href="/scripts" data-link>看板子目录</a>
-          <a class="secondary-link" href="/notes" data-link>记录这一局</a>
         </div>
-        <div class="quick-stats" aria-label="资料概览">
+        <div class="quick-stats" aria-label="对局与资料概览">
+          <div>
+            <strong>${getNotesGameCount()}</strong>
+            <span>个本地对局</span>
+          </div>
           <div>
             <strong>${state.scripts.length}</strong>
             <span>个板子</span>
@@ -93,10 +98,6 @@ function renderHome() {
           <div>
             <strong>${state.terms.length}</strong>
             <span>个术语</span>
-          </div>
-          <div>
-            <strong>${Object.keys(typeLabels).length}</strong>
-            <span>类阵营/身份</span>
           </div>
         </div>
       </div>
@@ -132,10 +133,10 @@ function renderHome() {
     <section class="section directory-section" aria-labelledby="directoryTitle">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">从哪开始</p>
-          <h2 id="directoryTitle">先选一个方向</h2>
+          <p class="eyebrow">主要入口</p>
+          <h2 id="directoryTitle">对局在前，百科在后</h2>
         </div>
-        <p class="section-note">遇到角色、板子、术语，直接进对应目录。</p>
+        <p class="section-note">先进入当前对局；需要查角色、板子或术语时，再去下面的资料目录。</p>
       </div>
       <div class="directory-grid">
         ${renderHomeDirectory()}

@@ -1,0 +1,17 @@
+id: r167
+englishName: assassin-thrower
+name: 暗杀者
+type: minion
+edition: custom
+image: /assets/clock-tower-night.jpg
+flavor: ''
+setup: false
+reminders:
+  - 伪装标记
+  - 已使用
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 持有恶魔伪装标记；提名阶段可投掷角色标记，击中远处存活玩家则立刻处决。
+keywords: 提名 投掷 处决 恶魔伪装 距离
+ability: 你持有恶魔的伪装标记。提名阶段，你可以将一枚角色标记扔向一名与你距离大于 1 的存活玩家；如果击中他，他立刻被处决。

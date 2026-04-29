@@ -1,0 +1,44 @@
+id: r165
+englishName: tribute
+name: 贡品
+schemaVersion: 1
+tags:
+  - 死亡触发
+  - 误认
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: special
+  eventTiming: on_death
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: out_of_play_demon
+        type: text
+        label: 恶魔获得的能力
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: demon_notified
+        type: boolean
+        label: 已提示恶魔
+        required: false
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

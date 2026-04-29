@@ -1,0 +1,44 @@
+id: r164
+englishName: cripple
+name: 瘸子
+schemaVersion: 1
+tags:
+  - 每晚
+  - 选择玩家
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: target_seat
+        type: seat
+        label: 选择号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: side
+        type: choice
+        label: 左边或右边
+        required: true
+        optionsSource: custom
+        options:
+          - 左边
+          - 右边
+        min: null
+        max: null
+        placeholder: null

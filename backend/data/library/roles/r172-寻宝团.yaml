@@ -1,0 +1,17 @@
+id: r172
+englishName: treasure-hunters
+name: 寻宝团
+type: fabled
+edition: custom
+image: /assets/clock-tower-night.jpg
+flavor: ''
+setup: true
+reminders:
+  - 藏角色标记
+  - 获得能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 可选传说角色；开局藏角色标记，首个找到者可获得该角色能力。
+keywords: 可选 传说角色 藏标记 剧本外角色 获得能力
+ability: 游戏开始时，你要宣布任意数量剧本外的角色，将其角色标记秘密置于场地某处。首个找到它的玩家可以在白天拜访你并获得该角色能力。

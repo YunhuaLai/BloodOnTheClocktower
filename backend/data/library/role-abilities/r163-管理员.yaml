@@ -1,0 +1,44 @@
+id: r163
+englishName: administrator
+name: 管理员
+schemaVersion: 1
+tags:
+  - 每晚
+  - 醉酒
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: first_demon_choice
+        type: seat
+        label: 首个恶魔选择
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: died
+        type: boolean
+        label: 该玩家死亡
+        required: false
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

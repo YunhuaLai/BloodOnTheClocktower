@@ -1,0 +1,44 @@
+id: r171
+englishName: plague-doctor-assassin
+name: 瘟疫医生 & 暗杀者
+schemaVersion: 1
+tags:
+  - 传说角色
+  - 特殊互动
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: special
+  eventTiming: null
+  usagePattern: repeatable
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: minion_seat
+        type: seat
+        label: 获得能力的爪牙
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: notified
+        type: boolean
+        label: 已告知
+        required: false
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

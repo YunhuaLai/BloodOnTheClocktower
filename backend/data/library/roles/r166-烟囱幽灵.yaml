@@ -1,0 +1,16 @@
+id: r166
+englishName: chimney-ghost
+name: 烟囱幽灵
+type: outsider
+edition: custom
+image: /assets/clock-tower-night.jpg
+flavor: ''
+setup: false
+reminders:
+  - 已转变
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 当烟囱幽灵得知自己死亡时，烟囱幽灵公开选择一名存活玩家；该玩家转变为列表中下一种角色类型的不在场角色与阵营。
+summary: 得知自己死亡时，公开选择一名存活玩家，使其转变为下一角色类型的不在场角色与阵营。
+keywords: 死亡 公开选择 转变 角色类型
+ability: 当你得知你死亡时，你要公开选择一名存活玩家：他转变为列表中下一种角色类型的不在场角色与阵营。

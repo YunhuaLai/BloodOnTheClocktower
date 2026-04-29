@@ -1,0 +1,16 @@
+id: r169
+englishName: ghostflame
+name: 幽焰
+type: demon
+edition: custom
+image: /assets/clock-tower-night.jpg
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒幽焰。幽焰选择一名玩家，该玩家死亡。存活的初始恶魔与爪牙不计入邪恶阵营获胜所需的条件。
+summary: 每晚杀人；存活的初始恶魔与爪牙不计入邪恶阵营获胜所需条件。
+keywords: 每晚 死亡 初始恶魔 爪牙 胜利条件
+ability: 每个夜晚*，选择一名玩家：他死亡。存活的初始恶魔与爪牙不计入邪恶阵营获胜所需的条件。

@@ -1,0 +1,16 @@
+id: r162
+englishName: blind-knight
+name: 盲眼骑士
+type: townsfolk
+edition: custom
+image: /assets/clock-tower-night.jpg
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒盲眼骑士。盲眼骑士选择一个距离；与盲眼骑士相隔该距离的一名爪牙与盲眼骑士共同失去能力。
+summary: 每晚选择距离，使相隔该距离的一名爪牙与自己共同失去能力。
+keywords: 每晚 距离 爪牙 失去能力
+ability: 每个夜晚，你要选择一个距离：与你相隔该距离的一名爪牙与你共同失去能力。

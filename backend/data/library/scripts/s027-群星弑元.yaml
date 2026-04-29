@@ -1,0 +1,86 @@
+id: s027
+englishName: stars-slay-origin
+name: 群星弑元
+en: 群星弑元
+author: 麻生
+logo: /assets/clock-tower-night.jpg
+description: 原创标准结构剧本：13 镇民 / 4 外来者 / 4 爪牙 / 4 恶魔 / 2 传说角色。
+townsfolkName: 镇民
+additional:
+  - 结构: 13 镇民 / 4 外来者 / 4 爪牙 / 4 恶魔 / 2 传说角色
+level: 原创剧本
+mood: 信息、博弈、特殊互动
+text: 原创作者麻生的标准结构剧本。
+image: /assets/clock-tower-night.jpg
+tags:
+  - 原创剧本
+  - 标准结构
+sourceUrl: ''
+detail:
+  overview: 群星弑元是原创作者麻生的标准结构剧本，包含大量信息角色、死亡触发角色与特殊恶魔互动。
+  bestFor:
+    - 熟悉基础流程，想体验原创机制和场地互动的玩家。
+  playStyle:
+    - 通过左右列、距离、死亡触发和恶魔额外能力形成信息博弈。
+  storytellerNotes:
+    - 管理员、贡品、心上人、瘟疫医生、男爵、博学者、考古学家等多为被动、白天或事件触发，不一定常规夜晚唤醒。
+    - 其他夜晚顺序中的“穷皮者”按角色表理解为“窃皮者”。
+  commonPitfalls:
+    - 记得处理瘟疫医生与暗杀者的传说角色特殊互动。
+    - 若使用寻宝团，应在开局明确宣布剧本外角色并秘密放置角色标记。
+roleIds:
+  - r002
+  - r003
+  - r058
+  - r161
+  - r005
+  - r006
+  - r057
+  - r007
+  - r055
+  - r106
+  - r162
+  - r163
+  - r164
+  - r165
+  - r068
+  - r166
+  - r159
+  - r167
+  - r168
+  - r074
+  - r019
+  - r021
+  - r169
+  - r083
+  - r170
+travellerIds: []
+fabledIds:
+  - r171
+  - r172
+nightOrder:
+  first:
+    - r168
+    - r170
+    - r074
+    - r002
+    - r003
+    - r005
+    - r006
+    - r058
+    - r164
+  other:
+    - r162
+    - r074
+    - r106
+    - r021
+    - r083
+    - r169
+    - r170
+    - r164
+    - r165
+    - r005
+    - r006
+    - r007
+    - r055
+    - r058

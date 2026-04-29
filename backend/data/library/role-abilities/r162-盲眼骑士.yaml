@@ -1,0 +1,42 @@
+id: r162
+englishName: blind-knight
+name: 盲眼骑士
+schemaVersion: 1
+tags:
+  - 每晚
+  - 选择距离
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: distance
+        type: number
+        label: 距离
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: affected_minion
+        type: seat
+        label: 失去能力的爪牙
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null

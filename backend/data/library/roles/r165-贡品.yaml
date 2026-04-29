@@ -1,0 +1,17 @@
+id: r165
+englishName: tribute
+name: 贡品
+type: outsider
+edition: custom
+image: /assets/clock-tower-night.jpg
+flavor: ''
+setup: true
+reminders:
+  - 以为镇民
+  - 恶魔额外能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 当贡品死亡时，恶魔获得一个不在场恶魔能力。
+summary: 以为自己是镇民；死亡时恶魔获得一个不在场恶魔能力。
+keywords: 误认 镇民 死亡 恶魔 额外能力 设置
+ability: 你以为你是一个镇民，但你不是。当你死亡时，恶魔会获得一个不在场恶魔能力。[你与恶魔之间没有镇民]

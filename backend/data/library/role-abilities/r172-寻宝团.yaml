@@ -1,0 +1,42 @@
+id: r172
+englishName: treasure-hunters
+name: 寻宝团
+schemaVersion: 1
+tags:
+  - 传说角色
+  - 可选
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: setup
+  eventTiming: null
+  usagePattern: repeatable
+  activationMode: active
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: sequence
+    defaultRows: 1
+    fields:
+      - key: hidden_role
+        type: text
+        label: 藏起的剧本外角色
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: sequence
+    defaultRows: 1
+    fields:
+      - key: finder_seat
+        type: seat
+        label: 找到者
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null

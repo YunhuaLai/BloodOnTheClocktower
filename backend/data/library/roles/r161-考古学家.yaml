@@ -1,0 +1,16 @@
+id: r161
+englishName: archaeologist
+name: 考古学家
+type: townsfolk
+edition: custom
+image: /assets/clock-tower-night.jpg
+flavor: ''
+setup: false
+reminders:
+  - 获得奖励
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 在房间里找到说书人留下的线索，即可获得奖励。
+keywords: 线索 奖励 白天 事件
+ability: 在房间里找到说书人留下的线索，即可获得奖励。

@@ -1,0 +1,44 @@
+id: r168
+englishName: chili
+name: 辣椒
+schemaVersion: 1
+tags:
+  - 首夜
+  - 中毒
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: column
+        type: choice
+        label: 选择列
+        required: true
+        optionsSource: custom
+        options:
+          - 左列
+          - 右列
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: sequence
+    defaultRows: 1
+    fields:
+      - key: poisoned_seat
+        type: seat
+        label: 中毒玩家
+        required: false
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null

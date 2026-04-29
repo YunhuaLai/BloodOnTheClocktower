@@ -1,0 +1,42 @@
+id: r161
+englishName: archaeologist
+name: 考古学家
+schemaVersion: 1
+tags:
+  - 白天
+  - 事件触发
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: day
+  eventTiming: null
+  usagePattern: repeatable
+  activationMode: conditional
+  drivenBy: mixed
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: clue
+        type: text
+        label: 找到的线索
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: reward
+        type: text
+        label: 奖励
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: null
