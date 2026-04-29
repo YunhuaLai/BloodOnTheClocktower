@@ -207,6 +207,7 @@ function handleCreateGame() {
   const setup = {
     title: String(formData.get("title") || ""),
     scriptId: String(formData.get("scriptId") || ""),
+    scriptName: String(formData.get("scriptName") || ""),
     playerCount: Number(formData.get("playerCount") || 10),
     selfSeat: Number(formData.get("selfSeat") || 1),
     mode: String(formData.get("mode") || "player"),

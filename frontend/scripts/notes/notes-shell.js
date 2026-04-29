@@ -74,10 +74,16 @@ function renderSetupPage(notes) {
         <form id="notesSetupForm" class="notes-setup-form">
           <label class="note-field note-field--wide">
             <span>剧本</span>
-            <select name="scriptId" data-setup-field="scriptId" required>
-              <option value="">请选择剧本</option>
-              ${renderScriptSelectOptions(draft.scriptId)}
-            </select>
+            <input
+              name="scriptName"
+              data-setup-field="scriptName"
+              value="${escapeHtml(draft.scriptName)}"
+              list="scriptNameList"
+              autocomplete="off"
+              placeholder="输入剧本名自动搜索"
+              required
+            />
+            ${renderScriptNameDatalist()}
           </label>
 
           <div class="notes-setup-grid">

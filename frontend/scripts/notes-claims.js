@@ -83,3 +83,18 @@ function renderScriptSelectOptions(selectedScriptId) {
     )
     .join("");
 }
+
+function renderScriptNameDatalist() {
+  return `
+    <datalist id="scriptNameList">
+      ${state.scripts
+        .map((script) => {
+          const label = [script.en, script.englishName]
+            .filter(Boolean)
+            .join(" / ");
+          return `<option value="${escapeHtml(script.name)}"${label ? ` label="${escapeHtml(label)}"` : ""}></option>`;
+        })
+        .join("")}
+    </datalist>
+  `;
+}

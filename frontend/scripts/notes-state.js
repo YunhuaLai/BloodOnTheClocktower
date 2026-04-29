@@ -6,6 +6,7 @@ function createDefaultSetupDraft() {
   return {
     title: "",
     scriptId: "",
+    scriptName: "",
     playerCount: 10,
     selfSeat: 1,
     mode: "player",
@@ -113,17 +114,42 @@ function createPlayersForCount(playerCount) {
   );
 }
 
+function findScriptFromSetup(setup) {
+  const query = normalizeMatchText(setup?.scriptName);
+  if (query) {
+    const script =
+      state.scripts.find((item) =>
+        [item.name, item.en, item.id, item.englishName].some(
+          (value) => normalizeMatchText(value) === query,
+        ),
+      ) ||
+      state.scripts.find((item) =>
+        [item.name, item.en, item.id, item.englishName].some((value) =>
+          normalizeMatchText(value).includes(query),
+        ),
+      );
+
+    if (script) {
+      return script;
+    }
+  }
+
+  const scriptId = String(setup?.scriptId || "").trim();
+  return state.scripts.find((item) => item.id === scriptId) || null;
+}
+
 function createGameFromSetup(setup, nextIndex = 1) {
-  const script = state.scripts.find((item) => item.id === setup.scriptId) || null;
+  const script = findScriptFromSetup(setup);
   const playerCount = clampNumber(Number(setup.playerCount) || 10, 5, 15);
   const selfSeat = clampNumber(Number(setup.selfSeat) || 1, 1, playerCount);
   const title = String(setup.title || "").trim() || `第 ${nextIndex} 局`;
+  const scriptName = String(setup.scriptName || "").trim();
 
   return {
     id: createId("game"),
     title,
     scriptId: script?.id || "",
-    scriptName: script?.name || "",
+    scriptName: script?.name || scriptName,
     playerCount,
     selfSeat,
     mode: noteModeOptions.some((option) => option.value === setup.mode)
