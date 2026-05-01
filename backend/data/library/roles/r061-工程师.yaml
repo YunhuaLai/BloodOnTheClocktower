@@ -6,11 +6,11 @@ keywords: 换恶魔 换爪牙 一次性 配置
 englishName: engineer
 ability: 每局游戏限一次，在夜晚时，你可以选择让恶魔变成你选择的恶魔角色，或让所有爪牙变成你选择的爪牙角色。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/engineer.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/engineer.png
 flavor: ''
 setup: false
 reminders:
   - 失去能力
 remindersGlobal: []
-firstNightReminder: 唤醒工程师，他可以摇头不使用能力，或选择角色列表上的恶魔或爪牙角色，来执行同角色类型的这些玩家的角色变化。
-otherNightReminder: 如果工程师未曾使用能力，唤醒工程师，他可以摇头不使用能力，或选择角色列表上的恶魔或爪牙角色，来执行同角色类型的这些玩家的角色变化。
+firstNightReminder: 工程师选择不使用能力，或在剧本列表中选择恶魔或爪牙角色。如果他选择爪牙角色，则需要选择对应数量的爪牙。然后将这些玩家依次唤醒，并告知他们变成了什么角色。
+otherNightReminder: 工程师选择不使用能力，或在剧本列表中选择恶魔或爪牙角色。如果他选择爪牙角色，则需要选择对应数量的爪牙。然后将这些玩家依次唤醒，并告知他们变成了什么角色。

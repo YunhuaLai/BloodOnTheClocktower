@@ -1,0 +1,26 @@
+id: r737
+englishName: chengbutanglaoda
+name: 成步堂牢大
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 事件触发
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: each_day
+  eventTiming: on_nomination
+  usagePattern: once_per_game
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

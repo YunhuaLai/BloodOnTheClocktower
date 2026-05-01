@@ -1,0 +1,18 @@
+id: r606
+englishName: zhen-button
+name: 鸩
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202404/c_1134823943171_5fc42e52.jpg
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 失去能力
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒鸩，让其选择一个镇民角色，如果该角色在场，在其角色标记旁放置“死亡”和“醉酒”提示标记
+summary: 每局游戏限一次，在夜晚时*，你可以选择一个镇民角色：如果他在场，他醉酒并死亡。
+keywords: townsfolk 夜晚 死亡 醉酒
+ability: 每局游戏限一次，在夜晚时*，你可以选择一个镇民角色：如果他在场，他醉酒并死亡。

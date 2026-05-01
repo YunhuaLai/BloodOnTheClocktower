@@ -1,0 +1,16 @@
+id: r247
+englishName: xunchashaoihwronaklsndfkasnd
+name: 游歌者
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/qazwsxedc/aCup/3_acup.png
+flavor: ''
+setup: false
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒游歌者，告知他因为他醉酒的人数
+summary: 每个白天，你可以公开选择任意名存活玩家：其中的镇民会醉酒直到你再次选择。当晚你会得知正因你醉酒的人数。
+keywords: townsfolk 夜晚 醉酒
+ability: 每个白天，你可以公开选择任意名存活玩家：当晚其中的镇民玩家会醉酒直到下个黄昏，你会被唤醒得知当晚因你醉酒的人数。

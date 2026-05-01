@@ -1,0 +1,75 @@
+id: s029
+englishName: item
+name: 超越世界线
+en: 超越世界线
+author: 灰烬
+logo: https://free.picui.cn/free/2025/09/24/68d2c71cd7b55.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/09/24/68d2c71cd7b55.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r193
+  - r194
+  - r195
+  - r051
+  - r367
+  - r057
+  - r197
+  - r054
+  - r023
+  - r198
+  - r199
+  - r200
+  - r028
+  - r116
+  - r015
+  - r072
+  - r201
+  - r020
+  - r202
+  - r203
+  - r204
+  - r083
+  - r021
+  - r205
+travellerIds: []
+fabledIds:
+  - r206
+nightOrder:
+  first:
+    - r194
+    - r200
+    - r195
+    - r367
+    - r051
+    - r023
+    - r198
+  other:
+    - r206
+    - r200
+    - r028
+    - r020
+    - r021
+    - r083
+    - r205
+    - r203
+    - r193
+    - r367
+    - r023
+    - r197
+    - r198
+    - r051
+    - r054

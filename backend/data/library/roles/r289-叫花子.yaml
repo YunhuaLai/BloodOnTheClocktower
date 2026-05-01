@@ -1,0 +1,17 @@
+id: r289
+englishName: 4-zhiminghuaerzi
+name: 叫花子
+type: traveller
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/jiaohuazi.png
+flavor: ''
+setup: false
+reminders:
+  - 乞讨
+  - 是叫花子
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果你决定不让叫花子获得这个角色的能力，无事发生。如果你决定让叫花子获得这个角色的能力，那么让他行动。如果该角色已在场，你可以自由决定是先唤醒原角色对应的玩家还是先唤醒叫花子玩家来进行行动。
+summary: 每个白天限一次，你可以公开选择一名其他玩家，让他选择一个非恶魔角色：你可能会获得这个角色的能力，直到下个黎明。
+keywords: a jinxed 夜晚
+ability: 每个白天限一次，你可以公开选择一名其他玩家，让他选择一个非恶魔角色：你可能会获得这个角色的能力，直到下个黎明。

@@ -1,0 +1,21 @@
+id: r642
+englishName: yanluo-c
+name: 阎罗
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202403/c_2190498760171_1c483826.jpg
+flavor: ''
+setup: false
+reminders:
+  - 三更将死
+  - 即将死亡
+  - 死亡
+remindersGlobal: []
+firstNightReminder: |-
+  首个夜晚，唤醒阎罗并让他按自己意愿的时长来查看魔典。
+  让阎罗选择一名玩家，放置“选择”标记在其角色图标旁，其在覅三个夜晚必定会死亡。
+  让阎罗选择一名玩家，放置“即将死亡”标记在其角色图标旁。
+otherNightReminder: 让阎罗选择一名玩家，放置“即将死亡”标记在其角色图标旁。
+summary: 在你的首个夜晚，你能查看魔典并选择一名玩家：他在第三个夜晚死亡，即使因为任何原因让他不会死亡。每个夜晚，你要选择一名玩家：上个夜晚被你选择的玩家死亡。
+keywords: demon 首夜 夜晚 死亡
+ability: 在你的首个夜晚，你能查看魔典并选择一名玩家：他在第三个夜晚死亡，即使因为任何原因让他不会死亡。每个夜晚，你要选择一名玩家：上个夜晚被你选择的玩家死亡。

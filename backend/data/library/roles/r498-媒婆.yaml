@@ -1,0 +1,16 @@
+id: r498
+englishName: matchmaker
+name: 媒婆
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/brvp2dt7/matchmaker.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ：唤醒媒婆，他要么摇头，要么指向两名其他的存活玩家。如果他们属于不同阵营，其中一名玩家死亡。
+summary: 每个夜晚*，你可以选择两名除你以外的存活的玩家：如果他们属于不同阵营，其中一名玩家死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 每个夜晚*，你可以选择两名除你以外的存活的玩家：如果他们属于不同阵营，其中一名玩家死亡。

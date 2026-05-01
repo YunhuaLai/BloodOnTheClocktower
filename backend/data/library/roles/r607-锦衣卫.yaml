@@ -1,0 +1,16 @@
+id: r607
+englishName: jinyiwei
+name: 锦衣卫
+type: townsfolk
+edition: custom
+image: https://clocktower-wiki.gstonegames.com/images/thumb/3/38/Jinyiwei.png/120px-Jinyiwei.png
+flavor: ''
+setup: false
+reminders:
+  - 保护
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 移除上个夜晚放置的“保护”标记。唤醒锦衣卫，让其选择一名玩家。在该玩家角色标记旁放置“保护”提示标记。
+summary: 每个夜晚*，你要选择一名玩家：如果他在下个黄昏前死亡，你代替他死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 每个夜晚*，你要选择一名玩家：如果他在下个黄昏前死亡，你代替他死亡。

@@ -1,0 +1,17 @@
+id: r444
+englishName: 24-baobao
+name: 送报童
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/baobao/24_baobao.png
+flavor: 铛铛！今日头条！今日头条！
+setup: false
+reminders:
+  - 真新闻
+  - 假新闻
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 得知正确与否
+summary: 每个白天，你可以私下询问说书人以得知一条“新闻”，如果你公开宣读了该“新闻”，当天晚上你会得知它是否正确。
+keywords: townsfolk 夜晚
+ability: 每个白天，你可以私下询问说书人以得知一条“新闻”，如果你公开宣读了该“新闻”，当天晚上你会得知它是否正确。

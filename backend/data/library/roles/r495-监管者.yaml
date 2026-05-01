@@ -1,0 +1,17 @@
+id: r495
+englishName: diexue-5
+name: 监管者
+type: townsfolk
+edition: custom
+image: https://www.helloimg.com/i/2025/01/10/6780ce5468895.png
+flavor: ''
+setup: false
+reminders:
+  - 不受影响
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒监管者，如果监管者决定使用他的能力，让他为每个剧本上的恶魔角色分别选择一名玩家。在对应在场恶魔被选择的玩家的角色旁放“不受影响”提示标记。
+summary: 每局游戏限一次，在夜晚时*，为每个剧本上的恶魔角色分别选择一名玩家，这些玩家不受对应恶魔的负面能力的影响。
+keywords: townsfolk 夜晚
+ability: 每局游戏限一次，在夜晚时*，为每个剧本上的恶魔角色分别选择一名玩家，这些玩家不受对应恶魔的负面能力的影响。

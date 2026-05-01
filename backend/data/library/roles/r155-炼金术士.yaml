@@ -1,16 +1,16 @@
 id: r155
 englishName: alchemistbutton
 name: 炼金术士
-type: townsfolk
+type: outsider
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/alchemist.png
 flavor: ''
-setup: false
+setup: true
 reminders: []
 remindersGlobal:
   - 是炼金术士
-firstNightReminder: 展示给炼金术士一个不在场的角色标记。
+firstNightReminder: 唤醒炼金术士，对他展示他获得的能力所对应的爪牙角色标记。
 otherNightReminder: ''
 summary: 你拥有一个不在场的爪牙角色的能力。
 keywords: townsfolk 首夜
-ability: 你拥有一个不在场的爪牙角色的能力。
+ability: 你拥有一个爪牙角色的能力，即使你已死亡。当你使用能力时，说书人可能会要求你更换选择。

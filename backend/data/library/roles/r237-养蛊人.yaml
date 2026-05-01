@@ -1,0 +1,16 @@
+id: r237
+englishName: yangaaaaaaaaaaaa111
+name: 养蛊人
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/yangguren.png
+flavor: ''
+setup: false
+reminders:
+  - 蛊
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 今天白天提名了存活的养蛊人的玩家死亡。
+summary: 在你存活时提名你的玩家会在当晚死亡，即使你已死亡。
+keywords: minion 夜晚 死亡
+ability: 在你存活时提名你的玩家会在当晚死亡，即使你已死亡。

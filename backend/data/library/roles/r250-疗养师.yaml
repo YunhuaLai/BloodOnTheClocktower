@@ -1,0 +1,17 @@
+id: r250
+englishName: liaoyangshi111
+name: 疗养师
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/qazwsxedc/aCup/2_acup.png
+flavor: ''
+setup: false
+reminders:
+  - 醉酒
+  - 护理
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果有玩家因为疗养师的能力避免了死亡（即：他避免了本应发生的死亡，且没有受到其他角色的保护）：在他的旁边放置护理标志，如果有玩家有护理标志，告知疗养师是，否则告知否
+summary: 一名玩家醉酒。中毒或醉酒的玩家不会死亡，每个夜晚*，你会得知是否有玩家因为你避免了死亡（从上个黎明到你被唤醒时）。
+keywords: townsfolk 夜晚 死亡 中毒 醉酒
+ability: 一名玩家醉酒。中毒或醉酒的玩家不会死亡，每个夜晚*，你会得知是否有玩家因为你避免了死亡（从上个黎明到你被唤醒时）。

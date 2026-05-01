@@ -3,13 +3,13 @@ englishName: cripple
 name: 瘸子
 type: townsfolk
 edition: custom
-image: /assets/clock-tower-night.jpg
+image: https://free.picui.cn/free/2025/09/23/68d2088b8da20.png
 flavor: ''
 setup: false
 reminders: []
 remindersGlobal: []
-firstNightReminder: 唤醒瘸子。瘸子选择一名其他玩家；告知该玩家在角色表的左边还是右边。
-otherNightReminder: 唤醒瘸子。瘸子选择一名其他玩家；告知该玩家在角色表的左边还是右边。
+firstNightReminder: ''
+otherNightReminder: ''
 summary: 每晚选择一名其他玩家，得知其在角色表左边还是右边。
 keywords: 每晚 选择 玩家 左边 右边 信息
-ability: 每个夜晚，你要选择一名其他玩家：你会得知他在角色表的左边还是右边。
+ability: 每个夜晚，你选一名玩家。你会得知他在角色表的左边还是右边。

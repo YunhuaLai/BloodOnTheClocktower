@@ -1,0 +1,77 @@
+id: s052
+englishName: item
+name: 骑士对决
+en: 骑士对决
+author: 太一
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r552
+  - r049
+  - r058
+  - r006
+  - r198
+  - r369
+  - r420
+  - r029
+  - r033
+  - r427
+  - r553
+  - r035
+  - r370
+  - r554
+  - r555
+  - r119
+  - r037
+  - r556
+  - r426
+  - r041
+  - r077
+  - r557
+  - r558
+  - r559
+  - r560
+travellerIds: []
+fabledIds:
+  - r561
+nightOrder:
+  first:
+    - r426
+    - r041
+    - r049
+    - r058
+    - r006
+    - r198
+  other:
+    - r555
+    - r426
+    - r041
+    - r037
+    - r427
+    - r553
+    - r560
+    - r557
+    - r558
+    - r559
+    - r029
+    - r556
+    - r058
+    - r420
+    - r198
+    - r006
+    - r370

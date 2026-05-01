@@ -3,14 +3,14 @@ englishName: haoshaoanizhegeren111
 name: 流莺
 type: traveller
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/harlot.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/harlot.png
 flavor: ''
 setup: false
 reminders:
   - 死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 流莺选择一名玩家，将其唤醒，那名玩家选择同意或拒绝。如果同意，将他的角色标记展示给流莺看。然后说书人可以决定两名玩家是否会一起死去。
+otherNightReminder: 唤醒流莺。让流莺指向任意一名玩家。让流莺重新入睡。唤醒被选中的玩家，对该玩家展示“该角色的能力对你生效”提示标记和流莺角色标记。该玩家需要通过点头表示是，摇头表示否。然后让该玩家重新入睡。
 summary: 每个夜晚*，你要选择一名存活的玩家：如果他同意，你会得知他的角色，但是你们两个可能同时死亡。
 keywords: traveller 夜晚 死亡
 ability: 每个夜晚*，你要选择一名存活的玩家：如果他同意，你会得知他的角色，但是你们两个可能同时死亡。

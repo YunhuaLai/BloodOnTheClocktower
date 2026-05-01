@@ -6,11 +6,12 @@ keywords: 开局 恶魔 二选一 信息
 englishName: knight
 ability: 在你的首个夜晚，你会得知两名非恶魔玩家。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/knight.png
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202304/c_7251125151861_73cfd5f9.jpg
 flavor: ''
 setup: false
 reminders:
   - 得知
-remindersGlobal: []
-firstNightReminder: 唤醒骑士，对他指向两名非恶魔玩家。
+remindersGlobal:
+  - 骑士
+firstNightReminder: 唤醒骑士，然后指向标记了“得知”的两名玩家。
 otherNightReminder: ''

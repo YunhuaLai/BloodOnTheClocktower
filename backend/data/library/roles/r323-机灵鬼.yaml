@@ -1,0 +1,17 @@
+id: r323
+englishName: jilinggui
+name: 机灵鬼
+type: townsfolk
+edition: custom
+image: https://clocktower-wiki.gstonegames.com/images/thumb/a/a7/Townsfolk.png/240px-Townsfolk.png
+flavor: ''
+setup: false
+reminders:
+  - 正确
+  - 错误
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 每个夜晚，选择一名玩家，如果他是主/副角色，他的能力会产生正确/错误信息，直到下个黄昏。
+keywords: townsfolk 首夜 夜晚
+ability: 每个夜晚，选择一名玩家，如果他是主/副角色，他的能力会产生正确/错误信息，直到下个黄昏。

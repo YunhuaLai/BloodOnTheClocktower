@@ -1,0 +1,27 @@
+id: r412
+englishName: 14-jinhulun
+name: 渗透者
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 每晚
+abilityMeta:
+  pageType: no_input
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_game
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

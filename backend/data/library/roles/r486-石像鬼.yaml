@@ -1,0 +1,16 @@
+id: r486
+englishName: spacebound
+name: 石像鬼
+type: outsider
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/drunk.png
+flavor: ''
+setup: true
+reminders: []
+remindersGlobal:
+  - 是石像鬼
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 你以为你是一个在场的镇民角色，但其实你不是。如果该镇民死亡，你转变为对立阵营。
+keywords: outsider 夜晚 设置 死亡
+ability: 你不知道你是酒鬼。你以为你是一个镇民角色，但其实你不是。

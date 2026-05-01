@@ -1,0 +1,27 @@
+id: r253
+englishName: d0fc421d-6f44-4eec-99fc-90505973763e1
+name: 史莱姆
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: true
+reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+tags:
+  - 每晚
+  - 设置
+abilityMeta:
+  pageType: no_input
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

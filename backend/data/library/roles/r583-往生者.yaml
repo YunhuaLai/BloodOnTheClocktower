@@ -1,0 +1,17 @@
+id: r583
+englishName: 975f7fe7-60f2-470a-9cf7-5fc354157b861
+name: 往生者
+type: traveller
+edition: custom
+image: https://i.postimg.cc/KvYjy2BH/image.png
+flavor: ''
+setup: false
+reminders:
+  - 获胜
+  - 落败
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 独立阵营。每个白天限一次，你可以拜访说书人以获得一条信息。如果在游戏结束前你成功复原了魔典，你加入获胜的阵营；如果你对说书人给予的信息疯狂，你无法获胜。
+keywords: traveller
+ability: 你没有阵营且不入村。每个白天，你可以向说书人询问n个是非问题（n由说书人决定）。如果你还原初始或当前魔典，你获胜。如果你对你的信息疯狂，你落败。

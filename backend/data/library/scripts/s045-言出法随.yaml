@@ -1,0 +1,78 @@
+id: s045
+englishName: item
+name: 言出法随
+en: 言出法随
+author: 讷之
+logo: ''
+description: 言出法随
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 言出法随
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 言出法随
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r702
+  - r442
+  - r760
+  - r761
+  - r028
+  - r055
+  - r576
+  - r762
+  - r444
+  - r445
+  - r446
+  - r763
+  - r213
+  - r069
+  - r362
+  - r256
+  - r449
+  - r107
+  - r020
+  - r451
+  - r074
+  - r292
+  - r136
+travellerIds:
+  - r457
+fabledIds:
+  - r758
+  - r759
+nightOrder:
+  first:
+    - r449
+    - r451
+    - r292
+    - r074
+    - r107
+    - r136
+    - r576
+    - r702
+    - r442
+    - r445
+  other:
+    - r449
+    - r451
+    - r292
+    - r028
+    - r074
+    - r107
+    - r020
+    - r136
+    - r213
+    - r576
+    - r445
+    - r444
+    - r762
+    - r055

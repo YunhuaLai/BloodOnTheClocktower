@@ -1,0 +1,35 @@
+id: r416
+englishName: rengejieti
+name: 人格解体（可选）
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: true
+reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+tags:
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: team
+        type: team
+        label: 阵营
+        required: true
+        optionsSource: teams
+        options: null
+        min: null
+        max: null
+        placeholder: null

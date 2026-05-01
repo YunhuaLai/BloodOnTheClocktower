@@ -6,11 +6,11 @@ keywords: 醉酒 生存 夜晚
 englishName: sailor
 ability: 每个夜晚，你要选择一名存活的玩家：你或他之一会醉酒直到下个黄昏。你不会死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/sailor.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/sailor.png
 flavor: ''
 setup: false
 reminders:
   - 醉酒
 remindersGlobal: []
-firstNightReminder: 唤醒水手，让他选择一名玩家。决定他俩其中谁因为水手能力醉酒。
-otherNightReminder: 唤醒水手，让他选择一名玩家。决定他俩其中谁因为水手能力醉酒。
+firstNightReminder: 让水手选择一名存活玩家。标记那名玩家或水手醉酒。
+otherNightReminder: 让水手选择一名存活玩家。标记那名玩家或水手醉酒。

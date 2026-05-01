@@ -1,0 +1,18 @@
+id: r613
+englishName: kumu
+name: 枯木
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/kuikuisama/guiyihuayuan/25_guiyihuayuan.png
+flavor: ''
+setup: true
+reminders:
+  - 杀害
+  - 保留
+  - 诅咒发作
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 每个夜晚*，选择一名玩家，将他杀害。被你杀死的爪牙保留他的能力，如果你这么做了此后所有善良阵营受到诅咒不会生长并失去生长的效果。你不会生长。
+summary: 你的能力由祭品玩家的能力词语或能力类型构成。[初始配置不在场]
+keywords: demon 夜晚
+ability: 每个夜晚*，选择一名玩家，将他杀害。被你杀死的爪牙保留他的能力，如果你这么做了此后所有善良阵营受到诅咒不会生长并失去生长的效果。你不会生长。[-1外来者]

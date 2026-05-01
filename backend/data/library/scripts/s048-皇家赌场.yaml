@@ -1,0 +1,82 @@
+id: s048
+englishName: item
+name: 皇家赌场
+en: 皇家赌场
+author: 海雾
+logo: https://www.helloimg.com/i/2024/07/18/669889e8484e6.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2024/07/18/669889e8484e6.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r028
+  - r004
+  - r002
+  - r493
+  - r029
+  - r494
+  - r495
+  - r025
+  - r496
+  - r497
+  - r498
+  - r027
+  - r499
+  - r015
+  - r092
+  - r070
+  - r500
+  - r302
+  - r042
+  - r501
+  - r502
+  - r503
+  - r504
+  - r505
+  - r506
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r506
+    - r302
+    - r502
+    - r493
+    - r002
+    - r004
+    - r496
+    - r092
+    - r025
+    - r497
+  other:
+    - r302
+    - r502
+    - r027
+    - r499
+    - r028
+    - r498
+    - r495
+    - r503
+    - r505
+    - r506
+    - r504
+    - r042
+    - r029
+    - r500
+    - r070
+    - r496
+    - r025
+    - r497

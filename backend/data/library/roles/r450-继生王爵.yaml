@@ -1,0 +1,17 @@
+id: r450
+englishName: 18-equinoxflowerg
+name: 继生王爵
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/EquinoxFlower/18_equinoxflower.png
+flavor: ''
+setup: false
+reminders:
+  - 目标
+  - 可继位
+remindersGlobal: []
+firstNightReminder: 让他选择任意名玩家，给他们标记目标，并告诉继生王爵每个目标玩家的角色。如果有目标标记的玩家都死亡，给继生王爵标记可继位。
+otherNightReminder: ''
+summary: 在你的首个夜晚，你要选择任意名玩家，你分别得知他们的角色。如果他们全部死亡，你获得能力：恶魔死亡时，你变为那个恶魔。
+keywords: minion 首夜 死亡
+ability: 在你的首个夜晚，你要选择任意名玩家，你分别得知他们的角色。如果他们全部死亡，你获得能力：恶魔死亡时，你变为那个恶魔。

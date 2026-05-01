@@ -1,0 +1,18 @@
+id: r616
+englishName: jianghu-renzhe
+name: 忍者
+type: townsfolk
+edition: custom
+image: https://www.helloimg.com/i/2024/10/31/6723882a0712d.png
+flavor: ''
+setup: false
+reminders:
+  - 获得能力
+  - 选择过
+  - 中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒忍者，让忍者选择一名之前未选择过的玩家。如果这名玩家是镇民，忍者获得他的能力直到下个黄昏。如果不是镇民，忍者中毒。
+summary: 每个夜晚*，你可以选择一名未以此法选择过的玩家：如果他是镇民，你获得他的能力，直到下个黄昏。否则你中毒。
+keywords: townsfolk 夜晚 中毒
+ability: 每个夜晚*，你可以选择一名未以此法选择过的玩家：如果他是镇民，你获得他的能力，直到下个黄昏。否则你中毒。

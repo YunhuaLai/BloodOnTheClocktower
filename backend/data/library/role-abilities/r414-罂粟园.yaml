@@ -1,0 +1,35 @@
+id: r414
+englishName: yingsuyuan
+name: 罂粟园
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: null
+  eventTiming: null
+  usagePattern: passive
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: note
+        type: text
+        label: 记录
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: 导入初稿，请按角色能力调整结构化字段。

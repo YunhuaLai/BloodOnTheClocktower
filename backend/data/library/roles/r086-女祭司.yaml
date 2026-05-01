@@ -6,10 +6,11 @@ keywords: 每晚 交流 信息
 englishName: high-priestess
 ability: 每个夜晚，你会得知一名说书人认为你最应该与其交流的玩家。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/high_priestess.png
+image: https://i.postimg.cc/j5qcQ5Fn/400px-Highpriestess.png
 flavor: ''
 setup: false
-reminders: []
+reminders:
+  - 交流
 remindersGlobal: []
-firstNightReminder: 唤醒女祭司，对她指向一名玩家。
-otherNightReminder: 唤醒女祭司，对她指向一名玩家。
+firstNightReminder: 唤醒女祭司，指向一名玩家。
+otherNightReminder: 唤醒女祭司，指向一名玩家

@@ -1,0 +1,21 @@
+id: r594
+englishName: fangshi-button
+name: 方士
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_9290087694761_94c7b6f3.jpg
+flavor: ''
+setup: false
+reminders:
+  - 第一天
+  - 第二天
+  - 第三天
+  - 第四天
+  - 第五天
+  - 第六天
+remindersGlobal: []
+firstNightReminder: 唤醒方士，让其选择一个数字，将对应数字的标记放置在方士角色标记旁边。如果他选择了1，向他展示一个在场角色的标记。
+otherNightReminder: 在游戏的对应天数唤醒方士，向他展示对应数量的在场角色的标记。
+summary: 在你的首个夜晚，你要选择一个数字。在该数字对应的那一个夜晚，你会得知对应数量的在场角色。
+keywords: townsfolk 首夜 夜晚
+ability: 在你的首个夜晚，你要选择一个数字。在该数字对应的那一个夜晚，你会得知对应数量的在场角色。

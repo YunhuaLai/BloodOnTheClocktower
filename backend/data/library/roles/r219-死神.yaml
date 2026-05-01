@@ -1,0 +1,17 @@
+id: r219
+englishName: 20-emoxueyuan
+name: 死神
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/assassin.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果刺客未曾使用能力，唤醒刺客，他可以摇头不使用能力，或选择攻击一名玩家。
+summary: 每局游戏限一次，在夜晚时*，你可以选择一名玩家:他死亡。 如果你以此方式杀死了恶魔，你与他交换角色。
+keywords: minion 夜晚 死亡
+ability: 每局游戏限一次，在夜晚时*，你可以选择一名玩家：他死亡。如果你以此方式杀死了恶魔，你与他交换角色。

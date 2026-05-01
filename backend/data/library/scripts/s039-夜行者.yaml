@@ -1,0 +1,48 @@
+id: s039
+englishName: item
+name: 夜行者
+en: 夜行者
+author: 小烯社群—段时
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r345
+  - r336
+  - r120
+  - r346
+  - r135
+  - r347
+  - r071
+  - r141
+  - r082
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r336
+    - r141
+    - r071
+    - r346
+    - r345
+  other:
+    - r141
+    - r082
+    - r345
+    - r346
+    - r071

@@ -1,0 +1,28 @@
+id: r545
+englishName: delusional-tourists
+name: 乐园游民
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 每晚
+  - 设置
+abilityMeta:
+  pageType: no_input
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

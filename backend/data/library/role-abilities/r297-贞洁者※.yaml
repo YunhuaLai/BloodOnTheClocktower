@@ -1,0 +1,26 @@
+id: r297
+englishName: 14-zhiminghuaerzi
+name: 贞洁者※
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 事件触发
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: null
+  eventTiming: on_nomination
+  usagePattern: passive
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

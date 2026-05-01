@@ -1,0 +1,17 @@
+id: r308
+englishName: zhshutongoashoiahokrtoaiwjsjfn8qh13rfbnoihc-9j
+name: 书童
+type: outsider
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202404/c_2027903943171_36d374a5.jpg
+flavor: ''
+setup: false
+reminders:
+  - 选择
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒书童，让其选择一名玩家，在其选择的玩家标记旁放置“选择”。
+otherNightReminder: 如果标记有“选择”的玩家被邪恶玩家的能力选择或影响时，在书童旁放置“死亡”标记。
+summary: 在你的首个夜晚，你要选择除你以外的一名玩家：除首个夜晚以外，当他被邪恶玩家的能力选择或影响时，你会在当晚死亡。
+keywords: outsider 首夜 夜晚 死亡
+ability: 在你的首个夜晚，你要选择除你以外的一名玩家：除首个夜晚以外，当他被邪恶玩家的能力选择或影响时，你会在当晚死亡。

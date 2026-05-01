@@ -1,0 +1,18 @@
+id: r258
+englishName: witchbutton
+name: 魔女
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/qazwsxedc/TakeTheCupFromMe/21_takethecupfromme.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 失去能力
+  - 不会唤醒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果魔女已死亡，且没有失去能力，唤醒魔女，让他选择一名玩家，那名玩家死亡。如果此时已经有两名玩家因为魔女死亡，放置“失去能力”标记，为恶魔放置“不会唤醒”标记。
+summary: 你死亡后，每个夜晚，你会被唤醒并可以选择一名玩家：他死亡；第二名玩家因此能力死亡的夜晚，阻止恶魔因自身能力被唤醒，然后你失去能力。
+keywords: minion 夜晚 死亡
+ability: 你死亡后，每个夜晚，你会被唤醒并可以选择一名玩家：他死亡；第二名玩家因此能力死亡的夜晚，阻止恶魔因自身能力被唤醒，然后你失去能力。

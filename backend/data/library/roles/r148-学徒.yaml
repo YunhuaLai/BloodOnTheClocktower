@@ -3,14 +3,14 @@ englishName: xuetutututututututtutu111
 name: 学徒
 type: traveller
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/apprentice.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/apprentice.png
 flavor: ''
 setup: false
 reminders:
   - 是学徒
 remindersGlobal: []
-firstNightReminder: 对学徒展示一个镇民或爪牙标记。在魔典中，用那个角色标记代替学徒标记，并在一旁标识该玩家是学徒。
-otherNightReminder: ''
+firstNightReminder: 在学徒加入游戏的首个夜晚，唤醒学徒。向学徒展示“你是”信息标记，然后展示一个镇民或爪牙的角色标记。在魔典上，将学徒的角色标记替换为刚刚展示的角色标记，并放置“是学徒”提示标记。这名玩家还是学徒，只是他拥有了该角色的能力。
+otherNightReminder: 在学徒加入游戏的首个夜晚，唤醒学徒。向学徒展示“你是”信息标记，然后展示一个镇民或爪牙的角色标记。在魔典上，将学徒的角色标记替换为刚刚展示的角色标记，并放置“是学徒”提示标记。这名玩家还是学徒，只是他拥有了该角色的能力。
 summary: 在你的首个夜晚，如果你是善良的，你会获得一个镇民角色的能力；如果你是邪恶的，你会获得一个爪牙角色的能力。
 keywords: traveller 首夜 夜晚
 ability: 在你的首个夜晚，如果你是善良的，你会获得一个镇民角色的能力；如果你是邪恶的，你会获得一个爪牙角色的能力。

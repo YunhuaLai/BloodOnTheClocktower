@@ -24,12 +24,12 @@ detail:
     - r001
     - r021
 englishName: spy
-ability: 每个夜晚，你能查看魔典。你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。
+ability: 每个夜晚，你能查看魔典。  你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/spy.png
+image: https://www.bloodstar.xyz/p/Tiger/Future-King/18_futureking.png
 flavor: ''
 setup: false
 reminders: []
 remindersGlobal: []
-firstNightReminder: 唤醒间谍，让他查看魔典。
-otherNightReminder: 唤醒间谍，让他查看魔典。
+firstNightReminder: '14'
+otherNightReminder: '18'

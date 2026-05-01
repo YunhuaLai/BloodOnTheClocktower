@@ -1,0 +1,37 @@
+id: r389
+englishName: goldapple
+name: 雅典娜
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 设置
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: team
+        type: team
+        label: 阵营
+        required: true
+        optionsSource: teams
+        options: null
+        min: null
+        max: null
+        placeholder: null

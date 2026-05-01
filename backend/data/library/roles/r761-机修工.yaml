@@ -1,0 +1,16 @@
+id: r761
+englishName: jixiugong
+name: 机修工
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/4dpBXC7j/image.png
+flavor: ''
+setup: false
+reminders:
+  - 获得能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 在你的首个白天，你可以拜访说书人获得一个剧本外角色的能力，即使你醉酒或中毒。[+0-2机修工]
+keywords: townsfolk 中毒 醉酒
+ability: 在你的首个白天，你可以拜访说书人获得一个剧本外角色的能力，即使你醉酒或中毒。[+0-2机修工]

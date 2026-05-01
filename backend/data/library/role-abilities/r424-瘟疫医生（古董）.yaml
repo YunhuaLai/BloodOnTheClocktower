@@ -1,0 +1,26 @@
+id: r424
+englishName: dc0250a7-5d8c-4394-9291-21f1676dc6fw
+name: 瘟疫医生（古董）
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 事件触发
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: null
+  eventTiming: on_death
+  usagePattern: passive
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

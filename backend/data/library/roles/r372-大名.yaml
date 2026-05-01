@@ -1,0 +1,16 @@
+id: r372
+englishName: jianghu-daming
+name: 大名
+type: townsfolk
+edition: custom
+image: https://www.helloimg.com/i/2024/10/31/672380a875e3c.png
+flavor: ''
+setup: false
+reminders:
+  - 得知
+remindersGlobal: []
+firstNightReminder: 唤醒大名，告诉大名恶魔左边或者右边一名玩家的阵营。
+otherNightReminder: 唤醒大名，告诉大名对应方向的下一名玩家的阵营。
+summary: 每个夜晚，你会得知恶魔左边或右边一名玩家的阵营（每晚得知对应方向的下一名玩家）。
+keywords: townsfolk 首夜 夜晚
+ability: 每个夜晚，你会得知恶魔左边或右边一名玩家的阵营（每晚得知对应方向的下一名玩家）。

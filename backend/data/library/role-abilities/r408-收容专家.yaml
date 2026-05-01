@@ -1,0 +1,26 @@
+id: r408
+englishName: 11-jinhulun
+name: 收容专家
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 被动
+abilityMeta:
+  pageType: no_input
+  phaseTiming: each_day
+  eventTiming: null
+  usagePattern: once_per_day
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

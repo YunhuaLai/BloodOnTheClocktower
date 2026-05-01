@@ -1,0 +1,16 @@
+id: r577
+englishName: whitewolf
+name: 白狼
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/hatsukisakana/drg/whitewolf_drg.png
+flavor: ''
+setup: false
+reminders:
+  - 已疯狂
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果除白狼以外的玩家在白天“疯狂”地证明他是邪恶的，唤醒白狼，对他用手势比划数字（0，1，2 等），这个数字等同于与死亡玩家邻近的玩家中邪恶玩家数量。让白狼重新入睡。
+summary: 如果除你以外的玩家在白天“疯狂”地证明你是邪恶的，当晚你会得知与死亡玩家邻近的玩家中有多少名邪恶玩家。
+keywords: townsfolk 夜晚 死亡
+ability: 如果除你以外的玩家在白天“疯狂”地证明你是邪恶的，当晚你会得知与死亡玩家邻近的玩家中有多少名邪恶玩家。

@@ -1,0 +1,16 @@
+id: r195
+englishName: tiejiang111q
+name: 铁匠
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/spdm/SpaceBound/29_spacebound.png
+flavor: ''
+setup: true
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: 在首个夜晚，唤醒铁匠。向铁匠展示所有在场的外来者的总数。让铁匠重新入睡。
+otherNightReminder: ''
+summary: 在你的首个夜晚，你会得知有几名外来者在场。所有外来者醉酒。[+1外来者]
+keywords: townsfolk 首夜 醉酒
+ability: 在你的首个夜晚，你会得知有几名外来者在场。所有外来者醉酒。[+1外来者]

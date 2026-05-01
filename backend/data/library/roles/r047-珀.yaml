@@ -6,12 +6,12 @@ keywords: 蓄力 多杀 恶魔
 englishName: po
 ability: 每个夜晚*，你可以选择一名玩家：他死亡。如果你上次选择时没有选择任何玩家，当晚你要选择三名玩家：他们死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/po.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/po.png
 flavor: ''
 setup: false
 reminders:
-  - 死亡
   - 攻击三次
+  - 死亡
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 珀可以选择一名玩家；或如果上一次他被唤醒时未做选择，让他选择三名玩家。标记这些玩家死亡。

@@ -1,0 +1,17 @@
+id: r553
+englishName: 10-juedou
+name: 浪人
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/che/54_che.png
+flavor: 孩子，不要害怕，闭上眼睛，用心感受杀意的流动。在杀意凝聚的顶点，剑刃出鞘，偏斜这股力量！
+setup: false
+reminders:
+  - 失去能力
+  - 偏斜格挡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒
+summary: 每局游戏限一次，在夜晚时*，你可以选择一名玩家：如果当晚他被恶魔杀死，改为一名邪恶玩家代替他死亡，然后你重获能力。
+keywords: townsfolk 夜晚 死亡
+ability: 每局游戏限一次，在夜晚时*，你可以选择一名玩家：如果当晚他被恶魔杀死，改为一名邪恶玩家代替他死亡，然后你重获能力。

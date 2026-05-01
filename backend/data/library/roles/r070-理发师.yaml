@@ -6,11 +6,11 @@ keywords: 死亡 交换 角色
 englishName: barber
 ability: 如果你死亡，在当晚恶魔可以选择两名玩家（不能选择其他恶魔）交换角色。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/barber.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/barber.png
 flavor: ''
 setup: false
 reminders:
   - 今晚理发
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 如果理发师死于白天，唤醒恶魔让他决定是否使用理发师的能力。如果理发师死于夜晚，（如果让除攻击理发师以外的恶魔进行选择则需要等当前恶魔入睡后）让一名恶魔决定是否使用理发师的能力。
+otherNightReminder: 如果理发师今天死亡了，唤醒恶魔并展示“该角色的效果对你生效”信息标记和理发师角色标记。如果恶魔选择了两名玩家，将这两名玩家分别独自唤醒。对他们展示“你是”信息标记和他们的新角色标记。

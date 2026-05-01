@@ -1,0 +1,16 @@
+id: r209
+englishName: 4-emoxueyuan
+name: 知府
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202404/c_2565080943171_2bd68241.jpg
+flavor: ''
+setup: false
+reminders:
+  - 死于今日
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果在白天以及夜晚，只有镇民或旅行者玩家死亡，对知府摇头表示“否”，否则点头表示“是”。
+summary: 每个夜晚*，你会得知今天是否有非镇民且非旅行者玩家死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 每个夜晚*，你会得知今天是否有非镇民且非旅行者玩家死亡。

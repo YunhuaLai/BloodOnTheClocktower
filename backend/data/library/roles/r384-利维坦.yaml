@@ -1,0 +1,21 @@
+id: r384
+englishName: shenhaijuyao111
+name: 利维坦
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/leviathan.png
+flavor: ''
+setup: false
+reminders:
+  - 第一天
+  - 第二天
+  - 第三天
+  - 第四天
+  - 第五天
+  - 善良被处决
+remindersGlobal: []
+firstNightReminder: 如果利维坦在场，告知所有人利维坦在场，现在是第一个白天。
+otherNightReminder: 如果利维坦在场，告知所有人利维坦在场，现在是第几个白天。（如果玩家一致同意，则无需在已经知晓利维坦在场的前提下在其他夜晚执行此项操作。）
+summary: 如果多于一名善良玩家被处决，邪恶阵营获胜。所有玩家都知道利维坦在场。在第五个白天结束时，邪恶阵营获胜。
+keywords: demon 首夜 夜晚
+ability: 如果多于一名善良玩家被处决，邪恶阵营获胜。所有玩家都知道利维坦在场。在第五个白天结束时，邪恶阵营获胜。

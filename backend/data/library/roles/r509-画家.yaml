@@ -1,0 +1,17 @@
+id: r509
+englishName: huajia111
+name: 画家
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bounty_hunter.png
+flavor: ''
+setup: true
+reminders:
+  - 得知
+  - 猜测正确
+remindersGlobal: []
+firstNightReminder: （在进入首个夜晚时立即通知赏金猎人转变的那个镇民他的阵营发生了变化）唤醒赏金猎人，对他指向一名邪恶玩家。
+otherNightReminder: 如果赏金猎人之前得知的玩家死亡，唤醒赏金猎人，对他指向一名新的邪恶玩家。
+summary: 在你的首个夜晚，你会得知一个在场角色。每个白天你可以进行一次猜测，每当你猜对谁是你最近得知的角色，当晚你会得知另一个在场角色。
+keywords: townsfolk 首夜 夜晚 设置
+ability: 在你的首个夜晚，你会得知一个在场角色。每个白天你可以进行一次猜测，每当你猜对谁是你最近得知的角色，当晚你会得知另一个在场角色。

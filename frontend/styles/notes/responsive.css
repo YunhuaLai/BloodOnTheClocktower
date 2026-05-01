@@ -66,6 +66,16 @@
     align-items: start;
   }
 
+  .story-grimoire-header {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: start;
+  }
+
+  .story-grimoire-meta {
+    grid-template-columns: minmax(0, 1fr) minmax(320px, 0.9fr);
+    align-items: center;
+  }
+
   .story-bluffs-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -76,6 +86,10 @@
 
   .story-public-board {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .story-inspector-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(120px, 0.65fr);
   }
 
   .notes-roleinfo-fields--3 {
@@ -103,13 +117,76 @@
 
 @media (min-width: 1081px) {
   .notes-shell {
-    max-width: 1120px;
+    max-width: 1280px;
     margin: 0 auto;
   }
 
   .notes-home,
   .notes-setup-panel {
     max-width: 860px;
+  }
+
+  .story-grimoire-layout {
+    grid-template-columns: minmax(660px, 1fr) minmax(320px, 0.42fr);
+    align-items: start;
+  }
+
+  .story-grimoire-board {
+    --seat-radius: 285px;
+
+    place-self: center;
+    width: min(100%, 720px);
+    aspect-ratio: 1;
+    min-height: 680px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at center, rgba(255, 255, 255, 0.96) 0 22%, transparent 22.5%),
+      radial-gradient(circle at center, rgba(31, 34, 39, 0.05) 0 58%, transparent 58.5%),
+      #f7f8f4;
+  }
+
+  .story-grimoire-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    gap: 4px;
+    justify-items: center;
+    width: 180px;
+    min-height: 132px;
+    padding: 22px 18px;
+    transform: translate(-50%, -50%);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    text-align: center;
+  }
+
+  .story-grimoire-center span,
+  .story-grimoire-center small {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .story-grimoire-center strong {
+    font-size: 28px;
+    line-height: 1;
+  }
+
+  .story-grimoire-seat {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 126px;
+    min-height: 104px;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--seat-angle))
+      translateY(calc(var(--seat-radius) * -1))
+      rotate(calc(var(--seat-angle) * -1));
   }
 }
 

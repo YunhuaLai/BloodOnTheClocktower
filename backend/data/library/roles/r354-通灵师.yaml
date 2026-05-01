@@ -1,0 +1,16 @@
+id: r354
+englishName: 9-recovery
+name: 通灵师
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/meiosis/clockparadox/5_clockparadox.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒通灵师，让他选择三名存活玩家。
+summary: 每个白天，你可以私下拜访说书人并给出一个关键词。你会得知一条与之相关的信息。如果与你邻近的存活玩家中有邪恶的，你会获得错误的信息。
+keywords: townsfolk
+ability: 每个夜晚*，你要选择三名存活玩家，如果他们的角色类型都不相同，他们中一名玩家死亡。

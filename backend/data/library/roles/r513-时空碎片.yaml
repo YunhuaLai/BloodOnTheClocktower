@@ -1,0 +1,16 @@
+id: r513
+englishName: shikongsuipian111
+name: 时空碎片
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/fool.png
+flavor: ''
+setup: false
+reminders:
+  - ？
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 你的能力由所有死亡玩家的部分能力组成，在最后一个白天或你死亡后，你可以拜访说书人以得知你的能力是什么。
+keywords: townsfolk 死亡
+ability: 你的能力由所有死亡玩家的部分能力组成，在最后一个白天或你死亡后，你可以拜访说书人以得知你的能力是什么。

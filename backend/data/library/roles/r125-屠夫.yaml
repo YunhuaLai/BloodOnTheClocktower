@@ -3,11 +3,12 @@ englishName: butcherbutton
 name: 屠夫
 type: traveller
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/butcher.png
+image: https://i.postimg.cc/hGvbndjX/Butcher.png
 flavor: ''
 setup: false
 reminders: []
-remindersGlobal: []
+remindersGlobal:
+  - 屠夫的钝刀
 firstNightReminder: ''
 otherNightReminder: ''
 summary: 每个白天，首次处决后，你可以再次发起提名。

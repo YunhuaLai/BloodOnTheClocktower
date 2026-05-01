@@ -6,7 +6,7 @@ keywords: 击杀 一次性 爪牙
 englishName: assassin
 ability: 每局游戏限一次，在夜晚时*，你可以选择一名玩家：他死亡，即使因为任何原因让他不会死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/assassin.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/assassin.png
 flavor: ''
 setup: false
 reminders:
@@ -14,4 +14,4 @@ reminders:
   - 失去能力
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 如果刺客未曾使用能力，唤醒刺客，他可以摇头不使用能力，或选择攻击一名玩家。
+otherNightReminder: 刺客可以选择一名玩家。如果他这么做了，标记那名玩家死亡，且刺客失去能力，之后的夜晚无需再唤醒刺客。

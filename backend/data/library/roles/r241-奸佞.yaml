@@ -1,0 +1,17 @@
+id: r241
+englishName: jianiningasihdohwqr9-1q23rhnfipo1q23
+name: 奸佞
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/jianning.png
+flavor: ''
+setup: true
+reminders:
+  - 死亡
+  - 行动
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒奸佞，让他攻击一名玩家。如果有爪牙死亡，当晚之后唤醒那名爪牙，让他攻击一名玩家。
+summary: 每个夜晚*，你要选择一名玩家：他死亡。如果爪牙死亡，其要在当晚选择一名玩家：他死亡。[-1外来者]
+keywords: demon 夜晚 设置 死亡
+ability: 每个夜晚*，你要选择一名玩家：他死亡。如果爪牙死亡，其要在当晚选择一名玩家：他死亡。[-1外来者]

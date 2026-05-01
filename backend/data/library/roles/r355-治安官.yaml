@@ -1,0 +1,18 @@
+id: r355
+englishName: 11-recovery
+name: 治安官
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/usersave/static_h/sta/7_sta.png
+flavor: ''
+setup: false
+reminders:
+  - 选择
+  - 选择
+  - 选择
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 在你的首个夜晚，你会得知一名外来者或爪牙玩家。如果你在夜晚死亡，你会得知一名外来者或爪牙玩家（角色类型与上次不同）。[+1外来者]
+keywords: townsfolk 首夜 设置 死亡
+ability: 每局游戏限一次，在夜晚时*，你可以选择三名存活玩家，他们之外的玩家在下个白天与夜晚不会受到恶魔能力的影响。恶魔得知你选择了哪些玩家。

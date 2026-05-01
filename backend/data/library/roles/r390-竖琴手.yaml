@@ -1,0 +1,16 @@
+id: r390
+englishName: 1-goldapple
+name: 竖琴手
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/Goldapple/1_goldapple.png
+flavor: ''
+setup: false
+reminders:
+  - 口令
+remindersGlobal: []
+firstNightReminder: 分别唤醒有“口令”标记的玩家，告知他们本局的口令
+otherNightReminder: ''
+summary: 在你的首个夜晚，你要写一条口令，一名善良玩家和一名邪恶玩家得知该口令。如果存活玩家不多于三名，善良阵营获胜。
+keywords: townsfolk 首夜
+ability: 在你的首个夜晚，你要写一条口令，一名善良玩家和一名邪恶玩家得知该口令。如果存活玩家不多于三名，善良阵营获胜。

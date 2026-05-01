@@ -1,0 +1,88 @@
+id: s061
+englishName: item
+name: 含光承影
+en: 含光承影
+author: ''
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r003
+  - r058
+  - r680
+  - r681
+  - r054
+  - r607
+  - r057
+  - r597
+  - r091
+  - r059
+  - r229
+  - r016
+  - r068
+  - r069
+  - r308
+  - r018
+  - r302
+  - r611
+  - r682
+  - r045
+  - r683
+  - r080
+  - r082
+travellerIds: []
+fabledIds:
+  - r684
+  - r684
+  - r684
+  - r684
+  - r684
+nightOrder:
+  first:
+    - r683
+    - r059
+    - r302
+    - r611
+    - r045
+    - r001
+    - r002
+    - r003
+    - r681
+    - r308
+    - r058
+    - r597
+    - r018
+  other:
+    - r059
+    - r302
+    - r611
+    - r229
+    - r607
+    - r045
+    - r082
+    - r080
+    - r683
+    - r308
+    - r068
+    - r681
+    - r054
+    - r680
+    - r058
+    - r597
+    - r018

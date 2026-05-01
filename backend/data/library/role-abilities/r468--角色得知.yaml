@@ -1,0 +1,35 @@
+id: r468
+englishName: 44-inthegr-58
+name: '*角色得知'
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: role
+        type: role
+        label: 身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null

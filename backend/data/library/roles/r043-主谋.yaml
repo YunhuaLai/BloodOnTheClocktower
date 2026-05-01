@@ -4,4 +4,12 @@ type: minion
 summary: 恶魔被处决后可能延长游戏一天，让邪恶方获得最后反打。
 keywords: 续局 恶魔 处决
 englishName: mastermind
-ability: 如果恶魔死于处决且游戏本应结束，游戏继续一天。若次日有玩家被处决，其阵营失败。
+ability: 如果恶魔因为死于处决而因此导致游戏结束时，再额外进行一个夜晚和一个白天。在那个白天如果有玩家被处决，他的阵营落败。
+edition: custom
+image: https://www.bloodstar.xyz/p/spdm/SpaceBound/20_spacebound.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

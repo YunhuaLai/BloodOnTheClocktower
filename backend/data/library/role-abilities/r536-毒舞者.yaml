@@ -1,0 +1,36 @@
+id: r536
+englishName: 21-jtxx
+name: 毒舞者
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: role
+        type: role
+        label: 身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null

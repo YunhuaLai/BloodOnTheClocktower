@@ -1,0 +1,16 @@
+id: r567
+englishName: lls
+name: 命运终点站
+type: demon
+edition: custom
+image: https://img.picui.cn/free/2025/06/17/6851434664d5c.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒莉莉丝，让他攻击一名玩家。如果他杀死了一名与其特征不同的玩家，通知那名玩家加入邪恶阵营。
+summary: 每个夜晚*，你要选择一名玩家，他死亡。最后一个白天，改为得票最少的被提名玩家被处决。
+keywords: demon 夜晚 死亡
+ability: 每个夜晚*，你要选择一名玩家，他死亡。最后一个白天，改为得票最少的被提名玩家被处决。

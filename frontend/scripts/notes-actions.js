@@ -188,6 +188,12 @@ function handleNotesAction(button) {
     return;
   }
 
+  if (action === "select-story-player") {
+    notes.ui.selectedPlayerId = button.dataset.playerId || "";
+    renderNotesPage();
+    return;
+  }
+
   if (action === "open-player" || action === "select-player") {
     notes.ui.selectedPlayerId = button.dataset.playerId || "";
     notes.ui.activeTab = "players";

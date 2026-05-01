@@ -1,0 +1,16 @@
+id: r611
+englishName: niangjiushi-button
+name: 酿酒师
+type: minion
+edition: custom
+image: https://clocktower-wiki.gstonegames.com/images/thumb/e/ea/Niangjiushi.png/120px-Niangjiushi.png
+flavor: ''
+setup: false
+reminders:
+  - 微醺
+remindersGlobal: []
+firstNightReminder: 唤醒酿酒师，让其选择一个角色并给出该角色对应的信息形式。如果该角色在场，在对应的角色标记旁放置“微醺”提示标记。如有必要，记录下该信息形式作为备忘，但不要将这一信息展示给任何能查看魔典的玩家。
+otherNightReminder: 唤醒酿酒师，让其选择一个角色并给出该角色对应的信息形式。如果该角色在场，在对应的角色标记旁放置“微醺”提示标记。如有必要，记录下该信息形式作为备忘，但不要将这一信息展示给任何能查看魔典的玩家。
+summary: 每个夜晚，你要选择一个镇民角色：当他下一次通过自身能力获取信息时，改为得知你给出的信息。
+keywords: minion 首夜 夜晚 设置
+ability: 每个夜晚，你要选择一个镇民角色：当他下一次通过自身能力获取信息时，改为得知你给出的信息。

@@ -4,4 +4,14 @@ type: townsfolk
 summary: 首夜得到两个善良角色和两个邪恶角色，其中恰好两个在场，是强力的配置拼图角色。
 keywords: 首夜 角色 信息 在场
 englishName: yin-yang-master
-ability: 首夜，你会得知两个善良角色和两个邪恶角色，其中有且只有两个角色在场。
+ability: 在你的首个夜晚，你会得知两个善良角色和两个邪恶角色。其中有且只有两个角色在场。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_4630967694761_bd56d041.jpg
+flavor: ''
+setup: false
+reminders:
+  - 在场
+  - 不在场
+remindersGlobal: []
+firstNightReminder: 唤醒阴阳师，并对其展示两个善良角色，两个邪恶角色，共四个角色标记。其中正好只有两个角色在场。
+otherNightReminder: ''

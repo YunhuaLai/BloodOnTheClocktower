@@ -1,0 +1,90 @@
+id: s032
+englishName: item
+name: 一杯苦酒：禁酒令
+en: 一杯苦酒：禁酒令
+author: 提线政客
+logo: https://free.picui.cn/free/2025/09/23/68d2158abe8a0.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/09/23/68d2158abe8a0.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r227
+  - r028
+  - r246
+  - r026
+  - r247
+  - r248
+  - r249
+  - r250
+  - r251
+  - r030
+  - r033
+  - r252
+  - r032
+  - r253
+  - r254
+  - r255
+  - r214
+  - r256
+  - r041
+  - r042
+  - r257
+  - r258
+  - r044
+  - r259
+  - r047
+  - r266
+travellerIds:
+  - r267
+  - r268
+  - r269
+  - r125
+fabledIds:
+  - r260
+  - r261
+  - r262
+  - r263
+  - r264
+  - r265
+nightOrder:
+  first:
+    - r030
+    - r041
+    - r227
+  other:
+    - r268
+    - r030
+    - r028
+    - r246
+    - r041
+    - r026
+    - r258
+    - r254
+    - r044
+    - r259
+    - r047
+    - r266
+    - r042
+    - r214
+    - r264
+    - r262
+    - r265
+    - r253
+    - r249
+    - r247
+    - r250
+    - r248
+    - r251

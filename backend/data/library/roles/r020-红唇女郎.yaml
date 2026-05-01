@@ -26,11 +26,11 @@ detail:
 englishName: scarlet-woman
 ability: 如果大于等于五名玩家存活时（旅行者不计算在内）恶魔死亡，你变成那个恶魔。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/scarlet_woman.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/scarlet_woman.png
 flavor: ''
 setup: false
-reminders:
+reminders: []
+remindersGlobal:
   - 是恶魔
-remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 如果红唇女郎的能力曾被触发，唤醒她并告知她变成了哪个恶魔角色。
+otherNightReminder: 如果红唇女郎今天变成了小恶魔，对她展示“你是”信息标记，和小恶魔角色标记。

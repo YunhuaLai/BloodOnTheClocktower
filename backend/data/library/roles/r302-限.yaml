@@ -1,0 +1,19 @@
+id: r302
+englishName: 26-zhiminghuaerzi
+name: 限
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Tiger/Future-King/17_futureking.png
+flavor: ''
+setup: false
+reminders:
+  - 第一晚
+  - 第二晚
+  - 第三晚
+  - 大限将至
+remindersGlobal: []
+firstNightReminder: '3'
+otherNightReminder: '4'
+summary: 在等同于初始外来者数量的夜晚，所有镇民玩家中毒直到下个黄昏。[外来者数量任意]
+keywords: minion 首夜 夜晚 设置 中毒
+ability: 在等同于初始外来者数量的夜晚，所有镇民玩家中毒直到下个黄昏。[外来者数量任意]

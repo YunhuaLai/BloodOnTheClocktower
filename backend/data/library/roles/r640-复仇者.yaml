@@ -1,0 +1,16 @@
+id: r640
+englishName: yylm
+name: 复仇者
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/BeiFeng/YYLM/_yylm.png
+flavor: ''
+setup: false
+reminders:
+  - 不会死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 如果与你邻近的两名邪恶玩家均存活，你不会死亡。（运作：这个邻近持续检测左右两边最近的邪恶玩家是否存活）
+keywords: townsfolk 死亡
+ability: 如果与你邻近的两名邪恶玩家均存活，你不会死亡。（运作：这个邻近持续检测左右两边最近的邪恶玩家是否存活）

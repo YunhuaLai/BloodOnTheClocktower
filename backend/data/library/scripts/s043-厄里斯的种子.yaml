@@ -1,0 +1,82 @@
+id: s043
+englishName: item
+name: 厄里斯的种子
+en: 厄里斯的种子
+author: 泽度哥
+logo: https://www.bloodstar.xyz/p/westwind/Goldapple/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/westwind/Goldapple/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r389
+  - r390
+  - r391
+  - r059
+  - r031
+  - r392
+  - r393
+  - r058
+  - r394
+  - r395
+  - r183
+  - r396
+  - r397
+  - r398
+  - r135
+  - r015
+  - r036
+  - r399
+  - r400
+  - r401
+  - r017
+  - r040
+  - r402
+  - r081
+  - r082
+  - r403
+travellerIds: []
+fabledIds:
+  - r404
+  - r405
+  - r406
+  - r407
+nightOrder:
+  first:
+    - r400
+    - r059
+    - r017
+    - r040
+    - r401
+    - r392
+    - r391
+    - r389
+    - r390
+    - r058
+    - r396
+  other:
+    - r400
+    - r059
+    - r017
+    - r402
+    - r040
+    - r401
+    - r399
+    - r031
+    - r392
+    - r058
+    - r394
+    - r396
+    - r036

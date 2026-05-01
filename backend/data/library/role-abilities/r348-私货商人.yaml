@@ -1,0 +1,26 @@
+id: r348
+englishName: ef42503a-d4aa-46cd-9c61-6ce8e42450r
+name: 私货商人
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 被动
+abilityMeta:
+  pageType: no_input
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

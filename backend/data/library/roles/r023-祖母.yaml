@@ -6,12 +6,12 @@ keywords: 开局 信息 连死 恶魔
 englishName: grandmother
 ability: 在你的首个夜晚，你会得知一名善良玩家和他的角色。如果恶魔杀死了他，你也会死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/grandmother.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/grandmother.png
 flavor: ''
 setup: false
 reminders:
   - 孙子
   - 死亡
 remindersGlobal: []
-firstNightReminder: 唤醒祖母，对她指向一名善良玩家，并展示该玩家的角色标记。
-otherNightReminder: 如果恶魔杀死了孙子，祖母死亡。
+firstNightReminder: 指向她的孙子玩家，并展示该玩家的角色标记。
+otherNightReminder: 如果孙子被恶魔杀死，祖母也会一同死亡。标记祖母死亡。

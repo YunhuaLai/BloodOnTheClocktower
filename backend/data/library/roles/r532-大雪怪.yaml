@@ -1,0 +1,17 @@
+id: r532
+englishName: 13-jtxx
+name: 大雪怪
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/bluebell/jtxx/13_jtxx.png
+flavor: ''
+setup: false
+reminders:
+  - 雪花
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: '1'
+otherNightReminder: '1'
+summary: 每个夜晚，你可以选择一名玩家：他可能会醉酒直到下个黄昏，你会得知你选中过的玩家中镇民的数量是否大于非镇民的数量。
+keywords: townsfolk 首夜 夜晚 醉酒
+ability: 每个夜晚，你可以选择一名玩家：他可能会醉酒直到下个黄昏，你会得知你选中过的玩家中镇民的数量是否大于非镇民的数量。

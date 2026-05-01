@@ -1,0 +1,16 @@
+id: r760
+englishName: hangman
+name: 绞刑吏
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/usersave/static_h/1217/15_1217.png
+flavor: ''
+setup: false
+reminders:
+  - 绞刑
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 在你的首个白天，你可以选择一名玩家：如果他是善良的且没有立刻公开声明自己的角色，他死亡。
+keywords: townsfolk 死亡
+ability: 在你的首个白天，你可以选择一名玩家：如果他是善良的且没有立刻公开声明自己的角色，他死亡。

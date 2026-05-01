@@ -1,0 +1,18 @@
+id: r377
+englishName: zhanghua
+name: 弼昏剑圣
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/sodbs/bu/zhanghua_bu.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 失去1
+  - 失去2
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 每个夜晚*（每有一名死亡邪恶玩家你依次失去一项能力），①你可以选择一名玩家，如果你和他最近距离间存活玩家的角色类型数为二，他死亡；②你不会死于善良玩家的能力；③你死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 每个夜晚*（每有一名死亡邪恶玩家你依次失去一项能力），①你可以选择一名玩家，如果你和他最近距离间存活玩家的角色类型数为二，他死亡；②你不会死于善良玩家的能力；③你死亡。

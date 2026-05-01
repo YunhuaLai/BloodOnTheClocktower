@@ -11,7 +11,8 @@ flavor: ''
 setup: false
 reminders:
   - 中毒
-remindersGlobal: []
+remindersGlobal:
+  - 舞蛇人
 firstNightReminder: >-
   让舞蛇人选择一名玩家。如果舞蛇人选中了恶魔：展示“你是”信息标记和恶魔角色标记。用拇指向下代表他阵营变为邪恶。在魔典中交换舞蛇人和恶魔的角色标记。让原来的舞蛇人重新入睡。唤醒原来的恶魔。对老恶魔展示“你是”信息标记和舞蛇人角色标记，并用拇指向上代表他阵营变为善良。
 otherNightReminder: >-

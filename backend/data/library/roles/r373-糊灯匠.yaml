@@ -1,0 +1,17 @@
+id: r373
+englishName: hudengjiang
+name: 糊灯匠
+type: townsfolk
+edition: custom
+image: https://s3.bmp.ovh/imgs/2023/09/29/6b616e5084135093.png
+flavor: ''
+setup: false
+reminders:
+  - 灯下黑
+  - 遥远溯光
+remindersGlobal: []
+firstNightReminder: 对他点头或摇头来示意与他最远的玩家是否是爪牙。
+otherNightReminder: 对他点头或摇头来示意与他最远的玩家是否是爪牙。
+summary: 每个夜晚，你会得知离你最远的存活玩家（或之一）是否有爪牙。如果与你邻近的存活玩家中有邪恶玩家，你会得知错误信息。
+keywords: townsfolk 首夜 夜晚
+ability: 每个夜晚，你会得知离你最远的存活玩家（或之一）是否有爪牙。如果与你邻近的存活玩家中有邪恶玩家，你会得知错误信息。

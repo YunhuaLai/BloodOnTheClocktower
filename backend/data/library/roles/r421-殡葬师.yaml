@@ -1,0 +1,18 @@
+id: r421
+englishName: binzangshi
+name: 殡葬师
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz//p//Deodar2//double//13_double.png
+flavor: ''
+setup: false
+reminders:
+  - 邻近有邪恶
+  - 邻近无邪恶
+remindersGlobal:
+  - 殡葬师
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 每个夜晚*，如果今天白天有玩家死于处决，你会得知与他邻近的存活玩家中是否有邪恶玩家。
+keywords: townsfolk 夜晚
+ability: 每个夜晚*，如果今天白天有玩家死于处决，你会得知与他邻近的存活玩家中是否有邪恶玩家。

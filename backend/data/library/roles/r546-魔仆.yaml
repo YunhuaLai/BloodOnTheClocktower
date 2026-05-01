@@ -1,0 +1,17 @@
+id: r546
+englishName: familiar
+name: 魔仆
+type: minion
+edition: custom
+image: https://i.postimg.cc/1tCW7SP9/image.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 在夜晚时，同时唤醒恶魔和魔仆，让他们共同指向一名玩家，在该玩家的角色标记旁放置“死亡”提示标记。随后让魔仆和恶魔共同闭眼。
+summary: 每个夜晚*，你和恶魔一起被唤醒并选择一名玩家：他死亡。如果你死亡，恶魔会失去能力。
+keywords: minion 夜晚 死亡
+ability: 每个夜晚*，你和恶魔一起被唤醒并选择一名玩家：他死亡。如果你死亡，恶魔会失去能力。

@@ -1,0 +1,26 @@
+id: r439
+englishName: ef42503a-d4aa-46cd-9c61-6ce8e42450
+name: 明修栈道
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 事件触发
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: null
+  eventTiming: null
+  usagePattern: passive
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

@@ -1,0 +1,16 @@
+id: r280
+englishName: 21-sanshenmiti
+name: 战车
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/C2H43g/Locked-Space/30_lockedspace.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 毒
+otherNightReminder: 毒
+summary: 与你顺时针距离为1的玩家中毒。如果是邪恶的非旅行者玩家，改为和他交换角色。每个夜晚*，或该玩家死亡时，该距离+1。
+keywords: minion 首夜 夜晚 死亡 中毒
+ability: 与你顺时针距离为1的玩家中毒。如果是邪恶的非旅行者玩家，改为和他交换角色。每个夜晚*，或该玩家死亡时，该距离+1。

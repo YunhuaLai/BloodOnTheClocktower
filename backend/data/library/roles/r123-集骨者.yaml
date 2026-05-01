@@ -3,7 +3,7 @@ englishName: bone-collectorbutton
 name: 集骨者
 type: traveller
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/bone_collector.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bone_collector.png
 flavor: ''
 setup: false
 reminders:
@@ -11,7 +11,7 @@ reminders:
   - 失去能力
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 集骨者选择不使用能力，或指向一名死亡玩家。放置恢复能力标记提示，并且该玩家当晚可能会因此醒来并使用能力。
+otherNightReminder: 每个夜晚，唤醒集骨者。集骨者要么摇头表示不使用能力，或者是指向任何一名已死亡的玩家。让集骨者重新入睡。
 summary: 每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：他重新获得能力直到下个黄昏。
 keywords: traveller 夜晚 死亡
 ability: 每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：他重新获得能力直到下个黄昏。

@@ -1,0 +1,16 @@
+id: r718
+englishName: ajsjyd
+name: 影子侍从
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/meiosis/clockparadox/19_clockparadox.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 唤醒影子侍从，让他选择一名玩家，告知他获得了哪个角色的能力。随后让影子侍从按那个角色的方式行动。
+otherNightReminder: 如果影子侍从首夜选择的玩家死于处决，唤醒他并让他选择一名玩家。
+summary: 在你的首个夜晚，你要选择一名玩家，你获得他的能力且他中毒，如果他死于处决，当晚你要选择一名玩家，他中毒。
+keywords: minion 首夜 夜晚 中毒
+ability: 在你的首个夜晚，你要选择一名玩家，你获得他的能力且他中毒，如果他死于处决，当晚你要选择一名玩家，他中毒。

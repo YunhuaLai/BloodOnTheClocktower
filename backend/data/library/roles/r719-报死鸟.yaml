@@ -1,0 +1,17 @@
+id: r719
+englishName: savvgis
+name: 报死鸟
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/meiosis/clockparadox/12_clockparadox.png
+flavor: ''
+setup: false
+reminders:
+  - 选择
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒报死鸟，让他选择一名玩家。
+summary: 每个夜晚*，你要选择一名玩家，如果当夜有善良玩家选中了他，他死亡。
+keywords: minion 夜晚 死亡
+ability: 每个夜晚*，你要选择一名玩家，如果当夜有善良玩家选中了他，他死亡。

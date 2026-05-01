@@ -4,14 +4,14 @@ type: demon
 summary: 通过中毒和延迟死亡制造节奏差，让死亡结果更难判断。
 keywords: 中毒 延迟死亡 恶魔
 englishName: pukka
-ability: 每个夜晚，你要选择一名玩家：他中毒。上个因你的能力中毒的玩家会死亡并恢复健康。
+ability: 每个夜晚，你要选择一名玩家：他中毒。  上个因你的能力中毒的玩家会死亡并恢复健康。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/pukka.png
+image: https://www.bloodstar.xyz/p/Tiger/Future-King/24_futureking.png
 flavor: ''
 setup: false
 reminders:
-  - 死亡
   - 中毒
+  - 死亡
 remindersGlobal: []
-firstNightReminder: 让普卡选择一名玩家。标记那名玩家中毒。
-otherNightReminder: 让普卡选择一名玩家。标记那名玩家中毒。上一个因普卡中毒的玩家死亡，随后恢复健康。
+firstNightReminder: '4'
+otherNightReminder: '6'

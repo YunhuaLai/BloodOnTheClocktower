@@ -1,0 +1,17 @@
+id: r633
+englishName: huoshiduizuo111
+name: 赶尸人
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/ganshiren.png
+flavor: ''
+setup: true
+reminders:
+  - 活尸
+  - 活尸
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 与你邻近的两名镇民玩家会在其首次死亡时被当作仍然存活。[-1外来者]
+keywords: minion 设置 死亡
+ability: 与你邻近的两名镇民玩家会在其首次死亡时被当作仍然存活。[-1外来者]

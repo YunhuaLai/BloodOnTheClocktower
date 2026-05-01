@@ -1,0 +1,85 @@
+id: s059
+englishName: item
+name: 鱼跃龙门
+en: 鱼跃龙门
+author: 北风
+logo: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r639
+  - r442
+  - r024
+  - r051
+  - r140
+  - r028
+  - r027
+  - r026
+  - r055
+  - r059
+  - r029
+  - r640
+  - r015
+  - r016
+  - r069
+  - r098
+  - r042
+  - r107
+  - r641
+  - r121
+  - r642
+  - r047
+  - r114
+  - r141
+  - r103
+travellerIds: []
+fabledIds:
+  - r643
+nightOrder:
+  first:
+    - r059
+    - r098
+    - r121
+    - r024
+    - r103
+    - r141
+    - r107
+    - r023
+    - r051
+    - r442
+    - r642
+    - r140
+    - r639
+  other:
+    - r059
+    - r024
+    - r027
+    - r028
+    - r107
+    - r026
+    - r047
+    - r141
+    - r103
+    - r114
+    - r642
+    - r042
+    - r029
+    - r140
+    - r023
+    - r051
+    - r055

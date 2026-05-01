@@ -1,0 +1,90 @@
+id: s058
+englishName: v2
+name: 阴尸镇V2
+en: 阴尸镇V2
+author: 弹簧
+logo: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r594
+  - r442
+  - r230
+  - r530
+  - r597
+  - r361
+  - r631
+  - r055
+  - r025
+  - r632
+  - r484
+  - r278
+  - r119
+  - r363
+  - r015
+  - r111
+  - r633
+  - r610
+  - r634
+  - r041
+  - r239
+  - r568
+  - r047
+  - r635
+travellerIds:
+  - r583
+  - r636
+fabledIds:
+  - r118
+  - r638
+  - r636
+nightOrder:
+  first:
+    - r631
+    - r041
+    - r610
+    - r239
+    - r111
+    - r084
+    - r597
+    - r442
+    - r594
+    - r530
+    - r025
+    - r634
+  other:
+    - r583
+    - r631
+    - r484
+    - r634
+    - r041
+    - r111
+    - r047
+    - r568
+    - r239
+    - r635
+    - r610
+    - r363
+    - r278
+    - r055
+    - r597
+    - r361
+    - r230
+    - r594
+    - r530
+    - r025

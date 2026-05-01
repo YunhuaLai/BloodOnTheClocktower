@@ -1,0 +1,92 @@
+id: s036
+englishName: item
+name: 双生幻影
+en: 双生幻影
+author: Kevin
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r087
+  - r051
+  - r140
+  - r007
+  - r057
+  - r058
+  - r009
+  - r134
+  - r150
+  - r029
+  - r214
+  - r233
+  - r323
+  - r091
+  - r027
+  - r068
+  - r037
+  - r016
+  - r070
+  - r036
+  - r324
+  - r093
+  - r325
+  - r074
+  - r040
+  - r047
+  - r082
+travellerIds: []
+fabledIds:
+  - r326
+nightOrder:
+  first:
+    - r040
+    - r074
+    - r093
+    - r023
+    - r051
+    - r058
+    - r140
+    - r087
+    - r134
+    - r323
+    - r325
+  other:
+    - r324
+    - r027
+    - r074
+    - r093
+    - r150
+    - r047
+    - r082
+    - r040
+    - r029
+    - r036
+    - r037
+    - r023
+    - r070
+    - r068
+    - r009
+    - r233
+    - r007
+    - r051
+    - r058
+    - r140
+    - r087
+    - r134
+    - r323
+    - r325

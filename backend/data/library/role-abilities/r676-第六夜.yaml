@@ -1,0 +1,26 @@
+id: r676
+englishName: 33-guiyihuayuan
+name: 第六夜
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 被动
+abilityMeta:
+  pageType: no_input
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

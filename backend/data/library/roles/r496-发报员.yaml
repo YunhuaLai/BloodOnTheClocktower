@@ -1,0 +1,16 @@
+id: r496
+englishName: dfdsf
+name: 发报员
+type: townsfolk
+edition: custom
+image: ''
+flavor: ''
+setup: false
+reminders:
+  - 电报
+remindersGlobal: []
+firstNightReminder: 唤醒发报员，令其选择两名其他玩家。
+otherNightReminder: 唤醒发报员，令其选择和上一晚均不同的两名其他玩家。用点头或摇头来表示他当晚选择的玩家的角色名称字数之和是否和昨晚选择的相等。
+summary: 每个夜晚，你要选择两名其他玩家（和上一晚均不同），每个夜晚*，你会得知你当晚选择的玩家的角色名称字数之和是否和昨晚选择的相等。
+keywords: townsfolk 首夜 夜晚
+ability: 每个夜晚，你要选择两名其他玩家（和上一晚均不同），每个夜晚*，你会得知你当晚选择的玩家的角色名称字数之和是否和昨晚选择的相等。

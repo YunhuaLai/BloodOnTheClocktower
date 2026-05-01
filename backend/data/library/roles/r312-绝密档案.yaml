@@ -1,0 +1,16 @@
+id: r312
+englishName: confidential
+name: 绝密档案
+type: outsider
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1722264633_197011_5916.png
+flavor: “张三李四邀请五大掌门于六日后前去七里神秘请柬同赏腊八粥”
+setup: false
+reminders:
+  - 机密
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 当你死于处决时，与你邻近的存活玩家不计入邪恶阵营获胜条件。
+keywords: outsider
+ability: 当你死于处决时，与你邻近的存活玩家不计入邪恶阵营获胜条件。

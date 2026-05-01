@@ -1,0 +1,81 @@
+id: s031
+englishName: item
+name: 呈堂证供
+en: 呈堂证供
+author: KNitrate
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/6/65/jof805zm4qml0so7sezo7t631l34hxq.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/6/65/jof805zm4qml0so7sezo7t631l34hxq.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r108
+  - r227
+  - r228
+  - r055
+  - r109
+  - r229
+  - r230
+  - r231
+  - r057
+  - r232
+  - r059
+  - r091
+  - r233
+  - r015
+  - r070
+  - r068
+  - r234
+  - r235
+  - r040
+  - r236
+  - r237
+  - r238
+  - r239
+  - r240
+  - r241
+travellerIds: []
+fabledIds:
+  - r242
+  - r243
+  - r244
+nightOrder:
+  first:
+    - r059
+    - r040
+    - r235
+    - r239
+    - r227
+    - r108
+    - r228
+  other:
+    - r059
+    - r229
+    - r236
+    - r235
+    - r109
+    - r239
+    - r241
+    - r240
+    - r040
+    - r237
+    - r070
+    - r068
+    - r233
+    - r230
+    - r231
+    - r228
+    - r232
+    - r055

@@ -1,0 +1,35 @@
+id: r405
+englishName: 26-goldapple
+name: 金苹果之战
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: count
+        type: number
+        label: 数量
+        required: true
+        optionsSource: null
+        options: null
+        min: 0
+        max: 15
+        placeholder: null

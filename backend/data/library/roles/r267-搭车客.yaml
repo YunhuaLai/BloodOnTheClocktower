@@ -1,0 +1,18 @@
+id: r267
+englishName: dacheke111
+name: 搭车客
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/qazwsxedc/aCup/32_acup.png
+flavor: ''
+setup: false
+reminders:
+  - 不会死亡
+  - 中毒
+  - 途经
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 每个白天，公开选择一个未选择过的位置落座。与你相邻的存活玩家如果阵营相同，则他们不会死亡；如果他们阵营不同，则他们中毒。
+keywords: traveller 死亡 中毒
+ability: 每个白天，公开选择一个未选择过的位置落座。与你相邻的存活玩家如果阵营相同，则他们不会死亡；如果他们阵营不同，则他们中毒。

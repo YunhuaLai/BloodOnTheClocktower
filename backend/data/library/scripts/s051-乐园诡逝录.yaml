@@ -1,0 +1,90 @@
+id: s051
+englishName: item
+name: 乐园诡逝录
+en: 乐园诡逝录
+author: Jamhot
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r003
+  - r023
+  - r101
+  - r006
+  - r027
+  - r059
+  - r057
+  - r029
+  - r543
+  - r155
+  - r066
+  - r090
+  - r544
+  - r015
+  - r039
+  - r135
+  - r159
+  - r545
+  - r073
+  - r017
+  - r041
+  - r076
+  - r546
+  - r044
+  - r079
+  - r080
+  - r547
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r066
+    - r039
+    - r544
+    - r101
+    - r017
+    - r041
+    - r073
+    - r006
+    - r023
+    - r139
+    - r545
+    - r547
+    - r003
+  other:
+    - r059
+    - r066
+    - r101
+    - r076
+    - r017
+    - r027
+    - r041
+    - r039
+    - r044
+    - r079
+    - r080
+    - r029
+    - r023
+    - r159
+    - r090
+    - r006
+    - r139
+    - r547
+    - r546

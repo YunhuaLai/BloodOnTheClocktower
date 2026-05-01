@@ -1,0 +1,17 @@
+id: r393
+englishName: 4-goldapple
+name: 商人
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Airell_clocktower/Assets_of_Lei_Gallery/newcharacter12_assets_of_lei_gallery.png
+flavor: ''
+setup: false
+reminders:
+  - 缔约
+  - 违约
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 你可以与任意一名其他玩家缔结约定。在新约定达成之前，如果有玩家违约，你和他之一会在当晚死亡。
+keywords: townsfolk 死亡
+ability: 你可以与任意一名其他玩家缔结约定。在新约定达成之前，如果有玩家违约，你和他之一会死亡。

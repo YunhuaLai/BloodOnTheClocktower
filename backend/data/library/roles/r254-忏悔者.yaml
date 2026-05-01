@@ -1,0 +1,18 @@
+id: r254
+englishName: fengdu-2
+name: 忏悔者
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/qazwsxedc/aCup/30_acup.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal:
+  - 能力改变
+  - 忏悔
+  - 死亡
+firstNightReminder: ''
+otherNightReminder: 如果忏悔者在今日死亡，唤醒恶魔询问是否更改自己的能力
+summary: 如果你死亡，当晚恶魔可以永久将能力变为：“每个夜晚*，你要选择两名玩家：他们死亡。”
+keywords: outsider 夜晚 死亡
+ability: 如果你死亡，当晚恶魔可以永久将能力变为：“每个夜晚*，你要选择两名玩家：他们死亡。”

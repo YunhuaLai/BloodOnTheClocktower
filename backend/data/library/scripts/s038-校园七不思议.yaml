@@ -1,0 +1,84 @@
+id: s038
+englishName: item
+name: 校园七不思议
+en: 校园七不思议
+author: 风厌
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r002
+  - r333
+  - r051
+  - r005
+  - r140
+  - r056
+  - r027
+  - r055
+  - r057
+  - r334
+  - r030
+  - r155
+  - r186
+  - r069
+  - r324
+  - r067
+  - r302
+  - r292
+  - r335
+  - r336
+  - r337
+  - r077
+  - r338
+  - r339
+travellerIds: []
+fabledIds:
+  - r343
+  - r344
+nightOrder:
+  first:
+    - r336
+    - r333
+    - r155
+    - r339
+    - r302
+    - r030
+    - r292
+    - r337
+    - r002
+    - r005
+    - r023
+    - r051
+    - r140
+  other:
+    - r333
+    - r339
+    - r324
+    - r302
+    - r335
+    - r027
+    - r030
+    - r292
+    - r337
+    - r338
+    - r023
+    - r005
+    - r051
+    - r055
+    - r056
+    - r140

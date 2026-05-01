@@ -1,0 +1,26 @@
+id: r742
+englishName: diaomindiaomindiaomin222
+name: 刁民
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 每晚
+abilityMeta:
+  pageType: no_input
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

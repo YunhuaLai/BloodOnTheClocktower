@@ -1,0 +1,17 @@
+id: r559
+englishName: 23-juedou
+name: 塞壬
+type: demon
+edition: custom
+image: ''
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 休止符
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒塞壬并让他选择一名玩家，为该玩家标记死亡，然后让塞壬选择是否失去下一条能力，如果他点头，为他放置“休止符”标记。
+summary: 每个夜晚*，你要选择一名玩家：他死亡，且你要选择是否永久失去你的下一条能力。镇民玩家的能力都会产生错误信息。
+keywords: demon 夜晚 死亡
+ability: 每个夜晚*，你要选择一名玩家：他死亡，且你要选择是否永久失去你的下一条能力。镇民玩家的能力都会产生错误信息。

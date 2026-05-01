@@ -1,0 +1,19 @@
+id: r378
+englishName: 20827-8701
+name: 潜伏者
+type: outsider
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1691596263_197011_9032.png
+flavor: ''
+setup: false
+reminders:
+  - 第一夜
+  - 第二夜
+  - 第三夜
+  - 加入邪恶
+remindersGlobal: []
+firstNightReminder: 在潜伏者旁边标记第一夜。
+otherNightReminder: 在潜伏者旁边标记第二夜，第三夜，如果是第四夜标记加入邪恶。
+summary: 你在你的第四个夜晚转变为邪恶阵营。
+keywords: outsider 首夜 夜晚
+ability: 你在你的第四个夜晚转变为邪恶阵营。

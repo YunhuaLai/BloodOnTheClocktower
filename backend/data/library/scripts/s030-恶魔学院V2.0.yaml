@@ -1,0 +1,77 @@
+id: s030
+englishName: v2-0
+name: 恶魔学院V2.0
+en: 恶魔学院V2.0
+author: 小熊
+logo: https://www.bloodstar.xyz/p/smallbear/jinhulun/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/17/6941aaf50a972.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r207
+  - r208
+  - r051
+  - r408
+  - r057
+  - r209
+  - r210
+  - r060
+  - r409
+  - r008
+  - r010
+  - r211
+  - r212
+  - r362
+  - r037
+  - r098
+  - r410
+  - r411
+  - r217
+  - r412
+  - r219
+  - r021
+  - r080
+travellerIds: []
+fabledIds:
+  - r220
+  - r221
+  - r222
+  - r223
+  - r224
+  - r225
+  - r226
+nightOrder:
+  first:
+    - r098
+    - r411
+    - r412
+    - r410
+    - r208
+    - r207
+    - r051
+    - r210
+  other:
+    - r008
+    - r412
+    - r080
+    - r021
+    - r219
+    - r037
+    - r208
+    - r212
+    - r051
+    - r209
+    - r210

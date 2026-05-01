@@ -1,0 +1,17 @@
+id: r301
+englishName: 25-zhiminghuaerzi
+name: 寡妇※
+type: minion
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/1/1c/9jir4i7ci8p8onrf70xvm49jx5t5l72.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+remindersGlobal:
+  - 得知
+firstNightReminder: 唤醒寡妇，让她查看魔典。在她查看完毕后让她选择一名玩家，那名玩家中毒。随后如果寡妇未醉酒中毒，唤醒一名善良玩家，对他展示寡妇角色标记。
+otherNightReminder: ''
+summary: 在你的首个夜晚，你能查看魔典并选择一名玩家：他中毒。随后，始终会有一名善良玩家知道寡妇在场。
+keywords: minion 首夜 中毒
+ability: 在你的首个夜晚，你能查看魔典并选择一名玩家：他中毒。随后，始终会有一名善良玩家知道寡妇在场。

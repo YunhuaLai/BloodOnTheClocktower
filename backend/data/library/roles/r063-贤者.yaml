@@ -4,4 +4,12 @@ type: townsfolk
 summary: 若被恶魔杀死，得知两名玩家中有一名是杀死自己的恶魔。
 keywords: 死亡 恶魔 二选一
 englishName: sage
-ability: 如果你被恶魔杀死，你会得知两名玩家；其中一名是杀死你的恶魔。
+ability: 如果恶魔杀死了你，在当晚你会被唤醒并得知两名玩家，其中一名是杀死你的那个恶魔。
+edition: custom
+image: https://www.bloodstar.xyz/p/spdm/SpaceBound/12_spacebound.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果恶魔杀死了贤者，唤醒贤者并指向两名玩家，其中一名玩家是杀死他的恶魔。

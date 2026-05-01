@@ -1,0 +1,17 @@
+id: r339
+englishName: 25-seve
+name: 议
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Guiltier/seve/25_seve.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 善良无效
+remindersGlobal: []
+firstNightReminder: 唤醒议，让他指向一名玩家。那名玩家转变为邪恶的爪牙。
+otherNightReminder: 唤醒议，让他指向一名玩家。那名玩家转变为邪恶的爪牙。当邪恶玩家数量比初始设置多一名时，此能力对善良玩家无效。随后，决定今晚谁会因为议能力死亡。
+summary: 每个夜晚，你要选择一名玩家，他会转变为邪恶的爪牙，当邪恶玩家数量比初始设置多一名时，此能力对善良玩家无效。每个夜晚*，可能会有一名玩家死亡。
+keywords: demon 首夜 夜晚 死亡
+ability: 每个夜晚，你要选择一名玩家，他会转变为邪恶的爪牙，当邪恶玩家数量比初始设置多一名时，此能力对善良玩家无效。每个夜晚*，可能会有一名玩家死亡。

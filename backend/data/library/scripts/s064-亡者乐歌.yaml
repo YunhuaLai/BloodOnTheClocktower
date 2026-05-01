@@ -1,0 +1,89 @@
+id: s064
+englishName: item
+name: 亡者乐歌
+en: 亡者乐歌
+author: 沐枫
+logo: ''
+description: 无
+townsfolkName: 村民
+additional: []
+level: 官方剧本
+mood: ''
+text: 无
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 无
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r702
+  - r725
+  - r726
+  - r055
+  - r054
+  - r057
+  - r231
+  - r275
+  - r029
+  - r375
+  - r418
+  - r008
+  - r727
+  - r728
+  - r729
+  - r730
+  - r731
+  - r037
+  - r732
+  - r566
+  - r733
+  - r734
+  - r040
+  - r735
+  - r736
+  - r045
+  - r080
+travellerIds: []
+fabledIds:
+  - r724
+nightOrder:
+  first:
+    - r728
+    - r040
+    - r736
+    - r045
+    - r727
+    - r049
+    - r702
+    - r725
+    - r729
+    - r418
+  other:
+    - r731
+    - r008
+    - r375
+    - r735
+    - r045
+    - r080
+    - r736
+    - r728
+    - r040
+    - r734
+    - r029
+    - r726
+    - r037
+    - r730
+    - r727
+    - r725
+    - r054
+    - r055
+    - r275
+    - r729
+    - r231
+    - r418

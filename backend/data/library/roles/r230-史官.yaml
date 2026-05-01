@@ -1,0 +1,16 @@
+id: r230
+englishName: shiguanuwhaouhsoifhais
+name: 史官
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/shiguan.png
+flavor: ''
+setup: false
+reminders:
+  - 死于今日
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果今天白天有玩家死于处决，唤醒史官，告知其在场存活镇民数量。
+summary: 每个夜晚*，如果今天白天有玩家死于处决，你会得知存活镇民的数量。
+keywords: townsfolk 夜晚
+ability: 每个夜晚*，如果今天白天有玩家死于处决，你会得知存活镇民的数量。

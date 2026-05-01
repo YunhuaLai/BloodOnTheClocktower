@@ -1,0 +1,81 @@
+id: s053
+englishName: item
+name: 首亡者秘庭
+en: 首亡者秘庭
+author: 玉露
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r003
+  - r049
+  - r100
+  - r053
+  - r006
+  - r056
+  - r055
+  - r462
+  - r062
+  - r562
+  - r394
+  - r563
+  - r234
+  - r255
+  - r564
+  - r565
+  - r017
+  - r018
+  - r302
+  - r566
+  - r567
+  - r568
+  - r569
+  - r021
+travellerIds: []
+fabledIds:
+  - r570
+  - r571
+nightOrder:
+  first:
+    - r565
+    - r017
+    - r302
+    - r002
+    - r003
+    - r049
+    - r100
+    - r006
+    - r018
+    - r053
+  other:
+    - r566
+    - r017
+    - r302
+    - r567
+    - r021
+    - r569
+    - r568
+    - r562
+    - r006
+    - r062
+    - r056
+    - r055
+    - r563
+    - r394
+    - r018
+    - r053

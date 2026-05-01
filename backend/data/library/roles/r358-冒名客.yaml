@@ -1,0 +1,17 @@
+id: r358
+englishName: 22-recovery
+name: 冒名客
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/22_inthegr_58.png
+flavor: ''
+setup: true
+reminders: []
+remindersGlobal:
+  - 是冒名客
+  - 中毒
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 每个白天，在你首次“疯狂”地证明自己是一个在场角色时，你在那天让他中毒并获得该角色的能力。
+keywords: minion 中毒
+ability: 每个白天，在你首次“疯狂”地证明自己是一个在场角色时，你使他中毒并获得该角色的能力，直到下个黎明。

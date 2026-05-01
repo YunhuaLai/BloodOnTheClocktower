@@ -1,0 +1,17 @@
+id: r370
+englishName: maxituan-9
+name: 空中飞人
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/JUEDOU/12_juedou.png
+flavor: ''
+setup: false
+reminders:
+  - 被得知
+  - 错误信息
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果死亡唤醒他，并告知他所有类型的玩家（除旅行者）各一名。
+summary: 你死亡的当晚会被唤醒并得知所有角色类型的玩家各一名（旅行者除外）。如果你死于善良玩家的提名或能力，你会获得错误的信息。
+keywords: townsfolk 夜晚 死亡
+ability: 你死亡的当晚会被唤醒并得知除旅行者外所有类型的玩家各一名。如果你死于善良玩家的提名或能力你会获得错误的信息。

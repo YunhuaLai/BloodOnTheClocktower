@@ -1,0 +1,16 @@
+id: r445
+englishName: 9-equinoxflower
+name: 植物学家
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/EquinoxFlower/9_equinoxflower.png
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 植物学家可以选择发动能力，如果他这么做了，让他选择一名玩家，告诉与他选择的玩家邻近的存活玩家有几人是邪恶的，标记植物学家士失去能力，之后的夜晚无需再唤醒植物学家。
+otherNightReminder: 植物学家可以选择发动能力，如果他这么做了，让他选择一名玩家，告诉与他选择的玩家邻近的存活玩家有几人是邪恶的，标记植物学家士失去能力，之后的夜晚无需再唤醒植物学家。
+summary: 每局游戏限一次，在夜晚时，你可以选择一名玩家：你会得知与他邻近的两名存活的玩家中邪恶玩家的数量。
+keywords: townsfolk 首夜 夜晚
+ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家：你会得知与他邻近的两名存活的玩家中邪恶玩家的数量。

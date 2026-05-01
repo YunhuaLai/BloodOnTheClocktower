@@ -1,0 +1,45 @@
+id: r619
+englishName: 10-city-of-illusio
+name: 弗兰肯斯坦
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 主动选择
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: each_day
+  eventTiming: null
+  usagePattern: once
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 目标号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: note
+        type: text
+        label: 记录
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: 导入初稿，请按角色能力调整结构化字段。

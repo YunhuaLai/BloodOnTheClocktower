@@ -1,0 +1,19 @@
+id: r442
+englishName: daoke-button
+name: 刀客
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202403/c_5751437760171_79dd1401.jpg
+flavor: ''
+setup: false
+reminders:
+  - 得知
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: |-
+  在为首个夜晚做准备时，将刀客的“追杀”标记放置在一个爪牙角色标记旁。
+  在首个夜晚，唤醒刀客。对他展示标记了“追杀”的爪牙角色标记。让刀客重新入睡。
+otherNightReminder: ''
+summary: 在你的首个夜晚，你得知一个在场的爪牙角色。每局游戏限一次，你可以在白天公开选择一名玩家：如果他是你得知的角色，他死亡。
+keywords: townsfolk 首夜 死亡
+ability: 在你的首个夜晚，你会得知一个在场的爪牙角色。每局游戏限一次，你可以在白天公开选择一名玩家：如果他是你得知的角色，他死亡。

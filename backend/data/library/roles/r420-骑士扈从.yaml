@@ -1,0 +1,16 @@
+id: r420
+englishName: qishigucong
+name: 骑士扈从
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/JUEDOU/5_juedou.png
+flavor: ''
+setup: false
+reminders:
+  - 得知
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果白天有玩家死于处决或有玩家被处决但没有死亡，唤醒骑士扈从，告知他是或否。
+summary: 每个夜晚*，如果白天有玩家死于处决，你会得知他是否为镇民，如果白天有玩家被处决但依然存活，你会得知他的相邻玩家是否皆为镇民。
+keywords: townsfolk 夜晚
+ability: 每个夜晚*，如果白天有玩家死于处决，你会得知他是否为镇民，如果白天有玩家被处决但依然存活，你会得知他的相邻玩家是否皆为镇民。

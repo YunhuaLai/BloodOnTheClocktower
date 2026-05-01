@@ -1,0 +1,17 @@
+id: r625
+englishName: 29-baobao
+name: 玩偶
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/baobao/29_baobao.png
+flavor: 他们说我是好孩子...但我总听见针脚裂开的声音。我后背的标签上的那串数字...好像在倒数？那位大人，您需要新朋友了对吗？这次我会乖乖躺进棺材里...
+setup: true
+reminders: []
+remindersGlobal:
+  - 初始玩偶
+  - 新玩偶
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 你以为你是一个善良角色，但其实你不是。如果你被恶魔杀死，恶魔要选择一名玩家：他变成玩偶。[玩偶会与恶魔邻座]
+keywords: minion 设置
+ability: 你以为你是一个善良角色，但其实你不是。如果你被恶魔杀死，恶魔要选择一名玩家：他变成玩偶。[玩偶会与恶魔邻座]

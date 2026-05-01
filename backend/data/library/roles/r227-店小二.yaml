@@ -1,0 +1,17 @@
+id: r227
+englishName: hebusiniyade111
+name: 店小二
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/dianxiaoer.png
+flavor: ''
+setup: false
+reminders:
+  - 熟客
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: 唤醒店小二，对他指向两名善良玩家。
+otherNightReminder: ''
+summary: 在你的首个夜晚，你会得知两名善良玩家。他们之中会有一人醉酒，即使你已死亡。
+keywords: townsfolk 首夜 死亡 醉酒
+ability: 在你的首个夜晚，你会得知两名善良玩家。他们之中会有一人醉酒，即使你已死亡。

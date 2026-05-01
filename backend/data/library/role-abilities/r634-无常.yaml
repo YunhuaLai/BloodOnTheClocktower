@@ -1,0 +1,37 @@
+id: r634
+englishName: heibaiwuchang11111
+name: 无常
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 每晚
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: each_night
+  eventTiming: null
+  usagePattern: once_per_night
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: role
+        type: role
+        label: 身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null

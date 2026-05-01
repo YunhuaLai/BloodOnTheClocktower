@@ -1,0 +1,16 @@
+id: r345
+englishName: night
+name: 守夜人（很多）
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/C2H43g/night/_night.png
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 守夜人可以指向一名玩家。如果他这么做，则唤醒那名玩家，告知其被守夜人选中，且告知他守夜人是谁。
+otherNightReminder: 守夜人可以指向一名玩家。如果他这么做，则唤醒那名玩家，告知其被守夜人选中，且告知他守夜人是谁。
+summary: 每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知你是守夜人。
+keywords: townsfolk 首夜 夜晚
+ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知你是守夜人。

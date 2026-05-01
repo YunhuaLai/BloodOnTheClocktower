@@ -1,0 +1,16 @@
+id: r217
+englishName: 18-emoxueyuan
+name: 学院长
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/smallbear/jinhulun/15_jinhulun.png
+flavor: 你想提前毕业？好吧，明面上我不能这么做，但我可以给你发布个新的任务。
+setup: true
+reminders:
+  - 得知
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 在你的首个白天，拜访并告知说书人一项新的可以获得进修点的任务，一名善良玩家可能会得知一些相关的线索。
+keywords: minion 设置
+ability: 首个白天，拜访说书人并告知一项新的可以获得进修点的任务，一名善良玩家可能会得知一些线索。

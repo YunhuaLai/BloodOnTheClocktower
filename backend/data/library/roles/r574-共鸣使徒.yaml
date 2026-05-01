@@ -1,0 +1,17 @@
+id: r574
+englishName: shuijiadacaifeng
+name: 共鸣使徒
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/5_7759.png
+flavor: ''
+setup: false
+reminders:
+  - 同阵营
+  - 不同阵营
+remindersGlobal: []
+firstNightReminder: 每个夜晚，选择一名其他存活玩家，你会得知：目标玩家与相邻存活玩家的阵营是否相同。
+otherNightReminder: 每个夜晚，选择一名其他存活玩家，你会得知：目标玩家与相邻存活玩家的阵营是否相同。
+summary: 每个夜晚*，你要选择除你以外的一名存活的玩家，你会得知他与邻近的存活玩家是否为同一阵营。
+keywords: townsfolk 夜晚
+ability: 每个夜晚*，你要选择除你以外的一名存活的玩家，你会得知他与邻近的存活玩家是否为同一阵营。

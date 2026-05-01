@@ -1,0 +1,36 @@
+id: r227
+englishName: hebusiniyade111
+name: 店小二
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: note
+        type: text
+        label: 记录
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: 导入初稿，请按角色能力调整结构化字段。

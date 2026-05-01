@@ -1,0 +1,19 @@
+id: r239
+englishName: dianyuzhangaowhorahwpru903qu5rpiqhnrf
+name: 典狱长
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/dianyuzhang.png
+flavor: ''
+setup: false
+reminders:
+  - 囚禁
+  - 囚禁
+  - 囚禁
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒典狱长，让他选择至多三名玩家。
+otherNightReminder: 唤醒典狱长，让他选择至多三名玩家。如果上个夜晚选择的玩家之中有人死于处决，上个夜晚选择的其余玩家均死亡，否则其中之一死亡。
+summary: 每个夜晚，你要选择至多三名玩家：如果明天白天他们之一死于处决，上次被你选择的其他玩家会在当晚死亡。否则，当晚他们之中会有一名玩家死亡。
+keywords: demon 首夜 夜晚 死亡
+ability: 每个夜晚，你要选择至多三名玩家：如果明天白天他们之一死于处决，上次被你选择的其他玩家会在当晚死亡。否则，当晚他们之中会有一名玩家死亡。

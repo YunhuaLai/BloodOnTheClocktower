@@ -1,0 +1,16 @@
+id: r595
+englishName: xionghaizi-button
+name: 熊孩子
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_6984587694761_17384eb3.jpg
+flavor: ''
+setup: false
+reminders:
+  - 捣蛋
+remindersGlobal: []
+firstNightReminder: 唤醒熊孩子，让其选择一个镇民角色。如果该角色在场，在对应角色标记旁放置“捣蛋”提示标记。
+otherNightReminder: 移除上个夜晚放置的“捣蛋”提示标记。唤醒熊孩子，让其选择一个镇民角色。如果该角色在场，在对应角色标记旁放置“捣蛋”提示标记。
+summary: 每个夜晚，你要选择一个镇民角色：他的能力会产生错误信息，直到下个黄昏。
+keywords: townsfolk 首夜 夜晚
+ability: 每个夜晚，你要选择一个镇民角色：他的能力会产生错误信息，直到下个黄昏。

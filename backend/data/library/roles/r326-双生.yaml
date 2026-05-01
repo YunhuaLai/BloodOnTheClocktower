@@ -1,0 +1,17 @@
+id: r326
+englishName: dual-personality
+name: 双生
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bootlegger.png
+flavor: ''
+setup: false
+reminders:
+  - 是恶魔
+  - 是爪牙
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 每初始会有主副两个盲抽袋，主盲抽袋中的角色配置和角色列表一致，副盲抽袋中只会有善良角色。所有善良玩家初始为副角色，死亡后，保留死亡触发能力和死亡保留能力，变为主角色并复活。恶魔/爪牙同时拥有两名角色的能力并始终是恶魔/爪牙。
+keywords: fabled 死亡
+ability: 每初始会有主副两个盲抽袋，主盲抽袋中的角色配置和角色列表一致，副盲抽袋中只会有善良角色。所有善良玩家初始为副角色，死亡后，保留死亡触发能力和死亡保留能力，变为主角色并复活。恶魔/爪牙同时拥有两名角色的能力并始终是恶魔/爪牙。

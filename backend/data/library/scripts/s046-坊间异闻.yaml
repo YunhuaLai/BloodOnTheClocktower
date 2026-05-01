@@ -1,0 +1,85 @@
+id: s046
+englishName: item
+name: 坊间异闻
+en: 坊间异闻
+author: 夜雀
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r474
+  - r049
+  - r140
+  - r005
+  - r006
+  - r025
+  - r475
+  - r089
+  - r476
+  - r393
+  - r278
+  - r477
+  - r091
+  - r356
+  - r071
+  - r072
+  - r119
+  - r281
+  - r315
+  - r478
+  - r077
+  - r096
+  - r080
+  - r095
+travellerIds:
+  - r124
+  - r130
+  - r128
+  - r147
+  - r125
+fabledIds:
+  - r479
+nightOrder:
+  first:
+    - r356
+    - r124
+    - r128
+    - r095
+    - r071
+    - r005
+    - r006
+    - r474
+    - r049
+    - r140
+    - r025
+  other:
+    - r124
+    - r128
+    - r478
+    - r080
+    - r096
+    - r095
+    - r393
+    - r091
+    - r278
+    - r005
+    - r006
+    - r475
+    - r476
+    - r477
+    - r140
+    - r025

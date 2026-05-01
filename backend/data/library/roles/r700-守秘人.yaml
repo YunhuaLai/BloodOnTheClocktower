@@ -1,0 +1,16 @@
+id: r700
+englishName: dfsbdjk
+name: 守秘人
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/meiosis/clockparadox/_clockparadox.png
+flavor: ''
+setup: false
+reminders:
+  - 密钥
+remindersGlobal: []
+firstNightReminder: 唤醒守秘人，对他指向一名善良玩家，并展示该玩家的角色标记。
+otherNightReminder: 唤醒守秘人，对他指向一名善良玩家，并展示该玩家的角色标记。
+summary: 在你的首个夜晚，你会得知一个善良玩家和他的角色，如果他死亡，你会得知另一个存活善良玩家和他的角色。
+keywords: townsfolk 首夜 夜晚 死亡
+ability: 在你的首个夜晚，你会得知一个善良玩家和他的角色，如果他死亡，你会得知另一个存活善良玩家和他的角色。

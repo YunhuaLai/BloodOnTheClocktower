@@ -1,0 +1,17 @@
+id: r426
+englishName: mazuishi
+name: 麻醉师
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/JUEDOU/18_juedou.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+  - 得知
+remindersGlobal: []
+firstNightReminder: 选择一名玩家。标记那名玩家中毒。如果麻醉师选择了一名新的玩家，且原玩家还存活，告知原玩家麻醉师在场。
+otherNightReminder: 选择一名玩家。标记那名玩家中毒。如果麻醉师选择了一名新的玩家，且原玩家还存活，告知原玩家麻醉师在场。
+summary: 每个夜晚，你要选择一名玩家：他中毒直到你更换选择目标，当你更换选择目标时，如果他还存活他会得知麻醉师在场。
+keywords: minion 首夜 夜晚 中毒
+ability: 每个夜晚，你要选择一名玩家：他中毒直到你更换选择目标，当你更换选择目标时，如果他还存活他会得知麻醉师在场。

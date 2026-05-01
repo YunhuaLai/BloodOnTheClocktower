@@ -4,9 +4,9 @@ type: demon
 summary: 每晚公开点三人，在沉默中逼他们选生或死；若三人都求生则三人全死，是极高波动的多杀恶魔。
 keywords: 三人 生死选择 多杀 沉默
 englishName: al-hadikhia
-ability: 每个夜晚*，你要选择三名玩家（所有玩家都会得知你选了谁）：他们分别秘密决定自己的生死，然后如果他们都存活则都死亡。
+ability: 每个夜晚*，你可以选择三名玩家（所有玩家会得知你选了谁）：他们分别秘密决定自己的生死，然后如果他们都存活则都死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/al-hadikhia.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/al-hadikhia.png
 flavor: ''
 setup: false
 reminders:
@@ -17,4 +17,4 @@ reminders:
   - 选择死
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 哈迪寂亚选择三名玩家。对所有人宣告第一位玩家，然后唤醒他并让他秘密选择活着还是死去。依次对第二第三位玩家如此做。如果三名玩家都选择活着，他们都死去。
+otherNightReminder: 唤醒哈迪寂亚，让他选择三名玩家。执行哈迪寂亚的能力流程（参考哈迪寂亚的百科页面）。

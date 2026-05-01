@@ -1,0 +1,22 @@
+id: r331
+englishName: 23-futureking
+name: 拉普拉斯
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Tiger/Future-King/23_futureking.png
+flavor: ''
+setup: false
+reminders:
+  - 第一死
+  - 第二死
+  - 第三死
+  - 第四死
+  - 第五死
+  - 第六死
+  - 第七死
+remindersGlobal: []
+firstNightReminder: '1'
+otherNightReminder: '7'
+summary: 在你的首个夜晚，你要选择存活玩家中一半（向下取整）的玩家。 每个夜晚*，被你选择的玩家依次死亡。如果他们都死亡，你的阵营获胜。
+keywords: demon 首夜 夜晚 死亡
+ability: 在你的首个夜晚，你要选择存活玩家中一半（向下取整）的玩家。 每个夜晚*，被你选择的玩家依次死亡。如果他们都死亡，你的阵营获胜。

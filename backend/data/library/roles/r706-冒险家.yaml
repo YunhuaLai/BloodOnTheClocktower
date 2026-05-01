@@ -1,0 +1,16 @@
+id: r706
+englishName: rshfna1
+name: 冒险家
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/meiosis/clockparadox/2_clockparadox.png
+flavor: ''
+setup: false
+reminders:
+  - 保护
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒冒险家，让他选择任意名玩家。
+summary: 每个夜晚*，你要选择除你以外的任意名玩家，如果他们都是善良的，他们中当晚首个死亡的玩家首次不会死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 每个夜晚*，你要选择除你以外的任意名玩家，如果他们都是善良的，他们中当晚首个死亡的玩家首次不会死亡。

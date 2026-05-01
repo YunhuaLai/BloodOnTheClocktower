@@ -1,0 +1,16 @@
+id: r512
+englishName: yinjiang111
+name: 银匠
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/fool.png
+flavor: ''
+setup: false
+reminders:
+  - 代替死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 在最后一个白天，你决定谁会被处决（所有玩家都会得知）。如果你在夜晚即将死亡，可能会有一名其他玩家代替你死亡。
+keywords: townsfolk 死亡
+ability: 在最后一个白天，你决定谁会被处决（所有玩家都会得知）。如果你在夜晚即将死亡，可能会有一名其他玩家代替你死亡。

@@ -1,0 +1,19 @@
+id: r701
+englishName: dsvn
+name: 护教军
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/meiosis/clockparadox/1_clockparadox.png
+flavor: ''
+setup: false
+reminders:
+  - '3'
+  - '2'
+  - '1'
+  - '0'
+remindersGlobal: []
+firstNightReminder: 唤醒护教军，让他选择三名玩家。
+otherNightReminder: 唤醒护教军，向他比划手势告诉他要选择几名玩家。
+summary: 每个夜晚，你要选择三名玩家，如果他们中有邪恶，你下次选择玩家减少一名。
+keywords: townsfolk 首夜 夜晚
+ability: 每个夜晚，你要选择三名玩家，如果他们中有邪恶，你下次选择玩家减少一名。

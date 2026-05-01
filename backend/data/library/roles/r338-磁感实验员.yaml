@@ -1,0 +1,16 @@
+id: r338
+englishName: 24-seve
+name: 磁感实验员
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Guiltier/seve/24_seve.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果磁感实验员在今天白天死于处决，且场上有玩家因磁感实验员的能力中毒，那名玩家死亡。
+summary: 距离你最近的两名存活善良玩家之一死亡时，另一人中毒。你死于处决时，因你的能力中毒的玩家会在当晚死亡。
+keywords: minion 夜晚 死亡 中毒
+ability: 距离你最近的两名存活善良玩家之一死亡时，另一人中毒。你死于处决时，因你的能力中毒的玩家会在当晚死亡。

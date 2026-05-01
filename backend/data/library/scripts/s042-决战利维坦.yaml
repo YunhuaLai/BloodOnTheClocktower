@@ -1,0 +1,78 @@
+id: s042
+englishName: item
+name: 决战利维坦
+en: 决战利维坦
+author: 张顺风
+logo: https://oss.gstonegames.com/data_file/clocktower/web/icons/leviathan.png
+description: 测试
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 测试
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/leviathan.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 测试
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r085
+  - r368
+  - r197
+  - r369
+  - r370
+  - r371
+  - r372
+  - r373
+  - r374
+  - r375
+  - r376
+  - r246
+  - r377
+  - r037
+  - r072
+  - r378
+  - r379
+  - r315
+  - r380
+  - r381
+  - r382
+  - r383
+  - r384
+travellerIds: []
+fabledIds:
+  - r386
+  - r387
+  - r388
+nightOrder:
+  first:
+    - r383
+    - r378
+    - r371
+    - r368
+    - r373
+    - r085
+    - r372
+    - r384
+  other:
+    - r383
+    - r378
+    - r375
+    - r376
+    - r380
+    - r381
+    - r037
+    - r379
+    - r246
+    - r377
+    - r370
+    - r368
+    - r373
+    - r197
+    - r372
+    - r384

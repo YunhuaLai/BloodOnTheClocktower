@@ -1,0 +1,17 @@
+id: r298
+englishName: 20-zhiminghuaerzi
+name: 鸩※
+type: townsfolk
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/a/a2/3g8m8281zxv0i07x6mq2wuteyh8fjoz.png
+flavor: ''
+setup: false
+reminders:
+  - 中毒
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒鸩，如果鸩使用能力，让鸩选择一个镇民角色：如果这个镇民角色在场，这个镇民角色先中毒，再死亡。
+summary: 每局游戏限一次，在夜晚时*，你可以选择一个镇民角色：如果他在场，他中毒并死亡。
+keywords: townsfolk 夜晚 死亡 中毒
+ability: 每局游戏限一次，在夜晚时*，你可以选择一个镇民角色：如果他在场，他中毒并死亡。

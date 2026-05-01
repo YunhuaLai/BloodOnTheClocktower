@@ -1,0 +1,26 @@
+id: r313
+englishName: skeplic
+name: 怀疑论者
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 设置
+abilityMeta:
+  pageType: rule_modifier
+  phaseTiming: setup
+  eventTiming: null
+  usagePattern: passive
+  activationMode: passive
+  drivenBy: system
+  recordable: false
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

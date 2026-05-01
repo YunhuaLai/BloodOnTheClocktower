@@ -6,12 +6,12 @@ keywords: 处决 获得能力 中毒
 englishName: cannibal
 ability: 你拥有上个死于处决的玩家的能力。如果该玩家属于邪恶阵营，你中毒直到下个善良玩家死于处决。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/cannibal.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/cannibal.png
 flavor: ''
 setup: false
 reminders:
-  - 中毒
   - 死于今日
+  - 中毒
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''

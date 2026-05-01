@@ -1,0 +1,55 @@
+id: r461
+englishName: 14-inthegr-58
+name: 暗夜公爵
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 设置
+  - 主动选择
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once_per_game
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: seat
+        type: seat
+        label: 目标号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+      - key: role
+        type: role
+        label: 选择角色
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: role
+        type: role
+        label: 身份
+        required: true
+        optionsSource: current_script_roles
+        options: null
+        min: null
+        max: null
+        placeholder: null

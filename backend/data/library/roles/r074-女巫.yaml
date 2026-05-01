@@ -4,4 +4,13 @@ type: minion
 summary: 每晚诅咒一名玩家；若其白天提名，可能死亡。
 keywords: 诅咒 提名 死亡
 englishName: witch
-ability: 每晚选择一名玩家。如果明天白天该玩家发起提名，该玩家死亡。若只剩三名玩家存活，该能力不生效。
+ability: 每个夜晚，你要选择一名玩家：如果他明天白天发起提名，他死亡。如果只有三名存活的玩家，你失去此能力。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/witch.png
+flavor: ''
+setup: false
+reminders:
+  - 被诅咒
+remindersGlobal: []
+firstNightReminder: 让女巫选择一名玩家。标记那名玩家被诅咒。
+otherNightReminder: 让女巫选择一名玩家。标记那名玩家被诅咒。

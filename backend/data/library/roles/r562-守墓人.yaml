@@ -1,0 +1,16 @@
+id: r562
+englishName: gz
+name: 守墓人
+type: townsfolk
+edition: custom
+image: https://img.picui.cn/free/2025/06/17/6851436b352bb.png
+flavor: ''
+setup: false
+reminders:
+  - 替死
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒守墓人，告知其将要死亡的玩家角色，并询问其是否要代替死亡。
+summary: 在你的首个白天，如果没有玩家被处决，当晚，你得知一个将要死亡的角色且可以代替其死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 在你的首个白天，如果没有玩家被处决，当晚，你得知一个将要死亡的角色且可以代替其死亡。

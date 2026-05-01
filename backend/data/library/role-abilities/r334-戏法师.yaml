@@ -1,0 +1,26 @@
+id: r334
+englishName: 11-seve
+name: 戏法师
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: true
+reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+tags:
+  - 事件触发
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: each_day
+  eventTiming: null
+  usagePattern: once_per_day
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

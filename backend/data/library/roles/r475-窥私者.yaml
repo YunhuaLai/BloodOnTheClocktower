@@ -1,0 +1,16 @@
+id: r475
+englishName: voyeur
+name: 窥私者
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202412/c_9651170205371_4d4c299e.jpg
+flavor: ''
+setup: false
+reminders:
+  - 偷窥
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 每个夜晚*，选择除你以外的一名玩家：如果他今晚死亡，所有玩家会知道你是窥私者。
+keywords: townsfolk 夜晚 死亡
+ability: 每个夜晚*，选择除你以外的一名玩家：如果他今晚死亡，所有玩家会知道你是窥私者。

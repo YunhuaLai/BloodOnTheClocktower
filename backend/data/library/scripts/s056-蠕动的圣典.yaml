@@ -1,0 +1,87 @@
+id: s056
+englishName: item
+name: 蠕动的圣典
+en: 蠕动的圣典
+author: 乐乐侠
+logo: ' '
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: ' '
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r442
+  - r005
+  - r597
+  - r006
+  - r530
+  - r606
+  - r054
+  - r028
+  - r150
+  - r229
+  - r607
+  - r029
+  - r319
+  - r091
+  - r015
+  - r159
+  - r036
+  - r112
+  - r608
+  - r609
+  - r610
+  - r611
+  - r612
+  - r136
+  - r099
+  - r613
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r608
+    - r609
+    - r611
+    - r610
+    - r136
+    - r005
+    - r006
+    - r597
+    - r442
+    - r530
+  other:
+    - r613
+    - r608
+    - r609
+    - r611
+    - r028
+    - r607
+    - r112
+    - r150
+    - r229
+    - r099
+    - r136
+    - r612
+    - r610
+    - r606
+    - r029
+    - r036
+    - r159
+    - r005
+    - r006
+    - r054
+    - r597
+    - r530

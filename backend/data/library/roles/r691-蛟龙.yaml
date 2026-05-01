@@ -1,0 +1,17 @@
+id: r691
+englishName: jiaolong
+name: 蛟龙
+type: demon
+edition: custom
+image: https://i.postimg.cc/7ZxgZvC7/image.png
+flavor: ''
+setup: true
+reminders:
+  - 死亡
+  - 行动两次
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒蛟龙，让他攻击一名玩家。如果与他临近的存活镇民当天死于处决
+summary: 每个夜晚*，你要选择一名玩家：他死亡。如果与你临近的存活镇民当天被处决，当晚你行动两次。[-1外来者]
+keywords: demon 夜晚 设置 死亡
+ability: 每个夜晚*，你要选择一名玩家：他死亡。如果与你临近的存活镇民当天被处决，当晚你行动两次。[-1外来者]

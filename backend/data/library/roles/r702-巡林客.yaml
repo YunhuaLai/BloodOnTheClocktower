@@ -1,0 +1,15 @@
+id: r702
+englishName: shjfk
+name: 巡林客
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/usersave/static_h/1217/4_1217.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: 给他展示数字手势告诉他与爪牙相邻的善良角色总数量
+otherNightReminder: ''
+summary: 每个夜晚，你会得知距离最远的一对存活恶魔与存活爪牙间有几名存活玩家（不含端点），如果没有存活爪牙，你得知任意的信息。
+keywords: townsfolk 首夜 夜晚
+ability: 在你的首个夜晚，你会得知与爪牙相邻的善良角色数量。

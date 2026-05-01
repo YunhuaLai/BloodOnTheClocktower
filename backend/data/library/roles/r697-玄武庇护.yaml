@@ -1,0 +1,17 @@
+id: r697
+englishName: xuanwu
+name: 玄武庇护
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/djinn.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal:
+  - 死亡
+  - 免死
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 中毒醉酒的玩家不会死亡，直到明天黎明。如果穷奇在场，改为善良玩家不会死亡，直到明天黎明，且当晚会有一名中毒醉酒的玩家死亡，即使有任何其他原因使他不会死亡。
+keywords: fabled 夜晚 死亡 中毒 醉酒
+ability: 中毒醉酒的玩家不会死亡，直到明天黎明。如果穷奇在场，改为善良玩家不会死亡，直到明天黎明，且当晚会有一名中毒醉酒的玩家死亡，即使有任何其他原因使他不会死亡。

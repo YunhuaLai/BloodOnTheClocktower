@@ -6,7 +6,7 @@ keywords: 保护 醉酒 夜晚
 englishName: innkeeper
 ability: 每个夜晚*，你要选择两名玩家：他们当晚不会死亡，但其中一人会醉酒到下个黄昏。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/innkeeper.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/innkeeper.png
 flavor: ''
 setup: false
 reminders:
@@ -14,4 +14,4 @@ reminders:
   - 醉酒
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 唤醒旅店老板，让他选择两名玩家。这两名玩家今晚不死，同时需要决定他俩其中谁因为旅店老板能力醉酒。
+otherNightReminder: 让旅店老板选择两名玩家。标记这两名玩家不会死亡，并标记其中一人醉酒。

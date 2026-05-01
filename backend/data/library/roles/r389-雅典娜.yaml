@@ -1,0 +1,16 @@
+id: r389
+englishName: goldapple
+name: 雅典娜
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/Goldapple/_goldapple.png
+flavor: ''
+setup: true
+reminders: []
+remindersGlobal:
+  - 已转增
+firstNightReminder: 如果与雅典娜相邻的两名存活玩家都是善良的，其中之一会得知雅典娜
+otherNightReminder: ''
+summary: 初始携带金苹果。携带金苹果的镇民不受中毒、醉酒的影响。在你的首个夜晚，如果与你相邻的两名存活玩家都是善良的，其中之一会得知你是雅典娜 [必定出场、无法转换阵营]
+keywords: townsfolk 首夜 设置 中毒 醉酒
+ability: 初始携带金苹果。携带金苹果的镇民不受中毒、醉酒的影响。在你的首个夜晚，如果与你相邻的两名存活玩家都是善良的，其中之一会得知你是雅典娜 [必定出场、无法转换阵营]

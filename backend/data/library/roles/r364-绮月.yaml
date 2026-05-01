@@ -1,0 +1,18 @@
+id: r364
+englishName: zxpy
+name: 绮月
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202506/c_8730543740571_77ced105.jpg
+flavor: ''
+setup: true
+reminders:
+  - “死亡”
+  - “限一次”
+remindersGlobal:
+  - “是绮月”
+firstNightReminder: 在初始设置时，移除所有邪恶角色的标记，改为放入等量的善良角色标记。说书人指定一名玩家的角色标记旁放置“是绮月”提示标记。
+otherNightReminder: 如果没有死亡的“凶星”，在一名玩家的角色标记旁放置“死亡”角色标记。如果绮月在夜晚死亡，在距离他最近的存活的的放置有“是凶星”角色标记的玩玩家，更换为“是绮月”。
+summary: 你以为你是一个善良角色。每个夜晚*，如果没有死亡的“凶星”，会有一名玩家死亡。如果你在夜晚死亡，存活且距离你最近的“凶星”会变为“绮月”，但每局游戏仅能成功转化一次。[你的爪牙都是凶星]
+keywords: demon 夜晚 设置 死亡
+ability: 你以为你是一个善良角色。每个夜晚*，如果没有死亡的“凶星”，会有一名玩家死亡。如果你在夜晚死亡，存活且距离你最近的“凶星”会变为“绮月”，但每局游戏仅能成功转化一次。[你的爪牙都是凶星]

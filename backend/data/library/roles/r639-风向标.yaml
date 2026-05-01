@@ -1,0 +1,15 @@
+id: r639
+englishName: 1-yylm
+name: 风向标
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/BeiFeng/YYLM/1_yylm.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: 在首个夜晚，校准风向标。用大拇指向上，告诉他奇数位邪恶玩家较多；或者用大拇指向下，告诉他偶数位邪恶玩家较多。如果奇数位邪恶玩家等于偶数位邪恶玩家，那么你需要向风向标提供错误信息。让风向标重新入睡。
+otherNightReminder: ''
+summary: 在你的首个夜晚，你会知晓是否奇数位邪恶玩家较多。如果相同，你会知晓错误信息作为替代。
+keywords: townsfolk 首夜
+ability: 在你的首个夜晚，你会知晓是否奇数位邪恶玩家较多。如果相同，你会知晓错误信息作为替代。

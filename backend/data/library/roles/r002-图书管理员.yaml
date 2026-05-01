@@ -27,12 +27,12 @@ detail:
 englishName: librarian
 ability: 在你的首个夜晚，你会得知两名玩家和一个外来者角色：这两名玩家之一是该角色（或者你会得知没有外来者在场）。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/librarian.png
+image: https://img.picui.cn/free/2025/06/17/6851433c835f6.png
 flavor: ''
 setup: false
 reminders:
   - 外来者
-  - 错误
+  - 得知
 remindersGlobal: []
-firstNightReminder: 展示那个外来者角色标记。指向被你标记“外来者”和“错误”的两名玩家。
+firstNightReminder: 唤醒图书管理员，告知其信息。
 otherNightReminder: ''

@@ -1,0 +1,17 @@
+id: r514
+englishName: bixian111
+name: 笔仙
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/assassin.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果刺客未曾使用能力，唤醒刺客，他可以摇头不使用能力，或选择攻击一名玩家。
+summary: 在你的首个夜晚，你要选择一名玩家：他中毒，并会被善良玩家当作邪恶的笔仙。每局游戏限一次，你可以更换你的选择，上一个被你选中的玩家死亡。
+keywords: minion 夜晚 死亡 中毒
+ability: 在你的首个夜晚，你要选择一名玩家：他中毒，并会被善良玩家当作邪恶的笔仙。每局游戏限一次，你可以更换你的选择，上一个被你选中的玩家死亡。

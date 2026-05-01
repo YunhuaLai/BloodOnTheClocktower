@@ -1,0 +1,84 @@
+id: s033
+englishName: item
+name: 三神谜题
+en: 三神谜题
+author: 华稽
+logo: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/17/69418ec67d9dd.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r089
+  - r087
+  - r055
+  - r058
+  - r230
+  - r274
+  - r278
+  - r275
+  - r006
+  - r049
+  - r276
+  - r319
+  - r025
+  - r159
+  - r070
+  - r067
+  - r015
+  - r040
+  - r075
+  - r280
+  - r281
+  - r078
+  - r284
+  - r082
+  - r099
+travellerIds: []
+fabledIds:
+  - r270
+  - r320
+  - r321
+  - r322
+nightOrder:
+  first:
+    - r280
+    - r284
+    - r075
+    - r006
+    - r058
+    - r087
+    - r025
+    - r078
+    - r040
+    - r049
+  other:
+    - r280
+    - r274
+    - r075
+    - r082
+    - r099
+    - r284
+    - r040
+    - r070
+    - r159
+    - r278
+    - r006
+    - r055
+    - r058
+    - r087
+    - r230
+    - r275
+    - r025

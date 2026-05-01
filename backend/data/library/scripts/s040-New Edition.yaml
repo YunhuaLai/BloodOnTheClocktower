@@ -1,0 +1,33 @@
+id: s040
+englishName: new-edition
+name: New Edition
+en: New Edition
+author: ''
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r604
+  - r605
+travellerIds: []
+fabledIds:
+  - r601
+  - r602
+  - r603
+nightOrder:
+  first: []
+  other: []

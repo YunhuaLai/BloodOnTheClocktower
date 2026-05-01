@@ -1,0 +1,18 @@
+id: r484
+englishName: 10-spacebound
+name: 打更人
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/spdm/SpaceBound/10_spacebound.png
+flavor: ''
+setup: false
+reminders:
+  - 警惕
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  唤醒打更人，并让其猜测距离，以数字手势给出。在这两名玩家的角色标记旁放置“警惕”提示标记。在当晚首次有角色死亡时，如果是标记有“警惕”的玩家，那么当晚不会有除打更人外的任何人死亡。同时，如果说书人决定让打更人死亡，则在其角色标记旁放置“死亡”提示标记。在黎明时，移除所有“警惕”标记。
+summary: 每个夜晚*，你要猜测今晚第一个死亡的玩家与你的距离。如果你猜测正确，改为除你以外的所有玩家今晚不会死亡，但你可能会死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 每个夜晚*，你要猜测今晚第一个死亡的玩家与你的距离。如果你猜测正确，改为除你以外的所有玩家今晚不会死亡，但你可能会死亡。

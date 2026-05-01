@@ -1,0 +1,26 @@
+id: r583
+englishName: 975f7fe7-60f2-470a-9cf7-5fc354157b861
+name: 往生者
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: true
+reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+tags:
+  - 事件触发
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: each_day
+  eventTiming: null
+  usagePattern: once_per_game
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

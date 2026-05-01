@@ -1,0 +1,85 @@
+id: s049
+englishName: item
+name: 或者三日之都
+en: 或者三日之都
+author: 星火乐
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r509
+  - r006
+  - r051
+  - r510
+  - r140
+  - r064
+  - r255
+  - r028
+  - r511
+  - r035
+  - r512
+  - r513
+  - r486
+  - r072
+  - r071
+  - r092
+  - r113
+  - r514
+  - r219
+  - r515
+  - r516
+  - r517
+  - r518
+  - r519
+travellerIds: []
+fabledIds:
+  - r520
+nightOrder:
+  first:
+    - r517
+    - r071
+    - r113
+    - r516
+    - r515
+    - r064
+    - r255
+    - r006
+    - r051
+    - r510
+    - r140
+    - r139
+    - r509
+    - r092
+  other:
+    - r028
+    - r511
+    - r113
+    - r515
+    - r517
+    - r518
+    - r519
+    - r514
+    - r219
+    - r064
+    - r255
+    - r006
+    - r051
+    - r510
+    - r140
+    - r139
+    - r509

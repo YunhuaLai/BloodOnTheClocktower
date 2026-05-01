@@ -1,0 +1,15 @@
+id: r281
+englishName: 22-sanshenmiti
+name: 谜题魔
+type: minion
+edition: custom
+image: https://i.postimg.cc/rFS6M118/image.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 当小于等于五名存活玩家，邪恶阵营落败时，所有玩家要同时猜测谁是谜题魔，如果少于复数善良玩家猜测你，邪恶阵营获胜，即使你已死亡。
+keywords: minion 死亡
+ability: 当小于等于五名存活玩家（旅行者不计算在内），邪恶阵营落败时，所有玩家要同时猜测谁是谜题魔，如果少于两名善良玩家猜测你，邪恶阵营获胜，即使你已死亡。

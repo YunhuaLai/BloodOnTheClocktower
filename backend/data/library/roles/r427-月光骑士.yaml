@@ -1,0 +1,16 @@
+id: r427
+englishName: yueguangqishi
+name: 月光骑士
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/JUEDOU/9_juedou.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 无人死于处决，唤醒月光骑士并让他选择一名玩家。
+summary: 每个夜晚*，你可以选择一名玩家（与上个夜晚不同）：当晚首个使用自身能力选择他的善良玩家会立即死亡。
+keywords: minion 夜晚 死亡
+ability: 每个夜晚*，如果今天无人死于处决，你会被唤醒并要选择一名玩家：如果他是爪牙，他死亡。

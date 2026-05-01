@@ -1,0 +1,95 @@
+id: s055
+englishName: v0-91
+name: 平流层以下V0.91
+en: 平流层以下V0.91
+author: 小付
+logo: https://i.postimg.cc/yYTStSjK/BTS.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/yYTStSjK/BTS.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r594
+  - r090
+  - r595
+  - r051
+  - r025
+  - r006
+  - r596
+  - r088
+  - r028
+  - r233
+  - r209
+  - r597
+  - r061
+  - r060
+  - r598
+  - r347
+  - r015
+  - r308
+  - r040
+  - r078
+  - r042
+  - r074
+  - r599
+travellerIds: []
+fabledIds:
+  - r585
+  - r586
+  - r587
+  - r588
+  - r589
+  - r590
+  - r591
+  - r592
+  - r593
+nightOrder:
+  first:
+    - r596
+    - r599
+    - r585
+    - r088
+    - r061
+    - r078
+    - r040
+    - r074
+    - r595
+    - r308
+    - r006
+    - r051
+    - r597
+    - r594
+    - r025
+  other:
+    - r596
+    - r598
+    - r599
+    - r585
+    - r088
+    - r061
+    - r595
+    - r074
+    - r042
+    - r040
+    - r308
+    - r090
+    - r233
+    - r006
+    - r051
+    - r209
+    - r597
+    - r594
+    - r025
+    - r028

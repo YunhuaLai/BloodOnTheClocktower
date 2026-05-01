@@ -1,0 +1,16 @@
+id: r481
+englishName: 5-spacebound
+name: 风水师
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/spdm/SpaceBound/5_spacebound.png
+flavor: ''
+setup: false
+reminders:
+  - 标记
+remindersGlobal: []
+firstNightReminder: 在首个夜晚，唤醒风水师，告知他“标记”提示标记旁的玩家角色类型，并将标记顺时针移动一名玩家。
+otherNightReminder: 唤醒风水师，告知他“标记”提示标记旁的玩家角色类型，并将标记顺时针移动一名玩家。
+summary: 在你的首个夜晚，你会得知一名玩家的角色类型。每个夜晚*，你会从他的顺时针方向得知下一名非旅行者玩家的角色类型。
+keywords: townsfolk 首夜 夜晚
+ability: 在你的首个夜晚，你会得知一名玩家的角色类型。每个夜晚*，你会从他的顺时针方向得知下一名非旅行者玩家的角色类型。

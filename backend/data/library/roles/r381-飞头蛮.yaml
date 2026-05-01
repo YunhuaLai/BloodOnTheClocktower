@@ -1,0 +1,18 @@
+id: r381
+englishName: jianghu-feitouman
+name: 飞头蛮
+type: minion
+edition: custom
+image: https://www.helloimg.com/i/2024/10/31/672389afc23c2.png
+flavor: ''
+setup: false
+reminders:
+  - 头
+  - 死亡
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让飞头蛮的头飞到他的左侧下一名存活镇民身上，拥有头的镇民中毒。唤醒飞头蛮，询问他是否发动能力。如果发动能力，收回头颅，头颅目前所在的玩家死亡，然后飞头蛮失去能力。
+summary: 每个夜晚*，你的头颅会飞到你左侧下一名存活镇民身上：他中毒。每局游戏限一次，在夜晚时*，你可以收回头颅，头颅目前所在的玩家死亡，然后你失去能力。
+keywords: minion 夜晚 死亡 中毒
+ability: 每个夜晚*，你的头颅会飞到你左侧下一名存活镇民身上：他中毒。每局游戏限一次，在夜晚时*，你可以收回头颅，头颅目前所在的玩家死亡，然后你失去能力。

@@ -1,0 +1,17 @@
+id: r726
+englishName: mianbaoshi
+name: 面包师
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/MatchOfLei/_matchoflei.png
+flavor: ''
+setup: false
+reminders:
+  - 提名过
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 每个夜晚*，你会得知你提名过和提名过你的玩家共有几种角色类型。累计达到三种时，他们中会有一名玩家醉酒。
+keywords: townsfolk 夜晚 醉酒
+ability: 每个夜晚*，你会得知你提名过和提名过你的玩家共有几种角色类型。累计达到三种时，他们中会有一名玩家醉酒。

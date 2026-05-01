@@ -6,12 +6,12 @@ keywords: 疯狂 邪恶 死亡 爪牙
 englishName: harpy
 ability: 每个夜晚，你要选择两名玩家：明天第一名玩家需要“疯狂”地证明第二名玩家是邪恶的，否则他们之中可能会有人死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/harpy.png
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202307/c_4331482099861_0db1bfaf.jpg
 flavor: ''
 setup: false
 reminders:
   - 疯狂
   - 第二名
 remindersGlobal: []
-firstNightReminder: 唤醒鹰身女妖，让她选择两名玩家，第一名玩家明天需要“疯狂”证明第二名玩家邪恶。在鹰身女妖入睡后通知第一名玩家被鹰身女妖选中。
-otherNightReminder: 唤醒鹰身女妖，让她选择两名玩家，第一名玩家明天需要“疯狂”证明第二名玩家邪恶。在鹰身女妖入睡后通知第一名玩家被鹰身女妖选中。
+firstNightReminder: 唤醒鹰身女妖并让他依次指向两名玩家。标记第一名玩家“疯狂”，标记第二名玩家“第二名”。唤醒被标记为“疯狂”的玩家。对这名玩家展示该玩家需要疯狂证明的事。
+otherNightReminder: 唤醒鹰身女妖并让他依次指向两名玩家。标记第一名玩家“疯狂”，标记第二名玩家“第二名”。唤醒被标记为“疯狂”的玩家。对这名玩家展示该玩家需要疯狂证明的事。

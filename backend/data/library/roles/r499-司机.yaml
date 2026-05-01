@@ -1,0 +1,16 @@
+id: r499
+englishName: typespeed
+name: 司机
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/cJ4SzrDr/chauffeur.png
+flavor: ''
+setup: false
+reminders:
+  - 不会死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒司机，让他指向除他以外的一名玩家，与上个夜晚不同。如果他是镇民，为司机放置“不会死亡”标记。
+summary: 每个夜晚*，你要选择除你以外的一名存活玩家（与上个夜晚不同）：如果他是镇民，今晚你不会死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 每个夜晚*，你要选择除你以外的一名存活玩家（与上个夜晚不同）：如果他是镇民，今晚你不会死亡。

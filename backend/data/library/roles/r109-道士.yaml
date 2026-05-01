@@ -4,4 +4,14 @@ type: townsfolk
 summary: 每晚*选择玩家，若选中恶魔则自己死亡并让恶魔醉酒到下个黎明。
 keywords: 每晚 选择 恶魔 醉酒 死亡
 englishName: taoist
-ability: 每个夜晚*，选择一名玩家；如果你选中了恶魔，你死亡，然后他醉酒直到下个黎明。
+ability: 每个夜晚*，你要选择一名玩家：如果你选中了恶魔，你死亡，然后他醉酒直到下个黎明。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/daoshi.png
+flavor: ''
+setup: false
+reminders:
+  - 醉酒
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒道士，让其选择一名玩家。如果他选中了恶魔，在道士角色标记旁放置“死亡”提示标记，并且在恶魔角色标记旁放置“醉酒”提示标记。

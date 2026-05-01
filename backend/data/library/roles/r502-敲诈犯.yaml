@@ -1,0 +1,16 @@
+id: r502
+englishName: qzf
+name: 敲诈犯
+type: minion
+edition: custom
+image: https://img.picui.cn/free/2025/06/15/684eaf282c897.png
+flavor: ''
+setup: true
+reminders:
+  - 被敲诈
+remindersGlobal: []
+firstNightReminder: 敲诈犯指向一名玩家，标记“被敲诈”，他可能会被当作邪恶阵营、爪牙角色或恶魔角色，直到下个黄昏。
+otherNightReminder: 敲诈犯指向一名玩家，标记“被敲诈”，他可能会被当作邪恶阵营、爪牙角色或恶魔角色，直到下个黄昏。
+summary: 每个夜晚，你要选择一名玩家：他可能会被当作邪恶阵营、爪牙角色或恶魔角色，直到下个黄昏。[-1外来者]
+keywords: minion 首夜 夜晚 设置
+ability: 每个夜晚，你要选择一名玩家：他可能会被当作邪恶阵营、爪牙角色或恶魔角色，直到下个黄昏。[-1外来者]

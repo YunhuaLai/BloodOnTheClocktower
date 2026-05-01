@@ -1,0 +1,38 @@
+id: r639
+englishName: 1-yylm
+name: 风向标
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: answer
+        type: boolean
+        label: 是否
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

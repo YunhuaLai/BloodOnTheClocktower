@@ -1,0 +1,26 @@
+id: r374
+englishName: f12d8a97-e554-4e79-802f-8065cba11fa1
+name: 亡语师
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 事件触发
+abilityMeta:
+  pageType: event_triggered
+  phaseTiming: null
+  eventTiming: on_death
+  usagePattern: passive
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: none
+    defaultRows: 0
+    fields: []

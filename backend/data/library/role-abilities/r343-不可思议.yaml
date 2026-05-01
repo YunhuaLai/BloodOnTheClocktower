@@ -1,0 +1,35 @@
+id: r343
+englishName: seve
+name: 不可思议
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: true
+reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+tags:
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: null
+  eventTiming: on_death
+  usagePattern: passive
+  activationMode: conditional
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: count
+        type: number
+        label: 数量
+        required: true
+        optionsSource: null
+        options: null
+        min: 0
+        max: 15
+        placeholder: null

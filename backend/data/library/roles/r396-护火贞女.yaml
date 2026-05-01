@@ -1,0 +1,16 @@
+id: r396
+englishName: 11-goldapple
+name: 护火贞女
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/Goldapple/11_goldapple.png
+flavor: ''
+setup: false
+reminders:
+  - 已得知
+remindersGlobal: []
+firstNightReminder: 展示1个善良角色标记和1个邪恶角色标记：其中一个在场。放置"已得知"在那个在场角色标记旁。
+otherNightReminder: 如果带有"已得知"标记的玩家今天死亡，移除标记。展示1个善良角色标记和1个邪恶角色标记：其中一个在场。放置"已得知"在那个在场角色标记旁。
+summary: 在你的首个夜晚，你会得知一个善良角色和一个邪恶角色，其中一个角色在场。当在场角色的玩家死亡时，你在当晚得知一个善良角色和一个邪恶角色，其中一个角色在场。
+keywords: townsfolk 首夜 夜晚 死亡
+ability: 在你的首个夜晚，你会得知一个善良角色和一个邪恶角色，其中一个角色在场。当在场角色的玩家死亡时，你在当晚得知一个善良角色和一个邪恶角色，其中一个角色在场。

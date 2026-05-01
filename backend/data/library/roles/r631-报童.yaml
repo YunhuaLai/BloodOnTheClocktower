@@ -1,0 +1,16 @@
+id: r631
+englishName: shiyizhezhezhezhe
+name: 报童
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/amnesiac.png
+flavor: ''
+setup: false
+reminders:
+  - 送报
+remindersGlobal: []
+firstNightReminder: 唤醒报童，让他选择一名玩家。
+otherNightReminder: 唤醒报童，让他选择一名玩家，以点头或摇头告知他该玩家和被他上次选择的玩家阵营是否相同
+summary: 每个夜晚，你可以选择一名玩家，你得知他和被你上次选择的玩家阵营是否相同
+keywords: townsfolk 首夜 夜晚
+ability: 每个夜晚，你可以选择一名玩家，你得知他和被你上次选择的玩家阵营是否相同

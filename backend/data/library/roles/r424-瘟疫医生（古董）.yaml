@@ -1,0 +1,17 @@
+id: r424
+englishName: dc0250a7-5d8c-4394-9291-21f1676dc6fw
+name: 瘟疫医生（古董）
+type: outsider
+edition: custom
+image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2d/Plaguedoctor.png/300px-Plaguedoctor.png
+flavor: ''
+setup: false
+reminders:
+  - 能力影响
+remindersGlobal:
+  - 瘟疫医生
+firstNightReminder: '0'
+otherNightReminder: '0'
+summary: 当你死亡时，说书人会获得一个不在场爪牙的能力。
+keywords: outsider 死亡
+ability: 当你死亡时，说书人会获得一个不在场爪牙的能力。

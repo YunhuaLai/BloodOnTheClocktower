@@ -4,4 +4,13 @@ type: townsfolk
 summary: 每晚选择玩家，命中爪牙后会关闭其能力，是压制爪牙的持续功能位。
 keywords: 每晚 爪牙 失能 压制
 englishName: preacher
-ability: 每晚选择一名玩家。如果选中爪牙，该爪牙得知被传教士选中，且所有被你选中过的爪牙失去能力。
+ability: 每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。所有被你选中的爪牙失去能力。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/preacher.png
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 唤醒传教士，让他选择一名玩家。如果他选中了爪牙，该爪牙失去能力。在传教士入睡后通知该爪牙被传教士选中。
+otherNightReminder: 唤醒传教士，让他选择一名玩家。如果他选中了爪牙，该爪牙失去能力。在传教士入睡后通知该爪牙被传教士选中。

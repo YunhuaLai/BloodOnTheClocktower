@@ -1,0 +1,18 @@
+id: r590
+englishName: snwostorm-weather
+name: 暴雪
+type: fabled
+edition: custom
+image: https://i.postimg.cc/90YCBSfw/image.png
+flavor: ''
+setup: false
+reminders:
+  - 放弃行动
+  - 死于暴雪
+remindersGlobal:
+  - ''
+firstNightReminder: ''
+otherNightReminder: ''
+summary: ' 夜间行动的善良玩家可以放弃行动，否则可能死亡。'
+keywords: fabled 死亡
+ability: ' 夜间行动的善良玩家可以放弃行动，否则可能死亡。'

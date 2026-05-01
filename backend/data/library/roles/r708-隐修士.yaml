@@ -1,0 +1,16 @@
+id: r708
+englishName: afonb
+name: 隐修士
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/meiosis/clockparadox/8_clockparadox.png
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果隐修士没有疯狂证明自己是任何一个角色，唤醒他并向他展示一条信息。
+summary: 如果你没有“疯狂”证明自己是任何一个角色，每个夜晚*，你会得知一条信息。
+keywords: townsfolk 夜晚
+ability: 如果你没有“疯狂”证明自己是任何一个角色，每个夜晚*，你会得知一条信息。

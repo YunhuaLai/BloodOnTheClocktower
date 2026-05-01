@@ -1,0 +1,18 @@
+id: r511
+englishName: wojiu111
+name: 军医
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/gambler.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+  - 使用一次
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒赌徒，让他进行猜测。如果猜测错误，他死亡。
+summary: 每局游戏限两次，在夜晚时，你可以选择一名存活的玩家，如果他将要死亡，他存活，反之亦然。恶魔不会因此死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 每局游戏限两次，在夜晚时，你可以选择一名存活的玩家，如果他将要死亡，他存活，反之亦然。恶魔不会因此死亡。

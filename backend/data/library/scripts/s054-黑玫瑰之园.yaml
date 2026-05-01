@@ -1,0 +1,77 @@
+id: s054
+englishName: item
+name: 黑玫瑰之园
+en: 黑玫瑰之园
+author: 裁纸机
+logo: ''
+description: D.R.G.
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: D.R.G.
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: D.R.G.
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r574
+  - r007
+  - r575
+  - r576
+  - r090
+  - r057
+  - r198
+  - r091
+  - r049
+  - r577
+  - r578
+  - r579
+  - r140
+  - r068
+  - r067
+  - r324
+  - r486
+  - r238
+  - r580
+  - r581
+  - r075
+  - r093
+  - r582
+travellerIds:
+  - r583
+fabledIds:
+  - r572
+  - r573
+nightOrder:
+  first:
+    - r576
+    - r575
+    - r075
+    - r093
+    - r580
+    - r049
+    - r198
+    - r140
+  other:
+    - r324
+    - r486
+    - r575
+    - r075
+    - r093
+    - r580
+    - r576
+    - r582
+    - r090
+    - r007
+    - r574
+    - r140
+    - r579
+    - r198
+    - r577

@@ -1,0 +1,16 @@
+id: r576
+englishName: thespian
+name: 悲剧演员
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Airell_clocktower/Assets_of_Lei_Gallery/newcharacter25_assets_of_lei_gallery.png
+flavor: ''
+setup: false
+reminders:
+  - 疯狂
+remindersGlobal: []
+firstNightReminder: 分别唤醒悲剧演员和一名邪恶玩家，告知他们需要疯狂证明的事。
+otherNightReminder: 分别唤醒悲剧演员和一名邪恶玩家，告知他们需要疯狂证明的事。
+summary: 每个白天，一名邪恶玩家要对某件事疯狂，否则他可能死亡。每个白天，你要对某件事疯狂，否则你可能死亡。
+keywords: townsfolk 首夜 夜晚 死亡
+ability: 每个白天，一名邪恶玩家和一名善良玩家要分别“疯狂”地证明某个事情，否则他们可能死亡。

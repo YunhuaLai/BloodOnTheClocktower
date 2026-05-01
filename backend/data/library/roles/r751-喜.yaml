@@ -1,0 +1,16 @@
+id: r751
+englishName: 20003-107
+name: 喜
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/djinn.png
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal:
+  - 失去能力
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 被处决的玩家不会死亡，改为失去能力。如果被处决的玩家是善良的，当晚一名善良玩家的能力可能产生错误效果。
+keywords: fabled 死亡
+ability: 被处决的玩家不会死亡，改为失去能力。如果被处决的玩家是善良的，当晚一名善良玩家的能力可能产生错误效果。

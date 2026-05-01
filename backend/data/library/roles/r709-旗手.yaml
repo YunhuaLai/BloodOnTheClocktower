@@ -1,0 +1,16 @@
+id: r709
+englishName: nxmckfljg
+name: 旗手
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/meiosis/clockparadox/4_clockparadox.png
+flavor: ''
+setup: false
+reminders:
+  - 在场
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果至少两个不同的角色拥有旗手白天提交的词语，唤醒他并对他指向一名有该词语的玩家。
+summary: 每个白天，你可以私下向说书人提交一个词语，如果至少两个不同的在场角色的能力描述中含有有该词语，当晚你会得知一名有该词语的玩家。
+keywords: townsfolk 夜晚
+ability: 每个白天，你可以私下向说书人提交一个词语，如果至少两个不同的在场角色的能力描述中含有有该词语，当晚你会得知一名有该词语的玩家。

@@ -1,0 +1,17 @@
+id: r556
+englishName: 17-juedou
+name: 亡灵骑士
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/JUEDOU/17_juedou.png
+flavor: ''
+setup: true
+reminders:
+  - 死亡
+  - 灵魂抽离
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果今天在唤醒亡灵骑士之前有外来者死亡，唤醒亡灵骑士，告知他死亡的外来者玩家是谁，并让他猜测具体角色，如果他猜中至少一名，标记一名玩家死亡，然后去除所有的“离魂抽离”标记。
+summary: 每个夜晚*，你会得知当天死亡的外来者是谁，且你要猜测他的角色，如果你猜对，会有一名玩家死亡。[+1外来者]
+keywords: minion 夜晚 设置 死亡
+ability: 每个夜晚*，你会得知当天死亡的外来者是谁，且你要猜测他的角色，如果你猜对，会有一名玩家死亡。[+1外来者]

@@ -1,0 +1,16 @@
+id: r599
+englishName: tempest
+name: 天气之子
+type: demon
+edition: custom
+image: https://i.postimg.cc/fWtV5d4k/diy.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 选择三个天气事件，触发其中两个事件。
+otherNightReminder: 每晚，选择三个的天气事件（非上次生效的两个天气事件），触发其中两个事件。并让他杀一个人
+summary: 每个夜晚*，你要选择一名玩家：他死亡。每晚，选择三个天气事件（非上次生效的两个天气事件），当天将生效其中两个天气事件。
+keywords: demon 首夜 夜晚 死亡
+ability: 每个夜晚*，你要选择一名玩家：他死亡。每晚，选择三个天气事件（非上次生效的两个天气事件），当天将生效其中两个天气事件。

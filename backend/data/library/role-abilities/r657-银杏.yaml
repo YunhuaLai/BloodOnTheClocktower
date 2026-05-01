@@ -1,0 +1,46 @@
+id: r657
+englishName: 11-guiyihuayuan
+name: 银杏
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 主动选择
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: each_day
+  eventTiming: null
+  usagePattern: once_per_day
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: seat
+        type: seat
+        label: 目标号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: answer
+        type: boolean
+        label: 是否
+        required: true
+        optionsSource: custom
+        options:
+          - 'yes'
+          - 'no'
+        min: null
+        max: null
+        placeholder: null

@@ -39,6 +39,210 @@ function getStorytellerSetupSummary(game) {
   }));
 }
 
+function getStorytellerSelectedPlayer(game) {
+  return (
+    game.players.find((player) => player.id === state.notes.ui.selectedPlayerId) ||
+    game.players[0] ||
+    null
+  );
+}
+
+function getStorytellerMarkerTokens(player) {
+  const tokens = [];
+  if (player.status !== "alive") {
+    tokens.push(getOptionLabel(noteStatusOptions, player.status));
+  }
+
+  const condition = player.condition === "drunk" ? "poisoned" : player.condition;
+  if (condition && condition !== "unknown") {
+    tokens.push(getOptionLabel(noteConditionOptions, condition));
+  }
+
+  String(player.storytellerNotes || "")
+    .split(/[，,、；;\n]/)
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .slice(0, 3)
+    .forEach((item) => tokens.push(item));
+
+  return tokens.slice(0, 5);
+}
+
+function renderStoryRoleToken(player, game) {
+  const role = getStorytellerRole(player, game);
+  return `
+    <span class="${getRoleBadgeClass(role)}">
+      ${escapeHtml(role ? typeLabels[role.type] : "未设")}
+    </span>
+  `;
+}
+
+function renderGrimoireSeat(player, game, index, selectedPlayer) {
+  const draft = getDraftOrPlayer(player);
+  const role = getStorytellerRole(draft, game);
+  const angle = (360 / Math.max(game.players.length, 1)) * index - 90;
+  const isSelected = player.id === selectedPlayer?.id;
+  const markerTokens = getStorytellerMarkerTokens(draft);
+
+  return `
+    <button
+      type="button"
+      class="story-grimoire-seat story-grimoire-seat--${escapeHtml(role?.type || "unknown")}${draft.status === "alive" ? "" : " is-dead"}${isSelected ? " is-selected" : ""}"
+      style="--seat-angle: ${angle}deg;"
+      data-notes-action="select-story-player"
+      data-player-id="${escapeHtml(player.id)}"
+      aria-pressed="${isSelected ? "true" : "false"}"
+    >
+      <span class="story-seat-number">${player.seat}</span>
+      <span class="story-seat-name">${escapeHtml(player.name || "未命名")}</span>
+      <strong>${escapeHtml(draft.trueRole || "未设置身份")}</strong>
+      <span class="story-seat-alignment">${escapeHtml(getOptionLabel(noteAlignmentOptions, draft.trueAlignment))}</span>
+      <span class="story-seat-markers">
+        ${
+          markerTokens.length
+            ? markerTokens
+                .map((token) => `<small>${escapeHtml(token)}</small>`)
+                .join("")
+            : `<small>无标记</small>`
+        }
+      </span>
+    </button>
+  `;
+}
+
+function renderGrimoireInspector(player, game) {
+  if (!player) {
+    return "";
+  }
+
+  const draft = getDraftOrPlayer(player);
+  const role = getStorytellerRole(draft, game);
+
+  return `
+    <aside class="story-grimoire-inspector" data-player-id="${escapeHtml(player.id)}">
+      <div class="story-inspector-title">
+        <div>
+          <p class="eyebrow">座位 ${player.seat}</p>
+          <h3>${escapeHtml(player.name || `${player.seat}号位`)}</h3>
+        </div>
+        ${renderStoryRoleToken(draft, game)}
+      </div>
+      <div class="story-inspector-grid">
+        <label class="note-field">
+          <span>真实身份</span>
+          <input
+            data-player-id="${escapeHtml(player.id)}"
+            data-field="trueRole"
+            list="roleNameList"
+            value="${escapeHtml(draft.trueRole)}"
+            placeholder="输入或搜索身份"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+          />
+        </label>
+        <label class="note-field">
+          <span>真实阵营</span>
+          <select data-player-id="${escapeHtml(player.id)}" data-field="trueAlignment">
+            ${renderSelectOptions(noteAlignmentOptions, draft.trueAlignment)}
+          </select>
+        </label>
+      </div>
+      <div class="story-row-cycles">
+        ${renderPlayerCycleField(draft, "status", "状态")}
+        ${renderPlayerCycleField(draft, "condition", "醉/毒")}
+      </div>
+      <label class="note-field note-field--wide">
+        <span>提醒标记</span>
+        <input
+          data-player-id="${escapeHtml(player.id)}"
+          data-field="storytellerNotes"
+          value="${escapeHtml(draft.storytellerNotes)}"
+          placeholder="例如 中毒、保护、红鲱鱼、一次性能力已用"
+        />
+      </label>
+      <div class="story-inspector-ability">
+        <strong>${escapeHtml(draft.trueRole || "未设置身份")}</strong>
+        <p>${escapeHtml(role?.ability || "选择真实身份后，这里会显示角色能力摘要。")}</p>
+      </div>
+    </aside>
+  `;
+}
+
+function renderStorytellerGrimoire(game) {
+  const selectedPlayer = getStorytellerSelectedPlayer(game);
+  const setup = getStorytellerSetupSummary(game);
+  const storyteller = getStorytellerState(game);
+
+  return `
+    <section class="story-grimoire-panel">
+      <div class="story-grimoire-header">
+        <div>
+          <p class="eyebrow">说书人魔典</p>
+          <h2>桌面局势</h2>
+        </div>
+        <div class="story-toolbar-actions">
+          <button type="button" class="primary-link" data-notes-action="random-assign-roles">随机分配</button>
+          <button type="button" class="secondary-link" data-notes-action="clear-assignments">清空</button>
+        </div>
+      </div>
+
+      <div class="story-grimoire-meta">
+        <div class="story-setup-counts">
+          ${setup
+            .map(
+              (item) => `
+                <span class="story-count${item.actual === item.expected ? " is-ok" : " is-warn"}">
+                  ${escapeHtml(item.label)} ${item.actual}/${item.expected}
+                </span>
+              `,
+            )
+            .join("")}
+        </div>
+        <div class="story-grimoire-bluffs">
+          <span>伪装</span>
+          ${Array.from({ length: 3 }, (_, index) => `
+            <input
+              list="roleNameList"
+              data-storyteller-bluff="${index}"
+              value="${escapeHtml(storyteller.bluffs[index] || "")}"
+              placeholder="伪装 ${index + 1}"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+            />
+          `).join("")}
+        </div>
+      </div>
+
+      <div class="story-grimoire-layout">
+        <div class="story-grimoire-board" aria-label="说书人魔典座位盘">
+          <div class="story-grimoire-center">
+            <span>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))}</span>
+            <strong>${getAliveCount(game)} / ${game.playerCount}</strong>
+            <small>${escapeHtml(game.scriptName || "未选剧本")}</small>
+          </div>
+          ${game.players
+            .map((player, index) =>
+              renderGrimoireSeat(player, game, index, selectedPlayer),
+            )
+            .join("")}
+        </div>
+        ${renderGrimoireInspector(selectedPlayer, game)}
+      </div>
+
+      <label class="note-field note-field--wide">
+        <span>开局备注</span>
+        <textarea
+          data-storyteller-field="setupNotes"
+          rows="3"
+          placeholder="酒鬼以为什么身份、红鲱鱼、特殊配置、第一天要记的裁量"
+        >${escapeHtml(storyteller.setupNotes)}</textarea>
+      </label>
+    </section>
+  `;
+}
+
 function renderStorytellerSetupTools(game) {
   const setup = getStorytellerSetupSummary(game);
   const storyteller = getStorytellerState(game);
@@ -283,10 +487,10 @@ function renderStorytellerTab(game) {
 
   return `
     <div class="story-console">
-      ${renderStorytellerSetupTools(game)}
-      ${renderStorytellerManualPanel(game)}
+      ${renderStorytellerGrimoire(game)}
       ${renderNightOrderPanel(game)}
       ${renderPublicBoardPanel(game)}
+      ${renderStorytellerManualPanel(game)}
     </div>
   `;
 }

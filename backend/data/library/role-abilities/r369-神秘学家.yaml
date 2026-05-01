@@ -1,0 +1,36 @@
+id: r369
+englishName: oc1
+name: 神秘学家
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 设置
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: each_day
+  eventTiming: null
+  usagePattern: once_per_day
+  activationMode: passive
+  drivenBy: system
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: note
+        type: text
+        label: 记录
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: 导入初稿，请按角色能力调整结构化字段。

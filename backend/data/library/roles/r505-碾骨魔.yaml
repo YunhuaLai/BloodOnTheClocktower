@@ -1,0 +1,16 @@
+id: r505
+englishName: grist
+name: 碾骨魔
+type: demon
+edition: custom
+image: https://i.postimg.cc/KctHnmNV/grist.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒碾骨魔，让他指向一名玩家。那名玩家死亡。如果碾骨魔死于角色能力，说书人选择一名爪牙，将他的角色标记替换为碾骨魔的角色标记。唤醒该玩家，向他展示“你是”提示卡，并展示碾骨魔的角色标记。
+summary: 每个夜晚*，你要选择一名玩家：他死亡。如果你死于角色能力，会有一名爪牙变为邪恶的碾骨魔。
+keywords: demon 夜晚 死亡
+ability: 每个夜晚*，你要选择一名玩家：他死亡。如果你死于角色能力，会有一名爪牙变为邪恶的碾骨魔。

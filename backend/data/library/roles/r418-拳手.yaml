@@ -1,0 +1,17 @@
+id: r418
+englishName: tunhuoyiren
+name: 拳手
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/EquinoxFlower/12_equinoxflower.png
+flavor: ''
+setup: false
+reminders:
+  - 挑战
+  - 守护
+remindersGlobal: []
+firstNightReminder: 让他选择一名玩家，给该玩家标记挑战。
+otherNightReminder: 让他选择一名玩家，给该玩家标记挑战。
+summary: 每个夜晚，你要选择一名玩家：下个白天，在你存活时如果他死于处决，与他邻近的两名存活善良玩家在当晚不会受邪恶角色的能力影响直到下个黄昏，即使你已死亡。
+keywords: townsfolk 首夜 夜晚 死亡
+ability: 每个夜晚，你要选择一名玩家：下个白天，如果在你存活时他死于处决，他邻近的两名存活善良玩家在当晚不受邪恶能力影响直到下个黄昏，即使你已死亡。

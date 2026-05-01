@@ -1,0 +1,16 @@
+id: r482
+englishName: 11-spacebound
+name: 猎犬饲养员
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/spdm/SpaceBound/11_spacebound.png
+flavor: ''
+setup: false
+reminders:
+  - 浊气
+remindersGlobal: []
+firstNightReminder: 唤醒猎犬饲养员，展示被邪恶玩家的能力选择的存活玩家与他的最近距离。
+otherNightReminder: 唤醒猎犬饲养员，展示被邪恶玩家的能力选择的存活玩家与他的最近距离。
+summary: 每个夜晚，你得知当晚被邪恶玩家能力选择的存活玩家与你的最近距离。
+keywords: townsfolk 首夜 夜晚
+ability: 每个夜晚，你得知当晚被邪恶玩家能力选择的存活玩家与你的最近距离。

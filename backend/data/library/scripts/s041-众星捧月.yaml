@@ -1,0 +1,71 @@
+id: s041
+englishName: item
+name: 众星捧月
+en: 众星捧月
+author: 幺丁
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r049
+  - r227
+  - r307
+  - r062
+  - r056
+  - r055
+  - r054
+  - r057
+  - r005
+  - r006
+  - r060
+  - r058
+  - r278
+  - r091
+  - r361
+  - r072
+  - r362
+  - r363
+  - r037
+  - r364
+  - r365
+travellerIds: []
+fabledIds:
+  - r366
+nightOrder:
+  first:
+    - r005
+    - r006
+    - r048
+    - r058
+    - r049
+    - r227
+    - r307
+  other:
+    - r365
+    - r364
+    - r037
+    - r363
+    - r278
+    - r005
+    - r006
+    - r054
+    - r055
+    - r056
+    - r058
+    - r062
+    - r361

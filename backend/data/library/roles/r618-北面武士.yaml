@@ -1,0 +1,16 @@
+id: r618
+englishName: jianghu-beimianwushi
+name: 北面武士
+type: townsfolk
+edition: custom
+image: https://www.helloimg.com/i/2024/10/31/6723885f61c2a.png
+flavor: ''
+setup: false
+reminders:
+  - 守护
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒北面武士，让北面武士选择一名玩家。如果被选择的玩家是镇民，放置提示标记。如果选择了镇民的夜晚北面武士死亡，被选择的镇民一同死亡。
+summary: 每个夜晚*，你要选择一名除你以外的玩家：如果他是镇民，他不会在今晚死亡，如果你死亡，他也死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 每个夜晚*，你要选择一名除你以外的玩家：如果他是镇民，他不会在今晚死亡，如果你死亡，他也死亡。

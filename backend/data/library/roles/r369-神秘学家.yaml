@@ -1,0 +1,16 @@
+id: r369
+englishName: oc1
+name: 神秘学家
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/JUEDOU/6_juedou.png
+flavor: ''
+setup: true
+reminders:
+  - 错误信息
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 每个白天，你可以私下询问说书人并得知一条正确信息。如果因你的能力导致减少了一名外来者，你获得的信息会是错误的。[-1或-0外来者]
+keywords: townsfolk 设置
+ability: 每个白天，你可以私下询问说书人并得知一条正确信息。如果因你的能力导致减少了一名外来者，你获得的信息会是错误的。[-1或-0外来者]

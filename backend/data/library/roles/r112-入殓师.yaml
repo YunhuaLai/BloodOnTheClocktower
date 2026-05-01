@@ -4,4 +4,13 @@ type: outsider
 summary: 若提名并处决恶魔，会变成邪恶恶魔；四名或更少存活玩家时失去能力。
 keywords: 提名 处决 恶魔 阵营转变 失去能力
 englishName: embalmer
-ability: 如果你提名并处决了恶魔，你会变成邪恶的恶魔。当剩余存活玩家小于等于四人时，除旅行者外，你失去能力。
+ability: 如果你提名并处决了恶魔，你会变成邪恶的恶魔。当剩余存活玩家小于等于四人时（旅行者除外），你失去能力。
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_5757097694761_2de60c7b.jpg
+flavor: ''
+setup: false
+reminders:
+  - 是恶魔
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果白天入殓师提名了恶魔且恶魔被处决，唤醒他，并对他展示“你是”提示标记和恶魔角色标记。

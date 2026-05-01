@@ -1,0 +1,16 @@
+id: r235
+englishName: humeiniang-c
+name: 狐媚娘
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202310/c_4772055308961_7bc92354.jpg
+flavor: ''
+setup: false
+reminders:
+  - 被魅惑
+remindersGlobal: []
+firstNightReminder: 唤醒狐媚娘，让她选择一名玩家。标记那名玩家“被魅惑”。随后唤醒那名玩家，对他展示“该角色的能力对你触发”和狐媚娘角色标记。
+otherNightReminder: 如果今日狐媚娘死于处决，且被魅惑的玩家为善良阵营，唤醒被魅惑的玩家，对他展示“你是”和朝下的大拇指。
+summary: 在你的首个夜晚，你要选择一名玩家：他会知道狐媚娘在场。如果你死于处决，当晚他转变为邪恶阵营。
+keywords: minion 首夜 夜晚
+ability: 在你的首个夜晚，你要选择一名玩家：他会知道狐媚娘在场。如果你死于处决，当晚他转变为邪恶阵营。

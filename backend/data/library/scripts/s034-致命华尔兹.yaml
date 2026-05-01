@@ -1,0 +1,77 @@
+id: s034
+englishName: item
+name: 致命华尔兹
+en: 致命华尔兹
+author: 不是鱼子酱
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f7/62f4ys3dd8tqhfbueg97o1g3bq1957s.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r087
+  - r462
+  - r089
+  - r033
+  - r115
+  - r029
+  - r010
+  - r463
+  - r015
+  - r067
+  - r071
+  - r358
+  - r315
+  - r302
+  - r464
+  - r099
+  - r136
+travellerIds:
+  - r467
+fabledIds:
+  - r288
+  - r465
+  - r466
+nightOrder:
+  first:
+    - r288
+    - r136
+    - r115
+    - r071
+    - r148
+    - r119
+    - r302
+    - r315
+    - r139
+    - r461
+    - r003
+    - r087
+  other:
+    - r302
+    - r460
+    - r463
+    - r029
+    - r042
+    - r099
+    - r136
+    - r459
+    - r087
+    - r132
+    - r081
+    - r139
+    - r458
+    - r288
+    - r466

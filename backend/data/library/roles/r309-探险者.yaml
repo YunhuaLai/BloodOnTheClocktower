@@ -1,0 +1,16 @@
+id: r309
+englishName: 15-chenfengjiuguan
+name: 探险者
+type: townsfolk
+edition: custom
+image: https://s21.ax1x.com/2025/06/08/pViX2DA.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果探险者提名了邪恶玩家，标记一名邻近的存活善良玩家死亡。
+summary: 如果你提名了邪恶玩家，会有一名与你邻近的存活善良玩家在当晚死亡。
+keywords: townsfolk 夜晚 死亡
+ability: 如果你提名了邪恶玩家，会有一名与你邻近的存活善良玩家在当晚死亡。

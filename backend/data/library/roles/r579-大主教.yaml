@@ -1,0 +1,16 @@
+id: r579
+englishName: 3-sheshecup11
+name: 大主教
+type: townsfolk
+edition: custom
+image: https://postimage.me/images/2024/08/01/8ec3ba3ce389b931e15d1662ede9c473.png
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 大主教可以选择发动能力，如果他这么做了，告诉他与死亡玩家数量相等的善良角色，其中有且只有一个角色不在场。随后标记大主教失去能力，之后的夜晚无需再唤醒大主教。
+summary: 每局游戏限一次，在夜晚时*，你可以选择得知与死亡玩家数量相等的善良角色，其中有且只有一个角色不在场。
+keywords: townsfolk 夜晚 死亡
+ability: 每局游戏限一次，在夜晚时*，你可以选择得知与死亡玩家数量相等的善良角色，其中有且只有一个角色不在场。

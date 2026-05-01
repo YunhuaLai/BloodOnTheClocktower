@@ -1,0 +1,17 @@
+id: r311
+englishName: tyconn
+name: 大亨
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202412/c_3293113105371_3bc86fce.jpg
+flavor: ''
+setup: false
+reminders:
+  - 醉酒
+  - 握手
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 告知大亨今天白天同其握手的玩家中是否有邪恶的。
+summary: 一名与你握手的玩家可能会醉酒直到明天黄昏。每个夜晚*，你会得知你是否在今天白天与邪恶玩家握手。
+keywords: townsfolk 夜晚 醉酒
+ability: 一名与你握手的玩家可能会醉酒直到明天黄昏。每个夜晚*，你会得知你是否在今天白天与邪恶玩家握手。

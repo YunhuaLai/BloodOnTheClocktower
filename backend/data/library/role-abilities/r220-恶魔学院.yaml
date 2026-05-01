@@ -1,0 +1,44 @@
+id: r220
+englishName: 24-emoxueyuan
+name: 恶魔学院
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: true
+reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+tags:
+  - 主动选择
+abilityMeta:
+  pageType: pick_and_record
+  phaseTiming: passive
+  eventTiming: null
+  usagePattern: passive
+  activationMode: active
+  drivenBy: player
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: seat
+        type: seat
+        label: 目标号码
+        required: true
+        optionsSource: null
+        options: null
+        min: 1
+        max: 15
+        placeholder: null
+  result:
+    repeatMode: sequence
+    defaultRows: 3
+    fields:
+      - key: note
+        type: text
+        label: 记录
+        required: false
+        optionsSource: null
+        options: null
+        min: null
+        max: null
+        placeholder: 导入初稿，请按角色能力调整结构化字段。

@@ -1,0 +1,36 @@
+id: r371
+englishName: 30d53741-94d7-4c7d-b9b3-56a24aa70e86
+name: 暮光精灵
+schemaVersion: 1
+generatedFromOfficial: true
+needsReview: false
+reviewReason: ''
+tags:
+  - 首夜
+  - 信息型
+abilityMeta:
+  pageType: record_result_only
+  phaseTiming: first_night
+  eventTiming: null
+  usagePattern: once
+  activationMode: passive
+  drivenBy: storyteller
+  recordable: true
+interactionSchema:
+  target:
+    repeatMode: none
+    defaultRows: 0
+    fields: []
+  result:
+    repeatMode: once
+    defaultRows: 1
+    fields:
+      - key: count
+        type: number
+        label: 数量
+        required: true
+        optionsSource: null
+        options: null
+        min: 0
+        max: 15
+        placeholder: null

@@ -1,0 +1,16 @@
+id: r626
+englishName: ezihua
+name: 恶之花
+type: demon
+edition: custom
+image: https://i.postimg.cc/L8kRRpPj/image.png
+flavor: ''
+setup: false
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让恶之花选择一名存活的善良玩家，唤醒这名玩家，向他展示“恶之花”的角色标记，让他再选择一名存活玩家，标记他们死亡。
+summary: 每个夜晚*，你要选择一名存活的善良玩家：他会被唤醒并要选择除他以外的一名存活玩家，他们死亡。如果你以这种方式死亡，邪恶阵营获胜。
+keywords: demon 夜晚 死亡
+ability: 每个夜晚*，你要选择一名存活的善良玩家：他会被唤醒并要选择除他以外的一名存活玩家，他们死亡。如果你以这种方式死亡，邪恶阵营获胜。

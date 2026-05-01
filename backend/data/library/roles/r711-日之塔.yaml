@@ -1,0 +1,16 @@
+id: r711
+englishName: euktds
+name: 日之塔
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/meiosis/clockparadox/6_clockparadox.png
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果日之塔尚未使用能力，唤醒日之塔，他可以点头或摇头来示意是否使用能力。
+summary: 每局游戏限一次，在夜晚时*，你可以让当晚所有的死亡统一延迟到黎明时。
+keywords: townsfolk 夜晚 死亡
+ability: 每局游戏限一次，在夜晚时*，你可以让当晚所有的死亡统一延迟到黎明时。

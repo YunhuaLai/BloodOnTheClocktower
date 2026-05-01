@@ -1,0 +1,16 @@
+id: r278
+englishName: 15-sanshenmiti
+name: 秉笔
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bingbi.png
+flavor: ''
+setup: false
+reminders:
+  - 死于今日
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 在夜晚时，如果秉笔旁放置了“死于今日”提示标记，唤醒秉笔。对他指向一名善良玩家。让秉笔重新入睡。移除“死于今日”提示标记。如果秉笔在夜晚死亡，唤醒秉笔。对他指向一名邪恶玩家。让秉笔重新入睡。
+summary: 如果你在白天死亡，当晚你会得知一名善良玩家。如果你在夜晚死亡，当晚你会得知一名邪恶玩家。
+keywords: townsfolk 夜晚 死亡
+ability: 如果你在白天死亡，当晚你会得知一名善良玩家。如果你在夜晚死亡，当晚你会得知一名邪恶玩家。

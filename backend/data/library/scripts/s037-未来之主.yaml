@@ -1,0 +1,86 @@
+id: s037
+englishName: item
+name: 未来之主
+en: 未来之主
+author: Tiger小王
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r003
+  - r100
+  - r006
+  - r327
+  - r054
+  - r091
+  - r328
+  - r058
+  - r024
+  - r140
+  - r329
+  - r025
+  - r067
+  - r069
+  - r037
+  - r038
+  - r302
+  - r018
+  - r330
+  - r076
+  - r021
+  - r080
+  - r331
+  - r045
+travellerIds: []
+fabledIds:
+  - r332
+nightOrder:
+  first:
+    - r331
+    - r024
+    - r302
+    - r045
+    - r328
+    - r001
+    - r003
+    - r327
+    - r006
+    - r058
+    - r140
+    - r100
+    - r025
+    - r018
+  other:
+    - r024
+    - r329
+    - r076
+    - r302
+    - r021
+    - r045
+    - r331
+    - r080
+    - r330
+    - r328
+    - r037
+    - r327
+    - r006
+    - r054
+    - r058
+    - r140
+    - r025
+    - r018

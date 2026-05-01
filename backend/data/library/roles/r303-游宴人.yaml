@@ -1,0 +1,16 @@
+id: r303
+englishName: 27-zhiminghuaerzi
+name: 游宴人
+type: minion
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/0/05/pt6cih3q0etin64mt9lqj2sxz5bwarj.png
+flavor: ''
+setup: true
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 首个夜晚，选择一名玩家：他拥有毒药并中毒。
+otherNightReminder: 每个夜晚*，毒药会顺时针传给下个存活镇民：他中毒。
+summary: 首个夜晚，选择一名玩家：他拥有毒药并中毒。每个夜晚*，毒药会顺时针传给下个存活镇民：他中毒。[+0~1外来者]
+keywords: minion 首夜 夜晚 设置 中毒
+ability: 首个夜晚，选择一名玩家：他拥有毒药并中毒。每个夜晚*，毒药会顺时针传给下个存活镇民：他中毒。[+0~1外来者]

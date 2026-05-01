@@ -1,0 +1,17 @@
+id: r201
+englishName: c05lq1
+name: 殉道者
+type: outsider
+edition: custom
+image:
+  - https://free.picui.cn/free/2025/09/24/68d2c79dbdd30.png
+flavor: 我不害怕狮子，也不害怕罗马人，不怕任何来自深渊的怪兽.因为我的无敌的神与我同在
+setup: false
+reminders: []
+remindersGlobal:
+  - MARTYRED
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 如果你死亡且下一个死亡的玩家是恶魔，你的阵营落败.
+keywords: outsider 死亡
+ability: 如果你死亡且下一个死亡的玩家是恶魔，你的阵营落败.

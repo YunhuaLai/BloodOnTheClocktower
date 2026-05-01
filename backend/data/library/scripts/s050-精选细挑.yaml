@@ -1,0 +1,93 @@
+id: s050
+englishName: item
+name: 精选细挑
+en: 精选细挑
+author: 蓝
+logo: https://www.bloodstar.xyz/p/bluebell/jtxx/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/bluebell/jtxx/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r523
+  - r524
+  - r525
+  - r526
+  - r527
+  - r051
+  - r006
+  - r528
+  - r529
+  - r530
+  - r531
+  - r532
+  - r533
+  - r016
+  - r111
+  - r119
+  - r534
+  - r535
+  - r302
+  - r536
+  - r537
+  - r538
+  - r539
+  - r540
+  - r541
+travellerIds: []
+fabledIds:
+  - r521
+  - r522
+nightOrder:
+  first:
+    - r538
+    - r541
+    - r536
+    - r111
+    - r302
+    - r532
+    - r523
+    - r006
+    - r051
+    - r525
+    - r526
+    - r529
+    - r528
+    - r524
+    - r531
+    - r533
+    - r530
+    - r535
+  other:
+    - r111
+    - r527
+    - r538
+    - r541
+    - r540
+    - r539
+    - r537
+    - r302
+    - r532
+    - r006
+    - r051
+    - r525
+    - r526
+    - r529
+    - r528
+    - r524
+    - r531
+    - r533
+    - r530
+    - r535

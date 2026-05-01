@@ -1,0 +1,16 @@
+id: r621
+englishName: qiaoqiaoqiaoqiaojiang
+name: 巧匠
+type: townsfolk
+edition: custom
+image: ''
+flavor: ''
+setup: false
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 唤醒巧匠，指向一名镇民玩家。
+otherNightReminder: 唤醒巧匠，指向一名镇民玩家。
+summary: 每个夜晚，你得知一名镇民玩家。如果有非镇民玩家死亡，你失去能力。恶魔始终被当做镇民。
+keywords: townsfolk 首夜 夜晚 死亡
+ability: 每个夜晚，你得知一名镇民玩家。如果有非镇民玩家死亡，你失去能力。恶魔始终被当做镇民。

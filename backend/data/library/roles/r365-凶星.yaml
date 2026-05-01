@@ -1,0 +1,17 @@
+id: r365
+englishName: 1-zxpy
+name: 凶星
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202506/c_3372343740571_56a0ec81.jpg
+flavor: ''
+setup: true
+reminders:
+  - “死亡”
+remindersGlobal:
+  - “是凶星”
+firstNightReminder: 在初始设置时，移除所有邪恶角色的标记，改为放入等量的善良角色标记。说书人指定若干不邻座的角色标记旁放置“是凶星”提示标记。
+otherNightReminder: 唤醒所有死亡的凶星，让他们共同选择一名玩家，在其角色标记旁放置“死亡”提示标记。
+summary: 你以为你是一个善良角色。 你会在死亡的当晚得知恶魔。每个夜晚*，所有死亡的凶星共同被唤醒，选择一名玩家：他死亡。[邪恶玩家均不邻座]
+keywords: minion 夜晚 设置 死亡
+ability: 你以为你是一个善良角色。 你会在死亡的当晚得知恶魔。每个夜晚*，所有死亡的凶星共同被唤醒，选择一名玩家：他死亡。[邪恶玩家均不邻座]

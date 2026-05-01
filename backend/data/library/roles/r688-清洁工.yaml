@@ -1,0 +1,17 @@
+id: r688
+englishName: qingjiegong
+name: 清洁工
+type: minion
+edition: custom
+image: https://i.postimg.cc/Px2BsbhL/image.png
+flavor: ''
+setup: false
+reminders:
+  - 获得能力
+  - 得知
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+summary: 你拥有上个被处决爪牙的能力。首个死亡的玩家得知清洁工在场。如果你存活，善良阵营无法获胜。
+keywords: minion 死亡
+ability: 你拥有上个被处决爪牙的能力。首个死亡的玩家得知清洁工在场。如果你存活，善良阵营无法获胜。

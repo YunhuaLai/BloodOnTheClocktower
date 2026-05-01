@@ -31,6 +31,7 @@ flavor: ''
 setup: false
 reminders:
   - 主人
-remindersGlobal: []
-firstNightReminder: 唤醒管家，让他选择一名除自己以外的玩家，那名玩家成为他的主人。
-otherNightReminder: 唤醒管家，让他选择一名除自己以外的玩家，那名玩家成为他的主人。
+remindersGlobal:
+  - 管家
+firstNightReminder: 让管家选择一名玩家。标记那名玩家为他的主人。
+otherNightReminder: 让管家选择一名玩家。标记那名玩家为他的主人。

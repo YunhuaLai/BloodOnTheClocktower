@@ -1,0 +1,16 @@
+id: r493
+englishName: agentzero
+name: 零号特工
+type: townsfolk
+edition: custom
+image: ''
+flavor: ''
+setup: false
+reminders:
+  - 任务完成
+remindersGlobal: []
+firstNightReminder: 唤醒零号特工，悄悄向他展示一条秘密任务。
+otherNightReminder: 如果零号特工完成了任务，在合适的时机唤醒他，给与他报酬。
+summary: 在你的首个夜晚，你得知一条秘密任务，任务完成后会得到对应的报酬。
+keywords: townsfolk 首夜
+ability: 在你的首个夜晚，你得知一条秘密任务，任务完成后会得到对应的报酬。
