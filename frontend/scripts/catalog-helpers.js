@@ -1,43 +1,46 @@
-function getScriptById(id) {
+import { importantAbilityPhrases, oneInOneOutRoleOrder, roleTypeOrder, state, typeLabels } from "./state.js";
+import { escapeHtml } from "./utils.js";
+
+export function getScriptById(id) {
   return state.scripts.find((script) => script.id === id);
 }
 
-function getRoleById(id) {
+export function getRoleById(id) {
   return state.roles.find((role) => role.id === id);
 }
 
-function getTermById(id) {
+export function getTermById(id) {
   return state.terms.find((term) => term.id === id);
 }
 
-function getScriptsForRole(role) {
+export function getScriptsForRole(role) {
   const scriptIds = role.scriptIds || [role.scriptId];
   return scriptIds.map(getScriptById).filter(Boolean);
 }
 
-function getRoleScriptLabel(role) {
+export function getRoleScriptLabel(role) {
   return (role.scriptNames || []).join(" / ") || role.script || "未归属剧本";
 }
 
-function getTermForKeyword(keyword) {
+export function getTermForKeyword(keyword) {
   return state.terms.find((term) => {
     const names = [term.name, ...(term.aliases || [])];
     return names.some((name) => name === keyword);
   });
 }
 
-function splitKeywords(keywords) {
+export function splitKeywords(keywords) {
   return String(keywords || "")
     .split(/\s+/)
     .map((keyword) => keyword.trim())
     .filter(Boolean);
 }
 
-function listItems(items) {
+export function listItems(items) {
   return `<ul class="detail-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
 }
 
-function detailBlock(title, content) {
+export function detailBlock(title, content) {
   const body = Array.isArray(content)
     ? listItems(content)
     : `<p>${escapeHtml(content)}</p>`;
@@ -50,7 +53,7 @@ function detailBlock(title, content) {
   `;
 }
 
-function compactListLinks(items, type) {
+export function compactListLinks(items, type) {
   if (!items.length) {
     return `<p class="muted">当前还没有录入关联条目。</p>`;
   }
@@ -71,7 +74,7 @@ function compactListLinks(items, type) {
   `;
 }
 
-function getCompactLabel(item, type) {
+export function getCompactLabel(item, type) {
   if (type === "roles") {
     return escapeHtml(typeLabels[item.type] || item.type);
   }
@@ -83,17 +86,17 @@ function getCompactLabel(item, type) {
   return escapeHtml(item.level);
 }
 
-function getRoleTypeSortValue(role) {
+export function getRoleTypeSortValue(role) {
   const index = roleTypeOrder.indexOf(role.type);
   return index === -1 ? roleTypeOrder.length : index;
 }
 
-function getOneInOneOutSortValue(role) {
+export function getOneInOneOutSortValue(role) {
   const index = oneInOneOutRoleOrder.indexOf(role.englishName || role.id);
   return index === -1 ? Number.MAX_SAFE_INTEGER : index;
 }
 
-function sortScriptRoles(script, roles) {
+export function sortScriptRoles(script, roles) {
   if ((script.englishName || script.id) !== "one-in-one-out") {
     return roles;
   }
@@ -103,11 +106,11 @@ function sortScriptRoles(script, roles) {
   });
 }
 
-function renderScriptRoleList(script, roles) {
+export function renderScriptRoleList(script, roles) {
   return compactListLinks(sortScriptRoles(script, roles), "roles");
 }
 
-function sortCatalogRoles(roles) {
+export function sortCatalogRoles(roles) {
   return roles
     .map((role, index) => ({ role, index }))
     .sort((left, right) => {
@@ -129,7 +132,7 @@ function sortCatalogRoles(roles) {
     .map(({ role }) => role);
 }
 
-function renderKeywordLinks(keywords) {
+export function renderKeywordLinks(keywords) {
   const tokens = splitKeywords(keywords);
   if (!tokens.length) {
     return `<p class="muted">当前没有关键词。</p>`;
@@ -151,7 +154,7 @@ function renderKeywordLinks(keywords) {
   `;
 }
 
-function getInlineTermMatches() {
+export function getInlineTermMatches() {
   return state.terms.flatMap((term) => {
     const names = [term.name, ...(term.aliases || [])];
     return names.map((name) => ({
@@ -162,7 +165,7 @@ function getInlineTermMatches() {
   });
 }
 
-function renderRichText(value) {
+export function renderRichText(value) {
   const source = String(value || "");
   const candidates = [
     ...getInlineTermMatches(),
@@ -209,7 +212,7 @@ function renderRichText(value) {
   return html;
 }
 
-function abilityBlock(role) {
+export function abilityBlock(role) {
   return `
     <section class="ability-block">
       <p class="eyebrow">角色能力</p>

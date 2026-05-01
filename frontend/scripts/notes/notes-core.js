@@ -1,10 +1,13 @@
+import { phaseTypeOptions } from "../state.js";
+import { getOptionLabel } from "../utils.js";
+
 // Split from notes-render.js. Keep script order in index.html.
 
-function formatPhaseLabel(phaseType, phaseNumber) {
+export function formatPhaseLabel(phaseType, phaseNumber) {
   return `${getOptionLabel(phaseTypeOptions, phaseType)} ${phaseNumber}`;
 }
 
-function getStandardSetup(playerCount) {
+export function getStandardSetup(playerCount) {
   const setups = {
     5: { townsfolk: 3, outsider: 0, minion: 1, demon: 1 },
     6: { townsfolk: 3, outsider: 1, minion: 1, demon: 1 },
@@ -22,11 +25,11 @@ function getStandardSetup(playerCount) {
   return setups[playerCount] || setups[10];
 }
 
-function getAliveCount(game) {
+export function getAliveCount(game) {
   return game.players.filter((player) => player.status === "alive").length;
 }
 
-function getPlayerLabel(player, game) {
+export function getPlayerLabel(player, game) {
   const name = String(player.name || "").trim();
   const seatLabel = `${player.seat}号位`;
   if (name) {
@@ -40,7 +43,7 @@ function getPlayerLabel(player, game) {
   return seatLabel;
 }
 
-function getClaimAbbreviation(claim) {
+export function getClaimAbbreviation(claim) {
   const text = String(claim || "").trim();
   if (!text) {
     return "--";
@@ -64,11 +67,11 @@ function getClaimAbbreviation(claim) {
   return compact.slice(0, 2).toUpperCase();
 }
 
-function getSeatLabel(player) {
+export function getSeatLabel(player) {
   return `${player.seat}号位`;
 }
 
-function getOverviewSecondaryText(player) {
+export function getOverviewSecondaryText(player) {
   if (player.extraInfo) {
     return String(player.extraInfo).trim().replace(/\s+/g, " ");
   }

@@ -1,4 +1,5 @@
 const { spawnSync } = require("node:child_process");
+const os = require("node:os");
 const fs = require("node:fs");
 const path = require("node:path");
 
@@ -21,8 +22,27 @@ const files = CHECK_DIRS.flatMap((directory) =>
   collectJavaScriptFiles(path.join(ROOT_DIR, directory)),
 ).sort();
 
+const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "botc-js-check-"));
+
+function getCheckPath(file) {
+  const relativePath = path.relative(ROOT_DIR, file);
+  const isFrontendScript = relativePath.startsWith(`frontend${path.sep}`);
+
+  if (!isFrontendScript) {
+    return file;
+  }
+
+  const tempFile = path.join(
+    tempDir,
+    `${relativePath.replace(/[\\/]/g, "__")}.mjs`,
+  );
+  fs.writeFileSync(tempFile, fs.readFileSync(file, "utf8"));
+  return tempFile;
+}
+
 for (const file of files) {
-  const result = spawnSync(process.execPath, ["--check", file], {
+  const checkPath = getCheckPath(file);
+  const result = spawnSync(process.execPath, ["--check", checkPath], {
     stdio: "inherit",
   });
 
@@ -30,3 +50,5 @@ for (const file of files) {
     process.exit(result.status || 1);
   }
 }
+
+fs.rmSync(tempDir, { recursive: true, force: true });

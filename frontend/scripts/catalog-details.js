@@ -1,4 +1,8 @@
-function renderScriptDetail(id) {
+import { abilityBlock, compactListLinks, detailBlock, getRoleById, getRoleScriptLabel, getScriptById, getScriptsForRole, getTermById, renderKeywordLinks, renderScriptRoleList } from "./catalog-helpers.js";
+import { app, state, typeDescriptions, typeLabels } from "./state.js";
+import { escapeHtml } from "./utils.js";
+
+export function renderScriptDetail(id) {
   const script = getScriptById(id);
 
   if (!script) {
@@ -46,7 +50,7 @@ function renderScriptDetail(id) {
   `;
 }
 
-function renderRoleDetail(id) {
+export function renderRoleDetail(id) {
   const role = getRoleById(id);
 
   if (!role) {
@@ -110,7 +114,7 @@ function renderRoleDetail(id) {
   `;
 }
 
-function renderTermDetail(id) {
+export function renderTermDetail(id) {
   const term = getTermById(id);
 
   if (!term) {
@@ -164,7 +168,7 @@ function renderTermDetail(id) {
   `;
 }
 
-function renderNotFound(message = "这个页面不存在。") {
+export function renderNotFound(message = "这个页面不存在。") {
   document.title = "未找到 · 血染钟楼百科";
   app.innerHTML = `
     <section class="not-found">
@@ -176,7 +180,7 @@ function renderNotFound(message = "这个页面不存在。") {
   `;
 }
 
-function renderLoadError() {
+export function renderLoadError() {
   document.title = "资料加载失败 · 血染钟楼百科";
   app.innerHTML = `
     <section class="not-found">

@@ -1,10 +1,14 @@
+import { phaseTypeOptions, state, timelineTypeOptions } from "../state.js";
+import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
+import { formatPhaseLabel } from "./notes-core.js";
+
 // Split from notes-render.js. Keep script order in index.html.
 
-function getTimelineTypeLabel(value) {
+export function getTimelineTypeLabel(value) {
   return getOptionLabel(timelineTypeOptions, value);
 }
 
-function formatTimelineTime(value) {
+export function formatTimelineTime(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) {
     return "";
@@ -18,7 +22,7 @@ function formatTimelineTime(value) {
   }).format(date);
 }
 
-function renderTimelineEntries(game) {
+export function renderTimelineEntries(game) {
   if (!game.timeline.length) {
     return `<div class="empty-state">还没有时间线，先记一条今天最重要的信息。</div>`;
   }
@@ -47,7 +51,7 @@ function renderTimelineEntries(game) {
     .join("");
 }
 
-function renderTimelineTab(game) {
+export function renderTimelineTab(game) {
   return `
     <section class="notes-panel">
       <div class="notes-panel-header">
@@ -106,7 +110,7 @@ function renderTimelineTab(game) {
   `;
 }
 
-function renderInferenceTab(game) {
+export function renderInferenceTab(game) {
   return `
     <section class="notes-panel">
       <div class="notes-panel-header">

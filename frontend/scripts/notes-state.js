@@ -1,8 +1,12 @@
-function clampNumber(value, min, max) {
+import { normalizeMatchText } from "./notes-claims.js";
+import { noteAlignmentOptions, noteConditionOptions, noteModeOptions, noteStatusOptions, noteTagOptions, notesStorageKey, phaseTypeOptions, state, timelineTypeOptions } from "./state.js";
+import { createId, escapeHtml, getOptionLabel } from "./utils.js";
+
+export function clampNumber(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
-function createDefaultSetupDraft() {
+export function createDefaultSetupDraft() {
   return {
     title: "",
     scriptId: "",
@@ -13,7 +17,7 @@ function createDefaultSetupDraft() {
   };
 }
 
-function createNotesUiState() {
+export function createNotesUiState() {
   return {
     screen: "home",
     activeTab: "overview",
@@ -27,7 +31,7 @@ function createNotesUiState() {
   };
 }
 
-function createDefaultInference() {
+export function createDefaultInference() {
   return {
     summary: "",
     goodTeam: "",
@@ -36,7 +40,7 @@ function createDefaultInference() {
   };
 }
 
-function createDefaultStorytellerState() {
+export function createDefaultStorytellerState() {
   return {
     bluffs: [],
     setupNotes: "",
@@ -44,7 +48,7 @@ function createDefaultStorytellerState() {
   };
 }
 
-function createDefaultPlayer(seat) {
+export function createDefaultPlayer(seat) {
   return {
     id: createId("player"),
     seat,
@@ -65,7 +69,7 @@ function createDefaultPlayer(seat) {
   };
 }
 
-function createEmptyRoleInfo(roleId = "") {
+export function createEmptyRoleInfo(roleId = "") {
   return {
     version: 2,
     roleId,
@@ -74,13 +78,13 @@ function createEmptyRoleInfo(roleId = "") {
   };
 }
 
-function cloneRoleInfoEntries(entries) {
+export function cloneRoleInfoEntries(entries) {
   return Array.isArray(entries)
     ? entries.map((entry) => ({ ...(entry || {}) }))
     : [];
 }
 
-function cloneRoleInfo(roleInfo) {
+export function cloneRoleInfo(roleInfo) {
   const info = roleInfo || {};
   return {
     version: Number(info.version) === 2 ? 2 : info.version || 2,
@@ -92,7 +96,7 @@ function cloneRoleInfo(roleInfo) {
   };
 }
 
-function cloneExternalReports(reports) {
+export function cloneExternalReports(reports) {
   return Array.isArray(reports)
     ? reports.map((report) => ({
         seat: String(report?.seat ?? ""),
@@ -101,7 +105,7 @@ function cloneExternalReports(reports) {
     : [];
 }
 
-function clonePlayerForDraft(player) {
+export function clonePlayerForDraft(player) {
   return {
     ...player,
     tags: [...(player.tags || [])],
@@ -110,13 +114,13 @@ function clonePlayerForDraft(player) {
   };
 }
 
-function createPlayersForCount(playerCount) {
+export function createPlayersForCount(playerCount) {
   return Array.from({ length: playerCount }, (_, index) =>
     createDefaultPlayer(index + 1),
   );
 }
 
-function findScriptFromSetup(setup) {
+export function findScriptFromSetup(setup) {
   const query = normalizeMatchText(setup?.scriptName);
   if (query) {
     const script =
@@ -140,7 +144,7 @@ function findScriptFromSetup(setup) {
   return state.scripts.find((item) => item.id === scriptId) || null;
 }
 
-function createGameFromSetup(setup, nextIndex = 1) {
+export function createGameFromSetup(setup, nextIndex = 1) {
   const script = findScriptFromSetup(setup);
   const playerCount = clampNumber(Number(setup.playerCount) || 10, 5, 15);
   const selfSeat = clampNumber(Number(setup.selfSeat) || 1, 1, playerCount);
@@ -167,7 +171,7 @@ function createGameFromSetup(setup, nextIndex = 1) {
   };
 }
 
-function parseLegacyPhase(game) {
+export function parseLegacyPhase(game) {
   const storedType = phaseTypeOptions.some(
     (option) => option.value === game?.phaseType,
   )
@@ -201,7 +205,7 @@ function parseLegacyPhase(game) {
   return { phaseType: "day", phaseNumber: 1 };
 }
 
-function normalizePlayer(player, index) {
+export function normalizePlayer(player, index) {
   const validTags = new Set(noteTagOptions.map((tag) => tag.value));
   const tags = Array.isArray(player?.tags)
     ? player.tags.filter((tag) => validTags.has(tag))
@@ -254,7 +258,7 @@ function normalizePlayer(player, index) {
   };
 }
 
-function normalizeTimelineEntry(entry, game) {
+export function normalizeTimelineEntry(entry, game) {
   const type = timelineTypeOptions.some((option) => option.value === entry?.type)
     ? entry.type
     : "info";
@@ -269,7 +273,7 @@ function normalizeTimelineEntry(entry, game) {
   };
 }
 
-function normalizeInference(inference) {
+export function normalizeInference(inference) {
   return {
     summary: inference?.summary || "",
     goodTeam: inference?.goodTeam || "",
@@ -278,7 +282,7 @@ function normalizeInference(inference) {
   };
 }
 
-function normalizeStorytellerState(storyteller) {
+export function normalizeStorytellerState(storyteller) {
   return {
     ...createDefaultStorytellerState(),
     ...(storyteller || {}),
@@ -288,7 +292,7 @@ function normalizeStorytellerState(storyteller) {
   };
 }
 
-function normalizeGame(game, index) {
+export function normalizeGame(game, index) {
   const fallbackSetup = createDefaultSetupDraft();
   const fallbackPhase = parseLegacyPhase(game);
   const rawPlayerCount =
@@ -338,7 +342,7 @@ function normalizeGame(game, index) {
   };
 }
 
-function loadNotesState() {
+export function loadNotesState() {
   const fallback = {
     activeGameId: "",
     games: [],
@@ -369,7 +373,7 @@ function loadNotesState() {
   }
 }
 
-function getNotesGameCount() {
+export function getNotesGameCount() {
   if (!state.notes.loaded) {
     state.notes = loadNotesState();
   }
@@ -377,7 +381,7 @@ function getNotesGameCount() {
   return state.notes.games.length;
 }
 
-function saveNotesState() {
+export function saveNotesState() {
   try {
     window.localStorage.setItem(
       notesStorageKey,
@@ -391,7 +395,7 @@ function saveNotesState() {
   }
 }
 
-function ensureNotesState() {
+export function ensureNotesState() {
   if (!state.notes.loaded) {
     state.notes = loadNotesState();
   }
@@ -442,7 +446,7 @@ function ensureNotesState() {
   return state.notes;
 }
 
-function getActiveGame() {
+export function getActiveGame() {
   const notes = ensureNotesState();
   if (!notes.activeGameId) {
     return null;
@@ -451,30 +455,30 @@ function getActiveGame() {
   return notes.games.find((game) => game.id === notes.activeGameId) || null;
 }
 
-function getPlayerDraft(playerId) {
+export function getPlayerDraft(playerId) {
   ensureNotesState();
   return state.notes.ui.playerDrafts[playerId] || null;
 }
 
-function setPlayerDraft(playerId, draft) {
+export function setPlayerDraft(playerId, draft) {
   ensureNotesState();
   state.notes.ui.playerDrafts[playerId] = draft;
 }
 
-function clearPlayerDraft(playerId) {
+export function clearPlayerDraft(playerId) {
   ensureNotesState();
   delete state.notes.ui.playerDrafts[playerId];
 }
 
-function getDraftOrPlayer(player) {
+export function getDraftOrPlayer(player) {
   return getPlayerDraft(player.id) || player;
 }
 
-function getNoteTagLabel(value) {
+export function getNoteTagLabel(value) {
   return getOptionLabel(noteTagOptions, value);
 }
 
-function renderGameSelectOptions(notes) {
+export function renderGameSelectOptions(notes) {
   return notes.games
     .map(
       (game, index) =>

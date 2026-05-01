@@ -1,6 +1,11 @@
+import { clampNumber } from "../notes-state.js";
+import { escapeHtml } from "../utils.js";
+import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
+import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityMetaSummary, getAbilityTimingText, getClaimedRole, getDisplayedRoleInfoEntries, getRoleInfoNode, getRoleInfoSectionLabel } from "./notes-role-info.js";
+
 // Split from notes-role-info.js. Keep script order in index.html.
 
-function renderRoleInfoInputs(player, game) {
+export function renderRoleInfoInputs(player, game) {
   if (!player.claim) {
     return `
       <section class="notes-detail-section notes-roleinfo-panel">

@@ -1,6 +1,14 @@
+import { getClaimRoleOptions, getGameScript } from "../notes-claims.js";
+import { clearPlayerDraft, createDefaultStorytellerState, createEmptyRoleInfo, getActiveGame, saveNotesState } from "../notes-state.js";
+import { roleTypeOrder, state, typeLabels } from "../state.js";
+import { createId } from "../utils.js";
+import { formatPhaseLabel, getStandardSetup } from "./notes-core.js";
+import { normalizeRoleName } from "./notes-role-info.js";
+import { renderNotesPage } from "./notes-shell.js";
+
 // Split from notes-actions.js. Keep script order in index.html.
 
-function getRoleAlignmentValue(role) {
+export function getRoleAlignmentValue(role) {
   if (["townsfolk", "outsider"].includes(role?.type)) {
     return "good";
   }
@@ -12,7 +20,7 @@ function getRoleAlignmentValue(role) {
   return "unknown";
 }
 
-function getRoleByLooseName(value, game = getActiveGame()) {
+export function getRoleByLooseName(value, game = getActiveGame()) {
   const normalizedValue = normalizeRoleName(value);
   if (!normalizedValue) {
     return null;
@@ -27,7 +35,7 @@ function getRoleByLooseName(value, game = getActiveGame()) {
   return roleOptions.find(matchesRole) || state.roles.find(matchesRole) || null;
 }
 
-function shuffleItems(items) {
+export function shuffleItems(items) {
   const shuffled = [...items];
   for (let index = shuffled.length - 1; index > 0; index -= 1) {
     const swapIndex = Math.floor(Math.random() * (index + 1));
@@ -36,11 +44,11 @@ function shuffleItems(items) {
   return shuffled;
 }
 
-function takeRandomRoles(roles, count) {
+export function takeRandomRoles(roles, count) {
   return shuffleItems(roles).slice(0, count);
 }
 
-function getScriptRolesByType(game) {
+export function getScriptRolesByType(game) {
   const roles = getClaimRoleOptions(game).filter((role) => role.type !== "fabled");
   return roleTypeOrder.reduce((result, type) => {
     result[type] = roles.filter((role) => role.type === type);
@@ -48,7 +56,7 @@ function getScriptRolesByType(game) {
   }, {});
 }
 
-function assignRandomStorytellerRoles() {
+export function assignRandomStorytellerRoles() {
   const game = getActiveGame();
   const script = getGameScript(game);
   if (!game || !script) {
@@ -112,7 +120,7 @@ function assignRandomStorytellerRoles() {
   renderNotesPage();
 }
 
-function clearStorytellerAssignments() {
+export function clearStorytellerAssignments() {
   const game = getActiveGame();
   if (!game || !window.confirm("清空真实身份、真实阵营和恶魔伪装？")) {
     return;

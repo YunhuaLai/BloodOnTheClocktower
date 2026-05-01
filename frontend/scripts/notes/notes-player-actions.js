@@ -1,6 +1,13 @@
+import { clearPlayerDraft, cloneExternalReports, clonePlayerForDraft, cloneRoleInfo, getActiveGame, getPlayerDraft, saveNotesState, setPlayerDraft } from "../notes-state.js";
+import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions } from "../state.js";
+import { createId, getOptionLabel } from "../utils.js";
+import { formatPhaseLabel, getPlayerLabel } from "./notes-core.js";
+import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoNode, getRoleInfoSummary, isRoleInfoEntryFilled } from "./notes-role-info.js";
+import { getRoleAlignmentValue, getRoleByLooseName } from "./notes-storyteller-actions.js";
+
 // Split from notes-actions.js. Keep script order in index.html.
 
-function ensurePlayerDraftForId(playerId) {
+export function ensurePlayerDraftForId(playerId) {
   const game = getActiveGame();
   const player = game?.players.find((item) => item.id === playerId);
   if (!player) {
@@ -18,7 +25,7 @@ function ensurePlayerDraftForId(playerId) {
   return draft;
 }
 
-function trimRoleInfoEntry(entry) {
+export function trimRoleInfoEntry(entry) {
   return Object.fromEntries(
     Object.entries(entry || {}).filter(([, value]) => {
       if (typeof value === "number") {
@@ -30,7 +37,7 @@ function trimRoleInfoEntry(entry) {
   );
 }
 
-function trimRoleInfoEntries(roleInfo) {
+export function trimRoleInfoEntries(roleInfo) {
   const info = cloneRoleInfo(roleInfo);
   const nextTargetEntries = [];
   const nextResultEntries = [];
@@ -55,7 +62,7 @@ function trimRoleInfoEntries(roleInfo) {
   };
 }
 
-function updatePlayerDraftField(playerId, field, value) {
+export function updatePlayerDraftField(playerId, field, value) {
   const draft = ensurePlayerDraftForId(playerId);
   if (!draft || !(field in draft)) {
     return false;
@@ -110,17 +117,17 @@ function updatePlayerDraftField(playerId, field, value) {
   ].includes(field);
 }
 
-function getRoleInfoSectionKey(section) {
+export function getRoleInfoSectionKey(section) {
   return section === "result" ? "resultEntries" : "targetEntries";
 }
 
-function getRoleInfoMinimumRows(node) {
+export function getRoleInfoMinimumRows(node) {
   return node.repeatMode === "once"
     ? Math.max(node.defaultRows || 0, 1)
     : Math.max(node.defaultRows || 0, 1);
 }
 
-function getLinkedRoleInfoSections(draft, requestedSection, game) {
+export function getLinkedRoleInfoSections(draft, requestedSection, game) {
   const abilityData = getRoleAbilityData(draft, game);
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
@@ -134,7 +141,7 @@ function getLinkedRoleInfoSections(draft, requestedSection, game) {
   return [requestedSection];
 }
 
-function updatePlayerDraftRoleInfo(playerId, section, index, field, value) {
+export function updatePlayerDraftRoleInfo(playerId, section, index, field, value) {
   const draft = ensurePlayerDraftForId(playerId);
   const game = getActiveGame();
   if (!draft || !game) {
@@ -153,7 +160,7 @@ function updatePlayerDraftRoleInfo(playerId, section, index, field, value) {
   };
 }
 
-function updatePlayerDraftExternalReport(playerId, index, field, value) {
+export function updatePlayerDraftExternalReport(playerId, index, field, value) {
   const draft = ensurePlayerDraftForId(playerId);
   if (!draft || !["seat", "note"].includes(field)) {
     return;
@@ -170,7 +177,7 @@ function updatePlayerDraftExternalReport(playerId, index, field, value) {
   };
 }
 
-function adjustPlayerDraftExternalReports(playerId, step) {
+export function adjustPlayerDraftExternalReports(playerId, step) {
   const draft = ensurePlayerDraftForId(playerId);
   if (!draft || !step) {
     return;
@@ -187,7 +194,7 @@ function adjustPlayerDraftExternalReports(playerId, step) {
   }
 }
 
-function getRoleInfoFieldCycleValues(field) {
+export function getRoleInfoFieldCycleValues(field) {
   if (field?.type === "boolean") {
     return ["", "yes", "no"];
   }
@@ -195,7 +202,7 @@ function getRoleInfoFieldCycleValues(field) {
   return [];
 }
 
-function cyclePlayerDraftRoleInfoField(playerId, section, index, fieldKey) {
+export function cyclePlayerDraftRoleInfoField(playerId, section, index, fieldKey) {
   const draft = ensurePlayerDraftForId(playerId);
   const game = getActiveGame();
   if (!draft || !game) {
@@ -222,7 +229,7 @@ function cyclePlayerDraftRoleInfoField(playerId, section, index, fieldKey) {
   updatePlayerDraftRoleInfo(playerId, section, index, fieldKey, nextValue);
 }
 
-function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
+export function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
   const draft = ensurePlayerDraftForId(playerId);
   const game = getActiveGame();
   if (!draft || !game || !step) {
@@ -259,7 +266,7 @@ function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
   });
 }
 
-function buildPlayerSaveSummary(player, game = getActiveGame()) {
+export function buildPlayerSaveSummary(player, game = getActiveGame()) {
   const parts = [];
   if (player.claim) {
     parts.push(`自称 ${player.claim}`);
@@ -280,7 +287,7 @@ function buildPlayerSaveSummary(player, game = getActiveGame()) {
   return parts.join("；");
 }
 
-function savePlayerDraft(playerId) {
+export function savePlayerDraft(playerId) {
   const game = getActiveGame();
   const player = game?.players.find((item) => item.id === playerId);
   const draft = getPlayerDraft(playerId);
@@ -305,7 +312,7 @@ function savePlayerDraft(playerId) {
   saveNotesState();
 }
 
-function persistPlayerDraft(playerId) {
+export function persistPlayerDraft(playerId) {
   const game = getActiveGame();
   const player = game?.players.find((item) => item.id === playerId);
   const draft = getPlayerDraft(playerId);
@@ -320,11 +327,11 @@ function persistPlayerDraft(playerId) {
   saveNotesState();
 }
 
-function updatePlayerField(playerId, field, value) {
+export function updatePlayerField(playerId, field, value) {
   return updatePlayerDraftField(playerId, field, value);
 }
 
-function getPlayerFieldCycleValues(field) {
+export function getPlayerFieldCycleValues(field) {
   if (field === "status") {
     return ["alive", "night-dead", "executed", "unclear"];
   }
@@ -340,7 +347,7 @@ function getPlayerFieldCycleValues(field) {
   return [];
 }
 
-function cyclePlayerFieldValue(playerId, field) {
+export function cyclePlayerFieldValue(playerId, field) {
   const draft = ensurePlayerDraftForId(playerId);
   if (!draft) {
     return false;

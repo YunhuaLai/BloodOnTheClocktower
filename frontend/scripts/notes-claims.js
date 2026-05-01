@@ -1,8 +1,12 @@
-function normalizeMatchText(value) {
+import { sortCatalogRoles, sortScriptRoles } from "./catalog-helpers.js";
+import { state, typeLabels } from "./state.js";
+import { escapeHtml } from "./utils.js";
+
+export function normalizeMatchText(value) {
   return String(value || "").trim().toLowerCase();
 }
 
-function getGameScript(game) {
+export function getGameScript(game) {
   if (game?.scriptId) {
     const exactById = state.scripts.find(
       (script) => script.id === game.scriptId || script.englishName === game.scriptId,
@@ -35,11 +39,11 @@ function getGameScript(game) {
   );
 }
 
-function roleBelongsToScript(role, scriptId) {
+export function roleBelongsToScript(role, scriptId) {
   return (role.scriptIds || [role.scriptId]).filter(Boolean).includes(scriptId);
 }
 
-function getClaimRoleOptions(game) {
+export function getClaimRoleOptions(game) {
   const script = getGameScript(game);
   if (!script) {
     return sortCatalogRoles(state.roles);
@@ -51,7 +55,7 @@ function getClaimRoleOptions(game) {
   );
 }
 
-function getClaimPickerHint(game) {
+export function getClaimPickerHint(game) {
   const script = getGameScript(game);
   if (!script) {
     return "先选具体剧本，自称身份才会收窄到该剧本角色。";
@@ -60,7 +64,7 @@ function getClaimPickerHint(game) {
   return `当前只显示《${script.name}》角色。`;
 }
 
-function renderRoleNameDatalist(game) {
+export function renderRoleNameDatalist(game) {
   const roles = getClaimRoleOptions(game);
 
   return `
@@ -75,7 +79,7 @@ function renderRoleNameDatalist(game) {
   `;
 }
 
-function renderScriptSelectOptions(selectedScriptId) {
+export function renderScriptSelectOptions(selectedScriptId) {
   return state.scripts
     .map(
       (script) =>
@@ -84,7 +88,7 @@ function renderScriptSelectOptions(selectedScriptId) {
     .join("");
 }
 
-function renderScriptNameDatalist() {
+export function renderScriptNameDatalist() {
   return `
     <datalist id="scriptNameList">
       ${state.scripts

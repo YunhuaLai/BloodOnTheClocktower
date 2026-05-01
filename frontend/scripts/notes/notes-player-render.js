@@ -1,6 +1,13 @@
+import { getClaimPickerHint, getGameScript } from "../notes-claims.js";
+import { getDraftOrPlayer, getPlayerDraft } from "../notes-state.js";
+import { noteAlignmentOptions, noteTagOptions, state } from "../state.js";
+import { escapeHtml, renderSelectOptions } from "../utils.js";
+import { getSeatLabel } from "./notes-core.js";
+import { renderRoleInfoInputs } from "./notes-role-info-panel.js";
+
 // Split from notes-render.js. Keep script order in index.html.
 
-function renderNoteTagButtons(player) {
+export function renderNoteTagButtons(player) {
   return noteTagOptions
     .map((tag) => {
       const active = player.tags.includes(tag.value);
@@ -18,7 +25,7 @@ function renderNoteTagButtons(player) {
     .join("");
 }
 
-function renderStorytellerFields(player, game) {
+export function renderStorytellerFields(player, game) {
   if (game.mode !== "storyteller") {
     return "";
   }
@@ -63,7 +70,7 @@ function renderStorytellerFields(player, game) {
   `;
 }
 
-function getSelectedPlayer(game) {
+export function getSelectedPlayer(game) {
   const selectedId = state.notes.ui.selectedPlayerId;
   return (
     game.players.find((player) => player.id === selectedId) ||
@@ -73,7 +80,7 @@ function getSelectedPlayer(game) {
   );
 }
 
-function renderPlayersTab(game) {
+export function renderPlayersTab(game) {
   const selectedPlayer = getSelectedPlayer(game);
 
   return `
@@ -90,7 +97,7 @@ function renderPlayersTab(game) {
   `;
 }
 
-function renderSeatNameEditor(player) {
+export function renderSeatNameEditor(player) {
   const seatLabel = getSeatLabel(player);
   const hintText = player.name ? "点击号位可修改称呼" : "点击号位可填写称呼";
 
@@ -114,7 +121,7 @@ function renderSeatNameEditor(player) {
   `;
 }
 
-function getPlayerCycleValueText(field, value) {
+export function getPlayerCycleValueText(field, value) {
   if (field === "status") {
     return {
       alive: "存",
@@ -145,7 +152,7 @@ function getPlayerCycleValueText(field, value) {
   return String(value || "?");
 }
 
-function getPlayerCycleFieldClass(field, value) {
+export function getPlayerCycleFieldClass(field, value) {
   const normalizedValue =
     field === "condition" && value === "drunk" ? "poisoned" : value;
   return `notes-cycle-button notes-cycle-button--${field} notes-cycle-button--${field}-${escapeHtml(
@@ -153,7 +160,7 @@ function getPlayerCycleFieldClass(field, value) {
   )}`;
 }
 
-function renderPlayerCycleField(player, field, label) {
+export function renderPlayerCycleField(player, field, label) {
   const value =
     field === "condition" && player[field] === "drunk" ? "poisoned" : player[field];
 
@@ -172,7 +179,7 @@ function renderPlayerCycleField(player, field, label) {
   `;
 }
 
-function getJudgementSummary(player) {
+export function getJudgementSummary(player) {
   const alignmentShort = {
     good: "好",
     evil: "坏",
@@ -189,7 +196,7 @@ function getJudgementSummary(player) {
   return `${alignmentShort[player.alignment] || "?"}/${conditionShort[conditionValue] || "?"}`;
 }
 
-function renderSeatTabs(game, selectedPlayer) {
+export function renderSeatTabs(game, selectedPlayer) {
   return `
     <div class="notes-seat-tabs" role="tablist" aria-label="选择玩家">
       ${game.players
@@ -214,7 +221,7 @@ function renderSeatTabs(game, selectedPlayer) {
   `;
 }
 
-function renderClaimControl(player, game) {
+export function renderClaimControl(player, game) {
   const script = getGameScript(game);
 
   return `
@@ -236,7 +243,7 @@ function renderClaimControl(player, game) {
   `;
 }
 
-function renderPlayerDetail(player, game) {
+export function renderPlayerDetail(player, game) {
   if (!player) {
     return `<div class="empty-state">还没有玩家信息。</div>`;
   }

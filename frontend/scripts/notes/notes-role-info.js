@@ -1,6 +1,11 @@
+import { getClaimRoleOptions } from "../notes-claims.js";
+import { clampNumber, cloneRoleInfo, cloneRoleInfoEntries, createEmptyRoleInfo, getActiveGame } from "../notes-state.js";
+import { state, typeLabels } from "../state.js";
+import { getClaimAbbreviation } from "./notes-core.js";
+
 // Role ability metadata and summaries. Field/panel renderers live next to this file.
 
-const abilityPageTypeLabels = {
+export const abilityPageTypeLabels = {
   no_input: "无录入",
   record_result_only: "只记结果",
   pick_and_record: "选择并记录",
@@ -8,7 +13,7 @@ const abilityPageTypeLabels = {
   rule_modifier: "规则型",
 };
 
-const abilityPhaseTimingLabels = {
+export const abilityPhaseTimingLabels = {
   setup: "开局",
   first_night: "首夜",
   each_night: "每晚",
@@ -20,7 +25,7 @@ const abilityPhaseTimingLabels = {
   special: "特殊",
 };
 
-const abilityEventTimingLabels = {
+export const abilityEventTimingLabels = {
   on_nomination: "提名时",
   on_execution: "处决时",
   on_death: "死亡时",
@@ -29,7 +34,7 @@ const abilityEventTimingLabels = {
   endgame: "残局",
 };
 
-const abilityUsagePatternLabels = {
+export const abilityUsagePatternLabels = {
   once: "一次",
   once_per_game: "本局一次",
   once_per_day: "每天一次",
@@ -39,14 +44,14 @@ const abilityUsagePatternLabels = {
   variable: "不固定",
 };
 
-const abilityActivationModeLabels = {
+export const abilityActivationModeLabels = {
   active: "主动",
   passive: "被动",
   conditional: "条件触发",
   reactive: "响应触发",
 };
 
-const abilityValueLabels = {
+export const abilityValueLabels = {
   yes: "是",
   no: "否",
   good: "好",
@@ -59,11 +64,11 @@ const abilityValueLabels = {
   unknown: "?",
 };
 
-function normalizeRoleName(value) {
+export function normalizeRoleName(value) {
   return String(value || "").trim().toLowerCase();
 }
 
-function getClaimedRole(playerOrClaim, game = getActiveGame()) {
+export function getClaimedRole(playerOrClaim, game = getActiveGame()) {
   const claim =
     typeof playerOrClaim === "string"
       ? playerOrClaim
@@ -82,11 +87,11 @@ function getClaimedRole(playerOrClaim, game = getActiveGame()) {
   return roleOptions.find(matchRole) || state.roles.find(matchRole) || null;
 }
 
-function getRoleAbilityData(playerOrClaim, game = getActiveGame()) {
+export function getRoleAbilityData(playerOrClaim, game = getActiveGame()) {
   return getClaimedRole(playerOrClaim, game)?.abilityData || null;
 }
 
-function getRoleInfoNode(abilityData, sectionKey) {
+export function getRoleInfoNode(abilityData, sectionKey) {
   const node = abilityData?.interactionSchema?.[sectionKey];
   return {
     repeatMode: node?.repeatMode || "none",
@@ -95,11 +100,11 @@ function getRoleInfoNode(abilityData, sectionKey) {
   };
 }
 
-function isRoleInfoEntryFilled(entry) {
+export function isRoleInfoEntryFilled(entry) {
   return Object.values(entry || {}).some((value) => String(value ?? "").trim());
 }
 
-function normalizeLegacyBooleanValue(value) {
+export function normalizeLegacyBooleanValue(value) {
   const normalized = normalizeRoleName(value);
   if (["yes", "true", "1", "是"].includes(normalized)) {
     return "yes";
@@ -112,7 +117,7 @@ function normalizeLegacyBooleanValue(value) {
   return String(value || "").trim();
 }
 
-function migrateLegacyRoleInfo(roleInfo, role, abilityData) {
+export function migrateLegacyRoleInfo(roleInfo, role, abilityData) {
   const legacyEntries = Array.isArray(roleInfo?.entries) ? roleInfo.entries : [];
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
@@ -157,7 +162,7 @@ function migrateLegacyRoleInfo(roleInfo, role, abilityData) {
   return nextRoleInfo;
 }
 
-function ensureRoleInfoMatchesClaim(player, game = getActiveGame()) {
+export function ensureRoleInfoMatchesClaim(player, game = getActiveGame()) {
   const role = getClaimedRole(player, game);
   const abilityData = role?.abilityData || null;
   const current = cloneRoleInfo(player?.roleInfo);
@@ -184,7 +189,7 @@ function ensureRoleInfoMatchesClaim(player, game = getActiveGame()) {
   return migrateLegacyRoleInfo(current, role, abilityData);
 }
 
-function getRoleInfoEntries(roleInfo, sectionKey) {
+export function getRoleInfoEntries(roleInfo, sectionKey) {
   if (sectionKey === "target") {
     return cloneRoleInfoEntries(roleInfo?.targetEntries);
   }
@@ -192,7 +197,7 @@ function getRoleInfoEntries(roleInfo, sectionKey) {
   return cloneRoleInfoEntries(roleInfo?.resultEntries);
 }
 
-function getDisplayedRoleInfoEntries(roleInfo, node, sectionKey) {
+export function getDisplayedRoleInfoEntries(roleInfo, node, sectionKey) {
   const entries = getRoleInfoEntries(roleInfo, sectionKey);
   if (node.repeatMode === "none" || !node.fields.length) {
     return [];
@@ -207,7 +212,7 @@ function getDisplayedRoleInfoEntries(roleInfo, node, sectionKey) {
   return Array.from({ length: totalRows }, (_, index) => entries[index] || {});
 }
 
-function getAbilityTimingText(abilityMeta) {
+export function getAbilityTimingText(abilityMeta) {
   if (abilityMeta?.eventTiming) {
     return abilityEventTimingLabels[abilityMeta.eventTiming] || "";
   }
@@ -219,7 +224,7 @@ function getAbilityTimingText(abilityMeta) {
   return "";
 }
 
-function getAbilityMetaSummary(abilityData) {
+export function getAbilityMetaSummary(abilityData) {
   const meta = abilityData?.abilityMeta || {};
   return [
     abilityPageTypeLabels[meta.pageType] || "",
@@ -231,7 +236,7 @@ function getAbilityMetaSummary(abilityData) {
     .join(" / ");
 }
 
-function getChoiceLabel(value) {
+export function getChoiceLabel(value) {
   const normalized = normalizeRoleName(value);
   if (abilityValueLabels[normalized]) {
     return abilityValueLabels[normalized];
@@ -244,7 +249,7 @@ function getChoiceLabel(value) {
   return String(value || "");
 }
 
-function getCompactFieldValue(field, value) {
+export function getCompactFieldValue(field, value) {
   const text = String(value ?? "").trim();
   if (!text) {
     return "";
@@ -275,7 +280,7 @@ function getCompactFieldValue(field, value) {
   return text.replace(/\s+/g, "").slice(0, 8);
 }
 
-function formatRoleInfoEntrySummary(entry, fields) {
+export function formatRoleInfoEntrySummary(entry, fields) {
   if (!fields.length || !isRoleInfoEntryFilled(entry)) {
     return "";
   }
@@ -286,7 +291,7 @@ function formatRoleInfoEntrySummary(entry, fields) {
     .join(",");
 }
 
-function getRoleInfoSummary(player, game = getActiveGame()) {
+export function getRoleInfoSummary(player, game = getActiveGame()) {
   const abilityData = getRoleAbilityData(player, game);
   const roleInfo = ensureRoleInfoMatchesClaim(player, game);
   const targetNode = getRoleInfoNode(abilityData, "target");
@@ -313,7 +318,7 @@ function getRoleInfoSummary(player, game = getActiveGame()) {
   return rows.length ? rows.join("/") : "--";
 }
 
-function getRoleInfoSectionLabel(sectionKey, abilityData) {
+export function getRoleInfoSectionLabel(sectionKey, abilityData) {
   const pageType = abilityData?.abilityMeta?.pageType;
   if (sectionKey === "target") {
     if (pageType === "event_triggered") {

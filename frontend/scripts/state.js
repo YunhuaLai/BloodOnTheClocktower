@@ -1,6 +1,6 @@
-const app = document.querySelector("#app");
+export const app = document.querySelector("#app");
 
-const typeLabels = {
+export const typeLabels = {
   townsfolk: "镇民",
   outsider: "外来者",
   minion: "爪牙",
@@ -8,7 +8,7 @@ const typeLabels = {
   fabled: "传奇角色",
 };
 
-const typeDescriptions = {
+export const typeDescriptions = {
   townsfolk: "善良阵营的主要信息与功能角色",
   outsider: "善良阵营，但能力常带来负担或干扰",
   minion: "邪恶阵营，负责保护恶魔并制造混乱",
@@ -16,47 +16,47 @@ const typeDescriptions = {
   fabled: "由说书人使用的特殊规则或配置工具",
 };
 
-const notesStorageKey = "botc-game-notes-v1";
+export const notesStorageKey = "botc-game-notes-v1";
 
-const noteAlignmentOptions = [
+export const noteAlignmentOptions = [
   { value: "unknown", label: "未知" },
   { value: "good", label: "好" },
   { value: "evil", label: "坏" },
   { value: "suspect", label: "疑" },
 ];
 
-const noteStatusOptions = [
+export const noteStatusOptions = [
   { value: "alive", label: "存" },
   { value: "night-dead", label: "夜" },
   { value: "executed", label: "处" },
   { value: "unclear", label: "?" },
 ];
 
-const noteConditionOptions = [
+export const noteConditionOptions = [
   { value: "unknown", label: "?" },
   { value: "sober", label: "清" },
   { value: "poisoned", label: "毒" },
   { value: "drunk", label: "醉" },
 ];
 
-const noteModeOptions = [
+export const noteModeOptions = [
   { value: "player", label: "玩家" },
   { value: "storyteller", label: "说书人" },
 ];
 
-const noteTabOptions = [
+export const noteTabOptions = [
   { value: "overview", label: "总览" },
   { value: "players", label: "玩家" },
   { value: "timeline", label: "时间线" },
   { value: "deduction", label: "推理" },
 ];
 
-const phaseTypeOptions = [
+export const phaseTypeOptions = [
   { value: "day", label: "白天" },
   { value: "night", label: "夜晚" },
 ];
 
-const timelineTypeOptions = [
+export const timelineTypeOptions = [
   { value: "info", label: "信息" },
   { value: "claim", label: "身份声明" },
   { value: "nomination", label: "提名" },
@@ -64,7 +64,7 @@ const timelineTypeOptions = [
   { value: "death", label: "死亡" },
 ];
 
-const noteTagOptions = [
+export const noteTagOptions = [
   { value: "trusted", label: "可信" },
   { value: "suspicious", label: "可疑" },
   { value: "info", label: "信息位" },
@@ -75,7 +75,7 @@ const noteTagOptions = [
   { value: "confirmed-dead", label: "已确认死亡" },
 ];
 
-const oneInOneOutRoleOrder = [
+export const oneInOneOutRoleOrder = [
   "steward",
   "knight",
   "high-priestess",
@@ -104,9 +104,9 @@ const oneInOneOutRoleOrder = [
   "spirit-of-ivory",
 ];
 
-const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "fabled"];
+export const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "fabled"];
 
-const state = {
+export const state = {
   activeFilter: "all",
   currentPath: "",
   notes: {
@@ -127,7 +127,7 @@ const state = {
   terms: [],
 };
 
-const importantAbilityPhrases = [
+export const importantAbilityPhrases = [
   "善良方失败",
   "善良方获胜",
   "邪恶方失败",

@@ -1,6 +1,11 @@
+import { getClaimRoleOptions } from "../notes-claims.js";
+import { roleTypeOrder, typeLabels } from "../state.js";
+import { escapeHtml } from "../utils.js";
+import { getChoiceLabel } from "./notes-role-info.js";
+
 // Split from notes-role-info.js. Keep script order in index.html.
 
-function getRoleInfoFieldOptions(field, game) {
+export function getRoleInfoFieldOptions(field, game) {
   if (field.type === "role") {
     return getClaimRoleOptions(game).map((role) => ({
       value: role.name,
@@ -49,7 +54,7 @@ function getRoleInfoFieldOptions(field, game) {
   return [];
 }
 
-function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat) {
+export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat) {
   const currentValue = String(value ?? "");
   const sharedData = `
     data-roleinfo-section="${escapeHtml(sectionKey)}"
@@ -135,7 +140,7 @@ function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, ma
   `;
 }
 
-function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, maxSeat) {
+export function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, maxSeat) {
   return `
     <label class="notes-roleinfo-field">
       <span>${escapeHtml(field.label)}</span>

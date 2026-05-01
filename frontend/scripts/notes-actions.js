@@ -1,6 +1,13 @@
+import { clearPlayerDraft, createDefaultSetupDraft, ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
+import { addTimelineEntry, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, shiftGamePhase, updateGameField, updateInferenceField, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField } from "./notes/notes-game-actions.js";
+import { adjustPlayerDraftExternalReports, adjustPlayerDraftRoleInfoRows, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, updatePlayerDraftExternalReport, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
+import { renderNotesPage } from "./notes/notes-shell.js";
+import { assignRandomStorytellerRoles, clearStorytellerAssignments } from "./notes/notes-storyteller-actions.js";
+import { state } from "./state.js";
+
 // Event dispatchers for the notes feature. Helper actions live in frontend/scripts/notes/*.js.
 
-function handleNotesFieldChange(target, refreshInterface = false) {
+export function handleNotesFieldChange(target, refreshInterface = false) {
   if (target.id === "gameSelect") {
     const notes = ensureNotesState();
     notes.activeGameId = target.value;
@@ -113,7 +120,7 @@ function handleNotesFieldChange(target, refreshInterface = false) {
   }
 }
 
-function handleNotesAction(button) {
+export function handleNotesAction(button) {
   const action = button.dataset.notesAction;
   const notes = ensureNotesState();
   const game = getActiveGame();

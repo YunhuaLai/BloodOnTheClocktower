@@ -1,4 +1,10 @@
-function getRoleTypeSummary() {
+import { renderRules } from "./catalog-indexes.js";
+import { getNotesGameCount } from "./notes-state.js";
+import { scrollToHash } from "./router.js";
+import { app, state, typeLabels } from "./state.js";
+import { escapeHtml } from "./utils.js";
+
+export function getRoleTypeSummary() {
   return Object.entries(typeLabels)
     .map(([type, label]) => {
       const count = state.roles.filter((role) => role.type === type).length;
@@ -8,7 +14,7 @@ function getRoleTypeSummary() {
     .join(" · ");
 }
 
-function renderHomeDirectory() {
+export function renderHomeDirectory() {
   const cards = [
     {
       eyebrow: "对局房间",
@@ -67,7 +73,7 @@ function renderHomeDirectory() {
     .join("");
 }
 
-function renderHome() {
+export function renderHome() {
   document.title = "血染钟楼百科";
   app.innerHTML = `
     <section class="workspace" id="overview">

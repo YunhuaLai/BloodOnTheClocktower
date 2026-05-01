@@ -1,4 +1,9 @@
-function renderTermIndex() {
+import { getRoleScriptLabel, sortCatalogRoles } from "./catalog-helpers.js";
+import { getRoleTypeSummary } from "./catalog-home.js";
+import { app, roleTypeOrder, state, typeLabels } from "./state.js";
+import { escapeHtml } from "./utils.js";
+
+export function renderTermIndex() {
   document.title = "术语目录 · 血染钟楼百科";
   app.innerHTML = `
     <section class="collection-hero terms-hero">
@@ -32,7 +37,7 @@ function renderTermIndex() {
   renderTerms();
 }
 
-function renderScriptIndex() {
+export function renderScriptIndex() {
   document.title = "板子目录 · 血染钟楼百科";
   app.innerHTML = `
     <section class="collection-hero scripts-hero">
@@ -66,7 +71,7 @@ function renderScriptIndex() {
   renderScripts();
 }
 
-function renderRoleIndex() {
+export function renderRoleIndex() {
   document.title = "角色目录 · 血染钟楼百科";
   app.innerHTML = `
     <section class="collection-hero roles-hero">
@@ -115,7 +120,7 @@ function renderRoleIndex() {
   syncFilterButtons();
 }
 
-function renderTerms() {
+export function renderTerms() {
   const termGrid = document.querySelector("#termGrid");
   if (!termGrid) {
     return;
@@ -135,7 +140,7 @@ function renderTerms() {
     .join("");
 }
 
-function renderRules() {
+export function renderRules() {
   const ruleGrid = document.querySelector("#ruleGrid");
   if (!ruleGrid) {
     return;
@@ -153,7 +158,7 @@ function renderRules() {
     .join("");
 }
 
-function renderScripts() {
+export function renderScripts() {
   const scriptGrid = document.querySelector("#scriptGrid");
   if (!scriptGrid) {
     return;
@@ -179,7 +184,7 @@ function renderScripts() {
     .join("");
 }
 
-function roleMatchesSearch(role, query) {
+export function roleMatchesSearch(role, query) {
   if (!query) {
     return true;
   }
@@ -197,7 +202,7 @@ function roleMatchesSearch(role, query) {
   return haystack.includes(query.toLowerCase());
 }
 
-function renderRoles() {
+export function renderRoles() {
   const roleGrid = document.querySelector("#roleGrid");
   if (!roleGrid) {
     return;
@@ -245,7 +250,7 @@ function renderRoles() {
     .join("");
 }
 
-function renderRoleCard(role) {
+export function renderRoleCard(role) {
   return `
     <a class="role-card" href="/roles/${escapeHtml(role.id)}" data-link data-type="${escapeHtml(role.type)}">
       <header>
@@ -258,7 +263,7 @@ function renderRoleCard(role) {
   `;
 }
 
-function syncFilterButtons() {
+export function syncFilterButtons() {
   document.querySelectorAll(".filter").forEach((button) => {
     button.classList.toggle("active", button.dataset.filter === state.activeFilter);
   });

@@ -1,6 +1,17 @@
+import { getClaimRoleOptions, getGameScript, renderRoleNameDatalist, renderScriptNameDatalist } from "../notes-claims.js";
+import { createDefaultSetupDraft, ensureNotesState, getActiveGame, getDraftOrPlayer } from "../notes-state.js";
+import { app, noteModeOptions, noteTabOptions, state, typeLabels } from "../state.js";
+import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
+import { formatPhaseLabel, getAliveCount, getStandardSetup } from "./notes-core.js";
+import { renderOverviewTab } from "./notes-overview-render.js";
+import { renderPlayersTab } from "./notes-player-render.js";
+import { getClaimedRole } from "./notes-role-info.js";
+import { renderStorytellerTab } from "./notes-storyteller-render.js";
+import { renderInferenceTab, renderTimelineTab } from "./notes-timeline-render.js";
+
 // Split from notes-render.js. Keep script order in index.html.
 
-function renderNotesStageBar(game) {
+export function renderNotesStageBar(game) {
   const aliveCount = getAliveCount(game);
 
   return `
@@ -33,7 +44,7 @@ function renderNotesStageBar(game) {
   `;
 }
 
-function getOverviewClaimedRoleIds(game) {
+export function getOverviewClaimedRoleIds(game) {
   return new Set(
     game.players
       .map((player) => getClaimedRole(getDraftOrPlayer(player), game)?.id || "")
@@ -41,7 +52,7 @@ function getOverviewClaimedRoleIds(game) {
   );
 }
 
-function renderScriptSheetRole(role, selectedRoleIds) {
+export function renderScriptSheetRole(role, selectedRoleIds) {
   const isSelected = selectedRoleIds.has(role.id);
   return `
     <article class="notes-script-sheet-role${isSelected ? " is-selected" : ""}">
@@ -54,7 +65,7 @@ function renderScriptSheetRole(role, selectedRoleIds) {
   `;
 }
 
-function renderScriptSheetOverlay(game) {
+export function renderScriptSheetOverlay(game) {
   if (!state.notes.ui.scriptSheetOpen) {
     return "";
   }
@@ -115,7 +126,7 @@ function renderScriptSheetOverlay(game) {
   `;
 }
 
-function renderGameMeta(game) {
+export function renderGameMeta(game) {
   const config = getStandardSetup(game.playerCount);
   const script = getGameScript(game);
   const showScriptButton = state.notes.ui.activeTab === "overview";
@@ -151,14 +162,14 @@ function renderGameMeta(game) {
   `;
 }
 
-function renderSetupSeatOptions(playerCount, selectedSeat) {
+export function renderSetupSeatOptions(playerCount, selectedSeat) {
   return Array.from({ length: playerCount }, (_, index) => {
     const seat = index + 1;
     return `<option value="${seat}"${seat === selectedSeat ? " selected" : ""}>${seat}号位</option>`;
   }).join("");
 }
 
-function renderSetupPage(notes) {
+export function renderSetupPage(notes) {
   const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
   const config = getStandardSetup(draft.playerCount);
 
@@ -236,7 +247,7 @@ function renderSetupPage(notes) {
   `;
 }
 
-function renderNotesHome(notes) {
+export function renderNotesHome(notes) {
   document.title = "对局房间";
   app.innerHTML = `
     <section class="notes-home">
@@ -294,7 +305,7 @@ function renderNotesHome(notes) {
   `;
 }
 
-function renderTabContent(game) {
+export function renderTabContent(game) {
   const tab = state.notes.ui.activeTab;
 
   if (tab === "storyteller") {
@@ -316,7 +327,7 @@ function renderTabContent(game) {
   return renderOverviewTab(game);
 }
 
-function renderTabBar() {
+export function renderTabBar() {
   const game = getActiveGame();
   const tabs =
     game?.mode === "storyteller"
@@ -346,7 +357,7 @@ function renderTabBar() {
   `;
 }
 
-function renderGamePage(notes, game) {
+export function renderGamePage(notes, game) {
   document.title = `${game.title} · 对局房间`;
   app.innerHTML = `
     <section class="notes-shell">
@@ -363,7 +374,7 @@ function renderGamePage(notes, game) {
   `;
 }
 
-function renderNotesPage() {
+export function renderNotesPage() {
   const notes = ensureNotesState();
   const game = getActiveGame();
 

@@ -1,6 +1,12 @@
+import { clampNumber, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, saveNotesState } from "../notes-state.js";
+import { phaseTypeOptions, state } from "../state.js";
+import { createId } from "../utils.js";
+import { formatPhaseLabel } from "./notes-core.js";
+import { renderNotesPage } from "./notes-shell.js";
+
 // Split from notes-actions.js. Keep script order in index.html.
 
-function getSelectedPlayerIdForGame(game) {
+export function getSelectedPlayerIdForGame(game) {
   return (
     game?.players.find((player) => player.seat === game.selfSeat)?.id ||
     game?.players[0]?.id ||
@@ -8,7 +14,7 @@ function getSelectedPlayerIdForGame(game) {
   );
 }
 
-function updateSetupDraftField(field, value) {
+export function updateSetupDraftField(field, value) {
   const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
   const nextDraft = { ...draft };
 
@@ -29,7 +35,7 @@ function updateSetupDraftField(field, value) {
   return field === "playerCount";
 }
 
-function updateGameField(field, value) {
+export function updateGameField(field, value) {
   const game = getActiveGame();
   if (!game || !(field in game)) {
     return false;
@@ -49,7 +55,7 @@ function updateGameField(field, value) {
   return ["title", "phaseType", "phaseNumber", "mode", "scriptName"].includes(field);
 }
 
-function updateInferenceField(field, value) {
+export function updateInferenceField(field, value) {
   const game = getActiveGame();
   if (!game || !(field in game.inference)) {
     return;
@@ -59,7 +65,7 @@ function updateInferenceField(field, value) {
   saveNotesState();
 }
 
-function updateStorytellerField(field, value) {
+export function updateStorytellerField(field, value) {
   const game = getActiveGame();
   if (!game) {
     return;
@@ -76,7 +82,7 @@ function updateStorytellerField(field, value) {
   }
 }
 
-function updateStorytellerBluff(index, value) {
+export function updateStorytellerBluff(index, value) {
   const game = getActiveGame();
   if (!game) {
     return;
@@ -97,7 +103,7 @@ function updateStorytellerBluff(index, value) {
   saveNotesState();
 }
 
-function addTimelineEntry() {
+export function addTimelineEntry() {
   const game = getActiveGame();
   const typeInput = document.querySelector("#timelineType");
   const textInput = document.querySelector("#timelineText");
@@ -119,7 +125,7 @@ function addTimelineEntry() {
   renderNotesPage();
 }
 
-function exportActiveGame() {
+export function exportActiveGame() {
   const game = getActiveGame();
   if (!game) {
     return;
@@ -142,7 +148,7 @@ function exportActiveGame() {
   URL.revokeObjectURL(url);
 }
 
-function shiftGamePhase(game, step) {
+export function shiftGamePhase(game, step) {
   if (!game || !step) {
     return;
   }
@@ -180,7 +186,7 @@ function shiftGamePhase(game, step) {
   }
 }
 
-function openGameById(gameId) {
+export function openGameById(gameId) {
   const notes = ensureNotesState();
   const nextGame =
     notes.games.find((item) => item.id === gameId) ||
@@ -203,7 +209,7 @@ function openGameById(gameId) {
   renderNotesPage();
 }
 
-function handleCreateGame() {
+export function handleCreateGame() {
   const form = document.querySelector("#notesSetupForm");
   if (!form || !form.reportValidity()) {
     return;
@@ -231,7 +237,7 @@ function handleCreateGame() {
   renderNotesPage();
 }
 
-function handleDeleteGame(notes, game) {
+export function handleDeleteGame(notes, game) {
   if (!window.confirm("删除当前局次记录？这只会清除本机保存。")) {
     return;
   }

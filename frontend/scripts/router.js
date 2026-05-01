@@ -1,4 +1,12 @@
-function scrollToHash() {
+import { renderLoadError, renderNotFound, renderRoleDetail, renderScriptDetail, renderTermDetail } from "./catalog-details.js";
+import { renderHome } from "./catalog-home.js";
+import { renderRoleIndex, renderRoles, renderScriptIndex, renderTermIndex, syncFilterButtons } from "./catalog-indexes.js";
+import { handleNotesAction, handleNotesFieldChange } from "./notes-actions.js";
+import { ensureNotesState } from "./notes-state.js";
+import { renderNotesPage } from "./notes/notes-shell.js";
+import { state } from "./state.js";
+
+export function scrollToHash() {
   if (!window.location.hash) {
     window.scrollTo({ top: 0, behavior: "auto" });
     return;
@@ -12,7 +20,7 @@ function scrollToHash() {
   });
 }
 
-function renderRoute() {
+export function renderRoute() {
   const previousPath = state.currentPath;
   const segments = window.location.pathname.split("/").filter(Boolean);
   const isNotesRoute = segments.length === 1 && segments[0] === "notes";
@@ -71,7 +79,7 @@ function renderRoute() {
   renderNotFound();
 }
 
-function navigateTo(url) {
+export function navigateTo(url) {
   const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
   if (url !== current) {
     window.history.pushState({}, "", url);
@@ -79,7 +87,7 @@ function navigateTo(url) {
   renderRoute();
 }
 
-async function loadEncyclopedia() {
+export async function loadEncyclopedia() {
   try {
     const response = await fetch("/api/encyclopedia");
     if (!response.ok) {
@@ -153,4 +161,6 @@ document.addEventListener("change", (event) => {
 
 window.addEventListener("popstate", renderRoute);
 
-loadEncyclopedia();
+export function startApp() {
+  loadEncyclopedia();
+}
