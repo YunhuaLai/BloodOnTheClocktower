@@ -20,6 +20,7 @@ function createNotesUiState() {
     selectedPlayerId: "",
     overviewExpandedPlayerId: "",
     overviewExpandedExtraPlayerId: "",
+    scriptSheetOpen: false,
     creatingGame: false,
     setupDraft: createDefaultSetupDraft(),
     playerDrafts: {},

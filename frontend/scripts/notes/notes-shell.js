@@ -33,14 +33,112 @@ function renderNotesStageBar(game) {
   `;
 }
 
+function getOverviewClaimedRoleIds(game) {
+  return new Set(
+    game.players
+      .map((player) => getClaimedRole(getDraftOrPlayer(player), game)?.id || "")
+      .filter(Boolean),
+  );
+}
+
+function renderScriptSheetRole(role, selectedRoleIds) {
+  const isSelected = selectedRoleIds.has(role.id);
+  return `
+    <article class="notes-script-sheet-role${isSelected ? " is-selected" : ""}">
+      <div class="notes-script-sheet-role-title">
+        <strong>${escapeHtml(role.name)}</strong>
+        <span>${escapeHtml(typeLabels[role.type] || role.type || "角色")}</span>
+      </div>
+      <p>${escapeHtml(role.ability || role.detail?.abilitySummary || "暂无能力文本")}</p>
+    </article>
+  `;
+}
+
+function renderScriptSheetOverlay(game) {
+  if (!state.notes.ui.scriptSheetOpen) {
+    return "";
+  }
+
+  const script = getGameScript(game);
+  const roles = getClaimRoleOptions(game).filter((role) => role.type !== "fabled");
+  const selectedRoleIds = getOverviewClaimedRoleIds(game);
+  const groupedRoles = ["townsfolk", "outsider", "minion", "demon"]
+    .map((type) => ({
+      type,
+      roles: roles.filter((role) => role.type === type),
+    }))
+    .filter((group) => group.roles.length);
+
+  return `
+    <div
+      class="notes-script-sheet-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="查看当前剧本角色"
+    >
+      <button
+        type="button"
+        class="notes-script-sheet-backdrop"
+        data-notes-action="close-script-sheet"
+        aria-label="关闭剧本角色"
+      ></button>
+      <section class="notes-script-sheet-panel">
+        <header class="notes-script-sheet-header">
+          <div>
+            <p class="eyebrow">当前剧本</p>
+            <h3>${escapeHtml(script?.name || game.scriptName || "可选角色")}</h3>
+          </div>
+          <button
+            type="button"
+            class="note-icon-button"
+            data-notes-action="close-script-sheet"
+          >关闭</button>
+        </header>
+        <div class="notes-script-sheet-grid">
+          ${groupedRoles
+            .map(
+              (group) => `
+                <section class="notes-script-sheet-group notes-script-sheet-group--${escapeHtml(group.type)}">
+                  <h4>${escapeHtml(typeLabels[group.type] || group.type)}</h4>
+                  <div class="notes-script-sheet-roles">
+                    ${group.roles
+                      .map((role) => renderScriptSheetRole(role, selectedRoleIds))
+                      .join("")}
+                  </div>
+                </section>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
 function renderGameMeta(game) {
   const config = getStandardSetup(game.playerCount);
+  const script = getGameScript(game);
+  const showScriptButton = state.notes.ui.activeTab === "overview";
 
   return `
     <section class="notes-game-meta">
-      <div class="notes-game-meta-title">
-        <p class="eyebrow">当前局</p>
-        <h1>${escapeHtml(game.title)}</h1>
+      <div class="notes-game-meta-top">
+        <div class="notes-game-meta-title">
+          <p class="eyebrow">当前局</p>
+          <h1>${escapeHtml(game.title)}</h1>
+        </div>
+        ${
+          showScriptButton
+            ? `
+              <button
+                type="button"
+                class="note-icon-button notes-script-sheet-button"
+                data-notes-action="toggle-script-sheet"
+                ${script ? "" : "disabled"}
+              >剧本</button>
+            `
+            : ""
+        }
       </div>
       <p class="notes-game-meta-line">
         ${game.playerCount} 人 / 镇民 ${config.townsfolk} / 外来者 ${config.outsider} / 爪牙 ${config.minion} / 恶魔 ${config.demon}
@@ -49,6 +147,7 @@ function renderGameMeta(game) {
         ${escapeHtml(game.scriptName || "未选剧本")} / ${escapeHtml(getOptionLabel(noteModeOptions, game.mode))}
       </p>
     </section>
+    ${showScriptButton ? renderScriptSheetOverlay(game) : ""}
   `;
 }
 

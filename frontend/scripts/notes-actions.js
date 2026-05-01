@@ -183,6 +183,7 @@ function handleNotesAction(button) {
 
   if (action === "switch-tab") {
     notes.ui.activeTab = button.dataset.tab || "overview";
+    notes.ui.scriptSheetOpen = false;
     renderNotesPage();
     return;
   }
@@ -212,6 +213,18 @@ function handleNotesAction(button) {
     notes.ui.overviewExpandedPlayerId = playerId;
     notes.ui.overviewExpandedExtraPlayerId =
       notes.ui.overviewExpandedExtraPlayerId === playerId ? "" : playerId;
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "toggle-script-sheet") {
+    notes.ui.scriptSheetOpen = !notes.ui.scriptSheetOpen;
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "close-script-sheet") {
+    notes.ui.scriptSheetOpen = false;
     renderNotesPage();
     return;
   }
