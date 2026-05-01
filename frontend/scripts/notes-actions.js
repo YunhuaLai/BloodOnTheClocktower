@@ -63,7 +63,7 @@ function handleNotesFieldChange(target, refreshInterface = false) {
     const shouldRerender = updatePlayerField(
       playerId,
       playerField.dataset.field,
-      target.value,
+      target.type === "checkbox" ? target.checked : target.value,
     );
     const shouldPersistInline = ["overview", "storyteller"].includes(
       state.notes.ui.activeTab,

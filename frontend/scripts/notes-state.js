@@ -61,6 +61,7 @@ function createDefaultPlayer(seat) {
     trueRole: "",
     trueAlignment: "unknown",
     storytellerNotes: "",
+    newRoleFirstNight: false,
   };
 }
 
@@ -249,6 +250,7 @@ function normalizePlayer(player, index) {
     trueRole: player?.trueRole || "",
     trueAlignment,
     storytellerNotes: player?.storytellerNotes || "",
+    newRoleFirstNight: Boolean(player?.newRoleFirstNight),
   };
 }
 

@@ -295,6 +295,23 @@
   min-width: 72px;
 }
 
+.note-checkbox {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: 7px;
+  min-height: 32px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.note-checkbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--teal);
+}
+
 .story-role-badge {
   justify-self: start;
   min-height: 28px;

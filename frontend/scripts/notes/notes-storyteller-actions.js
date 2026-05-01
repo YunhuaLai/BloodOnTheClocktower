@@ -86,6 +86,7 @@ function assignRandomStorytellerRoles() {
     player.alignment = "unknown";
     player.storytellerNotes = "";
     player.roleInfo = createEmptyRoleInfo();
+    player.newRoleFirstNight = false;
   });
 
   const selectedRoleIds = new Set(selectedRoles.map((role) => role.id));
@@ -122,6 +123,7 @@ function clearStorytellerAssignments() {
     player.trueRole = "";
     player.trueAlignment = "unknown";
     player.storytellerNotes = "";
+    player.newRoleFirstNight = false;
   });
   game.storyteller = {
     ...createDefaultStorytellerState(),

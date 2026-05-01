@@ -75,11 +75,20 @@ function updatePlayerDraftField(playerId, field, value) {
       ? value
       : "unknown";
   } else if (field === "trueRole") {
+    const previousRole = getRoleByLooseName(draft.trueRole, getActiveGame());
     draft.trueRole = value;
     const role = getRoleByLooseName(value, getActiveGame());
     if (role) {
       draft.trueAlignment = getRoleAlignmentValue(role);
     }
+    if (!role) {
+      draft.newRoleFirstNight = false;
+    }
+    if ((getActiveGame()?.phaseNumber || 1) > 1 && role?.id !== previousRole?.id) {
+      draft.newRoleFirstNight = Boolean(role);
+    }
+  } else if (field === "newRoleFirstNight") {
+    draft.newRoleFirstNight = Boolean(value);
   } else {
     draft[field] = value;
   }
@@ -97,6 +106,7 @@ function updatePlayerDraftField(playerId, field, value) {
     "extraInfo",
     "trueRole",
     "trueAlignment",
+    "newRoleFirstNight",
   ].includes(field);
 }
 

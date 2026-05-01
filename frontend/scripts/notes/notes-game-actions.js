@@ -147,6 +147,7 @@ function shiftGamePhase(game, step) {
     return;
   }
 
+  const previousPhaseType = game.phaseType;
   let phaseType = game.phaseType;
   let phaseNumber = clampNumber(Number(game.phaseNumber) || 1, 1, 99);
 
@@ -172,6 +173,11 @@ function shiftGamePhase(game, step) {
 
   game.phaseType = phaseType;
   game.phaseNumber = phaseNumber;
+  if (previousPhaseType === "night" && phaseType === "day") {
+    game.players.forEach((player) => {
+      player.newRoleFirstNight = false;
+    });
+  }
 }
 
 function openGameById(gameId) {

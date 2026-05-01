@@ -58,6 +58,10 @@ function getStorytellerMarkerTokens(player) {
     tokens.push(getOptionLabel(noteConditionOptions, condition));
   }
 
+  if (player.newRoleFirstNight) {
+    tokens.push("新入场首夜");
+  }
+
   String(player.storytellerNotes || "")
     .split(/[，,、；;\n]/)
     .map((item) => item.trim())
@@ -152,6 +156,15 @@ function renderGrimoireInspector(player, game) {
         ${renderPlayerCycleField(draft, "status", "状态")}
         ${renderPlayerCycleField(draft, "condition", "醉/毒")}
       </div>
+      <label class="note-checkbox">
+        <input
+          type="checkbox"
+          data-player-id="${escapeHtml(player.id)}"
+          data-field="newRoleFirstNight"
+          ${draft.newRoleFirstNight ? "checked" : ""}
+        />
+        <span>新入场首夜</span>
+      </label>
       <label class="note-field note-field--wide">
         <span>提醒标记</span>
         <input
@@ -332,6 +345,15 @@ function renderStorytellerManualRows(game) {
             ${renderPlayerCycleField(draft, "status", "状态")}
             ${renderPlayerCycleField(draft, "condition", "醉/毒")}
           </div>
+          <label class="note-checkbox">
+            <input
+              type="checkbox"
+              data-player-id="${escapeHtml(player.id)}"
+              data-field="newRoleFirstNight"
+              ${draft.newRoleFirstNight ? "checked" : ""}
+            />
+            <span>新入场首夜</span>
+          </label>
           <label class="note-field note-field--wide">
             <span>标记与备注</span>
             <input
@@ -364,36 +386,115 @@ function renderStorytellerManualPanel(game) {
   `;
 }
 
+function getScriptNightOrders(game) {
+  const script = getGameScript(game);
+  return {
+    first: Array.isArray(script?.nightOrder?.first) ? script.nightOrder.first : [],
+    other: Array.isArray(script?.nightOrder?.other) ? script.nightOrder.other : [],
+  };
+}
+
+function hasScriptNightOrder(game) {
+  const orders = getScriptNightOrders(game);
+  return Boolean(orders.first.length || orders.other.length);
+}
+
+function getNightOrderForGame(game, assignedRoles) {
+  const hasAssignments = assignedRoles.length > 0;
+  const isFirstNight = game.phaseNumber <= 1;
+  const orders = getScriptNightOrders(game);
+  const previewOrder = isFirstNight ? orders.first : orders.other;
+
+  if (!hasAssignments) {
+    return previewOrder
+      .map((roleId, index) => {
+        const role = getRoleById(roleId);
+        return role
+          ? {
+              player: null,
+              role,
+              order: index,
+              fromNightOrder: true,
+              useFirstNightAction: isFirstNight,
+            }
+          : null;
+      })
+      .filter(Boolean);
+  }
+
+  if (!orders.first.length && !orders.other.length) {
+    return [];
+  }
+
+  return assignedRoles
+    .map((item, fallbackIndex) => {
+      if (!item.role?.id) {
+        return null;
+      }
+
+      const useFirstNightAction = isFirstNight || Boolean(item.newRoleFirstNight);
+      const nightOrder = useFirstNightAction ? orders.first : orders.other;
+      const orderIndex = nightOrder.indexOf(item.role.id);
+      if (orderIndex === -1) {
+        return null;
+      }
+
+      return {
+        ...item,
+        order: orderIndex + (useFirstNightAction ? 0 : orders.first.length),
+        fallbackOrder: fallbackIndex,
+        fromNightOrder: true,
+        useFirstNightAction,
+      };
+    })
+    .filter(Boolean)
+    .sort((left, right) => left.order - right.order || left.fallbackOrder - right.fallbackOrder);
+}
+
 function getNightOrderRoles(game) {
   const assignedRoles = game.players
     .map((player) => ({
       player,
       role: getStorytellerRole(player, game),
+      newRoleFirstNight: Boolean(player.newRoleFirstNight),
     }))
     .filter((item) => item.role);
   const hasAssignments = assignedRoles.length > 0;
-  const source = hasAssignments
-    ? assignedRoles
-    : getClaimRoleOptions(game)
-        .filter((role) => role.type !== "fabled")
-        .map((role) => ({ player: null, role }));
+  const orderedRoles = getNightOrderForGame(game, assignedRoles);
+  const source = orderedRoles.length
+    ? orderedRoles
+    : hasAssignments
+      ? hasScriptNightOrder(game)
+        ? []
+        : assignedRoles
+      : getClaimRoleOptions(game)
+          .filter((role) => role.type !== "fabled")
+          .map((role) => ({ player: null, role }));
 
   return source
     .map((item, index) => {
       const timing = item.role.abilityData?.abilityMeta?.phaseTiming || "";
       const firstReminder = item.role.firstNightReminder || "";
       const otherReminder = item.role.otherNightReminder || "";
+      const useFirstNightAction =
+        item.useFirstNightAction ?? Boolean(game.phaseNumber <= 1 || item.newRoleFirstNight);
+      const reminder = useFirstNightAction
+        ? firstReminder || otherReminder
+        : otherReminder;
       const hasNightAction =
-        firstReminder ||
-        otherReminder ||
-        ["setup", "first_night", "each_night", "each_night_star", "night"].includes(timing);
+        item.fromNightOrder ||
+        Boolean(reminder) ||
+        (useFirstNightAction
+          ? ["setup", "first_night", "each_night", "each_night_star", "night"].includes(timing)
+          : ["each_night", "each_night_star", "night"].includes(timing));
 
       return {
         ...item,
-        order: index,
+        order: item.order ?? index,
         timing,
         firstReminder,
         otherReminder,
+        useFirstNightAction,
         hasNightAction,
       };
     })
@@ -417,15 +518,17 @@ function renderNightOrderPanel(game) {
             <div class="story-night-list">
               ${nightRoles
                 .map((item) => {
-                  const reminder =
-                    game.phaseNumber <= 1
-                      ? item.firstReminder || item.otherReminder
-                      : item.otherReminder || item.firstReminder;
+                  const reminder = item.useFirstNightAction
+                    ? item.firstReminder || item.otherReminder
+                    : item.otherReminder;
+                  const playerLabel = item.player
+                    ? getPlayerLabel(item.player, game)
+                    : typeLabels[item.role.type];
                   return `
                     <article class="story-night-item">
                       <div>
                         <strong>${escapeHtml(item.role.name)}</strong>
-                        <span>${escapeHtml(item.player ? getPlayerLabel(item.player, game) : typeLabels[item.role.type])}</span>
+                        <span>${escapeHtml(playerLabel)}${item.newRoleFirstNight ? " · 新入场" : ""}</span>
                       </div>
                       <p>${escapeHtml(reminder || item.role.ability || "按角色能力处理。")}</p>
                     </article>
