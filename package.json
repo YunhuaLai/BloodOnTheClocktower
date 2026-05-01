@@ -5,7 +5,9 @@
   "description": "A web encyclopedia prototype for Blood on the Clocktower.",
   "scripts": {
     "start": "node backend/server.js",
-    "check": "node scripts/check-js.js",
+    "check": "node scripts/check-js.js && node scripts/validate-data.js",
+    "check:js": "node scripts/check-js.js",
+    "validate:data": "node scripts/validate-data.js",
     "official:import": "node scripts/official-json.js import",
     "official:export": "node scripts/official-json.js export",
     "rebuild:library": "node scripts/rebuild-library-from-catalog.js"

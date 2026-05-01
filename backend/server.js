@@ -1,8 +1,12 @@
 const fs = require("node:fs");
 const http = require("node:http");
 const path = require("node:path");
-const { augmentEncyclopedia } = require("./data/catalog");
-const { loadLibraryData } = require("./data/library");
+const {
+  getEncyclopediaData,
+  getRoleById,
+  getScriptById,
+  getTermById,
+} = require("./data/encyclopedia-cache");
 
 const PORT = Number(process.env.PORT || 3000);
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -25,14 +29,6 @@ function sendJson(response, statusCode, payload) {
     "Cache-Control": "no-store",
   });
   response.end(JSON.stringify(payload));
-}
-
-function readData(callback) {
-  try {
-    callback(null, augmentEncyclopedia(loadLibraryData()));
-  } catch (error) {
-    callback(error);
-  }
 }
 
 function sendRawJson(response, statusCode, payload) {
@@ -59,6 +55,16 @@ function sendFile(response, filePath) {
   });
 }
 
+function readData(response, errorMessage) {
+  try {
+    return getEncyclopediaData();
+  } catch (error) {
+    console.error(error);
+    sendJson(response, 500, { error: errorMessage });
+    return null;
+  }
+}
+
 function handleApi(request, response) {
   const requestUrl = new URL(request.url, `http://${request.headers.host}`);
   const segments = requestUrl.pathname.split("/").filter(Boolean);
@@ -69,83 +75,73 @@ function handleApi(request, response) {
   }
 
   if (requestUrl.pathname === "/api/encyclopedia") {
-    readData((error, data) => {
-      if (error) {
-        sendJson(response, 500, { error: "Failed to read encyclopedia data" });
-        return;
-      }
-
+    const data = readData(response, "Failed to read encyclopedia data");
+    if (data) {
       sendRawJson(response, 200, data);
-    });
+    }
     return;
   }
 
   if (segments[0] === "api" && segments[1] === "scripts") {
-    readData((error, data) => {
-      if (error) {
-        sendJson(response, 500, { error: "Failed to read script data" });
-        return;
-      }
+    const data = readData(response, "Failed to read script data");
+    if (!data) {
+      return;
+    }
 
-      if (!segments[2]) {
-        sendRawJson(response, 200, data.scripts || []);
-        return;
-      }
+    if (!segments[2]) {
+      sendRawJson(response, 200, data.scripts || []);
+      return;
+    }
 
-      const script = (data.scripts || []).find((item) => item.id === segments[2]);
-      if (!script) {
-        sendJson(response, 404, { error: "Script not found" });
-        return;
-      }
+    const script = getScriptById(segments[2]);
+    if (!script) {
+      sendJson(response, 404, { error: "Script not found" });
+      return;
+    }
 
-      sendRawJson(response, 200, script);
-    });
+    sendRawJson(response, 200, script);
     return;
   }
 
   if (segments[0] === "api" && segments[1] === "roles") {
-    readData((error, data) => {
-      if (error) {
-        sendJson(response, 500, { error: "Failed to read role data" });
-        return;
-      }
+    const data = readData(response, "Failed to read role data");
+    if (!data) {
+      return;
+    }
 
-      if (!segments[2]) {
-        sendRawJson(response, 200, data.roles || []);
-        return;
-      }
+    if (!segments[2]) {
+      sendRawJson(response, 200, data.roles || []);
+      return;
+    }
 
-      const role = (data.roles || []).find((item) => item.id === segments[2]);
-      if (!role) {
-        sendJson(response, 404, { error: "Role not found" });
-        return;
-      }
+    const role = getRoleById(segments[2]);
+    if (!role) {
+      sendJson(response, 404, { error: "Role not found" });
+      return;
+    }
 
-      sendRawJson(response, 200, role);
-    });
+    sendRawJson(response, 200, role);
     return;
   }
 
   if (segments[0] === "api" && segments[1] === "terms") {
-    readData((error, data) => {
-      if (error) {
-        sendJson(response, 500, { error: "Failed to read term data" });
-        return;
-      }
+    const data = readData(response, "Failed to read term data");
+    if (!data) {
+      return;
+    }
 
-      if (!segments[2]) {
-        sendRawJson(response, 200, data.terms || []);
-        return;
-      }
+    if (!segments[2]) {
+      sendRawJson(response, 200, data.terms || []);
+      return;
+    }
 
-      const term = (data.terms || []).find((item) => item.id === segments[2]);
-      if (!term) {
-        sendJson(response, 404, { error: "Term not found" });
-        return;
-      }
+    const term = getTermById(segments[2]);
+    if (!term) {
+      sendJson(response, 404, { error: "Term not found" });
+      return;
+    }
 
-      sendRawJson(response, 200, term);
-    });
+    sendRawJson(response, 200, term);
     return;
   }
 

@@ -133,7 +133,10 @@ function normalizeRole(rawRole, context) {
       mapRoleReference(roleReference, context.roleIdByEnglishName, context.roleIds),
     ),
   };
-  normalized.abilityData = context.roleAbilityByEnglishName.get(roleEnglishName) || null;
+  normalized.abilityData =
+    context.roleAbilityById.get(corrected.id) ||
+    context.roleAbilityByEnglishName.get(roleEnglishName) ||
+    null;
 
   return normalized;
 }
@@ -164,7 +167,12 @@ function augmentEncyclopedia(data) {
   );
   const scriptNamesById = new Map(rawScripts.map((script) => [script.id, script.name]));
   const roleAbilityByEnglishName = new Map(
-    rawRoleAbilities.map((ability) => [ability.englishName || ability.id, ability]),
+    rawRoleAbilities
+      .filter((ability) => ability.englishName || ability.id)
+      .map((ability) => [ability.englishName || ability.id, ability]),
+  );
+  const roleAbilityById = new Map(
+    rawRoleAbilities.filter((ability) => ability.id).map((ability) => [ability.id, ability]),
   );
   const scripts = rawScripts.map((script) => normalizeScript(script, roleIds));
   const roleScriptIdsById = new Map(rawRoles.map((role) => [role.id, []]));
@@ -188,6 +196,7 @@ function augmentEncyclopedia(data) {
         roleScriptIdsById,
         roleIdByEnglishName,
         roleIds,
+        roleAbilityById,
         roleAbilityByEnglishName,
       }),
     ),
