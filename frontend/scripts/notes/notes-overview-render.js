@@ -6,6 +6,7 @@ import { getOverviewSecondaryText } from "./notes-core.js";
 import { renderPlayerCycleField } from "./notes-player-render.js";
 import { renderOverviewRoleInfoInputs } from "./notes-role-info-overview.js";
 import { getRoleInfoSummary } from "./notes-role-info.js";
+import { renderBeyondWorldlineAnalysis } from "./notes-worldline-analysis.js";
 
 // Split from notes-render.js. Keep script order in index.html.
 
@@ -211,6 +212,7 @@ export function renderOverviewTab(game) {
       <div class="notes-overview-list">
         ${renderOverviewRows(game)}
       </div>
+      ${renderBeyondWorldlineAnalysis(game)}
       ${renderOverviewActions()}
     </section>
   `;

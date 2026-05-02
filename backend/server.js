@@ -8,7 +8,8 @@ const {
   getTermById,
 } = require("./data/encyclopedia-cache");
 
-const PORT = Number(process.env.PORT || 3000);
+const DEFAULT_PORT = Number(process.env.PORT || 3000);
+const MAX_PORT_ATTEMPTS = 20;
 const ROOT_DIR = path.resolve(__dirname, "..");
 const FRONTEND_DIR = path.join(ROOT_DIR, "frontend");
 
@@ -195,6 +196,20 @@ const server = http.createServer((request, response) => {
   handleStatic(request, response);
 });
 
-server.listen(PORT, () => {
-  console.log(`Blood on the Clocktower encyclopedia is running at http://localhost:${PORT}`);
-});
+function listen(port, attemptsLeft = MAX_PORT_ATTEMPTS) {
+  server.once("error", (error) => {
+    if (error.code === "EADDRINUSE" && attemptsLeft > 0) {
+      listen(port + 1, attemptsLeft - 1);
+      return;
+    }
+
+    console.error(error);
+    process.exitCode = 1;
+  });
+
+  server.listen(port, () => {
+    console.log(`Blood on the Clocktower encyclopedia is running at http://localhost:${port}`);
+  });
+}
+
+listen(DEFAULT_PORT);
