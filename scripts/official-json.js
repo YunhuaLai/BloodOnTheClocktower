@@ -171,8 +171,10 @@ function makeRoleAbilityData(roleData, officialRole) {
   const ability = officialRole.ability || "";
   const hasFirstNight = Number(officialRole.firstNight) > 0;
   const hasOtherNight = Number(officialRole.otherNight) > 0;
-  const target = inferTargetSchema(ability, hasFirstNight, hasOtherNight);
-  const result = inferResultSchema(ability, hasFirstNight, hasOtherNight);
+  const usagePattern = inferUsagePattern(ability, hasFirstNight, hasOtherNight);
+  const isOnceRecord = usagePattern === "once" || usagePattern === "once_per_game";
+  const target = inferTargetSchema(ability, isOnceRecord);
+  const result = inferResultSchema(ability, isOnceRecord);
   const chooses = target.fields.length > 0;
   const learnsInfo = result.fields.length > 0;
   const isEvent = isEventTriggeredAbility(ability, hasFirstNight, hasOtherNight);
@@ -202,7 +204,7 @@ function makeRoleAbilityData(roleData, officialRole) {
       pageType,
       phaseTiming,
       eventTiming: isEvent ? inferEventTiming(ability) : null,
-      usagePattern: inferUsagePattern(ability, hasFirstNight, hasOtherNight),
+      usagePattern,
       activationMode: chooses ? "active" : isEvent ? "conditional" : "passive",
       drivenBy: chooses ? "player" : isSetupOnly ? "system" : "storyteller",
       recordable: pageType !== "no_input" && pageType !== "rule_modifier",
@@ -276,7 +278,7 @@ function inferUsagePattern(ability, hasFirstNight, hasOtherNight) {
   return "passive";
 }
 
-function inferTargetSchema(ability, hasFirstNight, hasOtherNight) {
+function inferTargetSchema(ability, isOnceRecord) {
   const fields = [];
   const choosesPlayer = /选择.*玩家/.test(ability);
   const choosesRole = /选择.*角色|猜测.*角色/.test(ability);
@@ -297,15 +299,15 @@ function inferTargetSchema(ability, hasFirstNight, hasOtherNight) {
     fields.push(roleField(fields.some((field) => field.key === "role") ? "guess_role" : "role", /猜测/.test(ability) ? "猜测角色" : "选择角色"));
   }
 
-  return makeSchemaNode(fields, hasFirstNight && !hasOtherNight);
+  return makeSchemaNode(fields, isOnceRecord);
 }
 
-function inferResultSchema(ability, hasFirstNight, hasOtherNight) {
+function inferResultSchema(ability, isOnceRecord) {
   const fields = [];
   const needsReview = false;
 
   if (!/得知|会知道|是否|几|多少|数量|查看/.test(ability)) {
-    return makeSchemaNode(fields, hasFirstNight && !hasOtherNight);
+    return makeSchemaNode(fields, isOnceRecord);
   }
 
   if (/得知两名玩家和一个.*角色/.test(ability)) {
@@ -330,7 +332,7 @@ function inferResultSchema(ability, hasFirstNight, hasOtherNight) {
 
   if (/顺时针|逆时针|方向/.test(ability)) {
     fields.push(choiceField("direction", "方向", ["clockwise", "counterclockwise"]));
-    return makeSchemaNode(fields, hasFirstNight && !hasOtherNight);
+    return makeSchemaNode(fields, isOnceRecord);
   }
 
   if (/是否/.test(ability)) {
@@ -349,7 +351,7 @@ function inferResultSchema(ability, hasFirstNight, hasOtherNight) {
     fields.push(textField("note", "记录", "导入初稿，请按角色能力调整结构化字段。"));
   }
 
-  const node = makeSchemaNode(fields, hasFirstNight && !hasOtherNight);
+  const node = makeSchemaNode(fields, isOnceRecord);
   node.needsReview = needsReview;
   return node;
 }

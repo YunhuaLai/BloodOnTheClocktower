@@ -18,8 +18,8 @@ abilityMeta:
   recordable: true
 interactionSchema:
   target:
-    repeatMode: sequence
-    defaultRows: 3
+    repeatMode: once
+    defaultRows: 1
     fields:
       - key: seat
         type: seat
