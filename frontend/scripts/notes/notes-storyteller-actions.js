@@ -48,12 +48,92 @@ export function takeRandomRoles(roles, count) {
   return shuffleItems(roles).slice(0, count);
 }
 
+export function isRandomAssignableRole(role) {
+  return role?.setupMeta?.randomAssignable !== false;
+}
+
+export function isIdentityOverlayRole(role) {
+  return Boolean(role?.setupMeta?.identityOverlay?.enabled);
+}
+
+export function getRoleSetupAdjustments(role) {
+  return Array.isArray(role?.setupMeta?.configurationAdjustments)
+    ? role.setupMeta.configurationAdjustments
+    : [];
+}
+
+export function getRoleSetupNotes(role) {
+  return Array.isArray(role?.setupMeta?.setupNotes)
+    ? role.setupMeta.setupNotes.filter(Boolean)
+    : [];
+}
+
+export function getRoleGlobalMarkers(role) {
+  return Array.isArray(role?.remindersGlobal)
+    ? role.remindersGlobal.filter(Boolean)
+    : [];
+}
+
 export function getScriptRolesByType(game) {
-  const roles = getClaimRoleOptions(game).filter((role) => role.type !== "fabled");
+  const roles = getClaimRoleOptions(game).filter(
+    (role) => role.type !== "fabled" && isRandomAssignableRole(role),
+  );
   return roleTypeOrder.reduce((result, type) => {
     result[type] = roles.filter((role) => role.type === type);
     return result;
   }, {});
+}
+
+export function getScriptIdentityOverlayRoles(game) {
+  return getClaimRoleOptions(game).filter(
+    (role) => role.type !== "fabled" && isIdentityOverlayRole(role),
+  );
+}
+
+export function getAssignedSetupAlertRoles(game) {
+  return game.players
+    .map((player) => getRoleByLooseName(player.trueRole, game))
+    .filter(
+      (role, index, roles) =>
+        role &&
+        roles.findIndex((item) => item?.id === role.id) === index &&
+        (getRoleSetupAdjustments(role).length ||
+          role.setupMeta?.setupAlertLevel === "danger"),
+    );
+}
+
+function buildRandomSetupNoteLines(game, selectedRoles) {
+  const overlayRoles = getScriptIdentityOverlayRoles(game);
+  const alertRoles = selectedRoles.filter(
+    (role) =>
+      getRoleSetupAdjustments(role).length ||
+      role.setupMeta?.setupAlertLevel === "danger",
+  );
+  const lines = [];
+
+  if (overlayRoles.length) {
+    lines.push(
+      `身份覆盖标记：${overlayRoles
+        .map((role) => {
+          const markers = getRoleGlobalMarkers(role);
+          return markers.length
+            ? `${role.name}（${markers.join("、")}）`
+            : role.name;
+        })
+        .join("、")} 不会直接随机分配，请说书人手动指定并放置标记。`,
+    );
+  }
+
+  alertRoles.forEach((role) => {
+    const notes = getRoleSetupNotes(role);
+    lines.push(
+      notes.length
+        ? `${role.name}：${notes.join("；")}`
+        : `${role.name}：需要说书人手动检查开局配置。`,
+    );
+  });
+
+  return lines;
 }
 
 export function assignRandomStorytellerRoles() {
@@ -100,7 +180,10 @@ export function assignRandomStorytellerRoles() {
   const selectedRoleIds = new Set(selectedRoles.map((role) => role.id));
   const bluffRoles = shuffleItems(
     getClaimRoleOptions(game).filter(
-      (role) => role.type !== "fabled" && !selectedRoleIds.has(role.id),
+      (role) =>
+        role.type !== "fabled" &&
+        isRandomAssignableRole(role) &&
+        !selectedRoleIds.has(role.id),
     ),
   ).slice(0, 3);
 
@@ -109,11 +192,20 @@ export function assignRandomStorytellerRoles() {
     ...(game.storyteller || {}),
     bluffs: bluffRoles.map((role) => role.name),
   };
+  const setupNoteLines = buildRandomSetupNoteLines(game, selectedRoles);
+  if (setupNoteLines.length) {
+    const existingNotes = String(game.storyteller.setupNotes || "").trim();
+    game.storyteller.setupNotes = [existingNotes, ...setupNoteLines]
+      .filter(Boolean)
+      .join("\n");
+  }
   game.timeline.unshift({
     id: createId("note"),
     type: "info",
     phase: formatPhaseLabel(game.phaseType, game.phaseNumber),
-    text: `说书人随机分配了 ${game.playerCount} 个身份。`,
+    text: setupNoteLines.length
+      ? `说书人随机分配了 ${game.playerCount} 个身份，并生成 ${setupNoteLines.length} 条开局提醒。`
+      : `说书人随机分配了 ${game.playerCount} 个身份。`,
     createdAt: new Date().toISOString(),
   });
   saveNotesState();

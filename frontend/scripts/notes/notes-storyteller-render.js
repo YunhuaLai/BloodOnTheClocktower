@@ -5,7 +5,13 @@ import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state, t
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
 import { formatPhaseLabel, getAliveCount, getPlayerLabel, getStandardSetup } from "./notes-core.js";
 import { renderPlayerCycleField } from "./notes-player-render.js";
-import { getRoleByLooseName } from "./notes-storyteller-actions.js";
+import {
+  getAssignedSetupAlertRoles,
+  getRoleGlobalMarkers,
+  getRoleSetupNotes,
+  getScriptIdentityOverlayRoles,
+  getRoleByLooseName,
+} from "./notes-storyteller-actions.js";
 
 // Split from notes-render.js. Keep script order in index.html.
 
@@ -46,6 +52,52 @@ export function getStorytellerSetupSummary(game) {
     expected: config[type],
     actual: counts[type],
   }));
+}
+
+function renderStorytellerSetupAlerts(game) {
+  const overlayRoles = getScriptIdentityOverlayRoles(game);
+  const setupAlertRoles = getAssignedSetupAlertRoles(game);
+
+  if (!overlayRoles.length && !setupAlertRoles.length) {
+    return "";
+  }
+
+  return `
+    <div class="story-setup-alerts">
+      ${overlayRoles
+        .map((role) => {
+          const markers = getRoleGlobalMarkers(role);
+          const notes = getRoleSetupNotes(role);
+          return `
+            <article class="story-setup-alert">
+              <strong>${escapeHtml(role.name)} 标记需手动放置</strong>
+              <p>${escapeHtml(
+                markers.length
+                  ? `可用标记：${markers.join("、")}。随机分配不会直接发放该身份。`
+                  : "随机分配不会直接发放该身份，请说书人手动记录覆盖关系。",
+              )}</p>
+              ${notes.length ? `<small>${escapeHtml(notes.join("；"))}</small>` : ""}
+            </article>
+          `;
+        })
+        .join("")}
+      ${setupAlertRoles
+        .map((role) => {
+          const notes = getRoleSetupNotes(role);
+          return `
+            <article class="story-setup-alert is-danger">
+              <strong>${escapeHtml(role.name)} 会影响开局配置</strong>
+              <p>${escapeHtml(
+                notes.length
+                  ? notes.join("；")
+                  : "请说书人检查外来者、爪牙或其他配置人数是否需要调整。",
+              )}</p>
+            </article>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
 }
 
 export function getStorytellerSelectedPlayer(game) {
@@ -221,6 +273,7 @@ export function renderStorytellerGrimoire(game) {
             )
             .join("")}
         </div>
+        ${renderStorytellerSetupAlerts(game)}
         <div class="story-grimoire-bluffs">
           <span>伪装</span>
           ${Array.from({ length: 3 }, (_, index) => `
@@ -292,6 +345,7 @@ export function renderStorytellerSetupTools(game) {
           )
           .join("")}
       </div>
+      ${renderStorytellerSetupAlerts(game)}
       <div class="story-bluffs-grid">
         ${Array.from({ length: 3 }, (_, index) => `
           <label class="note-field">
