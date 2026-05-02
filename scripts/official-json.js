@@ -132,6 +132,7 @@ function makeScriptId(existingScripts, scriptName) {
 function makeRoleData(existingRole, officialRole) {
   const type = TEAM_TO_TYPE[officialRole.team] || officialRole.team || "townsfolk";
   const base = existingRole ? { ...existingRole } : {};
+  const ability = officialRole.ability || base.ability || "";
 
   return {
     ...base,
@@ -143,6 +144,7 @@ function makeRoleData(existingRole, officialRole) {
     image: officialRole.image || base.image || "",
     flavor: officialRole.flavor || base.flavor || "",
     setup: Boolean(officialRole.setup),
+    setupMeta: base.setupMeta || inferSetupMeta({ ...officialRole, ability }, type),
     reminders: officialRole.reminders || [],
     remindersGlobal: officialRole.remindersGlobal || [],
     firstNightReminder: officialRole.firstNightReminder || "",
@@ -150,8 +152,116 @@ function makeRoleData(existingRole, officialRole) {
     summary: base.summary || officialRole.ability || "",
     keywords: base.keywords || buildKeywords(type, officialRole),
     detail: base.detail,
-    ability: officialRole.ability || base.ability || "",
+    ability,
   };
+}
+
+function inferSetupMeta(role, type) {
+  const ability = role.ability || "";
+  const identityOverlay = inferIdentityOverlay(role, type);
+  const configurationAdjustments = inferConfigurationAdjustments(ability);
+  const setupNotes = [];
+
+  if (identityOverlay.enabled) {
+    setupNotes.push(identityOverlay.note);
+  }
+
+  configurationAdjustments.forEach((adjustment) => {
+    setupNotes.push(adjustment.note);
+  });
+
+  return {
+    randomAssignable: !identityOverlay.enabled,
+    tokenRequired: true,
+    setupAlertLevel: setupNotes.length ? "danger" : "none",
+    identityOverlay,
+    configurationAdjustments,
+    setupNotes,
+  };
+}
+
+function inferIdentityOverlay(role, type) {
+  const ability = role.ability || "";
+  const name = role.name || "";
+  const isDrunkLike = name.includes("酒鬼") || /你不知道你是.*你以为你是/.test(ability);
+  const isMarionetteLike = name.includes("提线木偶") || /你以为你是.*但其实/.test(ability);
+
+  if (!isDrunkLike && !isMarionetteLike) {
+    return {
+      enabled: false,
+      shownToken: "self",
+      actualRoleType: type,
+      shownRoleTypes: [],
+      note: "",
+    };
+  }
+
+  const shownRoleTypes = isDrunkLike ? ["townsfolk"] : ["townsfolk", "outsider"];
+
+  return {
+    enabled: true,
+    shownToken: "other_role",
+    actualRoleType: type,
+    shownRoleTypes,
+    note: isDrunkLike
+      ? "身份覆盖：不要把酒鬼标记直接加入随机直发池；玩家应拿到一个镇民标记，酒鬼本体由说书人记录。"
+      : "身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。",
+  };
+}
+
+function inferConfigurationAdjustments(ability) {
+  const adjustments = [];
+  const bracketMatches = Array.from(String(ability || "").matchAll(/\[([^\]]+)\]/g)).map((match) => match[1]);
+
+  bracketMatches.forEach((text) => {
+    const normalized = text.replace(/\s+/g, "");
+
+    if (!normalized.includes("外来者")) {
+      return;
+    }
+
+    const rangeMatch = normalized.match(/([+-]?\d+)[~或]([+-]?\d+)/);
+    const singleMatch = normalized.match(/([+-]\d+)/);
+    let min = null;
+    let max = null;
+
+    if (rangeMatch) {
+      min = Number(rangeMatch[1]);
+      max = Number(rangeMatch[2]);
+    } else if (singleMatch) {
+      min = Number(singleMatch[1]);
+      max = Number(singleMatch[1]);
+    }
+
+    if (min === null || max === null) {
+      return;
+    }
+
+    adjustments.push({
+      type: "outsider_count",
+      min,
+      max,
+      source: `[${text}]`,
+      note: `配置调整：外来者数量 ${formatSignedRange(min, max)}。`,
+    });
+  });
+
+  if (/额外增加或减少.*外来者|增加或减少.*外来者/.test(ability)) {
+    adjustments.push({
+      type: "outsider_count",
+      min: -1,
+      max: 1,
+      source: "ability_text",
+      note: "配置调整：外来者数量可能 +1 或 -1。",
+    });
+  }
+
+  return adjustments;
+}
+
+function formatSignedRange(min, max) {
+  const format = (value) => (value > 0 ? `+${value}` : String(value));
+  return min === max ? format(min) : `${format(min)} 到 ${format(max)}`;
 }
 
 function buildKeywords(type, officialRole) {

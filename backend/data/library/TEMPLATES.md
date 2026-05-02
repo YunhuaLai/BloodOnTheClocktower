@@ -25,6 +25,10 @@
 - `scripts` 中的 `author`、`logo`、`description`、`townsfolkName`、`additional` 对应官方 JSON 的 `_meta`
 - `scripts.nightOrder.first` 和 `scripts.nightOrder.other` 使用角色 id 的有序数组；导出官方 JSON 时由它们生成角色的 `firstNight` / `otherNight` 数字
 - `roles` 中的 `edition`、`image`、`flavor`、`setup`、`reminders`、`remindersGlobal`、`firstNightReminder`、`otherNightReminder` 对应官方角色对象字段
+- `roles.setupMeta` 是本站说书人/随机分配用字段，不导出到官方 JSON
+- `setupMeta.randomAssignable: false` 表示不能直接随机分配该角色标记，例如酒鬼、提线木偶
+- `setupMeta.identityOverlay` 用于身份覆盖类角色：实际身份由说书人记录，玩家拿到另一个角色标记
+- `setupMeta.configurationAdjustments` 用于配置调整类角色，例如 `[-1或+1外来者]`；`setupAlertLevel: danger` 可在说书人模式中标红提示
 - 导出官方 JSON 时，角色对象的 `id` 可以直接使用本站角色 id；不需要单独维护官方 `sourceId`
 - 官方 JSON 中的旅行者会导入到 `travellerIds`，传奇角色会导入到 `fabledIds`
 - 导出官方 JSON 时顺序为 `_meta`、旅行者、常规剧本角色、传奇角色
