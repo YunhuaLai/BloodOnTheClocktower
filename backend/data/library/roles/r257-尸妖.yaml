@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/qazwsxedc/aCup/24_acup.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 中毒
   - 首次提名

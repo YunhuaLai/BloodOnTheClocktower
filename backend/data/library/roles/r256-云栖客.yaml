@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/usersave/static_h/sta/2_sta.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 是云栖客
 remindersGlobal: []

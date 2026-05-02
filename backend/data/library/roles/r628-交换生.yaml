@@ -6,6 +6,18 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bootlegger.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''

@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/meiosis/clockparadox/14_clockparadox.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 死亡
   - 行动顺序改变

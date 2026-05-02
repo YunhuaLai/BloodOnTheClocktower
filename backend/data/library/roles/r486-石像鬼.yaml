@@ -6,6 +6,20 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/drunk.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: outsider
+    shownRoleTypes:
+      - townsfolk
+    note: 身份覆盖：不要把酒鬼标记直接加入随机直发池；玩家应拿到一个镇民标记，酒鬼本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把酒鬼标记直接加入随机直发池；玩家应拿到一个镇民标记，酒鬼本体由说书人记录。
 reminders: []
 remindersGlobal:
   - 是石像鬼

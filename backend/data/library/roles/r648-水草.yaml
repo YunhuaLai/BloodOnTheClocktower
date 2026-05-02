@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/kuikuisama/guiyihuayuan/3_guiyihuayuan.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: 每个夜晚，选择一种身份类型，你得知一条关于在场的该角色类型的谜语。

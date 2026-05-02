@@ -6,6 +6,18 @@ edition: custom
 image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/0/0b/2j5fqtxgc1fftjizfle6zqrwk1rstng.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: a jinxed
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 得知
 remindersGlobal: []

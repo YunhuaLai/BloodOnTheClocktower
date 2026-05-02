@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/76777473/coil/2_coil.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''

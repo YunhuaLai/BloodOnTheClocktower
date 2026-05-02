@@ -6,6 +6,18 @@ edition: custom
 image: https://cdn.nlark.com/yuque/0/2024/png/50711558/1734443654768-18d07742-cee8-4477-8bd8-3205a16c8746.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''

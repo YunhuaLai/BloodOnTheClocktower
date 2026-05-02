@@ -6,6 +6,18 @@ edition: custom
 image: https://clocktower-wiki.gstonegames.com/images/thumb/e/ea/Niangjiushi.png/120px-Niangjiushi.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 微醺
 remindersGlobal: []

@@ -6,6 +6,18 @@ edition: custom
 image: https://img.cdn1.vip/i/68d20ac7f015e_1758595783.webp
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 死亡
   - 反对者

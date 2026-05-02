@@ -6,6 +6,18 @@ edition: custom
 image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f1/8k1pa13a2y1e7zhhvzjc2ge8it02cf8.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: a jinxed
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 得知善良
   - 得知邪恶

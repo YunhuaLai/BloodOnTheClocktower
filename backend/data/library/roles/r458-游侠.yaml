@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/12_inthegr_58.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller2
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 处死目标
 remindersGlobal: []

@@ -7,6 +7,18 @@ image: >-
   https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/2_bundagee_inn_massacre_bigyellowfish.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: 唤醒调酒师，并向他展示一个能力在当晚正常生效的角色标记。

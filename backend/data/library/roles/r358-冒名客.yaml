@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/22_inthegr_58.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal:
   - 是冒名客

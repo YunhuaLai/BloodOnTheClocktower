@@ -6,6 +6,18 @@ edition: custom
 image: https://clocktower-wiki.gstonegames.com/images/thumb/b/b7/Banxian.png/120px-Banxian.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''

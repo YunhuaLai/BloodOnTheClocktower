@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/13_inthegr_58.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: 告知其邪恶方的接头暗号。如果醉酒，改为告知错误的暗号。

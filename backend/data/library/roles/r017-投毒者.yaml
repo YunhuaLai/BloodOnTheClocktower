@@ -29,6 +29,18 @@ edition: custom
 image: https://img.picui.cn/free/2025/06/17/6851433c6bfe9.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 中毒
 remindersGlobal: []

@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/jc3635/dnd/5_dnd.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 已提名
   - 蛇神使

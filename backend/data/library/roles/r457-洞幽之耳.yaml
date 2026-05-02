@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/jc3635/City_of_Illusio/27_city_of_illusio.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 监听
 remindersGlobal: []

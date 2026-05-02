@@ -6,6 +6,18 @@ edition: custom
 image: https://free.picui.cn/free/2025/09/24/68d2c71ccfcdf.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 世界线：涡流
   - 世界线：小恶魔

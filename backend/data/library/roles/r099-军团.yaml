@@ -9,6 +9,18 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/legion.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 即将被处决
   - 死亡

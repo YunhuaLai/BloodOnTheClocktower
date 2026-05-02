@@ -6,6 +6,18 @@ edition: custom
 image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/1/14/gk3bmjwzy80yzezuvzca5b1vb51g0wk.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 失去能力
 remindersGlobal: []

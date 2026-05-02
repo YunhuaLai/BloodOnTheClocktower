@@ -6,6 +6,24 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/assassin.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 2
+      max: 2
+      source: '[无佞舌在场，+2外来者]'
+      note: 配置调整：外来者数量 +2。
+  setupNotes:
+    - 配置调整：外来者数量 +2。
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''

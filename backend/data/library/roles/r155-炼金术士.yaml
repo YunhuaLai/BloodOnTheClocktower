@@ -6,6 +6,18 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/alchemist.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal:
   - 是炼金术士

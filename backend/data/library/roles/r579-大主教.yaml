@@ -6,6 +6,18 @@ edition: custom
 image: https://postimage.me/images/2024/08/01/8ec3ba3ce389b931e15d1662ede9c473.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 失去能力
 remindersGlobal: []

@@ -6,6 +6,18 @@ edition: custom
 image: https://clocktower-wiki.gstonegames.com/images/thumb/8/8f/Acrobat.png/300px-Acrobat.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal:
   - 死亡

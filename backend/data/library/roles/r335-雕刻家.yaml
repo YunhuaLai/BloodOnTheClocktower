@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/Guiltier/seve/18_seve.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 提名者
   - 醉酒

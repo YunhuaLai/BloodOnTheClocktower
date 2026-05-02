@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/smallbear/jinhulun/6_jinhulun.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal:
   - 是巴隆

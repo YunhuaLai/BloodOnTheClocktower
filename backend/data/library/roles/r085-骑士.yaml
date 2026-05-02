@@ -9,6 +9,18 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/upload/202304/c_7251125151861_73cfd5f9.jpg
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 得知
 remindersGlobal:

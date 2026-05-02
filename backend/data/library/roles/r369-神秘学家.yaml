@@ -6,6 +6,24 @@ edition: custom
 image: https://www.bloodstar.xyz/p/humlet/JUEDOU/6_juedou.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -0.0
+      source: '[-1或-0外来者]'
+      note: 配置调整：外来者数量 -1 到 0。
+  setupNotes:
+    - 配置调整：外来者数量 -1 到 0。
 reminders:
   - 错误信息
 remindersGlobal: []

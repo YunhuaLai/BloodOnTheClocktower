@@ -6,6 +6,24 @@ edition: custom
 image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/0/05/pt6cih3q0etin64mt9lqj2sxz5bwarj.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 0
+      max: 1
+      source: '[+0~1外来者]'
+      note: 配置调整：外来者数量 0 到 +1。
+  setupNotes:
+    - 配置调整：外来者数量 0 到 +1。
 reminders:
   - 中毒
 remindersGlobal: []

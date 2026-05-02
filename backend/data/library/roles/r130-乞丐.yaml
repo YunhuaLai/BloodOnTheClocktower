@@ -6,6 +6,18 @@ edition: custom
 image: https://i.postimg.cc/Dm9q3wSN/Beggar.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal:
   - 乞丐的破碗

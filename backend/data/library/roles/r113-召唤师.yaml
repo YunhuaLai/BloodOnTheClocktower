@@ -9,6 +9,18 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/summoner.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 第一晚
   - 第二晚

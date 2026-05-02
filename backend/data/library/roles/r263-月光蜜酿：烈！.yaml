@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/qazwsxedc/aCup_8/14_acup_8.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 私酒
 remindersGlobal: []

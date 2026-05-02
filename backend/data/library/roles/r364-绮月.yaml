@@ -6,6 +6,18 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/upload/202506/c_8730543740571_77ced105.jpg
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - “死亡”
   - “限一次”

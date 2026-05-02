@@ -30,6 +30,24 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/role_icon/baron.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 2
+      max: 2
+      source: '[+2 外来者]'
+      note: 配置调整：外来者数量 +2。
+  setupNotes:
+    - 配置调整：外来者数量 +2。
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''

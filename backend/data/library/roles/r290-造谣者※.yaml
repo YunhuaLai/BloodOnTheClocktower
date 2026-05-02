@@ -6,6 +6,18 @@ edition: custom
 image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/b/b1/f5bpgic2ja7fbuvxh1vigjkxdsu78j7.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: a jinxed
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 死亡
 remindersGlobal: []

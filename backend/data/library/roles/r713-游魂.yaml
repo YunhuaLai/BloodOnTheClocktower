@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/meiosis/clockparadox/17_clockparadox.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: 决定游魂在今晚被当作什么角色。按对应角色的行动方式唤醒他。

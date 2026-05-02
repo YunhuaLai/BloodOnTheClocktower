@@ -7,6 +7,18 @@ image:
   - https://free.picui.cn/free/2025/09/24/68d2c79dbdd30.png
 flavor: 我不害怕狮子，也不害怕罗马人，不怕任何来自深渊的怪兽.因为我的无敌的神与我同在
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal:
   - MARTYRED

@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/Airell_clocktower/Assets_of_Lei_Gallery/klaun_assets_of_lei_gallery.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 癫狂
 remindersGlobal: []

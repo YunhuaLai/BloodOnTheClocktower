@@ -6,6 +6,18 @@ edition: custom
 image: https://img.picui.cn/free/2025/06/17/68514345aac56.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 梦游者
 remindersGlobal: []

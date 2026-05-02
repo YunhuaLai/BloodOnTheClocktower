@@ -6,6 +6,24 @@ edition: custom
 image: https://www.bloodstar.xyz/p/Guiltier/seve/14_seve.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -0.0
+      max: 1
+      source: '[-0~1外来者]'
+      note: 配置调整：外来者数量 0 到 +1。
+  setupNotes:
+    - 配置调整：外来者数量 0 到 +1。
 reminders:
   - '1'
   - '2'

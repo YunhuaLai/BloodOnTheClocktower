@@ -6,6 +6,24 @@ edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/upload/202410/c_7787277188271_9eba6446.jpg
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 0
+      max: 1
+      source: '[+0~1外来者]'
+      note: 配置调整：外来者数量 0 到 +1。
+  setupNotes:
+    - 配置调整：外来者数量 0 到 +1。
 reminders:
   - 得知
   - 得知

@@ -6,6 +6,24 @@ edition: custom
 image: https://clocktower-wiki.gstonegames.com/images/thumb/9/91/Sentinel.png/600px-Sentinel.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: 1
+      source: ability_text
+      note: 配置调整：外来者数量可能 +1 或 -1。
+  setupNotes:
+    - 配置调整：外来者数量可能 +1 或 -1。
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''

@@ -9,6 +9,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/Tiger/Future-King/16_futureking.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 醉酒
 remindersGlobal: []

@@ -6,6 +6,18 @@ edition: custom
 image: https://free.picui.cn/free/2025/09/12/68c3fe1fb18df.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 中毒
   - 死亡

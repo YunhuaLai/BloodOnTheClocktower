@@ -6,6 +6,18 @@ edition: custom
 image: https://clocktower-wiki.gstonegames.com/images/thumb/3/3f/Nightwatchman.png/300px-Nightwatchman.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 失去能力
 remindersGlobal: []

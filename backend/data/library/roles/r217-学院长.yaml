@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/smallbear/jinhulun/15_jinhulun.png
 flavor: 你想提前毕业？好吧，明面上我不能这么做，但我可以给你发布个新的任务。
 setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 得知
 remindersGlobal: []

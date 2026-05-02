@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/kuikuisama/guiyihuayuan/26_guiyihuayuan.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 杀害
   - 诅咒

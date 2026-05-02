@@ -6,6 +6,21 @@ edition: custom
 image: https://www.bloodstar.xyz/p/qazwsxedc/aCup/27_acup.png
 flavor: ''
 setup: true
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: outsider
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
 reminders: []
 remindersGlobal:
   - 是史莱姆

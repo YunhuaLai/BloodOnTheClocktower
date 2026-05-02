@@ -6,6 +6,18 @@ edition: custom
 image: https://free.picui.cn/free/2025/11/14/69171f861ffa4.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 提问
 remindersGlobal: []

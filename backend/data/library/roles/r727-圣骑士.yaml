@@ -6,6 +6,18 @@ edition: custom
 image: https://postimage.me/images/2024/08/01/d094915b8c8b9fabaf15649b5ef52cdd.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 圣光
 remindersGlobal: []

@@ -6,6 +6,18 @@ edition: custom
 image: https://i.postimg.cc/3R3Lvbzc/typhoon.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 打破规则
 remindersGlobal:

@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/smallbear/jinhulun/14_jinhulun.png
 flavor: 其实我是双面间谍，但愿他们还没发现
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 鬼谋
   - 暴虐

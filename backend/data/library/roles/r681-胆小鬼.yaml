@@ -6,6 +6,18 @@ edition: custom
 image: https://www.bloodstar.xyz/p/76777473/coil/123_coil.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: 对她点头或摇头来示意邻近存活玩家中是否包含恶魔或他自己。

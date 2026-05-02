@@ -6,6 +6,18 @@ edition: custom
 image: https://img.picui.cn/free/2025/06/17/685143420a5ec.png
 flavor: 今夜的香水我准备了两种：一种如情书般坦白，另一种...（突然靠近）像捕兽夹上的玫瑰。亲爱的，你猜你闻到的是哪一种？
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''

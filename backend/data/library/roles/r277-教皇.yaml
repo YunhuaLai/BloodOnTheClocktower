@@ -6,6 +6,18 @@ edition: custom
 image: https://free.picui.cn/free/2025/12/17/6941986d22fab.png
 flavor: ''
 setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
   - 已使用
 remindersGlobal: []
