@@ -34,14 +34,12 @@ interactionSchema:
     repeatMode: sequence
     defaultRows: 3
     fields:
-      - key: direction
-        type: choice
-        label: 方向
+      - key: count
+        type: number
+        label: 邪恶数量
         required: true
-        optionsSource: custom
-        options:
-          - clockwise
-          - counterclockwise
-        min: null
-        max: null
+        optionsSource: null
+        options: null
+        min: 0
+        max: 15
         placeholder: null
