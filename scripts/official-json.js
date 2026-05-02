@@ -817,4 +817,7 @@ module.exports = {
   importOfficialJson,
   importOfficialJsonPath,
   exportOfficialJson,
+  inferSetupMeta,
+  inferIdentityOverlay,
+  inferConfigurationAdjustments,
 };

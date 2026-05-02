@@ -10,6 +10,8 @@
     "validate:data": "node scripts/validate-data.js",
     "official:import": "node scripts/official-json.js import",
     "official:export": "node scripts/official-json.js export",
+    "setup-meta:check": "node scripts/backfill-setup-meta.js",
+    "setup-meta:write": "node scripts/backfill-setup-meta.js --write",
     "rebuild:library": "node scripts/rebuild-library-from-catalog.js"
   },
   "dependencies": {
