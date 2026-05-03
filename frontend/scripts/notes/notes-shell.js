@@ -312,6 +312,11 @@ export function renderTabContent(game) {
     return renderStorytellerTab(game);
   }
 
+  if (game.mode === "storyteller" && tab !== "timeline") {
+    state.notes.ui.activeTab = "storyteller";
+    return renderStorytellerTab(game);
+  }
+
   if (tab === "players") {
     return renderPlayersTab(game);
   }
@@ -332,10 +337,10 @@ export function renderTabBar() {
   const tabs =
     game?.mode === "storyteller"
       ? [
-          ...noteTabOptions.slice(0, 1),
           { value: "storyteller", label: "说书人" },
-          ...noteTabOptions.slice(1),
+          noteTabOptions.find((tab) => tab.value === "timeline"),
         ]
+          .filter(Boolean)
       : noteTabOptions;
 
   return `

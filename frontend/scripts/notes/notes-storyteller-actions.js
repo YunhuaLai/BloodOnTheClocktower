@@ -169,7 +169,7 @@ export function assignRandomStorytellerRoles() {
     player.trueRole = role?.name || "";
     player.trueAlignment = getRoleAlignmentValue(role);
     player.status = "alive";
-    player.condition = "unknown";
+    player.condition = "sober";
     player.claim = "";
     player.alignment = "unknown";
     player.storytellerNotes = "";

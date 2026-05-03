@@ -1,6 +1,6 @@
 import { clearPlayerDraft, createDefaultSetupDraft, ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
 import { addTimelineEntry, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, shiftGamePhase, updateGameField, updateInferenceField, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField } from "./notes/notes-game-actions.js";
-import { adjustPlayerDraftExternalReports, adjustPlayerDraftRoleInfoRows, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, updatePlayerDraftExternalReport, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
+import { adjustPlayerDraftExternalReports, adjustPlayerDraftRoleInfoRows, autoFillStorytellerRoleInfoResult, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, togglePlayerStoryMarker, updatePlayerDraftExternalReport, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
 import { assignRandomStorytellerRoles, clearStorytellerAssignments } from "./notes/notes-storyteller-actions.js";
 import { state } from "./state.js";
@@ -87,7 +87,7 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
   const roleInfoField = target.closest(
     "[data-roleinfo-section][data-roleinfo-row][data-roleinfo-field]",
   );
-  const playerCard = target.closest(".notes-player-detail, .notes-overview-editor");
+  const playerCard = target.closest(".notes-player-detail, .notes-overview-editor, .story-night-detail");
   if (roleInfoField && playerCard) {
     const playerId = playerCard.dataset.playerId;
     updatePlayerDraftRoleInfo(
@@ -97,7 +97,7 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
       roleInfoField.dataset.roleinfoField,
       target.value,
     );
-    if (state.notes.ui.activeTab === "overview") {
+    if (["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
       persistPlayerDraft(playerId);
     }
     return;
@@ -114,7 +114,7 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
       externalReportField.dataset.externalReportField,
       target.value,
     );
-    if (state.notes.ui.activeTab === "overview") {
+    if (["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
       persistPlayerDraft(playerId);
     }
   }
@@ -201,6 +201,24 @@ export function handleNotesAction(button) {
     return;
   }
 
+  if (action === "toggle-story-marker") {
+    const playerId = button.dataset.playerId || "";
+    if (togglePlayerStoryMarker(playerId, button.dataset.marker || "")) {
+      persistPlayerDraft(playerId);
+    }
+    renderNotesPage();
+    return;
+  }
+
+  if (action === "autofill-story-result") {
+    const playerId = button.dataset.playerId || "";
+    if (autoFillStorytellerRoleInfoResult(playerId)) {
+      persistPlayerDraft(playerId);
+    }
+    renderNotesPage();
+    return;
+  }
+
   if (action === "open-player" || action === "select-player") {
     notes.ui.selectedPlayerId = button.dataset.playerId || "";
     notes.ui.activeTab = "players";
@@ -254,7 +272,7 @@ export function handleNotesAction(button) {
   if (action === "cycle-roleinfo-field") {
     const playerId =
       button.dataset.playerId ||
-      button.closest(".notes-player-detail, .notes-overview-editor")?.dataset.playerId ||
+      button.closest(".notes-player-detail, .notes-overview-editor, .story-night-detail")?.dataset.playerId ||
       "";
     cyclePlayerDraftRoleInfoField(
       playerId,
@@ -262,7 +280,7 @@ export function handleNotesAction(button) {
       Number(button.dataset.row || 0),
       button.dataset.field || "",
     );
-    if (state.notes.ui.activeTab === "overview" && playerId) {
+    if (["overview", "storyteller"].includes(state.notes.ui.activeTab) && playerId) {
       persistPlayerDraft(playerId);
     }
     renderNotesPage();
@@ -289,7 +307,7 @@ export function handleNotesAction(button) {
       button.dataset.section || "target",
       action === "add-roleinfo-row" ? 1 : -1,
     );
-    if (state.notes.ui.activeTab === "overview") {
+    if (["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
       persistPlayerDraft(button.dataset.playerId);
     }
     renderNotesPage();

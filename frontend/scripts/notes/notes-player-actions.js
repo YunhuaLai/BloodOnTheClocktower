@@ -1,11 +1,23 @@
+import { getClaimRoleOptions } from "../notes-claims.js";
 import { clearPlayerDraft, cloneExternalReports, clonePlayerForDraft, cloneRoleInfo, getActiveGame, getPlayerDraft, saveNotesState, setPlayerDraft } from "../notes-state.js";
-import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions } from "../state.js";
+import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state } from "../state.js";
 import { createId, getOptionLabel } from "../utils.js";
 import { formatPhaseLabel, getPlayerLabel } from "./notes-core.js";
 import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoNode, getRoleInfoSummary, isRoleInfoEntryFilled } from "./notes-role-info.js";
 import { getRoleAlignmentValue, getRoleByLooseName } from "./notes-storyteller-actions.js";
 
 // Split from notes-actions.js. Keep script order in index.html.
+
+function getRoleInfoSubject(player, game = getActiveGame()) {
+  if (game?.mode === "storyteller" && state.notes.ui.activeTab === "storyteller" && player?.trueRole) {
+    return {
+      ...player,
+      claim: player.trueRole,
+    };
+  }
+
+  return player;
+}
 
 export function ensurePlayerDraftForId(playerId) {
   const game = getActiveGame();
@@ -20,7 +32,7 @@ export function ensurePlayerDraftForId(playerId) {
   }
 
   const draft = clonePlayerForDraft(player);
-  draft.roleInfo = ensureRoleInfoMatchesClaim(draft, game);
+  draft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(draft, game), game);
   setPlayerDraft(playerId, draft);
   return draft;
 }
@@ -69,9 +81,8 @@ export function updatePlayerDraftField(playerId, field, value) {
   }
 
   if (field === "condition") {
-    const normalizedValue = value === "drunk" ? "poisoned" : value;
-    draft.condition = noteConditionOptions.some((option) => option.value === normalizedValue)
-      ? normalizedValue
+    draft.condition = noteConditionOptions.some((option) => option.value === value)
+      ? value
       : "unknown";
   } else if (field === "status") {
     draft.status = noteStatusOptions.some((option) => option.value === value)
@@ -101,7 +112,7 @@ export function updatePlayerDraftField(playerId, field, value) {
   }
 
   if (field === "claim") {
-    draft.roleInfo = ensureRoleInfoMatchesClaim(draft, getActiveGame());
+    draft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(draft, getActiveGame()), getActiveGame());
   }
 
   return [
@@ -128,7 +139,7 @@ export function getRoleInfoMinimumRows(node) {
 }
 
 export function getLinkedRoleInfoSections(draft, requestedSection, game) {
-  const abilityData = getRoleAbilityData(draft, game);
+  const abilityData = getRoleAbilityData(getRoleInfoSubject(draft, game), game);
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
   const targetRepeatable = ["sequence", "variable"].includes(targetNode.repeatMode);
@@ -148,7 +159,7 @@ export function updatePlayerDraftRoleInfo(playerId, section, index, field, value
     return;
   }
 
-  draft.roleInfo = ensureRoleInfoMatchesClaim(draft, game);
+  draft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(draft, game), game);
   const entryKey = getRoleInfoSectionKey(section);
   while (draft.roleInfo[entryKey].length <= index) {
     draft.roleInfo[entryKey].push({});
@@ -209,8 +220,8 @@ export function cyclePlayerDraftRoleInfoField(playerId, section, index, fieldKey
     return;
   }
 
-  draft.roleInfo = ensureRoleInfoMatchesClaim(draft, game);
-  const abilityData = getRoleAbilityData(draft, game);
+  draft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(draft, game), game);
+  const abilityData = getRoleAbilityData(getRoleInfoSubject(draft, game), game);
   const node = getRoleInfoNode(abilityData, section);
   const field = node.fields.find((item) => item.key === fieldKey);
   const values = getRoleInfoFieldCycleValues(field);
@@ -236,8 +247,8 @@ export function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
     return;
   }
 
-  draft.roleInfo = ensureRoleInfoMatchesClaim(draft, game);
-  const abilityData = getRoleAbilityData(draft, game);
+  draft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(draft, game), game);
+  const abilityData = getRoleAbilityData(getRoleInfoSubject(draft, game), game);
   const sections = getLinkedRoleInfoSections(draft, section, game);
 
   if (step > 0) {
@@ -297,7 +308,7 @@ export function savePlayerDraft(playerId) {
 
   const savedDraft = clonePlayerForDraft(draft);
   savedDraft.roleInfo = trimRoleInfoEntries(
-    ensureRoleInfoMatchesClaim(savedDraft, game),
+    ensureRoleInfoMatchesClaim(getRoleInfoSubject(savedDraft, game), game),
   );
   Object.assign(player, savedDraft);
   clearPlayerDraft(playerId);
@@ -321,7 +332,7 @@ export function persistPlayerDraft(playerId) {
   }
 
   const savedDraft = clonePlayerForDraft(draft);
-  savedDraft.roleInfo = ensureRoleInfoMatchesClaim(savedDraft, game);
+  savedDraft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(savedDraft, game), game);
   Object.assign(player, savedDraft);
   setPlayerDraft(playerId, clonePlayerForDraft(savedDraft));
   saveNotesState();
@@ -329,6 +340,110 @@ export function persistPlayerDraft(playerId) {
 
 export function updatePlayerField(playerId, field, value) {
   return updatePlayerDraftField(playerId, field, value);
+}
+
+export function togglePlayerStoryMarker(playerId, marker) {
+  const draft = ensurePlayerDraftForId(playerId);
+  const token = String(marker || "").trim();
+  if (!draft || !token) {
+    return false;
+  }
+
+  const markers = String(draft.storytellerNotes || "")
+    .split(/[，,、；;\n]/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+  const nextMarkers = markers.includes(token)
+    ? markers.filter((item) => item !== token)
+    : [...markers, token];
+
+  draft.storytellerNotes = nextMarkers.join("、");
+  return true;
+}
+
+function getSeatFromRoleInfoEntry(entry) {
+  const value = entry?.seat || entry?.player || entry?.number || "";
+  const seat = Number.parseInt(value, 10);
+  return Number.isFinite(seat) && seat > 0 ? seat : 0;
+}
+
+function getRoleAlignmentGroup(role) {
+  if (["townsfolk", "outsider"].includes(role?.type)) {
+    return "good";
+  }
+
+  if (["minion", "demon"].includes(role?.type)) {
+    return "evil";
+  }
+
+  return "";
+}
+
+function pickRoleByAlignment(game, alignment, excludedRoleId = "") {
+  return getClaimRoleOptions(game).find(
+    (role) =>
+      role.type !== "fabled" &&
+      role.id !== excludedRoleId &&
+      getRoleAlignmentGroup(role) === alignment,
+  );
+}
+
+export function autoFillStorytellerRoleInfoResult(playerId) {
+  const game = getActiveGame();
+  const draft = ensurePlayerDraftForId(playerId);
+  if (!game || !draft) {
+    return false;
+  }
+
+  const subject = getRoleInfoSubject(draft, game);
+  const abilityData = getRoleAbilityData(subject, game);
+  const resultNode = getRoleInfoNode(abilityData, "result");
+  if (!resultNode.fields.some((field) => field.type === "role")) {
+    return false;
+  }
+
+  draft.roleInfo = ensureRoleInfoMatchesClaim(subject, game);
+  const targetEntries = draft.roleInfo.targetEntries || [];
+  const targetIndex = Math.max(
+    targetEntries.findLastIndex((entry) => getSeatFromRoleInfoEntry(entry)),
+    0,
+  );
+  const targetSeat = getSeatFromRoleInfoEntry(targetEntries[targetIndex]);
+  const targetPlayer = game.players.find((player) => player.seat === targetSeat);
+  const targetRole = getRoleByLooseName(targetPlayer?.trueRole, game);
+  const targetAlignment = getRoleAlignmentGroup(targetRole);
+  if (!targetRole || !targetAlignment) {
+    return false;
+  }
+
+  while (draft.roleInfo.resultEntries.length <= targetIndex) {
+    draft.roleInfo.resultEntries.push({});
+  }
+
+  const resultEntry = { ...(draft.roleInfo.resultEntries[targetIndex] || {}) };
+  resultNode.fields.forEach((field) => {
+    if (field.type !== "role" || resultEntry[field.key]) {
+      return;
+    }
+
+    const keyLabel = `${field.key} ${field.label || ""}`.toLowerCase();
+    const wantsGood = /good|好|善/.test(keyLabel);
+    const wantsEvil = /evil|bad|坏|恶|邪/.test(keyLabel);
+    const desiredAlignment = wantsGood ? "good" : wantsEvil ? "evil" : targetAlignment;
+
+    if (desiredAlignment === targetAlignment) {
+      resultEntry[field.key] = targetRole.name;
+      return;
+    }
+
+    const fakeRole = pickRoleByAlignment(game, desiredAlignment, targetRole.id);
+    if (fakeRole) {
+      resultEntry[field.key] = fakeRole.name;
+    }
+  });
+
+  draft.roleInfo.resultEntries[targetIndex] = resultEntry;
+  return true;
 }
 
 export function getPlayerFieldCycleValues(field) {

@@ -383,7 +383,17 @@
   border-radius: 8px;
 }
 
-.story-night-item div {
+.story-night-item summary {
+  cursor: pointer;
+  list-style-position: outside;
+}
+
+.story-night-item summary::marker {
+  color: var(--muted);
+}
+
+.story-night-item summary div,
+.story-night-item > div:first-child {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -397,8 +407,54 @@
   color: var(--muted);
 }
 
+.story-night-detail {
+  display: grid;
+  gap: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.story-night-detail-hint {
+  font-weight: 900;
+}
+
+.story-night-detail-reminder {
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.story-night-record-grid {
+  display: grid;
+  gap: 12px;
+}
+
+.story-night-record-section {
+  display: grid;
+  gap: 8px;
+}
+
 .story-public-board {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.story-info-records {
+  display: grid;
+  gap: 8px;
+}
+
+.story-info-record {
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.story-info-record span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.4;
 }
 
 .story-public-player {
