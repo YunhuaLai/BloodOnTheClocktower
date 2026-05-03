@@ -27,12 +27,17 @@ export function updateSetupDraftField(field, value) {
       1,
       draft.playerCount,
     );
+  } else if (field === "mode") {
+    nextDraft.mode = value;
+    if (value === "storyteller") {
+      nextDraft.selfSeat = 1;
+    }
   } else {
     nextDraft[field] = value;
   }
 
   state.notes.ui.setupDraft = nextDraft;
-  return field === "playerCount";
+  return ["playerCount", "mode"].includes(field);
 }
 
 export function updateGameField(field, value) {
@@ -209,6 +214,69 @@ export function openGameById(gameId) {
   renderNotesPage();
 }
 
+export function toggleGameFavorite(notes, gameId) {
+  const game = notes.games.find((item) => item.id === gameId);
+  if (!game) {
+    return;
+  }
+
+  game.favorite = !game.favorite;
+  saveNotesState();
+  renderNotesPage();
+}
+
+export function toggleSavedGameSelection(notes, gameId, checked) {
+  const selected = new Set(notes.ui.selectedSavedGameIds || []);
+  if (checked) {
+    selected.add(gameId);
+  } else {
+    selected.delete(gameId);
+  }
+
+  notes.ui.selectedSavedGameIds = [...selected].filter((id) =>
+    notes.games.some((game) => game.id === id),
+  );
+  renderNotesPage();
+}
+
+export function selectAllSavedGames(notes) {
+  notes.ui.selectedSavedGameIds = notes.games.map((game) => game.id);
+  renderNotesPage();
+}
+
+export function clearSavedGameSelection(notes) {
+  notes.ui.selectedSavedGameIds = [];
+  renderNotesPage();
+}
+
+export function deleteSavedGames(notes, gameIds, confirmMessage = "删除已选择的对局记录？这只会清除本机保存。") {
+  const ids = new Set(gameIds.filter(Boolean));
+  if (!ids.size || !window.confirm(confirmMessage)) {
+    return;
+  }
+
+  notes.games = notes.games.filter((item) => !ids.has(item.id));
+  notes.ui.selectedSavedGameIds = (notes.ui.selectedSavedGameIds || []).filter(
+    (id) => !ids.has(id),
+  );
+
+  if (!notes.games.length) {
+    notes.activeGameId = "";
+    notes.ui.selectedPlayerId = "";
+    notes.ui.screen = "home";
+  } else if (!notes.games.some((item) => item.id === notes.activeGameId)) {
+    notes.activeGameId = notes.games[0].id;
+    notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(notes.games[0]);
+    notes.ui.activeTab = "overview";
+    notes.ui.screen = "home";
+  } else {
+    notes.ui.screen = "home";
+  }
+
+  saveNotesState();
+  renderNotesPage();
+}
+
 export function handleCreateGame() {
   const form = document.querySelector("#notesSetupForm");
   if (!form || !form.reportValidity()) {
@@ -221,14 +289,14 @@ export function handleCreateGame() {
     scriptId: String(formData.get("scriptId") || ""),
     scriptName: String(formData.get("scriptName") || ""),
     playerCount: Number(formData.get("playerCount") || 10),
-    selfSeat: Number(formData.get("selfSeat") || 1),
     mode: String(formData.get("mode") || "player"),
   };
+  setup.selfSeat = setup.mode === "storyteller" ? 1 : Number(formData.get("selfSeat") || 1);
   const game = createGameFromSetup(setup, state.notes.games.length + 1);
 
   state.notes.games.unshift(game);
   state.notes.activeGameId = game.id;
-  state.notes.ui.activeTab = "overview";
+  state.notes.ui.activeTab = game.mode === "storyteller" ? "storyteller" : "overview";
   state.notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(game);
   state.notes.ui.creatingGame = false;
   state.notes.ui.screen = "game";

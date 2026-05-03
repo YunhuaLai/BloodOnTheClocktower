@@ -2,7 +2,7 @@
 
 .notes-overview-row:hover,
 .notes-stagebar-button:hover,
-.notes-saved-card:hover,
+.notes-saved-item:hover,
 .notes-seat-tab:hover,
 .note-tag:hover,
 .note-icon-button:hover,
@@ -15,10 +15,14 @@
 .notes-overview-row:focus-visible,
 .notes-stagebar-button:focus-visible,
 .notes-saved-card:focus-visible,
+.notes-saved-check input:focus-visible + span,
+.notes-saved-star:focus-visible,
+.notes-saved-delete:focus-visible,
 .notes-seat-tab:focus-visible,
 .note-tag:focus-visible,
 .note-icon-button:focus-visible,
 .notes-tab:focus-visible,
+.notes-setup-title-editor summary:focus-visible,
 .note-field input:focus-visible,
 .note-field select:focus-visible,
 .note-field textarea:focus-visible {
@@ -35,6 +39,11 @@
 
   .notes-home-actions {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notes-panel-header:has(.notes-saved-bulk-actions) {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 340px);
+    align-items: end;
   }
 
   .notes-setup-grid,

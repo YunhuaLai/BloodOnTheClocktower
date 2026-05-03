@@ -172,6 +172,9 @@ export function renderSetupSeatOptions(playerCount, selectedSeat) {
 export function renderSetupPage(notes) {
   const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
   const config = getStandardSetup(draft.playerCount);
+  const isStorytellerMode = draft.mode === "storyteller";
+  const defaultTitle = `第 ${notes.games.length + 1} 局`;
+  const displayTitle = String(draft.title || "").trim() || defaultTitle;
 
   document.title = "创建对局房间";
   app.innerHTML = `
@@ -179,7 +182,7 @@ export function renderSetupPage(notes) {
       <div class="notes-setup-panel">
         <p class="eyebrow">对局房间</p>
         <h1>先把这一局定下来</h1>
-        <p class="lead">先选剧本、人数和自己的位置，创建后就直接进入对局总览；之后这里可以接入房间码和多人加入。</p>
+        <p class="lead">先选剧本、记录视角和人数，创建后就直接进入对局；之后这里可以接入房间码和多人加入。</p>
 
         <form id="notesSetupForm" class="notes-setup-form">
           <label class="note-field note-field--wide">
@@ -196,6 +199,13 @@ export function renderSetupPage(notes) {
             ${renderScriptNameDatalist()}
           </label>
 
+          <label class="note-field note-field--wide">
+            <span>记录视角</span>
+            <select name="mode" data-setup-field="mode">
+              ${renderSelectOptions(noteModeOptions, draft.mode)}
+            </select>
+          </label>
+
           <div class="notes-setup-grid">
             <label class="note-field">
               <span>人数</span>
@@ -207,38 +217,46 @@ export function renderSetupPage(notes) {
               </select>
             </label>
 
-            <label class="note-field">
-              <span>自己所在位置</span>
-              <select name="selfSeat" data-setup-field="selfSeat" required>
-                ${renderSetupSeatOptions(draft.playerCount, draft.selfSeat)}
-              </select>
-            </label>
+            ${
+              isStorytellerMode
+                ? `
+                  <div class="notes-setup-static-field">
+                    <span>自己所在位置</span>
+                    <strong>说书人</strong>
+                    <input type="hidden" name="selfSeat" value="1" />
+                  </div>
+                `
+                : `
+                  <label class="note-field">
+                    <span>自己所在位置</span>
+                    <select name="selfSeat" data-setup-field="selfSeat" required>
+                      ${renderSetupSeatOptions(draft.playerCount, draft.selfSeat)}
+                    </select>
+                  </label>
+                `
+            }
           </div>
 
-          <label class="note-field note-field--wide">
-            <span>局名</span>
-            <input
-              name="title"
-              data-setup-field="title"
-              value="${escapeHtml(draft.title)}"
-              placeholder="可不填，默认用编号"
-            />
-          </label>
-
-          <label class="note-field note-field--wide">
-            <span>记录视角</span>
-            <select name="mode" data-setup-field="mode">
-              ${renderSelectOptions(noteModeOptions, draft.mode)}
-            </select>
-          </label>
-
           <div class="notes-setup-preview">
-            <strong>${draft.playerCount} 人配置</strong>
+            <strong>${escapeHtml(displayTitle)}</strong>
             <span>镇民 ${config.townsfolk} / 外来者 ${config.outsider} / 爪牙 ${config.minion} / 恶魔 ${config.demon}</span>
           </div>
 
+          <details class="notes-setup-title-editor">
+            <summary>修改局名</summary>
+            <label class="note-field">
+              <span>局名</span>
+              <input
+                name="title"
+                data-setup-field="title"
+                value="${escapeHtml(draft.title)}"
+                placeholder="${escapeHtml(defaultTitle)}"
+              />
+            </label>
+          </details>
+
           <div class="notes-setup-actions">
-            <button type="button" class="primary-link" data-notes-action="create-game">创建并进入总览</button>
+            <button type="button" class="primary-link" data-notes-action="create-game">创建并进入对局</button>
             <button type="button" class="secondary-link" data-notes-action="cancel-create">返回对局房间</button>
           </div>
         </form>
@@ -247,7 +265,73 @@ export function renderSetupPage(notes) {
   `;
 }
 
+export function renderSavedGameCard(game, selectedGameIds) {
+  const aliveCount = getAliveCount(game);
+  const isSelected = selectedGameIds.includes(game.id);
+  const isFavorite = Boolean(game.favorite);
+
+  return `
+    <article
+      class="notes-saved-item${isSelected ? " is-selected" : ""}${isFavorite ? " is-favorite" : ""}"
+      data-game-id="${escapeHtml(game.id)}"
+    >
+      <div class="notes-saved-swipe-actions notes-saved-swipe-actions--star" aria-hidden="true">
+        <span>${isFavorite ? "取消星标" : "加星"}</span>
+      </div>
+      <div class="notes-saved-swipe-actions notes-saved-swipe-actions--delete" aria-hidden="true">
+        <span>删除</span>
+      </div>
+      <div class="notes-saved-swipe" data-swipe-game-id="${escapeHtml(game.id)}">
+        <label class="notes-saved-check" aria-label="选择对局">
+          <input
+            type="checkbox"
+            data-notes-action="toggle-saved-selection"
+            data-game-id="${escapeHtml(game.id)}"
+            ${isSelected ? "checked" : ""}
+          />
+          <span></span>
+        </label>
+        <button
+          type="button"
+          class="notes-saved-star${isFavorite ? " is-active" : ""}"
+          data-notes-action="toggle-game-favorite"
+          data-game-id="${escapeHtml(game.id)}"
+          aria-pressed="${isFavorite ? "true" : "false"}"
+          aria-label="${isFavorite ? "取消星标" : "加星"}"
+        >★</button>
+        <button
+          type="button"
+          class="notes-saved-card"
+          data-notes-action="open-game"
+          data-game-id="${escapeHtml(game.id)}"
+        >
+          <strong>${escapeHtml(game.title)}</strong>
+          <span>${escapeHtml(game.scriptName || "未选剧本")}</span>
+          <small>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))} / 存活 ${aliveCount} / ${game.playerCount}</small>
+        </button>
+        <button
+          type="button"
+          class="notes-saved-delete"
+          data-notes-action="delete-saved-game"
+          data-game-id="${escapeHtml(game.id)}"
+          aria-label="删除对局"
+        >删除</button>
+      </div>
+    </article>
+  `;
+}
+
 export function renderNotesHome(notes) {
+  const selectedGameIds = state.notes.ui.selectedSavedGameIds || [];
+  const savedGames = [...notes.games].sort((a, b) => {
+    if (Boolean(a.favorite) !== Boolean(b.favorite)) {
+      return a.favorite ? -1 : 1;
+    }
+
+    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+  });
+  const selectedCount = selectedGameIds.length;
+
   document.title = "对局房间";
   app.innerHTML = `
     <section class="notes-home">
@@ -273,25 +357,14 @@ export function renderNotesHome(notes) {
                   <p class="eyebrow">已保存对局</p>
                   <h2>继续上次的对局</h2>
                 </div>
+                <div class="notes-saved-bulk-actions">
+                  <button type="button" class="secondary-link" data-notes-action="select-all-saved-games">全选</button>
+                  <button type="button" class="secondary-link" data-notes-action="clear-saved-selection" ${selectedCount ? "" : "disabled"}>清空</button>
+                  <button type="button" class="secondary-link danger" data-notes-action="delete-selected-games" ${selectedCount ? `aria-label="删除已选择的 ${selectedCount} 个对局"` : "disabled"}>删除${selectedCount ? ` ${selectedCount}` : ""}</button>
+                </div>
               </div>
               <div class="notes-saved-list">
-                ${notes.games
-                  .map((game) => {
-                    const aliveCount = getAliveCount(game);
-                    return `
-                      <button
-                        type="button"
-                        class="notes-saved-card"
-                        data-notes-action="open-game"
-                        data-game-id="${escapeHtml(game.id)}"
-                      >
-                        <strong>${escapeHtml(game.title)}</strong>
-                        <span>${escapeHtml(game.scriptName || "未选剧本")}</span>
-                        <small>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))} / 存活 ${aliveCount} / ${game.playerCount}</small>
-                      </button>
-                    `;
-                  })
-                  .join("")}
+                ${savedGames.map((game) => renderSavedGameCard(game, selectedGameIds)).join("")}
               </div>
             </section>
           `

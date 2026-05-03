@@ -1,5 +1,5 @@
 import { clearPlayerDraft, createDefaultSetupDraft, ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
-import { addTimelineEntry, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, shiftGamePhase, updateGameField, updateInferenceField, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField } from "./notes/notes-game-actions.js";
+import { addTimelineEntry, clearSavedGameSelection, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateGameField, updateInferenceField, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField } from "./notes/notes-game-actions.js";
 import { adjustPlayerDraftExternalReports, adjustPlayerDraftRoleInfoRows, autoFillStorytellerRoleInfoResult, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, togglePlayerStoryMarker, updatePlayerDraftExternalReport, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
 import { assignRandomStorytellerRoles, clearStorytellerAssignments } from "./notes/notes-storyteller-actions.js";
@@ -155,6 +155,40 @@ export function handleNotesAction(button) {
       behavior: "smooth",
       block: "start",
     });
+    return;
+  }
+
+  if (action === "toggle-game-favorite") {
+    toggleGameFavorite(notes, button.dataset.gameId || "");
+    return;
+  }
+
+  if (action === "toggle-saved-selection") {
+    toggleSavedGameSelection(
+      notes,
+      button.dataset.gameId || "",
+      Boolean(button.checked),
+    );
+    return;
+  }
+
+  if (action === "select-all-saved-games") {
+    selectAllSavedGames(notes);
+    return;
+  }
+
+  if (action === "clear-saved-selection") {
+    clearSavedGameSelection(notes);
+    return;
+  }
+
+  if (action === "delete-saved-game") {
+    deleteSavedGames(notes, [button.dataset.gameId || ""], "删除这个对局记录？这只会清除本机保存。");
+    return;
+  }
+
+  if (action === "delete-selected-games") {
+    deleteSavedGames(notes, notes.ui.selectedSavedGameIds || []);
     return;
   }
 

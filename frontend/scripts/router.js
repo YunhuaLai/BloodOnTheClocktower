@@ -2,9 +2,13 @@ import { renderLoadError, renderNotFound, renderRoleDetail, renderScriptDetail, 
 import { renderHome } from "./catalog-home.js";
 import { renderRoleIndex, renderRoles, renderScriptIndex, renderTermIndex, syncFilterButtons } from "./catalog-indexes.js";
 import { handleNotesAction, handleNotesFieldChange } from "./notes-actions.js";
+import { deleteSavedGames, toggleGameFavorite } from "./notes/notes-game-actions.js";
 import { ensureNotesState } from "./notes-state.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
 import { state } from "./state.js";
+
+let savedSwipeState = null;
+let suppressSavedSwipeClick = false;
 
 export function scrollToHash() {
   if (!window.location.hash) {
@@ -133,12 +137,21 @@ document.addEventListener("click", (event) => {
 });
 
 document.addEventListener("click", (event) => {
+  if (suppressSavedSwipeClick && event.target.closest(".notes-saved-item")) {
+    suppressSavedSwipeClick = false;
+    event.preventDefault();
+    event.stopPropagation();
+    return;
+  }
+
   const button = event.target.closest("[data-notes-action]");
   if (!button) {
     return;
   }
 
-  event.preventDefault();
+  if (button.type !== "checkbox") {
+    event.preventDefault();
+  }
   handleNotesAction(button);
 });
 
@@ -148,14 +161,82 @@ document.addEventListener("input", (event) => {
     return;
   }
 
-  if (event.target.closest(".notes-setup, .notes-shell")) {
+  if (event.target.closest(".notes-setup, .notes-shell, .notes-home")) {
     handleNotesFieldChange(event.target);
   }
 });
 
 document.addEventListener("change", (event) => {
-  if (event.target.closest(".notes-setup, .notes-shell")) {
+  if (event.target.closest(".notes-setup, .notes-shell, .notes-home")) {
     handleNotesFieldChange(event.target, true);
+  }
+});
+
+document.addEventListener("pointerdown", (event) => {
+  const swipe = event.target.closest("[data-swipe-game-id]");
+  if (
+    !swipe ||
+    event.target.closest(".notes-saved-check, .notes-saved-star, .notes-saved-delete")
+  ) {
+    return;
+  }
+
+  savedSwipeState = {
+    swipe,
+    gameId: swipe.dataset.swipeGameId,
+    startX: event.clientX,
+    startY: event.clientY,
+    deltaX: 0,
+    dragging: false,
+    pointerId: event.pointerId,
+  };
+});
+
+document.addEventListener("pointermove", (event) => {
+  if (!savedSwipeState || savedSwipeState.pointerId !== event.pointerId) {
+    return;
+  }
+
+  const deltaX = event.clientX - savedSwipeState.startX;
+  const deltaY = event.clientY - savedSwipeState.startY;
+  if (!savedSwipeState.dragging && Math.abs(deltaX) < 12) {
+    return;
+  }
+
+  if (!savedSwipeState.dragging && Math.abs(deltaY) > Math.abs(deltaX)) {
+    savedSwipeState = null;
+    return;
+  }
+
+  savedSwipeState.dragging = true;
+  savedSwipeState.deltaX = Math.max(-120, Math.min(120, deltaX));
+  savedSwipeState.swipe.classList.add("is-swiping");
+  savedSwipeState.swipe.style.transform = `translateX(${savedSwipeState.deltaX}px)`;
+});
+
+document.addEventListener("pointerup", (event) => {
+  if (!savedSwipeState || savedSwipeState.pointerId !== event.pointerId) {
+    return;
+  }
+
+  const { swipe, gameId, deltaX, dragging } = savedSwipeState;
+  savedSwipeState = null;
+  swipe.classList.remove("is-swiping");
+  swipe.style.transform = "";
+
+  if (dragging) {
+    suppressSavedSwipeClick = true;
+  }
+
+  if (!dragging || Math.abs(deltaX) < 72) {
+    return;
+  }
+
+  const notes = ensureNotesState();
+  if (deltaX > 0) {
+    toggleGameFavorite(notes, gameId);
+  } else {
+    deleteSavedGames(notes, [gameId], "删除这个对局记录？这只会清除本机保存。");
   }
 });
 

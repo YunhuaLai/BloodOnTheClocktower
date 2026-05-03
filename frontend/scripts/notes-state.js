@@ -22,6 +22,7 @@ export function createNotesUiState() {
     screen: "home",
     activeTab: "overview",
     selectedPlayerId: "",
+    selectedSavedGameIds: [],
     overviewExpandedPlayerId: "",
     overviewExpandedExtraPlayerId: "",
     scriptSheetOpen: false,
@@ -147,7 +148,13 @@ export function findScriptFromSetup(setup) {
 export function createGameFromSetup(setup, nextIndex = 1) {
   const script = findScriptFromSetup(setup);
   const playerCount = clampNumber(Number(setup.playerCount) || 10, 5, 15);
-  const selfSeat = clampNumber(Number(setup.selfSeat) || 1, 1, playerCount);
+  const mode = noteModeOptions.some((option) => option.value === setup.mode)
+    ? setup.mode
+    : "player";
+  const selfSeat =
+    mode === "storyteller"
+      ? 1
+      : clampNumber(Number(setup.selfSeat) || 1, 1, playerCount);
   const title = String(setup.title || "").trim() || `第 ${nextIndex} 局`;
   const scriptName = String(setup.scriptName || "").trim();
 
@@ -158,9 +165,8 @@ export function createGameFromSetup(setup, nextIndex = 1) {
     scriptName: script?.name || scriptName,
     playerCount,
     selfSeat,
-    mode: noteModeOptions.some((option) => option.value === setup.mode)
-      ? setup.mode
-      : "player",
+    mode,
+    favorite: false,
     phaseType: "day",
     phaseNumber: 1,
     createdAt: new Date().toISOString(),
@@ -328,6 +334,7 @@ export function normalizeGame(game, index) {
     playerCount,
     selfSeat,
     mode,
+    favorite: Boolean(game?.favorite),
     phaseType: fallbackPhase.phaseType,
     phaseNumber: fallbackPhase.phaseNumber,
     createdAt: game?.createdAt || new Date().toISOString(),
@@ -410,6 +417,10 @@ export function ensureNotesState() {
 
   if (!state.notes.ui.playerDrafts) {
     state.notes.ui.playerDrafts = {};
+  }
+
+  if (!Array.isArray(state.notes.ui.selectedSavedGameIds)) {
+    state.notes.ui.selectedSavedGameIds = [];
   }
 
   if (typeof state.notes.ui.overviewExpandedPlayerId !== "string") {
