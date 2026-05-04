@@ -70,10 +70,6 @@
   border-radius: 8px;
 }
 
-.notes-setup-preview strong {
-  font-size: 18px;
-}
-
 .notes-setup-static-field {
   display: grid;
   gap: 6px;
@@ -93,31 +89,30 @@
   line-height: 1.2;
 }
 
-.notes-setup-title-editor {
-  display: grid;
-  gap: 10px;
-  padding: 12px;
-  background: #f7f8f4;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
-.notes-setup-title-editor summary {
-  cursor: pointer;
-  color: var(--ink);
-  font-weight: 900;
-}
-
-.notes-setup-title-editor .note-field {
-  margin-top: 10px;
-}
-
 .notes-setup-preview span,
 .notes-header-meta,
 .notes-inline-hint,
 .notes-game-meta-line,
 .notes-stagebar-item span {
   color: var(--muted);
+}
+
+.notes-setup-title-input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  color: var(--ink);
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.2;
+  outline: none;
+}
+
+.notes-setup-title-input:focus {
+  box-shadow: 0 0 0 3px rgba(178, 31, 45, 0.14);
 }
 
 .notes-setup-actions {
@@ -433,6 +428,21 @@
 
 .note-field--wide {
   grid-column: 1 / -1;
+}
+
+.notes-setup-title-field {
+  gap: 4px;
+}
+
+.note-field .notes-setup-title-input {
+  min-height: 42px;
+  padding: 2px 0;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.2;
 }
 
 .notes-tab-content {

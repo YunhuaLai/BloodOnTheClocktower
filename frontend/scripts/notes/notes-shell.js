@@ -185,6 +185,17 @@ export function renderSetupPage(notes) {
         <p class="lead">先选剧本、记录视角和人数，创建后就直接进入对局；之后这里可以接入房间码和多人加入。</p>
 
         <form id="notesSetupForm" class="notes-setup-form">
+          <label class="note-field note-field--wide notes-setup-title-field">
+            <span>局名</span>
+            <input
+              class="notes-setup-title-input"
+              name="title"
+              data-setup-field="title"
+              value="${escapeHtml(displayTitle)}"
+              aria-label="局名"
+            />
+          </label>
+
           <label class="note-field note-field--wide">
             <span>剧本</span>
             <input
@@ -238,22 +249,8 @@ export function renderSetupPage(notes) {
           </div>
 
           <div class="notes-setup-preview">
-            <strong>${escapeHtml(displayTitle)}</strong>
             <span>镇民 ${config.townsfolk} / 外来者 ${config.outsider} / 爪牙 ${config.minion} / 恶魔 ${config.demon}</span>
           </div>
-
-          <details class="notes-setup-title-editor">
-            <summary>修改局名</summary>
-            <label class="note-field">
-              <span>局名</span>
-              <input
-                name="title"
-                data-setup-field="title"
-                value="${escapeHtml(draft.title)}"
-                placeholder="${escapeHtml(defaultTitle)}"
-              />
-            </label>
-          </details>
 
           <div class="notes-setup-actions">
             <button type="button" class="primary-link" data-notes-action="create-game">创建并进入对局</button>
