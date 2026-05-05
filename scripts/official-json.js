@@ -335,9 +335,10 @@ function stripSchemaNodeMeta(node) {
 }
 
 function inferPhaseTiming(ability, hasFirstNight, hasOtherNight, isSetupOnly, isEvent) {
-  if (/每个白天|每天白天/.test(ability)) return "each_day";
+  if (hasEachDayTiming(ability)) return "each_day";
+  if (hasEachNightStarTiming(ability)) return "each_night_star";
+  if (hasEachNightTiming(ability)) return "each_night";
   if (hasFirstNight && !hasOtherNight) return "first_night";
-  if (hasOtherNight && /夜晚\*|每晚\*/.test(ability)) return "each_night_star";
   if (hasOtherNight) return "each_night";
   if (isSetupOnly) return "setup";
   if (isEvent) return null;
@@ -381,11 +382,28 @@ function inferEventTiming(ability) {
 }
 
 function inferUsagePattern(ability, hasFirstNight, hasOtherNight) {
-  if (/每局游戏限一次|每局一次|限一次/.test(ability)) return "once_per_game";
+  if (hasOncePerGameTiming(ability)) return "once_per_game";
+  if (hasEachDayTiming(ability)) return "once_per_day";
+  if (hasEachNightTiming(ability)) return "once_per_night";
   if (hasFirstNight && !hasOtherNight) return "once";
   if (hasOtherNight) return "once_per_night";
-  if (/每个白天/.test(ability)) return "once_per_day";
   return "passive";
+}
+
+function hasOncePerGameTiming(ability) {
+  return /每局游戏限一次|每局限一次|每局一次|每局游戏一次|限一次/.test(ability);
+}
+
+function hasEachDayTiming(ability) {
+  return /每个白天|每天白天|每个白昼|每天(?!夜晚)/.test(ability);
+}
+
+function hasEachNightTiming(ability) {
+  return /每个夜晚|每晚|每天夜晚|每夜/.test(ability);
+}
+
+function hasEachNightStarTiming(ability) {
+  return /每个夜晚\*|每晚\*|夜晚时\*|夜晚\*/.test(ability);
 }
 
 function inferTargetSchema(ability, isOnceRecord) {
@@ -820,4 +838,6 @@ module.exports = {
   inferSetupMeta,
   inferIdentityOverlay,
   inferConfigurationAdjustments,
+  inferUsagePattern,
+  inferPhaseTiming,
 };
