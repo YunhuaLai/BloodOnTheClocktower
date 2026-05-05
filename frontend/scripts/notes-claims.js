@@ -39,7 +39,7 @@ export function getGameScript(game) {
   );
 }
 
-export function roleBelongsToScript(role, scriptId) {
+function roleBelongsToScript(role, scriptId) {
   return (role.scriptIds || [role.scriptId]).filter(Boolean).includes(scriptId);
 }
 
@@ -79,7 +79,7 @@ export function renderRoleNameDatalist(game) {
   `;
 }
 
-export function renderScriptSelectOptions(selectedScriptId) {
+function renderScriptSelectOptions(selectedScriptId) {
   return state.scripts
     .map(
       (script) =>

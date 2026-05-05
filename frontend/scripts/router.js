@@ -83,7 +83,7 @@ export function renderRoute() {
   renderNotFound();
 }
 
-export function navigateTo(url) {
+function navigateTo(url) {
   const current = `${window.location.pathname}${window.location.search}${window.location.hash}`;
   if (url !== current) {
     window.history.pushState({}, "", url);
@@ -91,7 +91,7 @@ export function navigateTo(url) {
   renderRoute();
 }
 
-export async function loadEncyclopedia() {
+async function loadEncyclopedia() {
   try {
     const response = await fetch("/api/encyclopedia");
     if (!response.ok) {

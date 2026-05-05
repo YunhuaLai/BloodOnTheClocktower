@@ -17,7 +17,7 @@ export function createDefaultSetupDraft() {
   };
 }
 
-export function createNotesUiState() {
+function createNotesUiState() {
   return {
     screen: "home",
     activeTab: "overview",
@@ -32,7 +32,7 @@ export function createNotesUiState() {
   };
 }
 
-export function createDefaultInference() {
+function createDefaultInference() {
   return {
     summary: "",
     goodTeam: "",
@@ -49,7 +49,7 @@ export function createDefaultStorytellerState() {
   };
 }
 
-export function createDefaultPlayer(seat) {
+function createDefaultPlayer(seat) {
   return {
     id: createId("player"),
     seat,
@@ -115,13 +115,13 @@ export function clonePlayerForDraft(player) {
   };
 }
 
-export function createPlayersForCount(playerCount) {
+function createPlayersForCount(playerCount) {
   return Array.from({ length: playerCount }, (_, index) =>
     createDefaultPlayer(index + 1),
   );
 }
 
-export function findScriptFromSetup(setup) {
+function findScriptFromSetup(setup) {
   const query = normalizeMatchText(setup?.scriptName);
   if (query) {
     const script =
@@ -177,7 +177,7 @@ export function createGameFromSetup(setup, nextIndex = 1) {
   };
 }
 
-export function parseLegacyPhase(game) {
+function parseLegacyPhase(game) {
   const storedType = phaseTypeOptions.some(
     (option) => option.value === game?.phaseType,
   )
@@ -211,7 +211,7 @@ export function parseLegacyPhase(game) {
   return { phaseType: "day", phaseNumber: 1 };
 }
 
-export function normalizePlayer(player, index) {
+function normalizePlayer(player, index) {
   const validTags = new Set(noteTagOptions.map((tag) => tag.value));
   const tags = Array.isArray(player?.tags)
     ? player.tags.filter((tag) => validTags.has(tag))
@@ -264,7 +264,7 @@ export function normalizePlayer(player, index) {
   };
 }
 
-export function normalizeTimelineEntry(entry, game) {
+function normalizeTimelineEntry(entry, game) {
   const type = timelineTypeOptions.some((option) => option.value === entry?.type)
     ? entry.type
     : "info";
@@ -279,7 +279,7 @@ export function normalizeTimelineEntry(entry, game) {
   };
 }
 
-export function normalizeInference(inference) {
+function normalizeInference(inference) {
   return {
     summary: inference?.summary || "",
     goodTeam: inference?.goodTeam || "",
@@ -288,7 +288,7 @@ export function normalizeInference(inference) {
   };
 }
 
-export function normalizeStorytellerState(storyteller) {
+function normalizeStorytellerState(storyteller) {
   return {
     ...createDefaultStorytellerState(),
     ...(storyteller || {}),
@@ -298,7 +298,7 @@ export function normalizeStorytellerState(storyteller) {
   };
 }
 
-export function normalizeGame(game, index) {
+function normalizeGame(game, index) {
   const fallbackSetup = createDefaultSetupDraft();
   const fallbackPhase = parseLegacyPhase(game);
   const rawPlayerCount =
@@ -349,7 +349,7 @@ export function normalizeGame(game, index) {
   };
 }
 
-export function loadNotesState() {
+function loadNotesState() {
   const fallback = {
     activeGameId: "",
     games: [],
@@ -485,11 +485,11 @@ export function getDraftOrPlayer(player) {
   return getPlayerDraft(player.id) || player;
 }
 
-export function getNoteTagLabel(value) {
+function getNoteTagLabel(value) {
   return getOptionLabel(noteTagOptions, value);
 }
 
-export function renderGameSelectOptions(notes) {
+function renderGameSelectOptions(notes) {
   return notes.games
     .map(
       (game, index) =>

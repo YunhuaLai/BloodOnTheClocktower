@@ -5,7 +5,7 @@ import { getChoiceLabel } from "./notes-role-info.js";
 
 // Split from notes-role-info.js. Keep script order in index.html.
 
-export function getRoleInfoFieldOptions(field, game) {
+function getRoleInfoFieldOptions(field, game) {
   if (field.type === "role") {
     return getClaimRoleOptions(game).map((role) => ({
       value: role.name,

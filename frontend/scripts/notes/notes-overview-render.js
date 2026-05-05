@@ -8,9 +8,7 @@ import { renderOverviewRoleInfoInputs } from "./notes-role-info-overview.js";
 import { getRoleInfoSummary } from "./notes-role-info.js";
 import { renderBeyondWorldlineAnalysis } from "./notes-worldline-analysis.js";
 
-// Split from notes-render.js. Keep script order in index.html.
-
-export function renderOverviewActions() {
+function renderOverviewActions() {
   return `
     <div class="notes-overview-actions">
       <button type="button" class="primary-link" data-notes-action="save-game">保存</button>
@@ -20,7 +18,7 @@ export function renderOverviewActions() {
   `;
 }
 
-export function renderOverviewExternalReports(player, game) {
+function renderOverviewExternalReports(player, game) {
   const reports = cloneExternalReports(player.externalReports);
   const maxSeat = clampNumber(Number(game?.playerCount) || 15, 1, 15);
 
@@ -88,7 +86,7 @@ export function renderOverviewExternalReports(player, game) {
   `;
 }
 
-export function renderOverviewJudgementControls(player) {
+function renderOverviewJudgementControls(player) {
   return `
     <div class="notes-overview-judgement-controls">
       ${renderPlayerCycleField(player, "alignment", "判断")}
@@ -97,7 +95,7 @@ export function renderOverviewJudgementControls(player) {
   `;
 }
 
-export function renderOverviewInlineEditor(player, game) {
+function renderOverviewInlineEditor(player, game) {
   const draft = getDraftOrPlayer(player);
   const roleInfoInputs = renderOverviewRoleInfoInputs(draft, game);
 
@@ -119,7 +117,7 @@ export function renderOverviewInlineEditor(player, game) {
   `;
 }
 
-export function renderOverviewClaimInput(player, game) {
+function renderOverviewClaimInput(player, game) {
   const script = getGameScript(game);
 
   return `
@@ -138,7 +136,7 @@ export function renderOverviewClaimInput(player, game) {
   `;
 }
 
-export function renderOverviewRows(game) {
+function renderOverviewRows(game) {
   const expandedPlayerId = state.notes.ui.overviewExpandedPlayerId;
 
   return game.players

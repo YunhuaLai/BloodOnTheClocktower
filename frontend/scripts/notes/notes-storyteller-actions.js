@@ -35,7 +35,7 @@ export function getRoleByLooseName(value, game = getActiveGame()) {
   return roleOptions.find(matchesRole) || state.roles.find(matchesRole) || null;
 }
 
-export function shuffleItems(items) {
+function shuffleItems(items) {
   const shuffled = [...items];
   for (let index = shuffled.length - 1; index > 0; index -= 1) {
     const swapIndex = Math.floor(Math.random() * (index + 1));
@@ -44,19 +44,19 @@ export function shuffleItems(items) {
   return shuffled;
 }
 
-export function takeRandomRoles(roles, count) {
+function takeRandomRoles(roles, count) {
   return shuffleItems(roles).slice(0, count);
 }
 
-export function isRandomAssignableRole(role) {
+function isRandomAssignableRole(role) {
   return role?.setupMeta?.randomAssignable !== false;
 }
 
-export function isIdentityOverlayRole(role) {
+function isIdentityOverlayRole(role) {
   return Boolean(role?.setupMeta?.identityOverlay?.enabled);
 }
 
-export function getRoleSetupAdjustments(role) {
+function getRoleSetupAdjustments(role) {
   return Array.isArray(role?.setupMeta?.configurationAdjustments)
     ? role.setupMeta.configurationAdjustments
     : [];
@@ -74,7 +74,7 @@ export function getRoleGlobalMarkers(role) {
     : [];
 }
 
-export function getScriptRolesByType(game) {
+function getScriptRolesByType(game) {
   const roles = getClaimRoleOptions(game).filter(
     (role) => role.type !== "fabled" && isRandomAssignableRole(role),
   );

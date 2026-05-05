@@ -2,13 +2,11 @@ import { phaseTypeOptions, state, timelineTypeOptions } from "../state.js";
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
 import { formatPhaseLabel } from "./notes-core.js";
 
-// Split from notes-render.js. Keep script order in index.html.
-
-export function getTimelineTypeLabel(value) {
+function getTimelineTypeLabel(value) {
   return getOptionLabel(timelineTypeOptions, value);
 }
 
-export function formatTimelineTime(value) {
+function formatTimelineTime(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) {
     return "";
@@ -22,7 +20,7 @@ export function formatTimelineTime(value) {
   }).format(date);
 }
 
-export function renderTimelineEntries(game) {
+function renderTimelineEntries(game) {
   if (!game.timeline.length) {
     return `<div class="empty-state">还没有时间线，先记一条今天最重要的信息。</div>`;
   }

@@ -22,21 +22,21 @@ export function getRoleScriptLabel(role) {
   return (role.scriptNames || []).join(" / ") || role.script || "未归属剧本";
 }
 
-export function getTermForKeyword(keyword) {
+function getTermForKeyword(keyword) {
   return state.terms.find((term) => {
     const names = [term.name, ...(term.aliases || [])];
     return names.some((name) => name === keyword);
   });
 }
 
-export function splitKeywords(keywords) {
+function splitKeywords(keywords) {
   return String(keywords || "")
     .split(/\s+/)
     .map((keyword) => keyword.trim())
     .filter(Boolean);
 }
 
-export function listItems(items) {
+function listItems(items) {
   return `<ul class="detail-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
 }
 
@@ -74,7 +74,7 @@ export function compactListLinks(items, type) {
   `;
 }
 
-export function getCompactLabel(item, type) {
+function getCompactLabel(item, type) {
   if (type === "roles") {
     return escapeHtml(typeLabels[item.type] || item.type);
   }
@@ -86,12 +86,12 @@ export function getCompactLabel(item, type) {
   return escapeHtml(item.level);
 }
 
-export function getRoleTypeSortValue(role) {
+function getRoleTypeSortValue(role) {
   const index = roleTypeOrder.indexOf(role.type);
   return index === -1 ? roleTypeOrder.length : index;
 }
 
-export function getOneInOneOutSortValue(role) {
+function getOneInOneOutSortValue(role) {
   const index = oneInOneOutRoleOrder.indexOf(role.englishName || role.id);
   return index === -1 ? Number.MAX_SAFE_INTEGER : index;
 }
@@ -154,7 +154,7 @@ export function renderKeywordLinks(keywords) {
   `;
 }
 
-export function getInlineTermMatches() {
+function getInlineTermMatches() {
   return state.terms.flatMap((term) => {
     const names = [term.name, ...(term.aliases || [])];
     return names.map((name) => ({
@@ -165,7 +165,7 @@ export function getInlineTermMatches() {
   });
 }
 
-export function renderRichText(value) {
+function renderRichText(value) {
   const source = String(value || "");
   const candidates = [
     ...getInlineTermMatches(),

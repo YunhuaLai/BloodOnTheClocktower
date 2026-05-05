@@ -13,7 +13,7 @@ export const abilityPageTypeLabels = {
   rule_modifier: "规则型",
 };
 
-export const abilityPhaseTimingLabels = {
+const abilityPhaseTimingLabels = {
   setup: "开局",
   first_night: "首夜",
   each_night: "每晚",
@@ -25,7 +25,7 @@ export const abilityPhaseTimingLabels = {
   special: "特殊",
 };
 
-export const abilityEventTimingLabels = {
+const abilityEventTimingLabels = {
   on_nomination: "提名时",
   on_execution: "处决时",
   on_death: "死亡时",
@@ -44,14 +44,14 @@ export const abilityUsagePatternLabels = {
   variable: "不固定",
 };
 
-export const abilityActivationModeLabels = {
+const abilityActivationModeLabels = {
   active: "主动",
   passive: "被动",
   conditional: "条件触发",
   reactive: "响应触发",
 };
 
-export const abilityValueLabels = {
+const abilityValueLabels = {
   yes: "是",
   no: "否",
   good: "好",
@@ -104,7 +104,7 @@ export function isRoleInfoEntryFilled(entry) {
   return Object.values(entry || {}).some((value) => String(value ?? "").trim());
 }
 
-export function normalizeLegacyBooleanValue(value) {
+function normalizeLegacyBooleanValue(value) {
   const normalized = normalizeRoleName(value);
   if (["yes", "true", "1", "是"].includes(normalized)) {
     return "yes";
@@ -117,7 +117,7 @@ export function normalizeLegacyBooleanValue(value) {
   return String(value || "").trim();
 }
 
-export function migrateLegacyRoleInfo(roleInfo, role, abilityData) {
+function migrateLegacyRoleInfo(roleInfo, role, abilityData) {
   const legacyEntries = Array.isArray(roleInfo?.entries) ? roleInfo.entries : [];
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
@@ -249,7 +249,7 @@ export function getChoiceLabel(value) {
   return String(value || "");
 }
 
-export function getCompactFieldValue(field, value) {
+function getCompactFieldValue(field, value) {
   const text = String(value ?? "").trim();
   if (!text) {
     return "";

@@ -9,9 +9,7 @@ import { getClaimedRole } from "./notes-role-info.js";
 import { renderStorytellerTab } from "./notes-storyteller-render.js";
 import { renderInferenceTab, renderTimelineTab } from "./notes-timeline-render.js";
 
-// Split from notes-render.js. Keep script order in index.html.
-
-export function renderNotesStageBar(game) {
+function renderNotesStageBar(game) {
   const aliveCount = getAliveCount(game);
 
   return `
@@ -44,7 +42,7 @@ export function renderNotesStageBar(game) {
   `;
 }
 
-export function getOverviewClaimedRoleIds(game) {
+function getOverviewClaimedRoleIds(game) {
   return new Set(
     game.players
       .map((player) => getClaimedRole(getDraftOrPlayer(player), game)?.id || "")
@@ -52,7 +50,7 @@ export function getOverviewClaimedRoleIds(game) {
   );
 }
 
-export function renderScriptSheetRole(role, selectedRoleIds) {
+function renderScriptSheetRole(role, selectedRoleIds) {
   const isSelected = selectedRoleIds.has(role.id);
   return `
     <article class="notes-script-sheet-role${isSelected ? " is-selected" : ""}">
@@ -65,7 +63,7 @@ export function renderScriptSheetRole(role, selectedRoleIds) {
   `;
 }
 
-export function renderScriptSheetOverlay(game) {
+function renderScriptSheetOverlay(game) {
   if (!state.notes.ui.scriptSheetOpen) {
     return "";
   }
@@ -126,7 +124,7 @@ export function renderScriptSheetOverlay(game) {
   `;
 }
 
-export function renderGameMeta(game) {
+function renderGameMeta(game) {
   const config = getStandardSetup(game.playerCount);
   const script = getGameScript(game);
   const showScriptButton = state.notes.ui.activeTab === "overview";
@@ -162,14 +160,14 @@ export function renderGameMeta(game) {
   `;
 }
 
-export function renderSetupSeatOptions(playerCount, selectedSeat) {
+function renderSetupSeatOptions(playerCount, selectedSeat) {
   return Array.from({ length: playerCount }, (_, index) => {
     const seat = index + 1;
     return `<option value="${seat}"${seat === selectedSeat ? " selected" : ""}>${seat}号位</option>`;
   }).join("");
 }
 
-export function renderSetupPage(notes) {
+function renderSetupPage(notes) {
   const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
   const config = getStandardSetup(draft.playerCount);
   const isStorytellerMode = draft.mode === "storyteller";
@@ -262,7 +260,7 @@ export function renderSetupPage(notes) {
   `;
 }
 
-export function renderSavedGameCard(game, selectedGameIds) {
+function renderSavedGameCard(game, selectedGameIds) {
   const aliveCount = getAliveCount(game);
   const isSelected = selectedGameIds.includes(game.id);
   const isFavorite = Boolean(game.favorite);
@@ -318,7 +316,7 @@ export function renderSavedGameCard(game, selectedGameIds) {
   `;
 }
 
-export function renderNotesHome(notes) {
+function renderNotesHome(notes) {
   const selectedGameIds = state.notes.ui.selectedSavedGameIds || [];
   const savedGames = [...notes.games].sort((a, b) => {
     if (Boolean(a.favorite) !== Boolean(b.favorite)) {
@@ -375,7 +373,7 @@ export function renderNotesHome(notes) {
   `;
 }
 
-export function renderTabContent(game) {
+function renderTabContent(game) {
   const tab = state.notes.ui.activeTab;
 
   if (tab === "storyteller") {
@@ -402,7 +400,7 @@ export function renderTabContent(game) {
   return renderOverviewTab(game);
 }
 
-export function renderTabBar() {
+function renderTabBar() {
   const game = getActiveGame();
   const tabs =
     game?.mode === "storyteller"
@@ -432,7 +430,7 @@ export function renderTabBar() {
   `;
 }
 
-export function renderGamePage(notes, game) {
+function renderGamePage(notes, game) {
   document.title = `${game.title} · 对局房间`;
   app.innerHTML = `
     <section class="notes-shell">

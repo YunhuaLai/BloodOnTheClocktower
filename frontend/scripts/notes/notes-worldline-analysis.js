@@ -710,7 +710,7 @@ function normalizePercent(items, field, targetCount) {
   }));
 }
 
-export function buildBeyondWorldlineAnalysis(game) {
+function buildBeyondWorldlineAnalysis(game) {
   const setup = getStandardSetup(game.playerCount);
   const players = getAnalysisPlayers(game);
   const duplicateClaims = getDuplicateClaims(players, game);

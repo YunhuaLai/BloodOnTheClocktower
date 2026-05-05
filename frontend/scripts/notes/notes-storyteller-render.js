@@ -7,15 +7,7 @@ import { formatPhaseLabel, getAliveCount, getPlayerLabel, getStandardSetup } fro
 import { renderPlayerCycleField } from "./notes-player-render.js";
 import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
 import { ensureRoleInfoMatchesClaim, formatRoleInfoEntrySummary, getRoleInfoEntries, getRoleInfoNode, getRoleInfoSectionLabel, isRoleInfoEntryFilled } from "./notes-role-info.js";
-import {
-  getAssignedSetupAlertRoles,
-  getRoleGlobalMarkers,
-  getRoleSetupNotes,
-  getScriptIdentityOverlayRoles,
-  getRoleByLooseName,
-} from "./notes-storyteller-actions.js";
-
-// Split from notes-render.js. Keep script order in index.html.
+import { getAssignedSetupAlertRoles, getRoleByLooseName, getRoleGlobalMarkers, getRoleSetupNotes, getScriptIdentityOverlayRoles } from "./notes-storyteller-actions.js";
 
 const storytellerAlignmentOptions = [
   { value: "good", label: "好" },
@@ -34,7 +26,7 @@ const storytellerConditionOptions = [
   { value: "drunk", label: "醉酒" },
 ];
 
-export function getStorytellerState(game) {
+function getStorytellerState(game) {
   return {
     ...createDefaultStorytellerState(),
     ...(game?.storyteller || {}),
@@ -44,15 +36,15 @@ export function getStorytellerState(game) {
   };
 }
 
-export function getStorytellerRole(player, game) {
+function getStorytellerRole(player, game) {
   return getRoleByLooseName(player?.trueRole, game);
 }
 
-export function getRoleBadgeClass(role) {
+function getRoleBadgeClass(role) {
   return `story-role-badge story-role-badge--${escapeHtml(role?.type || "unknown")}`;
 }
 
-export function getStorytellerSetupSummary(game) {
+function getStorytellerSetupSummary(game) {
   const config = getStandardSetup(game.playerCount);
   const counts = game.players.reduce(
     (result, player) => {
@@ -338,7 +330,7 @@ function renderStorytellerSetupAlerts(game) {
   `;
 }
 
-export function getStorytellerSelectedPlayer(game) {
+function getStorytellerSelectedPlayer(game) {
   return (
     game.players.find((player) => player.id === state.notes.ui.selectedPlayerId) ||
     game.players[0] ||
@@ -346,7 +338,7 @@ export function getStorytellerSelectedPlayer(game) {
   );
 }
 
-export function getStorytellerMarkerTokens(player) {
+function getStorytellerMarkerTokens(player) {
   const tokens = [];
   if (player.status !== "alive") {
     tokens.push(getOptionLabel(noteStatusOptions, player.status));
@@ -371,7 +363,7 @@ export function getStorytellerMarkerTokens(player) {
   return tokens.slice(0, 5);
 }
 
-export function renderStoryRoleToken(player, game) {
+function renderStoryRoleToken(player, game) {
   const role = getStorytellerRole(player, game);
   return `
     <span class="${getRoleBadgeClass(role)}">
@@ -380,7 +372,7 @@ export function renderStoryRoleToken(player, game) {
   `;
 }
 
-export function renderGrimoireSeat(player, game, index, selectedPlayer) {
+function renderGrimoireSeat(player, game, index, selectedPlayer) {
   const draft = getDraftOrPlayer(player);
   const role = getStorytellerRole(draft, game);
   const angle = (360 / Math.max(game.players.length, 1)) * index - 90;
@@ -413,7 +405,7 @@ export function renderGrimoireSeat(player, game, index, selectedPlayer) {
   `;
 }
 
-export function renderGrimoireInspector(player, game) {
+function renderGrimoireInspector(player, game) {
   if (!player) {
     return "";
   }
@@ -492,7 +484,7 @@ export function renderGrimoireInspector(player, game) {
   `;
 }
 
-export function renderStorytellerGrimoire(game) {
+function renderStorytellerGrimoire(game) {
   const selectedPlayer = getStorytellerSelectedPlayer(game);
   const setup = getStorytellerSetupSummary(game);
   const storyteller = getStorytellerState(game);
@@ -567,7 +559,7 @@ export function renderStorytellerGrimoire(game) {
   `;
 }
 
-export function renderStorytellerSetupTools(game) {
+function renderStorytellerSetupTools(game) {
   const setup = getStorytellerSetupSummary(game);
   const storyteller = getStorytellerState(game);
 
@@ -623,7 +615,7 @@ export function renderStorytellerSetupTools(game) {
   `;
 }
 
-export function renderStorytellerManualRows(game) {
+function renderStorytellerManualRows(game) {
   return game.players
     .map((player) => {
       const draft = getDraftOrPlayer(player);
@@ -682,7 +674,7 @@ export function renderStorytellerManualRows(game) {
     .join("");
 }
 
-export function renderStorytellerManualPanel(game) {
+function renderStorytellerManualPanel(game) {
   return `
     <section class="story-console-panel">
       <div class="story-panel-header">
@@ -698,7 +690,7 @@ export function renderStorytellerManualPanel(game) {
   `;
 }
 
-export function getScriptNightOrders(game) {
+function getScriptNightOrders(game) {
   const script = getGameScript(game);
   return {
     first: Array.isArray(script?.nightOrder?.first) ? script.nightOrder.first : [],
@@ -706,12 +698,12 @@ export function getScriptNightOrders(game) {
   };
 }
 
-export function hasScriptNightOrder(game) {
+function hasScriptNightOrder(game) {
   const orders = getScriptNightOrders(game);
   return Boolean(orders.first.length || orders.other.length);
 }
 
-export function getNightOrderForGame(game, assignedRoles) {
+function getNightOrderForGame(game, assignedRoles) {
   const hasAssignments = assignedRoles.length > 0;
   const isFirstNight = game.phaseNumber <= 1;
   const orders = getScriptNightOrders(game);
@@ -763,7 +755,7 @@ export function getNightOrderForGame(game, assignedRoles) {
     .sort((left, right) => left.order - right.order || left.fallbackOrder - right.fallbackOrder);
 }
 
-export function getNightOrderRoles(game) {
+function getNightOrderRoles(game) {
   const assignedRoles = game.players
     .map((player) => ({
       player,
@@ -813,7 +805,7 @@ export function getNightOrderRoles(game) {
     .filter((item) => item.hasNightAction);
 }
 
-export function renderNightOrderPanel(game) {
+function renderNightOrderPanel(game) {
   const nightRoles = getNightOrderRoles(game);
 
   return `
@@ -860,7 +852,7 @@ export function renderNightOrderPanel(game) {
   `;
 }
 
-export function renderPublicBoardPanel(game) {
+function renderPublicBoardPanel(game) {
   const storyteller = getStorytellerState(game);
   const infoRecords = getStorytellerInfoRecords(game);
 

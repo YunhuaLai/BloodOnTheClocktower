@@ -1,8 +1,6 @@
 import { phaseTypeOptions } from "../state.js";
 import { getOptionLabel } from "../utils.js";
 
-// Split from notes-render.js. Keep script order in index.html.
-
 export function formatPhaseLabel(phaseType, phaseNumber) {
   return `${getOptionLabel(phaseTypeOptions, phaseType)} ${phaseNumber}`;
 }

@@ -5,9 +5,7 @@ import { escapeHtml, renderSelectOptions } from "../utils.js";
 import { getSeatLabel } from "./notes-core.js";
 import { renderRoleInfoInputs } from "./notes-role-info-panel.js";
 
-// Split from notes-render.js. Keep script order in index.html.
-
-export function renderNoteTagButtons(player) {
+function renderNoteTagButtons(player) {
   return noteTagOptions
     .map((tag) => {
       const active = player.tags.includes(tag.value);
@@ -25,7 +23,7 @@ export function renderNoteTagButtons(player) {
     .join("");
 }
 
-export function renderStorytellerFields(player, game) {
+function renderStorytellerFields(player, game) {
   if (game.mode !== "storyteller") {
     return "";
   }
@@ -70,7 +68,7 @@ export function renderStorytellerFields(player, game) {
   `;
 }
 
-export function getSelectedPlayer(game) {
+function getSelectedPlayer(game) {
   const selectedId = state.notes.ui.selectedPlayerId;
   return (
     game.players.find((player) => player.id === selectedId) ||
@@ -97,7 +95,7 @@ export function renderPlayersTab(game) {
   `;
 }
 
-export function renderSeatNameEditor(player) {
+function renderSeatNameEditor(player) {
   const seatLabel = getSeatLabel(player);
   const hintText = player.name ? "点击号位可修改称呼" : "点击号位可填写称呼";
 
@@ -121,7 +119,7 @@ export function renderSeatNameEditor(player) {
   `;
 }
 
-export function getPlayerCycleValueText(field, value) {
+function getPlayerCycleValueText(field, value) {
   if (field === "status") {
     return {
       alive: "存",
@@ -152,7 +150,7 @@ export function getPlayerCycleValueText(field, value) {
   return String(value || "?");
 }
 
-export function getPlayerCycleFieldClass(field, value) {
+function getPlayerCycleFieldClass(field, value) {
   const normalizedValue =
     field === "condition" && value === "drunk" ? "poisoned" : value;
   return `notes-cycle-button notes-cycle-button--${field} notes-cycle-button--${field}-${escapeHtml(
@@ -179,7 +177,7 @@ export function renderPlayerCycleField(player, field, label) {
   `;
 }
 
-export function getJudgementSummary(player) {
+function getJudgementSummary(player) {
   const alignmentShort = {
     good: "好",
     evil: "坏",
@@ -196,7 +194,7 @@ export function getJudgementSummary(player) {
   return `${alignmentShort[player.alignment] || "?"}/${conditionShort[conditionValue] || "?"}`;
 }
 
-export function renderSeatTabs(game, selectedPlayer) {
+function renderSeatTabs(game, selectedPlayer) {
   return `
     <div class="notes-seat-tabs" role="tablist" aria-label="选择玩家">
       ${game.players
@@ -221,7 +219,7 @@ export function renderSeatTabs(game, selectedPlayer) {
   `;
 }
 
-export function renderClaimControl(player, game) {
+function renderClaimControl(player, game) {
   const script = getGameScript(game);
 
   return `
@@ -243,7 +241,7 @@ export function renderClaimControl(player, game) {
   `;
 }
 
-export function renderPlayerDetail(player, game) {
+function renderPlayerDetail(player, game) {
   if (!player) {
     return `<div class="empty-state">还没有玩家信息。</div>`;
   }

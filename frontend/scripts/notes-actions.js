@@ -5,8 +5,6 @@ import { renderNotesPage } from "./notes/notes-shell.js";
 import { assignRandomStorytellerRoles, clearStorytellerAssignments } from "./notes/notes-storyteller-actions.js";
 import { state } from "./state.js";
 
-// Event dispatchers for the notes feature. Helper actions live in frontend/scripts/notes/*.js.
-
 export function handleNotesFieldChange(target, refreshInterface = false) {
   if (target.id === "gameSelect") {
     const notes = ensureNotesState();

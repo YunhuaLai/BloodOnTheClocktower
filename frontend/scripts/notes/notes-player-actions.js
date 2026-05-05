@@ -37,7 +37,7 @@ export function ensurePlayerDraftForId(playerId) {
   return draft;
 }
 
-export function trimRoleInfoEntry(entry) {
+function trimRoleInfoEntry(entry) {
   return Object.fromEntries(
     Object.entries(entry || {}).filter(([, value]) => {
       if (typeof value === "number") {
@@ -49,7 +49,7 @@ export function trimRoleInfoEntry(entry) {
   );
 }
 
-export function trimRoleInfoEntries(roleInfo) {
+function trimRoleInfoEntries(roleInfo) {
   const info = cloneRoleInfo(roleInfo);
   const nextTargetEntries = [];
   const nextResultEntries = [];
@@ -74,7 +74,7 @@ export function trimRoleInfoEntries(roleInfo) {
   };
 }
 
-export function updatePlayerDraftField(playerId, field, value) {
+function updatePlayerDraftField(playerId, field, value) {
   const draft = ensurePlayerDraftForId(playerId);
   if (!draft || !(field in draft)) {
     return false;
@@ -128,17 +128,17 @@ export function updatePlayerDraftField(playerId, field, value) {
   ].includes(field);
 }
 
-export function getRoleInfoSectionKey(section) {
+function getRoleInfoSectionKey(section) {
   return section === "result" ? "resultEntries" : "targetEntries";
 }
 
-export function getRoleInfoMinimumRows(node) {
+function getRoleInfoMinimumRows(node) {
   return node.repeatMode === "once"
     ? Math.max(node.defaultRows || 0, 1)
     : Math.max(node.defaultRows || 0, 1);
 }
 
-export function getLinkedRoleInfoSections(draft, requestedSection, game) {
+function getLinkedRoleInfoSections(draft, requestedSection, game) {
   const abilityData = getRoleAbilityData(getRoleInfoSubject(draft, game), game);
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
@@ -205,7 +205,7 @@ export function adjustPlayerDraftExternalReports(playerId, step) {
   }
 }
 
-export function getRoleInfoFieldCycleValues(field) {
+function getRoleInfoFieldCycleValues(field) {
   if (field?.type === "boolean") {
     return ["", "yes", "no"];
   }
@@ -277,7 +277,7 @@ export function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
   });
 }
 
-export function buildPlayerSaveSummary(player, game = getActiveGame()) {
+function buildPlayerSaveSummary(player, game = getActiveGame()) {
   const parts = [];
   if (player.claim) {
     parts.push(`自称 ${player.claim}`);
@@ -446,7 +446,7 @@ export function autoFillStorytellerRoleInfoResult(playerId) {
   return true;
 }
 
-export function getPlayerFieldCycleValues(field) {
+function getPlayerFieldCycleValues(field) {
   if (field === "status") {
     return ["alive", "night-dead", "executed", "unclear"];
   }

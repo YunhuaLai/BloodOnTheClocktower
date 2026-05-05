@@ -5,11 +5,11 @@ import { ensureRoleInfoMatchesClaim, getClaimedRole, getDisplayedRoleInfoEntries
 
 // Split from notes-role-info.js. Keep script order in index.html.
 
-export function isCompactRoleInfoField(field) {
+function isCompactRoleInfoField(field) {
   return ["number", "seat", "player", "boolean"].includes(field?.type);
 }
 
-export function getRoleInfoFieldGridSize(fields) {
+function getRoleInfoFieldGridSize(fields) {
   const safeFields = Array.isArray(fields) ? fields : [];
   if (!safeFields.length) {
     return 1;
@@ -26,7 +26,7 @@ export function getRoleInfoFieldGridSize(fields) {
   return Math.min(safeFields.length, 4);
 }
 
-export function getRoleInfoEntryGridSize(field) {
+function getRoleInfoEntryGridSize(field) {
   if (field?.type === "role") {
     return 3;
   }
@@ -38,7 +38,7 @@ export function getRoleInfoEntryGridSize(field) {
   return 4;
 }
 
-export function chunkItems(items, size) {
+function chunkItems(items, size) {
   const safeItems = Array.isArray(items) ? items : [];
   const chunkSize = Math.max(Number(size) || 1, 1);
   const chunks = [];
@@ -50,7 +50,7 @@ export function chunkItems(items, size) {
   return chunks;
 }
 
-export function renderRoleInfoFieldGroup(sectionKey, rowIndex, fields, entry, game, maxSeat) {
+function renderRoleInfoFieldGroup(sectionKey, rowIndex, fields, entry, game, maxSeat) {
   const safeFields = Array.isArray(fields) ? fields : [];
   if (!safeFields.length) {
     return "";
@@ -74,7 +74,7 @@ export function renderRoleInfoFieldGroup(sectionKey, rowIndex, fields, entry, ga
   `;
 }
 
-export function renderRoleInfoEntrySequence(sectionKey, field, entries, game, maxSeat) {
+function renderRoleInfoEntrySequence(sectionKey, field, entries, game, maxSeat) {
   const gridSize = getRoleInfoEntryGridSize(field);
   return chunkItems(entries, gridSize)
     .map(

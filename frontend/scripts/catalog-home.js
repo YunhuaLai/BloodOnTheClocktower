@@ -14,7 +14,7 @@ export function getRoleTypeSummary() {
     .join(" · ");
 }
 
-export function renderHomeDirectory() {
+function renderHomeDirectory() {
   const cards = [
     {
       eyebrow: "对局房间",

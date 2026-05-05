@@ -120,7 +120,7 @@ export function renderRoleIndex() {
   syncFilterButtons();
 }
 
-export function renderTerms() {
+function renderTerms() {
   const termGrid = document.querySelector("#termGrid");
   if (!termGrid) {
     return;
@@ -158,7 +158,7 @@ export function renderRules() {
     .join("");
 }
 
-export function renderScripts() {
+function renderScripts() {
   const scriptGrid = document.querySelector("#scriptGrid");
   if (!scriptGrid) {
     return;
@@ -184,7 +184,7 @@ export function renderScripts() {
     .join("");
 }
 
-export function roleMatchesSearch(role, query) {
+function roleMatchesSearch(role, query) {
   if (!query) {
     return true;
   }
@@ -250,7 +250,7 @@ export function renderRoles() {
     .join("");
 }
 
-export function renderRoleCard(role) {
+function renderRoleCard(role) {
   return `
     <a class="role-card" href="/roles/${escapeHtml(role.id)}" data-link data-type="${escapeHtml(role.type)}">
       <header>
