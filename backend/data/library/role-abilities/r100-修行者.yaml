@@ -35,3 +35,14 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: nearest_evil_direction
+      value:
+        source: result
+        keys:
+          - direction
+          - answer
+          - value

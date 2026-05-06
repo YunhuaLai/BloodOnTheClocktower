@@ -37,3 +37,7 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: manual
+  source: inferred
+  label: 信息型角色，但需要人工语义归类

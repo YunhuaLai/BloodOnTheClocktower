@@ -34,3 +34,8 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: world_effect
+  source: manual
+  effectType: action_history
+  note: 城镇公告员需要结构化提名历史。

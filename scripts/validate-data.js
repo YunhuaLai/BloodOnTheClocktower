@@ -14,6 +14,44 @@ const KNOWN_ROLE_TYPES = new Set([
   "a jinxes",
 ]);
 
+const KNOWN_DEDUCTION_STATUSES = new Set([
+  "supported",
+  "candidate",
+  "world_effect",
+  "manual",
+  "record_only",
+  "none",
+]);
+
+const KNOWN_DEDUCTION_TEMPLATE_TYPES = new Set([
+  "adjacent_evil_pair_count",
+  "evil_count_group",
+  "clockwise_evil_count",
+  "good_player",
+  "role_in_group",
+  "role_at_seat",
+  "not_role_type_group",
+  "demon_in_group",
+  "not_demon_group",
+  "team_relation",
+  "either_role",
+  "evil_dead_count",
+  "demon_minion_distance",
+  "role_guess",
+  "role_guess_count",
+  "nearest_evil_direction",
+]);
+
+const KNOWN_DEDUCTION_EFFECT_TYPES = new Set([
+  "poison_drunk",
+  "death_protection",
+  "alignment_role_change",
+  "setup_rule_modifier",
+  "action_history",
+  "natural_language",
+  "awake_malfunction",
+]);
+
 const errors = [];
 const warnings = [];
 
@@ -159,6 +197,8 @@ function validateRoleAbilities(roles, roleAbilities) {
     if (!ability?.interactionSchema || typeof ability.interactionSchema !== "object") {
       addError(`roleAbility ${label(ability)} is missing interactionSchema`);
     }
+
+    validateDeductionProfile(ability);
   });
 
   roles.forEach((role) => {
@@ -166,6 +206,44 @@ function validateRoleAbilities(roles, roleAbilities) {
       addError(`role ${label(role)} does not have a matching roleAbility`);
     }
   });
+}
+
+function validateDeductionProfile(ability) {
+  const deduction = ability?.deduction;
+  if (!deduction) {
+    return;
+  }
+
+  if (!KNOWN_DEDUCTION_STATUSES.has(deduction.status)) {
+    addError(`roleAbility ${label(ability)} has unknown deduction.status "${deduction.status || ""}"`);
+  }
+
+  if (Array.isArray(deduction.templates)) {
+    deduction.templates.forEach((template, index) => {
+      if (!KNOWN_DEDUCTION_TEMPLATE_TYPES.has(template?.type)) {
+        addError(
+          `roleAbility ${label(ability)} deduction.templates[${index}] has unknown type "${template?.type || ""}"`,
+        );
+      }
+    });
+  }
+
+  if (
+    deduction.status === "world_effect" &&
+    deduction.effectType &&
+    !KNOWN_DEDUCTION_EFFECT_TYPES.has(deduction.effectType)
+  ) {
+    addError(
+      `roleAbility ${label(ability)} has unknown deduction.effectType "${deduction.effectType}"`,
+    );
+  }
+
+  if (
+    deduction.status === "supported" &&
+    (!Array.isArray(deduction.templates) || !deduction.templates.length)
+  ) {
+    addError(`roleAbility ${label(ability)} deduction.status=supported requires templates`);
+  }
 }
 
 function validateRelatedRoles(data, roleIds) {

@@ -44,3 +44,8 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: world_effect
+  source: manual
+  effectType: poison_drunk
+  note: ''

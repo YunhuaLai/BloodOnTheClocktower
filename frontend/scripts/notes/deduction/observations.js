@@ -1,5 +1,6 @@
 import { normalizeMatchText } from "../../notes-claims.js";
 import { getDraftOrPlayer } from "../../notes-state.js";
+import { getDayNominatorSeats, getDayVotingSeats, hasDayActionHistory } from "../notes-day-records.js";
 import { state } from "../../state.js";
 import { getClaimedRole } from "../notes-role-info.js";
 import { getRoleDeductionProfile, getRoleDeductionReview, templateLabels } from "./profiles.js";
@@ -266,6 +267,15 @@ function booleanValue(row, template) {
   return booleanFrom(row, template.value);
 }
 
+function dayNumberFromRow(row, template) {
+  const explicitDay =
+    numberFrom(row, template.day) ||
+    numberFrom(row, { source: "target", keys: ["day", "dayNumber", "phase"] }) ||
+    numberFrom(row, { source: "result", keys: ["day", "dayNumber", "phase"] });
+
+  return explicitDay || row.index + 1;
+}
+
 function buildRowObservation(template, source, role, row, players, game) {
   const sourceText = sourceLabel(source, role);
   const playerCount = game.playerCount;
@@ -381,6 +391,42 @@ function buildRowObservation(template, source, role, row, players, game) {
           evilRole,
         })
       : null;
+  }
+
+  if (template.type === "demon_voted_today") {
+    const value = booleanValue(row, template);
+    const dayNumber = dayNumberFromRow(row, template);
+    const voterSeats = getDayVotingSeats(game, dayNumber);
+    if (value === null || !hasDayActionHistory(game, dayNumber, "vote")) {
+      return null;
+    }
+
+    return baseObservation(
+      source,
+      role,
+      row,
+      template,
+      `${sourceText}报第${dayNumber}天恶魔是否投票：${boolLabel(value)}`,
+      { dayNumber, voterSeats, value },
+    );
+  }
+
+  if (template.type === "minion_nominated_today") {
+    const value = booleanValue(row, template);
+    const dayNumber = dayNumberFromRow(row, template);
+    const nominatorSeats = getDayNominatorSeats(game, dayNumber);
+    if (value === null || !hasDayActionHistory(game, dayNumber, "nomination")) {
+      return null;
+    }
+
+    return baseObservation(
+      source,
+      role,
+      row,
+      template,
+      `${sourceText}报第${dayNumber}天爪牙是否提名：${boolLabel(value)}`,
+      { dayNumber, nominatorSeats, value },
+    );
   }
 
   if (template.type === "evil_dead_count") {

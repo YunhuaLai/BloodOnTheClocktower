@@ -45,3 +45,8 @@ interactionSchema:
     repeatMode: none
     defaultRows: 0
     fields: []
+deduction:
+  status: candidate
+  source: inferred
+  label: 可模板化：身份信息
+  templates: []

@@ -12,6 +12,161 @@
   justify-content: center;
 }
 
+.notes-day-record-panel {
+  gap: 14px;
+}
+
+.notes-day-record-header,
+.notes-execution-control,
+.notes-nomination-row-head,
+.notes-nomination-fields {
+  display: grid;
+  gap: 10px;
+}
+
+.notes-day-record-header,
+.notes-execution-control {
+  align-items: end;
+}
+
+.notes-day-record-header .primary-link {
+  margin: 0;
+}
+
+.notes-execution-control {
+  padding: 12px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-execution-control > div {
+  display: grid;
+  gap: 4px;
+}
+
+.notes-execution-control span,
+.notes-nomination-votes > span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.notes-execution-control strong {
+  font-size: 18px;
+}
+
+.notes-execution-control small {
+  color: var(--muted);
+}
+
+.notes-nomination-list {
+  display: grid;
+  gap: 10px;
+}
+
+.notes-nomination-row {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-nomination-row-head {
+  grid-template-columns: 1fr auto;
+  align-items: center;
+}
+
+.notes-nomination-row-head span {
+  color: var(--red);
+  font-weight: 900;
+}
+
+.notes-nomination-votes {
+  display: grid;
+  gap: 8px;
+}
+
+.notes-voter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(42px, 1fr));
+  gap: 6px;
+}
+
+.notes-voter-chip {
+  position: relative;
+  display: block;
+  min-height: 36px;
+}
+
+.notes-voter-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.notes-voter-chip span {
+  display: grid;
+  min-height: 36px;
+  place-items: center;
+  color: var(--muted);
+  background: #eef1ed;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-weight: 900;
+}
+
+.notes-voter-chip input:focus-visible + span {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+.notes-voter-chip.is-checked span {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.notes-day-history {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.notes-day-history h4 {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--ink);
+}
+
+.notes-day-history span {
+  padding: 6px 8px;
+  background: #eef1ed;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+@media (min-width: 721px) {
+  .notes-day-record-header,
+  .notes-execution-control {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 280px);
+  }
+
+  .notes-nomination-fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notes-voter-grid {
+    grid-template-columns: repeat(auto-fit, minmax(46px, 1fr));
+  }
+}
+
 .timeline-entry {
   display: grid;
   gap: 8px;

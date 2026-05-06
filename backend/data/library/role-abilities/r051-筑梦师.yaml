@@ -50,3 +50,27 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: either_role
+      seat:
+        source: target
+        keys:
+          - seat
+          - player
+          - target
+          - target_seat
+      goodRole:
+        source: result
+        keys:
+          - good_role
+          - goodRole
+          - good
+      evilRole:
+        source: result
+        keys:
+          - evil_role
+          - evilRole
+          - evil

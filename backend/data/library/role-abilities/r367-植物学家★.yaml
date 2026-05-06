@@ -44,3 +44,23 @@ interactionSchema:
         min: 0
         max: 15
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: evil_count_group
+      group: target_alive_neighbors
+      seat:
+        source: target
+        keys:
+          - seat
+          - player
+          - target
+          - target_seat
+      value:
+        source: result
+        keys:
+          - count
+          - evilCount
+          - number
+          - value

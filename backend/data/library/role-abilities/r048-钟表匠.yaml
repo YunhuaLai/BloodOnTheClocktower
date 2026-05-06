@@ -32,3 +32,15 @@ interactionSchema:
         min: 0
         max: 10
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: demon_minion_distance
+      value:
+        source: result
+        keys:
+          - distance
+          - count
+          - number
+          - value

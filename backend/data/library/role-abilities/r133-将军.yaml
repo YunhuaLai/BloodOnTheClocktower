@@ -35,3 +35,8 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: candidate
+  source: inferred
+  label: 可模板化：阵营信息
+  templates: []

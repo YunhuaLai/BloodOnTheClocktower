@@ -44,3 +44,19 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: candidate
+  source: inferred
+  label: 可模板化：目标是否恶魔
+  templates:
+    - type: demon_in_group
+      seats:
+        source: target
+        keys:
+          - seat
+      value:
+        source: result
+        keys:
+          - hit_demon
+          - answer
+          - value

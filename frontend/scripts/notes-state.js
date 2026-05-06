@@ -1,4 +1,5 @@
 import { normalizeMatchText } from "./notes-claims.js";
+import { normalizeAutoExecutionApplied, normalizeDayRecords, syncAutoExecutionStatuses } from "./notes/notes-day-records.js";
 import { noteAlignmentOptions, noteConditionOptions, noteModeOptions, noteStatusOptions, noteTagOptions, notesStorageKey, phaseTypeOptions, state, timelineTypeOptions } from "./state.js";
 import { createId, escapeHtml, getOptionLabel } from "./utils.js";
 
@@ -172,6 +173,8 @@ export function createGameFromSetup(setup, nextIndex = 1) {
     createdAt: new Date().toISOString(),
     players: createPlayersForCount(playerCount),
     timeline: [],
+    dayRecords: [],
+    autoExecutionApplied: [],
     inference: createDefaultInference(),
     storyteller: createDefaultStorytellerState(),
   };
@@ -326,7 +329,7 @@ function normalizeGame(game, index) {
     ? game.mode
     : "player";
 
-  return {
+  const normalizedGame = {
     id: game?.id || createId("game"),
     title: game?.title || `第 ${index + 1} 局`,
     scriptId: game?.scriptId || "",
@@ -344,9 +347,17 @@ function normalizeGame(game, index) {
           .map((entry) => normalizeTimelineEntry(entry, game))
           .filter((entry) => entry.text)
       : [],
+    dayRecords: normalizeDayRecords(game?.dayRecords, playerCount),
+    autoExecutionApplied: normalizeAutoExecutionApplied(
+      game?.autoExecutionApplied,
+      playerCount,
+    ),
     inference: normalizeInference(game?.inference),
     storyteller: normalizeStorytellerState(game?.storyteller),
   };
+
+  syncAutoExecutionStatuses(normalizedGame);
+  return normalizedGame;
 }
 
 function loadNotesState() {

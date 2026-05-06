@@ -33,3 +33,8 @@ interactionSchema:
     repeatMode: none
     defaultRows: 0
     fields: []
+deduction:
+  status: world_effect
+  source: inferred
+  effectType: poison_drunk
+  note: ''

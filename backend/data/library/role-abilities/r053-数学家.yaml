@@ -32,3 +32,8 @@ interactionSchema:
         min: 0
         max: 15
         placeholder: null
+deduction:
+  status: world_effect
+  source: manual
+  effectType: awake_malfunction
+  note: 数学家需要异常来源模型。

@@ -34,3 +34,8 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: world_effect
+  source: manual
+  effectType: action_history
+  note: 卖花女孩需要结构化投票历史。

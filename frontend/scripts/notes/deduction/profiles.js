@@ -15,6 +15,8 @@ export const templateLabels = {
   role_guess: "身份猜测",
   role_guess_count: "身份猜中数量",
   nearest_evil_direction: "最近邪恶方向",
+  demon_voted_today: "恶魔今日投票",
+  minion_nominated_today: "爪牙今日提名",
 };
 
 export const worldEffectLabels = {
@@ -166,6 +168,24 @@ const roleDeductionProfiles = {
         seat: targetSeat,
         goodRole: { source: "result", keys: ["good_role", "goodRole", "good"] },
         evilRole: { source: "result", keys: ["evil_role", "evilRole", "evil"] },
+      },
+    ],
+  },
+  r054: {
+    label: "已接入自动推理；需要对应白天的结构化投票记录",
+    templates: [
+      {
+        type: "demon_voted_today",
+        value: { source: "result", keys: ["voted", "answer", "value"] },
+      },
+    ],
+  },
+  r055: {
+    label: "已接入自动推理；需要对应白天的结构化提名记录",
+    templates: [
+      {
+        type: "minion_nominated_today",
+        value: { source: "result", keys: ["nominated", "answer", "value"] },
       },
     ],
   },
@@ -369,8 +389,72 @@ function inferTemplateCandidate(role) {
   return null;
 }
 
+function profileFromAbilityData(role) {
+  const deduction = role?.abilityData?.deduction;
+  if (!deduction?.status) {
+    return null;
+  }
+
+  if (deduction.status === "supported") {
+    return {
+      status: "supported",
+      label: deduction.label || "已接入自动推理",
+      templates: Array.isArray(deduction.templates) ? deduction.templates : [],
+    };
+  }
+
+  if (deduction.status === "candidate") {
+    return {
+      status: "candidate",
+      label: deduction.label || "可模板化候选",
+      templates: Array.isArray(deduction.templates) ? deduction.templates : [],
+    };
+  }
+
+  if (deduction.status === "world_effect") {
+    return {
+      status: "world_effect",
+      label: deduction.note || worldEffectLabels[deduction.effectType] || "世界效果",
+      effectType: deduction.effectType || "",
+    };
+  }
+
+  if (deduction.status === "manual") {
+    return {
+      status: "manual",
+      label: deduction.label || "信息型角色，但需要人工语义归类",
+    };
+  }
+
+  if (deduction.status === "record_only") {
+    return {
+      status: "record_only",
+      label: deduction.label || "可记录行动/效果，暂不作为信息校验",
+    };
+  }
+
+  return null;
+}
+
 export function getRoleDeductionProfile(role) {
+  const dataProfile = profileFromAbilityData(role);
   const profile = roleDeductionProfiles[role?.id];
+  if (dataProfile) {
+    if (dataProfile.status === "supported") {
+      return dataProfile;
+    }
+
+    if (profile) {
+      return {
+        status: "supported",
+        label: "已接入自动推理",
+        ...profile,
+      };
+    }
+
+    return dataProfile;
+  }
+
   if (profile) {
     return {
       status: "supported",
@@ -397,6 +481,21 @@ export function getRoleDeductionReview(role) {
       status: "candidate",
       label: profile.label,
       templateTypes: profile.templates?.map((template) => template.type) || [],
+    };
+  }
+
+  if (profile?.status === "world_effect") {
+    return {
+      status: "world_effect",
+      label: profile.label,
+      effectType: profile.effectType,
+    };
+  }
+
+  if (profile?.status === "manual" || profile?.status === "record_only") {
+    return {
+      status: profile.status,
+      label: profile.label,
     };
   }
 

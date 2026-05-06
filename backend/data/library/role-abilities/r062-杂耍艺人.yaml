@@ -50,3 +50,30 @@ interactionSchema:
         min: 0
         max: 5
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: role_guess_count
+      rowMode: all_targets
+      guesses:
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: target
+          keys:
+            - role
+            - character
+            - claim
+      value:
+        source: result
+        keys:
+          - correct_count
+          - count
+          - number
+          - value

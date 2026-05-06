@@ -62,3 +62,21 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: not_role_type_group
+      seats:
+        source: target
+        keys:
+          - seat1
+          - seat2
+          - first
+          - second
+      role:
+        source: result
+        keys:
+          - role
+          - character
+          - claim

@@ -1,5 +1,5 @@
 import { clearPlayerDraft, createDefaultSetupDraft, ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
-import { addTimelineEntry, clearSavedGameSelection, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateGameField, updateInferenceField, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField } from "./notes/notes-game-actions.js";
+import { addNominationRecord, addTimelineEntry, clearSavedGameSelection, deleteNominationRecord, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateDayExecutionOverride, updateGameField, updateInferenceField, updateNominationRecordField, updateNominationVoter, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField } from "./notes/notes-game-actions.js";
 import { adjustPlayerDraftExternalReports, adjustPlayerDraftRoleInfoRows, autoFillStorytellerRoleInfoResult, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, togglePlayerStoryMarker, updatePlayerDraftExternalReport, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
 import { assignRandomStorytellerRoles, clearStorytellerAssignments } from "./notes/notes-storyteller-actions.js";
@@ -38,6 +38,45 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
     if (shouldRerender || refreshInterface) {
       renderNotesPage();
     }
+    return;
+  }
+
+  const executionOverride = target.closest("[data-day-execution-override]");
+  if (executionOverride) {
+    updateDayExecutionOverride(
+      Number(executionOverride.dataset.dayExecutionOverride || 1),
+      target.value,
+    );
+    return;
+  }
+
+  const nominationVoter = target.closest(
+    "[data-day-number][data-nomination-id][data-voter-seat]",
+  );
+  if (nominationVoter && target.type === "checkbox") {
+    if (!refreshInterface) {
+      return;
+    }
+
+    updateNominationVoter(
+      Number(nominationVoter.dataset.dayNumber || 1),
+      nominationVoter.dataset.nominationId || "",
+      nominationVoter.dataset.voterSeat || "",
+      target.checked,
+    );
+    return;
+  }
+
+  const nominationField = target.closest(
+    "[data-day-number][data-nomination-id][data-nomination-field]",
+  );
+  if (nominationField) {
+    updateNominationRecordField(
+      Number(nominationField.dataset.dayNumber || 1),
+      nominationField.dataset.nominationId || "",
+      nominationField.dataset.nominationField || "",
+      target.value,
+    );
     return;
   }
 
@@ -369,6 +408,19 @@ export function handleNotesAction(button) {
   if (action === "discard-player") {
     clearPlayerDraft(button.dataset.playerId);
     renderNotesPage();
+    return;
+  }
+
+  if (action === "add-nomination") {
+    addNominationRecord(Number(button.dataset.dayNumber || game.phaseNumber || 1));
+    return;
+  }
+
+  if (action === "delete-nomination") {
+    deleteNominationRecord(
+      Number(button.dataset.dayNumber || game.phaseNumber || 1),
+      button.dataset.nominationId || "",
+    );
     return;
   }
 

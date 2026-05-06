@@ -41,3 +41,13 @@ interactionSchema:
         min: 1
         max: 15
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: not_demon_group
+      seats:
+        source: result
+        keys:
+          - seat1
+          - seat2

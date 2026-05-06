@@ -43,3 +43,24 @@ interactionSchema:
         min: 0
         max: 15
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: clockwise_evil_count
+      group: clockwise_between_source_and_target
+      seat:
+        source: target
+        keys:
+          - seat
+          - player
+          - target
+          - target_seat
+      value:
+        source: result
+        keys:
+          - count
+          - evilCount
+          - number
+          - value
+      targetMustBeGood: true

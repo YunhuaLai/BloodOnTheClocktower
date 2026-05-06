@@ -132,6 +132,15 @@ export function checkObservation(observation, world, context) {
       return Boolean(goodMatch || evilMatch);
     }
 
+    case "demon_voted_today":
+      return observation.voterSeats.includes(world.demonSeat) === observation.value;
+
+    case "minion_nominated_today":
+      return (
+        observation.nominatorSeats.some((seat) => hasMinion(world, seat)) ===
+        observation.value
+      );
+
     case "evil_dead_count":
       return (
         context.players.filter((player) => player.status !== "alive" && hasEvil(world, player.seat))

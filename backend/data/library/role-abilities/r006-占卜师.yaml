@@ -52,3 +52,19 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: demon_in_group
+      seats:
+        source: target
+        keys:
+          - seat1
+          - seat2
+      value:
+        source: result
+        keys:
+          - has_demon
+          - answer
+          - value

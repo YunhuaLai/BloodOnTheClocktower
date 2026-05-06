@@ -53,3 +53,22 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: candidate
+  source: inferred
+  label: 可模板化：目标身份信息
+  templates:
+    - type: role_at_seat
+      seat:
+        source: target
+        keys:
+          - seat
+          - player
+          - target
+          - target_seat
+      role:
+        source: result
+        keys:
+          - role
+          - character
+          - claim

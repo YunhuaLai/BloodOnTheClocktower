@@ -32,3 +32,15 @@ interactionSchema:
         min: 1
         max: 15
         placeholder: null
+deduction:
+  status: supported
+  source: manual
+  templates:
+    - type: good_player
+      seat:
+        source: result
+        keys:
+          - seat
+          - player
+          - target
+          - target_seat

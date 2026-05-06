@@ -45,3 +45,8 @@ interactionSchema:
         min: null
         max: null
         placeholder: 导入初稿，请按角色能力调整结构化字段。
+deduction:
+  status: world_effect
+  source: inferred
+  effectType: poison_drunk
+  note: ''

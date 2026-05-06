@@ -32,3 +32,7 @@ interactionSchema:
         min: null
         max: null
         placeholder: 记录当晚看到的关键信息
+deduction:
+  status: manual
+  source: inferred
+  label: 信息型角色，但需要人工语义归类

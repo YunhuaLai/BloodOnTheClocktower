@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const yaml = require("js-yaml");
+const { inferDeductionData } = require("./deduction-profile-utils");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
 const LIBRARY_DIR = path.join(ROOT_DIR, "backend", "data", "library");
@@ -300,8 +301,7 @@ function makeRoleAbilityData(roleData, officialRole) {
         : isSetupOnly
           ? "rule_modifier"
           : "no_input";
-
-  return {
+  const abilityData = {
     id: roleData.id,
     englishName: roleData.englishName,
     name: roleData.name,
@@ -324,6 +324,12 @@ function makeRoleAbilityData(roleData, officialRole) {
       result: stripSchemaNodeMeta(result),
     },
   };
+  const deduction = inferDeductionData(abilityData, { ...roleData, ability });
+  if (deduction) {
+    abilityData.deduction = deduction;
+  }
+
+  return abilityData;
 }
 
 function stripSchemaNodeMeta(node) {
@@ -638,12 +644,20 @@ function importOfficialJson(inputPath) {
       roles.push({ fileName: path.basename(filePath), filePath, data: roleData });
     }
 
-    if (!roleAbilities.some((entry) => entry.data?.id === roleId)) {
+    const existingAbility = roleAbilities.find((entry) => entry.data?.id === roleId);
+    if (!existingAbility) {
       const abilityData = makeRoleAbilityData(roleData, officialRole);
       const abilityPath = path.join(ROLE_ABILITIES_DIR, `${roleId}-${safeFileName(officialRole.name)}.yaml`);
       writeYamlFile(abilityPath, abilityData);
       roleAbilities.push({ fileName: path.basename(abilityPath), filePath: abilityPath, data: abilityData });
       changed.push(path.relative(ROOT_DIR, abilityPath));
+    } else if (!existingAbility.data?.deduction) {
+      const deduction = inferDeductionData(existingAbility.data, { ...roleData, ability: officialRole.ability || roleData.ability || "" });
+      if (deduction) {
+        existingAbility.data.deduction = deduction;
+        writeYamlFile(existingAbility.filePath, existingAbility.data);
+        changed.push(path.relative(ROOT_DIR, existingAbility.filePath));
+      }
     }
   });
 

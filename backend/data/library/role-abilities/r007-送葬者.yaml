@@ -32,3 +32,8 @@ interactionSchema:
         min: null
         max: null
         placeholder: null
+deduction:
+  status: world_effect
+  source: manual
+  effectType: natural_language
+  note: 送葬者还缺少结构化处决座位，暂不自动校验。

@@ -44,3 +44,8 @@ interactionSchema:
         min: 0
         max: 15
         placeholder: null
+deduction:
+  status: candidate
+  source: inferred
+  label: 可模板化：身份信息
+  templates: []

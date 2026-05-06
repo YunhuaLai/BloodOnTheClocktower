@@ -1,4 +1,5 @@
 import { clampNumber, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, saveNotesState } from "../notes-state.js";
+import { createNominationRecord, getDayRecord, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
 import { phaseTypeOptions, state } from "../state.js";
 import { createId } from "../utils.js";
 import { formatPhaseLabel } from "./notes-core.js";
@@ -126,6 +127,96 @@ export function addTimelineEntry() {
     text,
     createdAt: new Date().toISOString(),
   });
+  saveNotesState();
+  renderNotesPage();
+}
+
+function findNomination(game, dayNumber, nominationId) {
+  const record = getDayRecord(game, dayNumber);
+  return (
+    record?.nominations.find((nomination) => nomination.id === nominationId) ||
+    null
+  );
+}
+
+export function addNominationRecord(dayNumber) {
+  const game = getActiveGame();
+  if (!game) {
+    return;
+  }
+
+  const record = getDayRecord(game, dayNumber, true);
+  record.nominations.push(createNominationRecord());
+  syncAutoExecutionStatuses(game);
+  saveNotesState();
+  renderNotesPage();
+}
+
+export function deleteNominationRecord(dayNumber, nominationId) {
+  const game = getActiveGame();
+  const record = getDayRecord(game, dayNumber);
+  if (!game || !record) {
+    return;
+  }
+
+  record.nominations = record.nominations.filter(
+    (nomination) => nomination.id !== nominationId,
+  );
+  syncAutoExecutionStatuses(game);
+  saveNotesState();
+  renderNotesPage();
+}
+
+export function updateNominationRecordField(dayNumber, nominationId, field, value) {
+  const game = getActiveGame();
+  const nomination = findNomination(game, dayNumber, nominationId);
+  if (!game || !nomination) {
+    return;
+  }
+
+  if (field === "nominatorSeat" || field === "nomineeSeat") {
+    nomination[field] = normalizeSeatValue(value, game.playerCount);
+  } else if (field === "note") {
+    nomination.note = value;
+  }
+
+  syncAutoExecutionStatuses(game);
+  saveNotesState();
+  renderNotesPage();
+}
+
+export function updateNominationVoter(dayNumber, nominationId, seat, checked) {
+  const game = getActiveGame();
+  const nomination = findNomination(game, dayNumber, nominationId);
+  const voterSeat = normalizeSeatValue(seat, game?.playerCount || 15);
+  if (!game || !nomination || !voterSeat) {
+    return;
+  }
+
+  const voters = new Set((nomination.voterSeats || []).map(String));
+  if (checked) {
+    voters.add(voterSeat);
+  } else {
+    voters.delete(voterSeat);
+  }
+
+  nomination.voterSeats = [...voters].sort((left, right) => Number(left) - Number(right));
+  syncAutoExecutionStatuses(game);
+  saveNotesState();
+  renderNotesPage();
+}
+
+export function updateDayExecutionOverride(dayNumber, value) {
+  const game = getActiveGame();
+  if (!game) {
+    return;
+  }
+
+  const record = getDayRecord(game, dayNumber, true);
+  record.executionOverride = value === "none"
+    ? "none"
+    : normalizeSeatValue(value, game.playerCount);
+  syncAutoExecutionStatuses(game);
   saveNotesState();
   renderNotesPage();
 }

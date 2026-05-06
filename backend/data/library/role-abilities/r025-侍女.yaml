@@ -50,3 +50,8 @@ interactionSchema:
         min: 0
         max: 2
         placeholder: null
+deduction:
+  status: world_effect
+  source: manual
+  effectType: awake_malfunction
+  note: 侍女需要夜晚唤醒/行动模型。

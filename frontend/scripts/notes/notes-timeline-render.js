@@ -1,6 +1,7 @@
+import { getDayRecord, resolveAutomaticDayExecution, resolveDayExecution } from "./notes-day-records.js";
 import { phaseTypeOptions, state, timelineTypeOptions } from "../state.js";
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
-import { formatPhaseLabel } from "./notes-core.js";
+import { formatPhaseLabel, getPlayerLabel } from "./notes-core.js";
 
 function getTimelineTypeLabel(value) {
   return getOptionLabel(timelineTypeOptions, value);
@@ -18,6 +19,175 @@ function formatTimelineTime(value) {
     hour: "2-digit",
     minute: "2-digit",
   }).format(date);
+}
+
+function renderSeatOptions(game, selectedSeat, emptyLabel = "未选择") {
+  return [
+    `<option value="">${escapeHtml(emptyLabel)}</option>`,
+    ...game.players.map((player) => {
+      const seat = String(player.seat);
+      return `<option value="${seat}"${seat === String(selectedSeat || "") ? " selected" : ""}>${escapeHtml(getPlayerLabel(player, game))}</option>`;
+    }),
+  ].join("");
+}
+
+function renderVoterGrid(game, nomination, dayNumber) {
+  const voterSeats = new Set((nomination.voterSeats || []).map(String));
+
+  return `
+    <div class="notes-voter-grid" role="group" aria-label="记录投票玩家">
+      ${game.players
+        .map((player) => {
+          const seat = String(player.seat);
+          return `
+            <label class="notes-voter-chip${voterSeats.has(seat) ? " is-checked" : ""}">
+              <input
+                type="checkbox"
+                data-day-number="${dayNumber}"
+                data-nomination-id="${escapeHtml(nomination.id)}"
+                data-voter-seat="${seat}"
+                ${voterSeats.has(seat) ? "checked" : ""}
+              />
+              <span>${seat}</span>
+            </label>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
+}
+
+function renderNominationRow(game, record, nomination, index) {
+  const voteCount = (nomination.voterSeats || []).length;
+
+  return `
+    <article class="notes-nomination-row">
+      <div class="notes-nomination-row-head">
+        <strong>提名 ${index + 1}</strong>
+        <span>${voteCount} 票</span>
+      </div>
+      <div class="notes-nomination-fields">
+        <label class="note-field">
+          <span>发起提名</span>
+          <select
+            data-day-number="${record.dayNumber}"
+            data-nomination-id="${escapeHtml(nomination.id)}"
+            data-nomination-field="nominatorSeat"
+          >
+            ${renderSeatOptions(game, nomination.nominatorSeat, "谁提的")}
+          </select>
+        </label>
+        <label class="note-field">
+          <span>被提名</span>
+          <select
+            data-day-number="${record.dayNumber}"
+            data-nomination-id="${escapeHtml(nomination.id)}"
+            data-nomination-field="nomineeSeat"
+          >
+            ${renderSeatOptions(game, nomination.nomineeSeat, "提谁")}
+          </select>
+        </label>
+      </div>
+      <div class="notes-nomination-votes">
+        <span>投票</span>
+        ${renderVoterGrid(game, nomination, record.dayNumber)}
+      </div>
+      <button
+        type="button"
+        class="note-icon-button"
+        data-notes-action="delete-nomination"
+        data-day-number="${record.dayNumber}"
+        data-nomination-id="${escapeHtml(nomination.id)}"
+      >删除提名</button>
+    </article>
+  `;
+}
+
+function formatExecutionResult(result) {
+  if (!result.seat) {
+    return "无人处决";
+  }
+
+  const suffix = result.mode === "auto" ? `（${result.votes} 票）` : "（手动）";
+  return `${result.seat}号${suffix}`;
+}
+
+function renderExecutionOverride(game, record) {
+  const result = resolveDayExecution(game, record);
+  const autoResult = resolveAutomaticDayExecution(game, record);
+
+  return `
+    <div class="notes-execution-control">
+      <div>
+        <span>处决结果</span>
+        <strong>${escapeHtml(formatExecutionResult(result))}</strong>
+        <small>票数门槛 ${result.threshold}；自动结算：${escapeHtml(formatExecutionResult(autoResult))}</small>
+      </div>
+      <label class="note-field">
+        <span>手动更改</span>
+        <select data-day-execution-override="${record.dayNumber}">
+          <option value=""${record.executionOverride ? "" : " selected"}>使用自动结算</option>
+          <option value="none"${record.executionOverride === "none" ? " selected" : ""}>无人处决</option>
+          ${game.players
+            .map((player) => {
+              const seat = String(player.seat);
+              return `<option value="${seat}"${record.executionOverride === seat ? " selected" : ""}>${escapeHtml(getPlayerLabel(player, game))}</option>`;
+            })
+            .join("")}
+        </select>
+      </label>
+    </div>
+  `;
+}
+
+function renderDayRecordPanel(game) {
+  const dayNumber = game.phaseNumber || 1;
+  const record = getDayRecord(game, dayNumber, true);
+  const olderRecords = (game.dayRecords || [])
+    .filter((item) => item.dayNumber !== dayNumber)
+    .sort((left, right) => right.dayNumber - left.dayNumber);
+
+  return `
+    <section class="notes-detail-section notes-day-record-panel">
+      <div class="notes-day-record-header">
+        <div>
+          <p class="eyebrow">第 ${dayNumber} 天公开行动</p>
+          <h3>提名、投票与处决</h3>
+        </div>
+        <button
+          type="button"
+          class="primary-link"
+          data-notes-action="add-nomination"
+          data-day-number="${dayNumber}"
+        >新增提名</button>
+      </div>
+      ${renderExecutionOverride(game, record)}
+      <div class="notes-nomination-list">
+        ${
+          record.nominations.length
+            ? record.nominations
+                .map((nomination, index) => renderNominationRow(game, record, nomination, index))
+                .join("")
+            : `<div class="empty-state">还没有记录今天的提名。</div>`
+        }
+      </div>
+      ${
+        olderRecords.length
+          ? `
+            <div class="notes-day-history">
+              <h4>已记录的其他白天</h4>
+              ${olderRecords
+                .map((item) => {
+                  const result = resolveDayExecution(game, item);
+                  return `<span>第 ${item.dayNumber} 天：${item.nominations.length} 次提名，${escapeHtml(formatExecutionResult(result))}</span>`;
+                })
+                .join("")}
+            </div>
+          `
+          : ""
+      }
+    </section>
+  `;
 }
 
 function renderTimelineEntries(game) {
@@ -79,6 +249,8 @@ export function renderTimelineTab(game) {
             />
           </label>
         </div>
+
+        ${renderDayRecordPanel(game)}
 
         <div class="notes-timeline-compose">
           <label class="note-field">
