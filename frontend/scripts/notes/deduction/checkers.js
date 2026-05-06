@@ -15,6 +15,16 @@ function circularDistance(seatA, seatB, playerCount) {
   return Math.min(distance, playerCount - distance);
 }
 
+function clockwiseDistance(fromSeat, toSeat, playerCount) {
+  const from = Number(fromSeat);
+  const to = Number(toSeat);
+  if (!from || !to || from === to) {
+    return null;
+  }
+
+  return ((to - from + playerCount) % playerCount) || playerCount;
+}
+
 function adjacentEvilPairCount(world, playerCount) {
   let count = 0;
   for (let seat = 1; seat <= playerCount; seat += 1) {
@@ -34,6 +44,26 @@ function nearestDemonMinionDistance(world, playerCount) {
   return Math.min(
     ...world.minionSeats.map((seat) => circularDistance(world.demonSeat, seat, playerCount)),
   );
+}
+
+function nearestEvilDirection(world, sourceSeat, playerCount) {
+  const evilSeats = world.evilSeats.filter((seat) => Number(seat) !== Number(sourceSeat));
+  if (!evilSeats.length) {
+    return "";
+  }
+
+  const clockwise = Math.min(
+    ...evilSeats.map((seat) => clockwiseDistance(sourceSeat, seat, playerCount) ?? playerCount),
+  );
+  const counterclockwise = Math.min(
+    ...evilSeats.map((seat) => clockwiseDistance(seat, sourceSeat, playerCount) ?? playerCount),
+  );
+
+  if (clockwise === counterclockwise) {
+    return "storyteller_choice";
+  }
+
+  return clockwise < counterclockwise ? "clockwise" : "counterclockwise";
 }
 
 function roleMatchesSeat(role, seat, world) {
@@ -71,6 +101,9 @@ export function checkObservation(observation, world, context) {
 
     case "good_player":
       return !hasEvil(world, observation.targetSeat);
+
+    case "role_at_seat":
+      return roleMatchesSeat(observation.role, observation.targetSeat, world);
 
     case "demon_in_group":
       return observation.targets.some((seat) => isDemon(world, seat)) === observation.value;
@@ -110,6 +143,18 @@ export function checkObservation(observation, world, context) {
 
     case "role_guess":
       return roleMatchesSeat(observation.role, observation.targetSeat, world) === observation.value;
+
+    case "role_guess_count":
+      return (
+        countMatching(observation.guesses, (guess) =>
+          roleMatchesSeat(guess.role, guess.seat, world),
+        ) === observation.value
+      );
+
+    case "nearest_evil_direction": {
+      const direction = nearestEvilDirection(world, observation.sourceSeat, context.game.playerCount);
+      return observation.value === "storyteller_choice" || direction === observation.value;
+    }
 
     default:
       return false;

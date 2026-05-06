@@ -8,6 +8,7 @@
     "check": "node scripts/check-js.js && node scripts/validate-data.js",
     "check:js": "node scripts/check-js.js",
     "validate:data": "node scripts/validate-data.js",
+    "deduction:audit": "node scripts/deduction-profile-audit.js",
     "official:import": "node scripts/official-json.js import",
     "official:export": "node scripts/official-json.js export",
     "setup-meta:check": "node scripts/backfill-setup-meta.js",

@@ -2,6 +2,7 @@ import { normalizeMatchText } from "../../notes-claims.js";
 import { getDraftOrPlayer } from "../../notes-state.js";
 import { state } from "../../state.js";
 import { getClaimedRole } from "../notes-role-info.js";
+import { getRoleDeductionProfile, getRoleDeductionReview, templateLabels } from "./profiles.js";
 
 const yesValues = new Set(["yes", "true", "1", "是", "有", "命中"]);
 const noValues = new Set(["no", "false", "0", "否", "无", "没有", "未命中"]);
@@ -79,8 +80,16 @@ function firstValue(entry, keys) {
   return "";
 }
 
-function numberValue(entry, keys) {
-  const value = firstValue(entry, keys);
+function entryFor(row, source) {
+  return source === "target" ? row.target : row.result;
+}
+
+function valueFrom(row, spec) {
+  return firstValue(entryFor(row, spec?.source || "result"), spec?.keys || []);
+}
+
+function numberFrom(row, spec) {
+  const value = valueFrom(row, spec);
   if (value === "") {
     return null;
   }
@@ -89,8 +98,8 @@ function numberValue(entry, keys) {
   return Number.isFinite(number) ? number : null;
 }
 
-function booleanValue(entry, keys) {
-  const value = normalizeMatchText(firstValue(entry, keys));
+function booleanFrom(row, spec) {
+  const value = normalizeMatchText(valueFrom(row, spec));
   if (!value) {
     return null;
   }
@@ -106,8 +115,20 @@ function booleanValue(entry, keys) {
   return null;
 }
 
+function roleFrom(row, spec) {
+  return getRoleByName(valueFrom(row, spec));
+}
+
 function uniqueSeats(values, playerCount) {
   return [...new Set(values.map((value) => normalizeSeat(value, playerCount)).filter(Boolean))];
+}
+
+function seatsFrom(row, spec, playerCount) {
+  return uniqueSeats((spec?.keys || []).map((key) => entryFor(row, spec.source || "result")?.[key]), playerCount);
+}
+
+function seatFrom(row, spec, playerCount) {
+  return normalizeSeat(valueFrom(row, spec), playerCount);
 }
 
 function aliveNeighborSeats(players, seat, playerCount) {
@@ -167,15 +188,29 @@ function boolLabel(value) {
   return value ? "是" : "否";
 }
 
-function baseObservation(source, role, row, kind, label, extra = {}) {
+function directionLabel(value) {
+  if (value === "clockwise") {
+    return "顺时针";
+  }
+
+  if (value === "counterclockwise") {
+    return "逆时针";
+  }
+
+  return "说书人选择";
+}
+
+function baseObservation(source, role, row, template, label, extra = {}) {
   return {
-    id: `${source.id}:${role?.id || "unknown"}:${row.index}:${kind}:${label}`,
+    id: `${source.id}:${role?.id || "unknown"}:${row.index}:${template.type}:${label}`,
     sourceId: source.id,
     sourceSeat: Number(source.seat),
     sourceRoleName: role?.name || source.claim || "未填身份",
     sourceRoleType: role?.type || "",
     rowIndex: row.index + 1,
-    kind,
+    kind: template.type,
+    templateType: template.type,
+    templateLabel: templateLabels[template.type] || template.type,
     label,
     ...extra,
   };
@@ -185,135 +220,246 @@ function sourceLabel(source, role) {
   return `${source.seat}号${role?.name || source.claim || "信息位"}`;
 }
 
-function buildRoleObservation(source, role, row, players, game) {
-  const name = role?.name || "";
+function groupFromTemplate(template, source, row, players, game) {
   const playerCount = game.playerCount;
 
-  if (name.includes("厨师")) {
-    const count = numberValue(row.result, ["count", "evilCount", "number", "value"]);
-    return count === null
+  if (template.group === "source_alive_neighbors") {
+    return {
+      targets: aliveNeighborSeats(players, source.seat, playerCount),
+    };
+  }
+
+  if (template.group === "target_alive_neighbors") {
+    const targetSeat = seatFrom(row, template.seat, playerCount);
+    return {
+      targets: aliveNeighborSeats(players, targetSeat, playerCount),
+      targetSeat,
+    };
+  }
+
+  if (template.group === "clockwise_between_source_and_target") {
+    const targetSeat = seatFrom(row, template.seat, playerCount);
+    return {
+      targets: clockwiseSeatsBetween(source.seat, targetSeat, playerCount),
+      targetSeat,
+    };
+  }
+
+  return {
+    targets: seatsFrom(row, template.seats, playerCount),
+  };
+}
+
+function numericValue(row, template) {
+  if (template.fixedValue !== undefined) {
+    return template.fixedValue;
+  }
+
+  return numberFrom(row, template.value);
+}
+
+function booleanValue(row, template) {
+  if (template.fixedValue !== undefined) {
+    return template.fixedValue;
+  }
+
+  return booleanFrom(row, template.value);
+}
+
+function buildRowObservation(template, source, role, row, players, game) {
+  const sourceText = sourceLabel(source, role);
+  const playerCount = game.playerCount;
+
+  if (template.type === "adjacent_evil_pair_count") {
+    const value = numericValue(row, template);
+    return value === null
       ? null
-      : baseObservation(source, role, row, "adjacent_evil_pair_count", `${sourceLabel(source, role)}报相邻邪恶对数为${count}`, { value: count });
+      : baseObservation(source, role, row, template, `${sourceText}报相邻邪恶对数为${value}`, { value });
   }
 
-  if (name.includes("共情者")) {
-    const count = numberValue(row.result, ["count", "evilCount", "number", "value"]);
-    const targets = aliveNeighborSeats(players, source.seat, playerCount);
-    return count === null || !targets.length
-      ? null
-      : baseObservation(source, role, row, "evil_count_group", `${sourceLabel(source, role)}报${describeSeats(targets)}中有${count}红`, { targets, value: count });
+  if (template.type === "evil_count_group" || template.type === "clockwise_evil_count") {
+    const { targets, targetSeat } = groupFromTemplate(template, source, row, players, game);
+    const value = numericValue(row, template);
+    if (value === null || !targets.length) {
+      return null;
+    }
+
+    const label =
+      template.type === "clockwise_evil_count"
+        ? `${sourceText}报到${targetSeat}号之间有${value}红`
+        : `${sourceText}报${describeSeats(targets)}中有${value}红`;
+
+    return baseObservation(source, role, row, template, label, {
+      targets,
+      targetSeat,
+      targetMustBeGood: Boolean(template.targetMustBeGood),
+      value,
+    });
   }
 
-  if (name.includes("植物学家")) {
-    const targetSeat = normalizeSeat(firstValue(row.target, ["seat", "player", "target"]), playerCount);
-    const targets = aliveNeighborSeats(players, targetSeat, playerCount);
-    const count = numberValue(row.result, ["count", "evilCount", "number", "value"]);
-    return count === null || !targetSeat || !targets.length
-      ? null
-      : baseObservation(source, role, row, "evil_count_group", `${sourceLabel(source, role)}报${targetSeat}号两侧存活玩家有${count}红`, { targets, value: count });
-  }
-
-  if (name.includes("提夫林")) {
-    const targetSeat = normalizeSeat(firstValue(row.target, ["seat", "player", "target"]), playerCount);
-    const count = numberValue(row.result, ["count", "evilCount", "number", "value"]);
-    const targets = clockwiseSeatsBetween(source.seat, targetSeat, playerCount);
-    return count === null || !targetSeat || !targets.length
-      ? null
-      : baseObservation(source, role, row, "clockwise_evil_count", `${sourceLabel(source, role)}报到${targetSeat}号之间有${count}红`, {
-          targets,
-          value: count,
-          targetSeat,
-          targetMustBeGood: true,
-        });
-  }
-
-  if (name.includes("贵族")) {
-    const targets = uniqueSeats([row.result.seat1, row.result.seat2, row.result.seat3], playerCount);
-    return targets.length
-      ? baseObservation(source, role, row, "evil_count_group", `${sourceLabel(source, role)}报${describeSeats(targets)}中恰好1红`, { targets, value: 1 })
-      : null;
-  }
-
-  if (name.includes("祖母")) {
-    const targetSeat = normalizeSeat(firstValue(row.result, ["seat", "player", "target"]), playerCount);
-    const targetRole = getRoleByName(firstValue(row.result, ["role", "character", "claim"]));
+  if (template.type === "good_player") {
+    const targetSeat = seatFrom(row, template.seat, playerCount);
+    const targetRole = roleFrom(row, template.role);
     return targetSeat
-      ? baseObservation(source, role, row, "good_player", `${sourceLabel(source, role)}报${targetSeat}号是善良${roleLabel(targetRole)}`, { targetSeat, role: targetRole })
+      ? baseObservation(
+          source,
+          role,
+          row,
+          template,
+          `${sourceText}报${targetSeat}号是善良${targetRole ? roleLabel(targetRole) : "玩家"}`,
+          { targetSeat, role: targetRole },
+        )
       : null;
   }
 
-  if (name.includes("筑梦师")) {
-    const targetSeat = normalizeSeat(firstValue(row.target, ["seat", "player", "target"]), playerCount);
-    const goodRole = getRoleByName(firstValue(row.result, ["good_role", "goodRole", "good"]));
-    const evilRole = getRoleByName(firstValue(row.result, ["evil_role", "evilRole", "evil"]));
-    return targetSeat && (goodRole || evilRole)
-      ? baseObservation(source, role, row, "either_role", `${sourceLabel(source, role)}给${targetSeat}号筑梦：${roleLabel(goodRole)} / ${roleLabel(evilRole)}`, { targetSeat, goodRole, evilRole })
+  if (template.type === "role_in_group" || template.type === "not_role_type_group") {
+    const targets = seatsFrom(row, template.seats, playerCount);
+    const targetRole = roleFrom(row, template.role);
+    if (!targets.length || !targetRole) {
+      return null;
+    }
+
+    const relationText =
+      template.type === "role_in_group"
+        ? `${describeSeats(targets)}里有${targetRole.name}`
+        : `${describeSeats(targets)}都不是${targetRole.name}`;
+
+    return baseObservation(source, role, row, template, `${sourceText}报${relationText}`, {
+      targets,
+      role: targetRole,
+    });
+  }
+
+  if (template.type === "role_at_seat") {
+    const targetSeat = seatFrom(row, template.seat, playerCount);
+    const targetRole = roleFrom(row, template.role);
+    return targetSeat && targetRole
+      ? baseObservation(source, role, row, template, `${sourceText}报${targetSeat}号是${targetRole.name}`, {
+          targetSeat,
+          role: targetRole,
+        })
       : null;
   }
 
-  if (name.includes("牧师")) {
-    const targets = uniqueSeats([row.target.seat1, row.target.seat2, row.target.first, row.target.second], playerCount);
-    const targetRole = getRoleByName(firstValue(row.result, ["role", "character"]));
-    return targets.length && targetRole
-      ? baseObservation(source, role, row, "not_role_type_group", `${sourceLabel(source, role)}报${describeSeats(targets)}都不是${targetRole.name}`, { targets, role: targetRole })
-      : null;
-  }
-
-  if (["洗衣妇", "图书管理员", "调查员"].some((roleName) => name.includes(roleName))) {
-    const targets = uniqueSeats([row.result.seat1, row.result.seat2], playerCount);
-    const targetRole = getRoleByName(firstValue(row.result, ["role", "character", "claim"]));
-    return targets.length && targetRole
-      ? baseObservation(source, role, row, "role_in_group", `${sourceLabel(source, role)}报${describeSeats(targets)}里有${targetRole.name}`, { targets, role: targetRole })
-      : null;
-  }
-
-  if (name.includes("占卜师")) {
-    const targets = uniqueSeats([row.target.seat1, row.target.seat2], playerCount);
-    const value = booleanValue(row.result, ["has_demon", "answer", "value"]);
+  if (template.type === "demon_in_group") {
+    const targets = seatsFrom(row, template.seats, playerCount);
+    const value = booleanValue(row, template);
     return targets.length && value !== null
-      ? baseObservation(source, role, row, "demon_in_group", `${sourceLabel(source, role)}查${describeSeats(targets)}含恶魔：${boolLabel(value)}`, { targets, value })
+      ? baseObservation(source, role, row, template, `${sourceText}查${describeSeats(targets)}含恶魔：${boolLabel(value)}`, {
+          targets,
+          value,
+        })
       : null;
   }
 
-  if (name.includes("骑士")) {
-    const targets = uniqueSeats([row.result.seat1, row.result.seat2], playerCount);
+  if (template.type === "not_demon_group") {
+    const targets = seatsFrom(row, template.seats, playerCount);
     return targets.length
-      ? baseObservation(source, role, row, "not_demon_group", `${sourceLabel(source, role)}报${describeSeats(targets)}都不是恶魔`, { targets })
+      ? baseObservation(source, role, row, template, `${sourceText}报${describeSeats(targets)}都不是恶魔`, { targets })
       : null;
   }
 
-  if (name.includes("女裁缝")) {
-    const targets = uniqueSeats([row.target.seat1, row.target.seat2], playerCount);
-    const value = booleanValue(row.result, ["same_team", "answer", "value"]);
+  if (template.type === "team_relation") {
+    const targets = seatsFrom(row, template.seats, playerCount);
+    const value = booleanValue(row, template);
     return targets.length === 2 && value !== null
-      ? baseObservation(source, role, row, "team_relation", `${sourceLabel(source, role)}报${describeSeats(targets)}同阵营：${boolLabel(value)}`, { targets, value })
+      ? baseObservation(source, role, row, template, `${sourceText}报${describeSeats(targets)}同阵营：${boolLabel(value)}`, {
+          targets,
+          value,
+        })
       : null;
   }
 
-  if (name.includes("神谕者")) {
-    const count = numberValue(row.result, ["count", "evilCount", "number", "value"]);
-    return count === null
-      ? null
-      : baseObservation(source, role, row, "evil_dead_count", `${sourceLabel(source, role)}报死亡邪恶数为${count}`, { value: count });
+  if (template.type === "either_role") {
+    const targetSeat = seatFrom(row, template.seat, playerCount);
+    const goodRole = roleFrom(row, template.goodRole);
+    const evilRole = roleFrom(row, template.evilRole);
+    return targetSeat && (goodRole || evilRole)
+      ? baseObservation(source, role, row, template, `${sourceText}给${targetSeat}号筑梦：${roleLabel(goodRole)} / ${roleLabel(evilRole)}`, {
+          targetSeat,
+          goodRole,
+          evilRole,
+        })
+      : null;
   }
 
-  if (name.includes("钟表匠")) {
-    const distance = numberValue(row.result, ["distance", "count", "number", "value"]);
-    return distance === null
+  if (template.type === "evil_dead_count") {
+    const value = numericValue(row, template);
+    return value === null
       ? null
-      : baseObservation(source, role, row, "demon_minion_distance", `${sourceLabel(source, role)}报恶魔到最近爪牙距离为${distance}`, { value: distance });
+      : baseObservation(source, role, row, template, `${sourceText}报死亡邪恶数为${value}`, { value });
   }
 
-  if (name.includes("赌徒")) {
-    const targetSeat = normalizeSeat(firstValue(row.target, ["seat", "player", "target"]), playerCount);
-    const targetRole = getRoleByName(firstValue(row.target, ["role", "character", "claim"]));
-    const value = booleanValue(row.result, ["correct", "answer", "value"]);
+  if (template.type === "demon_minion_distance") {
+    const value = numericValue(row, template);
+    return value === null
+      ? null
+      : baseObservation(source, role, row, template, `${sourceText}报恶魔到最近爪牙距离为${value}`, { value });
+  }
+
+  if (template.type === "role_guess") {
+    const targetSeat = seatFrom(row, template.seat, playerCount);
+    const targetRole = roleFrom(row, template.role);
+    const value = booleanValue(row, template);
     return targetSeat && targetRole && value !== null
-      ? baseObservation(source, role, row, "role_guess", `${sourceLabel(source, role)}赌${targetSeat}号是${targetRole.name}：${boolLabel(value)}`, { targetSeat, role: targetRole, value })
+      ? baseObservation(source, role, row, template, `${sourceText}猜${targetSeat}号是${targetRole.name}：${boolLabel(value)}`, {
+          targetSeat,
+          role: targetRole,
+          value,
+        })
+      : null;
+  }
+
+  if (template.type === "nearest_evil_direction") {
+    const value = normalizeMatchText(valueFrom(row, template.value));
+    return value
+      ? baseObservation(source, role, row, template, `${sourceText}报最近邪恶在${directionLabel(value)}`, { value })
       : null;
   }
 
   return null;
+}
+
+function buildAllTargetsObservation(template, source, role, rows, game) {
+  if (template.type !== "role_guess_count") {
+    return null;
+  }
+
+  const playerCount = game.playerCount;
+  const guesses = rows
+    .map((row) => ({
+      seat: seatFrom(row, template.guesses.seat, playerCount),
+      role: roleFrom(row, template.guesses.role),
+    }))
+    .filter((guess) => guess.seat && guess.role);
+  const value = numberFrom(rows[0] || {}, template.value);
+
+  return guesses.length && value !== null
+    ? baseObservation(source, role, rows[0] || { index: 0 }, template, `${sourceLabel(source, role)}报${guesses.length}个猜测中猜中${value}个`, {
+        guesses,
+        value,
+      })
+    : null;
+}
+
+function buildTemplateObservations(template, source, role, rows, players, game) {
+  if (template.rowMode === "all_targets") {
+    return [buildAllTargetsObservation(template, source, role, rows, game)].filter(Boolean);
+  }
+
+  return rows
+    .map((row) => buildRowObservation(template, source, role, row, players, game))
+    .filter(Boolean);
+}
+
+function unsupportedEntry(source, role, row, review) {
+  const rowSuffix = row ? `第${row.index + 1}条` : "已记录";
+  return {
+    id: `${source.id}:${role?.id || "unknown"}:${row?.index ?? "all"}:unsupported`,
+    sourceSeat: Number(source.seat),
+    status: review.status,
+    label: `${sourceLabel(source, role)}${rowSuffix}：${review.label}`,
+  };
 }
 
 export function extractObservations(game) {
@@ -328,18 +474,23 @@ export function extractObservations(game) {
       return;
     }
 
-    rows.forEach((row) => {
-      const observation = buildRoleObservation(source, role, row, players, game);
-      if (observation) {
-        observations.push(observation);
-      } else {
-        unsupported.push({
-          id: `${source.id}:${row.index}:unsupported`,
-          sourceSeat: Number(source.seat),
-          label: `${sourceLabel(source, role)}有记录，但暂未接入自动推理`,
-        });
-      }
+    const profile = getRoleDeductionProfile(role);
+    const review = getRoleDeductionReview(role);
+    if (profile?.status !== "supported" || !profile.templates?.length) {
+      rows.forEach((row) => unsupported.push(unsupportedEntry(source, role, row, review)));
+      return;
+    }
+
+    let matchedCount = 0;
+    profile.templates.forEach((template) => {
+      const nextObservations = buildTemplateObservations(template, source, role, rows, players, game);
+      matchedCount += nextObservations.length;
+      observations.push(...nextObservations);
     });
+
+    if (!matchedCount) {
+      rows.forEach((row) => unsupported.push(unsupportedEntry(source, role, row, review)));
+    }
   });
 
   return { players, observations, unsupported };
