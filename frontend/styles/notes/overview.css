@@ -148,9 +148,7 @@
   border-radius: 8px;
 }
 
-.notes-analysis-header,
-.notes-analysis-candidate-main,
-.notes-analysis-pairs div {
+.notes-analysis-header {
   display: flex;
   gap: 8px;
   align-items: center;
@@ -163,73 +161,10 @@
   line-height: 1.15;
 }
 
-.notes-analysis-header > span,
-.notes-analysis-candidate-main span,
-.notes-analysis-pairs span {
+.notes-analysis-header > span {
   color: var(--muted);
   font-size: 11px;
   font-weight: 900;
-}
-
-.notes-analysis-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-}
-
-.notes-analysis-grid section,
-.notes-analysis-pairs,
-.notes-analysis-role-group {
-  min-width: 0;
-}
-
-.notes-analysis-grid h4,
-.notes-analysis-pairs h4,
-.notes-analysis-role-group h4 {
-  margin: 0 0 6px;
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 900;
-}
-
-.notes-analysis-candidate {
-  display: grid;
-  gap: 4px;
-  padding: 8px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 8px;
-}
-
-.notes-analysis-candidate + .notes-analysis-candidate {
-  margin-top: 6px;
-}
-
-.notes-analysis-candidate strong,
-.notes-analysis-pairs strong {
-  min-width: 0;
-  overflow: hidden;
-  color: var(--ink);
-  font-size: 12px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.notes-analysis-candidate p {
-  margin: 0;
-  color: var(--red);
-  font-size: 11px;
-  font-weight: 900;
-}
-
-.notes-analysis-candidate ul {
-  display: grid;
-  gap: 2px;
-  margin: 0;
-  padding-left: 16px;
-  color: var(--muted);
-  font-size: 10px;
-  line-height: 1.3;
 }
 
 .notes-analysis-signals {
@@ -266,48 +201,158 @@
   line-height: 1.35;
 }
 
-.notes-analysis-pairs {
-  display: grid;
-  gap: 6px;
+.notes-analysis-signals--muted {
+  background: #f7f8f4;
+  border-color: var(--line);
 }
 
-.notes-analysis-pairs div {
-  padding: 7px 8px;
-  background: rgba(178, 31, 45, 0.06);
+.notes-world-panel {
+  gap: 10px;
+}
+
+.notes-world-list {
+  display: grid;
+  gap: 8px;
+}
+
+.notes-world-card {
+  display: grid;
+  gap: 8px;
+  padding: 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-world-card--stable {
+  border-color: rgba(35, 104, 162, 0.3);
+}
+
+.notes-world-card--fragile {
+  border-color: rgba(154, 122, 34, 0.42);
+}
+
+.notes-world-card--conspiracy {
+  border-color: rgba(178, 31, 45, 0.34);
+}
+
+.notes-world-card-head,
+.notes-world-card-head > div,
+.notes-world-cost,
+.notes-world-signals div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.notes-world-card-head {
+  justify-content: space-between;
+}
+
+.notes-world-card-head strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.notes-world-card-head span,
+.notes-world-card-head em,
+.notes-world-cost span,
+.notes-world-signals small {
+  color: var(--muted);
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 900;
+}
+
+.notes-world-card-head em {
+  color: var(--red);
+}
+
+.notes-world-team {
+  margin: 0;
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.35;
+}
+
+.notes-world-cost span {
+  padding: 3px 6px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.notes-world-baseline,
+.notes-world-card-grid ul {
+  display: grid;
+  gap: 3px;
+  margin: 0;
+  padding-left: 16px;
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+.notes-world-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.notes-world-card-grid section {
+  min-width: 0;
+}
+
+.notes-world-card-grid h5,
+.notes-world-signals h4 {
+  margin: 0 0 5px;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.notes-world-card-grid li strong {
+  display: block;
+  color: var(--ink);
+  font-size: 10px;
+}
+
+.notes-world-card-grid li span {
+  display: block;
+  color: var(--muted);
+}
+
+.notes-world-signals {
+  display: grid;
+  gap: 6px;
+  padding: 8px;
+  background: rgba(178, 31, 45, 0.05);
   border: 1px solid rgba(178, 31, 45, 0.18);
   border-radius: 8px;
 }
 
-.notes-analysis-roles {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 8px;
-}
-
-.notes-analysis-role-group div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
-}
-
-.notes-analysis-role-group span {
-  padding: 3px 6px;
-  color: var(--muted);
+.notes-world-signals span {
+  max-width: 100%;
+  padding: 4px 7px;
+  overflow: hidden;
+  color: var(--ink);
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 999px;
   font-size: 10px;
   font-weight: 800;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.notes-analysis-role-group span.is-evil-role {
-  color: var(--red);
-  border-color: rgba(178, 31, 45, 0.35);
+.notes-world-signals small {
+  margin-left: 4px;
 }
 
 @media (max-width: 920px) {
-  .notes-analysis-grid,
-  .notes-analysis-roles {
+  .notes-world-card-grid {
     grid-template-columns: 1fr;
   }
 }
