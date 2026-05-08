@@ -1,30 +1,27 @@
-import { normalizeMatchText } from "../../notes-claims.js";
-import { getDraftOrPlayer } from "../../notes-state.js";
-import {
+const { getClaimedRole, normalizeMatchText } = require("./claims");
+const {
   getDayExecutionSeat,
   getDayNominatorSeats,
   getDayVotingSeats,
   hasDayActionHistory,
-} from "../notes-day-records.js";
-import { state } from "../../state.js";
-import { getClaimedRole } from "../notes-role-info.js";
-import { getRoleDeductionProfile, getRoleDeductionReview, templateLabels } from "./profiles.js";
+} = require("./day-records");
+const { getRoleDeductionProfile, getRoleDeductionReview, templateLabels } = require("./profiles");
 
 const yesValues = new Set(["yes", "true", "1", "是", "有", "命中"]);
 const noValues = new Set(["no", "false", "0", "否", "无", "没有", "未命中"]);
 
-export function getAnalysisPlayers(game) {
-  return game.players.map((player) => getDraftOrPlayer(player));
+function getAnalysisPlayers(game) {
+  return Array.isArray(game?.players) ? game.players : [];
 }
 
-export function getRoleByName(name) {
+function getRoleByName(name, catalog) {
   const query = normalizeMatchText(name);
   if (!query) {
     return null;
   }
 
   return (
-    state.roles.find((role) =>
+    (catalog?.roles || []).find((role) =>
       [role.name, role.en, role.englishName, role.id].some(
         (value) => normalizeMatchText(value) === query,
       ),
@@ -32,15 +29,15 @@ export function getRoleByName(name) {
   );
 }
 
-export function getPlayerRole(player, game) {
-  return getClaimedRole(player, game) || getRoleByName(player?.claim);
+function getPlayerRole(player, game, catalog) {
+  return getClaimedRole(player, game, catalog) || getRoleByName(player?.claim, catalog);
 }
 
-export function getPlayerBySeat(players, seat) {
+function getPlayerBySeat(players, seat) {
   return players.find((player) => Number(player.seat) === Number(seat)) || null;
 }
 
-export function normalizeSeat(value, playerCount) {
+function normalizeSeat(value, playerCount) {
   const seat = Number.parseInt(value, 10);
   if (!Number.isFinite(seat) || seat < 1 || seat > playerCount) {
     return 0;
@@ -49,7 +46,7 @@ export function normalizeSeat(value, playerCount) {
   return seat;
 }
 
-export function describeSeats(seats) {
+function describeSeats(seats) {
   return seats.map((seat) => `${seat}号`).join("、");
 }
 
@@ -121,8 +118,8 @@ function booleanFrom(row, spec) {
   return null;
 }
 
-function roleFrom(row, spec) {
-  return getRoleByName(valueFrom(row, spec));
+function roleFrom(row, spec, catalog) {
+  return getRoleByName(valueFrom(row, spec), catalog);
 }
 
 function uniqueSeats(values, playerCount) {
@@ -206,6 +203,20 @@ function directionLabel(value) {
   return "说书人选择";
 }
 
+function compactRole(role) {
+  if (!role) {
+    return null;
+  }
+
+  return {
+    id: role.id,
+    englishName: role.englishName,
+    en: role.en,
+    name: role.name,
+    type: role.type,
+  };
+}
+
 function baseObservation(source, role, row, template, label, extra = {}) {
   return {
     id: `${source.id}:${role?.id || "unknown"}:${row.index}:${template.type}:${label}`,
@@ -281,7 +292,7 @@ function dayNumberFromRow(row, template) {
   return explicitDay || row.index + 1;
 }
 
-function buildRowObservation(template, source, role, row, players, game) {
+function buildRowObservation(template, source, role, row, players, game, catalog) {
   const sourceText = sourceLabel(source, role);
   const playerCount = game.playerCount;
 
@@ -314,7 +325,7 @@ function buildRowObservation(template, source, role, row, players, game) {
 
   if (template.type === "good_player") {
     const targetSeat = seatFrom(row, template.seat, playerCount);
-    const targetRole = roleFrom(row, template.role);
+    const targetRole = roleFrom(row, template.role, catalog);
     return targetSeat
       ? baseObservation(
           source,
@@ -322,14 +333,14 @@ function buildRowObservation(template, source, role, row, players, game) {
           row,
           template,
           `${sourceText}报${targetSeat}号是善良${targetRole ? roleLabel(targetRole) : "玩家"}`,
-          { targetSeat, role: targetRole },
+          { targetSeat, role: compactRole(targetRole) },
         )
       : null;
   }
 
   if (template.type === "role_in_group" || template.type === "not_role_type_group") {
     const targets = seatsFrom(row, template.seats, playerCount);
-    const targetRole = roleFrom(row, template.role);
+    const targetRole = roleFrom(row, template.role, catalog);
     if (!targets.length || !targetRole) {
       return null;
     }
@@ -341,23 +352,23 @@ function buildRowObservation(template, source, role, row, players, game) {
 
     return baseObservation(source, role, row, template, `${sourceText}报${relationText}`, {
       targets,
-      role: targetRole,
+      role: compactRole(targetRole),
     });
   }
 
   if (template.type === "role_at_seat") {
     const targetSeat = seatFrom(row, template.seat, playerCount);
-    const targetRole = roleFrom(row, template.role);
+    const targetRole = roleFrom(row, template.role, catalog);
     return targetSeat && targetRole
       ? baseObservation(source, role, row, template, `${sourceText}报${targetSeat}号是${targetRole.name}`, {
           targetSeat,
-          role: targetRole,
+          role: compactRole(targetRole),
         })
       : null;
   }
 
   if (template.type === "role_at_day_execution") {
-    const targetRole = roleFrom(row, template.role);
+    const targetRole = roleFrom(row, template.role, catalog);
     const dayNumber = dayNumberFromRow(row, template);
     const targetSeat = getDayExecutionSeat(game, dayNumber);
     return targetSeat && targetRole
@@ -367,7 +378,7 @@ function buildRowObservation(template, source, role, row, players, game) {
           row,
           template,
           `${sourceText}报第${dayNumber}天被处决的${targetSeat}号是${targetRole.name}`,
-          { dayNumber, targetSeat, role: targetRole },
+          { dayNumber, targetSeat, role: compactRole(targetRole) },
         )
       : null;
   }
@@ -403,13 +414,13 @@ function buildRowObservation(template, source, role, row, players, game) {
 
   if (template.type === "either_role") {
     const targetSeat = seatFrom(row, template.seat, playerCount);
-    const goodRole = roleFrom(row, template.goodRole);
-    const evilRole = roleFrom(row, template.evilRole);
+    const goodRole = roleFrom(row, template.goodRole, catalog);
+    const evilRole = roleFrom(row, template.evilRole, catalog);
     return targetSeat && (goodRole || evilRole)
       ? baseObservation(source, role, row, template, `${sourceText}给${targetSeat}号筑梦：${roleLabel(goodRole)} / ${roleLabel(evilRole)}`, {
           targetSeat,
-          goodRole,
-          evilRole,
+          goodRole: compactRole(goodRole),
+          evilRole: compactRole(evilRole),
         })
       : null;
   }
@@ -466,12 +477,12 @@ function buildRowObservation(template, source, role, row, players, game) {
 
   if (template.type === "role_guess") {
     const targetSeat = seatFrom(row, template.seat, playerCount);
-    const targetRole = roleFrom(row, template.role);
+    const targetRole = roleFrom(row, template.role, catalog);
     const value = booleanValue(row, template);
     return targetSeat && targetRole && value !== null
       ? baseObservation(source, role, row, template, `${sourceText}猜${targetSeat}号是${targetRole.name}：${boolLabel(value)}`, {
           targetSeat,
-          role: targetRole,
+          role: compactRole(targetRole),
           value,
         })
       : null;
@@ -487,7 +498,7 @@ function buildRowObservation(template, source, role, row, players, game) {
   return null;
 }
 
-function buildAllTargetsObservation(template, source, role, rows, game) {
+function buildAllTargetsObservation(template, source, role, rows, game, catalog) {
   if (template.type !== "role_guess_count") {
     return null;
   }
@@ -496,7 +507,7 @@ function buildAllTargetsObservation(template, source, role, rows, game) {
   const guesses = rows
     .map((row) => ({
       seat: seatFrom(row, template.guesses.seat, playerCount),
-      role: roleFrom(row, template.guesses.role),
+      role: compactRole(roleFrom(row, template.guesses.role, catalog)),
     }))
     .filter((guess) => guess.seat && guess.role);
   const value = numberFrom(rows[0] || {}, template.value);
@@ -509,13 +520,13 @@ function buildAllTargetsObservation(template, source, role, rows, game) {
     : null;
 }
 
-function buildTemplateObservations(template, source, role, rows, players, game) {
+function buildTemplateObservations(template, source, role, rows, players, game, catalog) {
   if (template.rowMode === "all_targets") {
-    return [buildAllTargetsObservation(template, source, role, rows, game)].filter(Boolean);
+    return [buildAllTargetsObservation(template, source, role, rows, game, catalog)].filter(Boolean);
   }
 
   return rows
-    .map((row) => buildRowObservation(template, source, role, row, players, game))
+    .map((row) => buildRowObservation(template, source, role, row, players, game, catalog))
     .filter(Boolean);
 }
 
@@ -529,13 +540,13 @@ function unsupportedEntry(source, role, row, review) {
   };
 }
 
-export function extractObservations(game) {
+function extractObservations(game, catalog) {
   const players = getAnalysisPlayers(game);
   const observations = [];
   const unsupported = [];
 
   players.forEach((source) => {
-    const role = getPlayerRole(source, game);
+    const role = getPlayerRole(source, game, catalog);
     const rows = getRows(source).filter(hasRecordedValue);
     if (!role || !rows.length) {
       return;
@@ -550,7 +561,7 @@ export function extractObservations(game) {
 
     let matchedCount = 0;
     profile.templates.forEach((template) => {
-      const nextObservations = buildTemplateObservations(template, source, role, rows, players, game);
+      const nextObservations = buildTemplateObservations(template, source, role, rows, players, game, catalog);
       matchedCount += nextObservations.length;
       observations.push(...nextObservations);
     });
@@ -562,3 +573,9 @@ export function extractObservations(game) {
 
   return { players, observations, unsupported };
 }
+
+module.exports = {
+  extractObservations,
+  getPlayerBySeat,
+  getPlayerRole,
+};

@@ -1,6 +1,6 @@
-import { normalizeMatchText } from "../../notes-claims.js";
-import { getPlayerBySeat, getPlayerRole } from "./observations.js";
-import { hasEvil } from "./worlds.js";
+const { normalizeMatchText } = require("./claims");
+const { getPlayerBySeat, getPlayerRole } = require("./observations");
+const { hasEvil } = require("./worlds");
 
 const poisonKeywords = ["醉", "毒", "错误信息", "中毒", "酒鬼", "失去能力"];
 
@@ -23,13 +23,13 @@ function hasPoisonHint(player) {
 
 function demonRoleName(world, context) {
   const demonPlayer = getPlayerBySeat(context.players, world.demonSeat);
-  const role = getPlayerRole(demonPlayer, context.game);
+  const role = getPlayerRole(demonPlayer, context.game, context.catalog);
   return role?.name || demonPlayer?.claim || "";
 }
 
-export function explainFailure(observation, world, context) {
+function explainFailure(observation, world, context) {
   const source = getPlayerBySeat(context.players, observation.sourceSeat);
-  const sourceRole = getPlayerRole(source, context.game);
+  const sourceRole = getPlayerRole(source, context.game, context.catalog);
   const explanations = [];
 
   if (isMarkedPoisoned(source)) {
@@ -83,3 +83,7 @@ export function explainFailure(observation, world, context) {
 
   return explanations.sort((left, right) => left.cost - right.cost)[0];
 }
+
+module.exports = {
+  explainFailure,
+};

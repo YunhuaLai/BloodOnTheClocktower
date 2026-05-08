@@ -1,4 +1,4 @@
-import { hasEvil, hasMinion, isDemon } from "./worlds.js";
+const { hasEvil, hasMinion, isDemon } = require("./worlds");
 
 function countMatching(items, predicate) {
   return items.reduce((count, item) => count + (predicate(item) ? 1 : 0), 0);
@@ -86,7 +86,7 @@ function roleMatchesSeat(role, seat, world) {
   return false;
 }
 
-export function checkObservation(observation, world, context) {
+function checkObservation(observation, world, context) {
   switch (observation.kind) {
     case "adjacent_evil_pair_count":
       return adjacentEvilPairCount(world, context.game.playerCount) === observation.value;
@@ -170,3 +170,7 @@ export function checkObservation(observation, world, context) {
       return false;
   }
 }
+
+module.exports = {
+  checkObservation,
+};

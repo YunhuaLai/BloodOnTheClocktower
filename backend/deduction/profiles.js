@@ -1,4 +1,4 @@
-export const templateLabels = {
+const templateLabels = {
   adjacent_evil_pair_count: "相邻邪恶对数",
   evil_count_group: "目标组邪恶数量",
   clockwise_evil_count: "顺时针区间邪恶数量",
@@ -20,7 +20,7 @@ export const templateLabels = {
   minion_nominated_today: "爪牙今日提名",
 };
 
-export const worldEffectLabels = {
+const worldEffectLabels = {
   poison_drunk: "醉酒/中毒/失能效果",
   death_protection: "死亡/保护/复活效果",
   alignment_role_change: "阵营或身份变化",
@@ -35,267 +35,9 @@ const targetSeat = {
   keys: ["seat", "player", "target", "target_seat"],
 };
 
-const resultSeat = {
-  source: "result",
-  keys: ["seat", "player", "target", "target_seat"],
-};
-
-const resultCount = {
-  source: "result",
-  keys: ["count", "evilCount", "number", "value"],
-};
-
 const resultRole = {
   source: "result",
   keys: ["role", "character", "claim"],
-};
-
-const roleDeductionProfiles = {
-  r001: {
-    templates: [
-      {
-        type: "role_in_group",
-        seats: { source: "result", keys: ["seat1", "seat2"] },
-        role: resultRole,
-      },
-    ],
-  },
-  r002: {
-    templates: [
-      {
-        type: "role_in_group",
-        seats: { source: "result", keys: ["seat1", "seat2"] },
-        role: resultRole,
-      },
-    ],
-  },
-  r003: {
-    templates: [
-      {
-        type: "role_in_group",
-        seats: { source: "result", keys: ["seat1", "seat2"] },
-        role: resultRole,
-      },
-    ],
-  },
-  r004: {
-    templates: [{ type: "adjacent_evil_pair_count", value: resultCount }],
-  },
-  r005: {
-    templates: [
-      {
-        type: "evil_count_group",
-        group: "source_alive_neighbors",
-        value: resultCount,
-      },
-    ],
-  },
-  r006: {
-    templates: [
-      {
-        type: "demon_in_group",
-        seats: { source: "target", keys: ["seat1", "seat2"] },
-        value: { source: "result", keys: ["has_demon", "answer", "value"] },
-      },
-    ],
-  },
-  r007: {
-    templates: [
-      {
-        type: "role_at_day_execution",
-        role: resultRole,
-      },
-    ],
-  },
-  r009: {
-    templates: [
-      {
-        type: "role_at_seat",
-        seat: targetSeat,
-        role: resultRole,
-      },
-    ],
-  },
-  r022: {
-    templates: [
-      {
-        type: "demon_in_group",
-        seats: { source: "target", keys: ["seat"] },
-        value: { source: "result", keys: ["hit_demon", "answer", "value"] },
-      },
-    ],
-  },
-  r023: {
-    templates: [
-      {
-        type: "good_player",
-        seat: resultSeat,
-        role: resultRole,
-      },
-    ],
-  },
-  r026: {
-    templates: [
-      {
-        type: "demon_in_group",
-        seats: { source: "target", keys: ["seat"] },
-        value: { source: "result", keys: ["hit_demon", "answer", "value"] },
-      },
-    ],
-  },
-  r028: {
-    templates: [
-      {
-        type: "role_guess",
-        seat: targetSeat,
-        role: { source: "target", keys: ["role", "character", "claim"] },
-        value: { source: "result", keys: ["correct", "answer", "value"] },
-      },
-    ],
-  },
-  r048: {
-    templates: [
-      {
-        type: "demon_minion_distance",
-        value: { source: "result", keys: ["distance", "count", "number", "value"] },
-      },
-    ],
-  },
-  r049: {
-    templates: [
-      {
-        type: "evil_count_group",
-        seats: { source: "result", keys: ["seat1", "seat2", "seat3"] },
-        fixedValue: 1,
-      },
-    ],
-  },
-  r051: {
-    templates: [
-      {
-        type: "either_role",
-        seat: targetSeat,
-        goodRole: { source: "result", keys: ["good_role", "goodRole", "good"] },
-        evilRole: { source: "result", keys: ["evil_role", "evilRole", "evil"] },
-      },
-    ],
-  },
-  r054: {
-    label: "已接入自动推理；需要对应白天的结构化投票记录",
-    templates: [
-      {
-        type: "demon_voted_today",
-        value: { source: "result", keys: ["voted", "answer", "value"] },
-      },
-    ],
-  },
-  r055: {
-    label: "已接入自动推理；需要对应白天的结构化提名记录",
-    templates: [
-      {
-        type: "minion_nominated_today",
-        value: { source: "result", keys: ["nominated", "answer", "value"] },
-      },
-    ],
-  },
-  r056: {
-    templates: [{ type: "evil_dead_count", value: resultCount }],
-  },
-  r058: {
-    templates: [
-      {
-        type: "team_relation",
-        seats: { source: "target", keys: ["seat1", "seat2"] },
-        value: { source: "result", keys: ["same_team", "answer", "value"] },
-      },
-    ],
-  },
-  r062: {
-    templates: [
-      {
-        type: "role_guess_count",
-        rowMode: "all_targets",
-        guesses: {
-          seat: targetSeat,
-          role: { source: "target", keys: ["role", "character", "claim"] },
-        },
-        value: { source: "result", keys: ["correct_count", "count", "number", "value"] },
-      },
-    ],
-  },
-  r063: {
-    templates: [
-      {
-        type: "demon_in_group",
-        seats: { source: "result", keys: ["seat1", "seat2"] },
-        fixedValue: true,
-      },
-    ],
-  },
-  r084: {
-    templates: [
-      {
-        type: "good_player",
-        seat: resultSeat,
-      },
-    ],
-  },
-  r085: {
-    templates: [
-      {
-        type: "not_demon_group",
-        seats: { source: "result", keys: ["seat1", "seat2"] },
-      },
-    ],
-  },
-  r100: {
-    templates: [
-      {
-        type: "nearest_evil_direction",
-        value: { source: "result", keys: ["direction", "answer", "value"] },
-      },
-    ],
-  },
-  r197: {
-    templates: [
-      {
-        type: "clockwise_evil_count",
-        group: "clockwise_between_source_and_target",
-        seat: targetSeat,
-        value: resultCount,
-        targetMustBeGood: true,
-      },
-    ],
-  },
-  r367: {
-    templates: [
-      {
-        type: "evil_count_group",
-        group: "target_alive_neighbors",
-        seat: targetSeat,
-        value: resultCount,
-      },
-    ],
-  },
-  r445: {
-    templates: [
-      {
-        type: "evil_count_group",
-        group: "target_alive_neighbors",
-        seat: targetSeat,
-        value: resultCount,
-      },
-    ],
-  },
-  r198: {
-    templates: [
-      {
-        type: "not_role_type_group",
-        seats: { source: "target", keys: ["seat1", "seat2", "first", "second"] },
-        role: resultRole,
-      },
-    ],
-  },
 };
 
 const worldEffectProfiles = {
@@ -442,37 +184,11 @@ function profileFromAbilityData(role) {
   return null;
 }
 
-export function getRoleDeductionProfile(role) {
-  const dataProfile = profileFromAbilityData(role);
-  const profile = roleDeductionProfiles[role?.id];
-  if (dataProfile) {
-    if (dataProfile.status === "supported") {
-      return dataProfile;
-    }
-
-    if (profile) {
-      return {
-        status: "supported",
-        label: "已接入自动推理",
-        ...profile,
-      };
-    }
-
-    return dataProfile;
-  }
-
-  if (profile) {
-    return {
-      status: "supported",
-      label: "已接入自动推理",
-      ...profile,
-    };
-  }
-
-  return inferTemplateCandidate(role);
+function getRoleDeductionProfile(role) {
+  return profileFromAbilityData(role) || inferTemplateCandidate(role);
 }
 
-export function getRoleDeductionReview(role) {
+function getRoleDeductionReview(role) {
   const profile = getRoleDeductionProfile(role);
   if (profile?.status === "supported") {
     return {
@@ -533,3 +249,9 @@ export function getRoleDeductionReview(role) {
     label: "无需记录或暂不参与推理",
   };
 }
+
+module.exports = {
+  getRoleDeductionProfile,
+  getRoleDeductionReview,
+  templateLabels,
+};

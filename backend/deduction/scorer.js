@@ -1,7 +1,7 @@
-import { checkObservation } from "./checkers.js";
-import { explainFailure } from "./explainers.js";
-import { extractObservations, getPlayerRole } from "./observations.js";
-import { formatSeatList, generateWorlds, hasEvil, isDemon } from "./worlds.js";
+const { checkObservation } = require("./checkers");
+const { explainFailure } = require("./explainers");
+const { extractObservations, getPlayerRole } = require("./observations");
+const { formatSeatList, generateWorlds, hasEvil, isDemon } = require("./worlds");
 
 function roleShapeCost(player, role, world) {
   if (!role) {
@@ -68,7 +68,7 @@ function baselineCosts(world, context) {
   const costs = [];
 
   context.players.forEach((player) => {
-    const role = getPlayerRole(player, context.game);
+    const role = getPlayerRole(player, context.game, context.catalog);
     const judgementCost = manualJudgementCost(player, world);
     pushBaselineCost(
       costs,
@@ -145,6 +145,14 @@ const classificationLabels = {
   conspiracy: "阴谋局势",
 };
 
+function serializeWorld(world) {
+  return {
+    demonSeat: world.demonSeat,
+    minionSeats: world.minionSeats,
+    evilSeats: world.evilSeats,
+  };
+}
+
 function normalizeLikelihood(results) {
   if (!results.length) {
     return [];
@@ -157,6 +165,7 @@ function normalizeLikelihood(results) {
     const classification = classifyWorld(result);
     return {
       ...result,
+      world: serializeWorld(result.world),
       likelihood,
       classification,
       classificationLabel: classificationLabels[classification],
@@ -186,11 +195,11 @@ function buildSignals(results, observations) {
     .slice(0, 4);
 }
 
-export function analyzeWorlds(game) {
-  const extraction = extractObservations(game);
+function analyzeWorlds(game, catalog) {
+  const extraction = extractObservations(game, catalog);
   const { players, observations, unsupported } = extraction;
   const { worlds, setup } = generateWorlds(game, players);
-  const context = { game, players, observations };
+  const context = { catalog, game, players, observations };
   const evaluated = normalizeLikelihood(
     worlds
       .map((world) => evaluateWorld(world, context))
@@ -208,3 +217,7 @@ export function analyzeWorlds(game) {
     signals: buildSignals(evaluated, observations),
   };
 }
+
+module.exports = {
+  analyzeWorlds,
+};

@@ -7,9 +7,11 @@ const {
   getScriptById,
   getTermById,
 } = require("./data/encyclopedia-cache");
+const { analyzeWorlds } = require("./deduction/scorer");
 
 const DEFAULT_PORT = Number(process.env.PORT || 3000);
 const MAX_PORT_ATTEMPTS = 20;
+const MAX_JSON_BODY_BYTES = 512 * 1024;
 const ROOT_DIR = path.resolve(__dirname, "..");
 const FRONTEND_DIR = path.join(ROOT_DIR, "frontend");
 
@@ -66,9 +68,77 @@ function readData(response, errorMessage) {
   }
 }
 
+function readJsonBody(request, response, onBody) {
+  let body = "";
+  let tooLarge = false;
+
+  request.on("data", (chunk) => {
+    if (tooLarge) {
+      return;
+    }
+
+    body += chunk;
+    if (Buffer.byteLength(body, "utf8") > MAX_JSON_BODY_BYTES) {
+      tooLarge = true;
+      sendJson(response, 413, { error: "Request body too large" });
+      request.destroy();
+    }
+  });
+
+  request.on("end", () => {
+    if (tooLarge) {
+      return;
+    }
+
+    try {
+      onBody(body ? JSON.parse(body) : {});
+    } catch (error) {
+      sendJson(response, 400, { error: "Invalid JSON body" });
+    }
+  });
+
+  request.on("error", () => {
+    if (!response.headersSent) {
+      sendJson(response, 400, { error: "Failed to read request body" });
+    }
+  });
+}
+
 function handleApi(request, response) {
   const requestUrl = new URL(request.url, `http://${request.headers.host}`);
   const segments = requestUrl.pathname.split("/").filter(Boolean);
+
+  if (requestUrl.pathname === "/api/deduction/analyze") {
+    if (request.method !== "POST") {
+      sendJson(response, 405, { error: "Method not allowed" });
+      return;
+    }
+
+    readJsonBody(request, response, (payload) => {
+      const data = readData(response, "Failed to read deduction data");
+      if (!data) {
+        return;
+      }
+
+      if (!payload?.game || typeof payload.game !== "object") {
+        sendJson(response, 400, { error: "Missing game payload" });
+        return;
+      }
+
+      try {
+        sendJson(response, 200, analyzeWorlds(payload.game, data));
+      } catch (error) {
+        console.error(error);
+        sendJson(response, 500, { error: "Failed to analyze deduction state" });
+      }
+    });
+    return;
+  }
+
+  if (request.method !== "GET") {
+    sendJson(response, 405, { error: "Method not allowed" });
+    return;
+  }
 
   if (requestUrl.pathname === "/api/health") {
     sendJson(response, 200, { ok: true, service: "botc-encyclopedia" });
@@ -183,13 +253,13 @@ const server = http.createServer((request, response) => {
     return;
   }
 
-  if (request.method !== "GET") {
-    sendJson(response, 405, { error: "Method not allowed" });
+  if (request.url.startsWith("/api/")) {
+    handleApi(request, response);
     return;
   }
 
-  if (request.url.startsWith("/api/")) {
-    handleApi(request, response);
+  if (request.method !== "GET") {
+    sendJson(response, 405, { error: "Method not allowed" });
     return;
   }
 

@@ -1,5 +1,8 @@
 import { escapeHtml } from "../utils.js";
-import { analyzeWorlds } from "./deduction/scorer.js";
+import { getDraftOrPlayer } from "../notes-state.js";
+
+let analysisRenderId = 0;
+const analysisCache = new Map();
 
 function renderObservationList(items, emptyText, limit = 5) {
   if (!items.length) {
@@ -137,8 +140,7 @@ function renderEmpty(analysis) {
   `;
 }
 
-export function renderBeyondWorldlineAnalysis(game) {
-  const analysis = analyzeWorlds(game);
+function renderAnalysisPanel(game, analysis) {
   const evilSlots = analysis.setup.minion + analysis.setup.demon;
 
   if (!analysis.observations.length && !analysis.unsupported.length) {
@@ -180,4 +182,120 @@ export function renderBeyondWorldlineAnalysis(game) {
       }
     </section>
   `;
+}
+
+function buildAnalysisGame(game) {
+  return {
+    ...game,
+    players: game.players.map((player) => getDraftOrPlayer(player)),
+  };
+}
+
+function getAnalysisSignature(game) {
+  return JSON.stringify(game);
+}
+
+async function fetchAnalysis(game) {
+  const response = await fetch("/api/deduction/analyze", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ game }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Analysis API returned ${response.status}`);
+  }
+
+  return response.json();
+}
+
+function getAnalysis(signature, game) {
+  const cached = analysisCache.get(signature);
+  if (cached?.status === "fulfilled") {
+    return Promise.resolve(cached.analysis);
+  }
+
+  if (cached?.promise) {
+    return cached.promise;
+  }
+
+  const promise = fetchAnalysis(game).then(
+    (analysis) => {
+      analysisCache.set(signature, { status: "fulfilled", analysis });
+      return analysis;
+    },
+    (error) => {
+      analysisCache.delete(signature);
+      throw error;
+    },
+  );
+
+  analysisCache.set(signature, { status: "pending", promise });
+  return promise;
+}
+
+function renderAnalysisLoading(panelId) {
+  return `
+    <section class="notes-analysis-panel notes-world-panel" id="${escapeHtml(panelId)}">
+      <div class="notes-analysis-header">
+        <div>
+          <p class="eyebrow">局势推理 MVP</p>
+          <h3>正在计算局势</h3>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderAnalysisError() {
+  return `
+    <section class="notes-analysis-signals notes-analysis-signals--muted">
+      <h4>局势推理</h4>
+      <p>后端暂时没有返回推理结果。</p>
+    </section>
+  `;
+}
+
+async function hydrateAnalysis(panelId, signature, game) {
+  const panel = document.getElementById(panelId);
+  if (!panel) {
+    return;
+  }
+
+  try {
+    const analysis = await getAnalysis(signature, game);
+    const currentPanel = document.getElementById(panelId);
+    if (!currentPanel) {
+      return;
+    }
+
+    const html = renderAnalysisPanel(game, analysis);
+    if (html) {
+      currentPanel.outerHTML = html;
+    } else {
+      currentPanel.remove();
+    }
+  } catch (error) {
+    console.error(error);
+    const currentPanel = document.getElementById(panelId);
+    if (currentPanel) {
+      currentPanel.outerHTML = renderAnalysisError();
+    }
+  }
+}
+
+export function renderBeyondWorldlineAnalysis(game) {
+  const analysisGame = buildAnalysisGame(game);
+  const signature = getAnalysisSignature(analysisGame);
+  const cached = analysisCache.get(signature);
+
+  if (cached?.status === "fulfilled") {
+    return renderAnalysisPanel(analysisGame, cached.analysis);
+  }
+
+  const panelId = `notesWorldAnalysis-${(analysisRenderId += 1)}`;
+  queueMicrotask(() => hydrateAnalysis(panelId, signature, analysisGame));
+  return renderAnalysisLoading(panelId);
 }

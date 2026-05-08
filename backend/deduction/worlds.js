@@ -1,4 +1,4 @@
-import { getStandardSetup } from "../notes-core.js";
+const { getStandardSetup } = require("./setup");
 
 function combinations(items, size) {
   const results = [];
@@ -22,7 +22,7 @@ function combinations(items, size) {
   return results;
 }
 
-export function generateWorlds(game, players) {
+function generateWorlds(game, players) {
   const setup = getStandardSetup(game.playerCount);
   const evilCount = setup.minion + setup.demon;
   const seats = players.map((player) => Number(player.seat));
@@ -45,18 +45,26 @@ export function generateWorlds(game, players) {
   return { worlds, setup };
 }
 
-export function hasEvil(world, seat) {
+function hasEvil(world, seat) {
   return world.evilSeatSet.has(Number(seat));
 }
 
-export function hasMinion(world, seat) {
+function hasMinion(world, seat) {
   return world.minionSeatSet.has(Number(seat));
 }
 
-export function isDemon(world, seat) {
+function isDemon(world, seat) {
   return world.demonSeat === Number(seat);
 }
 
-export function formatSeatList(seats) {
+function formatSeatList(seats) {
   return [...seats].sort((a, b) => a - b).map((seat) => `${seat}号`).join("、");
 }
+
+module.exports = {
+  formatSeatList,
+  generateWorlds,
+  hasEvil,
+  hasMinion,
+  isDemon,
+};
