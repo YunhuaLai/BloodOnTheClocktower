@@ -67,6 +67,14 @@ const explicitSupportedProfiles = {
       },
     ],
   },
+  r007: {
+    templates: [
+      {
+        type: "role_at_day_execution",
+        role: resultRole,
+      },
+    ],
+  },
   r009: {
     templates: [
       {
@@ -137,6 +145,24 @@ const explicitSupportedProfiles = {
         seat: targetSeat,
         goodRole: { source: "result", keys: ["good_role", "goodRole", "good"] },
         evilRole: { source: "result", keys: ["evil_role", "evilRole", "evil"] },
+      },
+    ],
+  },
+  r054: {
+    label: "已接入自动推理；需要对应白天的结构化投票记录",
+    templates: [
+      {
+        type: "demon_voted_today",
+        value: { source: "result", keys: ["voted", "answer", "value"] },
+      },
+    ],
+  },
+  r055: {
+    label: "已接入自动推理；需要对应白天的结构化提名记录",
+    templates: [
+      {
+        type: "minion_nominated_today",
+        value: { source: "result", keys: ["nominated", "answer", "value"] },
       },
     ],
   },
@@ -241,14 +267,11 @@ const explicitSupportedProfiles = {
 };
 
 const explicitWorldEffects = {
-  r007: { effectType: "natural_language", note: "送葬者还缺少结构化处决座位，暂不自动校验。" },
   r017: { effectType: "poison_drunk" },
   r024: { effectType: "poison_drunk" },
   r025: { effectType: "awake_malfunction", note: "侍女需要夜晚唤醒/行动模型。" },
   r030: { effectType: "poison_drunk" },
   r053: { effectType: "awake_malfunction", note: "数学家需要异常来源模型。" },
-  r054: { effectType: "action_history", note: "卖花女孩需要结构化投票历史。" },
-  r055: { effectType: "action_history", note: "城镇公告员需要结构化提名历史。" },
   r060: { effectType: "natural_language" },
   r078: { effectType: "poison_drunk" },
 };
@@ -294,12 +317,45 @@ function textMatches(roleData, abilityData, pattern) {
   );
 }
 
+function roleTextMatches(roleData, abilityData, pattern) {
+  return [
+    roleData?.name,
+    roleData?.ability,
+    roleData?.summary,
+    ...(roleData?.reminders || []),
+    ...(abilityData?.tags || []),
+  ]
+    .filter(Boolean)
+    .some((text) => pattern.test(text));
+}
+
+function isExecutionRoleResult(abilityData, roleData) {
+  const roleLabels = getFields(abilityData, "result")
+    .filter((field) => field.type === "role")
+    .map((field) => field.label)
+    .filter(Boolean)
+    .join(" ");
+
+  return (
+    /处决.*(身份|角色)|被处决.*(身份|角色)/.test(roleLabels) ||
+    roleTextMatches(
+      roleData,
+      abilityData,
+      /处决玩家身份|被处决.*得知(他|该玩家|这名玩家).*?(角色|身份)|得知.*(死于|因|由于)?处决.*(角色|身份)/,
+    )
+  );
+}
+
 function supported(profile, source = "manual") {
-  return {
+  const result = {
     status: "supported",
     source,
     templates: clone(profile.templates),
   };
+  if (profile.label) {
+    result.label = profile.label;
+  }
+  return result;
 }
 
 function worldEffect(profile, source = "manual") {
@@ -323,6 +379,60 @@ function candidate(label, templates = []) {
 function inferBySchema(abilityData, roleData = {}) {
   if (!abilityData?.abilityMeta?.recordable) {
     return null;
+  }
+
+  if (
+    hasField(abilityData, "result", "role", "role") &&
+    !getFields(abilityData, "target").length &&
+    isExecutionRoleResult(abilityData, roleData)
+  ) {
+    return supported(
+      {
+        templates: [
+          {
+            type: "role_at_day_execution",
+            role: resultRole,
+          },
+        ],
+      },
+      "inferred",
+    );
+  }
+
+  if (
+    hasAnyField(abilityData, "boolean") &&
+    textMatches(roleData, abilityData, /恶魔.*投票|投票.*恶魔/)
+  ) {
+    return supported(
+      {
+        label: "已接入自动推理；需要对应白天的结构化投票记录",
+        templates: [
+          {
+            type: "demon_voted_today",
+            value: { source: "result", keys: ["voted", "answer", "value"] },
+          },
+        ],
+      },
+      "inferred",
+    );
+  }
+
+  if (
+    hasAnyField(abilityData, "boolean") &&
+    textMatches(roleData, abilityData, /爪牙.*提名|提名.*爪牙/)
+  ) {
+    return supported(
+      {
+        label: "已接入自动推理；需要对应白天的结构化提名记录",
+        templates: [
+          {
+            type: "minion_nominated_today",
+            value: { source: "result", keys: ["nominated", "answer", "value"] },
+          },
+        ],
+      },
+      "inferred",
+    );
   }
 
   if (hasField(abilityData, "target", "seat", "seat") && hasField(abilityData, "result", "role", "role")) {

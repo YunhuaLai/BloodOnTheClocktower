@@ -260,6 +260,12 @@ export function resolveDayExecution(game, record) {
   return resolveAutomaticDayExecution(game, record);
 }
 
+export function getDayExecutionSeat(game, dayNumber) {
+  const record = getDayRecord(game, dayNumber);
+  const result = resolveDayExecution(game, record);
+  return result.seat ? Number(result.seat) : 0;
+}
+
 function getPlayerBySeat(game, seat) {
   return (game?.players || []).find((player) => Number(player.seat) === Number(seat)) || null;
 }

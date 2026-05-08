@@ -103,6 +103,7 @@ export function checkObservation(observation, world, context) {
       return !hasEvil(world, observation.targetSeat);
 
     case "role_at_seat":
+    case "role_at_day_execution":
       return roleMatchesSeat(observation.role, observation.targetSeat, world);
 
     case "demon_in_group":

@@ -1,6 +1,11 @@
 import { normalizeMatchText } from "../../notes-claims.js";
 import { getDraftOrPlayer } from "../../notes-state.js";
-import { getDayNominatorSeats, getDayVotingSeats, hasDayActionHistory } from "../notes-day-records.js";
+import {
+  getDayExecutionSeat,
+  getDayNominatorSeats,
+  getDayVotingSeats,
+  hasDayActionHistory,
+} from "../notes-day-records.js";
 import { state } from "../../state.js";
 import { getClaimedRole } from "../notes-role-info.js";
 import { getRoleDeductionProfile, getRoleDeductionReview, templateLabels } from "./profiles.js";
@@ -348,6 +353,22 @@ function buildRowObservation(template, source, role, row, players, game) {
           targetSeat,
           role: targetRole,
         })
+      : null;
+  }
+
+  if (template.type === "role_at_day_execution") {
+    const targetRole = roleFrom(row, template.role);
+    const dayNumber = dayNumberFromRow(row, template);
+    const targetSeat = getDayExecutionSeat(game, dayNumber);
+    return targetSeat && targetRole
+      ? baseObservation(
+          source,
+          role,
+          row,
+          template,
+          `${sourceText}报第${dayNumber}天被处决的${targetSeat}号是${targetRole.name}`,
+          { dayNumber, targetSeat, role: targetRole },
+        )
       : null;
   }
 

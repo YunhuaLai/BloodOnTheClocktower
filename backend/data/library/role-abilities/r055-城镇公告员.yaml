@@ -35,7 +35,14 @@ interactionSchema:
         max: null
         placeholder: null
 deduction:
-  status: world_effect
+  status: supported
   source: manual
-  effectType: action_history
-  note: 城镇公告员需要结构化提名历史。
+  templates:
+    - type: minion_nominated_today
+      value:
+        source: result
+        keys:
+          - nominated
+          - answer
+          - value
+  label: 已接入自动推理；需要对应白天的结构化提名记录

@@ -90,6 +90,7 @@ enums:
     - good_player
     - role_in_group
     - role_at_seat
+    - role_at_day_execution
     - not_role_type_group
     - demon_in_group
     - not_demon_group
@@ -100,6 +101,8 @@ enums:
     - role_guess
     - role_guess_count
     - nearest_evil_direction
+    - demon_voted_today
+    - minion_nominated_today
   deductionEffectType:
     - poison_drunk
     - death_protection

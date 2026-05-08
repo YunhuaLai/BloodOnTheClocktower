@@ -3,12 +3,12 @@ englishName: undertaker
 name: 送葬者
 schemaVersion: 1
 tags:
-  - 每晚
+  - 每晚*
   - 信息型
   - 查看身份
 abilityMeta:
   pageType: record_result_only
-  phaseTiming: each_night
+  phaseTiming: each_night_star
   eventTiming: null
   usagePattern: once_per_night
   activationMode: passive
@@ -33,7 +33,13 @@ interactionSchema:
         max: null
         placeholder: null
 deduction:
-  status: world_effect
+  status: supported
   source: manual
-  effectType: natural_language
-  note: 送葬者还缺少结构化处决座位，暂不自动校验。
+  templates:
+    - type: role_at_day_execution
+      role:
+        source: result
+        keys:
+          - role
+          - character
+          - claim

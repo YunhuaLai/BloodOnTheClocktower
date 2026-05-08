@@ -30,6 +30,7 @@ const KNOWN_DEDUCTION_TEMPLATE_TYPES = new Set([
   "good_player",
   "role_in_group",
   "role_at_seat",
+  "role_at_day_execution",
   "not_role_type_group",
   "demon_in_group",
   "not_demon_group",
@@ -40,6 +41,8 @@ const KNOWN_DEDUCTION_TEMPLATE_TYPES = new Set([
   "role_guess",
   "role_guess_count",
   "nearest_evil_direction",
+  "demon_voted_today",
+  "minion_nominated_today",
 ]);
 
 const KNOWN_DEDUCTION_EFFECT_TYPES = new Set([

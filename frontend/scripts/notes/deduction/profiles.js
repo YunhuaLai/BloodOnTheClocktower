@@ -5,6 +5,7 @@ export const templateLabels = {
   good_player: "确认善良玩家",
   role_in_group: "目标组含身份",
   role_at_seat: "目标身份",
+  role_at_day_execution: "当日处决身份",
   not_role_type_group: "目标组排除身份类型",
   demon_in_group: "目标组含恶魔",
   not_demon_group: "目标组排除恶魔",
@@ -95,6 +96,14 @@ const roleDeductionProfiles = {
         type: "demon_in_group",
         seats: { source: "target", keys: ["seat1", "seat2"] },
         value: { source: "result", keys: ["has_demon", "answer", "value"] },
+      },
+    ],
+  },
+  r007: {
+    templates: [
+      {
+        type: "role_at_day_execution",
+        role: resultRole,
       },
     ],
   },
@@ -290,14 +299,11 @@ const roleDeductionProfiles = {
 };
 
 const worldEffectProfiles = {
-  r007: { type: "natural_language", note: "送葬者还缺少结构化处决座位，暂不自动校验。" },
   r017: { type: "poison_drunk" },
   r024: { type: "poison_drunk" },
   r025: { type: "awake_malfunction", note: "侍女需要夜晚唤醒/行动模型。" },
   r030: { type: "poison_drunk" },
   r053: { type: "awake_malfunction", note: "数学家需要异常来源模型。" },
-  r054: { type: "action_history", note: "卖花女孩需要结构化投票历史。" },
-  r055: { type: "action_history", note: "城镇公告员需要结构化提名历史。" },
   r060: { type: "natural_language" },
   r078: { type: "poison_drunk" },
 };
