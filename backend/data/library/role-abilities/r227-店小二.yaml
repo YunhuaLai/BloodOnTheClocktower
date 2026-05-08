@@ -8,6 +8,15 @@ reviewReason: ''
 tags:
   - 首夜
   - 信息型
+termIds:
+  - night
+  - first-night
+  - drunk
+  - information
+  - death
+  - good
+  - townsfolk
+abilityPattern: status_effect
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

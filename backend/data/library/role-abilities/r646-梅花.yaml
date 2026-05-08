@@ -9,6 +9,16 @@ tags:
   - 首夜
   - 设置
   - 信息型
+termIds:
+  - night
+  - setup
+  - first-night
+  - information
+  - death
+  - townsfolk
+  - outsider
+  - madness
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

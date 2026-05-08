@@ -7,6 +7,10 @@ needsReview: false
 reviewReason: ''
 tags:
   - 信息型
+termIds:
+  - information
+  - jinx
+abilityPattern: boolean_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: passive

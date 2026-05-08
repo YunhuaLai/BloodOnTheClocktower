@@ -9,6 +9,16 @@ tags:
   - 首夜
   - 每晚
   - 主动选择
+termIds:
+  - night
+  - first-night
+  - poisoned
+  - execution
+  - alive
+  - minion
+  - demon
+  - storyteller
+abilityPattern: choose_player_status_effect
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

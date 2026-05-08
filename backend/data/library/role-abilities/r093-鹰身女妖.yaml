@@ -6,6 +6,13 @@ tags:
   - 每晚
   - 主动选玩家
   - 疯狂机制
+termIds:
+  - night
+  - death
+  - evil
+  - minion
+  - madness
+abilityPattern: choose_player_death
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

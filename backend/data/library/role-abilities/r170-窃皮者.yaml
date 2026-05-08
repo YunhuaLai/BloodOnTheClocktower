@@ -6,6 +6,13 @@ tags:
   - 每晚
   - 恶魔杀人
   - 转变
+termIds:
+  - night
+  - death
+  - alive
+  - minion
+  - demon
+abilityPattern: target_demon_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

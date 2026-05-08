@@ -10,6 +10,18 @@ tags:
   - 每晚
   - 设置
   - 主动选择
+termIds:
+  - night
+  - setup
+  - first-night
+  - execution
+  - death
+  - alignment
+  - good
+  - evil
+  - minion
+  - demon
+abilityPattern: team_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

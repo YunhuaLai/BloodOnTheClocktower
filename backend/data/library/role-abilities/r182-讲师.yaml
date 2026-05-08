@@ -7,6 +7,12 @@ needsReview: false
 reviewReason: ''
 tags:
   - 信息型
+termIds:
+  - day
+  - information
+  - townsfolk
+  - storyteller
+abilityPattern: player_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_day

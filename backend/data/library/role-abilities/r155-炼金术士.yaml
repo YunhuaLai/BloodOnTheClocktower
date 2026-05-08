@@ -7,6 +7,14 @@ needsReview: false
 reviewReason: ''
 tags:
   - 首夜
+termIds:
+  - first-night
+  - death
+  - townsfolk
+  - outsider
+  - minion
+  - storyteller
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: first_night

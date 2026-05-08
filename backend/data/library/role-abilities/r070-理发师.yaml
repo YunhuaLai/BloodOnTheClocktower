@@ -6,6 +6,11 @@ tags:
   - 死亡触发
   - 换身份
   - 外来者
+termIds:
+  - death
+  - outsider
+  - demon
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

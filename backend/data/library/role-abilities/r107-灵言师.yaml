@@ -7,6 +7,14 @@ tags:
   - 关键词
   - 阵营转变
   - 爪牙
+termIds:
+  - night
+  - first-night
+  - alignment
+  - good
+  - evil
+  - minion
+abilityPattern: player_info
 abilityMeta:
   pageType: event_triggered
   phaseTiming: first_night

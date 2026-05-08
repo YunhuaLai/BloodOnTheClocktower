@@ -6,6 +6,11 @@ tags:
   - 每晚
   - 主动选玩家
   - 爪牙失能
+termIds:
+  - night
+  - townsfolk
+  - minion
+abilityPattern: target_boolean_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

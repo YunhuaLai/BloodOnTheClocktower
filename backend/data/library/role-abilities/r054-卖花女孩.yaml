@@ -6,6 +6,14 @@ tags:
   - 每晚
   - 信息型
   - 投票相关
+termIds:
+  - day
+  - night
+  - information
+  - vote
+  - townsfolk
+  - demon
+abilityPattern: boolean_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night_star

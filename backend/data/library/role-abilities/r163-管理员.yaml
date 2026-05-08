@@ -5,6 +5,13 @@ schemaVersion: 1
 tags:
   - 每晚
   - 醉酒
+termIds:
+  - night
+  - drunk
+  - death
+  - townsfolk
+  - demon
+abilityPattern: target_demon_check
 abilityMeta:
   pageType: event_triggered
   phaseTiming: each_night

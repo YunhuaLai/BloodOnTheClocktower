@@ -6,6 +6,18 @@ tags:
   - 每晚
   - 信息型
   - 特殊机制
+termIds:
+  - night
+  - information
+  - death
+  - alignment
+  - good
+  - evil
+  - townsfolk
+  - outsider
+  - minion
+  - grimoire
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night

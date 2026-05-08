@@ -9,6 +9,16 @@ tags:
   - 首夜
   - 每晚
   - 主动选择
+termIds:
+  - day
+  - night
+  - first-night
+  - nomination
+  - death
+  - alive
+  - good
+  - minion
+abilityPattern: choose_player_death
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

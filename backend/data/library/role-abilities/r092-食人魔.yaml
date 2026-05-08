@@ -6,6 +6,14 @@ tags:
   - 首夜
   - 主动选玩家
   - 阵营变化
+termIds:
+  - night
+  - first-night
+  - poisoned
+  - drunk
+  - alignment
+  - outsider
+abilityPattern: team_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: first_night

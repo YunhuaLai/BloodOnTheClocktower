@@ -8,6 +8,14 @@ reviewReason: ''
 tags:
   - 每晚
   - 信息型
+termIds:
+  - day
+  - night
+  - information
+  - execution
+  - alive
+  - townsfolk
+abilityPattern: number_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night_star

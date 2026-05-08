@@ -8,6 +8,13 @@ reviewReason: ''
 tags:
   - 首夜
   - 信息型
+termIds:
+  - night
+  - first-night
+  - information
+  - evil
+  - townsfolk
+abilityPattern: role_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

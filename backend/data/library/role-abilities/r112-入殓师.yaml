@@ -7,6 +7,16 @@ tags:
   - 处决
   - 阵营转变
   - 恶魔
+termIds:
+  - nomination
+  - execution
+  - alive
+  - alignment
+  - evil
+  - outsider
+  - demon
+  - traveler
+abilityPattern: execution_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: day

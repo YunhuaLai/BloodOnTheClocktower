@@ -6,6 +6,14 @@ tags:
   - 被动
   - 能力继承
   - 特殊机制
+termIds:
+  - poisoned
+  - execution
+  - alignment
+  - good
+  - evil
+  - townsfolk
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

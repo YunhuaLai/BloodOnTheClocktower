@@ -6,6 +6,13 @@ tags:
   - 被动
   - 假死
   - 恶魔
+termIds:
+  - day
+  - night
+  - death
+  - alive
+  - demon
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

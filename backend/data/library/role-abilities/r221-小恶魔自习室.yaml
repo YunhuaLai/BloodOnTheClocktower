@@ -7,6 +7,14 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - execution
+  - death
+  - outsider
+  - minion
+  - demon
+  - fabled
+abilityPattern: execution_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

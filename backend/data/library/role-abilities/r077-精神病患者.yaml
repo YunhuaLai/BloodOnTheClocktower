@@ -6,6 +6,14 @@ tags:
   - 白天
   - 公开击杀
   - 猜拳
+termIds:
+  - day
+  - nomination
+  - execution
+  - death
+  - protected
+  - minion
+abilityPattern: manual_record
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: special

@@ -6,6 +6,13 @@ tags:
   - 每晚
   - 主动选玩家
   - 身份提示
+termIds:
+  - night
+  - good
+  - evil
+  - townsfolk
+  - traveler
+abilityPattern: target_role_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

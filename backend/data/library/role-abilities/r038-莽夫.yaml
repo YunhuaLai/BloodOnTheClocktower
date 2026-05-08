@@ -6,6 +6,12 @@ tags:
   - 被动
   - 阵营变化
   - 特殊机制
+termIds:
+  - night
+  - drunk
+  - alignment
+  - outsider
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

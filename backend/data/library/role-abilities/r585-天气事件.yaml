@@ -9,6 +9,13 @@ tags:
   - 首夜
   - 每晚
   - 信息型
+termIds:
+  - night
+  - first-night
+  - information
+  - storyteller
+  - fabled
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night

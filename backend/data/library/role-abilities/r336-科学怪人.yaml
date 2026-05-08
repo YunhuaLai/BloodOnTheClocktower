@@ -7,6 +7,14 @@ needsReview: false
 reviewReason: ''
 tags:
   - 首夜
+termIds:
+  - first-night
+  - poisoned
+  - drunk
+  - good
+  - minion
+  - demon
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: first_night

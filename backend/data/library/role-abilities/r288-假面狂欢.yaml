@@ -7,6 +7,15 @@ needsReview: false
 reviewReason: ''
 tags:
   - 信息型
+termIds:
+  - information
+  - death
+  - alive
+  - minion
+  - demon
+  - storyteller
+  - fabled
+abilityPattern: number_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: passive

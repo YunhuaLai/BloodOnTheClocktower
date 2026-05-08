@@ -8,6 +8,12 @@ reviewReason: ''
 tags:
   - 每晚
   - 信息型
+termIds:
+  - day
+  - night
+  - information
+  - townsfolk
+abilityPattern: boolean_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_day

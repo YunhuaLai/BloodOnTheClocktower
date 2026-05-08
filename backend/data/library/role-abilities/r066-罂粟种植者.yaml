@@ -6,6 +6,15 @@ tags:
   - 被动
   - 邪恶不互认
   - 规则修饰
+termIds:
+  - first-night
+  - information
+  - death
+  - evil
+  - townsfolk
+  - minion
+  - demon
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: setup

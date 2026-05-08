@@ -7,6 +7,14 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - day
+  - night
+  - first-night
+  - death
+  - evil
+  - fabled
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

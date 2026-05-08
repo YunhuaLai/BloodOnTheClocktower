@@ -6,6 +6,12 @@ tags:
   - 每晚
   - 主动选玩家
   - 信息型
+termIds:
+  - night
+  - information
+  - alive
+  - townsfolk
+abilityPattern: target_number_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

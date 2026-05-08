@@ -6,6 +6,16 @@ tags:
   - 每晚
   - 主动选玩家
   - 保护型
+termIds:
+  - night
+  - information
+  - death
+  - protected
+  - good
+  - evil
+  - townsfolk
+  - demon
+abilityPattern: choose_player_protection
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

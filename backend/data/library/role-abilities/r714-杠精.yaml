@@ -7,6 +7,11 @@ needsReview: false
 reviewReason: ''
 tags:
   - 设置
+termIds:
+  - setup
+  - townsfolk
+  - outsider
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: setup

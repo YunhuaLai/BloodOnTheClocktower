@@ -7,6 +7,15 @@ needsReview: false
 reviewReason: ''
 tags:
   - 信息型
+termIds:
+  - poisoned
+  - drunk
+  - information
+  - vote
+  - death
+  - alignment
+  - traveler
+abilityPattern: death_trigger
 abilityMeta:
   pageType: record_result_only
   phaseTiming: null

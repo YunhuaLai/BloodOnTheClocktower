@@ -7,6 +7,12 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - day
+  - vote
+  - death
+  - outsider
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

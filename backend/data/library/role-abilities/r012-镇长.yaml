@@ -6,6 +6,20 @@ tags:
   - 被动
   - 残局
   - 规则修饰
+termIds:
+  - day
+  - night
+  - information
+  - execution
+  - death
+  - alive
+  - protected
+  - alignment
+  - good
+  - evil
+  - townsfolk
+  - demon
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

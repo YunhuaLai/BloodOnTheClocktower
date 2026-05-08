@@ -8,6 +8,15 @@ reviewReason: ''
 tags:
   - 每晚
   - 设置
+termIds:
+  - night
+  - setup
+  - death
+  - alive
+  - good
+  - minion
+  - demon
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: each_night_star

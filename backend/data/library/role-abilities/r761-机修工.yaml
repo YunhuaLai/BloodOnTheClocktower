@@ -7,6 +7,13 @@ needsReview: false
 reviewReason: ''
 tags:
   - 被动
+termIds:
+  - day
+  - poisoned
+  - drunk
+  - townsfolk
+  - storyteller
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: passive

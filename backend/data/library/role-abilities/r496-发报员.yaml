@@ -9,6 +9,11 @@ tags:
   - 首夜
   - 每晚
   - 主动选择
+termIds:
+  - night
+  - first-night
+  - townsfolk
+abilityPattern: target_boolean_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

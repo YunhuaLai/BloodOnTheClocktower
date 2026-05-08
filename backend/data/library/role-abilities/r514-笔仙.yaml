@@ -8,6 +8,15 @@ reviewReason: ''
 tags:
   - 每晚
   - 主动选择
+termIds:
+  - night
+  - first-night
+  - poisoned
+  - death
+  - good
+  - evil
+  - minion
+abilityPattern: choose_player_death
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

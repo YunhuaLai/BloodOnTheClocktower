@@ -7,6 +7,9 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - traveler
+abilityPattern: manual_record
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

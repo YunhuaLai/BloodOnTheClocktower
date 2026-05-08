@@ -7,6 +7,15 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - drunk
+  - nomination
+  - execution
+  - death
+  - good
+  - evil
+  - outsider
+abilityPattern: nomination_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

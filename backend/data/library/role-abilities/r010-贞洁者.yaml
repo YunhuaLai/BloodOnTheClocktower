@@ -6,6 +6,13 @@ tags:
   - 提名触发
   - 一次性
   - 特殊机制
+termIds:
+  - day
+  - nomination
+  - execution
+  - death
+  - townsfolk
+abilityPattern: nomination_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

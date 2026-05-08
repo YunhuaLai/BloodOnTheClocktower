@@ -7,6 +7,14 @@ needsReview: false
 reviewReason: ''
 tags:
   - 主动选择
+termIds:
+  - night
+  - poisoned
+  - death
+  - townsfolk
+  - outsider
+  - demon
+abilityPattern: choose_player_death
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: passive

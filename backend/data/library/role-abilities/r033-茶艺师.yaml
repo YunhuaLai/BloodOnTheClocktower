@@ -6,6 +6,13 @@ tags:
   - 被动
   - 保护型
   - 邻座
+termIds:
+  - death
+  - alive
+  - protected
+  - good
+  - townsfolk
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

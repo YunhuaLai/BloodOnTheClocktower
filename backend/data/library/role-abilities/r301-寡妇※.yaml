@@ -8,6 +8,14 @@ reviewReason: ''
 tags:
   - 首夜
   - 主动选择
+termIds:
+  - night
+  - first-night
+  - poisoned
+  - good
+  - minion
+  - grimoire
+abilityPattern: target_role_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: first_night

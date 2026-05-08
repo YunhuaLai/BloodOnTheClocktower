@@ -7,6 +7,14 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - day
+  - death
+  - alignment
+  - evil
+  - storyteller
+  - fabled
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: each_day

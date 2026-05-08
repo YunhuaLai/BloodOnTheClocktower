@@ -6,6 +6,18 @@ tags:
   - 被动
   - 错误信息
   - 规则修饰
+termIds:
+  - day
+  - night
+  - information
+  - execution
+  - death
+  - alignment
+  - good
+  - evil
+  - townsfolk
+  - demon
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

@@ -6,6 +6,13 @@ tags:
   - 被动
   - 保护型
   - 处决
+termIds:
+  - execution
+  - death
+  - protected
+  - good
+  - townsfolk
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

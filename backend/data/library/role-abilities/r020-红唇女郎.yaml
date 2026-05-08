@@ -6,6 +6,16 @@ tags:
   - 被动
   - 恶魔接替
   - 规则修饰
+termIds:
+  - execution
+  - death
+  - alive
+  - good
+  - evil
+  - minion
+  - demon
+  - traveler
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

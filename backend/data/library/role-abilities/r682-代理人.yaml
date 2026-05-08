@@ -8,6 +8,12 @@ reviewReason: ''
 tags:
   - 设置
   - 事件触发
+termIds:
+  - setup
+  - good
+  - minion
+  - demon
+abilityPattern: manual_record
 abilityMeta:
   pageType: event_triggered
   phaseTiming: setup

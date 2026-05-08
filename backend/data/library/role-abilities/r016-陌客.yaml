@@ -6,6 +6,16 @@ tags:
   - 被动
   - 特殊机制
   - 外来者
+termIds:
+  - information
+  - death
+  - alignment
+  - good
+  - evil
+  - outsider
+  - minion
+  - demon
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

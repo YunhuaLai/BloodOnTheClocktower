@@ -8,6 +8,13 @@ reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记
 tags:
   - 首夜
   - 设置
+termIds:
+  - setup
+  - first-night
+  - townsfolk
+  - minion
+  - storyteller
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: first_night

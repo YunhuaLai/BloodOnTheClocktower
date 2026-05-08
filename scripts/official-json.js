@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const yaml = require("js-yaml");
+const { applyAbilityTermMetadata } = require("./ability-term-utils");
 const { inferDeductionData } = require("./deduction-profile-utils");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
@@ -329,7 +330,7 @@ function makeRoleAbilityData(roleData, officialRole) {
     abilityData.deduction = deduction;
   }
 
-  return abilityData;
+  return applyAbilityTermMetadata(abilityData, { ...roleData, ability });
 }
 
 function stripSchemaNodeMeta(node) {

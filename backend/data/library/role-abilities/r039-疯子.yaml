@@ -6,6 +6,11 @@ tags:
   - 每晚
   - 主动选玩家
   - 特殊机制
+termIds:
+  - night
+  - outsider
+  - demon
+abilityPattern: choose_player_effect
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

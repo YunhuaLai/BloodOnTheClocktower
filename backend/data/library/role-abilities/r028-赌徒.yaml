@@ -6,6 +6,12 @@ tags:
   - 每晚
   - 主动选玩家
   - 主动选角色
+termIds:
+  - night
+  - information
+  - death
+  - townsfolk
+abilityPattern: target_boolean_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

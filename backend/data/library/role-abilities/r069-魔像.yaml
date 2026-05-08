@@ -6,6 +6,14 @@ tags:
   - 白天
   - 一次性
   - 提名触发
+termIds:
+  - day
+  - nomination
+  - execution
+  - death
+  - outsider
+  - demon
+abilityPattern: target_demon_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: day

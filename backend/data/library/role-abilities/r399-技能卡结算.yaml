@@ -7,6 +7,10 @@ needsReview: false
 reviewReason: ''
 tags:
   - 每晚
+termIds:
+  - night
+  - outsider
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: each_night

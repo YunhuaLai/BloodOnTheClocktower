@@ -6,6 +6,15 @@ tags:
   - 开局
   - 被动
   - 规则修饰
+termIds:
+  - setup
+  - first-night
+  - good
+  - evil
+  - townsfolk
+  - outsider
+  - minion
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: setup

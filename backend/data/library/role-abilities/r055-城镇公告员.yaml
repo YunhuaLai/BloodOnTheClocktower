@@ -6,6 +6,14 @@ tags:
   - 每晚
   - 信息型
   - 提名相关
+termIds:
+  - day
+  - night
+  - information
+  - nomination
+  - townsfolk
+  - minion
+abilityPattern: boolean_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night_star

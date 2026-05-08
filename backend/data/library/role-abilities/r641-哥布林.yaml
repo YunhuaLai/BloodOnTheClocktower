@@ -7,6 +7,13 @@ needsReview: true
 reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
 tags:
   - 事件触发
+termIds:
+  - day
+  - nomination
+  - execution
+  - alignment
+  - minion
+abilityPattern: nomination_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

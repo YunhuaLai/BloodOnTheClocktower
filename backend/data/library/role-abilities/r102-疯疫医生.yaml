@@ -6,6 +6,12 @@ tags:
   - 死亡触发
   - 爪牙能力
   - 说书人
+termIds:
+  - death
+  - outsider
+  - minion
+  - storyteller
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

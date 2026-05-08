@@ -7,6 +7,14 @@ needsReview: false
 reviewReason: ''
 tags:
   - 信息型
+termIds:
+  - information
+  - death
+  - alive
+  - minion
+  - storyteller
+  - jinx
+abilityPattern: death_trigger
 abilityMeta:
   pageType: record_result_only
   phaseTiming: null

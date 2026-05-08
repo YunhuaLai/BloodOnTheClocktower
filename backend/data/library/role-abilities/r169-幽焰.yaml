@@ -5,6 +5,16 @@ schemaVersion: 1
 tags:
   - 每晚*
   - 恶魔杀人
+termIds:
+  - night
+  - other-night
+  - death
+  - alive
+  - alignment
+  - evil
+  - minion
+  - demon
+abilityPattern: target_demon_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

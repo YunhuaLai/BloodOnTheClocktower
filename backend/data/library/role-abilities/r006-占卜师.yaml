@@ -6,6 +6,14 @@ tags:
   - 每晚
   - 主动选玩家
   - 信息型
+termIds:
+  - night
+  - information
+  - good
+  - townsfolk
+  - demon
+  - red-herring
+abilityPattern: target_demon_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

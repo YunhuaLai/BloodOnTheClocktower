@@ -6,6 +6,14 @@ tags:
   - 被动
   - 保护型
   - 规则修饰
+termIds:
+  - night
+  - information
+  - death
+  - protected
+  - townsfolk
+  - demon
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

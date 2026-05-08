@@ -8,6 +8,19 @@ reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记
 tags:
   - 每晚
   - 主动选择
+termIds:
+  - day
+  - night
+  - poisoned
+  - drunk
+  - information
+  - death
+  - alignment
+  - good
+  - evil
+  - townsfolk
+  - storyteller
+abilityPattern: choose_player_death
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

@@ -7,6 +7,15 @@ tags:
   - 提名
   - 处决
   - 保护型
+termIds:
+  - day
+  - nomination
+  - execution
+  - death
+  - protected
+  - townsfolk
+  - demon
+abilityPattern: execution_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: day

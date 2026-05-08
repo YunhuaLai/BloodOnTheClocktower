@@ -6,6 +6,12 @@ tags:
   - 每晚
   - 主动选玩家
   - 多杀型
+termIds:
+  - night
+  - death
+  - alive
+  - demon
+abilityPattern: manual_record
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

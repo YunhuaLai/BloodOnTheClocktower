@@ -6,6 +6,12 @@ tags:
   - 一次性
   - 主动选角色
   - 中毒型
+termIds:
+  - night
+  - poisoned
+  - drunk
+  - townsfolk
+abilityPattern: choose_role_status_effect
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: night

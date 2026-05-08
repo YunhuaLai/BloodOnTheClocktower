@@ -6,6 +6,15 @@ tags:
   - 被动
   - 残局
   - 规则修饰
+termIds:
+  - day
+  - night
+  - execution
+  - alignment
+  - evil
+  - minion
+  - demon
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

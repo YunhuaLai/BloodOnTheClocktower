@@ -8,6 +8,14 @@ reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记
 tags:
   - 首夜
   - 主动选择
+termIds:
+  - day
+  - night
+  - first-night
+  - alive
+  - demon
+  - fabled
+abilityPattern: choose_player_effect
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: first_night

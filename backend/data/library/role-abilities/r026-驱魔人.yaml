@@ -6,6 +6,11 @@ tags:
   - 每晚
   - 主动选玩家
   - 阻断型
+termIds:
+  - night
+  - townsfolk
+  - demon
+abilityPattern: target_demon_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

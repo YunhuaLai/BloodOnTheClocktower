@@ -5,6 +5,12 @@ schemaVersion: 1
 tags:
   - 死亡触发
   - 转变
+termIds:
+  - death
+  - alive
+  - alignment
+  - outsider
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: special

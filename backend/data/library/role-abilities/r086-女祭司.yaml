@@ -6,6 +6,12 @@ tags:
   - 每晚
   - 信息型
   - 交流建议
+termIds:
+  - night
+  - information
+  - townsfolk
+  - storyteller
+abilityPattern: player_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night

@@ -7,6 +7,11 @@ needsReview: false
 reviewReason: ''
 tags:
   - 首夜
+termIds:
+  - night
+  - first-night
+  - minion
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: first_night

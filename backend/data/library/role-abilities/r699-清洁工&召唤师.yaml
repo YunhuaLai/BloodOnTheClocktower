@@ -7,6 +7,10 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - execution
+  - jinx
+abilityPattern: execution_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

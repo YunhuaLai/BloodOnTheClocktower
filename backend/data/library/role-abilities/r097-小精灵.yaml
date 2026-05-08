@@ -7,6 +7,14 @@ tags:
   - 信息型
   - 疯狂机制
   - 能力继承
+termIds:
+  - night
+  - first-night
+  - information
+  - death
+  - townsfolk
+  - madness
+abilityPattern: role_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

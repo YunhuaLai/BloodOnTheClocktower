@@ -5,6 +5,13 @@ schemaVersion: 1
 tags:
   - 被动
   - 死亡保护
+termIds:
+  - execution
+  - death
+  - protected
+  - evil
+  - townsfolk
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

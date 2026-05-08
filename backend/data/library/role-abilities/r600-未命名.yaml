@@ -6,6 +6,9 @@ needsReview: false
 reviewReason: ''
 tags:
   - 被动
+termIds:
+  - townsfolk
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: passive

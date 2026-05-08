@@ -5,6 +5,11 @@ schemaVersion: 1
 tags:
   - 每晚
   - 选择距离
+termIds:
+  - night
+  - townsfolk
+  - minion
+abilityPattern: player_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

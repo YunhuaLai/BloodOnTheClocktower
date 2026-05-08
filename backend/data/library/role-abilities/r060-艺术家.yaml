@@ -6,6 +6,12 @@ tags:
   - 白天
   - 一次性
   - 问答型
+termIds:
+  - day
+  - information
+  - townsfolk
+  - storyteller
+abilityPattern: boolean_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: day

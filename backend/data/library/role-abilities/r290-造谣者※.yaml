@@ -7,6 +7,12 @@ needsReview: false
 reviewReason: ''
 tags:
   - 每晚
+termIds:
+  - day
+  - night
+  - death
+  - jinx
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: each_day

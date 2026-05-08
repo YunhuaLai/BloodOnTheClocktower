@@ -6,6 +6,13 @@ tags:
   - 白天
   - 信息型
   - 公开声明
+termIds:
+  - day
+  - night
+  - information
+  - death
+  - townsfolk
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_day

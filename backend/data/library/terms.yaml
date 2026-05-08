@@ -1,0 +1,893 @@
+replacements:
+  - from: 市长
+    to: 镇长
+  - from: 隐士
+    to: 陌客
+  - from: 猩红女郎
+    to: 红唇女郎
+terms:
+  - id: day
+    name: 白天
+    aliases:
+      - 白昼
+      - 白天阶段
+    category: 流程
+    summary: 玩家公开讨论、提名、投票和处决的主要阶段。
+    detail:
+      overview: 玩家公开讨论、提名、投票和处决的主要阶段。
+      howItWorks:
+        - 白天是全桌共享信息和制造压力的时间。
+        - 提名、辩解、投票、处决通常都在白天完成。
+        - 死亡玩家仍然可以发言，但只剩一次有效投票。
+      commonMistakes:
+        - 把白天只当作聊天时间，忘记用提名和投票创造信息。
+        - 过早结束讨论，导致夜晚信息无法被交叉验证。
+        - 死亡玩家忘记自己还能参与发言。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - night
+      - nomination
+      - vote
+      - execution
+    relatedRoleIds:
+      - undertaker
+      - virgin
+      - slayer
+      - saint
+  - id: night
+    name: 夜晚
+    aliases:
+      - 黑天
+      - 夜里
+      - 夜间
+      - 夜晚阶段
+      - 每晚
+    category: 流程
+    summary: 玩家闭眼后由说书人依照夜晚顺序处理角色能力的阶段。
+    detail:
+      overview: 玩家闭眼后由说书人依照夜晚顺序处理角色能力的阶段。
+      howItWorks:
+        - 很多角色会在夜晚醒来行动或获得信息。
+        - 首夜和其他夜晚的行动顺序可能不同。
+        - 夜晚死亡、保护、醉酒、中毒等结果会影响第二天讨论。
+      commonMistakes:
+        - 把所有死亡都直接归因于恶魔。
+        - 忘记首夜与其他夜晚的行动顺序不同。
+        - 没有记录夜晚异常，导致白天无法复盘。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - first-night
+      - other-night
+      - poisoned
+      - drunk
+    relatedRoleIds:
+      - monk
+      - poisoner
+      - imp
+      - chambermaid
+  - id: setup
+    name: 设置
+    aliases:
+      - 配置
+      - 初始配置
+      - setup
+    category: 流程
+    summary: 游戏开始前决定角色分配、额外标记和人数配置调整的阶段。
+    detail:
+      overview: 游戏开始前决定角色分配、额外标记和人数配置调整的阶段。
+      howItWorks:
+        - 设置效果通常在玩家拿到角色或首夜开始前完成。
+        - 有些角色会改变外来者数量、加入额外角色或影响初始身份。
+        - 说书人需要把设置结果记录进魔典，避免夜晚结算时遗漏。
+      commonMistakes:
+        - 把设置效果拖到游戏开始后才临时决定。
+        - 忘记设置类角色可能改变人数配置。
+        - 没有记录设置来源，导致后续复盘难以解释。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - grimoire
+      - ability
+      - storyteller
+    relatedRoleIds:
+      - baron
+      - drunk
+      - engineer
+      - kazali
+  - id: first-night
+    name: 首夜
+    aliases:
+      - 第一夜
+      - 首个夜晚
+      - 开局
+    category: 流程
+    summary: 游戏开始后的第一个夜晚，许多开局信息角色会在此时获得线索。
+    detail:
+      overview: 游戏开始后的第一个夜晚，许多开局信息角色会在此时获得线索。
+      howItWorks:
+        - 首夜通常用于确认初始配置、开局信息和邪恶方互认。
+        - 开局信息不等于绝对真相，仍可能受到角色效果影响。
+        - 说书人需要提前准备好首夜顺序和要给出的信息。
+      commonMistakes:
+        - 开局信息一出就直接定死身份。
+        - 忘记部分角色只在首夜行动。
+        - 说书人临场才决定关键信息，导致局面失衡。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - night
+      - information
+      - drunk
+      - poisoned
+    relatedRoleIds:
+      - washerwoman
+      - librarian
+      - investigator
+      - chef
+      - clockmaker
+  - id: other-night
+    name: 其他夜晚
+    aliases:
+      - 后续夜晚
+      - 非首夜
+      - 每晚*
+    category: 流程
+    summary: 首夜之后的夜晚，更多持续能力、击杀、保护和信息结算会发生。
+    detail:
+      overview: 首夜之后的夜晚，更多持续能力、击杀、保护和信息结算会发生。
+      howItWorks:
+        - 许多持续型角色每个其他夜晚都会行动。
+        - 恶魔击杀、保护、醉酒、中毒和死亡触发常在此阶段交错。
+        - 每天记录夜晚结果能帮助复盘能力链。
+      commonMistakes:
+        - 沿用首夜顺序处理后续夜晚。
+        - 漏掉死亡触发型角色。
+        - 没有区分当晚行动和前一晚遗留效果。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - night
+      - death
+      - protected
+      - poisoned
+    relatedRoleIds:
+      - empath
+      - fortune-teller
+      - monk
+      - ravenkeeper
+  - id: poisoned
+    name: 中毒
+    aliases:
+      - 投毒
+      - 被毒
+    category: 状态
+    summary: 角色能力变得不可靠或不能正常生效的状态，通常由其他角色造成。
+    detail:
+      overview: 角色能力变得不可靠或不能正常生效的状态，通常由其他角色造成。
+      howItWorks:
+        - 中毒玩家一般不知道自己中毒。
+        - 中毒会让信息、保护、击杀或其他能力出现异常。
+        - 中毒不是说玩家变成邪恶，而是能力层面出了问题。
+      commonMistakes:
+        - 看到矛盾信息就把玩家直接打成邪恶。
+        - 以为中毒一定会产生明显错误结果。
+        - 忘记中毒的时间点会影响哪些能力。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - drunk
+      - information
+      - ability
+    relatedRoleIds:
+      - poisoner
+      - pukka
+      - no-dashii
+      - vigormortis
+  - id: drunk
+    name: 醉酒
+    aliases:
+      - 喝醉
+      - 酒鬼状态
+    category: 状态
+    summary: 角色能力不可靠或不能正常生效的状态，常用于制造善良方信息污染。
+    detail:
+      overview: 角色能力不可靠或不能正常生效的状态，常用于制造善良方信息污染。
+      howItWorks:
+        - 醉酒和中毒很像，都会让能力不可靠。
+        - 醉酒玩家通常仍以为自己的能力正常运作。
+        - 醉酒可以来自角色本身，也可以来自其他角色效果。
+      commonMistakes:
+        - 把醉酒和角色阵营混为一谈。
+        - 认为醉酒信息一定完全相反。
+        - 忘记醉酒可能只持续一段时间。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - poisoned
+      - information
+      - ability
+    relatedRoleIds:
+      - drunk
+      - sailor
+      - innkeeper
+      - courtier
+      - minstrel
+  - id: ability
+    name: 能力
+    aliases:
+      - 角色能力
+      - 技能
+    category: 规则
+    summary: 角色在特定时机触发、行动或影响局面的规则文本。
+    detail:
+      overview: 角色在特定时机触发、行动或影响局面的规则文本。
+      howItWorks:
+        - 能力可能在首夜、其他夜晚、白天、死亡时或整局持续生效。
+        - 能力是否正常生效取决于醉酒、中毒、死亡、保护等状态。
+        - 说书人需要按时机和优先级处理能力。
+      commonMistakes:
+        - 只看能力强弱，不看触发时机。
+        - 忽略能力可能被醉酒或中毒影响。
+        - 把能力解释成玩家可以自由选择的所有行为。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - first-night
+      - other-night
+      - drunk
+      - poisoned
+    relatedRoleIds:
+      - philosopher
+      - mathematician
+      - pit-hag
+  - id: information
+    name: 信息
+    aliases:
+      - 情报
+      - 线索
+    category: 推理
+    summary: 角色、投票、死亡和发言共同提供的可用于推理的内容。
+    detail:
+      overview: 角色、投票、死亡和发言共同提供的可用于推理的内容。
+      howItWorks:
+        - 信息不只来自角色能力，也来自投票、提名、死亡顺序和发言变化。
+        - 好信息需要交叉验证，而不是孤立使用。
+        - 错误信息也可能反向帮助定位醉酒、中毒或邪恶角色。
+      commonMistakes:
+        - 只相信角色给出的数字或是非结果。
+        - 把所有矛盾都归因于有人说谎。
+        - 没有记录信息来源和时间点。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - poisoned
+      - drunk
+      - red-herring
+      - storyteller
+    relatedRoleIds:
+      - savant
+      - artist
+      - dreamer
+      - washerwoman
+  - id: nomination
+    name: 提名
+    aliases:
+      - 提人
+      - 发起提名
+    category: 白天
+    summary: 白天由玩家发起的处决候选流程，通常会进入辩解和投票。
+    detail:
+      overview: 白天由玩家发起的处决候选流程，通常会进入辩解和投票。
+      howItWorks:
+        - 提名能迫使目标和提名者公开立场。
+        - 有些角色会因提名触发能力或风险。
+        - 提名本身也是行为信息。
+      commonMistakes:
+        - 把提名只当作攻击，不用来测试信息。
+        - 害怕提名导致白天没有可分析投票。
+        - 忽略谁在关键时刻发起或回避提名。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - day
+      - vote
+      - execution
+    relatedRoleIds:
+      - virgin
+      - witch
+      - town-crier
+      - saint
+  - id: vote
+    name: 投票
+    aliases:
+      - 举手
+      - 票型
+    category: 白天
+    summary: 玩家对提名对象是否进入处决进行表态的流程。
+    detail:
+      overview: 玩家对提名对象是否进入处决进行表态的流程。
+      howItWorks:
+        - 投票能展示站边、保护和切割关系。
+        - 死亡玩家通常只剩一次有效投票，要谨慎使用。
+        - 投票轨迹常常比单次发言更难伪装。
+      commonMistakes:
+        - 只看谁说了什么，不看谁投了什么。
+        - 死亡玩家过早浪费唯一投票。
+        - 忽略恶魔或爪牙可能通过投票伪装善良。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - nomination
+      - execution
+      - dead-vote
+    relatedRoleIds:
+      - butler
+      - flowergirl
+      - mayor
+  - id: execution
+    name: 处决
+    aliases:
+      - 公投处死
+      - 白天处死
+    category: 白天
+    summary: 白天投票结果造成的死亡方式，是善良方主动推进游戏的重要工具。
+    detail:
+      overview: 白天投票结果造成的死亡方式，是善良方主动推进游戏的重要工具。
+      howItWorks:
+        - 处决不只是杀人，也是在验证信息和压缩范围。
+        - 某些角色会因处决触发额外结果。
+        - 是否处决、处决谁、谁推动处决都是重要线索。
+      commonMistakes:
+        - 因为怕错而长期不处决。
+        - 把夜晚死亡和白天处决触发混淆。
+        - 处决后不复盘投票与发言。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - day
+      - vote
+      - death
+    relatedRoleIds:
+      - undertaker
+      - saint
+      - virgin
+      - mastermind
+  - id: death
+    name: 死亡
+    aliases:
+      - 死了
+      - 阵亡
+    category: 状态
+    summary: 玩家死亡后失去大多数行动能力，但通常仍可发言并保留一次有效投票。
+    detail:
+      overview: 玩家死亡后失去大多数行动能力，但通常仍可发言并保留一次有效投票。
+      howItWorks:
+        - 死亡不等于出局，死者仍能参与讨论。
+        - 死亡来源可能来自恶魔、处决、角色能力或说书人选择。
+        - 死亡时间点会影响许多角色能力。
+      commonMistakes:
+        - 死亡后就不再参与讨论。
+        - 把所有死亡都归因于恶魔。
+        - 忘记死亡玩家只剩一次有效投票。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - alive
+      - dead-vote
+      - execution
+      - night
+    relatedRoleIds:
+      - ravenkeeper
+      - undertaker
+      - tinker
+      - moonchild
+  - id: alive
+    name: 存活
+    aliases:
+      - 活着
+      - 生还
+    category: 状态
+    summary: 玩家当前没有死亡，仍可正常参与投票和大多数能力互动。
+    detail:
+      overview: 玩家当前没有死亡，仍可正常参与投票和大多数能力互动。
+      howItWorks:
+        - 许多能力只影响存活玩家。
+        - 存活人数会影响胜负判断和某些角色结算。
+        - 异常存活常常是保护、醉酒、中毒或恶魔类型的线索。
+      commonMistakes:
+        - 忽略死亡后相邻关系或目标范围变化。
+        - 看到没死人就只归因于保护。
+        - 没有关注残局存活人数。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - death
+      - protected
+      - mayor-win
+    relatedRoleIds:
+      - soldier
+      - fool
+      - zombuul
+      - mayor
+  - id: dead-vote
+    name: 死亡投票
+    aliases:
+      - 鬼票
+      - 死票
+    category: 投票
+    summary: 死亡玩家通常保留的一次有效投票，是残局里非常关键的资源。
+    detail:
+      overview: 死亡玩家通常保留的一次有效投票，是残局里非常关键的资源。
+      howItWorks:
+        - 死亡玩家可以继续发言，但有效投票通常只有一次。
+        - 死票越到残局越珍贵。
+        - 死票使用时机能体现玩家对局面的判断。
+      commonMistakes:
+        - 死亡后忘记自己还能投一次。
+        - 太早使用死票导致残局缺票。
+        - 没有记录哪些死亡玩家已经投过有效票。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - death
+      - vote
+      - execution
+    relatedRoleIds:
+      - butler
+      - saint
+      - mayor
+  - id: protected
+    name: 保护
+    aliases:
+      - 免死
+      - 保护效果
+    category: 状态
+    summary: 角色或能力让玩家免受某些死亡或负面效果影响。
+    detail:
+      overview: 角色或能力让玩家免受某些死亡或负面效果影响。
+      howItWorks:
+        - 保护通常有来源、范围和时机限制。
+        - 无死亡不一定代表保护成功，也可能是醉酒、中毒或恶魔选择导致。
+        - 保护信息需要结合死亡结果和公开身份判断。
+      commonMistakes:
+        - 把所有无死亡都归功于保护角色。
+        - 忘记保护可能只针对特定死亡来源。
+        - 公开保护路线后让邪恶方轻松绕开。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - night
+      - death
+      - drunk
+      - poisoned
+    relatedRoleIds:
+      - monk
+      - innkeeper
+      - tea-lady
+      - soldier
+  - id: alignment
+    name: 阵营
+    aliases:
+      - 善恶
+      - 阵营归属
+    category: 身份
+    summary: 玩家属于善良或邪恶一方，决定其胜利目标。
+    detail:
+      overview: 玩家属于善良或邪恶一方，决定其胜利目标。
+      howItWorks:
+        - 阵营和角色类型相关，但并非永远不可变化。
+        - 有些能力会造成阵营变化或阵营误判。
+        - 推理时要区分角色身份、阵营、侦测结果三件事。
+      commonMistakes:
+        - 把角色类型等同于绝对阵营。
+        - 忽略转阵营或侦测误判。
+        - 只凭一个角色名判断玩家目标。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - good
+      - evil
+      - townsfolk
+      - outsider
+      - minion
+      - demon
+    relatedRoleIds:
+      - goon
+      - snake-charmer
+      - fang-gu
+      - evil-twin
+  - id: good
+    name: 善良
+    aliases:
+      - 好人
+      - 善良阵营
+    category: 阵营
+    summary: 通常以找出并处决恶魔为目标的阵营。
+    detail:
+      overview: 通常以找出并处决恶魔为目标的阵营。
+      howItWorks:
+        - 善良玩家不一定都拥有正面能力，外来者也属于善良阵营。
+        - 善良方需要整合信息、发言和投票，而不是各自为战。
+        - 善良阵营也可能因为醉酒、中毒或误判提供错误信息。
+      commonMistakes:
+        - 认为所有善良角色都应该给正确信息。
+        - 忽视外来者也有善良胜利目标。
+        - 善良方互相不共享关键推理。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - alignment
+      - townsfolk
+      - outsider
+      - evil
+    relatedRoleIds:
+      - washerwoman
+      - saint
+      - drunk
+  - id: evil
+    name: 邪恶
+    aliases:
+      - 坏人
+      - 邪恶阵营
+    category: 阵营
+    summary: 通常以保护恶魔、误导善良方并活到胜利条件为目标的阵营。
+    detail:
+      overview: 通常以保护恶魔、误导善良方并活到胜利条件为目标的阵营。
+      howItWorks:
+        - 邪恶方通常知道更多初始信息，但人数更少。
+        - 爪牙要帮助恶魔建立可信伪装。
+        - 邪恶方也可以通过牺牲、切割和假信息获得空间。
+      commonMistakes:
+        - 邪恶方只被动隐藏，不主动构造故事。
+        - 爪牙只顾自己活，不帮恶魔。
+        - 善良方认为邪恶玩家一定会投票一致。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - alignment
+      - minion
+      - demon
+      - good
+    relatedRoleIds:
+      - spy
+      - baron
+      - imp
+      - vortox
+  - id: townsfolk
+    name: 镇民
+    aliases:
+      - 镇民角色
+    category: 角色类型
+    summary: 善良阵营的主要功能角色，通常提供信息、保护、击杀或残局能力。
+    detail:
+      overview: 善良阵营的主要功能角色，通常提供信息、保护、击杀或残局能力。
+      howItWorks:
+        - 镇民能力通常对善良方有帮助。
+        - 镇民也可能醉酒、中毒或被其他机制影响。
+        - 镇民身份可信度需要靠信息和行为建立。
+      commonMistakes:
+        - 镇民一跳身份就被全桌无条件相信。
+        - 忽略镇民能力可能失效。
+        - 只保护强信息位，忽略残局角色。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - good
+      - ability
+      - information
+    relatedRoleIds:
+      - washerwoman
+      - fortune-teller
+      - mayor
+  - id: outsider
+    name: 外来者
+    aliases:
+      - 外来者角色
+    category: 角色类型
+    summary: 善良阵营中带有负担、风险或信息干扰的角色类型。
+    detail:
+      overview: 善良阵营中带有负担、风险或信息干扰的角色类型。
+      howItWorks:
+        - 外来者属于善良阵营，但能力常常给善良方制造麻烦。
+        - 外来者数量会影响配置判断。
+        - 邪恶方常利用外来者身份解释异常。
+      commonMistakes:
+        - 把外来者当作不可信或不重要。
+        - 只看外来者声明，不看配置数量。
+        - 忘记外来者也需要参与推理和投票。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - good
+      - drunk
+      - alignment
+    relatedRoleIds:
+      - librarian
+      - drunk
+      - recluse
+      - mutant
+  - id: minion
+    name: 爪牙
+    aliases:
+      - 爪牙角色
+    category: 角色类型
+    summary: 邪恶阵营的辅助角色，负责制造混乱、保护恶魔和扰乱信息。
+    detail:
+      overview: 邪恶阵营的辅助角色，负责制造混乱、保护恶魔和扰乱信息。
+      howItWorks:
+        - 爪牙通常知道恶魔是谁，并围绕恶魔胜利行动。
+        - 爪牙能力常制造错误信息、额外死亡或社交压力。
+        - 爪牙可以通过牺牲自己换取恶魔更安全。
+      commonMistakes:
+        - 爪牙只追求自己不被处决。
+        - 善良方忽略爪牙能力导致的信息污染。
+        - 把所有异常都归到恶魔身上，漏掉爪牙。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - evil
+      - demon
+      - poisoned
+    relatedRoleIds:
+      - poisoner
+      - spy
+      - witch
+      - mastermind
+  - id: demon
+    name: 恶魔
+    aliases:
+      - 恶魔角色
+    category: 角色类型
+    summary: 邪恶阵营核心，通常负责夜晚死亡，也是善良方最主要的处决目标。
+    detail:
+      overview: 邪恶阵营核心，通常负责夜晚死亡，也是善良方最主要的处决目标。
+      howItWorks:
+        - 大多数剧本里处决恶魔是善良方核心胜利路线。
+        - 不同恶魔会改变死亡节奏、信息可靠性和残局判断。
+        - 恶魔可能被接替、转移或伪装成其他身份。
+      commonMistakes:
+        - 只按死亡数量判断恶魔类型。
+        - 处决疑似恶魔后停止推理。
+        - 忽略恶魔可能转移或被爪牙保护。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - evil
+      - minion
+      - death
+      - night
+    relatedRoleIds:
+      - imp
+      - zombuul
+      - fang-gu
+      - vortox
+  - id: storyteller
+    name: 说书人
+    aliases:
+      - 主持
+      - 主持人
+      - ST
+    category: 规则
+    summary: 主持游戏、结算能力、发放信息并维护游戏体验的人。
+    detail:
+      overview: 主持游戏、结算能力、发放信息并维护游戏体验的人。
+      howItWorks:
+        - 说书人不是阵营玩家，目标是让游戏公平、有张力、可复盘。
+        - 说书人需要处理夜晚顺序、信息给法、死亡和胜负判断。
+        - 很多模糊情况需要说书人根据规则和体验做选择。
+      commonMistakes:
+        - 把说书人当作善良方或邪恶方队友。
+        - 说书人给信息只追求迷惑，而不考虑可推理性。
+        - 玩家忘记向说书人确认规则细节。
+      examples:
+        - 这是通用规则词，适合先理解概念，再结合具体角色查看。
+    relatedTermIds:
+      - grimoire
+      - information
+      - ability
+    relatedRoleIds: []
+  - id: grimoire
+    name: 魔典
+    aliases:
+      - 说书人面板
+      - 魔法书
+    category: 工具
+    summary: 说书人用于记录角色、状态、提示标记和夜晚信息的核心工具。
+    detail:
+      overview: 说书人用于记录角色、状态、提示标记和夜晚信息的核心工具。
+      howItWorks:
+        - 魔典记录角色身份、阵营、死亡、中毒、醉酒等状态。
+        - 说书人依靠魔典维护夜晚顺序和信息一致性。
+        - 玩家通常不能查看魔典，少数角色例外。
+      commonMistakes:
+        - 说书人不及时更新状态标记。
+        - 忘记记录一次性能力是否已使用。
+        - 让玩家看到不该公开的信息。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - storyteller
+      - poisoned
+      - drunk
+      - death
+    relatedRoleIds:
+      - spy
+  - id: red-herring
+    name: 干扰项
+    aliases:
+      - 红鲱鱼
+      - 误导目标
+    category: 推理
+    summary: 某些能力中用于制造误导的特殊目标或结果。
+    detail:
+      overview: 某些能力中用于制造误导的特殊目标或结果。
+      howItWorks:
+        - 干扰项能让善良信息出现合理偏差。
+        - 它不是随机捣乱，而是剧本设计的一部分。
+        - 识别干扰项需要结合多晚信息和全局行为。
+      commonMistakes:
+        - 把干扰项当成说书人随意欺骗。
+        - 一次命中就直接处决候选人。
+        - 忽略干扰项也可能帮助解释矛盾信息。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - information
+      - poisoned
+      - drunk
+    relatedRoleIds:
+      - fortune-teller
+  - id: madness
+    name: 疯狂
+    aliases:
+      - 疯狂机制
+      - 装作
+    category: 社交机制
+    summary: 玩家被要求努力让他人相信某件事，否则可能承担后果的机制。
+    detail:
+      overview: 玩家被要求努力让他人相信某件事，否则可能承担后果的机制。
+      howItWorks:
+        - 疯狂关注的是玩家是否真诚努力表现，而不只是说了哪句话。
+        - 疯狂常和身份宣称、处决风险、信息混乱有关。
+        - 说书人要判断玩家是否在认真维持疯狂。
+      commonMistakes:
+        - 把疯狂理解成不能说某个词。
+        - 玩家机械重复一句话，缺少真实说服行为。
+        - 说书人用疯狂惩罚玩家的正常推理空间。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - execution
+      - storyteller
+      - ability
+    relatedRoleIds:
+      - mutant
+      - cerenovus
+  - id: traveler
+    name: 旅行者
+    aliases:
+      - 旅行者角色
+      - traveler
+      - traveller
+      - traveller2
+    category: 角色类型
+    summary: 适合中途加入或离开的特殊角色类型，规则上和普通角色有所不同。
+    detail:
+      overview: 适合中途加入或离开的特殊角色类型，规则上和普通角色有所不同。
+      howItWorks:
+        - 旅行者可以用于处理玩家临时加入或离场。
+        - 旅行者阵营通常公开或更容易被处理。
+        - 是否使用旅行者取决于局面和说书人安排。
+      commonMistakes:
+        - 把旅行者当作普通角色完全同等处理。
+        - 没有提前说明旅行者阵营和放逐规则。
+        - 用旅行者打乱新手局节奏。
+      examples:
+        - 这是通用规则词，适合先理解概念，再结合具体角色查看。
+    relatedTermIds:
+      - alignment
+      - storyteller
+      - exile
+    relatedRoleIds: []
+  - id: fabled
+    name: 传奇角色
+    aliases:
+      - 传奇
+      - fabled
+    category: 角色类型
+    summary: 由说书人加入剧本以调整规则、流程或游戏体验的特殊角色类型。
+    detail:
+      overview: 由说书人加入剧本以调整规则、流程或游戏体验的特殊角色类型。
+      howItWorks:
+        - 传奇角色通常不是普通玩家身份，而是影响整局规则的工具。
+        - 使用前应向玩家说明它改变了哪些流程、配置或信息规则。
+        - 它适合解决剧本、人数或场地需求，而不是临场随意改局。
+      commonMistakes:
+        - 把传奇角色当成普通玩家角色记录。
+        - 没有在开局前说明传奇角色的影响。
+        - 用传奇角色掩盖原本应该由剧本设计解决的问题。
+      examples:
+        - 这是通用规则词，适合先理解概念，再结合具体角色查看。
+    relatedTermIds:
+      - storyteller
+      - ability
+    relatedRoleIds: []
+  - id: jinx
+    name: 相克规则
+    aliases:
+      - 相克
+      - jinx
+      - jinxed
+      - jinxes
+    category: 规则
+    summary: 两个或多个角色同时在剧本中出现时需要使用的额外规则修正。
+    detail:
+      overview: 两个或多个角色同时在剧本中出现时需要使用的额外规则修正。
+      howItWorks:
+        - 相克规则用于处理角色能力之间可能产生的冲突或失衡。
+        - 它通常只在特定角色组合同时出现在剧本中时生效。
+        - 说书人应在开局前确认剧本使用了哪些相克规则。
+      commonMistakes:
+        - 忘记检查当前剧本是否触发相克规则。
+        - 把相克规则当作单个角色的普通能力。
+        - 临场才解释相克规则，导致玩家无法预期结算方式。
+      examples:
+        - 这是通用规则词，适合先理解概念，再结合具体角色查看。
+    relatedTermIds:
+      - ability
+      - storyteller
+      - setup
+    relatedRoleIds: []
+  - id: exile
+    name: 放逐
+    aliases:
+      - 驱逐旅行者
+    category: 流程
+    summary: 针对旅行者的特殊移除流程，不等同于普通处决。
+    detail:
+      overview: 针对旅行者的特殊移除流程，不等同于普通处决。
+      howItWorks:
+        - 放逐主要用于处理旅行者。
+        - 放逐和处决在触发能力上通常不是一回事。
+        - 进行放逐前应让全桌清楚它与处决的区别。
+      commonMistakes:
+        - 把放逐误当成处决触发。
+        - 没有说明为什么要放逐旅行者。
+        - 把旅行者死亡、放逐和普通处决混在一起记录。
+      examples:
+        - 这是通用规则词，适合先理解概念，再结合具体角色查看。
+    relatedTermIds:
+      - traveler
+      - execution
+      - day
+    relatedRoleIds: []
+  - id: mayor-win
+    name: 镇长胜利
+    aliases:
+      - 镇长结算
+      - 镇长残局
+    category: 胜负
+    summary: 与镇长相关的特殊胜利路径，需要说书人准确判断残局条件。
+    detail:
+      overview: 与镇长相关的特殊胜利路径，需要说书人准确判断残局条件。
+      howItWorks:
+        - 镇长相关胜利通常发生在特定残局条件下。
+        - 镇长是否可信会影响善良方是否愿意走这条路线。
+        - 邪恶方通常需要在残局前处理镇长威胁。
+      commonMistakes:
+        - 把镇长当作普通无信息镇民。
+        - 残局前没有确认存活人数和胜负条件。
+        - 所有夜晚异常都强行解释为镇长效果。
+      examples:
+        - 可以在关联角色的详情页里看到这个关键词如何影响实际局面。
+    relatedTermIds:
+      - alive
+      - demon
+      - good
+    relatedRoleIds:
+      - mayor
+      - monk
+      - soldier
+      - imp

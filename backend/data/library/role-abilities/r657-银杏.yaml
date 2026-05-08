@@ -7,6 +7,13 @@ needsReview: false
 reviewReason: ''
 tags:
   - 主动选择
+termIds:
+  - day
+  - poisoned
+  - drunk
+  - townsfolk
+  - storyteller
+abilityPattern: target_boolean_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_day

@@ -6,6 +6,12 @@ tags:
   - 首夜
   - 特殊机制
   - 密语
+termIds:
+  - first-night
+  - good
+  - evil
+  - minion
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

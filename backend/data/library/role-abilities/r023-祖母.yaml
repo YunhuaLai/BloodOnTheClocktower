@@ -6,6 +6,15 @@ tags:
   - 首夜
   - 信息型
   - 身份提示
+termIds:
+  - night
+  - first-night
+  - information
+  - death
+  - good
+  - townsfolk
+  - demon
+abilityPattern: role_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

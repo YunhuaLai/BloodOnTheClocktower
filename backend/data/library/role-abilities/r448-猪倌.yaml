@@ -7,6 +7,12 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - night
+  - death
+  - outsider
+  - demon
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

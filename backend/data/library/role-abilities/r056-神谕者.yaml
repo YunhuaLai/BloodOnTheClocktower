@@ -6,6 +6,13 @@ tags:
   - 每晚
   - 信息型
   - 数字
+termIds:
+  - night
+  - information
+  - death
+  - evil
+  - townsfolk
+abilityPattern: number_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night_star

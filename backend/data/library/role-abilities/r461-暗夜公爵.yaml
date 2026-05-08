@@ -9,6 +9,15 @@ tags:
   - 首夜
   - 设置
   - 主动选择
+termIds:
+  - setup
+  - first-night
+  - poisoned
+  - good
+  - evil
+  - outsider
+  - traveler
+abilityPattern: target_role_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: first_night

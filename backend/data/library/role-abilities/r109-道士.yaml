@@ -7,6 +7,14 @@ tags:
   - 主动选玩家
   - 醉酒
   - 死亡
+termIds:
+  - night
+  - other-night
+  - drunk
+  - death
+  - townsfolk
+  - demon
+abilityPattern: target_demon_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

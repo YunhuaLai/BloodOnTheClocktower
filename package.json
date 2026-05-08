@@ -10,6 +10,8 @@
     "validate:data": "node scripts/validate-data.js",
     "deduction:audit": "node scripts/deduction-profile-audit.js",
     "deduction:backfill": "node scripts/backfill-deduction-profiles.js",
+    "ability-terms:check": "node scripts/backfill-ability-terms.js",
+    "ability-terms:backfill": "node scripts/backfill-ability-terms.js --write",
     "official:import": "node scripts/official-json.js import",
     "official:export": "node scripts/official-json.js export",
     "cache:images": "node scripts/cache-images.js",

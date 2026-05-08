@@ -10,6 +10,14 @@ tags:
   - 每晚
   - 设置
   - 信息型
+termIds:
+  - night
+  - setup
+  - first-night
+  - information
+  - outsider
+  - minion
+abilityPattern: number_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night

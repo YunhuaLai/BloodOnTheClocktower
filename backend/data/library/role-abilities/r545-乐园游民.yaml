@@ -9,6 +9,15 @@ tags:
   - 首夜
   - 每晚
   - 设置
+termIds:
+  - night
+  - setup
+  - first-night
+  - outsider
+  - minion
+  - demon
+  - storyteller
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: first_night

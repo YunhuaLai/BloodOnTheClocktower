@@ -6,6 +6,15 @@ tags:
   - 首夜
   - 信息型
   - 角色提示
+termIds:
+  - night
+  - setup
+  - first-night
+  - information
+  - good
+  - evil
+  - townsfolk
+abilityPattern: role_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

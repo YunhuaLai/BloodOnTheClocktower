@@ -6,6 +6,14 @@ tags:
   - 开局
   - 外来者
   - 伪装信息
+termIds:
+  - night
+  - first-night
+  - information
+  - evil
+  - outsider
+  - minion
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: setup

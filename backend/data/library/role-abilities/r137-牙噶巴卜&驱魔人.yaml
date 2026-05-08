@@ -7,6 +7,10 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - death
+  - jinx
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

@@ -7,6 +7,11 @@ needsReview: false
 reviewReason: ''
 tags:
   - 信息型
+termIds:
+  - information
+  - fabled
+  - jinx
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: passive

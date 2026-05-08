@@ -6,6 +6,11 @@ tags:
   - 白天
   - 特殊机制
   - 自定义
+termIds:
+  - day
+  - townsfolk
+  - storyteller
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_day

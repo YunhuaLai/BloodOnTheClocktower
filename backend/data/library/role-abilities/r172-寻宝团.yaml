@@ -5,6 +5,11 @@ schemaVersion: 1
 tags:
   - 传说角色
   - 可选
+termIds:
+  - day
+  - first-night
+  - fabled
+abilityPattern: player_info
 abilityMeta:
   pageType: event_triggered
   phaseTiming: setup

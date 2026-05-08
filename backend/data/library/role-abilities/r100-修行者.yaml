@@ -6,6 +6,14 @@ tags:
   - 首夜
   - 信息型
   - 方向
+termIds:
+  - night
+  - first-night
+  - information
+  - evil
+  - townsfolk
+  - storyteller
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

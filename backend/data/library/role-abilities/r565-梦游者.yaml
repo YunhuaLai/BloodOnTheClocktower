@@ -8,6 +8,13 @@ reviewReason: ''
 tags:
   - 首夜
   - 设置
+termIds:
+  - setup
+  - first-night
+  - good
+  - townsfolk
+  - outsider
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: first_night

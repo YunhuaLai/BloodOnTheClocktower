@@ -6,6 +6,15 @@ tags:
   - 首夜
   - 信息型
   - 身份提示
+termIds:
+  - night
+  - setup
+  - first-night
+  - information
+  - evil
+  - townsfolk
+  - outsider
+abilityPattern: role_in_group_hint
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

@@ -7,6 +7,15 @@ needsReview: false
 reviewReason: ''
 tags:
   - 每晚
+termIds:
+  - night
+  - poisoned
+  - execution
+  - death
+  - alive
+  - good
+  - minion
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: each_night

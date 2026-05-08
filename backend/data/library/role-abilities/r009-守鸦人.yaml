@@ -6,6 +6,14 @@ tags:
   - 死亡触发
   - 信息型
   - 查看身份
+termIds:
+  - night
+  - information
+  - death
+  - good
+  - evil
+  - townsfolk
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

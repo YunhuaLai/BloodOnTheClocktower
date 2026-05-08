@@ -5,6 +5,13 @@ schemaVersion: 1
 tags:
   - 首夜
   - 中毒
+termIds:
+  - night
+  - first-night
+  - poisoned
+  - minion
+  - grimoire
+abilityPattern: player_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: first_night

@@ -6,6 +6,11 @@ tags:
   - 白天
   - 一次性
   - 多目标
+termIds:
+  - day
+  - night
+  - townsfolk
+abilityPattern: target_number_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: day

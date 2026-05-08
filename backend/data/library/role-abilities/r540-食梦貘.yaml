@@ -9,6 +9,13 @@ tags:
   - 每晚
   - 设置
   - 主动选择
+termIds:
+  - night
+  - setup
+  - death
+  - outsider
+  - demon
+abilityPattern: choose_player_death
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

@@ -23,6 +23,33 @@ const KNOWN_DEDUCTION_STATUSES = new Set([
   "none",
 ]);
 
+const KNOWN_ABILITY_PATTERNS = new Set([
+  "no_input",
+  "rule_modifier",
+  "nomination_trigger",
+  "execution_trigger",
+  "death_trigger",
+  "vote_trigger",
+  "role_in_group_hint",
+  "target_role_info",
+  "target_demon_check",
+  "target_boolean_check",
+  "target_number_info",
+  "choose_role_status_effect",
+  "choose_player_death",
+  "choose_player_protection",
+  "choose_player_status_effect",
+  "choose_player_effect",
+  "number_info",
+  "boolean_info",
+  "team_info",
+  "role_info",
+  "player_info",
+  "status_effect",
+  "record_result_only",
+  "manual_record",
+]);
+
 const KNOWN_DEDUCTION_TEMPLATE_TYPES = new Set([
   "adjacent_evil_pair_count",
   "evil_count_group",
@@ -181,7 +208,26 @@ function validateRoles(roles) {
   });
 }
 
-function validateRoleAbilities(roles, roleAbilities) {
+function validateTerms(terms) {
+  const termIds = new Set(terms.map((term) => term?.id).filter(Boolean));
+
+  terms.forEach((term) => {
+    requireString(term, "id", "term");
+    requireString(term, "name", "term");
+
+    if (!Array.isArray(term?.aliases)) {
+      addWarning(`term ${label(term)} should have an aliases array`);
+    }
+
+    (term.relatedTermIds || []).forEach((termId) => {
+      if (!termIds.has(termId)) {
+        addError(`term ${label(term)} relatedTermIds references missing term "${termId}"`);
+      }
+    });
+  });
+}
+
+function validateRoleAbilities(roles, roleAbilities, termIds) {
   const roleIds = new Set(roles.map((role) => role.id));
   const abilityIds = new Set(roleAbilities.map((ability) => ability?.id));
 
@@ -199,6 +245,22 @@ function validateRoleAbilities(roles, roleAbilities) {
 
     if (!ability?.interactionSchema || typeof ability.interactionSchema !== "object") {
       addError(`roleAbility ${label(ability)} is missing interactionSchema`);
+    }
+
+    if (ability?.abilityPattern && !KNOWN_ABILITY_PATTERNS.has(ability.abilityPattern)) {
+      addError(`roleAbility ${label(ability)} has unknown abilityPattern "${ability.abilityPattern}"`);
+    }
+
+    if (ability?.termIds) {
+      if (!Array.isArray(ability.termIds)) {
+        addError(`roleAbility ${label(ability)} termIds must be an array`);
+      } else {
+        ability.termIds.forEach((termId) => {
+          if (!termIds.has(termId)) {
+            addError(`roleAbility ${label(ability)} termIds references missing term "${termId}"`);
+          }
+        });
+      }
     }
 
     validateDeductionProfile(ability);
@@ -288,12 +350,14 @@ function main() {
   findDuplicates(rawData.scripts, "id", "scripts");
   findDuplicates(rawData.roles, "id", "roles");
   findDuplicates(rawData.roleAbilities, "id", "roleAbilities");
+  findDuplicates(rawData.terms, "id", "terms");
   warnDuplicateValues(rawData.roles, "englishName", "roles");
   warnDuplicateValues(rawData.roleAbilities, "englishName", "roleAbilities");
 
   validateScripts(rawData.scripts, roleIds);
   validateRoles(rawData.roles);
-  validateRoleAbilities(rawData.roles, rawData.roleAbilities);
+  validateTerms(rawData.terms);
+  validateRoleAbilities(rawData.roles, rawData.roleAbilities, new Set(rawData.terms.map((term) => term.id)));
   validateRelatedRoles(data, new Set(data.roles.map((role) => role.id)));
   validateOrphans(data);
 

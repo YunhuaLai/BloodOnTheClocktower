@@ -6,6 +6,12 @@ tags:
   - 死亡触发
   - 中毒/醉酒
   - 外来者
+termIds:
+  - poisoned
+  - drunk
+  - death
+  - outsider
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

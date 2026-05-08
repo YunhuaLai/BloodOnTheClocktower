@@ -5,6 +5,13 @@ schemaVersion: 1
 tags:
   - 死亡触发
   - 误认
+termIds:
+  - setup
+  - death
+  - townsfolk
+  - outsider
+  - demon
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: special

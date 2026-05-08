@@ -7,6 +7,11 @@ needsReview: false
 reviewReason: ''
 tags:
   - 主动选择
+termIds:
+  - death
+  - good
+  - fabled
+abilityPattern: death_trigger
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: null

@@ -8,6 +8,18 @@ reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记
 tags:
   - 首夜
   - 信息型
+termIds:
+  - day
+  - night
+  - first-night
+  - information
+  - death
+  - alive
+  - alignment
+  - good
+  - minion
+  - fabled
+abilityPattern: team_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

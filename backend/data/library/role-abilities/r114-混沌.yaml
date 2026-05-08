@@ -7,6 +7,16 @@ tags:
   - 主动选玩家
   - 击杀型
   - 中毒
+termIds:
+  - night
+  - other-night
+  - poisoned
+  - death
+  - good
+  - townsfolk
+  - demon
+  - traveler
+abilityPattern: target_demon_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

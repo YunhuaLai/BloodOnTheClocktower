@@ -8,6 +8,16 @@ reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记
 tags:
   - 首夜
   - 每晚
+termIds:
+  - day
+  - night
+  - first-night
+  - execution
+  - alignment
+  - good
+  - evil
+  - demon
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: each_night

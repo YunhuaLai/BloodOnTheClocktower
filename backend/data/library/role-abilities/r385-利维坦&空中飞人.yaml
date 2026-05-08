@@ -7,6 +7,13 @@ needsReview: false
 reviewReason: ''
 tags:
   - 主动选择
+termIds:
+  - night
+  - death
+  - alive
+  - good
+  - jinx
+abilityPattern: death_trigger
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: null

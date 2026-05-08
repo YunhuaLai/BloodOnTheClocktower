@@ -6,6 +6,15 @@ tags:
   - 特殊机制
   - 开局信息
   - 击杀型
+termIds:
+  - day
+  - night
+  - first-night
+  - information
+  - death
+  - outsider
+  - minion
+abilityPattern: manual_record
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: special

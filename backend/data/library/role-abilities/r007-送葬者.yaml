@@ -6,6 +6,16 @@ tags:
   - 每晚*
   - 信息型
   - 查看身份
+termIds:
+  - day
+  - night
+  - other-night
+  - information
+  - execution
+  - alive
+  - good
+  - townsfolk
+abilityPattern: role_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night_star

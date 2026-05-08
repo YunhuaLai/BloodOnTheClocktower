@@ -6,6 +6,13 @@ tags:
   - 首夜
   - 信息型
   - 善良定位
+termIds:
+  - night
+  - first-night
+  - information
+  - good
+  - townsfolk
+abilityPattern: player_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

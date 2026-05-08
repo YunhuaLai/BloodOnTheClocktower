@@ -6,6 +6,13 @@ tags:
   - 每晚
   - 主动选玩家
   - 保护型
+termIds:
+  - night
+  - drunk
+  - death
+  - protected
+  - townsfolk
+abilityPattern: choose_player_protection
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

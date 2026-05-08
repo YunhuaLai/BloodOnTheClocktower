@@ -7,6 +7,14 @@ tags:
   - 主动选玩家
   - 主动选角色
   - 疯狂机制
+termIds:
+  - day
+  - night
+  - execution
+  - good
+  - minion
+  - madness
+abilityPattern: choose_player_effect
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

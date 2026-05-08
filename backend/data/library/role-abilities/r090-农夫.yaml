@@ -6,6 +6,13 @@ tags:
   - 死亡触发
   - 传承
   - 特殊机制
+termIds:
+  - night
+  - death
+  - alive
+  - good
+  - townsfolk
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

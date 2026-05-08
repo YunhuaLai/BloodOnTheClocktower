@@ -8,6 +8,14 @@ reviewReason: ''
 tags:
   - 每晚
   - 信息型
+termIds:
+  - night
+  - poisoned
+  - drunk
+  - information
+  - death
+  - townsfolk
+abilityPattern: boolean_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night_star

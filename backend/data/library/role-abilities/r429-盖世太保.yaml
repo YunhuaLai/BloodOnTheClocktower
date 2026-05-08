@@ -9,6 +9,15 @@ tags:
   - 首夜
   - 每晚
   - 信息型
+termIds:
+  - night
+  - first-night
+  - information
+  - death
+  - good
+  - evil
+  - minion
+abilityPattern: role_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night

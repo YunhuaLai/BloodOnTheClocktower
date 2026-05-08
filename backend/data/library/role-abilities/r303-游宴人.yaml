@@ -10,6 +10,16 @@ tags:
   - 每晚
   - 设置
   - 主动选择
+termIds:
+  - night
+  - setup
+  - first-night
+  - poisoned
+  - alive
+  - townsfolk
+  - outsider
+  - minion
+abilityPattern: choose_player_status_effect
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

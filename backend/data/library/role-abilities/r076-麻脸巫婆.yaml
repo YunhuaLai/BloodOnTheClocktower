@@ -7,6 +7,13 @@ tags:
   - 主动选玩家
   - 主动选角色
   - 换身份
+termIds:
+  - night
+  - death
+  - minion
+  - demon
+  - storyteller
+abilityPattern: choose_player_death
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

@@ -6,6 +6,14 @@ tags:
   - 首夜
   - 主动选玩家
   - 阵营转变
+termIds:
+  - night
+  - first-night
+  - execution
+  - alignment
+  - evil
+  - outsider
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: first_night

@@ -6,6 +6,10 @@ tags:
   - 被动
   - 随机死亡
   - 外来者
+termIds:
+  - death
+  - outsider
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

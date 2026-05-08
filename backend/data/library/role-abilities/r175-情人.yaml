@@ -8,6 +8,13 @@ reviewReason: ''
 tags:
   - 每晚
   - 信息型
+termIds:
+  - night
+  - information
+  - townsfolk
+  - demon
+  - storyteller
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night_star

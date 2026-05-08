@@ -7,6 +7,16 @@ tags:
   - 每晚
   - 特殊机制
   - 自定义
+termIds:
+  - night
+  - setup
+  - first-night
+  - other-night
+  - death
+  - outsider
+  - minion
+  - demon
+abilityPattern: player_info
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: special

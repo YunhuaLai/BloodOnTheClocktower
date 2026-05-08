@@ -10,6 +10,19 @@ tags:
   - 每晚
   - 设置
   - 信息型
+termIds:
+  - night
+  - setup
+  - first-night
+  - information
+  - death
+  - good
+  - evil
+  - outsider
+  - minion
+  - demon
+  - storyteller
+abilityPattern: role_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night

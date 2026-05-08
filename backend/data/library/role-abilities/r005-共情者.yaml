@@ -6,6 +6,15 @@ tags:
   - 每晚
   - 信息型
   - 数字
+termIds:
+  - night
+  - information
+  - execution
+  - death
+  - alive
+  - evil
+  - townsfolk
+abilityPattern: number_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night

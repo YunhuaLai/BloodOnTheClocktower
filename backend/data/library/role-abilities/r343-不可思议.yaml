@@ -7,6 +7,19 @@ needsReview: true
 reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
 tags:
   - 信息型
+termIds:
+  - setup
+  - poisoned
+  - drunk
+  - information
+  - death
+  - alignment
+  - good
+  - evil
+  - minion
+  - storyteller
+  - fabled
+abilityPattern: death_trigger
 abilityMeta:
   pageType: record_result_only
   phaseTiming: null

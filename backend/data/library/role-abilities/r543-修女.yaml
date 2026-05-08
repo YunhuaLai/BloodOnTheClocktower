@@ -7,6 +7,15 @@ needsReview: false
 reviewReason: ''
 tags:
   - 信息型
+termIds:
+  - night
+  - first-night
+  - poisoned
+  - drunk
+  - information
+  - good
+  - townsfolk
+abilityPattern: status_effect
 abilityMeta:
   pageType: record_result_only
   phaseTiming: passive

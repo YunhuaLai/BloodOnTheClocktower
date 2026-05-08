@@ -6,6 +6,11 @@ tags:
   - 被动
   - 免死
   - 一次性
+termIds:
+  - death
+  - protected
+  - townsfolk
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

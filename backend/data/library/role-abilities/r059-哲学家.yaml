@@ -6,6 +6,12 @@ tags:
   - 一次性
   - 主动选角色
   - 复制能力
+termIds:
+  - night
+  - drunk
+  - good
+  - townsfolk
+abilityPattern: choose_role_status_effect
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: night

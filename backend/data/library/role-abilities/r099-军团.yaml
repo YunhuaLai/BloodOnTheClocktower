@@ -6,6 +6,15 @@ tags:
   - 每晚
   - 特殊恶魔
   - 投票规则
+termIds:
+  - night
+  - nomination
+  - vote
+  - death
+  - evil
+  - minion
+  - demon
+abilityPattern: manual_record
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: special

@@ -6,6 +6,13 @@ tags:
   - 首夜
   - 信息型
   - 二选一
+termIds:
+  - night
+  - first-night
+  - information
+  - townsfolk
+  - demon
+abilityPattern: player_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

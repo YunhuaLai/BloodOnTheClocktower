@@ -8,6 +8,14 @@ reviewReason: ''
 tags:
   - 设置
   - 信息型
+termIds:
+  - day
+  - setup
+  - information
+  - townsfolk
+  - outsider
+  - storyteller
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_day

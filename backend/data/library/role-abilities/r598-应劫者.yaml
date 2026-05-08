@@ -7,6 +7,12 @@ needsReview: false
 reviewReason: ''
 tags:
   - 每晚
+termIds:
+  - night
+  - death
+  - outsider
+  - demon
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: each_night

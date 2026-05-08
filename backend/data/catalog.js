@@ -1,4 +1,3 @@
-const { TERM_REPLACEMENTS, TERMS } = require("./catalog/terms");
 const { withResolvedImage } = require("./image-assets");
 
 const ROLE_TYPES = {
@@ -13,21 +12,36 @@ function uniqueValues(values) {
   return Array.from(new Set(values.filter(Boolean)));
 }
 
-function replaceTerms(value) {
+function normalizeTermReplacements(replacements) {
+  return (Array.isArray(replacements) ? replacements : [])
+    .map((replacement) => {
+      if (Array.isArray(replacement)) {
+        return { from: replacement[0], to: replacement[1] };
+      }
+
+      return replacement;
+    })
+    .filter((replacement) => replacement?.from && replacement?.to);
+}
+
+function replaceTerms(value, replacements) {
   if (typeof value === "string") {
-    return TERM_REPLACEMENTS.reduce(
-      (result, [from, to]) => result.replaceAll(from, to),
+    return replacements.reduce(
+      (result, { from, to }) => result.replaceAll(from, to),
       value,
     );
   }
 
   if (Array.isArray(value)) {
-    return value.map(replaceTerms);
+    return value.map((nestedValue) => replaceTerms(nestedValue, replacements));
   }
 
   if (value && typeof value === "object") {
     return Object.fromEntries(
-      Object.entries(value).map(([key, nestedValue]) => [key, replaceTerms(nestedValue)]),
+      Object.entries(value).map(([key, nestedValue]) => [
+        key,
+        replaceTerms(nestedValue, replacements),
+      ]),
     );
   }
 
@@ -112,7 +126,7 @@ function makeDetail(roleData) {
 }
 
 function normalizeRole(rawRole, context) {
-  const corrected = replaceTerms({ ...rawRole });
+  const corrected = replaceTerms({ ...rawRole }, context.termReplacements);
   const scriptIds = context.roleScriptIdsById.get(corrected.id) || [];
   const scriptNames = scriptIds.map((scriptId) => context.scriptNamesById.get(scriptId) || scriptId);
   const roleEnglishName = corrected.englishName || corrected.id;
@@ -124,7 +138,7 @@ function normalizeRole(rawRole, context) {
     script: scriptNames.join(" / "),
     ability: corrected.ability || corrected.summary,
   }, "roles");
-  const detail = corrected.detail ? replaceTerms(corrected.detail) : null;
+  const detail = corrected.detail ? replaceTerms(corrected.detail, context.termReplacements) : null;
 
   normalized.detail = {
     ...makeDetail(normalized),
@@ -142,15 +156,15 @@ function normalizeRole(rawRole, context) {
   return normalized;
 }
 
-function normalizeScript(script, roleIds) {
+function normalizeScript(script, roleIds, termReplacements) {
   return withResolvedImage({
-    ...replaceTerms(script),
+    ...replaceTerms(script, termReplacements),
     roleIds: uniqueValues(script.roleIds || []).filter((roleId) => roleIds.has(roleId)),
   }, "scripts");
 }
 
-function normalizeTerms(roleIdByEnglishName, roleIds) {
-  return replaceTerms(TERMS).map((term) => ({
+function normalizeTerms(rawTerms, roleIdByEnglishName, roleIds, termReplacements) {
+  return replaceTerms(rawTerms, termReplacements).map((term) => ({
     ...term,
     relatedRoleIds: (term.relatedRoleIds || []).map((roleReference) =>
       mapRoleReference(roleReference, roleIdByEnglishName, roleIds),
@@ -159,9 +173,13 @@ function normalizeTerms(roleIdByEnglishName, roleIds) {
 }
 
 function augmentEncyclopedia(data) {
+  const baseData = { ...data };
+  delete baseData.termReplacements;
   const rawScripts = data.scripts || [];
   const rawRoles = data.roles || [];
   const rawRoleAbilities = data.roleAbilities || [];
+  const rawTerms = Array.isArray(data.terms) ? data.terms : [];
+  const termReplacements = normalizeTermReplacements(data.termReplacements);
   const roleIds = new Set(rawRoles.map((role) => role.id));
   const roleIdByEnglishName = new Map(
     rawRoles.map((role) => [role.englishName || role.id, role.id]),
@@ -175,7 +193,7 @@ function augmentEncyclopedia(data) {
   const roleAbilityById = new Map(
     rawRoleAbilities.filter((ability) => ability.id).map((ability) => [ability.id, ability]),
   );
-  const scripts = rawScripts.map((script) => normalizeScript(script, roleIds));
+  const scripts = rawScripts.map((script) => normalizeScript(script, roleIds, termReplacements));
   const roleScriptIdsById = new Map(rawRoles.map((role) => [role.id, []]));
 
   scripts.forEach((script) => {
@@ -189,7 +207,7 @@ function augmentEncyclopedia(data) {
   });
 
   return {
-    ...data,
+    ...baseData,
     scripts,
     roles: rawRoles.map((role) =>
       normalizeRole(role, {
@@ -199,9 +217,10 @@ function augmentEncyclopedia(data) {
         roleIds,
         roleAbilityById,
         roleAbilityByEnglishName,
+        termReplacements,
       }),
     ),
-    terms: normalizeTerms(roleIdByEnglishName, roleIds),
+    terms: normalizeTerms(rawTerms, roleIdByEnglishName, roleIds, termReplacements),
   };
 }
 

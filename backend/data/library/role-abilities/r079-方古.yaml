@@ -6,6 +6,14 @@ tags:
   - 每晚
   - 主动选玩家
   - 击杀型
+termIds:
+  - night
+  - death
+  - alignment
+  - evil
+  - outsider
+  - demon
+abilityPattern: choose_player_death
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night_star

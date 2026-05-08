@@ -6,6 +6,13 @@ tags:
   - 一次性
   - 主动选角色
   - 配置变更
+termIds:
+  - night
+  - setup
+  - townsfolk
+  - minion
+  - demon
+abilityPattern: manual_record
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: night

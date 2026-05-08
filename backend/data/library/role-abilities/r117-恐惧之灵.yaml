@@ -9,6 +9,14 @@ tags:
   - 首夜
   - 每晚
   - 主动选择
+termIds:
+  - night
+  - first-night
+  - nomination
+  - execution
+  - alignment
+  - minion
+abilityPattern: manual_record
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

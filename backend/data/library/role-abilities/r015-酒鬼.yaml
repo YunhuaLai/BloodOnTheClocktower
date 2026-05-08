@@ -6,6 +6,12 @@ tags:
   - 被动
   - 特殊机制
   - 外来者
+termIds:
+  - drunk
+  - information
+  - townsfolk
+  - outsider
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

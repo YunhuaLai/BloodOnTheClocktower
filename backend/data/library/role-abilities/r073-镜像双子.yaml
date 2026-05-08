@@ -6,6 +6,15 @@ tags:
   - 开局
   - 双生机制
   - 特殊机制
+termIds:
+  - first-night
+  - execution
+  - alive
+  - alignment
+  - good
+  - evil
+  - minion
+abilityPattern: player_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: setup

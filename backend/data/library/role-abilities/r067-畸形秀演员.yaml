@@ -6,6 +6,11 @@ tags:
   - 被动
   - 疯狂机制
   - 外来者
+termIds:
+  - execution
+  - outsider
+  - madness
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

@@ -8,6 +8,12 @@ reviewReason: ''
 tags:
   - 首夜
   - 每晚
+termIds:
+  - night
+  - first-night
+  - information
+  - townsfolk
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: each_night

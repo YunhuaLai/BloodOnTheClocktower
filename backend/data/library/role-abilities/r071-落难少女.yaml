@@ -6,6 +6,12 @@ tags:
   - 被动
   - 公开猜测
   - 外来者
+termIds:
+  - alignment
+  - good
+  - outsider
+  - minion
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: passive

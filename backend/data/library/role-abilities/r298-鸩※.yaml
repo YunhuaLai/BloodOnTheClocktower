@@ -8,6 +8,12 @@ reviewReason: ''
 tags:
   - 每晚
   - 主动选择
+termIds:
+  - night
+  - poisoned
+  - death
+  - townsfolk
+abilityPattern: choose_role_status_effect
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: each_night

@@ -6,6 +6,12 @@ tags:
   - 白天
   - 信息型
   - 双信息
+termIds:
+  - day
+  - information
+  - townsfolk
+  - storyteller
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_day

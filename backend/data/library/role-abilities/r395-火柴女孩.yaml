@@ -7,6 +7,13 @@ needsReview: false
 reviewReason: ''
 tags:
   - 信息型
+termIds:
+  - day
+  - information
+  - death
+  - townsfolk
+  - storyteller
+abilityPattern: record_result_only
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_day

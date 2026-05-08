@@ -7,6 +7,11 @@ needsReview: false
 reviewReason: ''
 tags:
   - 每晚
+termIds:
+  - night
+  - death
+  - townsfolk
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: each_night_star

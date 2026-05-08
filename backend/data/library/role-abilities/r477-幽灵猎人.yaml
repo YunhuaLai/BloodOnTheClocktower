@@ -8,6 +8,13 @@ reviewReason: ''
 tags:
   - 每晚
   - 信息型
+termIds:
+  - night
+  - information
+  - nomination
+  - execution
+  - townsfolk
+abilityPattern: role_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: each_night

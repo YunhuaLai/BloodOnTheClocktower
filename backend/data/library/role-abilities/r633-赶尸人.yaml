@@ -8,6 +8,14 @@ reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记
 tags:
   - 设置
   - 事件触发
+termIds:
+  - setup
+  - death
+  - alive
+  - townsfolk
+  - outsider
+  - minion
+abilityPattern: death_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: setup

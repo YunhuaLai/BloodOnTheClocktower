@@ -6,6 +6,13 @@ tags:
   - 首夜
   - 信息型
   - 数字
+termIds:
+  - night
+  - first-night
+  - information
+  - evil
+  - townsfolk
+abilityPattern: number_info
 abilityMeta:
   pageType: record_result_only
   phaseTiming: first_night

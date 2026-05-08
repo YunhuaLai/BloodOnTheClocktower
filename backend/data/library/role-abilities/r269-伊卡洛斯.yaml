@@ -7,6 +7,11 @@ needsReview: false
 reviewReason: ''
 tags:
   - 事件触发
+termIds:
+  - nomination
+  - alive
+  - traveler
+abilityPattern: nomination_trigger
 abilityMeta:
   pageType: event_triggered
   phaseTiming: null

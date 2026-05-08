@@ -6,6 +6,15 @@ tags:
   - 被动
   - 特殊胜利
   - 规则修饰
+termIds:
+  - execution
+  - death
+  - alignment
+  - good
+  - evil
+  - townsfolk
+  - storyteller
+abilityPattern: rule_modifier
 abilityMeta:
   pageType: rule_modifier
   phaseTiming: setup

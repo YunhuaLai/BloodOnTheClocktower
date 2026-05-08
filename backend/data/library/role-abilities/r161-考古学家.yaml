@@ -5,6 +5,12 @@ schemaVersion: 1
 tags:
   - 白天
   - 事件触发
+termIds:
+  - day
+  - information
+  - townsfolk
+  - storyteller
+abilityPattern: manual_record
 abilityMeta:
   pageType: event_triggered
   phaseTiming: day

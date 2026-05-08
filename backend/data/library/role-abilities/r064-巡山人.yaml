@@ -6,6 +6,11 @@ tags:
   - 一次性
   - 主动选玩家
   - 转化型
+termIds:
+  - night
+  - alive
+  - townsfolk
+abilityPattern: target_boolean_check
 abilityMeta:
   pageType: pick_and_record
   phaseTiming: night

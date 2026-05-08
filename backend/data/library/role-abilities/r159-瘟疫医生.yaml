@@ -9,6 +9,13 @@ tags:
   - 每晚
   - 死亡触发
   - 爪牙能力
+termIds:
+  - night
+  - death
+  - outsider
+  - minion
+  - storyteller
+abilityPattern: no_input
 abilityMeta:
   pageType: no_input
   phaseTiming: each_night
