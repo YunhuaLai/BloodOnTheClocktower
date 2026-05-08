@@ -1,22 +1,9 @@
-const fs = require("node:fs");
-const path = require("node:path");
-const yaml = require("js-yaml");
 const { inferDeductionData } = require("./deduction-profile-utils");
-
-const ROOT_DIR = path.resolve(__dirname, "..");
-const ROLES_DIR = path.join(ROOT_DIR, "backend", "data", "library", "roles");
-const ROLE_ABILITY_DIR = path.join(ROOT_DIR, "backend", "data", "library", "role-abilities");
-
-function readYamlCollection(directoryPath) {
-  return fs
-    .readdirSync(directoryPath)
-    .filter((fileName) => fileName.endsWith(".yaml"))
-    .map((fileName) => ({
-      fileName,
-      filePath: path.join(directoryPath, fileName),
-      data: yaml.load(fs.readFileSync(path.join(directoryPath, fileName), "utf8")) || {},
-    }));
-}
+const {
+  ROLE_ABILITIES_DIR,
+  ROLES_DIR,
+  readYamlCollection,
+} = require("./library-files");
 
 function classify(roleAbility, roleById) {
   return (
@@ -40,7 +27,7 @@ function summarize(items, limit = 14) {
 
 function main() {
   const roles = readYamlCollection(ROLES_DIR).map((entry) => entry.data);
-  const abilities = readYamlCollection(ROLE_ABILITY_DIR);
+  const abilities = readYamlCollection(ROLE_ABILITIES_DIR);
   const roleById = new Map(roles.map((role) => [role.id, role]));
   const buckets = new Map();
 

@@ -1,14 +1,16 @@
 const fs = require("node:fs");
 const path = require("node:path");
-const yaml = require("js-yaml");
 const { applyAbilityTermMetadata } = require("./ability-term-utils");
 const { inferDeductionData } = require("./deduction-profile-utils");
-
-const ROOT_DIR = path.resolve(__dirname, "..");
-const LIBRARY_DIR = path.join(ROOT_DIR, "backend", "data", "library");
-const SCRIPTS_DIR = path.join(LIBRARY_DIR, "scripts");
-const ROLES_DIR = path.join(LIBRARY_DIR, "roles");
-const ROLE_ABILITIES_DIR = path.join(LIBRARY_DIR, "role-abilities");
+const {
+  ROLE_ABILITIES_DIR,
+  ROLES_DIR,
+  SCRIPTS_DIR,
+  readYamlCollection,
+  readYamlFile,
+  relativeToRoot,
+  writeYamlFile,
+} = require("./library-files");
 
 const TEAM_TO_TYPE = {
   townsfolk: "townsfolk",
@@ -29,30 +31,6 @@ const TYPE_TO_TEAM = {
   traveler: "traveler",
   fabled: "fabled",
 };
-
-function readYamlFile(filePath) {
-  return yaml.load(fs.readFileSync(filePath, "utf8"));
-}
-
-function writeYamlFile(filePath, data) {
-  const content = yaml.dump(data, {
-    lineWidth: 120,
-    noRefs: true,
-    quotingType: "'",
-  });
-  fs.writeFileSync(filePath, content, "utf8");
-}
-
-function readYamlCollection(directoryPath) {
-  return fs
-    .readdirSync(directoryPath, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && entry.name.endsWith(".yaml"))
-    .map((entry) => ({
-      fileName: entry.name,
-      filePath: path.join(directoryPath, entry.name),
-      data: readYamlFile(path.join(directoryPath, entry.name)),
-    }));
-}
 
 function slugify(value) {
   return String(value || "item")
@@ -639,7 +617,7 @@ function importOfficialJson(inputPath) {
 
     writeYamlFile(filePath, roleData);
     roleIdByOfficialName.set(officialRole.name, roleId);
-    changed.push(path.relative(ROOT_DIR, filePath));
+    changed.push(relativeToRoot(filePath));
 
     if (!existingRole) {
       roles.push({ fileName: path.basename(filePath), filePath, data: roleData });
@@ -651,13 +629,13 @@ function importOfficialJson(inputPath) {
       const abilityPath = path.join(ROLE_ABILITIES_DIR, `${roleId}-${safeFileName(officialRole.name)}.yaml`);
       writeYamlFile(abilityPath, abilityData);
       roleAbilities.push({ fileName: path.basename(abilityPath), filePath: abilityPath, data: abilityData });
-      changed.push(path.relative(ROOT_DIR, abilityPath));
+      changed.push(relativeToRoot(abilityPath));
     } else if (!existingAbility.data?.deduction) {
       const deduction = inferDeductionData(existingAbility.data, { ...roleData, ability: officialRole.ability || roleData.ability || "" });
       if (deduction) {
         existingAbility.data.deduction = deduction;
         writeYamlFile(existingAbility.filePath, existingAbility.data);
-        changed.push(path.relative(ROOT_DIR, existingAbility.filePath));
+        changed.push(relativeToRoot(existingAbility.filePath));
       }
     }
   });
@@ -703,7 +681,7 @@ function importOfficialJson(inputPath) {
   const scriptPath = existingScript?.filePath || path.join(SCRIPTS_DIR, `${scriptId}-${safeFileName(meta.name)}.yaml`);
 
   writeYamlFile(scriptPath, scriptData);
-  changed.push(path.relative(ROOT_DIR, scriptPath));
+  changed.push(relativeToRoot(scriptPath));
 
   return { scriptId, changed };
 }
@@ -818,13 +796,13 @@ function main() {
     console.log(`扫描 JSON 文件：${result.files.length}`);
     console.log(`导入成功：${result.imported.length}`);
     result.imported.forEach((item) => {
-      console.log(`- ${item.scriptId}: ${path.relative(ROOT_DIR, item.filePath)}`);
+      console.log(`- ${item.scriptId}: ${relativeToRoot(item.filePath)}`);
     });
 
     if (result.failed.length) {
       console.log(`导入失败：${result.failed.length}`);
       result.failed.forEach((item) => {
-        console.log(`- ${path.relative(ROOT_DIR, item.filePath)}: ${item.error}`);
+        console.log(`- ${relativeToRoot(item.filePath)}: ${item.error}`);
       });
       process.exitCode = 1;
     }

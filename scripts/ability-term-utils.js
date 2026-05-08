@@ -1,9 +1,4 @@
-const fs = require("node:fs");
-const path = require("node:path");
-const yaml = require("js-yaml");
-
-const ROOT_DIR = path.resolve(__dirname, "..");
-const TERMS_FILE = path.join(ROOT_DIR, "backend", "data", "library", "terms.yaml");
+const { TERMS_FILE, readYamlFile } = require("./library-files");
 
 const WEAK_TEXT_TERM_IDS = new Set(["ability"]);
 const IGNORED_UNMATCHED_KEYWORDS = new Set(["a"]);
@@ -25,11 +20,7 @@ const ROLE_ABILITY_FIELD_ORDER = [
 ];
 
 function readTermsConfig(filePath = TERMS_FILE) {
-  if (!fs.existsSync(filePath)) {
-    return { terms: [], replacements: [] };
-  }
-
-  const parsed = yaml.load(fs.readFileSync(filePath, "utf8")) || {};
+  const parsed = readYamlFile(filePath, {});
   return normalizeTermsConfig(parsed);
 }
 

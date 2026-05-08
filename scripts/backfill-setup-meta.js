@@ -1,35 +1,13 @@
-const fs = require("node:fs");
-const path = require("node:path");
-const yaml = require("js-yaml");
 const { inferSetupMeta } = require("./official-json");
-
-const ROOT_DIR = path.resolve(__dirname, "..");
-const ROLES_DIR = path.join(ROOT_DIR, "backend", "data", "library", "roles");
-
-function readYamlFile(filePath) {
-  return yaml.load(fs.readFileSync(filePath, "utf8"));
-}
-
-function writeYamlFile(filePath, data) {
-  const content = yaml.dump(data, {
-    lineWidth: 120,
-    noRefs: true,
-    quotingType: "'",
-  });
-  fs.writeFileSync(filePath, content, "utf8");
-}
+const {
+  ROLES_DIR,
+  readYamlCollection,
+  relativeToRoot,
+  writeYamlFile,
+} = require("./library-files");
 
 function readRoleEntries() {
-  return fs
-    .readdirSync(ROLES_DIR, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && entry.name.endsWith(".yaml"))
-    .map((entry) => {
-      const filePath = path.join(ROLES_DIR, entry.name);
-      return {
-        filePath,
-        data: readYamlFile(filePath),
-      };
-    });
+  return readYamlCollection(ROLES_DIR).map(({ filePath, data }) => ({ filePath, data }));
 }
 
 function normalizeSetupMeta(value) {
@@ -176,7 +154,7 @@ function printChangedFiles(files) {
 
   console.log("\n写入文件:");
   files.slice(0, 80).forEach((filePath) => {
-    console.log(`- ${path.relative(ROOT_DIR, filePath)}`);
+    console.log(`- ${relativeToRoot(filePath)}`);
   });
 
   if (files.length > 80) {

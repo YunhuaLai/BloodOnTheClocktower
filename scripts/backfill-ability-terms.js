@@ -1,38 +1,14 @@
-const fs = require("node:fs");
-const path = require("node:path");
-const yaml = require("js-yaml");
 const {
   applyAbilityTermMetadata,
   getUnmatchedKeywordTokens,
   readTermsConfig,
 } = require("./ability-term-utils");
-
-const ROOT_DIR = path.resolve(__dirname, "..");
-const ROLES_DIR = path.join(ROOT_DIR, "backend", "data", "library", "roles");
-const ROLE_ABILITIES_DIR = path.join(ROOT_DIR, "backend", "data", "library", "role-abilities");
-
-function readYamlCollection(directoryPath) {
-  return fs
-    .readdirSync(directoryPath)
-    .filter((fileName) => fileName.endsWith(".yaml"))
-    .map((fileName) => {
-      const filePath = path.join(directoryPath, fileName);
-      return {
-        fileName,
-        filePath,
-        data: yaml.load(fs.readFileSync(filePath, "utf8")) || {},
-      };
-    });
-}
-
-function writeYamlFile(filePath, data) {
-  const content = yaml.dump(data, {
-    lineWidth: 120,
-    noRefs: true,
-    quotingType: "'",
-  });
-  fs.writeFileSync(filePath, content, "utf8");
-}
+const {
+  ROLE_ABILITIES_DIR,
+  ROLES_DIR,
+  readYamlCollection,
+  writeYamlFile,
+} = require("./library-files");
 
 function stable(value) {
   return JSON.stringify(value);
