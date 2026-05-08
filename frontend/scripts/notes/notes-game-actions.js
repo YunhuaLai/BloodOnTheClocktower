@@ -221,6 +221,19 @@ export function updateDayExecutionOverride(dayNumber, value) {
   renderNotesPage();
 }
 
+export function saveDayPublicRecord(dayNumber) {
+  const game = getActiveGame();
+  if (!game) {
+    return;
+  }
+
+  const record = getDayRecord(game, dayNumber, true);
+  record.publicRecordSavedAt = new Date().toISOString();
+  syncAutoExecutionStatuses(game);
+  saveNotesState();
+  renderNotesPage();
+}
+
 export function exportActiveGame() {
   const game = getActiveGame();
   if (!game) {

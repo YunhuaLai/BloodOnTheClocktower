@@ -36,8 +36,10 @@ export function createDayRecord(dayNumber) {
   return {
     id: createId("day"),
     dayNumber: clampNumber(Number(dayNumber) || 1, 1, 99),
+    abilityRecords: [],
     nominations: [],
     executionOverride: "",
+    publicRecordSavedAt: "",
   };
 }
 
@@ -60,6 +62,29 @@ function normalizeNomination(nomination, playerCount) {
     voterSeats: normalizeVoteSeats(nomination?.voterSeats, playerCount),
     note: String(nomination?.note || ""),
     createdAt: nomination?.createdAt || new Date().toISOString(),
+  };
+}
+
+function normalizePhaseType(value) {
+  return value === "night" ? "night" : "day";
+}
+
+function normalizeAbilityRecord(record, playerCount) {
+  const source = record?.source === "storyteller" ? "storyteller" : "player";
+
+  return {
+    id: record?.id || createId("ability"),
+    source,
+    phaseType: normalizePhaseType(record?.phaseType),
+    order: Number.isFinite(Number(record?.order)) ? Number(record.order) : 9999,
+    playerId: String(record?.playerId || ""),
+    seat: normalizeSeatValue(record?.seat, playerCount),
+    playerName: String(record?.playerName || ""),
+    roleId: String(record?.roleId || ""),
+    roleName: String(record?.roleName || ""),
+    rowIndex: Math.max(Number(record?.rowIndex) || 1, 1),
+    text: String(record?.text || ""),
+    updatedAt: record?.updatedAt || "",
   };
 }
 
@@ -87,6 +112,16 @@ export function normalizeDayRecords(records, playerCount) {
       normalized.push(dayRecord);
     }
 
+    dayRecord.abilityRecords.push(
+      ...(Array.isArray(record?.abilityRecords)
+        ? record.abilityRecords
+            .map((abilityRecord) =>
+              normalizeAbilityRecord(abilityRecord, playerCount),
+            )
+            .filter((abilityRecord) => abilityRecord.seat && abilityRecord.text)
+        : []),
+    );
+
     dayRecord.nominations.push(
       ...(Array.isArray(record?.nominations)
         ? record.nominations.map((nomination) =>
@@ -98,6 +133,10 @@ export function normalizeDayRecords(records, playerCount) {
     const override = normalizeExecutionOverride(record?.executionOverride, playerCount);
     if (override || record?.executionOverride === "none") {
       dayRecord.executionOverride = override || "none";
+    }
+
+    if (record?.publicRecordSavedAt) {
+      dayRecord.publicRecordSavedAt = String(record.publicRecordSavedAt);
     }
   });
 

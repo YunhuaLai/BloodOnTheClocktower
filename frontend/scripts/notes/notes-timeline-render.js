@@ -103,6 +103,20 @@ function renderNominationRow(game, record, nomination, index) {
   `;
 }
 
+function formatSeatLabel(seat) {
+  return seat ? `${seat}号` : "未填";
+}
+
+function formatVoterSeats(voterSeats) {
+  const seats = Array.isArray(voterSeats) ? voterSeats : [];
+  return seats.length ? seats.map((seat) => `${seat}号`).join("、") : "无人投票";
+}
+
+function formatNominationSummary(nomination) {
+  const voteCount = (nomination.voterSeats || []).length;
+  return `${formatSeatLabel(nomination.nominatorSeat)}提名${formatSeatLabel(nomination.nomineeSeat)}；${formatVoterSeats(nomination.voterSeats)}（${voteCount}票）`;
+}
+
 function formatExecutionResult(result) {
   if (!result.seat) {
     return "无人处决";
@@ -140,6 +154,33 @@ function renderExecutionOverride(game, record) {
   `;
 }
 
+function renderPublicRecordSave(record) {
+  const hasPublicDraft =
+    record.nominations.some(
+      (nomination) =>
+        nomination.nominatorSeat ||
+        nomination.nomineeSeat ||
+        (nomination.voterSeats || []).length,
+    ) || record.executionOverride;
+
+  return `
+    <div class="notes-public-record-save">
+      <span>${
+        record.publicRecordSavedAt
+          ? "已写入当天白天末尾；再次保存会覆盖末尾摘要。"
+          : "投票和处决会在点击保存后写入当天白天末尾。"
+      }</span>
+      <button
+        type="button"
+        class="secondary-link"
+        data-notes-action="save-day-public-record"
+        data-day-number="${record.dayNumber}"
+        ${hasPublicDraft ? "" : "disabled"}
+      >保存到白天末尾</button>
+    </div>
+  `;
+}
+
 function renderDayRecordPanel(game) {
   const dayNumber = game.phaseNumber || 1;
   const record = getDayRecord(game, dayNumber, true);
@@ -162,6 +203,7 @@ function renderDayRecordPanel(game) {
         >新增提名</button>
       </div>
       ${renderExecutionOverride(game, record)}
+      ${renderPublicRecordSave(record)}
       <div class="notes-nomination-list">
         ${
           record.nominations.length
@@ -186,6 +228,89 @@ function renderDayRecordPanel(game) {
           `
           : ""
       }
+    </section>
+  `;
+}
+
+function getStructuredTimelineItems(game, record) {
+  const abilityItems = (record.abilityRecords || []).map((item) => ({
+    id: item.id,
+    phaseType: item.phaseType,
+    order: item.order,
+    title: `${item.seat}号 ${item.roleName}`,
+    meta: item.source === "storyteller" ? "真技能" : "玩家记录",
+    text: item.text,
+  }));
+
+  const publicItems = record.publicRecordSavedAt
+    ? [
+        {
+          id: `${record.id}:public`,
+          phaseType: "day",
+          order: 99999,
+          title: "投票与处决",
+          meta: "白天末尾",
+          text: [
+            ...(record.nominations || []).map(formatNominationSummary),
+            `处决结果：${formatExecutionResult(resolveDayExecution(game, record))}`,
+          ].join("；"),
+        },
+      ]
+    : [];
+
+  return [...abilityItems, ...publicItems].sort(
+    (left, right) =>
+      (left.phaseType === "night" ? 0 : 1) - (right.phaseType === "night" ? 0 : 1) ||
+      left.order - right.order,
+  );
+}
+
+function renderStructuredTimeline(game) {
+  const records = (game.dayRecords || [])
+    .map((record) => ({
+      record,
+      items: getStructuredTimelineItems(game, record),
+    }))
+    .filter((entry) => entry.items.length)
+    .sort((left, right) => right.record.dayNumber - left.record.dayNumber);
+
+  if (!records.length) {
+    return "";
+  }
+
+  return `
+    <section class="notes-structured-timeline">
+      <div class="notes-structured-timeline-header">
+        <p class="eyebrow">当天记录</p>
+        <h3>按角色行动顺序整理</h3>
+      </div>
+      <div class="notes-day-record-list">
+        ${records
+          .map(
+            ({ record, items }) => `
+              <article class="notes-day-card">
+                <h4>第 ${record.dayNumber} 天</h4>
+                <div class="notes-day-card-items">
+                  ${items
+                    .map(
+                      (item) => `
+                        <div class="notes-day-card-item notes-day-card-item--${escapeHtml(item.phaseType)}">
+                          <span>${escapeHtml(item.phaseType === "night" ? "夜晚" : "白天")}</span>
+                          <div>
+                            <strong>${escapeHtml(item.title)}</strong>
+                            <small>${escapeHtml(item.meta)}</small>
+                            <p>${escapeHtml(item.text)}</p>
+                          </div>
+                        </div>
+                      `,
+                    )
+                    .join("")}
+                </div>
+              </article>
+            `,
+          )
+          .join("")}
+      </div>
     </section>
   `;
 }
@@ -251,6 +376,7 @@ export function renderTimelineTab(game) {
         </div>
 
         ${renderDayRecordPanel(game)}
+        ${renderStructuredTimeline(game)}
 
         <div class="notes-timeline-compose">
           <label class="note-field">

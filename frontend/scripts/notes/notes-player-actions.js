@@ -2,6 +2,7 @@ import { getClaimRoleOptions } from "../notes-claims.js";
 import { clearPlayerDraft, cloneExternalReports, clonePlayerForDraft, cloneRoleInfo, getActiveGame, getPlayerDraft, saveNotesState, setPlayerDraft } from "../notes-state.js";
 import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state } from "../state.js";
 import { createId, getOptionLabel } from "../utils.js";
+import { syncAbilityRecordsForPlayer } from "./notes-ability-records.js";
 import { formatPhaseLabel, getPlayerLabel } from "./notes-core.js";
 import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoNode, getRoleInfoSummary, isRoleInfoEntryFilled } from "./notes-role-info.js";
 import { getRoleAlignmentValue, getRoleByLooseName } from "./notes-storyteller-actions.js";
@@ -17,6 +18,12 @@ function getRoleInfoSubject(player, game = getActiveGame()) {
   }
 
   return player;
+}
+
+function getAbilityRecordSource(game) {
+  return game?.mode === "storyteller" && state.notes.ui.activeTab === "storyteller"
+    ? "storyteller"
+    : "player";
 }
 
 export function ensurePlayerDraftForId(playerId) {
@@ -311,6 +318,7 @@ export function savePlayerDraft(playerId) {
     ensureRoleInfoMatchesClaim(getRoleInfoSubject(savedDraft, game), game),
   );
   Object.assign(player, savedDraft);
+  syncAbilityRecordsForPlayer(game, player, getAbilityRecordSource(game));
   clearPlayerDraft(playerId);
 
   game.timeline.unshift({
@@ -334,6 +342,7 @@ export function persistPlayerDraft(playerId) {
   const savedDraft = clonePlayerForDraft(draft);
   savedDraft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(savedDraft, game), game);
   Object.assign(player, savedDraft);
+  syncAbilityRecordsForPlayer(game, player, getAbilityRecordSource(game));
   setPlayerDraft(playerId, clonePlayerForDraft(savedDraft));
   saveNotesState();
 }
