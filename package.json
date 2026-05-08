@@ -17,6 +17,8 @@
     "cache:images": "node scripts/cache-images.js",
     "setup-meta:check": "node scripts/backfill-setup-meta.js",
     "setup-meta:write": "node scripts/backfill-setup-meta.js --write",
+    "roles:dedupe:check": "node scripts/dedupe-roles-by-ability.js",
+    "roles:dedupe": "node scripts/dedupe-roles-by-ability.js --write",
     "rebuild:library": "node scripts/rebuild-library-from-catalog.js"
   },
   "dependencies": {
