@@ -5,8 +5,6 @@ import { createId } from "../utils.js";
 import { formatPhaseLabel } from "./notes-core.js";
 import { renderNotesPage } from "./notes-shell.js";
 
-// Split from notes-actions.js. Keep script order in index.html.
-
 export function getSelectedPlayerIdForGame(game) {
   return (
     game?.players.find((player) => player.seat === game.selfSeat)?.id ||

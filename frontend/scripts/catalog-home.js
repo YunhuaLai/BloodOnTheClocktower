@@ -22,7 +22,7 @@ function renderHomeDirectory() {
       href: "/notes",
       count: getNotesGameCount(),
       countLabel: "个本地对局",
-      text: "先把座位、声明、标签和每天得到的信息按局保存下来；之后可以扩展成创建房间，让玩家进入同一局。",
+      text: "把座位、声明、标签和每天得到的信息按局保存下来，复盘时不用在零散记录里来回翻。",
       action: "进入对局房间",
       featured: true,
     },
@@ -78,10 +78,10 @@ export function renderHome() {
   app.innerHTML = `
     <section class="workspace" id="overview">
       <div class="intro-panel">
-        <p class="eyebrow">对局房间 · 本地记录 · 多人房间预留</p>
+        <p class="eyebrow">对局房间 · 本地记录 · 快速推理</p>
         <h1>先开一局，再把线索和判断都放进同一个房间。</h1>
         <p class="lead">
-          现在可以本地记录座位、声明、标签和每日信息；后续再接上创建房间，让不同玩家进入同一个对局空间。
+          本地记录座位、声明、标签和每日信息；查角色、看板子、做推理都围绕当前这一局展开。
         </p>
         <div class="home-actions" aria-label="常用入口">
           <a class="primary-link" href="/notes" data-link>进入对局房间</a>

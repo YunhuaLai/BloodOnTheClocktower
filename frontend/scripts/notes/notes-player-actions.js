@@ -7,8 +7,6 @@ import { formatPhaseLabel, getPlayerLabel } from "./notes-core.js";
 import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoMinimumRows, getRoleInfoNode, getRoleInfoRowLimit, getRoleInfoSummary, isRoleInfoEntryFilled } from "./notes-role-info.js";
 import { getRoleAlignmentValue, getRoleByLooseName } from "./notes-storyteller-actions.js";
 
-// Split from notes-actions.js. Keep script order in index.html.
-
 function getRoleInfoSubject(player, game = getActiveGame()) {
   if (game?.mode === "storyteller" && state.notes.ui.activeTab === "storyteller" && player?.trueRole) {
     return {

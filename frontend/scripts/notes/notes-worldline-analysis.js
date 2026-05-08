@@ -1,8 +1,8 @@
 import { escapeHtml } from "../utils.js";
 import { getDraftOrPlayer } from "../notes-state.js";
+import { getCachedWorldlineAnalysis, loadWorldlineAnalysis } from "./notes-analysis-client.js";
 
 let analysisRenderId = 0;
-const analysisCache = new Map();
 
 function renderObservationList(items, emptyText, limit = 5) {
   if (!items.length) {
@@ -151,7 +151,7 @@ function renderAnalysisPanel(game, analysis) {
     <section class="notes-analysis-panel notes-world-panel">
       <div class="notes-analysis-header">
         <div>
-          <p class="eyebrow">局势推理 MVP</p>
+          <p class="eyebrow">局势推理</p>
           <h3>枚举邪恶方位置，再计算解释成本</h3>
         </div>
         <span>${game.playerCount}人局：邪恶 ${evilSlots}（爪牙 ${analysis.setup.minion} / 恶魔 ${analysis.setup.demon}）</span>
@@ -191,57 +191,12 @@ function buildAnalysisGame(game) {
   };
 }
 
-function getAnalysisSignature(game) {
-  return JSON.stringify(game);
-}
-
-async function fetchAnalysis(game) {
-  const response = await fetch("/api/deduction/analyze", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ game }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`Analysis API returned ${response.status}`);
-  }
-
-  return response.json();
-}
-
-function getAnalysis(signature, game) {
-  const cached = analysisCache.get(signature);
-  if (cached?.status === "fulfilled") {
-    return Promise.resolve(cached.analysis);
-  }
-
-  if (cached?.promise) {
-    return cached.promise;
-  }
-
-  const promise = fetchAnalysis(game).then(
-    (analysis) => {
-      analysisCache.set(signature, { status: "fulfilled", analysis });
-      return analysis;
-    },
-    (error) => {
-      analysisCache.delete(signature);
-      throw error;
-    },
-  );
-
-  analysisCache.set(signature, { status: "pending", promise });
-  return promise;
-}
-
 function renderAnalysisLoading(panelId) {
   return `
     <section class="notes-analysis-panel notes-world-panel" id="${escapeHtml(panelId)}">
       <div class="notes-analysis-header">
         <div>
-          <p class="eyebrow">局势推理 MVP</p>
+          <p class="eyebrow">局势推理</p>
           <h3>正在计算局势</h3>
         </div>
       </div>
@@ -253,19 +208,19 @@ function renderAnalysisError() {
   return `
     <section class="notes-analysis-signals notes-analysis-signals--muted">
       <h4>局势推理</h4>
-      <p>后端暂时没有返回推理结果。</p>
+      <p>暂时没有拿到推理结果，请稍后再试。</p>
     </section>
   `;
 }
 
-async function hydrateAnalysis(panelId, signature, game) {
+async function hydrateAnalysis(panelId, game) {
   const panel = document.getElementById(panelId);
   if (!panel) {
     return;
   }
 
   try {
-    const analysis = await getAnalysis(signature, game);
+    const analysis = await loadWorldlineAnalysis(game);
     const currentPanel = document.getElementById(panelId);
     if (!currentPanel) {
       return;
@@ -288,14 +243,13 @@ async function hydrateAnalysis(panelId, signature, game) {
 
 export function renderBeyondWorldlineAnalysis(game) {
   const analysisGame = buildAnalysisGame(game);
-  const signature = getAnalysisSignature(analysisGame);
-  const cached = analysisCache.get(signature);
+  const cachedAnalysis = getCachedWorldlineAnalysis(analysisGame);
 
-  if (cached?.status === "fulfilled") {
-    return renderAnalysisPanel(analysisGame, cached.analysis);
+  if (cachedAnalysis) {
+    return renderAnalysisPanel(analysisGame, cachedAnalysis);
   }
 
   const panelId = `notesWorldAnalysis-${(analysisRenderId += 1)}`;
-  queueMicrotask(() => hydrateAnalysis(panelId, signature, analysisGame));
+  queueMicrotask(() => hydrateAnalysis(panelId, analysisGame));
   return renderAnalysisLoading(panelId);
 }

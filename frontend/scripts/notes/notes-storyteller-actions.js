@@ -6,8 +6,6 @@ import { formatPhaseLabel, getStandardSetup } from "./notes-core.js";
 import { normalizeRoleName } from "./notes-role-info.js";
 import { renderNotesPage } from "./notes-shell.js";
 
-// Split from notes-actions.js. Keep script order in index.html.
-
 export function getRoleAlignmentValue(role) {
   if (["townsfolk", "outsider"].includes(role?.type)) {
     return "good";

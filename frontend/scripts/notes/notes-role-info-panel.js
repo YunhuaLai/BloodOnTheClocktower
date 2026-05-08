@@ -3,8 +3,6 @@ import { escapeHtml } from "../utils.js";
 import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
 import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityMetaSummary, getAbilityTimingText, getClaimedRole, getDisplayedRoleInfoEntries, getRoleInfoAvailability, getRoleInfoMinimumRows, getRoleInfoNode, getRoleInfoRowLimit, getRoleInfoSectionLabel } from "./notes-role-info.js";
 
-// Split from notes-role-info.js. Keep script order in index.html.
-
 export function renderRoleInfoInputs(player, game) {
   if (!player.claim) {
     return `

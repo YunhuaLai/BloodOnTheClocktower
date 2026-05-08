@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { augmentEncyclopedia } = require("./catalog");
+const { getImageAssetDirectories } = require("./image-assets");
 const { loadLibraryData } = require("./library");
 
 const LIBRARY_DIR = path.join(__dirname, "library");
@@ -9,7 +10,11 @@ const CACHE_CHECK_INTERVAL_MS = 1000;
 let cachedEntry = null;
 let lastSignatureCheckAt = 0;
 
-function collectLibrarySignature(directoryPath) {
+function collectDirectorySignature(directoryPath) {
+  if (!fs.existsSync(directoryPath)) {
+    return "missing";
+  }
+
   let fileCount = 0;
   let latestMtimeMs = 0;
 
@@ -38,6 +43,12 @@ function collectLibrarySignature(directoryPath) {
   return `${fileCount}:${latestMtimeMs}`;
 }
 
+function collectDataSignature() {
+  return [LIBRARY_DIR, ...getImageAssetDirectories()]
+    .map((directoryPath) => `${directoryPath}:${collectDirectorySignature(directoryPath)}`)
+    .join("|");
+}
+
 function createIndex(items) {
   return new Map((items || []).filter((item) => item?.id).map((item) => [item.id, item]));
 }
@@ -63,7 +74,7 @@ function getCacheEntry() {
     return cachedEntry;
   }
 
-  const signature = collectLibrarySignature(LIBRARY_DIR);
+  const signature = collectDataSignature();
   lastSignatureCheckAt = now;
 
   if (!cachedEntry || cachedEntry.signature !== signature) {

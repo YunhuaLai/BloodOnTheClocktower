@@ -180,7 +180,7 @@ function renderSetupPage(notes) {
       <div class="notes-setup-panel">
         <p class="eyebrow">对局房间</p>
         <h1>先把这一局定下来</h1>
-        <p class="lead">先选剧本、记录视角和人数，创建后就直接进入对局；之后这里可以接入房间码和多人加入。</p>
+        <p class="lead">先选剧本、记录视角和人数，创建后直接进入对局，把座位和信息从第一天就放稳。</p>
 
         <form id="notesSetupForm" class="notes-setup-form">
           <label class="note-field note-field--wide notes-setup-title-field">

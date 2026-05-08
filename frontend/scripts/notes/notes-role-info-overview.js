@@ -3,8 +3,6 @@ import { escapeHtml } from "../utils.js";
 import { renderRoleInfoFieldControl, renderRoleInfoFieldElement } from "./notes-role-info-fields.js";
 import { ensureRoleInfoMatchesClaim, getClaimedRole, getDisplayedRoleInfoEntries, getRoleInfoMinimumRows, getRoleInfoNode, getRoleInfoRowLimit, getRoleInfoSectionLabel } from "./notes-role-info.js";
 
-// Split from notes-role-info.js. Keep script order in index.html.
-
 function isCompactRoleInfoField(field) {
   return ["number", "seat", "player", "boolean"].includes(field?.type);
 }

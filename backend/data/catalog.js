@@ -1,4 +1,5 @@
 const { TERM_REPLACEMENTS, TERMS } = require("./catalog/terms");
+const { withResolvedImage } = require("./image-assets");
 
 const ROLE_TYPES = {
   townsfolk: "镇民",
@@ -115,14 +116,14 @@ function normalizeRole(rawRole, context) {
   const scriptIds = context.roleScriptIdsById.get(corrected.id) || [];
   const scriptNames = scriptIds.map((scriptId) => context.scriptNamesById.get(scriptId) || scriptId);
   const roleEnglishName = corrected.englishName || corrected.id;
-  const normalized = {
+  const normalized = withResolvedImage({
     ...corrected,
     scriptId: scriptIds[0] || "",
     scriptIds,
     scriptNames,
     script: scriptNames.join(" / "),
     ability: corrected.ability || corrected.summary,
-  };
+  }, "roles");
   const detail = corrected.detail ? replaceTerms(corrected.detail) : null;
 
   normalized.detail = {
@@ -142,10 +143,10 @@ function normalizeRole(rawRole, context) {
 }
 
 function normalizeScript(script, roleIds) {
-  return {
+  return withResolvedImage({
     ...replaceTerms(script),
     roleIds: uniqueValues(script.roleIds || []).filter((roleId) => roleIds.has(roleId)),
-  };
+  }, "scripts");
 }
 
 function normalizeTerms(roleIdByEnglishName, roleIds) {

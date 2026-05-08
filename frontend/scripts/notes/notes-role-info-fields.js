@@ -3,8 +3,6 @@ import { roleTypeOrder, typeLabels } from "../state.js";
 import { escapeHtml } from "../utils.js";
 import { getChoiceLabel } from "./notes-role-info.js";
 
-// Split from notes-role-info.js. Keep script order in index.html.
-
 function getRoleInfoFieldOptions(field, game) {
   if (field.type === "role") {
     return getClaimRoleOptions(game).map((role) => ({
