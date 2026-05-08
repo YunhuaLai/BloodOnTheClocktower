@@ -51,4 +51,9 @@ for (const file of files) {
   }
 }
 
-fs.rmSync(tempDir, { recursive: true, force: true });
+fs.rmSync(tempDir, {
+  recursive: true,
+  force: true,
+  maxRetries: 5,
+  retryDelay: 100,
+});
