@@ -4,7 +4,7 @@ import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state } 
 import { createId, getOptionLabel } from "../utils.js";
 import { syncAbilityRecordsForPlayer } from "./notes-ability-records.js";
 import { formatPhaseLabel, getPlayerLabel } from "./notes-core.js";
-import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoNode, getRoleInfoSummary, isRoleInfoEntryFilled } from "./notes-role-info.js";
+import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoMinimumRows, getRoleInfoNode, getRoleInfoRowLimit, getRoleInfoSummary, isRoleInfoEntryFilled } from "./notes-role-info.js";
 import { getRoleAlignmentValue, getRoleByLooseName } from "./notes-storyteller-actions.js";
 
 // Split from notes-actions.js. Keep script order in index.html.
@@ -139,12 +139,6 @@ function getRoleInfoSectionKey(section) {
   return section === "result" ? "resultEntries" : "targetEntries";
 }
 
-function getRoleInfoMinimumRows(node) {
-  return node.repeatMode === "once"
-    ? Math.max(node.defaultRows || 0, 1)
-    : Math.max(node.defaultRows || 0, 1);
-}
-
 function getLinkedRoleInfoSections(draft, requestedSection, game) {
   const abilityData = getRoleAbilityData(getRoleInfoSubject(draft, game), game);
   const targetNode = getRoleInfoNode(abilityData, "target");
@@ -159,6 +153,13 @@ function getLinkedRoleInfoSections(draft, requestedSection, game) {
   return [requestedSection];
 }
 
+function getRoleInfoRowCount(roleInfo) {
+  return Math.max(
+    roleInfo?.targetEntries?.length || 0,
+    roleInfo?.resultEntries?.length || 0,
+  );
+}
+
 export function updatePlayerDraftRoleInfo(playerId, section, index, field, value) {
   const draft = ensurePlayerDraftForId(playerId);
   const game = getActiveGame();
@@ -166,14 +167,23 @@ export function updatePlayerDraftRoleInfo(playerId, section, index, field, value
     return;
   }
 
-  draft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(draft, game), game);
+  const subject = getRoleInfoSubject(draft, game);
+  const safeIndex = Math.max(Number(index) || 0, 0);
+  draft.roleInfo = ensureRoleInfoMatchesClaim(subject, game);
+  const abilityData = getRoleAbilityData(subject, game);
   const entryKey = getRoleInfoSectionKey(section);
-  while (draft.roleInfo[entryKey].length <= index) {
+  const rowLimit = getRoleInfoRowLimit(abilityData, subject, game);
+  const entryExists = draft.roleInfo[entryKey].length > safeIndex;
+  if (rowLimit !== null && safeIndex >= rowLimit && !entryExists) {
+    return;
+  }
+
+  while (draft.roleInfo[entryKey].length <= safeIndex) {
     draft.roleInfo[entryKey].push({});
   }
 
-  draft.roleInfo[entryKey][index] = {
-    ...draft.roleInfo[entryKey][index],
+  draft.roleInfo[entryKey][safeIndex] = {
+    ...draft.roleInfo[entryKey][safeIndex],
     [field]: value,
   };
 }
@@ -227,8 +237,10 @@ export function cyclePlayerDraftRoleInfoField(playerId, section, index, fieldKey
     return;
   }
 
-  draft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(draft, game), game);
-  const abilityData = getRoleAbilityData(getRoleInfoSubject(draft, game), game);
+  const subject = getRoleInfoSubject(draft, game);
+  const safeIndex = Math.max(Number(index) || 0, 0);
+  draft.roleInfo = ensureRoleInfoMatchesClaim(subject, game);
+  const abilityData = getRoleAbilityData(subject, game);
   const node = getRoleInfoNode(abilityData, section);
   const field = node.fields.find((item) => item.key === fieldKey);
   const values = getRoleInfoFieldCycleValues(field);
@@ -237,14 +249,20 @@ export function cyclePlayerDraftRoleInfoField(playerId, section, index, fieldKey
   }
 
   const entryKey = getRoleInfoSectionKey(section);
-  while (draft.roleInfo[entryKey].length <= index) {
+  const rowLimit = getRoleInfoRowLimit(abilityData, subject, game);
+  const entryExists = draft.roleInfo[entryKey].length > safeIndex;
+  if (rowLimit !== null && safeIndex >= rowLimit && !entryExists) {
+    return;
+  }
+
+  while (draft.roleInfo[entryKey].length <= safeIndex) {
     draft.roleInfo[entryKey].push({});
   }
 
-  const currentValue = String(draft.roleInfo[entryKey][index]?.[fieldKey] ?? "");
+  const currentValue = String(draft.roleInfo[entryKey][safeIndex]?.[fieldKey] ?? "");
   const currentIndex = values.indexOf(currentValue);
   const nextValue = values[(currentIndex + 1 + values.length) % values.length];
-  updatePlayerDraftRoleInfo(playerId, section, index, fieldKey, nextValue);
+  updatePlayerDraftRoleInfo(playerId, section, safeIndex, fieldKey, nextValue);
 }
 
 export function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
@@ -254,11 +272,17 @@ export function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
     return;
   }
 
-  draft.roleInfo = ensureRoleInfoMatchesClaim(getRoleInfoSubject(draft, game), game);
-  const abilityData = getRoleAbilityData(getRoleInfoSubject(draft, game), game);
+  const subject = getRoleInfoSubject(draft, game);
+  draft.roleInfo = ensureRoleInfoMatchesClaim(subject, game);
+  const abilityData = getRoleAbilityData(subject, game);
   const sections = getLinkedRoleInfoSections(draft, section, game);
+  const rowLimit = getRoleInfoRowLimit(abilityData, subject, game);
 
   if (step > 0) {
+    if (rowLimit !== null && getRoleInfoRowCount(draft.roleInfo) >= rowLimit) {
+      return;
+    }
+
     sections.forEach((sectionKey) => {
       const node = getRoleInfoNode(abilityData, sectionKey);
       if (!["sequence", "variable"].includes(node.repeatMode)) {
@@ -277,7 +301,7 @@ export function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
     }
 
     const entryKey = getRoleInfoSectionKey(sectionKey);
-    const minimumRows = getRoleInfoMinimumRows(node);
+    const minimumRows = getRoleInfoMinimumRows(node, abilityData, subject, game);
     if (draft.roleInfo[entryKey].length > minimumRows) {
       draft.roleInfo[entryKey].pop();
     }
@@ -417,6 +441,12 @@ export function autoFillStorytellerRoleInfoResult(playerId) {
     targetEntries.findLastIndex((entry) => getSeatFromRoleInfoEntry(entry)),
     0,
   );
+  const rowLimit = getRoleInfoRowLimit(abilityData, subject, game);
+  const resultEntryExists = draft.roleInfo.resultEntries.length > targetIndex;
+  if (rowLimit !== null && targetIndex >= rowLimit && !resultEntryExists) {
+    return false;
+  }
+
   const targetSeat = getSeatFromRoleInfoEntry(targetEntries[targetIndex]);
   const targetPlayer = game.players.find((player) => player.seat === targetSeat);
   const targetRole = getRoleByLooseName(targetPlayer?.trueRole, game);

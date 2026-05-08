@@ -1,7 +1,7 @@
 import { clampNumber } from "../notes-state.js";
 import { escapeHtml } from "../utils.js";
 import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
-import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityMetaSummary, getAbilityTimingText, getClaimedRole, getDisplayedRoleInfoEntries, getRoleInfoNode, getRoleInfoSectionLabel } from "./notes-role-info.js";
+import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityMetaSummary, getAbilityTimingText, getClaimedRole, getDisplayedRoleInfoEntries, getRoleInfoAvailability, getRoleInfoMinimumRows, getRoleInfoNode, getRoleInfoRowLimit, getRoleInfoSectionLabel } from "./notes-role-info.js";
 
 // Split from notes-role-info.js. Keep script order in index.html.
 
@@ -30,16 +30,30 @@ export function renderRoleInfoInputs(player, game) {
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
   const maxSeat = clampNumber(Number(game?.playerCount) || 15, 1, 15);
+  const roleInfoContext = { abilityData, player, game };
+  const availability = getRoleInfoAvailability(abilityData, player, game);
+  const rowLimit = getRoleInfoRowLimit(abilityData, player, game);
   const renderSection = (sectionKey, node) => {
     if (node.repeatMode === "none" || !node.fields.length) {
       return "";
     }
 
-    const rows = getDisplayedRoleInfoEntries(roleInfo, node, sectionKey);
-    const minimumRows =
-      node.repeatMode === "once"
-        ? Math.max(node.defaultRows || 0, 1)
-        : Math.max(node.defaultRows || 0, 1);
+    const rows = getDisplayedRoleInfoEntries(
+      roleInfo,
+      node,
+      sectionKey,
+      roleInfoContext,
+    );
+    const minimumRows = getRoleInfoMinimumRows(
+      node,
+      abilityData,
+      player,
+      game,
+    );
+    const addDisabled = rowLimit !== null && rows.length >= rowLimit;
+    if (!rows.length) {
+      return "";
+    }
 
     return `
       <section class="notes-roleinfo-section">
@@ -85,6 +99,7 @@ export function renderRoleInfoInputs(player, game) {
                   data-notes-action="add-roleinfo-row"
                   data-player-id="${escapeHtml(player.id)}"
                   data-section="${escapeHtml(sectionKey)}"
+                  ${addDisabled ? "disabled" : ""}
                 >+ 一条</button>
                 <button
                   type="button"
@@ -104,6 +119,11 @@ export function renderRoleInfoInputs(player, game) {
 
   const targetSection = renderSection("target", targetNode);
   const resultSection = renderSection("result", resultNode);
+  const hasStructuredFields = Boolean(targetNode.fields.length || resultNode.fields.length);
+  const emptyMessage =
+    hasStructuredFields && availability.reason
+      ? availability.reason
+      : "这个身份目前更偏规则效果，先用“额外信息”补充关键点。";
 
   return `
     <section class="notes-detail-section notes-roleinfo-panel">
@@ -138,7 +158,7 @@ export function renderRoleInfoInputs(player, game) {
           ? `${targetSection}${resultSection}`
           : `
             <div class="notes-roleinfo-empty">
-              这个身份目前更偏规则效果，先用“额外信息”补充关键点。
+              ${escapeHtml(emptyMessage)}
             </div>
           `
       }

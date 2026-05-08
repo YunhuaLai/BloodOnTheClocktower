@@ -197,16 +197,175 @@ export function getRoleInfoEntries(roleInfo, sectionKey) {
   return cloneRoleInfoEntries(roleInfo?.resultEntries);
 }
 
-export function getDisplayedRoleInfoEntries(roleInfo, node, sectionKey) {
+function getPhaseNumber(game) {
+  return clampNumber(Number(game?.phaseNumber) || 1, 1, 99);
+}
+
+function getPhaseType(game) {
+  return game?.phaseType === "night" ? "night" : "day";
+}
+
+function getPhaseLabel(game) {
+  const phaseType = getPhaseType(game) === "night" ? "夜晚" : "白天";
+  return `第 ${getPhaseNumber(game)} 天${phaseType}`;
+}
+
+function isAliveForAutomaticRows(player) {
+  return !["night-dead", "executed"].includes(player?.status);
+}
+
+function isOnceOnlyAbility(abilityMeta) {
+  return ["once", "once_per_game", "passive"].includes(
+    abilityMeta?.usagePattern,
+  );
+}
+
+function isTimedRecurringAbility(abilityMeta) {
+  const phaseTiming = abilityMeta?.phaseTiming;
+  const usagePattern = abilityMeta?.usagePattern;
+
+  return (
+    ["once_per_night", "once_per_day", "repeatable"].includes(usagePattern) ||
+    (["each_night", "each_night_star", "each_day"].includes(phaseTiming) &&
+      !isOnceOnlyAbility(abilityMeta))
+  );
+}
+
+function getTimedAbilityRowCount(abilityMeta, player, game) {
+  const phaseNumber = getPhaseNumber(game);
+  const phaseType = getPhaseType(game);
+  const timing = abilityMeta?.phaseTiming || "";
+  const usagePattern = abilityMeta?.usagePattern || "";
+  const eventTiming = abilityMeta?.eventTiming || "";
+  const nightCount = phaseNumber + (phaseType === "night" ? 1 : 0);
+
+  if (eventTiming === "on_death") {
+    return isAliveForAutomaticRows(player) ? 0 : 1;
+  }
+
+  if (eventTiming) {
+    return null;
+  }
+
+  if (isTimedRecurringAbility(abilityMeta) && !isAliveForAutomaticRows(player)) {
+    return 0;
+  }
+
+  const isRecurring = isTimedRecurringAbility(abilityMeta);
+
+  if (timing === "setup" || timing === "first_night") {
+    return 1;
+  }
+
+  if (timing === "each_night") {
+    return isRecurring ? nightCount : nightCount > 0 ? 1 : 0;
+  }
+
+  if (timing === "each_night_star") {
+    const availableNights = Math.max(nightCount - 1, 0);
+    return isRecurring ? availableNights : availableNights > 0 ? 1 : 0;
+  }
+
+  if (timing === "night") {
+    const availableNights = Math.max(nightCount - 1, 0);
+    if (isRecurring) {
+      return availableNights;
+    }
+
+    return availableNights > 0 ? 1 : 0;
+  }
+
+  if (timing === "each_day") {
+    return isRecurring ? phaseNumber : 1;
+  }
+
+  if (timing === "day") {
+    if (isRecurring) {
+      return phaseNumber;
+    }
+
+    return phaseNumber >= 1 ? 1 : 0;
+  }
+
+  if (usagePattern === "once_per_night") {
+    return nightCount;
+  }
+
+  if (usagePattern === "once_per_day") {
+    return phaseNumber;
+  }
+
+  return null;
+}
+
+export function getRoleInfoAvailability(abilityData, player, game) {
+  const abilityMeta = abilityData?.abilityMeta || {};
+  const rowLimit = getTimedAbilityRowCount(abilityMeta, player, game);
+  if (rowLimit === null) {
+    return {
+      timed: false,
+      rowLimit: null,
+      reason: "",
+    };
+  }
+
+  let reason = "";
+  if (rowLimit <= 0) {
+    if (abilityMeta.eventTiming === "on_death") {
+      reason = "该角色尚未死亡，死亡触发信息暂不可录入。";
+    } else if (isTimedRecurringAbility(abilityMeta) && !isAliveForAutomaticRows(player)) {
+      reason = "该玩家已死亡，后续不会自动新增信息位。";
+    } else {
+      reason = `${getPhaseLabel(game)}还没有到这个技能的可记录时机。`;
+    }
+  }
+
+  return {
+    timed: true,
+    rowLimit,
+    reason,
+  };
+}
+
+export function getRoleInfoRowLimit(abilityData, player, game) {
+  const availability = getRoleInfoAvailability(abilityData, player, game);
+  return availability.timed ? availability.rowLimit : null;
+}
+
+export function getRoleInfoMinimumRows(node, abilityData, player, game) {
+  if (node.repeatMode === "none" || !node.fields.length) {
+    return 0;
+  }
+
+  const rowLimit = getRoleInfoRowLimit(abilityData, player, game);
+  if (rowLimit !== null) {
+    if (rowLimit <= 0) {
+      return 0;
+    }
+
+    return node.repeatMode === "once" ? 1 : rowLimit;
+  }
+
+  return Math.max(node.defaultRows || 0, 1);
+}
+
+export function getDisplayedRoleInfoEntries(
+  roleInfo,
+  node,
+  sectionKey,
+  context = {},
+) {
   const entries = getRoleInfoEntries(roleInfo, sectionKey);
   if (node.repeatMode === "none" || !node.fields.length) {
     return [];
   }
 
-  const minimumRows =
-    node.repeatMode === "once"
-      ? Math.max(node.defaultRows || 0, 1)
-      : Math.max(node.defaultRows || 0, 1);
+  const minimumRows = getRoleInfoMinimumRows(
+    node,
+    context.abilityData,
+    context.player,
+    context.game,
+  );
   const totalRows = Math.max(entries.length, minimumRows);
 
   return Array.from({ length: totalRows }, (_, index) => entries[index] || {});

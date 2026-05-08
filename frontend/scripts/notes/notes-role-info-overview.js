@@ -1,7 +1,7 @@
 import { clampNumber } from "../notes-state.js";
 import { escapeHtml } from "../utils.js";
 import { renderRoleInfoFieldControl, renderRoleInfoFieldElement } from "./notes-role-info-fields.js";
-import { ensureRoleInfoMatchesClaim, getClaimedRole, getDisplayedRoleInfoEntries, getRoleInfoNode, getRoleInfoSectionLabel } from "./notes-role-info.js";
+import { ensureRoleInfoMatchesClaim, getClaimedRole, getDisplayedRoleInfoEntries, getRoleInfoMinimumRows, getRoleInfoNode, getRoleInfoRowLimit, getRoleInfoSectionLabel } from "./notes-role-info.js";
 
 // Split from notes-role-info.js. Keep script order in index.html.
 
@@ -123,14 +123,15 @@ export function renderOverviewRoleInfoInputs(player, game) {
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
   const maxSeat = clampNumber(Number(game?.playerCount) || 15, 1, 15);
+  const roleInfoContext = { abilityData, player, game };
   const targetRows =
     targetNode.repeatMode === "none" || !targetNode.fields.length
       ? []
-      : getDisplayedRoleInfoEntries(roleInfo, targetNode, "target");
+      : getDisplayedRoleInfoEntries(roleInfo, targetNode, "target", roleInfoContext);
   const resultRows =
     resultNode.repeatMode === "none" || !resultNode.fields.length
       ? []
-      : getDisplayedRoleInfoEntries(roleInfo, resultNode, "result");
+      : getDisplayedRoleInfoEntries(roleInfo, resultNode, "result", roleInfoContext);
   const rowCount = Math.max(targetRows.length, resultRows.length);
 
   if (!rowCount) {
@@ -138,9 +139,11 @@ export function renderOverviewRoleInfoInputs(player, game) {
   }
 
   const minimumRows = Math.max(
-    targetNode.fields.length ? Math.max(targetNode.defaultRows || 0, 1) : 0,
-    resultNode.fields.length ? Math.max(resultNode.defaultRows || 0, 1) : 0,
+    getRoleInfoMinimumRows(targetNode, abilityData, player, game),
+    getRoleInfoMinimumRows(resultNode, abilityData, player, game),
   );
+  const rowLimit = getRoleInfoRowLimit(abilityData, player, game);
+  const addDisabled = rowLimit !== null && rowCount >= rowLimit;
   const allowRowAdjust =
     ["sequence", "variable"].includes(targetNode.repeatMode) ||
     ["sequence", "variable"].includes(resultNode.repeatMode);
@@ -320,6 +323,7 @@ export function renderOverviewRoleInfoInputs(player, game) {
                 data-notes-action="add-roleinfo-row"
                 data-player-id="${escapeHtml(player.id)}"
                 data-section="${rowAdjustSection}"
+                ${addDisabled ? "disabled" : ""}
               >+ 一条</button>
               <button
                 type="button"
