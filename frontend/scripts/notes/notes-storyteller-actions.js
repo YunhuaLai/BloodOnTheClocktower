@@ -54,6 +54,10 @@ function isIdentityOverlayRole(role) {
   return Boolean(role?.setupMeta?.identityOverlay?.enabled);
 }
 
+function isStorytellerBluffRole(role) {
+  return getRoleAlignmentValue(role) === "good";
+}
+
 function getRoleSetupAdjustments(role) {
   return Array.isArray(role?.setupMeta?.configurationAdjustments)
     ? role.setupMeta.configurationAdjustments
@@ -180,6 +184,7 @@ export function assignRandomStorytellerRoles() {
     getClaimRoleOptions(game).filter(
       (role) =>
         role.type !== "fabled" &&
+        isStorytellerBluffRole(role) &&
         isRandomAssignableRole(role) &&
         !selectedRoleIds.has(role.id),
     ),
