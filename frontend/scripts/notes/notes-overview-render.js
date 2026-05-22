@@ -1,4 +1,4 @@
-import { getGameScript } from "../notes-claims.js";
+import { getGameScript, isCustomRoleGame } from "../notes-claims.js";
 import { clampNumber, cloneExternalReports, getDraftOrPlayer } from "../notes-state.js";
 import { state } from "../state.js";
 import { escapeHtml } from "../utils.js";
@@ -119,6 +119,7 @@ function renderOverviewInlineEditor(player, game) {
 
 function renderOverviewClaimInput(player, game) {
   const script = getGameScript(game);
+  const placeholder = script || isCustomRoleGame(game) ? "身份" : "先选剧本";
 
   return `
     <input
@@ -127,7 +128,7 @@ function renderOverviewClaimInput(player, game) {
       data-field="claim"
       list="roleNameList"
       value="${escapeHtml(player.claim)}"
-      placeholder="${escapeHtml(script ? "身份" : "先选剧本")}"
+      placeholder="${escapeHtml(placeholder)}"
       autocomplete="off"
       autocapitalize="off"
       spellcheck="false"

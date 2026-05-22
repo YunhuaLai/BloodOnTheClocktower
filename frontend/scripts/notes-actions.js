@@ -1,5 +1,5 @@
 import { clearPlayerDraft, createDefaultSetupDraft, ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
-import { addNominationRecord, addTimelineEntry, clearSavedGameSelection, deleteNominationRecord, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, saveDayPublicRecord, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateDayExecutionOverride, updateGameField, updateInferenceField, updateNominationRecordField, updateNominationVoter, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField } from "./notes/notes-game-actions.js";
+import { addNominationRecord, addSetupCustomRole, addTimelineEntry, clearSavedGameSelection, deleteNominationRecord, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, removeSetupCustomRole, saveDayPublicRecord, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateDayExecutionOverride, updateGameField, updateInferenceField, updateNominationRecordField, updateNominationVoter, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField } from "./notes/notes-game-actions.js";
 import { adjustPlayerDraftExternalReports, adjustPlayerDraftRoleInfoRows, autoFillStorytellerRoleInfoResult, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, togglePlayerStoryMarker, updatePlayerDraftExternalReport, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
 import { assignRandomStorytellerRoles, clearStorytellerAssignments } from "./notes/notes-storyteller-actions.js";
@@ -164,6 +164,20 @@ export function handleNotesAction(button) {
 
   if (action === "create-game") {
     handleCreateGame();
+    return;
+  }
+
+  if (action === "add-custom-role") {
+    if (addSetupCustomRole(document.querySelector("#customRoleInput")?.value || "")) {
+      renderNotesPage();
+    }
+    return;
+  }
+
+  if (action === "remove-custom-role") {
+    if (removeSetupCustomRole(button.dataset.roleId || "")) {
+      renderNotesPage();
+    }
     return;
   }
 

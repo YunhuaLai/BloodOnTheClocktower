@@ -1,6 +1,6 @@
 import { normalizeMatchText } from "./notes-claims.js";
 import { normalizeAutoExecutionApplied, normalizeDayRecords, syncAutoExecutionStatuses } from "./notes/notes-day-records.js";
-import { noteAlignmentOptions, noteConditionOptions, noteModeOptions, noteStatusOptions, noteTagOptions, notesStorageKey, phaseTypeOptions, state, timelineTypeOptions } from "./state.js";
+import { noteAlignmentOptions, noteConditionOptions, noteModeOptions, noteStatusOptions, noteTagOptions, notesStorageKey, phaseTypeOptions, scriptModeOptions, state, timelineTypeOptions } from "./state.js";
 import { createId, escapeHtml, getOptionLabel } from "./utils.js";
 
 export function clampNumber(value, min, max) {
@@ -10,8 +10,11 @@ export function clampNumber(value, min, max) {
 export function createDefaultSetupDraft() {
   return {
     title: "",
+    scriptMode: "script",
     scriptId: "",
     scriptName: "",
+    customRoleIds: [],
+    customRoleQuery: "",
     playerCount: 10,
     selfSeat: 1,
     mode: "player",
@@ -146,8 +149,28 @@ function findScriptFromSetup(setup) {
   return state.scripts.find((item) => item.id === scriptId) || null;
 }
 
+function getValidScriptMode(value) {
+  return scriptModeOptions.some((option) => option.value === value)
+    ? value
+    : "script";
+}
+
+function normalizeCustomRoleIds(roleIds) {
+  const validRoleIds = new Set(state.roles.map((role) => role.id));
+  return [
+    ...new Set(
+      (Array.isArray(roleIds) ? roleIds : [])
+        .map((roleId) => String(roleId || "").trim())
+        .filter(Boolean),
+    ),
+  ].filter((roleId) => !validRoleIds.size || validRoleIds.has(roleId));
+}
+
 export function createGameFromSetup(setup, nextIndex = 1) {
-  const script = findScriptFromSetup(setup);
+  const scriptMode = getValidScriptMode(setup.scriptMode);
+  const customRoleIds =
+    scriptMode === "custom" ? normalizeCustomRoleIds(setup.customRoleIds) : [];
+  const script = scriptMode === "script" ? findScriptFromSetup(setup) : null;
   const playerCount = clampNumber(Number(setup.playerCount) || 10, 5, 15);
   const mode = noteModeOptions.some((option) => option.value === setup.mode)
     ? setup.mode
@@ -158,12 +181,15 @@ export function createGameFromSetup(setup, nextIndex = 1) {
       : clampNumber(Number(setup.selfSeat) || 1, 1, playerCount);
   const title = String(setup.title || "").trim() || `第 ${nextIndex} 局`;
   const scriptName = String(setup.scriptName || "").trim();
+  const customScriptName = scriptName || "自定义角色池";
 
   return {
     id: createId("game"),
     title,
-    scriptId: script?.id || "",
-    scriptName: script?.name || scriptName,
+    scriptMode,
+    scriptId: scriptMode === "script" ? script?.id || "" : "",
+    scriptName: scriptMode === "custom" ? customScriptName : script?.name || scriptName,
+    customRoleIds,
     playerCount,
     selfSeat,
     mode,
@@ -304,6 +330,14 @@ function normalizeStorytellerState(storyteller) {
 function normalizeGame(game, index) {
   const fallbackSetup = createDefaultSetupDraft();
   const fallbackPhase = parseLegacyPhase(game);
+  const scriptMode = getValidScriptMode(
+    game?.scriptMode ||
+      (Array.isArray(game?.customRoleIds) && game.customRoleIds.length
+        ? "custom"
+        : "script"),
+  );
+  const customRoleIds =
+    scriptMode === "custom" ? normalizeCustomRoleIds(game?.customRoleIds) : [];
   const rawPlayerCount =
     Number(game?.playerCount) ||
     (Array.isArray(game?.players) ? game.players.length : 0) ||
@@ -332,8 +366,13 @@ function normalizeGame(game, index) {
   const normalizedGame = {
     id: game?.id || createId("game"),
     title: game?.title || `第 ${index + 1} 局`,
-    scriptId: game?.scriptId || "",
-    scriptName: game?.scriptName || "",
+    scriptMode,
+    scriptId: scriptMode === "custom" ? "" : game?.scriptId || "",
+    scriptName:
+      scriptMode === "custom"
+        ? game?.scriptName || "自定义角色池"
+        : game?.scriptName || "",
+    customRoleIds,
     playerCount,
     selfSeat,
     mode,
@@ -424,6 +463,14 @@ export function ensureNotesState() {
 
   if (!state.notes.ui.setupDraft) {
     state.notes.ui.setupDraft = createDefaultSetupDraft();
+  } else {
+    state.notes.ui.setupDraft = {
+      ...createDefaultSetupDraft(),
+      ...state.notes.ui.setupDraft,
+      customRoleIds: Array.isArray(state.notes.ui.setupDraft.customRoleIds)
+        ? state.notes.ui.setupDraft.customRoleIds
+        : [],
+    };
   }
 
   if (!state.notes.ui.playerDrafts) {

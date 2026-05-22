@@ -10,6 +10,9 @@
 
 1. 复制剧本模板，改成新的 `sxxx-中文名.yaml`
 2. 填写剧本 `id`、`englishName`、`name`、官方导入/导出字段和 `roleIds`
+   - 新导入或未复查的剧本先用 `status: draft`
+   - 复查中用 `status: review`，确认可展示后改成 `status: published`
+   - 暂时不想出现在常用目录里的旧剧本用 `status: archived`
 3. 复制角色模板，改成新的 `rxxx-中文名.yaml`
 4. 填写角色自身字段，不要在角色里维护所属剧本
 5. 如果这个角色需要笔记页结构化记录，再复制 `role-abilities` 模板

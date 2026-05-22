@@ -44,6 +44,11 @@ export const noteModeOptions = [
   { value: "storyteller", label: "说书人" },
 ];
 
+export const scriptModeOptions = [
+  { value: "script", label: "固定剧本" },
+  { value: "custom", label: "自定义角色池" },
+];
+
 export const noteTabOptions = [
   { value: "overview", label: "总览" },
   { value: "players", label: "玩家" },
@@ -109,6 +114,10 @@ export const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "fable
 export const state = {
   activeFilter: "all",
   currentPath: "",
+  scriptLevelFilter: "all",
+  scriptQuery: "",
+  scriptSort: "default",
+  scriptStatusFilter: "published",
   notes: {
     activeGameId: "",
     games: [],

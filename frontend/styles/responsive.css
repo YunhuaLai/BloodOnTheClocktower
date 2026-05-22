@@ -32,6 +32,7 @@
   }
 
   .notes-meta-grid,
+  .script-tools,
   .note-player-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -101,6 +102,7 @@
   }
 
   .notes-meta-grid,
+  .script-tools,
   .note-player-grid,
   .note-player-fields,
   .storyteller-fields,
@@ -175,6 +177,16 @@
 
   .script-card {
     grid-template-rows: 150px 1fr;
+  }
+
+  .script-card-title {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .script-result-row {
+    justify-content: flex-start;
   }
 
   .directory-card {

@@ -157,8 +157,12 @@ function normalizeRole(rawRole, context) {
 }
 
 function normalizeScript(script, roleIds, termReplacements) {
+  const corrected = replaceTerms(script, termReplacements);
+
   return withResolvedImage({
-    ...replaceTerms(script, termReplacements),
+    ...corrected,
+    status: corrected.status || "published",
+    tags: Array.isArray(corrected.tags) ? corrected.tags : [],
     roleIds: uniqueValues(script.roleIds || []).filter((roleId) => roleIds.has(roleId)),
   }, "scripts");
 }

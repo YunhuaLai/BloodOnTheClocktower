@@ -11,6 +11,10 @@ function matchesPartial(item, query, fields) {
 }
 
 function getGameScript(game, catalog) {
+  if (game?.scriptMode === "custom") {
+    return null;
+  }
+
   const scripts = catalog?.scripts || [];
 
   if (game?.scriptId) {
@@ -40,6 +44,17 @@ function roleBelongsToScript(role, scriptId) {
 
 function getClaimRoleOptions(game, catalog) {
   const roles = catalog?.roles || [];
+  if (game?.scriptMode === "custom") {
+    const customRoleIds = new Set(
+      (Array.isArray(game?.customRoleIds) ? game.customRoleIds : [])
+        .map((roleId) => String(roleId || "").trim())
+        .filter(Boolean),
+    );
+    return customRoleIds.size
+      ? roles.filter((role) => customRoleIds.has(role.id))
+      : [];
+  }
+
   const script = getGameScript(game, catalog);
   if (!script) {
     return roles;
@@ -49,14 +64,24 @@ function getClaimRoleOptions(game, catalog) {
 }
 
 function getClaimedRole(playerOrClaim, game, catalog) {
+  const roleOptions = getClaimRoleOptions(game, catalog);
   const explicitRoleId =
     typeof playerOrClaim === "string" ? "" : String(playerOrClaim?.roleInfo?.roleId || "").trim();
   if (explicitRoleId) {
-    const exactById = (catalog?.roles || []).find(
+    const exactById = roleOptions.find(
       (role) => role.id === explicitRoleId || role.englishName === explicitRoleId,
     );
     if (exactById) {
       return exactById;
+    }
+
+    if (game?.scriptMode !== "custom") {
+      const fallbackById = (catalog?.roles || []).find(
+        (role) => role.id === explicitRoleId || role.englishName === explicitRoleId,
+      );
+      if (fallbackById) {
+        return fallbackById;
+      }
     }
   }
 
@@ -69,8 +94,11 @@ function getClaimedRole(playerOrClaim, game, catalog) {
 
   const matchRole = (role) =>
     matchesExact(role, normalizedClaim, ["name", "en", "id", "englishName"]);
-  const roleOptions = getClaimRoleOptions(game, catalog);
-  return roleOptions.find(matchRole) || (catalog?.roles || []).find(matchRole) || null;
+  return (
+    roleOptions.find(matchRole) ||
+    (game?.scriptMode === "custom" ? null : (catalog?.roles || []).find(matchRole)) ||
+    null
+  );
 }
 
 module.exports = {

@@ -1,4 +1,4 @@
-import { getClaimRoleOptions, getGameScript } from "../notes-claims.js";
+import { getClaimRoleOptions, getGameScript, isCustomRoleGame } from "../notes-claims.js";
 import { clearPlayerDraft, createDefaultStorytellerState, createEmptyRoleInfo, getActiveGame, saveNotesState } from "../notes-state.js";
 import { roleTypeOrder, state, typeLabels } from "../state.js";
 import { createId } from "../utils.js";
@@ -30,7 +30,11 @@ export function getRoleByLooseName(value, game = getActiveGame()) {
       (name) => normalizeRoleName(name) === normalizedValue,
     );
 
-  return roleOptions.find(matchesRole) || state.roles.find(matchesRole) || null;
+  return (
+    roleOptions.find(matchesRole) ||
+    (game && isCustomRoleGame(game) ? null : state.roles.find(matchesRole)) ||
+    null
+  );
 }
 
 function shuffleItems(items) {
@@ -140,8 +144,13 @@ function buildRandomSetupNoteLines(game, selectedRoles) {
 
 export function assignRandomStorytellerRoles() {
   const game = getActiveGame();
+  if (!game) {
+    return;
+  }
+
   const script = getGameScript(game);
-  if (!game || !script) {
+  const isCustom = isCustomRoleGame(game);
+  if (!script && !isCustom) {
     window.alert("先选择剧本，再随机分配身份。");
     return;
   }
@@ -153,7 +162,8 @@ export function assignRandomStorytellerRoles() {
   );
 
   if (missingType) {
-    window.alert(`《${script.name}》的${typeLabels[missingType]}数量不足，无法按 ${game.playerCount} 人配置随机。`);
+    const sourceName = isCustom ? game.scriptName || "自定义角色池" : `《${script.name}》`;
+    window.alert(`${sourceName}的${typeLabels[missingType]}数量不足，无法按 ${game.playerCount} 人配置随机。`);
     return;
   }
 

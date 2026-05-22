@@ -1,6 +1,8 @@
 const { augmentEncyclopedia } = require("../backend/data/catalog");
 const { loadLibraryData } = require("../backend/data/library");
 
+const KNOWN_SCRIPT_STATUSES = new Set(["draft", "review", "published", "archived"]);
+
 const KNOWN_ROLE_TYPES = new Set([
   "townsfolk",
   "outsider",
@@ -161,6 +163,10 @@ function validateScripts(scripts, roleIds) {
   scripts.forEach((script) => {
     requireString(script, "id", "script");
     requireString(script, "name", "script");
+
+    if (script?.status && !KNOWN_SCRIPT_STATUSES.has(script.status)) {
+      addWarning(`script ${label(script)} has unknown status "${script.status}"`);
+    }
 
     if (!Array.isArray(script.roleIds)) {
       addError(`script ${label(script)} must have a roleIds array`);

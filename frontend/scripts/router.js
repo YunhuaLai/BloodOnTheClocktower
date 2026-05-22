@@ -1,6 +1,6 @@
 import { renderLoadError, renderNotFound, renderRoleDetail, renderScriptDetail, renderTermDetail } from "./catalog-details.js";
 import { renderHome } from "./catalog-home.js";
-import { renderRoleIndex, renderRoles, renderScriptIndex, renderTermIndex, syncFilterButtons } from "./catalog-indexes.js";
+import { renderRoleIndex, renderRoles, renderScriptIndex, renderScripts, renderTermIndex, syncFilterButtons } from "./catalog-indexes.js";
 import { handleNotesAction, handleNotesFieldChange } from "./notes-actions.js";
 import { deleteSavedGames, toggleGameFavorite } from "./notes/notes-game-actions.js";
 import { ensureNotesState } from "./notes-state.js";
@@ -156,6 +156,12 @@ document.addEventListener("click", (event) => {
 });
 
 document.addEventListener("input", (event) => {
+  if (event.target.id === "scriptSearchInput") {
+    state.scriptQuery = event.target.value;
+    renderScripts();
+    return;
+  }
+
   if (event.target.id === "searchInput") {
     renderRoles();
     return;
@@ -167,6 +173,24 @@ document.addEventListener("input", (event) => {
 });
 
 document.addEventListener("change", (event) => {
+  if (event.target.id === "scriptStatusFilter") {
+    state.scriptStatusFilter = event.target.value;
+    renderScripts();
+    return;
+  }
+
+  if (event.target.id === "scriptLevelFilter") {
+    state.scriptLevelFilter = event.target.value;
+    renderScripts();
+    return;
+  }
+
+  if (event.target.id === "scriptSort") {
+    state.scriptSort = event.target.value;
+    renderScripts();
+    return;
+  }
+
   if (event.target.closest(".notes-setup, .notes-shell, .notes-home")) {
     handleNotesFieldChange(event.target, true);
   }

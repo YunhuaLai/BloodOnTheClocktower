@@ -70,6 +70,116 @@
   border-radius: 8px;
 }
 
+.notes-custom-roles {
+  display: grid;
+  gap: 12px;
+  padding: 12px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.notes-custom-role-header,
+.notes-custom-role-header div,
+.notes-custom-role-control,
+.notes-custom-role-groups,
+.notes-custom-role-group {
+  display: grid;
+  gap: 8px;
+}
+
+.notes-custom-role-header div {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+}
+
+.notes-custom-role-header strong {
+  font-size: 15px;
+}
+
+.notes-custom-role-header span,
+.notes-custom-role-group h3 span,
+.notes-custom-role-empty {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.notes-custom-role-control .note-icon-button {
+  align-self: end;
+  justify-self: stretch;
+  min-height: 44px;
+}
+
+.notes-custom-role-group h3 {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.notes-custom-role-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.notes-custom-role-chip {
+  display: inline-grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  gap: 6px;
+  align-items: center;
+  max-width: 100%;
+  min-height: 34px;
+  padding: 5px 8px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--role-color, var(--line));
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.notes-custom-role-chip--townsfolk {
+  --role-color: var(--blue);
+}
+
+.notes-custom-role-chip--outsider {
+  --role-color: var(--outsider);
+}
+
+.notes-custom-role-chip--minion {
+  --role-color: var(--green);
+}
+
+.notes-custom-role-chip--demon {
+  --role-color: var(--red);
+}
+
+.notes-custom-role-chip--fabled {
+  --role-color: var(--gold);
+}
+
+.notes-custom-role-chip span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notes-custom-role-chip small {
+  color: var(--muted);
+}
+
+.notes-custom-role-chip strong {
+  color: var(--red);
+  font-size: 16px;
+  line-height: 1;
+}
+
 .notes-setup-static-field {
   display: grid;
   gap: 6px;

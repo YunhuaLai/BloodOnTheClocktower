@@ -1,4 +1,4 @@
-import { getClaimPickerHint, getGameScript } from "../notes-claims.js";
+import { getClaimPickerHint, getGameScript, isCustomRoleGame } from "../notes-claims.js";
 import { getDraftOrPlayer, getPlayerDraft } from "../notes-state.js";
 import { noteAlignmentOptions, noteTagOptions, state } from "../state.js";
 import { escapeHtml, renderSelectOptions } from "../utils.js";
@@ -221,6 +221,11 @@ function renderSeatTabs(game, selectedPlayer) {
 
 function renderClaimControl(player, game) {
   const script = getGameScript(game);
+  const placeholder = script
+    ? `输入或搜索《${script.name}》角色`
+    : isCustomRoleGame(game)
+      ? "输入或搜索自定义角色"
+      : "先选剧本";
 
   return `
     <label class="note-field note-field--wide">
@@ -231,7 +236,7 @@ function renderClaimControl(player, game) {
         data-field="claim"
         list="roleNameList"
         value="${escapeHtml(player.claim)}"
-        placeholder="${escapeHtml(script ? `输入或搜索《${script.name}》角色` : "先选剧本")}"
+        placeholder="${escapeHtml(placeholder)}"
         autocomplete="off"
         autocapitalize="off"
         spellcheck="false"

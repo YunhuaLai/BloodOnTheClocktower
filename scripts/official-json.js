@@ -608,6 +608,10 @@ function importOfficialJson(inputPath) {
   const existingScript = findEntryById(scripts, scriptId);
   const roleIdByOfficialName = new Map();
   const changed = [];
+  const createdRoles = [];
+  const reusedRoles = [];
+  const createdRoleAbilities = [];
+  const reviewRoles = [];
 
   officialRoles.forEach((officialRole) => {
     const existingRole = findRoleEntry(roles, officialRole);
@@ -621,6 +625,9 @@ function importOfficialJson(inputPath) {
 
     if (!existingRole) {
       roles.push({ fileName: path.basename(filePath), filePath, data: roleData });
+      createdRoles.push({ id: roleId, name: officialRole.name });
+    } else {
+      reusedRoles.push({ id: roleId, name: officialRole.name });
     }
 
     const existingAbility = roleAbilities.find((entry) => entry.data?.id === roleId);
@@ -630,6 +637,10 @@ function importOfficialJson(inputPath) {
       writeYamlFile(abilityPath, abilityData);
       roleAbilities.push({ fileName: path.basename(abilityPath), filePath: abilityPath, data: abilityData });
       changed.push(relativeToRoot(abilityPath));
+      createdRoleAbilities.push({ id: roleId, name: officialRole.name });
+      if (abilityData.needsReview) {
+        reviewRoles.push({ id: roleId, name: officialRole.name });
+      }
     } else if (!existingAbility.data?.deduction) {
       const deduction = inferDeductionData(existingAbility.data, { ...roleData, ability: officialRole.ability || roleData.ability || "" });
       if (deduction) {
@@ -637,6 +648,10 @@ function importOfficialJson(inputPath) {
         writeYamlFile(existingAbility.filePath, existingAbility.data);
         changed.push(relativeToRoot(existingAbility.filePath));
       }
+    }
+
+    if (existingAbility?.data?.needsReview) {
+      reviewRoles.push({ id: roleId, name: officialRole.name });
     }
   });
 
@@ -657,6 +672,7 @@ function importOfficialJson(inputPath) {
     id: scriptId,
     englishName: existingScript?.data?.englishName || slugify(meta.name),
     name: meta.name,
+    status: existingScript?.data?.status || (existingScript ? "published" : "draft"),
     en: existingScript?.data?.en || meta.name,
     author: meta.author || "",
     logo: meta.logo || "",
@@ -683,7 +699,15 @@ function importOfficialJson(inputPath) {
   writeYamlFile(scriptPath, scriptData);
   changed.push(relativeToRoot(scriptPath));
 
-  return { scriptId, changed };
+  return {
+    scriptId,
+    status: scriptData.status,
+    changed,
+    createdRoles,
+    reusedRoles,
+    createdRoleAbilities,
+    reviewRoles,
+  };
 }
 
 function importOfficialJsonPath(inputPath) {
@@ -776,6 +800,15 @@ function isCoreScriptRole(type) {
   return ["townsfolk", "outsider", "minion", "demon"].includes(type);
 }
 
+function formatRoleList(items, limit = 8) {
+  if (!items.length) {
+    return "无";
+  }
+
+  const names = items.slice(0, limit).map((item) => `${item.id} ${item.name}`);
+  return `${names.join("、")}${items.length > limit ? ` 等 ${items.length} 个` : ""}`;
+}
+
 function printUsage() {
   console.log(`用法:
   node scripts/official-json.js import <official.json|folder>
@@ -796,7 +829,11 @@ function main() {
     console.log(`扫描 JSON 文件：${result.files.length}`);
     console.log(`导入成功：${result.imported.length}`);
     result.imported.forEach((item) => {
-      console.log(`- ${item.scriptId}: ${relativeToRoot(item.filePath)}`);
+      console.log(`- ${item.scriptId} [${item.status}]: ${relativeToRoot(item.filePath)}`);
+      console.log(`  新角色：${item.createdRoles.length}；复用角色：${item.reusedRoles.length}；新建笔记结构：${item.createdRoleAbilities.length}；待复查：${item.reviewRoles.length}`);
+      if (item.reviewRoles.length) {
+        console.log(`  待复查角色：${formatRoleList(item.reviewRoles)}`);
+      }
     });
 
     if (result.failed.length) {

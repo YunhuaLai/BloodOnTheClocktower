@@ -3,6 +3,29 @@ import { getRoleTypeSummary } from "./catalog-home.js";
 import { app, roleTypeOrder, state, typeLabels } from "./state.js";
 import { escapeHtml } from "./utils.js";
 
+const scriptStatusLabels = {
+  draft: "草稿",
+  review: "待复查",
+  published: "已上架",
+  archived: "归档",
+};
+
+const scriptStatusOptions = [
+  { value: "published", label: "已上架" },
+  { value: "draft", label: "草稿" },
+  { value: "review", label: "待复查" },
+  { value: "archived", label: "归档" },
+  { value: "all", label: "全部状态" },
+];
+
+const scriptSortOptions = [
+  { value: "default", label: "默认顺序" },
+  { value: "name", label: "按名称" },
+  { value: "level", label: "按难度" },
+  { value: "status", label: "按状态" },
+  { value: "role-count", label: "按角色数" },
+];
+
 export function renderTermIndex() {
   document.title = "术语目录 · 血染钟楼百科";
   app.innerHTML = `
@@ -39,6 +62,7 @@ export function renderTermIndex() {
 
 export function renderScriptIndex() {
   document.title = "板子目录 · 血染钟楼百科";
+  const statusCounts = getScriptStatusCounts();
   app.innerHTML = `
     <section class="collection-hero scripts-hero">
       <a class="back-link" href="/" data-link>返回首页</a>
@@ -53,16 +77,26 @@ export function renderScriptIndex() {
         <div class="collection-stats" aria-label="板子目录概览">
           <strong>${state.scripts.length}</strong>
           <span>个板子</span>
+          <div class="script-status-summary">
+            <span>${statusCounts.published} 已上架</span>
+            <span>${statusCounts.draft} 草稿</span>
+            <span>${statusCounts.review} 待复查</span>
+            <span>${statusCounts.archived} 归档</span>
+          </div>
         </div>
       </div>
     </section>
 
     <section class="section catalog-section" id="scripts" aria-labelledby="scriptsTitle">
-      <div class="section-heading">
+      <div class="section-heading scripts-heading">
         <div>
           <p class="eyebrow">板子目录</p>
           <h2 id="scriptsTitle">选择今晚的局</h2>
         </div>
+      </div>
+      ${renderScriptControls()}
+      <div class="script-result-row">
+        <span id="scriptResultCount"></span>
       </div>
       <div class="script-grid" id="scriptGrid"></div>
     </section>
@@ -158,28 +192,177 @@ export function renderRules() {
     .join("");
 }
 
-function renderScripts() {
+function getScriptStatus(script) {
+  return script.status || "published";
+}
+
+function getScriptStatusCounts() {
+  return state.scripts.reduce(
+    (counts, script) => {
+      const status = getScriptStatus(script);
+      counts[status] = (counts[status] || 0) + 1;
+      return counts;
+    },
+    { draft: 0, review: 0, published: 0, archived: 0 },
+  );
+}
+
+function getScriptRoleCount(script) {
+  return [
+    ...(script.roleIds || []),
+    ...(script.travellerIds || []),
+    ...(script.fabledIds || []),
+  ].length;
+}
+
+function getScriptLevels() {
+  return Array.from(new Set(state.scripts.map((script) => script.level).filter(Boolean))).sort(
+    (left, right) => left.localeCompare(right, "zh-Hans-CN"),
+  );
+}
+
+function renderOption(option, selectedValue) {
+  return `<option value="${escapeHtml(option.value)}" ${option.value === selectedValue ? "selected" : ""}>${escapeHtml(option.label)}</option>`;
+}
+
+function renderScriptControls() {
+  const levelOptions = [
+    { value: "all", label: "全部难度" },
+    ...getScriptLevels().map((level) => ({ value: level, label: level })),
+  ];
+
+  return `
+    <div class="script-tools" aria-label="板子筛选">
+      <label class="search-box script-search">
+        <span>搜索</span>
+        <input id="scriptSearchInput" type="search" value="${escapeHtml(state.scriptQuery)}" placeholder="输入板子、作者、风格或标签" />
+      </label>
+      <label class="select-box">
+        <span>状态</span>
+        <select id="scriptStatusFilter">
+          ${scriptStatusOptions.map((option) => renderOption(option, state.scriptStatusFilter)).join("")}
+        </select>
+      </label>
+      <label class="select-box">
+        <span>难度</span>
+        <select id="scriptLevelFilter">
+          ${levelOptions.map((option) => renderOption(option, state.scriptLevelFilter)).join("")}
+        </select>
+      </label>
+      <label class="select-box">
+        <span>排序</span>
+        <select id="scriptSort">
+          ${scriptSortOptions.map((option) => renderOption(option, state.scriptSort)).join("")}
+        </select>
+      </label>
+    </div>
+  `;
+}
+
+function scriptMatchesSearch(script, query) {
+  if (!query) {
+    return true;
+  }
+
+  const haystack = [
+    script.name,
+    script.en,
+    script.englishName,
+    script.author,
+    script.level,
+    script.mood,
+    script.text,
+    script.description,
+    scriptStatusLabels[getScriptStatus(script)],
+    ...(script.tags || []),
+  ]
+    .join(" ")
+    .toLowerCase();
+
+  return haystack.includes(query.toLowerCase());
+}
+
+function getVisibleScripts() {
+  const query = state.scriptQuery.trim();
+  const indexedScripts = state.scripts.map((script, index) => ({ script, index }));
+  const visibleScripts = indexedScripts.filter(({ script }) => {
+    const status = getScriptStatus(script);
+    const matchesStatus =
+      state.scriptStatusFilter === "all" || status === state.scriptStatusFilter;
+    const matchesLevel =
+      state.scriptLevelFilter === "all" || script.level === state.scriptLevelFilter;
+    return matchesStatus && matchesLevel && scriptMatchesSearch(script, query);
+  });
+
+  visibleScripts.sort((left, right) => {
+    if (state.scriptSort === "name") {
+      return String(left.script.name || "").localeCompare(
+        String(right.script.name || ""),
+        "zh-Hans-CN",
+      );
+    }
+
+    if (state.scriptSort === "level") {
+      return String(left.script.level || "").localeCompare(
+        String(right.script.level || ""),
+        "zh-Hans-CN",
+      );
+    }
+
+    if (state.scriptSort === "status") {
+      return getScriptStatus(left.script).localeCompare(getScriptStatus(right.script), "zh-Hans-CN");
+    }
+
+    if (state.scriptSort === "role-count") {
+      return getScriptRoleCount(right.script) - getScriptRoleCount(left.script);
+    }
+
+    return left.index - right.index;
+  });
+
+  return visibleScripts.map(({ script }) => script);
+}
+
+export function renderScripts() {
   const scriptGrid = document.querySelector("#scriptGrid");
   if (!scriptGrid) {
     return;
   }
 
-  scriptGrid.innerHTML = state.scripts
+  const visibleScripts = getVisibleScripts();
+  const resultCount = document.querySelector("#scriptResultCount");
+  if (resultCount) {
+    resultCount.textContent = `显示 ${visibleScripts.length} / ${state.scripts.length} 个板子`;
+  }
+
+  if (!visibleScripts.length) {
+    scriptGrid.innerHTML = `<div class="empty-state">没有找到匹配板子。换个状态、难度或关键词试试。</div>`;
+    return;
+  }
+
+  scriptGrid.innerHTML = visibleScripts
     .map(
-      (script) => `
+      (script) => {
+        const status = getScriptStatus(script);
+        return `
         <a class="script-card" href="/scripts/${escapeHtml(script.id)}" data-link>
           <img src="${escapeHtml(script.image)}" alt="${escapeHtml(script.name)}氛围图" />
           <div class="script-body">
-            <p class="eyebrow">${escapeHtml(script.en)} · ${escapeHtml(script.level)}</p>
-            <h3>${escapeHtml(script.name)}</h3>
-            <p>${escapeHtml(script.text)}</p>
+            <p class="eyebrow">${escapeHtml(script.en || script.englishName || "未命名")} · ${escapeHtml(script.level || "未分级")}</p>
+            <div class="script-card-title">
+              <h3>${escapeHtml(script.name)}</h3>
+              <span class="status-chip status-chip--${escapeHtml(status)}">${escapeHtml(scriptStatusLabels[status] || status)}</span>
+            </div>
+            <p>${escapeHtml(script.text || script.description || "")}</p>
             <div class="script-meta">
-              <span class="tag">${escapeHtml(script.mood)}</span>
-              ${script.tags.map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
+              ${script.mood ? `<span class="tag">${escapeHtml(script.mood)}</span>` : ""}
+              <span class="tag">${getScriptRoleCount(script)} 角色</span>
+              ${(script.tags || []).map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}
             </div>
           </div>
         </a>
-      `,
+      `;
+      },
     )
     .join("");
 }

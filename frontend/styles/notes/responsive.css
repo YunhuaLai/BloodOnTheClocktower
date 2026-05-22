@@ -3,6 +3,7 @@
 .notes-overview-row:hover,
 .notes-stagebar-button:hover,
 .notes-saved-item:hover,
+.notes-custom-role-chip:hover,
 .notes-seat-tab:hover,
 .note-tag:hover,
 .note-icon-button:hover,
@@ -18,6 +19,7 @@
 .notes-saved-check input:focus-visible + span,
 .notes-saved-star:focus-visible,
 .notes-saved-delete:focus-visible,
+.notes-custom-role-chip:focus-visible,
 .notes-seat-tab:focus-visible,
 .note-tag:focus-visible,
 .note-icon-button:focus-visible,
@@ -49,6 +51,11 @@
   .notes-setup-grid,
   .notes-phase-row {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .notes-custom-role-control {
+    grid-template-columns: minmax(0, 1fr) 104px;
+    align-items: end;
   }
 
   .notes-stagebar {

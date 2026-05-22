@@ -1,6 +1,6 @@
-import { getClaimRoleOptions, getGameScript, renderRoleNameDatalist, renderScriptNameDatalist } from "../notes-claims.js";
+import { getAllRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getGameScript, isCustomRoleGame, renderAllRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist } from "../notes-claims.js";
 import { createDefaultSetupDraft, ensureNotesState, getActiveGame, getDraftOrPlayer } from "../notes-state.js";
-import { app, noteModeOptions, noteTabOptions, state, typeLabels } from "../state.js";
+import { app, noteModeOptions, noteTabOptions, roleTypeOrder, scriptModeOptions, state, typeLabels } from "../state.js";
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
 import { formatPhaseLabel, getAliveCount, getStandardSetup } from "./notes-core.js";
 import { renderOverviewTab } from "./notes-overview-render.js";
@@ -69,9 +69,12 @@ function renderScriptSheetOverlay(game) {
   }
 
   const script = getGameScript(game);
-  const roles = getClaimRoleOptions(game).filter((role) => role.type !== "fabled");
+  const isCustom = isCustomRoleGame(game);
+  const roles = getClaimRoleOptions(game).filter(
+    (role) => isCustom || role.type !== "fabled",
+  );
   const selectedRoleIds = getOverviewClaimedRoleIds(game);
-  const groupedRoles = ["townsfolk", "outsider", "minion", "demon"]
+  const groupedRoles = (isCustom ? roleTypeOrder : ["townsfolk", "outsider", "minion", "demon"])
     .map((type) => ({
       type,
       roles: roles.filter((role) => role.type === type),
@@ -94,7 +97,7 @@ function renderScriptSheetOverlay(game) {
       <section class="notes-script-sheet-panel">
         <header class="notes-script-sheet-header">
           <div>
-            <p class="eyebrow">当前剧本</p>
+            <p class="eyebrow">${isCustom ? "自定义角色池" : "当前剧本"}</p>
             <h3>${escapeHtml(script?.name || game.scriptName || "可选角色")}</h3>
           </div>
           <button
@@ -127,6 +130,8 @@ function renderScriptSheetOverlay(game) {
 function renderGameMeta(game) {
   const config = getStandardSetup(game.playerCount);
   const script = getGameScript(game);
+  const isCustom = isCustomRoleGame(game);
+  const roleCount = getClaimRoleOptions(game).length;
   const showScriptButton = state.notes.ui.activeTab === "overview";
 
   return `
@@ -143,8 +148,8 @@ function renderGameMeta(game) {
                 type="button"
                 class="note-icon-button notes-script-sheet-button"
                 data-notes-action="toggle-script-sheet"
-                ${script ? "" : "disabled"}
-              >剧本</button>
+                ${script || roleCount ? "" : "disabled"}
+              >${isCustom ? "角色池" : "剧本"}</button>
             `
             : ""
         }
@@ -153,7 +158,7 @@ function renderGameMeta(game) {
         ${game.playerCount} 人 / 镇民 ${config.townsfolk} / 外来者 ${config.outsider} / 爪牙 ${config.minion} / 恶魔 ${config.demon}
       </p>
       <p class="notes-game-meta-line">
-        ${escapeHtml(game.scriptName || "未选剧本")} / ${escapeHtml(getOptionLabel(noteModeOptions, game.mode))}
+        ${escapeHtml(game.scriptName || (isCustom ? "自定义角色池" : "未选剧本"))} / ${escapeHtml(getOptionLabel(noteModeOptions, game.mode))}${isCustom ? ` / ${roleCount} 个角色` : ""}
       </p>
     </section>
     ${showScriptButton ? renderScriptSheetOverlay(game) : ""}
@@ -167,10 +172,90 @@ function renderSetupSeatOptions(playerCount, selectedSeat) {
   }).join("");
 }
 
+function renderCustomRoleChip(role) {
+  return `
+    <button
+      type="button"
+      class="notes-custom-role-chip notes-custom-role-chip--${escapeHtml(role.type || "unknown")}"
+      data-notes-action="remove-custom-role"
+      data-role-id="${escapeHtml(role.id)}"
+      aria-label="${escapeHtml(`移除${role.name}`)}"
+    >
+      <span>${escapeHtml(role.name)}</span>
+      <small>${escapeHtml(typeLabels[role.type] || role.type || "角色")}</small>
+      <strong aria-hidden="true">×</strong>
+    </button>
+  `;
+}
+
+function renderCustomRoleGroups(draft) {
+  const selectedRoles = getCustomRoleOptionsFromIds(draft.customRoleIds);
+  if (!selectedRoles.length) {
+    return `<div class="notes-custom-role-empty">还没有添加角色。</div>`;
+  }
+
+  return `
+    <div class="notes-custom-role-groups">
+      ${roleTypeOrder
+        .map((type) => {
+          const roles = selectedRoles.filter((role) => role.type === type);
+          if (!roles.length) {
+            return "";
+          }
+
+          return `
+            <section class="notes-custom-role-group notes-custom-role-group--${escapeHtml(type)}">
+              <h3>${escapeHtml(typeLabels[type] || type)} <span>${roles.length}</span></h3>
+              <div class="notes-custom-role-chips">
+                ${roles.map(renderCustomRoleChip).join("")}
+              </div>
+            </section>
+          `;
+        })
+        .join("")}
+    </div>
+  `;
+}
+
+function renderCustomRoleBuilder(draft) {
+  const selectedCount = getCustomRoleOptionsFromIds(draft.customRoleIds).length;
+
+  return `
+    <section class="notes-custom-roles">
+      <div class="notes-custom-role-header">
+        <div>
+          <strong>自定义角色池</strong>
+          <span>${selectedCount} / ${getAllRoleOptions().length}</span>
+        </div>
+      </div>
+      <div class="notes-custom-role-control">
+        <label class="note-field">
+          <span>添加角色</span>
+          <input
+            id="customRoleInput"
+            name="customRoleQuery"
+            data-setup-field="customRoleQuery"
+            value="${escapeHtml(draft.customRoleQuery || "")}"
+            list="allRoleNameList"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            placeholder="输入角色名"
+          />
+        </label>
+        <button type="button" class="note-icon-button" data-notes-action="add-custom-role">添加</button>
+      </div>
+      ${renderAllRoleNameDatalist()}
+      ${renderCustomRoleGroups(draft)}
+    </section>
+  `;
+}
+
 function renderSetupPage(notes) {
   const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
   const config = getStandardSetup(draft.playerCount);
   const isStorytellerMode = draft.mode === "storyteller";
+  const isCustomScriptMode = draft.scriptMode === "custom";
   const defaultTitle = `第 ${notes.games.length + 1} 局`;
   const displayTitle = String(draft.title || "").trim() || defaultTitle;
 
@@ -195,18 +280,43 @@ function renderSetupPage(notes) {
           </label>
 
           <label class="note-field note-field--wide">
-            <span>剧本</span>
-            <input
-              name="scriptName"
-              data-setup-field="scriptName"
-              value="${escapeHtml(draft.scriptName)}"
-              list="scriptNameList"
-              autocomplete="off"
-              placeholder="输入剧本名自动搜索"
-              required
-            />
-            ${renderScriptNameDatalist()}
+            <span>角色来源</span>
+            <select name="scriptMode" data-setup-field="scriptMode">
+              ${renderSelectOptions(scriptModeOptions, draft.scriptMode)}
+            </select>
           </label>
+
+          ${
+            isCustomScriptMode
+              ? `
+                <label class="note-field note-field--wide">
+                  <span>角色池名称</span>
+                  <input
+                    name="scriptName"
+                    data-setup-field="scriptName"
+                    value="${escapeHtml(draft.scriptName)}"
+                    autocomplete="off"
+                    placeholder="自定义角色池"
+                  />
+                </label>
+                ${renderCustomRoleBuilder(draft)}
+              `
+              : `
+                <label class="note-field note-field--wide">
+                  <span>剧本</span>
+                  <input
+                    name="scriptName"
+                    data-setup-field="scriptName"
+                    value="${escapeHtml(draft.scriptName)}"
+                    list="scriptNameList"
+                    autocomplete="off"
+                    placeholder="输入剧本名自动搜索"
+                    required
+                  />
+                  ${renderScriptNameDatalist()}
+                </label>
+              `
+          }
 
           <label class="note-field note-field--wide">
             <span>记录视角</span>

@@ -1,4 +1,5 @@
 import { clampNumber, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, saveNotesState } from "../notes-state.js";
+import { findCatalogRole } from "../notes-claims.js";
 import { createNominationRecord, getDayRecord, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
 import { phaseTypeOptions, state } from "../state.js";
 import { createId } from "../utils.js";
@@ -31,12 +32,66 @@ export function updateSetupDraftField(field, value) {
     if (value === "storyteller") {
       nextDraft.selfSeat = 1;
     }
+  } else if (field === "scriptMode") {
+    nextDraft.scriptMode = value === "custom" ? "custom" : "script";
+    if (nextDraft.scriptMode === "custom") {
+      nextDraft.scriptId = "";
+    } else {
+      nextDraft.customRoleQuery = "";
+    }
+  } else if (field === "customRoleQuery") {
+    nextDraft.customRoleQuery = value;
   } else {
     nextDraft[field] = value;
   }
 
   state.notes.ui.setupDraft = nextDraft;
-  return ["playerCount", "mode"].includes(field);
+  return ["playerCount", "mode", "scriptMode"].includes(field);
+}
+
+export function addSetupCustomRole(value) {
+  const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
+  const role = findCatalogRole(value || draft.customRoleQuery);
+
+  if (!role) {
+    window.alert("没有找到这个已录入角色。");
+    return false;
+  }
+
+  const customRoleIds = Array.isArray(draft.customRoleIds)
+    ? draft.customRoleIds
+    : [];
+  if (customRoleIds.includes(role.id)) {
+    state.notes.ui.setupDraft = {
+      ...draft,
+      customRoleQuery: "",
+    };
+    return true;
+  }
+
+  state.notes.ui.setupDraft = {
+    ...draft,
+    scriptMode: "custom",
+    customRoleIds: [...customRoleIds, role.id],
+    customRoleQuery: "",
+  };
+  return true;
+}
+
+export function removeSetupCustomRole(roleId) {
+  const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
+  const roleIdText = String(roleId || "").trim();
+  if (!roleIdText) {
+    return false;
+  }
+
+  state.notes.ui.setupDraft = {
+    ...draft,
+    customRoleIds: (Array.isArray(draft.customRoleIds) ? draft.customRoleIds : []).filter(
+      (id) => id !== roleIdText,
+    ),
+  };
+  return true;
 }
 
 export function updateGameField(field, value) {
@@ -388,11 +443,20 @@ export function handleCreateGame() {
   const formData = new FormData(form);
   const setup = {
     title: String(formData.get("title") || ""),
+    scriptMode: String(formData.get("scriptMode") || "script"),
     scriptId: String(formData.get("scriptId") || ""),
     scriptName: String(formData.get("scriptName") || ""),
     playerCount: Number(formData.get("playerCount") || 10),
     mode: String(formData.get("mode") || "player"),
   };
+  setup.customRoleIds =
+    setup.scriptMode === "custom"
+      ? [...(state.notes.ui.setupDraft?.customRoleIds || [])]
+      : [];
+  if (setup.scriptMode === "custom" && !setup.customRoleIds.length) {
+    window.alert("先给自定义角色池添加至少一个角色。");
+    return;
+  }
   setup.selfSeat = setup.mode === "storyteller" ? 1 : Number(formData.get("selfSeat") || 1);
   const game = createGameFromSetup(setup, state.notes.games.length + 1);
 

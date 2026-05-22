@@ -6,7 +6,60 @@ export function normalizeMatchText(value) {
   return String(value || "").trim().toLowerCase();
 }
 
+const roleSearchFields = ["name", "en", "id", "englishName"];
+
+function matchesRoleValue(role, query) {
+  return roleSearchFields.some(
+    (field) => normalizeMatchText(role?.[field]) === query,
+  );
+}
+
+function includesRoleValue(role, query) {
+  return roleSearchFields.some((field) =>
+    normalizeMatchText(role?.[field]).includes(query),
+  );
+}
+
+export function isCustomRoleGame(game) {
+  return game?.scriptMode === "custom";
+}
+
+export function getAllRoleOptions() {
+  return sortCatalogRoles(state.roles);
+}
+
+export function getCustomRoleOptionsFromIds(roleIds) {
+  const idSet = new Set(
+    (Array.isArray(roleIds) ? roleIds : [])
+      .map((roleId) => String(roleId || "").trim())
+      .filter(Boolean),
+  );
+
+  if (!idSet.size) {
+    return [];
+  }
+
+  return sortCatalogRoles(state.roles.filter((role) => idSet.has(role.id)));
+}
+
+export function findCatalogRole(value) {
+  const query = normalizeMatchText(value);
+  if (!query) {
+    return null;
+  }
+
+  return (
+    state.roles.find((role) => matchesRoleValue(role, query)) ||
+    state.roles.find((role) => includesRoleValue(role, query)) ||
+    null
+  );
+}
+
 export function getGameScript(game) {
+  if (isCustomRoleGame(game)) {
+    return null;
+  }
+
   if (game?.scriptId) {
     const exactById = state.scripts.find(
       (script) => script.id === game.scriptId || script.englishName === game.scriptId,
@@ -44,9 +97,13 @@ function roleBelongsToScript(role, scriptId) {
 }
 
 export function getClaimRoleOptions(game) {
+  if (isCustomRoleGame(game)) {
+    return getCustomRoleOptionsFromIds(game.customRoleIds);
+  }
+
   const script = getGameScript(game);
   if (!script) {
-    return sortCatalogRoles(state.roles);
+    return getAllRoleOptions();
   }
 
   return sortScriptRoles(
@@ -56,6 +113,13 @@ export function getClaimRoleOptions(game) {
 }
 
 export function getClaimPickerHint(game) {
+  if (isCustomRoleGame(game)) {
+    const count = getClaimRoleOptions(game).length;
+    return count
+      ? `当前只显示自定义角色池里的 ${count} 个角色。`
+      : "自定义角色池还是空的。";
+  }
+
   const script = getGameScript(game);
   if (!script) {
     return "先选具体剧本，自称身份才会收窄到该剧本角色。";
@@ -70,6 +134,19 @@ export function renderRoleNameDatalist(game) {
   return `
     <datalist id="roleNameList">
       ${roles
+        .map(
+          (role) =>
+            `<option value="${escapeHtml(role.name)}" label="${escapeHtml(typeLabels[role.type] || role.type)}"></option>`,
+        )
+        .join("")}
+    </datalist>
+  `;
+}
+
+export function renderAllRoleNameDatalist() {
+  return `
+    <datalist id="allRoleNameList">
+      ${getAllRoleOptions()
         .map(
           (role) =>
             `<option value="${escapeHtml(role.name)}" label="${escapeHtml(typeLabels[role.type] || role.type)}"></option>`,

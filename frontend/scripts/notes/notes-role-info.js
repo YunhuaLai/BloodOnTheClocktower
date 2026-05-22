@@ -1,4 +1,4 @@
-import { getClaimRoleOptions } from "../notes-claims.js";
+import { getClaimRoleOptions, isCustomRoleGame } from "../notes-claims.js";
 import { clampNumber, cloneRoleInfo, cloneRoleInfoEntries, createEmptyRoleInfo, getActiveGame } from "../notes-state.js";
 import { state, typeLabels } from "../state.js";
 import { getClaimAbbreviation } from "./notes-core.js";
@@ -84,7 +84,11 @@ export function getClaimedRole(playerOrClaim, game = getActiveGame()) {
       (name) => normalizeRoleName(name) === normalizedClaim,
     );
 
-  return roleOptions.find(matchRole) || state.roles.find(matchRole) || null;
+  return (
+    roleOptions.find(matchRole) ||
+    (game && isCustomRoleGame(game) ? null : state.roles.find(matchRole)) ||
+    null
+  );
 }
 
 export function getRoleAbilityData(playerOrClaim, game = getActiveGame()) {
