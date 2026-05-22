@@ -6,7 +6,7 @@ keywords: 首夜 三选一 邪恶 信息
 englishName: noble
 ability: 在你的首个夜晚，你会得知三名玩家：其中有且只有一名玩家是邪恶的。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/noble.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/noble.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,7 +22,7 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 被得知
+  - 得知
 remindersGlobal: []
-firstNightReminder: 唤醒贵族，对他指向三名玩家。这三名玩家中有且仅有一名是邪恶玩家。
+firstNightReminder: 以任意顺序指向三名玩家，其中一名邪恶。
 otherNightReminder: ''

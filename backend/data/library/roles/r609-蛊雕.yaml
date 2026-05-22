@@ -3,7 +3,7 @@ englishName: gudiao
 name: 蛊雕
 type: minion
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/gudiao.png
+image: https://clocktower-wiki.gstonegames.com/images/5/56/Gudiao.png
 flavor: ''
 setup: false
 setupMeta:
@@ -21,8 +21,8 @@ setupMeta:
 reminders:
   - 中毒
 remindersGlobal: []
-firstNightReminder: 唤醒蛊雕，让他选择左或者右，他得知该方向上的下一名存活善良玩家的角色，这个善良玩家中毒且其他善良玩家以为他是邪恶的蛊雕，直到下个黄昏。
-otherNightReminder: 唤醒蛊雕，让他选择左或者右，他得知该方向上的下一名存活善良玩家的角色，这个善良玩家中毒且其他善良玩家以为他是邪恶的蛊雕，直到下个黄昏。
+firstNightReminder: 唤醒蛊雕，让其选择一个方向。将他的“中毒”标记移动至那个方向上的下一个存活玩家的角色标记旁。随后对他指向那名玩家，并展示“他是”提示标记和该玩家的角色标记。
+otherNightReminder: 唤醒蛊雕，让其选择一个方向。将他的“中毒”标记移动至那个方向上的下一个存活玩家的角色标记旁。随后对他指向那名玩家，并展示“他是”提示标记和该玩家的角色标记。
 summary: 每个夜晚，你要选择左或右：你从当前位置飞行到该方向上的下一名存活善良玩家，你得知他的角色，随后他中毒且可能被当作邪恶阵营和爪牙角色。
 keywords: minion 首夜 夜晚 中毒
-ability: 每个夜晚，你要选择左或右：你得知该方向上的下一名存活善良玩家的角色，他中毒且其他善良玩家以为他是邪恶的蛊雕，直到下个黄昏。
+ability: 每个夜晚，你要选择左或右：你从当前位置飞行到该方向上的下一名存活善良玩家，你得知他的角色，随后他中毒且可能被当作邪恶阵营和爪牙角色。

@@ -1,0 +1,32 @@
+id: r763
+englishName: sxg
+name: 石像鬼
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/hatsukisakana/drg/6_drg.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: outsider
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+reminders: []
+remindersGlobal:
+  - 是石像鬼
+  - 邪恶
+firstNightReminder: ''
+otherNightReminder: 如果目标死亡，唤醒石像鬼以告知他转为邪恶阵营。
+summary: 你以为你是一个在场的镇民角色，但其实你不是。如果该镇民死亡，你在当晚转变为对立阵营。
+keywords: outsider 夜晚 死亡
+ability: 你以为你是一个在场的镇民角色，但其实你不是。如果该镇民死亡，你在当晚转变为对立阵营。

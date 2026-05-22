@@ -4,9 +4,9 @@ type: outsider
 summary: 首夜绑定一名玩家，双方若有人先死于非处决方式，会让另一方转变为邪恶。
 keywords: 首夜 选择 非处决死亡 阵营转变
 englishName: turncoat
-ability: 在你的首个夜晚，你要选择除你以外的一名玩家：如果他先死于处决，你转变为邪恶；如果你先死于处决，他转变为邪恶。
+ability: 在你的首个夜晚，你要选择除你以外的一名玩家：如果他先死于处决，你会在当晚转变为邪恶；如果你先死于处决，他会在当晚转变为邪恶。
 edition: custom
-image: https://www.bloodstar.xyz/p/spdm/SpaceBound/15_spacebound.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/nichen.png
 flavor: ''
 setup: false
 setupMeta:
@@ -24,5 +24,5 @@ setupMeta:
 reminders:
   - 不共戴天
 remindersGlobal: []
-firstNightReminder: 唤醒逆臣，让其选择一名玩家。在该玩家的角色标记旁放置“不共戴天”提示标记。
-otherNightReminder: 如果逆臣或标记了“不共戴天”的玩家死于处决，唤醒两者之中的另一名玩家，告诉他变为邪恶阵营。
+firstNightReminder: 唤醒逆臣，让他选择一名除自己以外的玩家，那名玩家现在与他不共戴天。
+otherNightReminder: 如果逆臣或他的目标玩家，这两人之一死于处决，唤醒另一名玩家并通知他阵营变化。

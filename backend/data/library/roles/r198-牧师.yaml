@@ -3,7 +3,7 @@ englishName: priest
 name: 牧师
 type: townsfolk
 edition: custom
-image: https://www.bloodstar.xyz/p/humlet/JUEDOU/4_juedou.png
+image: https://postimage.me/images/2024/08/01/3e2fb1db466c77b06c96f3187b949977.png
 flavor: ''
 setup: false
 setupMeta:
@@ -20,8 +20,8 @@ setupMeta:
   setupNotes: []
 reminders: []
 remindersGlobal: []
-firstNightReminder: 唤醒他并让他选择2名玩家，告知他选择的玩家皆不属于哪种角色类型。
-otherNightReminder: 唤醒他并让他选择2名玩家，告知他选择的玩家皆不属于哪种角色类型。
+firstNightReminder: 唤醒牧师，让他选择两名玩家，告诉他一种与这两名玩家都不同的角色类型。
+otherNightReminder: 唤醒牧师，让他选择两名玩家，告诉他一种与这两名玩家都不同的角色类型。
 summary: 每个夜晚，你要选择两名玩家：你会得知他们均不属于哪种角色类型。
 keywords: townsfolk 首夜 夜晚
-ability: 每个夜晚，你要选择两名玩家:你会得知他们皆不属于哪种角色类型。
+ability: 每个夜晚，你要选择两名玩家，得知他们均不为哪种角色类型。

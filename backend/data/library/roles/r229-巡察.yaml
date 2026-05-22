@@ -3,7 +3,7 @@ englishName: inspector
 name: 巡察
 type: townsfolk
 edition: custom
-image: https://clocktower-wiki.gstonegames.com/images/thumb/c/cf/Xuncha.png/75px-Xuncha.png
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202404/c_7108682943171_ed7a0042.jpg
 flavor: ''
 setup: false
 setupMeta:
@@ -22,7 +22,7 @@ reminders:
   - 不会死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 让巡察选择两个善良角色。如果他们都存在于本局游戏中并存活，标记他们不会死亡。
+otherNightReminder: 唤醒巡查，让其选择两个善良角色，如果这两个角色都在场，在对应玩家角色标记旁放置“不会死亡”标记。
 summary: 每个夜晚*，你要选择两个善良角色（与上个夜晚不同）：如果他们都存活，他们当晚不会死亡。
 keywords: townsfolk 夜晚 死亡
 ability: 每个夜晚*，你要选择两个善良角色（与上个夜晚不同）：如果他们都存活，他们当晚不会死亡。
