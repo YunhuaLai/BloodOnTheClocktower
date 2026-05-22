@@ -1,6 +1,6 @@
 import { clearPlayerDraft, createDefaultSetupDraft, ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
-import { addNominationRecord, addSetupCustomRole, addTimelineEntry, clearSavedGameSelection, deleteNominationRecord, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, removeSetupCustomRole, saveDayPublicRecord, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateDayExecutionOverride, updateGameField, updateInferenceField, updateNominationRecordField, updateNominationVoter, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField } from "./notes/notes-game-actions.js";
-import { adjustPlayerDraftExternalReports, adjustPlayerDraftRoleInfoRows, autoFillStorytellerRoleInfoResult, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, togglePlayerStoryMarker, updatePlayerDraftExternalReport, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
+import { addNominationRecord, addSetupCustomRole, addTimelineEntry, adjustSuspectedRoles, clearSavedGameSelection, deleteNominationRecord, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, removeSetupCustomRole, saveDayPublicRecord, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateDayExecutionOverride, updateGameField, updateInferenceField, updateNominationRecordField, updateNominationVoter, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField, updateSuspectedRole } from "./notes/notes-game-actions.js";
+import { adjustPlayerDraftRoleInfoRows, autoFillStorytellerRoleInfoResult, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, togglePlayerStoryMarker, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
 import { assignRandomStorytellerRoles, clearStorytellerAssignments } from "./notes/notes-storyteller-actions.js";
 import { state } from "./state.js";
@@ -101,6 +101,18 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
     return;
   }
 
+  const suspectedRoleField = target.closest(
+    "[data-suspected-role-row][data-suspected-role-field]",
+  );
+  if (suspectedRoleField) {
+    updateSuspectedRole(
+      Number(suspectedRoleField.dataset.suspectedRoleRow),
+      suspectedRoleField.dataset.suspectedRoleField,
+      target.value,
+    );
+    return;
+  }
+
   const playerField = target.closest("[data-player-id][data-field]");
   if (playerField) {
     const playerId = playerField.dataset.playerId;
@@ -140,21 +152,6 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
     return;
   }
 
-  const externalReportField = target.closest(
-    "[data-external-report-row][data-external-report-field]",
-  );
-  if (externalReportField && playerCard) {
-    const playerId = playerCard.dataset.playerId;
-    updatePlayerDraftExternalReport(
-      playerId,
-      Number(externalReportField.dataset.externalReportRow),
-      externalReportField.dataset.externalReportField,
-      target.value,
-    );
-    if (["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
-      persistPlayerDraft(playerId);
-    }
-  }
 }
 
 export function handleNotesAction(button) {
@@ -399,15 +396,8 @@ export function handleNotesAction(button) {
     return;
   }
 
-  if (action === "add-external-report" || action === "remove-external-report") {
-    const playerId = button.dataset.playerId || "";
-    adjustPlayerDraftExternalReports(
-      playerId,
-      action === "add-external-report" ? 1 : -1,
-    );
-    if (state.notes.ui.activeTab === "overview" && playerId) {
-      persistPlayerDraft(playerId);
-    }
+  if (action === "add-suspected-role" || action === "remove-suspected-role") {
+    adjustSuspectedRoles(action === "add-suspected-role" ? 1 : -1);
     renderNotesPage();
     return;
   }

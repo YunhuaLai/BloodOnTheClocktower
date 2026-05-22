@@ -1,5 +1,5 @@
 import { getClaimRoleOptions } from "../notes-claims.js";
-import { clearPlayerDraft, cloneExternalReports, clonePlayerForDraft, cloneRoleInfo, getActiveGame, getPlayerDraft, saveNotesState, setPlayerDraft } from "../notes-state.js";
+import { clearPlayerDraft, clonePlayerForDraft, cloneRoleInfo, getActiveGame, getPlayerDraft, saveNotesState, setPlayerDraft } from "../notes-state.js";
 import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state } from "../state.js";
 import { createId, getOptionLabel } from "../utils.js";
 import { syncAbilityRecordsForPlayer } from "./notes-ability-records.js";
@@ -184,40 +184,6 @@ export function updatePlayerDraftRoleInfo(playerId, section, index, field, value
     ...draft.roleInfo[entryKey][safeIndex],
     [field]: value,
   };
-}
-
-export function updatePlayerDraftExternalReport(playerId, index, field, value) {
-  const draft = ensurePlayerDraftForId(playerId);
-  if (!draft || !["seat", "note"].includes(field)) {
-    return;
-  }
-
-  draft.externalReports = cloneExternalReports(draft.externalReports);
-  while (draft.externalReports.length <= index) {
-    draft.externalReports.push({ seat: "", note: "" });
-  }
-
-  draft.externalReports[index] = {
-    ...draft.externalReports[index],
-    [field]: value,
-  };
-}
-
-export function adjustPlayerDraftExternalReports(playerId, step) {
-  const draft = ensurePlayerDraftForId(playerId);
-  if (!draft || !step) {
-    return;
-  }
-
-  draft.externalReports = cloneExternalReports(draft.externalReports);
-  if (step > 0) {
-    draft.externalReports.push({ seat: "", note: "" });
-    return;
-  }
-
-  if (draft.externalReports.length) {
-    draft.externalReports.pop();
-  }
 }
 
 function getRoleInfoFieldCycleValues(field) {

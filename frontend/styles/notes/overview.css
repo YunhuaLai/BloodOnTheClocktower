@@ -138,6 +138,32 @@
   gap: 1px;
 }
 
+.notes-suspected-roles {
+  margin-top: 10px;
+}
+
+.notes-suspected-role-list {
+  display: grid;
+  gap: 8px;
+}
+
+.notes-suspected-role-row {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+}
+
+.notes-suspected-role-fields {
+  grid-template-columns: minmax(120px, 0.7fr) minmax(0, 1.3fr);
+}
+
+@media (max-width: 560px) {
+  .notes-suspected-role-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
 .notes-analysis-panel {
   display: grid;
   gap: 12px;

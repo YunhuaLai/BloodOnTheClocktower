@@ -66,7 +66,6 @@ function createDefaultPlayer(seat) {
     extraInfo: "",
     notes: "",
     roleInfo: createEmptyRoleInfo(),
-    externalReports: [],
     trueRole: "",
     trueAlignment: "unknown",
     storytellerNotes: "",
@@ -101,11 +100,11 @@ export function cloneRoleInfo(roleInfo) {
   };
 }
 
-export function cloneExternalReports(reports) {
-  return Array.isArray(reports)
-    ? reports.map((report) => ({
-        seat: String(report?.seat ?? ""),
-        note: String(report?.note ?? ""),
+export function cloneSuspectedRoles(records) {
+  return Array.isArray(records)
+    ? records.map((record) => ({
+        role: String(record?.role ?? ""),
+        note: String(record?.note ?? ""),
       }))
     : [];
 }
@@ -115,7 +114,6 @@ export function clonePlayerForDraft(player) {
     ...player,
     tags: [...(player.tags || [])],
     roleInfo: cloneRoleInfo(player.roleInfo),
-    externalReports: cloneExternalReports(player.externalReports),
   };
 }
 
@@ -199,6 +197,7 @@ export function createGameFromSetup(setup, nextIndex = 1) {
     createdAt: new Date().toISOString(),
     players: createPlayersForCount(playerCount),
     timeline: [],
+    suspectedRoles: [],
     dayRecords: [],
     autoExecutionApplied: [],
     inference: createDefaultInference(),
@@ -285,7 +284,6 @@ function normalizePlayer(player, index) {
     extraInfo: player?.extraInfo || player?.summary || "",
     notes: notesParts.filter(Boolean).join("\n"),
     roleInfo: cloneRoleInfo(player?.roleInfo),
-    externalReports: cloneExternalReports(player?.externalReports),
     trueRole: player?.trueRole || "",
     trueAlignment,
     storytellerNotes: player?.storytellerNotes || "",
@@ -386,6 +384,7 @@ function normalizeGame(game, index) {
           .map((entry) => normalizeTimelineEntry(entry, game))
           .filter((entry) => entry.text)
       : [],
+    suspectedRoles: cloneSuspectedRoles(game?.suspectedRoles),
     dayRecords: normalizeDayRecords(game?.dayRecords, playerCount),
     autoExecutionApplied: normalizeAutoExecutionApplied(
       game?.autoExecutionApplied,

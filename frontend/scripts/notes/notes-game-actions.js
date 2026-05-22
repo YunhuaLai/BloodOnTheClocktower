@@ -1,4 +1,4 @@
-import { clampNumber, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, saveNotesState } from "../notes-state.js";
+import { clampNumber, cloneSuspectedRoles, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, saveNotesState } from "../notes-state.js";
 import { findCatalogRole } from "../notes-claims.js";
 import { createNominationRecord, getDayRecord, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
 import { phaseTypeOptions, state } from "../state.js";
@@ -159,6 +159,41 @@ export function updateStorytellerBluff(index, value) {
   }
   bluffs[index] = value;
   game.storyteller.bluffs = bluffs.slice(0, 3);
+  saveNotesState();
+}
+
+export function updateSuspectedRole(index, field, value) {
+  const game = getActiveGame();
+  if (!game || !["role", "note"].includes(field)) {
+    return;
+  }
+
+  const safeIndex = Math.max(Number(index) || 0, 0);
+  game.suspectedRoles = cloneSuspectedRoles(game.suspectedRoles);
+  while (game.suspectedRoles.length <= safeIndex) {
+    game.suspectedRoles.push({ role: "", note: "" });
+  }
+
+  game.suspectedRoles[safeIndex] = {
+    ...game.suspectedRoles[safeIndex],
+    [field]: value,
+  };
+  saveNotesState();
+}
+
+export function adjustSuspectedRoles(step) {
+  const game = getActiveGame();
+  if (!game || !step) {
+    return;
+  }
+
+  game.suspectedRoles = cloneSuspectedRoles(game.suspectedRoles);
+  if (step > 0) {
+    game.suspectedRoles.push({ role: "", note: "" });
+  } else if (game.suspectedRoles.length) {
+    game.suspectedRoles.pop();
+  }
+
   saveNotesState();
 }
 
