@@ -87,23 +87,47 @@ function makeReplacementMap(duplicateGroups) {
 }
 
 function replaceRoleReferences(value, replacementMap) {
+  if (!replacementMap.size) {
+    return value;
+  }
+
   if (typeof value === "string") {
     return replacementMap.get(value) || value;
   }
 
   if (Array.isArray(value)) {
+    const mappedItems = value.map((item) => {
+      const nextItem = replaceRoleReferences(item, replacementMap);
+      return {
+        nextItem,
+        key: stable(nextItem),
+        changed: stable(item) !== stable(nextItem),
+      };
+    });
+    const keyStats = new Map();
+
+    mappedItems.forEach((item) => {
+      const stats = keyStats.get(item.key) || { count: 0, changed: false };
+      stats.count += 1;
+      stats.changed ||= item.changed;
+      keyStats.set(item.key, stats);
+    });
+
     const result = [];
     const seen = new Set();
 
-    value.forEach((item) => {
-      const nextItem = replaceRoleReferences(item, replacementMap);
-      const key = typeof nextItem === "string" ? nextItem : JSON.stringify(nextItem);
+    mappedItems.forEach(({ nextItem, key }) => {
+      const stats = keyStats.get(key);
+      const shouldDedupe = stats.count > 1 && stats.changed;
 
-      if (seen.has(key)) {
+      if (shouldDedupe && seen.has(key)) {
         return;
       }
 
-      seen.add(key);
+      if (shouldDedupe) {
+        seen.add(key);
+      }
+
       result.push(nextItem);
     });
 

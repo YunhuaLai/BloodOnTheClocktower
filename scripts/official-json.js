@@ -360,6 +360,7 @@ function makeAbilitySemantics({
 function inferSetupMeta(role, type) {
   const ability = role.ability || "";
   const identityOverlay = inferIdentityOverlay(role, type);
+  const initialAbsence = inferInitialAbsence(ability);
   const configurationAdjustments = inferConfigurationAdjustments(ability);
   const setupNotes = [];
 
@@ -367,17 +368,35 @@ function inferSetupMeta(role, type) {
     setupNotes.push(identityOverlay.note);
   }
 
+  if (initialAbsence.enabled) {
+    setupNotes.push(initialAbsence.note);
+  }
+
   configurationAdjustments.forEach((adjustment) => {
     setupNotes.push(adjustment.note);
   });
 
   return {
-    randomAssignable: !identityOverlay.enabled,
+    randomAssignable: !identityOverlay.enabled && !initialAbsence.enabled,
     tokenRequired: true,
     setupAlertLevel: setupNotes.length ? "danger" : "none",
     identityOverlay,
     configurationAdjustments,
     setupNotes,
+  };
+}
+
+function inferInitialAbsence(ability) {
+  if (!/\[?[^\]]*初始配置不在场[^\]]*\]?/.test(ability)) {
+    return {
+      enabled: false,
+      note: "",
+    };
+  }
+
+  return {
+    enabled: true,
+    note: "初始配置不在场：不要将该角色加入初始随机直发池。",
   };
 }
 

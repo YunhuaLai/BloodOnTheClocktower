@@ -7,7 +7,7 @@ image: https://www.bloodstar.xyz/p/kuikuisama/guiyihuayuan/25_guiyihuayuan.png
 flavor: ''
 setup: false
 setupMeta:
-  randomAssignable: true
+  randomAssignable: false
   tokenRequired: true
   setupAlertLevel: danger
   identityOverlay:
@@ -16,14 +16,9 @@ setupMeta:
     actualRoleType: demon
     shownRoleTypes: []
     note: ''
-  configurationAdjustments:
-    - type: outsider_count
-      min: -1
-      max: -1
-      source: '[-1外来者]'
-      note: 配置调整：外来者数量 -1。
+  configurationAdjustments: []
   setupNotes:
-    - 配置调整：外来者数量 -1。
+    - 初始配置不在场：不要将该角色加入初始随机直发池。
 reminders:
   - 是恶魔
 remindersGlobal: []
