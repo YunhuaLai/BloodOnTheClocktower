@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个夜晚，你得知一个在场角色，当你得知过的角色死亡时，如果是善良角色你获得该角色的能力，如果是邪恶角色，你变成该角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r429
+    officialId: gaishitaibao
+    sourceHash: 2a33d3b8ab1f0eae15fdcf9337d50d9cd91b9b64
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -43,6 +56,20 @@ abilityData:
     - evil
     - minion
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

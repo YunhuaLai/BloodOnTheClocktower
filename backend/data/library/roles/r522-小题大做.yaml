@@ -28,8 +28,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 本局游戏中有小镇做题家，每个白天必须有玩家通过小镇做题家拜访说书人（此过程称为获取小镇做题家）。 如果邪恶的或已死亡的玩家获取小镇做题家累计超过两次，邪恶阵营在当晚获胜。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r522
+    officialId: much-ado
+    sourceHash: ccc4265c019c56e77c1cdb95fdc1630de07e3081
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -42,6 +55,20 @@ abilityData:
     - storyteller
     - fabled
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_day
+      event: on_death
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: event_triggered
     phaseTiming: each_day

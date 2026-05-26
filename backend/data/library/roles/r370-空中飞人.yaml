@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 如果死亡唤醒他，并告知他所有类型的玩家（除旅行者）各一名。
 ability: 你死亡的当晚会被唤醒并得知除旅行者外所有类型的玩家各一名。如果你死于善良玩家的提名或能力你会获得错误的信息。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r370
+    officialId: trapeze-artist
+    sourceHash: b2016bd6801cc3c6a2d8095a77a15bb7a44b1ce7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,20 @@ abilityData:
     - townsfolk
     - traveler
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

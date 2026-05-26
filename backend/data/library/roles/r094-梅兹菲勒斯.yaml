@@ -16,7 +16,20 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r094
+    officialId: mezepheles
+    sourceHash: 3e6e3e9dfccc317c69ff747fe82ccabd84eda8ff
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 首夜
     - 特殊机制
@@ -27,6 +40,18 @@ abilityData:
     - evil
     - minion
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

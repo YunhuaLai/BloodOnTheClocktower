@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒分析师，让他选择除自己以外的三名玩家。对他指向其中最先被唤醒（或即将最先被唤醒）的玩家。
 ability: 每个夜晚*，你要选择三名除你以外的玩家，你得知当夜他们谁最先被唤醒（或即将最先被唤醒）。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r705
+    officialId: vasgsjakd
+    sourceHash: eb1a50efbce58dc028f50a9b3ed676e59a35c19f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -35,6 +48,20 @@ abilityData:
     - night
     - townsfolk
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

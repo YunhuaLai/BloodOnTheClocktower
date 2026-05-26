@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 帽匠的可选规则默认生效。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r573
+    officialId: madhatter
+    sourceHash: 99fef3c7bca11e07f7be6cbee3291e43d5969460
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -33,6 +46,18 @@ abilityData:
   termIds:
     - fabled
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

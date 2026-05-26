@@ -35,8 +35,21 @@ firstNightReminder: 唤醒气球驾驶员，指向一名玩家，在其角色标
 otherNightReminder: 唤醒气球驾驶员，指向一名与放置“得知”角色标记玩家角色类型不同的玩家，在其角色标记旁放置“得知”提示标记。移除上一晚放置的“得知”角色标记。
 ability: 每个夜晚，你会得知一名与上个夜晚得知的玩家角色类型不同的玩家。[+0~1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r140
+    officialId: aeronaut
+    sourceHash: 872b44ee889df06a778745f543aa3b0e2088f6e8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -52,6 +65,26 @@ abilityData:
     - townsfolk
     - outsider
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 0
+            max: 1
+            source: '[+0~1外来者]'
+            note: 配置调整：外来者数量 0 到 +1。
+      - kind: learn_role
+        roleType: outsider
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

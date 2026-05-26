@@ -25,8 +25,21 @@ firstNightReminder: 唤醒方士，让他选一个数字。如果他选择了1�
 otherNightReminder: 在游戏的对应天数唤醒方士，给他展示对应数量的在场角色。
 ability: 在你的首个夜晚，你要选择一个数字。在该数字对应的那一个夜晚，你会得知对应数量的在场角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r594
+    officialId: ritualist
+    sourceHash: 1890d76a2f6766d9dec40fb748aa1f17b34791a9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,21 @@ abilityData:
     - first-night
     - townsfolk
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

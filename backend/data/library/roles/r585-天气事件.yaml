@@ -26,8 +26,21 @@ firstNightReminder: （决定并）宣布持续一晚一日的天气，并公开
 otherNightReminder: （决定并）宣布持续一晚一日的天气，并公开解释其效果
 ability: 每晚，说书人将公开宣布“天气事件”，持续到下个黄昏。天气事件生效时，可能触发额外灾难气象。所有玩家都会得知具体效果。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r585
+    officialId: weather
+    sourceHash: a6f2905d0d75b945d6d56ab2cfe44c9cf0c2a011
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -41,6 +54,18 @@ abilityData:
     - storyteller
     - fabled
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

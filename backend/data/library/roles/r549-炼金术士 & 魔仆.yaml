@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 炼金术士无法获得魔仆的能力。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r549
+    officialId: alchemist-familiar-jinx
+    sourceHash: 9a26e15c87225d0123dfd0a00a8f3dc17f05822e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -33,6 +46,18 @@ abilityData:
   termIds:
     - jinx
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

@@ -31,8 +31,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 如果一名初始邪恶玩家在你存活时因处决外的原因死亡，你和他交换角色。如果那名玩家是你，改为恶魔的自动获胜天数提前一天（所有玩家都会知道此事）。[+1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r382
+    officialId: hlst
+    sourceHash: 9c1b58d02e51e72b14424819551e4d4c31003e36
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -49,6 +62,29 @@ abilityData:
     - minion
     - demon
   abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: learn_role
+        roleType: outsider
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
     pageType: record_result_only
     phaseTiming: setup

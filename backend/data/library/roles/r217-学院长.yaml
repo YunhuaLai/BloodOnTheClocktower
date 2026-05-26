@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 首个白天，拜访说书人并告知一项新的可以获得进修点的任务，一名善良玩家可能会得知一些线索。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r217
+    officialId: dean
+    sourceHash: 97ead521e2e35d0ae34fcee89474d4b345b39cd0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,19 @@ abilityData:
     - minion
     - storyteller
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments: []
   abilityMeta:
     pageType: record_result_only
     phaseTiming: setup

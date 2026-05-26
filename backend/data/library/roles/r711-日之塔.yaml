@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 如果日之塔尚未使用能力，唤醒日之塔，他可以点头或摇头来示意是否使用能力。
 ability: 每局游戏限一次，在夜晚时*，你可以让当晚所有的死亡统一延迟到黎明时。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r711
+    officialId: euktds
+    sourceHash: d96175edfe7becf93ef3d6f676e058909c66eb03
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -36,6 +49,18 @@ abilityData:
     - death
     - townsfolk
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

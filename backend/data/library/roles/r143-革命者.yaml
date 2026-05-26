@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 公开声明一对邻座玩家本局游戏一直保持同一阵营。每局游戏限一次，他们中的一人可能被当作其他的角色/阵营。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r143
+    officialId: revolutionary
+    sourceHash: 707c9f576a092b711f4ce5129675119af83bbdf8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -35,6 +48,19 @@ abilityData:
     - alignment
     - fabled
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

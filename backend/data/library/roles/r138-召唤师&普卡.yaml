@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 召唤师可以选择在第二个夜晚将一名玩家变成普卡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r138
+    officialId: summoner-pukka-jinx
+    sourceHash: 1548bf55d4c98ed8d90bc54af2cb190eb7443d91
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -34,6 +47,20 @@ abilityData:
     - night
     - jinx
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: passive

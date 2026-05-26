@@ -34,8 +34,21 @@ otherNightReminder: 唤醒所有妄想乐园，让他们共同选择一名玩家
 ability: >-
   你们相互认识，你会得知哪些乐园游民以为你是恶魔/爪牙、他们以为谁是爪牙、他们自以为的角色。每个夜晚*，你们共同选择一名玩家：他死亡。任何一名妄想乐园死于处决，邪恶阵营落败。[会有2-4名妄想乐园在场，无爪牙在场，所有善良玩家都是乐园游民]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r547
+    officialId: delusional-paradise
+    sourceHash: ce2aec4e0c09d60b4288ea85598e8fc264e3a17b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -55,6 +68,24 @@ abilityData:
     - minion
     - demon
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_team
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

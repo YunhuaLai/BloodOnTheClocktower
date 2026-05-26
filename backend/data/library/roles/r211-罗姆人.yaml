@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 首个被你提名或提名你的爪牙玩家会变成罗姆人。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r211
+    officialId: romani
+    sourceHash: 14dee0ae505eb65a2761374392cbb5fcc8a96e90
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -36,6 +49,19 @@ abilityData:
     - townsfolk
     - minion
   abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

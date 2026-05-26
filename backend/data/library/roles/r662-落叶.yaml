@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 整局游戏限一次，当晚所有邪恶阵营的技能目标之一改为你，即使你已死亡。
 ability: 如果你死亡时，场上的存活玩家大于四，当晚恶魔可以行动两次。生长：你的技能改为，整局游戏限一次，当晚所有邪恶阵营的技能目标之一改为你，即使你已死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r662
+    officialId: fallen-leaf
+    sourceHash: 15392bc67084d3c1736ff83602684a41af27f90b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,18 @@ abilityData:
     - outsider
     - demon
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 当第一次有邪恶玩家因被邪恶玩家提名而被处决后，提名者相邻的镇民中毒，即使你已经死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r255
+    officialId: perfumer
+    sourceHash: 0e914ca3b5694c6d8afeded25c6d7bbbdc67667a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -39,6 +52,22 @@ abilityData:
     - townsfolk
     - outsider
   abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

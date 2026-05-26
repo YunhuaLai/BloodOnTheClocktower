@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每局游戏限一次，你可以在白天公开宣称你是编剧并声明一段短语，当晚你会得知当日有几名邪恶玩家在此之后公开说出这段短语。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r447
+    officialId: screenwriter
+    sourceHash: 919dde5ce41dfdeb56e2a034c7fead64639427ac
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,19 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: evil_count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

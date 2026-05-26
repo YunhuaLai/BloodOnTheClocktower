@@ -26,8 +26,21 @@ firstNightReminder: '111'
 otherNightReminder: '111'
 ability: 每个夜晚，你要选择一名玩家：明天白天提名他的善良玩家会立刻死亡。如果只有三名存活的玩家，你失去此能力。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r346
+    officialId: outlaw
+    sourceHash: 72b142ca6f129af79142969bc112194b178ab011
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -44,6 +57,21 @@ abilityData:
     - good
     - minion
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

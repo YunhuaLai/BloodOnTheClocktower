@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 在剧本设置中四名镇民成为外来者，四名外来者成为镇民。部分角色的能力描述会添加或减少"即使你已死亡"。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r628
+    officialId: exchange-student
+    sourceHash: bc9db50ec79bf527d92fb0321215c5c2a0a2ad5a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,18 @@ abilityData:
     - outsider
     - fabled
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 如果驱魔人选中了牙噶巴卜，那么牙噶巴卜的能力在当晚无法造成死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r137
+    officialId: yaggababble-exorcist-jinx
+    sourceHash: bfc4011f69d3bc7959922c58fe2144ffa8e00076
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -34,6 +47,20 @@ abilityData:
     - death
     - jinx
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

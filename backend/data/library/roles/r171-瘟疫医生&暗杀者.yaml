@@ -25,7 +25,20 @@ firstNightReminder: ''
 otherNightReminder: 如果说书人获得了暗杀者的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
 ability: 如果说书人获得了暗杀者的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r171
+    officialId: plague-doctor-assassin
+    sourceHash: 829899e461626fd47ca86b0378204f84ff02bbea
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 传说角色
     - 特殊互动
@@ -35,6 +48,24 @@ abilityData:
     - storyteller
     - fabled
   abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: special
+      event: null
+      frequency: repeatable
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+      - kind: event_trigger
+        eventTiming: null
   abilityMeta:
     pageType: event_triggered
     phaseTiming: special

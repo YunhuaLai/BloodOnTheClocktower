@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 恶魔要选择两名玩家，他们失去能力直到下个黄昏，并得知此事。下个白天，他们不能发言，否则会被处决。当晚由恶魔造成的死亡由说书人决定。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r756
+    officialId: fear
+    sourceHash: c125b75d293f2cf676d55cb7b8be475487722ef2
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,23 @@ abilityData:
     - storyteller
     - fabled
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

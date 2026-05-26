@@ -25,8 +25,21 @@ firstNightReminder: '1'
 otherNightReminder: '1'
 ability: 每局游戏限一次，在夜晚时，你可以选择除你以外的一名玩家：你得知他通过自身能力选择过的目标中有哪些角色类型。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r533
+    officialId: captain
+    sourceHash: 1453e1f8f08a856afcccb75f50494752c96f831f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,24 @@ abilityData:
     - first-night
     - townsfolk
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

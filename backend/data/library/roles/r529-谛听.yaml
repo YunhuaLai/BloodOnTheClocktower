@@ -25,8 +25,21 @@ firstNightReminder: '1'
 otherNightReminder: '1'
 ability: 每个夜晚，你要选择其他两名非旅行者玩家：你会得知他们角色名的字数之和相较于上一晚更少/相同/更多。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r529
+    officialId: truth-listener
+    sourceHash: 2581d7ec9ffa24ee45ae4acded92c58e3a57ccd9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -39,6 +52,24 @@ abilityData:
     - townsfolk
     - traveler
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

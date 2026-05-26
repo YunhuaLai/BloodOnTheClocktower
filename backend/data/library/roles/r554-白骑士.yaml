@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 如果有玩家“疯狂”地想要存活，那么当天他即将死于处决时可能不会死亡（每局游戏限一次）。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r554
+    officialId: white-knight
+    sourceHash: 92da99fb73618ba3b7f236c1b1d16233d59d430b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -38,6 +51,21 @@ abilityData:
     - outsider
     - madness
   abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_execution
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: 如果恶魔杀死了报丧女妖，高声宣布“报丧女妖觉醒了！”或发出奇怪的声音，并使用“具有能力”标记报丧女妖。
 ability: 如果恶魔杀死了你，所有玩家都会得知此事。从现在开始，你每天可以发起两次提名，每次投票时可以投两票。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r233
+    officialId: banshee
+    sourceHash: 8813542f1d4d93b740e131a191b14dd4f2e4ae82
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,18 @@ abilityData:
     - townsfolk
     - demon
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

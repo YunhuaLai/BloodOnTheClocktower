@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 你拥有上个被处决爪牙的能力。首个死亡的玩家得知清洁工在场。如果你存活，善良阵营无法获胜。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r688
+    officialId: qingjiegong
+    sourceHash: f65680bfd99458cc7e8620d2f6285f9564d3bbbe
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -41,6 +54,21 @@ abilityData:
     - good
     - minion
   abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

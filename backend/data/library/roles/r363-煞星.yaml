@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 如果煞星死亡，决定是否让一名与他邻近的存活玩家死亡。
 ability: 如果你死亡，当晚与你邻近的存活玩家之一可能会死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r363
+    officialId: bane-star
+    sourceHash: d348ead6a777d48dad1bcd1e0811f0c79e5f263d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -37,6 +50,18 @@ abilityData:
     - alive
     - outsider
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

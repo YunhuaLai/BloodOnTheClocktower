@@ -25,8 +25,21 @@ firstNightReminder: 每局游戏限一次，在夜晚时，你可以选择一个
 otherNightReminder: 每局游戏限一次，在夜晚时，你可以选择一个角色：你会得知两名玩家，如果该角色在场，这两名玩家之一是该角色。
 ability: 每局游戏限一次，在夜晚时，你可以选择一个角色：你会得知两名玩家，如果该角色在场，这两名玩家之一是该角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r392
+    officialId: alteration-tailor
+    sourceHash: 70a476cb2842dec35564ab15464d96652a704b91
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,24 @@ abilityData:
     - first-night
     - townsfolk
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

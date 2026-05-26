@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每局游戏限一次，在白天时，你可以私下询问说书人以得知两名玩家：其中一名是对你们帮助最大的对立阵营玩家，另一名是对你们损害最大的我方阵营玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r181
+    officialId: jianduisiling
+    sourceHash: 0760e242ba3347557f0f2d19202809b68d7d81d5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,18 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
   abilityMeta:
     pageType: record_result_only
     phaseTiming: passive

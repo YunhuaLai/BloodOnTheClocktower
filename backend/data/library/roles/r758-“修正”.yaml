@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 游戏的前三个白天，说书人会在提名阶段开始前公布一条错误信息，其中之一可能在当晚成真。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r758
+    officialId: correction
+    sourceHash: ec283d2f1bfdc342b24260d39c16ddfbdc6eb571
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -37,6 +50,19 @@ abilityData:
     - storyteller
     - fabled
   abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

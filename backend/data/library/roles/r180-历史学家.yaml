@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每局游戏限一次，在白天时，你可以私下询问说书人以得知说书人将某名玩家评选为最具影响力的玩家的原因。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r180
+    officialId: lishixuejia
+    sourceHash: 708aee8e01ec1d7a6fac116cdd0c5f92620b9164
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,18 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
   abilityMeta:
     pageType: record_result_only
     phaseTiming: passive

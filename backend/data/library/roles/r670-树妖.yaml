@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 每个夜晚*，选择两名玩家，一名玩家被杀害，一名玩家被诅咒。受到诅咒的玩家不会生长并失去生长的效果，当除你以外所有存活的玩家被诅咒时，你的阵营获胜。你不会生长。
 ability: 每个夜晚*，选择两名玩家，一名玩家被杀害，一名玩家被诅咒。受到诅咒的玩家不会生长并失去生长的效果，当除你以外所有存活的玩家被诅咒时，你的阵营获胜。你不会生长。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r670
+    officialId: dryad
+    sourceHash: eaaf117a1288d6e4eb72ea9c3b8c5657598a4025
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -39,6 +52,20 @@ abilityData:
     - alignment
     - demon
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

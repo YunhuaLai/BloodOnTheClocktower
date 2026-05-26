@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: '1'
 ability: 每个夜晚*，你要选择一名玩家：任何在今晚使用自身能力选择他的其他玩家，会改为选中你作为替代。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r527
+    officialId: idol-forger
+    sourceHash: f6d14f621f886e463521312acdc31e23a87cc1d6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -36,6 +49,20 @@ abilityData:
     - night
     - townsfolk
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

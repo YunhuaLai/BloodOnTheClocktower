@@ -25,7 +25,20 @@ remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r089
+    officialId: fisherman
+    sourceHash: 2c4a8833057584286ec2678d9b80d5b400970537
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 白天
     - 一次性
@@ -36,6 +49,18 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: day
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
   abilityMeta:
     pageType: record_result_only
     phaseTiming: day

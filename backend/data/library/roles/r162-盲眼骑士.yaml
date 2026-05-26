@@ -25,7 +25,20 @@ firstNightReminder: ''
 otherNightReminder: 唤醒盲眼骑士。盲眼骑士选择一个距离；与盲眼骑士相隔该距离的一名爪牙与盲眼骑士共同失去能力。
 ability: 每个夜晚，你要选择一个距离：与你相隔该距离的一名爪牙与你共同失去能力。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r162
+    officialId: blind-knight
+    sourceHash: 6061dc849d818bd5075e413e85933a177fb99c38
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 每晚
     - 选择距离
@@ -34,6 +47,21 @@ abilityData:
     - townsfolk
     - minion
   abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: learn_player
+        count: 1
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

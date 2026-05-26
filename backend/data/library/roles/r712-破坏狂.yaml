@@ -26,8 +26,21 @@ firstNightReminder: 唤醒破坏狂，让他选择角色列表上的一个角色
 otherNightReminder: 唤醒破坏狂，让他选择角色列表上的一个角色。如果破坏狂在白天死亡，在该时刻发动他的能力，如果他在这之后死亡，立即发动他的能力。
 ability: 每个夜晚，你要选择一个未选择过的角色，这些角色每有一个在场，当你死亡时，就会有一名玩家在当晚死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r712
+    officialId: dsfjdgkfxhl
+    sourceHash: c74a0c8b1b3b2eca0237085f18833d4cdcbb759c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,23 @@ abilityData:
     - death
     - outsider
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 被外来者提名的镇民会中毒到下个黎明。[有且仅有3名外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r733
+    officialId: cangdishu
+    sourceHash: 74ed1133c3669cc0cb00cf6e19c6618080e827aa
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,21 @@ abilityData:
     - outsider
     - minion
   abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 在游戏的最后一天，所有已死亡玩家会重新获得投票标记。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r344
+    officialId: ferryman
+    sourceHash: 4c99564495fafcd05e460faff2bbf4aaa7995325
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -35,6 +48,20 @@ abilityData:
     - death
     - fabled
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

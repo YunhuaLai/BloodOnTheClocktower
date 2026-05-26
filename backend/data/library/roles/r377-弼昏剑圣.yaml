@@ -27,8 +27,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个夜晚*（每有一名死亡邪恶玩家你依次失去一项能力），①你可以选择一名玩家，如果你和他最近距离间存活玩家的角色类型数为二，他死亡；②你不会死于善良玩家的能力；③你死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r377
+    officialId: zhanghua
+    sourceHash: 20a4e62ba9b13a1a9446eee769aa6c76644f563b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -42,6 +55,23 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

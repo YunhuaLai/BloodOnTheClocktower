@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每局游戏限一次，在黄昏时，利维坦可以选择一个爪牙角色，他拥有对应能力直到下一个黄昏。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r388
+    officialId: btl
+    sourceHash: 3e8841a8037145d38c5fac2a0cdf9e4b8d38f5e1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -34,6 +47,19 @@ abilityData:
     - minion
     - fabled
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: passive

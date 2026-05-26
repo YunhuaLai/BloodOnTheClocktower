@@ -26,7 +26,20 @@ remindersGlobal:
 firstNightReminder: 唤醒骑士，然后指向标记了“得知”的两名玩家。
 otherNightReminder: ''
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r085
+    officialId: knight
+    sourceHash: 3f66cc737d4a5319ddf56e05faf5daa5ee9f36d1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 首夜
     - 信息型
@@ -38,6 +51,19 @@ abilityData:
     - townsfolk
     - demon
   abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 2
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

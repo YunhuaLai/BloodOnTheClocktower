@@ -27,8 +27,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 与你邻近的善良玩家受另一个世界线的恶魔非致死能力影响，而不是当前世界线。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r202
+    officialId: rift
+    sourceHash: 26c7083913f17ccf5fe186ac672f921b781b0a70
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -38,6 +51,19 @@ abilityData:
     - minion
     - demon
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

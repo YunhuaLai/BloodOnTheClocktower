@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 如果你在夜晚死亡，所有玩家会得知你是世界。此后的每个白天，由你决定会受到源质影响的玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r349
+    officialId: world
+    sourceHash: 6cda067fa0bf00d30d1ebf958371e582c36f3d79
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -37,6 +50,20 @@ abilityData:
     - death
     - townsfolk
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: on_death
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_day

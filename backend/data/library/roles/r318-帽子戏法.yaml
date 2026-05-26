@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 如果有六名或六名以上的玩家存活，提名了其他存活邪恶玩家的邪恶玩家（非旅行者），两者之间立即交换角色。如果白天没有存活善良玩家被其他玩家提名，邪恶在黄昏时获胜。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r318
+    officialId: hat-trick
+    sourceHash: 4dd312e419a2d3ac514b2f96e1f9f4f5ad0011fa
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,19 @@ abilityData:
     - traveler
     - fabled
   abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

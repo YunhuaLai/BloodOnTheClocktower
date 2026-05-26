@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个白天，私信说书人选择三名其他玩家，你得知他们之中是否有人处于异常状态（中毒、醉酒、诅咒）。生长：你获得，你得知谁进入了异常状态。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r657
+    officialId: ginkgo
+    sourceHash: 1f250c77ee3844cf69951fa56381df36b0668d1a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,24 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day

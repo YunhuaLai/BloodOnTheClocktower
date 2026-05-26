@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 所有玩家要在白天进行一次秘密投票，得票最高的玩家可以选择一个角色，获得其能力直到下个黄昏，善良玩家可以选择获得善良角色能力，邪恶玩家可以选择非恶魔角色能力。如果该玩家在白天死亡，则该能力不发动。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r754
+    officialId: longing
+    sourceHash: 654473714bb20a0008fd5ce27ebec2a2b871a0b0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,23 @@ abilityData:
     - demon
     - fabled
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

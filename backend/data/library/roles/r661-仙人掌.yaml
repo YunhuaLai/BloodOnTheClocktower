@@ -27,8 +27,21 @@ firstNightReminder: ''
 otherNightReminder: 每个夜晚*，选择两名存活的其他玩家，一名玩家的技能目标之一改为你，一名玩家醉酒直到下个黄昏。邪恶阵营不会受到你的技能效果影响。生长：你的技能改为，整局游戏限一次，当晚所有邪恶阵营醉酒直到下个黄昏。
 ability: 每个夜晚*，选择两名存活的其他玩家，一名玩家的技能目标之一改为你，一名玩家醉酒直到下个黄昏。邪恶阵营不会受到你的技能效果影响。生长：你的技能改为，整局游戏限一次，当晚所有邪恶阵营醉酒直到下个黄昏。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r661
+    officialId: cactus
+    sourceHash: a709958711df083c3293d8376bcc87a89474924e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,22 @@ abilityData:
     - evil
     - outsider
   abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

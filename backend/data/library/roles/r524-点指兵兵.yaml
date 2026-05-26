@@ -24,8 +24,21 @@ firstNightReminder: '1'
 otherNightReminder: '1'
 ability: 每个夜晚，你要选择任意名玩家：你下一晚只能选择数量刚好等同于他们中与邪恶玩家邻座的数量的玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r524
+    officialId: jtxx
+    sourceHash: 6e770c4a98c798d693b1c541cdb826f3b8bc7701
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -38,6 +51,22 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_number
+        numberKind: evil_count
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

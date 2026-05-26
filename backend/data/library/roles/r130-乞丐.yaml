@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 你只能使用投票标记才能投票。死亡的玩家可以将他的投票标记给你，如果他这么做，你会得知他的阵营。你不会中毒和醉酒。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r130
+    officialId: beggar
+    sourceHash: 575c7417d18186d26955d0d0e6c2ebc3dea7fc3d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,23 @@ abilityData:
     - alignment
     - traveler
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

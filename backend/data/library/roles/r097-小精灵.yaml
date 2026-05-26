@@ -26,7 +26,20 @@ remindersGlobal: []
 firstNightReminder: 对小精灵展示一个在场的镇民角色。
 otherNightReminder: ''
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r097
+    officialId: pixie
+    sourceHash: ac13b02753f5c3c75b60ade798d3ab0662239ea4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 首夜
     - 信息型
@@ -40,6 +53,20 @@ abilityData:
     - townsfolk
     - madness
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: townsfolk
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

@@ -27,8 +27,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 你会在当晚得知今天有多少名除你以外的玩家喝到了酒，如果今天没有其它玩家喝到酒：改为你死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r264
+    officialId: absinthe
+    sourceHash: 739c1665846cf1c1f263eee76c78f32269d80d8f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,19 @@ abilityData:
     - death
     - fabled
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: death_count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

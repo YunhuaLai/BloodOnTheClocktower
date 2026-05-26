@@ -26,8 +26,21 @@ firstNightReminder: 爪牙认识你且代替你得知三个不在场的善良角
 otherNightReminder: 每晚的死亡由说书人决定。
 ability: 你以为你是个善良角色，其实你不是。爪牙认识你且代替你得知三个不在场的善良角色。每晚的死亡由说书人决定。【±1外来者，如果初始航天员在场，替换为邪恶的航线】
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r491
+    officialId: supernova
+    sourceHash: ad08e3d7ee2833a1c9a4168b5ee9cb640842854b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -48,6 +61,22 @@ abilityData:
     - demon
     - storyteller
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_role
+        roleType: outsider
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

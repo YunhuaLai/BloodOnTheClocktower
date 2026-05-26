@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 一名玩家获得一个不在场的能力直到他死亡，且被当做该能力所属的角色。选择了该玩家的善良玩家会从他这里获取这个能力。建议使用角色名后带有"♦"的能力。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r629
+    officialId: titanium-transmutation
+    sourceHash: a7c8227c1322a1cd3a52c20cebc6c48202698fd3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -35,6 +48,25 @@ abilityData:
     - good
     - fabled
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: null

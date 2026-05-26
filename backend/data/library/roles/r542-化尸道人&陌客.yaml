@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 陌客可以被化尸道人当作其他角色。但只有化尸道人在使用他的能力时因此受到干扰的当晚，才会被小镇做题家检测。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r542
+    officialId: corpse-taoist-recluse-jinx
+    sourceHash: f017330d1d00e4e2fcfb0c2cc3c9cc70b2c4c201
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -33,6 +46,19 @@ abilityData:
   termIds:
     - jinx
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

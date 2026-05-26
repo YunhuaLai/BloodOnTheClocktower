@@ -26,6 +26,19 @@ ability: 这里填写完整技能文本。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: false
+  sourceAbility:
+    source: role-file
+    roleId: r000
+    officialId: role-template
+    sourceHash: a235ac5b1a4e9baedd1787f39e24e51b5cb5a297
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 这里填写自动导入后需要人工复核的原因；人工维护的角色可留空。
   tags:

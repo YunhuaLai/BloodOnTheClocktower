@@ -25,7 +25,20 @@ remindersGlobal: []
 firstNightReminder: 唤醒食人魔，让他选择一名玩家。如果他选择了邪恶玩家，将他的角色标记在魔典中倒置以表示他转变为邪恶阵营。
 otherNightReminder: ''
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r092
+    officialId: ogre
+    sourceHash: e6a7e2f1e834442ec66ab85ae53ba469f7e28e0b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 首夜
     - 主动选玩家
@@ -38,6 +51,23 @@ abilityData:
     - alignment
     - outsider
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_team
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: first_night

@@ -31,8 +31,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个白天，你可以私下询问说书人并得知一条正确信息。如果因你的能力导致减少了一名外来者，你获得的信息会是错误的。[-1或-0外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r369
+    officialId: occultist
+    sourceHash: a658e545ca7093e5d741db5ea26f47f38030dbc3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -46,6 +59,24 @@ abilityData:
     - outsider
     - storyteller
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -0.0
+            source: '[-1或-0外来者]'
+            note: 配置调整：外来者数量 -1 到 0。
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_day

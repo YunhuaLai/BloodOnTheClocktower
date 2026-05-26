@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个夜晚限一次，一名玩家在使用自身能力选择邪恶玩家时会改为选中你。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r622
+    officialId: envoy-diamond
+    sourceHash: 5c8266044f14875ee6e241fd020fb05b3a78e91c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -36,6 +49,20 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: passive

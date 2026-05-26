@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 召唤师要死于处决清洁工才能获得召唤师能力。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r699
+    officialId: cleaner-summoner-jinx
+    sourceHash: 4bf6ff0229c1f5772e0f913b9f1fee9f6e55a742
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -34,6 +47,20 @@ abilityData:
     - execution
     - jinx
   abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

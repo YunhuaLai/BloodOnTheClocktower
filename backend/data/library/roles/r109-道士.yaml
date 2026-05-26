@@ -26,7 +26,20 @@ remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒道士，让其选择一名玩家。如果他选中了恶魔，在道士角色标记旁放置“死亡”提示标记，并且在恶魔角色标记旁放置“醉酒”提示标记。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r109
+    officialId: taoist
+    sourceHash: f1664bf233ddb1733dc2d96741c89633dfd75369
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 每晚
     - 主动选玩家
@@ -39,6 +52,25 @@ abilityData:
     - townsfolk
     - demon
   abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: demon_check
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

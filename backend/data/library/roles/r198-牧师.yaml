@@ -24,8 +24,21 @@ firstNightReminder: 唤醒牧师，让他选择两名玩家，告诉他一种与
 otherNightReminder: 唤醒牧师，让他选择两名玩家，告诉他一种与这两名玩家都不同的角色类型。
 ability: 每个夜晚，你要选择两名玩家，得知他们均不为哪种角色类型。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r198
+    officialId: priest
+    sourceHash: d49c15c9fcc9b4a094cc21b045519b37252f1ea9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,24 @@ abilityData:
     - first-night
     - townsfolk
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

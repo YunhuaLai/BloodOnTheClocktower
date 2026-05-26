@@ -25,8 +25,21 @@ firstNightReminder: 唤醒零号特工，悄悄向他展示一条秘密任务。
 otherNightReminder: 如果零号特工完成了任务，在合适的时机唤醒他，给与他报酬。
 ability: 在你的首个夜晚，你得知一条秘密任务，任务完成后会得到对应的报酬。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r493
+    officialId: agentzero
+    sourceHash: a16e8cdbb816f8c5565d175b240ed65ab5e91610
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -38,6 +51,18 @@ abilityData:
     - information
     - townsfolk
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

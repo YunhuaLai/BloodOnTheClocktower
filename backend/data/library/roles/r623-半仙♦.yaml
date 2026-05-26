@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 任何在夜晚使用自身能力选择你的其他玩家，会改为选中另一名邪恶玩家作为替代。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r623
+    officialId: half-immortal-diamond
+    sourceHash: 6a483a7752ffc25ca80b3b7fe874bf3f0f28f275
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -35,6 +48,20 @@ abilityData:
     - evil
     - outsider
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: passive

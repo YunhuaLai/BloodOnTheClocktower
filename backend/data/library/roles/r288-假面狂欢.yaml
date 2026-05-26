@@ -25,8 +25,21 @@ firstNightReminder: 给恶魔提供伪装，提供应当提供的接头暗号。
 otherNightReminder: 将要黎明。想好让谁因暴露而死亡了吗？
 ability: 玩家从“假面盲袋”和“初始盲袋”各抽一个角色组成所有能力，且首次死亡会改为获得“暴露”状态。每个黎明，说书人要公开暴露的玩家人数，并令其中一人死亡。恶魔爪牙无法相认，改为他们获得相同“接头暗号”。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r288
+    officialId: masquerade
+    sourceHash: 5f35f2bf7d090b4ab6f9e2fa7361831bb189677e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,19 @@ abilityData:
     - storyteller
     - fabled
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: death_count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: passive

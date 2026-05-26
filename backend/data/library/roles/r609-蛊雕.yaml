@@ -25,8 +25,21 @@ firstNightReminder: 唤醒蛊雕，让其选择一个方向。将他的“中毒
 otherNightReminder: 唤醒蛊雕，让其选择一个方向。将他的“中毒”标记移动至那个方向上的下一个存活玩家的角色标记旁。随后对他指向那名玩家，并展示“他是”提示标记和该玩家的角色标记。
 ability: 每个夜晚，你要选择左或右：你从当前位置飞行到该方向上的下一名存活善良玩家，你得知他的角色，随后他中毒且可能被当作邪恶阵营和爪牙角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r609
+    officialId: gudiao
+    sourceHash: a4b42c68c58adbc84a3185a32a1d8cda72e7c8af
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -43,6 +56,24 @@ abilityData:
     - evil
     - minion
   abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

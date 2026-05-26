@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个白天，所有存活玩家都可以在提名环节前向说书人讨要一种酒品于当天饮用，说书人可以拒绝。整局游戏，每名玩家只能成功讨要一次酒，且只有玩家存活才会生效。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r260
+    officialId: dionysus
+    sourceHash: 41f13e2f66da89718ab49e648c0a6491dd140e41
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -38,6 +51,19 @@ abilityData:
     - storyteller
     - fabled
   abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: on_nomination
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: event_triggered
     phaseTiming: each_day

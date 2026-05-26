@@ -24,8 +24,21 @@ firstNightReminder: 在首个夜晚，校准风向标。用大拇指向上，告
 otherNightReminder: ''
 ability: 在你的首个夜晚，你会知晓是否奇数位邪恶玩家较多。如果相同，你会知晓错误信息作为替代。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r639
+    officialId: weather-vane
+    sourceHash: 96997afe1556d61f2eec1d872598b6f9360ebdaf
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,19 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: boolean_check
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

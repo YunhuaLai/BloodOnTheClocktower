@@ -28,8 +28,21 @@ firstNightReminder: 游戏开始时，你选择顺时针或者逆时针，从一
 otherNightReminder: 游戏开始时，你选择顺时针或者逆时针，从一名玩家（你不得知）开始依次选择。每个夜晚，你得知你选择过的玩家中有几名玩家为邪恶阵营（有一名玩家始终被你视为邪恶阵营）。当你在夜晚死亡时，你得知一条关于起点的谜语。生长：你获得，你得知起点是谁。
 ability: 游戏开始时，你选择顺时针或者逆时针，从一名玩家（你不得知）开始依次选择。每个夜晚，你得知你选择过的玩家中有几名玩家为邪恶阵营（有一名玩家始终被你视为邪恶阵营）。当你在夜晚死亡时，你得知一条关于起点的谜语。生长：你获得，你得知起点是谁。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r647
+    officialId: narcissus
+    sourceHash: 869643d18398c0f4efe746bf705813b5c52f0fa4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -44,6 +57,21 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

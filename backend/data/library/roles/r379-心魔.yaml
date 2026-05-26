@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 死亡
 ability: 游戏开始时，一名镇民玩家被心魔附身，被心魔附身的玩家会被视为邪恶阵营以及外来者角色且可能在第三个夜晚死亡。[+1镇民]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r379
+    officialId: inner-demon
+    sourceHash: 7c987e2912075c7f62ad18fd4bae4160d21e748c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,18 @@ abilityData:
     - townsfolk
     - outsider
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

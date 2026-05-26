@@ -25,8 +25,21 @@ firstNightReminder: 唤醒报童，让他选择一名玩家。
 otherNightReminder: 唤醒报童，让他选择一名玩家，以点头或摇头告知他该玩家和被他上次选择的玩家阵营是否相同
 ability: 每个夜晚，你可以选择一名玩家，你得知他和被你上次选择的玩家阵营是否相同
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r631
+    officialId: paperboy
+    sourceHash: 1ab2dbe87793be22763e81bd974656ea5ad2980d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,22 @@ abilityData:
     - alignment
     - townsfolk
   abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

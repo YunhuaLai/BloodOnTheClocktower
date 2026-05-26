@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 如果白天有玩家死于处决或有玩家被处决但没有死亡，唤醒骑士扈从，告知他是或否。
 ability: 每个夜晚*，如果白天有玩家死于处决，你会得知他是否为镇民，如果白天有玩家被处决但依然存活，你会得知他的相邻玩家是否皆为镇民。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r420
+    officialId: qishigucong
+    sourceHash: 5c97eaf1967497bcf0e87eaad079bf5d74c14168
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,20 @@ abilityData:
     - alive
     - townsfolk
   abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: boolean_check
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star

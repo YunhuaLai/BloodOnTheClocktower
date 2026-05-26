@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒莉莉丝，让他攻击一名玩家。如果他杀死了一名与其特征不同的玩家，通知那名玩家加入邪恶阵营。
 ability: 每个夜晚*，你要选择一名玩家，他死亡。最后一个白天，改为得票最少的被提名玩家被处决。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r567
+    officialId: lls
+    sourceHash: a12689bfd71ae73c6c501114061cc56f323fd23b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,21 @@ abilityData:
     - death
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

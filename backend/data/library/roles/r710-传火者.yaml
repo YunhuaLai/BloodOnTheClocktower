@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个白天，你可以公开声称一个角色，当晚邪恶玩家的负面能力对他无效。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r710
+    officialId: djsfdkf
+    sourceHash: 94ddd2c3f67fc9ea374ff28181f2a1eeb37027bf
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -36,6 +49,20 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: event_trigger
+        eventTiming: null
   abilityMeta:
     pageType: event_triggered
     phaseTiming: each_day

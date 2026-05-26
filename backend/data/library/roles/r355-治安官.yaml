@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每局游戏限一次，在夜晚时*，你可以选择三名存活玩家，他们之外的玩家在下个白天与夜晚不会受到恶魔能力的影响。恶魔得知你选择了哪些玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r355
+    officialId: sheriff
+    sourceHash: ec57a2d554b038529388a2d396cb5f227c66a459
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -43,6 +56,19 @@ abilityData:
     - townsfolk
     - demon
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: demon
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

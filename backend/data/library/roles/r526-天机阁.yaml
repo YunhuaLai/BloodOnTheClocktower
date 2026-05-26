@@ -25,8 +25,21 @@ firstNightReminder: '1'
 otherNightReminder: '1'
 ability: 每个夜晚，你要选择两名除你以外的邻座玩家：你会得知相较于上一个夜晚，你是否选择了更多的邪恶玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r526
+    officialId: heavenly-pavilion
+    sourceHash: b139603561d9a44232bd2fdfe3a014cd57f198e5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,22 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

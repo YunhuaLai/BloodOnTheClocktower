@@ -25,8 +25,21 @@ firstNightReminder: 唤醒炼金术士，对他展示他获得的能力所对应
 otherNightReminder: ''
 ability: 你拥有一个爪牙角色的能力，即使你已死亡。当你使用能力时，说书人可能会要求你更换选择。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r155
+    officialId: alchemist
+    sourceHash: 8d9a90b8f04a88e7ee2e43d2a80ee594f40f3e6c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,20 @@ abilityData:
     - minion
     - storyteller
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: first_night

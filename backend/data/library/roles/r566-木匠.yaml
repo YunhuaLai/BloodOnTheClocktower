@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 如果木匠在上个白天死于处决，唤醒提名者，告知其变为了一个不在游戏中的爪牙。
 ability: 如果你死于处决，提名者当晚变为一个不在游戏中的邪恶爪牙。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r566
+    officialId: mj
+    sourceHash: b5d8cd2d141e17791709cd96b91a6222327c03b9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,18 @@ abilityData:
     - evil
     - minion
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

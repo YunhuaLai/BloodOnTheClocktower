@@ -27,8 +27,21 @@ firstNightReminder: 在你的首个夜晚，你要选择一名玩家：他中毒
 otherNightReminder: 每局游戏限一次，在夜晚时*，你可以选择杀死该玩家，或使中毒目标改变。
 ability: 在你的首个夜晚，你要选择一名玩家：他中毒。每局游戏限一次，在夜晚时*，你可以选择杀死该玩家，或使中毒目标改变。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r283
+    officialId: pied-piper
+    sourceHash: cebbfe032d4546b56e5e2c7ecd4e6ca8157b0e3f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -41,6 +54,22 @@ abilityData:
     - poisoned
     - minion
   abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

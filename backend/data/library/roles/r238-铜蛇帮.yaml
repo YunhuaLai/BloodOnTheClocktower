@@ -31,8 +31,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 如果你提名了一名玩家，他和与他邻座的玩家中的善良玩家中毒，直到你下次提名。[-1或+1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r238
+    officialId: sheeeeeeeee
+    sourceHash: 8fcb54f02abf2d8f9988530853f1b4ecbd023341
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -44,6 +57,28 @@ abilityData:
     - outsider
     - minion
   abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: 1
+            source: '[-1或+1外来者]'
+            note: 配置调整：外来者数量 -1 到 +1。
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

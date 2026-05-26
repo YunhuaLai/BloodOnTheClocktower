@@ -25,8 +25,21 @@ firstNightReminder: 在你的首个夜晚，你会得知两个在场的角色。
 otherNightReminder: 每个夜晚*，你要选择除你以外的两名玩家：你会得知他们之中是否有你得知过的角色。
 ability: 在你的首个夜晚，你会得知两个在场的角色。 每个夜晚*，你要选择除你以外的两名玩家：你会得知他们之中是否有你得知过的角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r294
+    officialId: shrine-maiden
+    sourceHash: 64798624d9f53a9c4fb7c24f304dae9a1fb469e3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,24 @@ abilityData:
     - first-night
     - jinx
   abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

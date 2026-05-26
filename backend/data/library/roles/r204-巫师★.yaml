@@ -28,8 +28,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每局游戏限一次，你可以向说书人许愿。如果愿望被实现，可能会伴随着代价和线索。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r204
+    officialId: wizard
+    sourceHash: 6b3b60ff24a9cfde8abda276be4663da393c3115
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,18 @@ abilityData:
     - minion
     - storyteller
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: ①第一名死亡的玩家成为“主理人”（主理人每次投票可以投出所有投票标记）。②每个白天限一次，一名未参与过通灵的存活玩家和死亡玩家可以将死亡玩家的投票标记交给“主理人”，三人进行一次“通灵仪式”。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r570
+    officialId: baihaihui
+    sourceHash: 99cd3476afd26c7049ef116f7f6c28e19065ab44
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -39,6 +52,20 @@ abilityData:
     - alive
     - fabled
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: on_death
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: event_triggered
     phaseTiming: each_day

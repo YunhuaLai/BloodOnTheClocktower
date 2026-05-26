@@ -24,8 +24,21 @@ firstNightReminder: 决定游魂在今晚被当作什么角色。按对应角色
 otherNightReminder: 决定游魂在今晚被当作什么角色。如果游魂存活，按对应角色的行动方式唤醒他。
 ability: 每个夜晚，你会被当作一个除你以外的角色及其相应阵营，即使你已死亡。你会以他的方式被唤醒。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r713
+    officialId: dsdjgf
+    sourceHash: b5eef85d7bf15e9ef5c2154e24662fd4a7909320
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,18 @@ abilityData:
     - alignment
     - outsider
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

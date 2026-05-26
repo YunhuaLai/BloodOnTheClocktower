@@ -26,7 +26,20 @@ remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 决定今晚谁会因为军团能力死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r099
+    officialId: legion
+    sourceHash: a8032f0a00dfea02b168327dbdee3527b049ccb7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 每晚
     - 特殊恶魔
@@ -40,6 +53,24 @@ abilityData:
     - minion
     - demon
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: special
+      event: null
+      frequency: variable
+    actor:
+      drivenBy: mixed
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: protect_player
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: special

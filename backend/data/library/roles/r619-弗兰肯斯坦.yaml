@@ -26,8 +26,21 @@ firstNightReminder: 让弗兰肯斯坦选择三名玩家，根据这些玩家的
 otherNightReminder: ''
 ability: 在你的首个夜晚，你要选择三名其他玩家，说书人将他们的能力重新排列组合后成为你的能力，但你不知道是什么。每个白天你可以找说书人猜测一次，你会得知你的猜测有多准确。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r619
+    officialId: frankenstein-monster
+    sourceHash: 52458582001453b3877a0072510c9ec09300fd47
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,20 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_day
+      event: null
+      frequency: once
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day

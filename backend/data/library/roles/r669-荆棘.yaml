@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 每个夜晚*，选择一名玩家，将他杀害。当晚你得知第一个将你作为技能目标的玩家，下一晚你可以将他额外杀害。生长：你获得，整局游戏限一次，当场上的存活玩家大于四时，你可以选择杀死自己并选择一名之前你得知过的玩家，该玩家成为新的邪恶荆棘。
 ability: 每个夜晚*，选择一名玩家，将他杀害。当晚你得知第一个将你作为技能目标的玩家，下一晚你可以将他额外杀害。生长：你获得，整局游戏限一次，当场上的存活玩家大于四时，你可以选择杀死自己并选择一名之前你得知过的玩家，该玩家成为新的邪恶荆棘。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r669
+    officialId: bramble
+    sourceHash: afa19c3d077e6fa73de661be27ae1d07410afc9f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,20 @@ abilityData:
     - evil
     - demon
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

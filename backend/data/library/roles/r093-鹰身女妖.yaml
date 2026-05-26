@@ -26,7 +26,20 @@ remindersGlobal: []
 firstNightReminder: 唤醒鹰身女妖并让他依次指向两名玩家。标记第一名玩家“疯狂”，标记第二名玩家“第二名”。唤醒被标记为“疯狂”的玩家。对这名玩家展示该玩家需要疯狂证明的事。
 otherNightReminder: 唤醒鹰身女妖并让他依次指向两名玩家。标记第一名玩家“疯狂”，标记第二名玩家“第二名”。唤醒被标记为“疯狂”的玩家。对这名玩家展示该玩家需要疯狂证明的事。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r093
+    officialId: harpy
+    sourceHash: 5313f5e2c74aa3ab06296ef526780fb73f088713
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 每晚
     - 主动选玩家
@@ -38,6 +51,21 @@ abilityData:
     - minion
     - madness
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

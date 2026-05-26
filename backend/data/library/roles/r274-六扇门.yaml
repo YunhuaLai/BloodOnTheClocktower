@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 在六扇门提名时，在对应的玩家标记旁放置“追查”标记。在夜晚时，唤醒六扇门，用点头和摇头来示意与有“追查”标记邻近的玩家中是否存在非镇民玩家。
 ability: 每个夜晚*，你会得知今天白天你提名的玩家邻近的玩家中是否存在非镇民玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r274
+    officialId: six-gates
+    sourceHash: 735be07c14493d280fddf43cfe705e76975f8196
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -39,6 +52,19 @@ abilityData:
     - nomination
     - townsfolk
   abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: nomination_check
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star

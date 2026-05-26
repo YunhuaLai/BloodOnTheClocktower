@@ -28,8 +28,21 @@ firstNightReminder: 如果提线木偶在场，对恶魔展示提线木偶角色
 otherNightReminder: ''
 ability: 你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。[提线木偶会与恶魔邻座]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r121
+    officialId: marionette
+    sourceHash: 6e7cb2a1081a2dc7cae74d09f346ed4fc360bb95
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -44,6 +57,21 @@ abilityData:
     - minion
     - demon
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_role
+        roleType: demon
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

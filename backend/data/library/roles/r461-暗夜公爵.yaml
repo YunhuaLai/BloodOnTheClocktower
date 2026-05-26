@@ -31,8 +31,21 @@ firstNightReminder: 首次有善良玩家选择邪恶玩家时，打上标记。
 otherNightReminder: ''
 ability: 每局游戏限一次，首个使用自身能力选择了邪恶玩家的善良玩家会中毒，直到下个黄昏。你会得知他的角色。[+1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r461
+    officialId: duke-of-night
+    sourceHash: df6e06cf1e8e1858aa183540ae3d5a30a6941dae
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -48,6 +61,33 @@ abilityData:
     - outsider
     - traveler
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: first_night

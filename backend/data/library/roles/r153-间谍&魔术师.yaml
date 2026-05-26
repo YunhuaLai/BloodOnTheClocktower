@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 当间谍查看魔典时，魔术师和恶魔的角色标记会被说书人移除。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r153
+    officialId: spy-magician-jinx
+    sourceHash: a2a64457832abb0c6b8e577dbbb92befc891b7cd
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,19 @@ abilityData:
     - grimoire
     - jinx
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: demon
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

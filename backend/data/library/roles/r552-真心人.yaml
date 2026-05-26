@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 在你的首个白天，你可以邀请玩家共同拜访说书人并说出各自的角色(不限次)，你可以私下询问说书人在上次拜访中是否有人说谎(限一次)。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r552
+    officialId: trueheart
+    sourceHash: 99aa980001f992e8cf9f43a47073ce35a91629ea
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,19 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: boolean_check
   abilityMeta:
     pageType: record_result_only
     phaseTiming: passive

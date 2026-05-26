@@ -28,8 +28,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 你以为你是一个不在场的善良阵营身份，但其实你不是。生长：你的技能改为，你获得你认为的不在场善良阵营身份技能并得知自己是一个珊瑚。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r660
+    officialId: coral
+    sourceHash: 35d8867634d70ccf8ab78ca12744fa5014f02788
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,18 @@ abilityData:
     - good
     - outsider
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
   abilityMeta:
     pageType: record_result_only
     phaseTiming: passive

@@ -32,8 +32,21 @@ firstNightReminder: 在你的首个夜晚，你要选择一个善良角色：你
 otherNightReminder: ''
 ability: 在你的首个夜晚，你要选择一个善良角色：你会被善良玩家的能力当作是善良的该角色。 如果该角色在场，他中毒且会被善良角色的能力当作是邪恶的小迷雾，你会得知他是谁。[-1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r411
+    officialId: little-mist
+    sourceHash: 07b798586dd5f036f81a559ea51b6d4017d32b8e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -50,6 +63,33 @@ abilityData:
     - outsider
     - minion
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: first_night

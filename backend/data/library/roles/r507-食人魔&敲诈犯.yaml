@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 如果敲诈犯的选择目标被食人魔当作邪恶阵营，食人魔会得知自己转变为邪恶。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r507
+    officialId: ogre-blackmailer-jinx
+    sourceHash: 9ee169dd82f3ccafa56c9bd4b821c9b96dc8ba1e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -36,6 +49,18 @@ abilityData:
     - evil
     - jinx
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

@@ -25,8 +25,21 @@ firstNightReminder: 说书人可以告诉邪恶玩家一些关于皮影的信息
 otherNightReminder: 说书人可以告诉邪恶玩家一些关于皮影的信息（皮影的角色、夜间行动、红皮影互认对象等等）。
 ability: 说书人可以欺骗你，邪恶玩家可能会得知关于你的信息，即使你已死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r449
+    officialId: shadow-puppet
+    sourceHash: cf963d067d09efb11c3fb4ea0965d699c0b828b3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,18 @@ abilityData:
     - outsider
     - storyteller
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

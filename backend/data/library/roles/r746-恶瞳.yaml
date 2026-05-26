@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒恶瞳，让他攻击任意数量玩家。如果他们与你的距离均相同，他们死亡。
 ability: 每个夜晚*，你要选择任意名玩家：如果他们与你的距离均相同，他们死亡。=
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r746
+    officialId: etong
+    sourceHash: 7c044ab4e9486dc51584d8dbe215293a43fe4b4e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -37,6 +50,21 @@ abilityData:
     - death
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

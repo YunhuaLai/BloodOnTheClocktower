@@ -30,8 +30,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 在初始设置时，可能会额外增加或减少一个外来者。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r127
+    officialId: sentinel
+    sourceHash: aa2b56ffdd0746d4cab41c6f1c511b3f9eee7f16
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -41,6 +54,24 @@ abilityData:
     - outsider
     - fabled
   abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: 1
+            source: ability_text
+            note: 配置调整：外来者数量可能 +1 或 -1。
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup

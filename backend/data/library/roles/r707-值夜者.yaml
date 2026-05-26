@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒值夜者，对他指向所有在当晚死亡的玩家。他可以摇头不使用能力，或选择其中一名玩家，对他指向剧本列表上的一个角色类型。
 ability: 每个夜晚*，你会得知当晚死亡的玩家，每局游戏限一次，你可以选择其中一名，你得知他死于哪个角色类型。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r707
+    officialId: zsdhfkhgc
+    sourceHash: 147bcca41398cd292ef438577c3989cf2178c762
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -36,6 +49,22 @@ abilityData:
     - death
     - townsfolk
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

@@ -31,8 +31,21 @@ firstNightReminder: ''
 otherNightReminder: '1'
 ability: 每个夜晚*，你要选择一名玩家：他死亡。 使用自身能力选择你的玩家，可能会改为选中他自己。[-1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r540
+    officialId: dream-eater
+    sourceHash: 5d6da150b0fe752cce7d0738fb0cff13891b7eae
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -46,6 +59,28 @@ abilityData:
     - outsider
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

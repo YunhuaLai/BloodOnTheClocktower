@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 侍女会得知调酒师是否醒来，即使她是在调酒师之前醒来。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r508
+    officialId: chambermaid-bartender-jinx
+    sourceHash: f7f9aaea19d711d5ecd0c34085f40048cb7596f6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -34,6 +47,19 @@ abilityData:
     - information
     - jinx
   abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: boolean_check
   abilityMeta:
     pageType: record_result_only
     phaseTiming: passive

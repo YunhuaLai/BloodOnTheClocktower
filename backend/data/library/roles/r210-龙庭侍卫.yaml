@@ -31,8 +31,21 @@ firstNightReminder: 每局游戏限一次，在夜晚时，你可以选择除你
 otherNightReminder: 每局游戏限一次，在夜晚时，你可以选择除你以外的至多四名玩家：你会得知他们有几种角色类型。
 ability: 每局游戏限一次，在夜晚时，你可以选择除你以外的至多四名玩家：你会得知他们有几种角色类型。[+1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r210
+    officialId: dragon-court-guard
+    sourceHash: d6fc46c8faf65740b9d204c0487352fa20dfae44
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -47,6 +60,31 @@ abilityData:
     - townsfolk
     - outsider
   abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 初始无爪牙在场。所有玩家都知道议是谁，且议不会醉酒、中毒、死亡。死亡的邪恶玩家数量等于初始配置时，善良阵营获胜。议可以对说书人进行建议，如果被采纳，可能会留下线索。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r343
+    officialId: wonder
+    sourceHash: ed9c6243ece7740659029c87c41c654735c2d691
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -43,6 +56,23 @@ abilityData:
     - storyteller
     - fabled
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: death_count
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

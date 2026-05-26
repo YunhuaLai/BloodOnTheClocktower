@@ -25,8 +25,21 @@ firstNightReminder: 唤醒酿酒师，让其选择一个角色并给出该角色
 otherNightReminder: 唤醒酿酒师，让其选择一个角色并给出该角色对应的信息形式。如果该角色在场，在对应的角色标记旁放置“微醺”提示标记。如有必要，记录下该信息形式作为备忘，但不要将这一信息展示给任何能查看魔典的玩家。
 ability: 每个夜晚，你要选择一个镇民角色：当他下一次通过自身能力获取信息时，改为得知你给出的信息。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r611
+    officialId: brewer
+    sourceHash: b596bfbc2876e7b6c7c9c376b9598882032a1134
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -42,6 +55,23 @@ abilityData:
     - townsfolk
     - minion
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_role
+        source: target
+      - kind: learn_role
+        roleType: townsfolk
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

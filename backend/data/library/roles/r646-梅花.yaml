@@ -31,8 +31,21 @@ firstNightReminder: 你的首个夜晚，你得知一个不在场的外来者。
 otherNightReminder: ''
 ability: 你的首个夜晚，你得知一个不在场的外来者。当你在夜晚死亡时，一名在场的外来者无视诅咒疯狂生长。生长：你获得，当你在夜晚死亡时，在场的外来者无视诅咒疯狂生长。[+1/-1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r646
+    officialId: plum-blossom
+    sourceHash: e537aeb7d17f04accdc434ee93c49250a6f03a5d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -49,6 +62,25 @@ abilityData:
     - outsider
     - madness
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1/-1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒守墓人，告知其将要死亡的玩家角色，并询问其是否要代替死亡。
 ability: 在你的首个白天，如果没有玩家被处决，当晚，你得知一个将要死亡的角色且可以代替其死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r562
+    officialId: gz
+    sourceHash: 8559b9a72eb323c8cec65f8eaf643de6619c45ff
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,20 @@ abilityData:
     - death
     - townsfolk
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

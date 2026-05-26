@@ -26,8 +26,21 @@ firstNightReminder: 唤醒残念，让他选择一名玩家。
 otherNightReminder: 唤醒残念，让他选择一名玩家。
 ability: 在你的首个夜晚，你要选择一名玩家，他中毒且“是恶魔”，并始终被当作善良的残念，每个夜晚*，你要选择一名玩家，他死亡，即使你已死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r720
+    officialId: adggg
+    sourceHash: adffc1cac3e85afaba16cc90637f757d3a0c6415
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -42,6 +55,23 @@ abilityData:
     - good
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

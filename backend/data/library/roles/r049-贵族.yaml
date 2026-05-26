@@ -25,7 +25,20 @@ remindersGlobal: []
 firstNightReminder: 以任意顺序指向三名玩家，其中一名邪恶。
 otherNightReminder: ''
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r049
+    officialId: noble
+    sourceHash: 2602b5654f6718904b5e4ece4e05d8c18c9395fa
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 首夜
     - 信息型
@@ -37,6 +50,19 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 3
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

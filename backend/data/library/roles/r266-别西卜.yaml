@@ -31,8 +31,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒亢龙，他要攻击两名玩家，如果他选择了的玩家不是镇民，他中毒，直到所有爪牙已经失去能力。
 ability: 每个夜晚*，你选择两名玩家，如果他们都是或都不是镇民：他们死亡。[+1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r266
+    officialId: beelzebub
+    sourceHash: cd1c3ecb09c286be8a0cb47567a9c11fc43bfc1b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -47,6 +60,28 @@ abilityData:
     - outsider
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

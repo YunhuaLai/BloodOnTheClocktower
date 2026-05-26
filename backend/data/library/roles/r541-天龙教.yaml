@@ -27,8 +27,21 @@ firstNightReminder: '1'
 otherNightReminder: '1'
 ability: 每个夜晚*，你要选择一名玩家：他死亡。 在你的首个夜晚，你会得知所有的外来者玩家，然后选择其中一名玩家：他顺时针方向上最近的镇民中毒。 当他死于处决时，你重获能力。[至少有两个外来者在场]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r541
+    officialId: heavenly-dragon-cult
+    sourceHash: 597c6d400a902549d55abb7c2e31502eba4c1dbf
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -47,6 +60,25 @@ abilityData:
     - outsider
     - demon
   abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

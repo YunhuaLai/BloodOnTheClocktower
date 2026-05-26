@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 大主教可以选择发动能力，如果他这么做了，告诉他与死亡玩家数量相等的善良角色，其中有且只有一个角色不在场。随后标记大主教失去能力，之后的夜晚无需再唤醒大主教。
 ability: 每局游戏限一次，在夜晚时*，你可以选择得知与死亡玩家数量相等的善良角色，其中有且只有一个角色不在场。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r579
+    officialId: archbishop
+    sourceHash: 744b98d63825cccfef29562964b73541bde0135a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,24 @@ abilityData:
     - good
     - townsfolk
   abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_number
+        numberKind: death_count
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

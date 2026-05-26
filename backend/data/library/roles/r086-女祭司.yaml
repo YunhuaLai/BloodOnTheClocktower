@@ -25,7 +25,20 @@ remindersGlobal: []
 firstNightReminder: 唤醒女祭司，指向一名玩家。
 otherNightReminder: 唤醒女祭司，指向一名玩家
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r086
+    officialId: high-priestess
+    sourceHash: 8b8bfd0aa69412226a8404f5c5e9506b48da6276
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 每晚
     - 信息型
@@ -36,6 +49,19 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 1
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

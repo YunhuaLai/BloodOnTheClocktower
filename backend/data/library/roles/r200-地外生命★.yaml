@@ -28,8 +28,21 @@ firstNightReminder: 唤醒地外生命，他可以摇头不使用能力，或选
 otherNightReminder: 唤醒地外生命，他可以摇头不使用能力，或选择善良角色列表上和爪牙角色列表上各一个任意角色，如果他们都在场，他们醉酒。
 ability: 每局游戏限一次，在夜晚时，你可以选择一个善良角色和一个爪牙角色：如果他们都在场，他们醉酒，那名爪牙得知你在游戏中。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r200
+    officialId: extraterrestrial
+    sourceHash: d38d6a4541e287cdf3f9a0f41764d86577433c1f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -44,6 +57,23 @@ abilityData:
     - townsfolk
     - minion
   abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_role
+        roleType: minion
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

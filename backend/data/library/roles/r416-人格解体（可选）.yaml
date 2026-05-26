@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 所有玩家不再收到角色，不会得知自己的真实身份与阵营。游戏中不会出现交换师。舞狮人得知的恶魔伪装改为一个不在场角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r416
+    officialId: rengejieti
+    sourceHash: 82bbfe0058d9fdc359f051baaab000347a36fe01
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -36,6 +49,18 @@ abilityData:
     - demon
     - fabled
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
   abilityMeta:
     pageType: record_result_only
     phaseTiming: passive

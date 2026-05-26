@@ -26,8 +26,21 @@ firstNightReminder: 你拥有其他所有爪牙的能力
 otherNightReminder: 你拥有其他所有爪牙的能力
 ability: 你拥有其他所有爪牙的能力。【无其他爪牙角色在场，仅可通过航天员转化入场，+任意数量外来者】
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r488
+    officialId: route
+    sourceHash: 2fbd32421d482ca84bf11212d34411d2e3d23aba
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -43,6 +56,21 @@ abilityData:
     - outsider
     - minion
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

@@ -26,8 +26,21 @@ firstNightReminder: '1'
 otherNightReminder: '1'
 ability: 每个夜晚，你要选择一名玩家：他在下个夜晚死亡。每名善良玩家首次使用自身能力选择邪恶玩家时会改为选中你上一个选择的玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r538
+    officialId: kingmaker
+    sourceHash: c4a93267bf340312fa572c196c96cb57fe49b7f6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -42,6 +55,21 @@ abilityData:
     - evil
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

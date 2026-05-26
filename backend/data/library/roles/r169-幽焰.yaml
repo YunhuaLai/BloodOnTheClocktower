@@ -25,7 +25,20 @@ firstNightReminder: ''
 otherNightReminder: 唤醒幽焰。幽焰选择一名玩家，该玩家死亡。存活的初始恶魔与爪牙不计入邪恶阵营获胜所需的条件。
 ability: 每个夜晚*，选择一名玩家：他死亡。存活的初始恶魔与爪牙不计入邪恶阵营获胜所需的条件。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r169
+    officialId: ghostflame
+    sourceHash: a55c8e6ac8a5d260fa94a59342141e8204a4b819
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 每晚*
     - 恶魔杀人
@@ -39,6 +52,23 @@ abilityData:
     - minion
     - demon
   abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: demon_check
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

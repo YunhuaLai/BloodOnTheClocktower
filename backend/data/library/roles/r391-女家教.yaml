@@ -24,8 +24,21 @@ firstNightReminder: 在首个夜晚，唤醒女家教，给她展示一个非镇
 otherNightReminder: ''
 ability: 在你的首个夜晚，你得知一个距离你最近的非镇民玩家的角色类型（旅行者除外）。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r391
+    officialId: governess
+    sourceHash: 0346698f54d373438ac30d9e7f7ced2e9986f039
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -38,6 +51,18 @@ abilityData:
     - townsfolk
     - traveler
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

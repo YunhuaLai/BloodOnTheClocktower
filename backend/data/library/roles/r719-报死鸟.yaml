@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒报死鸟，让他选择一名玩家。
 ability: 每个夜晚*，你要选择一名玩家，如果当夜有善良玩家选中了他，他死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r719
+    officialId: savvgis
+    sourceHash: f1d49fbd8700ada91b47094263b3df02bbf0357f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,21 @@ abilityData:
     - good
     - minion
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

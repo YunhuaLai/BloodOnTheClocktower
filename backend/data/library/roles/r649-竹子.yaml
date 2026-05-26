@@ -25,8 +25,21 @@ firstNightReminder: 每个夜晚，你得知一个不在场的外来者或者邪
 otherNightReminder: 每个夜晚，你得知一个不在场的外来者或者邪恶阵营身份。生长：你获得，当你在夜晚首次将要死亡时，你不会死亡。
 ability: 每个夜晚，你得知一个不在场的外来者或者邪恶阵营身份。生长：你获得，当你在夜晚首次将要死亡时，你不会死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r649
+    officialId: bamboo
+    sourceHash: 26faec14fcb727aa33488edd1e4a945b2a7b1626
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -43,6 +56,20 @@ abilityData:
     - townsfolk
     - outsider
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: protect_player
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

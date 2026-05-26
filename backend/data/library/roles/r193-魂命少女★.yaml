@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 魂命少女可以选择一名死亡玩家。如果她这么做了，唤醒这名死亡玩家示意他重获能力，之后的夜晚不再唤醒魂命少女
 ability: 每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家:他重新获得自己的能力
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r193
+    officialId: soulbound-maiden
+    sourceHash: 01a418b8303efafcae618a267185e19ef7e149ed
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,21 @@ abilityData:
     - death
     - townsfolk
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

@@ -26,8 +26,21 @@ firstNightReminder: 让他选择一名玩家，给该玩家标记挑战。
 otherNightReminder: 让他选择一名玩家，给该玩家标记挑战。
 ability: 每个夜晚，你要选择一名玩家：下个白天，如果在你存活时他死于处决，他邻近的两名存活善良玩家在当晚不受邪恶能力影响直到下个黄昏，即使你已死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r418
+    officialId: tunhuoyiren
+    sourceHash: 287ae7f46f13e5d40dd08fc45f6ae309f4850317
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -45,6 +58,23 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 数学家会得知疯子是否攻击了与真正的恶魔不同的目标。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r152
+    officialId: mathematician-lunatic-jinx
+    sourceHash: 233525cbcd84f809051e3e67f9e6e998b9c6fefb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -35,6 +48,19 @@ abilityData:
     - demon
     - jinx
   abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: demon_check
   abilityMeta:
     pageType: record_result_only
     phaseTiming: passive

@@ -32,8 +32,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒奸佞，让他攻击一名玩家。如果有爪牙死亡，当晚之后唤醒那名爪牙，让他攻击一名玩家。
 ability: 每个夜晚*，你要选择一名玩家：他死亡。如果爪牙死亡，其要在当晚选择一名玩家：他死亡。[-1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r241
+    officialId: sycophant
+    sourceHash: debe8a5ce705d68636557253dfe4cd778ed44353
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -48,6 +61,28 @@ abilityData:
     - minion
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

@@ -31,8 +31,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 你的能力由祭品玩家的能力词语或能力类型构成。[初始配置不在场]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r613
+    officialId: kumu
+    sourceHash: 98fe54231cfe7431a765f89f1bc9ab38fd43fafd
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -42,6 +55,24 @@ abilityData:
     - setup
     - demon
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

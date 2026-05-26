@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: 韦斯莱兄弟得知一条消息
 ability: 每个白天，你可以庄严宣誓你不干好事，并公开选择一个角色。当夜，你会得知一条关于该角色的信息。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r762
+    officialId: weasley-brothers
+    sourceHash: 5e8b57de4580942747002265fc88eb60994cdd70
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,21 @@ abilityData:
     - information
     - townsfolk
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_role
+        roleType: null
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day

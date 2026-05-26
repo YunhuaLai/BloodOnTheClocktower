@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 如果他如实回答，当晚你得知一条正确的信息，你不会受到恶魔技能效果的影响。如果他没有如实回答，你醉酒直到下个黎明。
 ability: 每个白天，你可以公开声称自己是树翁并选择一名其他玩家，你可以私下询问该玩家一个是否问题。如果他如实回答，当晚你得知一条正确的信息，你不会受到恶魔技能效果的影响。如果他没有如实回答，你醉酒直到下个黎明。你不会生长。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r659
+    officialId: tree-elder
+    sourceHash: 77f1ea074cf08cdfc195fc00df8bacf3c3a3caa1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -41,6 +54,24 @@ abilityData:
     - townsfolk
     - demon
   abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: demon_check
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day

@@ -29,8 +29,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 你以为你是一个善良角色，但其实你不是。如果你被恶魔杀死，恶魔要选择一名玩家：他变成玩偶。[玩偶会与恶魔邻座]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r625
+    officialId: doll
+    sourceHash: cb26399d0b03854d15131985a5ab861c2309da86
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,22 @@ abilityData:
     - minion
     - demon
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: setup

@@ -25,8 +25,21 @@ firstNightReminder: 唤醒地狱之眼，让他选择两名玩家，对他依次
 otherNightReminder: 唤醒地狱之眼，让他选择两名玩家，对他依次展示这两名玩家对应的角色标记。
 ability: 每个夜晚，你要选择两名玩家，你得知他们的角色，首个被你选择两次的玩家死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r716
+    officialId: eruuskk
+    sourceHash: 4bc62e72b94ba5e145df4fab73382336582326aa
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,25 @@ abilityData:
     - death
     - minion
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

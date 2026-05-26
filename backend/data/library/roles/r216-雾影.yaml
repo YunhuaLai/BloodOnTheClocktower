@@ -26,8 +26,21 @@ firstNightReminder: 在你的首个夜晚，得知三个在场的善良角色，
 otherNightReminder: ''
 ability: 在你的首个夜晚，得知三个在场的善良角色，选择其一：你可能会被善良玩家当做善良的该角色，他中毒且会被善良玩家当做邪恶的雾影，你得知他是谁。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r216
+    officialId: mist-shade
+    sourceHash: 7628ac474879b361dc7a4c918ee49180ff28d708
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -41,6 +54,26 @@ abilityData:
     - evil
     - minion
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: first_night

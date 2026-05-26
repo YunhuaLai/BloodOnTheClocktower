@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: 每个夜晚*，你得知当晚有几名玩家的技能没有正常发动。生长：你获得，你得知一名技能没有正常发动的玩家或都正常发动了。
 ability: 每个夜晚*，你得知当晚有几名玩家的技能没有正常发动。生长：你获得，你得知一名技能没有正常发动的玩家或都正常发动了。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r654
+    officialId: tree-fern
+    sourceHash: 4dfe3a7017bb2544f7dca14f73f6c73ae628fe1c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -36,6 +49,19 @@ abilityData:
     - information
     - townsfolk
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star

@@ -27,8 +27,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 形无常驻，念即疆域。①姑获鸟:恶魔拥有上个死于处决的爪牙的能力。②熬药巫婆:每局游戏限一次，在夜晚*时，选择一名玩家和一个非恶魔角色:如果该角色不在场，他变为那个角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r225
+    officialId: everchanging-dome
+    sourceHash: ddb05db3023a53175daba6910a1526335ec98e4a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,25 @@ abilityData:
     - demon
     - fabled
   abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: on_execution
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: null

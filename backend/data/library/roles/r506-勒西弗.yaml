@@ -25,8 +25,21 @@ firstNightReminder: 唤醒勒西弗，指向所有赌徒玩家。
 otherNightReminder: 唤醒勒西弗，让他攻击一名玩家。
 ability: 在你的首个夜晚，你得知哪些玩家是赌徒，每个夜晚*，选择一名玩家，他死亡，如果最后一名存活赌徒死于自身能力，邪恶阵营获胜。[3名赌徒在场]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r506
+    officialId: lucifer
+    sourceHash: 8d284508e7cf4a1b96cfca96c04cfc04c3fe5a54
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -44,6 +57,24 @@ abilityData:
     - evil
     - demon
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_team
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

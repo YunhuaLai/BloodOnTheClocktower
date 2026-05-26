@@ -31,8 +31,21 @@ firstNightReminder: '1'
 otherNightReminder: '7'
 ability: 在你的首个夜晚，你要选择存活玩家中一半（向下取整）的玩家。 每个夜晚*，被你选择的玩家依次死亡。如果他们都死亡，你的阵营获胜。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r331
+    officialId: laplace
+    sourceHash: baedadf249ce8f8811d0306a2a28d30b8319ecc0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -47,6 +60,21 @@ abilityData:
     - alignment
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

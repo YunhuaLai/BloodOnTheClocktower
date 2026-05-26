@@ -25,8 +25,21 @@ firstNightReminder: 唤醒炼金术士，对他展示他获得的能力所对应
 otherNightReminder: ''
 ability: 你拥有一个爪牙角色的能力。当你使用能力时，说书人可能会要求你更换选择。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r194
+    officialId: alchemist-variant
+    sourceHash: eb6ea344a1d65e3c6182d40b5e384ef1c6f83007
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -37,6 +50,18 @@ abilityData:
     - minion
     - storyteller
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
   abilityMeta:
     pageType: no_input
     phaseTiming: first_night

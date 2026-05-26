@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 每个夜晚*，选择一名存活的其他玩家，当晚你获得该玩家的技能，该玩家醉酒。如果你选择的玩家为邪恶阵营，你中毒直到下个黄昏。生长：你获得，不会有玩家因你的技能而醉酒。
 ability: 每个夜晚*，选择一名存活的其他玩家，当晚你获得该玩家的技能，该玩家醉酒。如果你选择的玩家为邪恶阵营，你中毒直到下个黄昏。生长：你获得，不会有玩家因你的技能而醉酒。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r653
+    officialId: violet
+    sourceHash: d9a3d889e64ec6ba1fa023e944376b0ccd7f936b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -41,6 +54,22 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

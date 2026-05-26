@@ -24,8 +24,21 @@ firstNightReminder: 在你的首个夜晚，你会得知哪些邪恶角色在场
 otherNightReminder: ''
 ability: 在你的首个夜晚，你会得知哪些邪恶角色在场。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r207
+    officialId: scholar
+    sourceHash: 67e4b6fc1fec79c8b652db261956fd55648b4be0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,19 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

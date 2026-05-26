@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 金苹果共三个，赫拉/阿芙洛狄忒/雅典娜初始各持有一颗，白天可以转赠，死亡会掉落。终局计分：金苹果分 8/18/30分（根据团队持有的数量）；存活玩家分：雅典娜8分，其他镇民4分，阿芙洛狄特10分，其他外来6分；赫拉25分，爪牙15分。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r405
+    officialId: golden-apple-war
+    sourceHash: 7da33be6572e27261baa9347f19a24e189a086ba
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,19 @@ abilityData:
     - minion
     - fabled
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: death_count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: passive

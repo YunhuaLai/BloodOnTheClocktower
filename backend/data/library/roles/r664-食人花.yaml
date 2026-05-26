@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 每个夜晚*，你可以选择一名其他玩家，他死亡。如果你这么做了，下个夜晚你不会被唤醒。生长：你的技能改为，每个夜晚*，你可以选择两名其他玩家，他们死亡。如果你这么做了，下个夜晚你不会被唤醒。
 ability: 每个夜晚*，你可以选择一名其他玩家，他死亡。如果你这么做了，下个夜晚你不会被唤醒。生长：你的技能改为，每个夜晚*，你可以选择两名其他玩家，他们死亡。如果你这么做了，下个夜晚你不会被唤醒。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r664
+    officialId: man-eating-flower
+    sourceHash: f08c038d182cf31dfaece912fef50a8939f2a83d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,21 @@ abilityData:
     - death
     - minion
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

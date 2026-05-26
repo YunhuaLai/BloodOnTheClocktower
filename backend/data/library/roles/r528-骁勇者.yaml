@@ -24,8 +24,21 @@ firstNightReminder: '1'
 otherNightReminder: '1'
 ability: 每个夜晚，你要选择至多3名玩家和至多3个爪牙角色：你会得知他们邻近的玩家中是否有这些角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r528
+    officialId: valiant
+    sourceHash: 374b5aed995517201640297713d2ed195b54dc84
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -38,6 +51,24 @@ abilityData:
     - townsfolk
     - minion
   abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

@@ -26,8 +26,21 @@ firstNightReminder: 你的首个夜晚，选择一名其他玩家，寄生于他
 otherNightReminder: 你代替该玩家发动技能并得知结果，你可以选择是否修改结果并让他得知。生长：你获得，每个夜晚*，你可以选择杀死宿主。当你死亡时，宿主跟你一起死亡。
 ability: 你的首个夜晚，选择一名其他玩家，寄生于他。你代替该玩家发动技能并得知结果，你可以选择是否修改结果并让他得知。生长：你获得，每个夜晚*，你可以选择杀死宿主。当你死亡时，宿主跟你一起死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r665
+    officialId: parasitic-plant
+    sourceHash: 14a8a62b98364dcc137296436f0595b34c77463a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,23 @@ abilityData:
     - death
     - minion
   abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

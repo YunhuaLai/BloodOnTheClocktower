@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 地狱犬可以选择发动能力，如果他这么做了，让他选择一至两名玩家，如果他选择的玩家中仅有一名状态正常，给这些玩家标记死亡，随后标记地狱犬失去能力，之后的夜晚无需再唤醒地狱犬。
 ability: 每局游戏限一次，在夜晚时*，你可以选择一至两名玩家：如果其中仅有一名玩家状态正常，他们死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r734
+    officialId: hellhound
+    sourceHash: 2768bcf030055a781b6d71c73f74bcceed13050a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,21 @@ abilityData:
     - death
     - minion
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

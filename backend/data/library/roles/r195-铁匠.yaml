@@ -31,8 +31,21 @@ firstNightReminder: 在首个夜晚，唤醒铁匠。向铁匠展示所有在场
 otherNightReminder: ''
 ability: 在你的首个夜晚，你会得知有几名外来者在场。所有外来者醉酒。[+1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r195
+    officialId: blacksmith
+    sourceHash: 7122ff15f175d30892a590dd87abda4c89f9e4c7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -46,6 +59,28 @@ abilityData:
     - townsfolk
     - outsider
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: learn_number
+        numberKind: count
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

@@ -24,8 +24,21 @@ firstNightReminder: 唤醒钦天监，对他指向对应方向来告知他最近
 otherNightReminder: ''
 ability: 在你的首个夜晚，你会得知离你最近的邪恶玩家位于你的哪一侧（左/右/相同）。如果与你邻近的玩家中有邪恶阵营，你会得知错误信息。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r307
+    officialId: astronomer-royal
+    sourceHash: f980cc8f7e9fe0ad8b492689f6b8a18f3bbcdd30
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -39,6 +52,18 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

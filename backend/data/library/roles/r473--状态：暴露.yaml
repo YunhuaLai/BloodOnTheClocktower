@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 玩家首次死亡时，他不会死亡，而是获得“暴露”状态，死亡会保留。玩家对自己的“暴露”状态不自知。每个黎明，说书人要公开拥有暴露状态的玩家人数，并令其中一个玩家死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r473
+    officialId: status-exposed
+    sourceHash: a79beba97ba4197c0757bad569bff3ccb1da3448
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -35,6 +48,19 @@ abilityData:
     - storyteller
     - jinx
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

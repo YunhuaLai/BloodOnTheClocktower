@@ -26,8 +26,21 @@ firstNightReminder: '5'
 otherNightReminder: '10'
 ability: 每局游戏限一次，在夜晚时，你可以选择一个除你以外的善良角色：如果有多个相同的该角色在场，其中之一的醉酒玩家会转变为一个不在场的同类型角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r328
+    officialId: time-traveler
+    sourceHash: ba4bf4c44a659199f092274149fff6eb190e19bf
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -41,6 +54,24 @@ abilityData:
     - good
     - townsfolk
   abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

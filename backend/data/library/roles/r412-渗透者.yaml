@@ -29,8 +29,21 @@ firstNightReminder: 每局游戏限一次，在夜晚时，你决定下个黎明
 otherNightReminder: 每局游戏限一次，在夜晚时，你决定下个黎明播报什么学院的格言或不播报。
 ability: 每局游戏限一次，在夜晚时，你决定下个黎明播报什么学院的格言或不播报。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r412
+    officialId: infiltrator
+    sourceHash: 7ec52dfc1e3e94ba5d5bd9eee446612a7abcb62e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -41,6 +54,18 @@ abilityData:
     - first-night
     - minion
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

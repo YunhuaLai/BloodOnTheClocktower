@@ -26,8 +26,21 @@ firstNightReminder: 每个夜晚，选择一名其他存活玩家，你会得知
 otherNightReminder: 每个夜晚，选择一名其他存活玩家，你会得知：目标玩家与相邻存活玩家的阵营是否相同。
 ability: 每个夜晚*，你要选择除你以外的一名存活的玩家，你会得知他与邻近的存活玩家是否为同一阵营。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r574
+    officialId: shuijiadacaifeng
+    sourceHash: a08335dc2345242f7a016161ce6fac98da999346
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -39,6 +52,22 @@ abilityData:
     - alignment
     - townsfolk
   abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: team_relation
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

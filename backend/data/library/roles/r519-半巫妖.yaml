@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个夜晚*，你要选择等同于死亡邪恶玩家数量的玩家：他们死亡。如果你因此而死亡，你仍存活，但会被当作死亡。如果白天没人被处决，当晚你可以交换两名初始邪恶玩家的真实角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r519
+    officialId: half-lich
+    sourceHash: 94c110b225efee67c8874c4ce299a1df1ac174c1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,24 @@ abilityData:
     - evil
     - demon
   abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_number
+        numberKind: death_count
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

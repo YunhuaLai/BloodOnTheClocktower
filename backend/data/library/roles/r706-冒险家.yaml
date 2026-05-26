@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒冒险家，让他选择任意名玩家。
 ability: 每个夜晚*，你要选择除你以外的任意名玩家，如果他们都是善良的，他们中当晚首个死亡的玩家首次不会死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r706
+    officialId: adventurer
+    sourceHash: 2993be0f2b2ad08beac57b3348d39e39067fed5a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -38,6 +51,22 @@ abilityData:
     - good
     - townsfolk
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: protect_player
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: 整局游戏限一次：白天可以公开选择一名已经死亡的玩家，当晚你可以使用该玩家的能力。
 ability: 整局游戏限一次：每个白天可以公开选择一名已经死亡的玩家，当晚你可以使用该玩家的能力。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r678
+    officialId: graveyard-flower
+    sourceHash: 84ae1c497ba7e97341888c8aa51433c219f59fae
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,21 @@ abilityData:
     - death
     - traveler
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day

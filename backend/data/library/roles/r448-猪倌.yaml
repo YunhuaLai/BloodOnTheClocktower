@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 如果猪倌死亡，当夜给牙噶巴卜一条新的短语寻问恶魔是否更换秘密短语。
 ability: 如果你死亡，恶魔选择并获得第二个恶魔能力。每个夜晚，他选择要作为哪个恶魔行动。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r448
+    officialId: swineherd
+    sourceHash: 027e87e78113b1de631ab952325c807d2b4f1c01
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,20 @@ abilityData:
     - outsider
     - demon
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

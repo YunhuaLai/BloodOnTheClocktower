@@ -25,8 +25,21 @@ firstNightReminder: 分别唤醒有“口令”标记的玩家，告知他们本
 otherNightReminder: ''
 ability: 在你的首个夜晚，你要写一条口令，一名善良玩家和一名邪恶玩家得知该口令。如果存活玩家不多于三名，善良阵营获胜。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r390
+    officialId: harpist
+    sourceHash: b1d24d06ad86c715dd30248a1e5f8ca3365fcc85
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,18 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

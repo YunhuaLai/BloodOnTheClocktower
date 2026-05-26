@@ -25,8 +25,21 @@ firstNightReminder: 守夜人可以指向一名玩家。如果他这么做，则
 otherNightReminder: 守夜人可以指向一名玩家。如果他这么做，则唤醒那名玩家，告知其被守夜人选中，且告知他守夜人是谁。
 ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知你是守夜人。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r134
+    officialId: nightwatchman
+    sourceHash: 85e03626238536c98b78780fcb7432bd0e99a1c1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,20 @@ abilityData:
     - first-night
     - townsfolk
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

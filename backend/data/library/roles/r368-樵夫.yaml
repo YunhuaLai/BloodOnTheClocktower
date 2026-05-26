@@ -24,8 +24,21 @@ firstNightReminder: 唤醒樵夫，对他展示一个角色标记，用大拇指
 otherNightReminder: 唤醒樵夫，对他展示一个角色标记，用大拇指向上以表示该角色在场，或用大拇指向下以表示该角色不在场。
 ability: 每个夜晚，你会得知一个角色，并且会得知该角色是否在场。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r368
+    officialId: qiaofu-duck
+    sourceHash: 728ffcdbe402b4a7848da8685ffb5ff852e5088b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,19 @@ abilityData:
     - information
     - townsfolk
   abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: boolean_check
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

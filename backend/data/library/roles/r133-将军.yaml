@@ -24,8 +24,21 @@ firstNightReminder: 告诉将军你认为的答案。
 otherNightReminder: 告诉将军你认为的答案。
 ability: 每个夜晚，你会得知说书人认为哪个阵营当前更有优势（善良/邪恶/均势）。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r133
+    officialId: general
+    sourceHash: ee0fc85665b8b299fc46dc6bec6548d0d5094330
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -42,6 +55,18 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

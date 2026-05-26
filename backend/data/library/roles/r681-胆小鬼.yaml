@@ -24,8 +24,21 @@ firstNightReminder: 对她点头或摇头来示意邻近存活玩家中是否包
 otherNightReminder: 对她点头或摇头来示意邻近存活玩家中是否包含恶魔或他自己。
 ability: 每个夜晚，你会得知你的邻近存活玩家中是否包含恶魔或你自己。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r681
+    officialId: coward
+    sourceHash: 0aa5fe12d367c5d68e83e2dfac9b3efe57cdfbfa
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,19 @@ abilityData:
     - townsfolk
     - demon
   abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: demon_check
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

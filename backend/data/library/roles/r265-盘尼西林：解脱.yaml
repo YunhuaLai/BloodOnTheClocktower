@@ -28,8 +28,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 下个黎明前：你不会死亡或因自身能力唤醒，但如果你醉酒，你会死亡，即使任何原因让你不会死亡。在此之后，你不再能避免死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r265
+    officialId: penicillin
+    sourceHash: 145645e2547e85addde405aaed16d3582570d9fc
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -41,6 +54,21 @@ abilityData:
     - protected
     - fabled
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: protect_player
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

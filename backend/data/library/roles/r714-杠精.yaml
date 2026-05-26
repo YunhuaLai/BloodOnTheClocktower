@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 你以为你是一个在场的镇民，其实你不是，你的行动顺位在那个镇民之后。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r714
+    officialId: aejjete
+    sourceHash: fb60ad03b23c842800cff7a57bdac8f1fd7b500f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -36,6 +49,19 @@ abilityData:
     - townsfolk
     - outsider
   abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments: []
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup

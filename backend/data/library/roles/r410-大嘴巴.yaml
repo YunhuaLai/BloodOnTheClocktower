@@ -24,8 +24,21 @@ firstNightReminder: 在你的首个夜晚，你得知一段短语。
 otherNightReminder: ''
 ability: 在你的首个夜晚，你得知一段短语。每个黄昏，如果没有其他存活的善良玩家说出这个短语或一名存活的爪牙公开猜测出了该短语（即使你已经死亡），你的阵营落败。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r410
+    officialId: big-mouth
+    sourceHash: aaac44e36994a3860adfc230ff33043ae665939e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,19 @@ abilityData:
     - outsider
     - minion
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

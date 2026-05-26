@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ' '
 ability: 恶魔在攻击生效之前一晚发动攻击，即使你已死亡。每个夜晚，你得知谁受到攻击。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r352
+    officialId: palm-reader
+    sourceHash: 5107efe78204da090487e693034c535b025eab3f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,20 @@ abilityData:
     - townsfolk
     - demon
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

@@ -25,7 +25,20 @@ remindersGlobal: []
 firstNightReminder: 决定失忆者的能力。如果失忆者的能力会让他在今晚醒来：唤醒他并执行其能力。
 otherNightReminder: 如果失忆者的能力会让他在今晚醒来：唤醒他并执行其能力。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r088
+    officialId: amnesiac
+    sourceHash: a183a0127d7abf76fd3f05a062721d6db9d18bde
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 白天
     - 特殊机制
@@ -35,6 +48,18 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_day
+      event: null
+      frequency: repeatable
+    actor:
+      drivenBy: mixed
+    operations:
+      - kind: manual_record
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_day

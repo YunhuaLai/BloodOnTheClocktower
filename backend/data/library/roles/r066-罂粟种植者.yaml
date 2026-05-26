@@ -25,7 +25,20 @@ remindersGlobal: []
 firstNightReminder: 如果罂粟种植者在场，跳过今晚的爪牙信息和恶魔信息环节。
 otherNightReminder: 如果罂粟种植者死于白天，插入执行爪牙信息和恶魔信息（不包含恶魔伪装）流程。如果罂粟种植者死于夜晚，则在当前玩家行动结束后立即执行相关流程。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r066
+    officialId: poppy-grower
+    sourceHash: 6de9b14f5a6e3b806a305575cf4da4e3f57a7115
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 被动
     - 邪恶不互认
@@ -37,6 +50,18 @@ abilityData:
     - minion
     - demon
   abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup

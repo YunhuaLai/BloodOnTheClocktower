@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 选择一名玩家，其醉酒。
 ability: 每个夜晚*，你要选择一名玩家（与之前不同）：他醉酒直到下个黄昏。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r460
+    officialId: geisha
+    sourceHash: 7c5e2283b8480433c4cbdec4f4a8183bd67c7cf4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,22 @@ abilityData:
     - drunk
     - traveler
   abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

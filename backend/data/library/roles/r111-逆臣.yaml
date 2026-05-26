@@ -25,7 +25,20 @@ remindersGlobal: []
 firstNightReminder: 唤醒逆臣，让他选择一名除自己以外的玩家，那名玩家现在与他不共戴天。
 otherNightReminder: 如果逆臣或他的目标玩家，这两人之一死于处决，唤醒另一名玩家并通知他阵营变化。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r111
+    officialId: turncoat
+    sourceHash: b1c10af74a30928f2c6cadd5cbe54b365cbe652a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 首夜
     - 主动选玩家
@@ -38,6 +51,25 @@ abilityData:
     - evil
     - outsider
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: on_death
+      frequency: once
+    actor:
+      drivenBy: mixed
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_player
+        count: 1
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: event_triggered
     phaseTiming: first_night

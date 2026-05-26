@@ -32,8 +32,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个夜晚，你要选择一名玩家：他死亡。当一名玩家醉酒或中毒，“殉道者之吻”不对其生效。在你的首个夜晚，选择一名玩家，他醉酒。[-1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r736
+    officialId: liuliuliu
+    sourceHash: ef815a989732027175642a88d0f72b62fe9d3e72
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -49,6 +62,30 @@ abilityData:
     - outsider
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

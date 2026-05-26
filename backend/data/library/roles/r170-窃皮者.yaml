@@ -26,7 +26,20 @@ firstNightReminder: 唤醒窃皮者。窃皮者选择一名玩家，该玩家死
 otherNightReminder: 唤醒窃皮者。窃皮者选择一名玩家，该玩家死亡。当窃皮者首次与存活的爪牙邻座时，当晚窃皮者变成他选择的其他恶魔。
 ability: 每个夜晚*，你要选择一名玩家：他死亡。当你首次与存活的爪牙邻座时，当晚你变成你选择的其他恶魔。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r170
+    officialId: skinstealer
+    sourceHash: 79b0c0a199a21ad673d1deaaa3feaf718f5721f8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 每晚
     - 恶魔杀人
@@ -38,6 +51,23 @@ abilityData:
     - minion
     - demon
   abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: demon_check
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

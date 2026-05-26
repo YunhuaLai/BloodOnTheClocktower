@@ -24,8 +24,21 @@ firstNightReminder: 每个夜晚，选择一种身份类型，你得知一条关
 otherNightReminder: 每个夜晚，选择一种身份类型，你得知一条关于在场的该角色类型的谜语。生长：你获得，你得知所有谜语对应的角色身份。
 ability: 每个夜晚，选择一种身份类型，你得知一条关于在场的该角色类型的谜语。生长：你获得，你得知所有谜语对应的角色身份。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r648
+    officialId: waterweed
+    sourceHash: 51b3736c36508f5a35500ca9d6337e6a4bbc3f08
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -37,6 +50,21 @@ abilityData:
     - first-night
     - townsfolk
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_role
+        roleType: null
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

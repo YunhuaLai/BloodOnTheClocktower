@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 如果除白狼以外的玩家在白天“疯狂”地证明他是邪恶的，唤醒白狼，对他用手势比划数字（0，1，2 等），这个数字等同于与死亡玩家邻近的玩家中邪恶玩家数量。让白狼重新入睡。
 ability: 如果除你以外的玩家在白天“疯狂”地证明你是邪恶的，当晚你会得知与死亡玩家邻近的玩家中有多少名邪恶玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r577
+    officialId: whitewolf
+    sourceHash: cd42c7b0f483f977326c96cb3369fce7682a1ad2
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -41,6 +54,19 @@ abilityData:
     - townsfolk
     - madness
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: death_count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

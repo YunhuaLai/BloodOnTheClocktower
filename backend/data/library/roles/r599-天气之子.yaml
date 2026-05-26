@@ -25,8 +25,21 @@ firstNightReminder: 选择三个天气事件，触发其中两个事件。
 otherNightReminder: 每晚，选择三个的天气事件（非上次生效的两个天气事件），触发其中两个事件。并让他杀一个人
 ability: 每个夜晚*，你要选择一名玩家：他死亡。每晚，选择三个天气事件（非上次生效的两个天气事件），当天将生效其中两个天气事件。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r599
+    officialId: tempest
+    sourceHash: 27e5cbc35d75e48dac1471989212d3e403e1d511
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,21 @@ abilityData:
     - death
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

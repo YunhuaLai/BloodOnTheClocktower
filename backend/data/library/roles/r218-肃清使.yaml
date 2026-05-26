@@ -29,8 +29,21 @@ firstNightReminder: 每个夜晚，你会得知当天即将宣布的格言。每
 otherNightReminder: 每个夜晚，你会得知当天即将宣布的格言。每局游戏限一次，在夜晚时，你决定下个黎明播报什么学院的格言或者不播报。
 ability: 每个夜晚，你会得知当天即将宣布的格言。每局游戏限一次，在夜晚时，你决定下个黎明播报什么学院的格言或者不播报。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r218
+    officialId: purger
+    sourceHash: 514b8d17f6ed25ff3bf9af8e4a94e1cb913a85cd
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -43,6 +56,18 @@ abilityData:
     - information
     - minion
   abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

@@ -28,8 +28,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 毒药两滴，可葬王朝；黑白颠倒，亦覆乾坤。①诺达鲺:与你邻近的两名镇民中毒。②涡流:镇民玩家的能力会产生错误的信息。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r223
+    officialId: scheming-senate
+    sourceHash: da86d1cec9625870c456efa3f444c803665f07db
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,19 @@ abilityData:
     - townsfolk
     - fabled
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

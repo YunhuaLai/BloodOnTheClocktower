@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 你拥有其他所有外来者的能力。其他对外来者的设置调整不会生效。[无其他外来者在场]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r256
+    officialId: cloud-hermit
+    sourceHash: 490a6212298cbe253668edd2f4d3f8446dc1d34e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -35,6 +48,19 @@ abilityData:
     - setup
     - outsider
   abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments: []
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup

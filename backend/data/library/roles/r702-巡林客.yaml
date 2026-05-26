@@ -24,8 +24,21 @@ firstNightReminder: 给他展示数字手势告诉他与爪牙相邻的善良角
 otherNightReminder: ''
 ability: 在你的首个夜晚，你会得知与爪牙相邻的善良角色数量。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r702
+    officialId: shjfk
+    sourceHash: 4d5592516c00fee447a61eda414cd5457fd227e0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,19 @@ abilityData:
     - townsfolk
     - minion
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

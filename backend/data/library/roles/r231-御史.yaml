@@ -31,8 +31,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒御史，让他从参与造成处决的投票的一名其他玩家中选择一名玩家，然后告诉御史他是否与被处决者类型相同（回溯性能力，回溯节点：白天被处决的玩家是什么角色类型。生效节点，晚上被选择的玩家和白天被处决的玩家是否是相同角色类型）
 ability: 每个夜晚*，如果今天白天有存活玩家被处决，你要选择一名除你以外的参与该处决投票的玩家：你得知他是否与被处决者角色类型相同。[+1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r231
+    officialId: imperial-censor
+    sourceHash: c38fdcd6d470e23edcccdcc91c1bccf9b4804387
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -49,6 +62,32 @@ abilityData:
     - townsfolk
     - outsider
   abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_boolean
+        question: vote_check
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

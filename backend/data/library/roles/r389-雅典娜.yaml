@@ -25,8 +25,21 @@ firstNightReminder: 如果与雅典娜相邻的两名存活玩家都是善良的
 otherNightReminder: ''
 ability: 初始携带金苹果。携带金苹果的镇民不受中毒、醉酒的影响。在你的首个夜晚，如果与你相邻的两名存活玩家都是善良的，其中之一会得知你是雅典娜 [必定出场、无法转换阵营]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r389
+    officialId: athena
+    sourceHash: c1413fe9a37535c59f08020cfdb138335eb4a609
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -45,6 +58,22 @@ abilityData:
     - good
     - townsfolk
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_team
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

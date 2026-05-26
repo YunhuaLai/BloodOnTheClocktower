@@ -8,6 +8,7 @@
 - `validate-data.js`: validate the YAML library after loading the backend catalog.
 - `official-json.js`: import or export official Blood on the Clocktower JSON files.
 - `cache-images.js`: download remote image assets into `frontend/assets`.
+- `backfill-ability-semantics.js`: upgrade embedded role `abilityData` to schema v2 and infer `sourceAbility`/`abilitySemantics`.
 - `backfill-ability-terms.js`: infer `abilityData.termIds` and `abilityPattern`.
 - `backfill-deduction-profiles.js`: infer note-page deduction profiles.
 - `deduction-profile-audit.js`: summarize supported and unsupported deduction profiles.

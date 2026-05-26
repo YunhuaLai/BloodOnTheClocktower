@@ -25,8 +25,21 @@ firstNightReminder: '1'
 otherNightReminder: '1'
 ability: 获取过小镇做题家的玩家可能会被善良玩家当作邪恶的无题。 每局游戏限一次，在夜晚时，你可以选择查看魔典，然后决定小镇做题家的下一次信息。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r535
+    officialId: untitled
+    sourceHash: 4ddc62e25e1c1b7df998993c2f127a9b58b2b5cc
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,19 @@ abilityData:
     - minion
     - grimoire
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

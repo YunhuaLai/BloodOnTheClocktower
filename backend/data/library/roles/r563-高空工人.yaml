@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: 如果高空工人在夜晚死亡，唤醒他。让他选择两个具有“你的首个夜晚”的角色，他得知这些信息。
 ability: 如果你在夜晚死亡，在当晚你会被唤醒并要选择两个能力具有“你的首个夜晚”的角色，你得知这些角色会得知的信息。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r563
+    officialId: xz
+    sourceHash: 9cb47d203c0f6677b81bab99e5efdfd575847850
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,22 @@ abilityData:
     - death
     - townsfolk
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

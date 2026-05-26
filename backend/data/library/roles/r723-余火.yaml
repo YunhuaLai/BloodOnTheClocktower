@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒余火，让他选择一名玩家。如果上个白天到他行动前有非镇民死亡，他可以再选择一名玩家。
 ability: 每个夜晚*，你要选择一名玩家，他死亡。如果上个白天到你行动前有非镇民死亡，你可以额外选择一名玩家，他在黎明时死亡。【+1外来者】
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r723
+    officialId: seewghhrjj
+    sourceHash: e0b9bfdeaf5f03704d02fad9cf28ab46461e4187
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -43,6 +56,23 @@ abilityData:
     - outsider
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

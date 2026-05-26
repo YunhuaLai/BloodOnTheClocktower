@@ -24,7 +24,20 @@ remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果农夫在夜晚死去，则选择另一位善良玩家成为农夫。唤醒这名玩家，并告知他成为了农夫。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r090
+    officialId: farmer
+    sourceHash: 6ce7f01f7933d18d17a83bf4141472de1008025f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 死亡触发
     - 传承
@@ -36,6 +49,22 @@ abilityData:
     - good
     - townsfolk
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: null
+      event: on_death
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 1
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null

@@ -24,8 +24,21 @@ firstNightReminder: 唤醒郎中，让他指向除他以外的一名玩家。对
 otherNightReminder: 唤醒郎中，让他指向除他以外的一名玩家。对郎中展示一个与该玩家能力相关的词语。
 ability: 每个夜晚，你要选择除你以外的一名玩家：你会得知一个与他能力相关的词语。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r597
+    officialId: folk-doctor
+    sourceHash: c2c25323d2ccb2c845a935845d2012b6860c9708
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,20 @@ abilityData:
     - first-night
     - townsfolk
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

@@ -26,8 +26,21 @@ firstNightReminder: ''
 otherNightReminder: 每个夜晚*，选择一名其他玩家，如果该玩家为爪牙，他死亡且你失去技能。
 ability: 如果你死亡时，场上的存活玩家大于四，当晚爪牙可以行动两次。你可能被视为邪恶阵营。生长：你的技能改为，每个夜晚*，选择一名其他玩家，如果该玩家为爪牙，他死亡且你失去技能。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r663
+    officialId: coconut-palm
+    sourceHash: 131db582f1a8dbe5f784c2789cd808340588a2ee
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,21 @@ abilityData:
     - outsider
     - minion
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

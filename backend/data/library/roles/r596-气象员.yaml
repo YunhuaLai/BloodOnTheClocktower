@@ -25,8 +25,21 @@ firstNightReminder: 每局游戏限一次，在夜晚时，选择一个天气事
 otherNightReminder: 每局游戏限一次，在夜晚时，选择一个天气事件，它将不会在本局游戏出现。
 ability: 每局游戏限一次，在夜晚时，选择一个天气事件，它将不会在本局游戏出现，即使你已死亡。[+应劫者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r596
+    officialId: weathercaster
+    sourceHash: b69fd7ef40259d76f19e44dca68b5b47f655f4f3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,20 @@ abilityData:
     - death
     - townsfolk
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

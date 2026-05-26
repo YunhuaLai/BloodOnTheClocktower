@@ -25,8 +25,21 @@ firstNightReminder: 唤醒熊孩子，让其选择一个镇民角色。如果该
 otherNightReminder: 移除上个夜晚放置的“捣蛋”提示标记。唤醒熊孩子，让其选择一个镇民角色。如果该角色在场，在对应角色标记旁放置“捣蛋”提示标记。
 ability: 每个夜晚，你要选择一个镇民角色：他的能力会产生错误信息，直到下个黄昏。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r595
+    officialId: brat
+    sourceHash: a794f206d336307359863e220d74f3bb333c9778
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,19 @@ abilityData:
     - information
     - townsfolk
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

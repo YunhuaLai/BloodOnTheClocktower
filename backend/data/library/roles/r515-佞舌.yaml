@@ -30,8 +30,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 每局游戏限一次，在夜晚时，恶魔可以选择一名玩家：他变成邪恶的佞舌。[无佞舌在场，+2外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r515
+    officialId: silver-tongue
+    sourceHash: 5ec0fe5a72b11dde4f86f6e3a6b0141178703f9b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -46,6 +59,27 @@ abilityData:
     - minion
     - demon
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 2
+            max: 2
+            source: '[无佞舌在场，+2外来者]'
+            note: 配置调整：外来者数量 +2。
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

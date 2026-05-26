@@ -24,8 +24,21 @@ firstNightReminder: 你的首个夜晚，选择三名其他玩家，你得知六
 otherNightReminder: 你得知哪些身份是正确的。
 ability: 你的首个夜晚，选择三名其他玩家，你得知六个身份，他们的身份就在其中。生长：你获得，你得知哪些身份是正确的。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r645
+    officialId: daisy
+    sourceHash: 099c3a696fa9b7fd17844e9dfb1b04384809a37e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,22 @@ abilityData:
     - first-night
     - townsfolk
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

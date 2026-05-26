@@ -27,7 +27,20 @@ remindersGlobal: []
 firstNightReminder: 唤醒召唤师，对他展示三个不在场的善良角色标记。
 otherNightReminder: 如果这是游戏中的第三个夜晚，唤醒召唤师，让他选择一名玩家和一个恶魔角色，那名玩家变成由他选择的邪恶恶魔。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r113
+    officialId: summoner
+    sourceHash: 0b6cc841cc39d9a569e608444b3bc6f8536fc12d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 首夜
     - 第三夜
@@ -40,6 +53,24 @@ abilityData:
     - minion
     - demon
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: special
+      event: null
+      frequency: once
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: special

@@ -26,8 +26,21 @@ firstNightReminder: 唤醒议，让他指向一名玩家。那名玩家转变为
 otherNightReminder: 唤醒议，让他指向一名玩家。那名玩家转变为邪恶的爪牙。当邪恶玩家数量比初始设置多一名时，此能力对善良玩家无效。随后，决定今晚谁会因为议能力死亡。
 ability: 每个夜晚，你要选择一名玩家，他会转变为邪恶的爪牙，当邪恶玩家数量比初始设置多一名时，此能力对善良玩家无效。每个夜晚*，可能会有一名玩家死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r339
+    officialId: council
+    sourceHash: b6476c87a67a0177f69b035da27460c0da3acd0f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -44,6 +57,23 @@ abilityData:
     - minion
     - demon
   abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_number
+        numberKind: death_count
+      - kind: protect_player
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

@@ -25,8 +25,21 @@ firstNightReminder: 唤醒调酒师，并向他展示一个能力在当晚正常
 otherNightReminder: 唤醒调酒师，并向他展示一个能力在当晚正常生效的角色标记。
 ability: 每个夜晚，你会得知一个在当晚能力正常生效的角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r497
+    officialId: gaimingzidejiubao
+    sourceHash: 55e18aa90dfb50da3237d6080418bb2bb67d8845
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,19 @@ abilityData:
     - information
     - townsfolk
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

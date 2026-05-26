@@ -25,7 +25,20 @@ remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果白天入殓师提名了恶魔且恶魔被处决，唤醒他，并对他展示“你是”提示标记和恶魔角色标记。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r112
+    officialId: embalmer
+    sourceHash: ee977fc411e1b7b00ff14a110d551f6c7d67ce94
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 提名
     - 处决
@@ -41,6 +54,27 @@ abilityData:
     - demon
     - traveler
   abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: day
+      event: on_execution
+      frequency: variable
+    actor:
+      drivenBy: mixed
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: demon_check
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
     pageType: event_triggered
     phaseTiming: day

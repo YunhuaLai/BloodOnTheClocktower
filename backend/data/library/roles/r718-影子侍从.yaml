@@ -25,8 +25,21 @@ firstNightReminder: 唤醒影子侍从，让他选择一名玩家，告知他获
 otherNightReminder: 如果影子侍从首夜选择的玩家死于处决，唤醒他并让他选择一名玩家。
 ability: 在你的首个夜晚，你要选择一名玩家，你获得他的能力且他中毒，如果他死于处决，当晚你要选择一名玩家，他中毒。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r718
+    officialId: ajsjyd
+    sourceHash: 99a6d2b978021f43af8fc668eb5ba39a52427063
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,23 @@ abilityData:
     - execution
     - minion
   abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

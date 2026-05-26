@@ -26,8 +26,21 @@ firstNightReminder: 唤醒变量，让他选择角色列表上的至多三个角
 otherNightReminder: 唤醒变量，让他选择一名玩家。
 ability: 首个夜晚，你要选择至多三个在其他夜行动的角色，你可以交换他们的行动顺位。每个夜晚*，你要选择一名玩家，他死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r721
+    officialId: hsdfjj
+    sourceHash: 747664dcde3169d224c1e1e3721c94d4311ab742
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,23 @@ abilityData:
     - death
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

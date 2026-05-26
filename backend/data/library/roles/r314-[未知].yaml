@@ -25,8 +25,21 @@ firstNightReminder: 决定[未知]的能力，并根据具体能力决定是否�
 otherNightReminder: 根据[未知]的具体能力决定是否需要唤醒[未知]、何时唤醒、唤醒后让他做出什么操作或得知什么信息。
 ability: 在你的首个夜晚，你会得知你是一个什么不在列表中的爪牙角色。[只能因怀疑论者而添加到游戏中]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r314
+    officialId: not-in-play
+    sourceHash: bb4442214d139af2cc3e2dab647fd4691a698c2d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -39,6 +52,19 @@ abilityData:
     - information
     - minion
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: minion
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

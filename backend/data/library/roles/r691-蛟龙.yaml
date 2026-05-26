@@ -32,8 +32,21 @@ firstNightReminder: ''
 otherNightReminder: 唤醒蛟龙，让他攻击一名玩家。如果与他临近的存活镇民当天死于处决
 ability: 每个夜晚*，你要选择一名玩家：他死亡。如果与你临近的存活镇民当天被处决，当晚你行动两次。[-1外来者]
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r691
+    officialId: jiaolong
+    sourceHash: 250dcb2010d1e83480fc09ff5843edea6274541e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -50,6 +63,28 @@ abilityData:
     - outsider
     - demon
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

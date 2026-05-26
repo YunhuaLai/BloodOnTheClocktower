@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 如果今天白天有玩家死于处决，唤醒史官，告知其在场存活镇民数量。
 ability: 每个夜晚*，如果今天白天有玩家死于处决，你会得知存活镇民的数量。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r230
+    officialId: shiguanuwhaouhsoifhais
+    sourceHash: a1e03fd0900c4cfb452eb5fe9c1b1a2d02f493d3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -40,6 +53,19 @@ abilityData:
     - alive
     - townsfolk
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star

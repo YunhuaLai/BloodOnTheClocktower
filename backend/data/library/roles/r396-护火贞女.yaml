@@ -25,8 +25,21 @@ firstNightReminder: 展示1个善良角色标记和1个邪恶角色标记：其�
 otherNightReminder: 如果带有"已得知"标记的玩家今天死亡，移除标记。展示1个善良角色标记和1个邪恶角色标记：其中一个在场。放置"已得知"在那个在场角色标记旁。
 ability: 在你的首个夜晚，你会得知一个善良角色和一个邪恶角色，其中一个角色在场。当在场角色的玩家死亡时，你在当晚得知一个善良角色和一个邪恶角色，其中一个角色在场。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r396
+    officialId: vestal-flamekeeper
+    sourceHash: b776f466f6907185bd9b66aabac0d4a637da550a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -42,6 +55,20 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night

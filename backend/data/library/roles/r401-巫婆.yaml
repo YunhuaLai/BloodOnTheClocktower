@@ -27,8 +27,21 @@ firstNightReminder: 巫婆使用能力
 otherNightReminder: 巫婆使用能力
 ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家并向他提出一项请求：如果请求没有被满足，你们可能会在白天死亡并转变为邪恶。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r401
+    officialId: crone
+    sourceHash: 9074d91dfc144165ca9ba11ee8b0340abc203486
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -43,6 +56,21 @@ abilityData:
     - evil
     - minion
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

@@ -27,8 +27,21 @@ otherNightReminder: 每个夜晚*，私信说书人并猜测当晚的死亡。
 ability: >-
   每个夜晚*，私信说书人并猜测当晚的死亡。如果你猜对了，白天你可以私信说书人选择一种效果：1.下个夜晚，所有善良玩家解除并免受醉酒和中毒的效果并且获得的信息必定正确。2.下个夜晚，你不会受到邪恶阵营技能效果的影响。生长：你获得，整局游戏限一次，无视条件选择一次效果。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r656
+    officialId: clover
+    sourceHash: b8274ad3cff3f4d2d348e930965f2161dc98f67a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -47,6 +60,24 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: protect_player
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

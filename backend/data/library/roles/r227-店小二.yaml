@@ -26,8 +26,21 @@ firstNightReminder: 唤醒店小二，对他指向两名善良玩家。
 otherNightReminder: ''
 ability: 在你的首个夜晚，你会得知两名善良玩家。他们之中会有一人醉酒，即使你已死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r227
+    officialId: tavern-boy
+    sourceHash: d26b92e0710bebae1e6c127640d22a59ef099568
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -42,6 +55,20 @@ abilityData:
     - good
     - townsfolk
   abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

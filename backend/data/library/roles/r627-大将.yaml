@@ -27,8 +27,21 @@ firstNightReminder: ''
 otherNightReminder: 除首夜外的每个夜晚，唤醒大将，让大将指向两名玩家。让大将重新入睡。在这两名玩家旁放置“猜拳”标记。然后对所有玩家宣布需要猜拳的两名玩家。所有玩家睁眼观看这两名玩家的猜拳结果。
 ability: 每个夜晚*，你要秘密选择两名玩家（所有玩家都会得知你选择了谁）：他们猜拳，只有获胜的玩家存活。每有一名在猜拳中落败的玩家，邪恶的获胜条件便+1存活玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r627
+    officialId: dajiangdajiang
+    sourceHash: d29971e815990dda104f17306d88944c8a15a252
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -40,6 +53,20 @@ abilityData:
     - evil
     - demon
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

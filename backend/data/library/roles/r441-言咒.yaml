@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 过于沉默或强制他人沉默的玩家可能会发生不好的事情。游戏开始时，一名善良玩家会获得能力：首个夜晚，你得知一段短语。每局游戏限一次，一名存活爪牙可以公开猜测你是言咒。如果猜测正确或你在某个白天没有公开说过该短语，你的阵营落败，即使你已死亡。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r441
+    officialId: spoken-curse
+    sourceHash: 5cf269e2b462c8f7c2bab0140c7a15f5271756e9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -43,6 +56,19 @@ abilityData:
     - minion
     - fabled
   abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

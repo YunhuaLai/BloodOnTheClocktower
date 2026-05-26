@@ -24,8 +24,21 @@ firstNightReminder: 唤醒队长，让他选择除自己以外的三名存活玩
 otherNightReminder: 唤醒队长，让他选择除自己以外的三名存活玩家。用手势比划数字来告知她这些玩家当晚进行选择的总次数。
 ability: 每个夜晚，你要选择三名除你以外的存活玩家，你会得知他们当晚进行选择的总次数。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r703
+    officialId: rsiywmx
+    sourceHash: f8da2652c8bd845c1f42355288a20ec99a74e9ea
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -38,6 +51,20 @@ abilityData:
     - alive
     - townsfolk
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

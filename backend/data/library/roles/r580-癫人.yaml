@@ -25,8 +25,21 @@ firstNightReminder: 唤醒癫人，让其选择至多三名玩家。然后唤醒
 otherNightReminder: 唤醒癫人，让其选择至多三名玩家。然后唤醒对应玩家。
 ability: 每个夜晚，你要选择至多三名玩家：他们以为自己受到疯狂能力的影响，但实际上没有。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r580
+    officialId: klaun
+    sourceHash: bd5cc84569b25615e94313313d56fcc6c15f09fa
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -39,6 +52,20 @@ abilityData:
     - minion
     - madness
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 3
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

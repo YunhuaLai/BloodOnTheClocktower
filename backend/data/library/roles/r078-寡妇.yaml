@@ -26,7 +26,20 @@ remindersGlobal:
 firstNightReminder: 给寡妇展示魔典，她想看多久就看多久。等她看完后，让她指向一个玩家。那个玩家中毒。唤醒一名善良玩家，告诉他场上有寡妇。
 otherNightReminder: ''
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r078
+    officialId: widow
+    sourceHash: fd68d663118b4dd97b7b6b6d2ea1b4141c7ac388
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 首夜
     - 魔典
@@ -39,6 +52,24 @@ abilityData:
     - minion
     - grimoire
   abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: mixed
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_player
+        count: 1
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: first_night

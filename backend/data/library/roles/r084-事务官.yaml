@@ -25,7 +25,20 @@ remindersGlobal: []
 firstNightReminder: 唤醒事务官，对他指向一名善良玩家。
 otherNightReminder: ''
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r084
+    officialId: steward
+    sourceHash: 5bab543cd115804abc48a3ac11e8266e112e94d0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 首夜
     - 信息型
@@ -37,6 +50,19 @@ abilityData:
     - good
     - townsfolk
   abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 1
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

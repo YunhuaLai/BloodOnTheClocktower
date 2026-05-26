@@ -29,8 +29,21 @@ firstNightReminder: ''
 otherNightReminder: 如果目标死亡，唤醒石像鬼以告知他转为邪恶阵营。
 ability: 你以为你是一个在场的镇民角色，但其实你不是。如果该镇民死亡，你在当晚转变为对立阵营。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r763
+    officialId: sxg
+    sourceHash: 36fd04b5afcf2d4ef89d9c5503a910c2e70329ce
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -42,6 +55,18 @@ abilityData:
     - townsfolk
     - outsider
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

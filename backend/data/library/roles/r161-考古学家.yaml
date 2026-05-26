@@ -25,7 +25,20 @@ firstNightReminder: ''
 otherNightReminder: ''
 ability: 在房间里找到说书人留下的线索，即可获得奖励。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r161
+    officialId: archaeologist
+    sourceHash: 4d415601bd18339773c7c77f6fb654e99240a39a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 白天
     - 事件触发
@@ -35,6 +48,19 @@ abilityData:
     - townsfolk
     - storyteller
   abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: day
+      event: null
+      frequency: repeatable
+    actor:
+      drivenBy: mixed
+    operations:
+      - kind: event_trigger
+        eventTiming: null
   abilityMeta:
     pageType: event_triggered
     phaseTiming: day

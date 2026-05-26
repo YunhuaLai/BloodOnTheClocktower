@@ -25,8 +25,21 @@ otherNightReminder: ''
 ability: >-
   每天每人限一张，红方买卡打五折：①妙手空空：8c/偷窃一名玩家全部金币和金苹果，或拾取全部无主苹果。②自我诊断：4c/你得知自己是否中毒/醉酒。③荆棘护体：6c/反弹当晚卡牌效果。④起死回生：6c/如果今晚你死亡，你复活。⑤英雄归来：10c/选择一名死亡玩家复活。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r407
+    officialId: ability-shop
+    sourceHash: d8777a2d0ffdc2b08043910a26f6002840bd60d5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -37,6 +50,27 @@ abilityData:
     - death
     - fabled
   abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: null

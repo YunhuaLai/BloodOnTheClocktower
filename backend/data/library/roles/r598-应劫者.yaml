@@ -25,8 +25,21 @@ firstNightReminder: ''
 otherNightReminder: 如果你死亡，恶魔改为选择2个天气事件，这两个天气事件必定生效。
 ability: 如果你死亡，恶魔改为选择2个天气事件，这两个天气事件必定生效。。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r598
+    officialId: doombound
+    sourceHash: 56006f15363dbefb6fae9a5906cf81a3b0bbe17d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,18 @@ abilityData:
     - outsider
     - demon
   abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

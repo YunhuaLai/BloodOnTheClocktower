@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: 每个夜晚*，你要选择一名玩家：你得知其假面角色。如果其恰好在当晚死亡，额外得知其基本角色。
 ability: 每个夜晚*，你要选择一名玩家：你得知其假面角色。如果其恰好在当晚死亡，额外得知其基本角色。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r296
+    officialId: dance-partner
+    sourceHash: c23a09e1580a120c2da623fa1b0750739c1dee71
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -36,6 +49,25 @@ abilityData:
     - death
     - jinx
   abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

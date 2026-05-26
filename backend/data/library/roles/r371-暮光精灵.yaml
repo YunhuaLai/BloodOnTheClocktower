@@ -24,8 +24,21 @@ firstNightReminder: 在你的首个夜晚，你会得知最多的相邻镇民数
 otherNightReminder: ''
 ability: 在你的首个夜晚，你会得知最多的相邻镇民数量。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r371
+    officialId: twilight-elf
+    sourceHash: a33b4d16340f638a45b85cd564a3379f121830c5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -37,6 +50,19 @@ abilityData:
     - information
     - townsfolk
   abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night

@@ -24,8 +24,21 @@ firstNightReminder: '1'
 otherNightReminder: '1'
 ability: 在你的首个夜晚，你要选择一个邪恶角色写入图鉴。 每个夜晚*，你要选择任意名玩家：如果他们中没有图鉴上的角色，你要选择新的邪恶角色写入图鉴。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r531
+    officialId: monster-expert
+    sourceHash: 918b8484206af00c4938d6a39729747c07f2af40
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
@@ -38,6 +51,22 @@ abilityData:
     - evil
     - townsfolk
   abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

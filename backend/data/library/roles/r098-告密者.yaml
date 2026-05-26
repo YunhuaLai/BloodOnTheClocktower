@@ -24,7 +24,20 @@ remindersGlobal: []
 firstNightReminder: '如果告密者在场，对爪牙展示三个不在场的善良角色标记。 '
 otherNightReminder: ''
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
+  sourceAbility:
+    source: role-file
+    roleId: r098
+    officialId: snitch
+    sourceHash: 5041ddf86c05bd73ffe5663d5db2c172daab0ec4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   tags:
     - 开局
     - 外来者
@@ -36,6 +49,18 @@ abilityData:
     - outsider
     - minion
   abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup

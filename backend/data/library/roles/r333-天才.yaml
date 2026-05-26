@@ -26,8 +26,21 @@ firstNightReminder: 天才可以选择一个角色。如果选择的角色不在
 otherNightReminder: 天才可以选择一个角色。如果选择的角色不在场，将天才的角色标题替换成对应角色，并标记“是天才”，否则标记该角色对应的玩家醉酒。从现在开始，你需要额外在天才获得能力的那种角色行动时唤醒天才。
 ability: 每个夜晚，你可以选择一个善良角色：你获得他的能力，直到你下次选择。你每隔一晚醉酒一天。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r333
+    officialId: genius
+    sourceHash: 6526bf4057e228c63eb0769668c2fdc9651c4288
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -41,6 +54,21 @@ abilityData:
     - good
     - townsfolk
   abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

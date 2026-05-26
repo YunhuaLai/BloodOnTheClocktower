@@ -24,8 +24,21 @@ firstNightReminder: ''
 otherNightReminder: 每个夜晚*，选择一名其他玩家，你得知当晚你和该玩家被多少人选择过。生长：你获得，你得知谁选择了该玩家。
 ability: 每个夜晚*，选择一名其他玩家，你得知当晚你和该玩家被多少人选择过。生长：你获得，你得知谁选择了该玩家。
 abilityData:
-  schemaVersion: 1
+  schemaVersion: 2
   generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r650
+    officialId: water-lily
+    sourceHash: 3adf5d76c19ae6cda6d0920e8f671f648ad27f13
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
   needsReview: false
   reviewReason: ''
   tags:
@@ -35,6 +48,22 @@ abilityData:
     - night
     - townsfolk
   abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.7
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star
