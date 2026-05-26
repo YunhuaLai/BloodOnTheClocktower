@@ -37,16 +37,13 @@ npm start
 
 ## 维护脚本
 
-如果你想重新规范 `library` 中的文件名，可以运行：
+常用数据维护入口都在 `package.json` 的 `scripts` 中，脚本说明见 `scripts/README.md`。
 
 ```bash
-npm run rebuild:library
+npm run check
+npm run official:import -- "C:\path\官方剧本文件夹"
+npm run official:export -- s001 ".\dist\暗流涌动.json"
 ```
-
-这个脚本会按 `id-中文名.yaml` 规则重写：
-
-- `backend/data/library/scripts/*.yaml`
-- `backend/data/library/roles/*.yaml`
 
 ## API
 

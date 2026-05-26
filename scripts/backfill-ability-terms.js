@@ -2,12 +2,12 @@ const {
   applyAbilityTermMetadata,
   getUnmatchedKeywordTokens,
   readTermsConfig,
-} = require("./ability-term-utils");
+} = require("./lib/ability-term-metadata");
 const {
   ROLES_DIR,
   readYamlCollection,
   writeYamlFile,
-} = require("./library-files");
+} = require("./lib/library-io");
 
 function stable(value) {
   return JSON.stringify(value);

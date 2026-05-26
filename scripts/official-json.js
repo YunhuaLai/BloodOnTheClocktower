@@ -1,8 +1,8 @@
 const fs = require("node:fs");
 const crypto = require("node:crypto");
 const path = require("node:path");
-const { applyAbilityTermMetadata } = require("./ability-term-utils");
-const { inferDeductionData } = require("./deduction-profile-utils");
+const { applyAbilityTermMetadata } = require("./lib/ability-term-metadata");
+const { inferDeductionData } = require("./lib/deduction-profile-inference");
 const {
   ROLES_DIR,
   SCRIPTS_DIR,
@@ -10,7 +10,7 @@ const {
   readYamlFile,
   relativeToRoot,
   writeYamlFile,
-} = require("./library-files");
+} = require("./lib/library-io");
 
 const TEAM_TO_TYPE = {
   townsfolk: "townsfolk",
@@ -531,10 +531,6 @@ function makeRoleAbilityData(roleData, officialRole) {
   }
 
   return applyAbilityTermMetadata(abilityData, { ...roleData, ability });
-}
-
-function stable(value) {
-  return JSON.stringify(value);
 }
 
 function stripEmbeddedAbilityFields(abilityData) {
@@ -1146,12 +1142,4 @@ module.exports = {
   importOfficialJsonPath,
   exportOfficialJson,
   inferSetupMeta,
-  inferIdentityOverlay,
-  inferConfigurationAdjustments,
-  inferUsagePattern,
-  inferPhaseTiming,
-  makeSourceAbilityData,
-  makeRoleAbilityData,
-  makeExistingRoleAbilityData,
-  makeAbilitySemantics,
 };

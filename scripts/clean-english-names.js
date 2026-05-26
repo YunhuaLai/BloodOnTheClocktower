@@ -2,7 +2,7 @@ const {
   ROLES_DIR,
   readYamlCollection,
   writeYamlFile,
-} = require("./library-files");
+} = require("./lib/library-io");
 
 const BAD_ENGLISH_PATTERNS = [
   /^[0-9a-f]{8}-[0-9a-f-]{20,}[a-z0-9]*$/i,

@@ -1,4 +1,4 @@
-const { TERMS_FILE, readYamlFile } = require("./library-files");
+const { TERMS_FILE, readYamlFile } = require("./library-io");
 
 const WEAK_TEXT_TERM_IDS = new Set(["ability"]);
 const IGNORED_UNMATCHED_KEYWORDS = new Set(["a"]);
@@ -241,9 +241,5 @@ function getUnmatchedKeywordTokens(roleData = {}, abilityData = {}, termsConfig 
 module.exports = {
   applyAbilityTermMetadata,
   getUnmatchedKeywordTokens,
-  inferAbilityPattern,
-  inferTermIds,
-  normalizeTermsConfig,
-  orderRoleAbilityFields,
   readTermsConfig,
 };

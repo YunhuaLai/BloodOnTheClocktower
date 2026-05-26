@@ -4,7 +4,7 @@ const {
   readYamlCollection,
   relativeToRoot,
   writeYamlFile,
-} = require("./library-files");
+} = require("./lib/library-io");
 
 function readRoleEntries() {
   return readYamlCollection(ROLES_DIR).map(({ filePath, data }) => ({ filePath, data }));

@@ -542,7 +542,5 @@ function inferDeductionData(abilityData, roleData = {}) {
 }
 
 module.exports = {
-  explicitSupportedProfiles,
-  explicitWorldEffects,
   inferDeductionData,
 };

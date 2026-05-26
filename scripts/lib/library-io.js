@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const yaml = require("js-yaml");
 
-const ROOT_DIR = path.resolve(__dirname, "..");
+const ROOT_DIR = path.resolve(__dirname, "..", "..");
 const LIBRARY_DIR = path.join(ROOT_DIR, "backend", "data", "library");
 const SCRIPTS_DIR = path.join(LIBRARY_DIR, "scripts");
 const ROLES_DIR = path.join(LIBRARY_DIR, "roles");

@@ -6,7 +6,7 @@ const {
   readYamlFile,
   relativeToRoot,
   writeYamlFile,
-} = require("./library-files");
+} = require("./lib/library-io");
 
 function roleNumber(roleId) {
   const match = String(roleId || "").match(/^r(\d+)$/);

@@ -1,9 +1,9 @@
-const { inferDeductionData } = require("./deduction-profile-utils");
+const { inferDeductionData } = require("./lib/deduction-profile-inference");
 const {
   ROLES_DIR,
   readYamlCollection,
   writeYamlFile,
-} = require("./library-files");
+} = require("./lib/library-io");
 
 function stable(value) {
   return JSON.stringify(value);

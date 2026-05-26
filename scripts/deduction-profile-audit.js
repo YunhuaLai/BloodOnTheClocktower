@@ -1,8 +1,8 @@
-const { inferDeductionData } = require("./deduction-profile-utils");
+const { inferDeductionData } = require("./lib/deduction-profile-inference");
 const {
   ROLES_DIR,
   readYamlCollection,
-} = require("./library-files");
+} = require("./lib/library-io");
 
 function classify(roleAbility, roleById) {
   return (
