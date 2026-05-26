@@ -23,13 +23,39 @@ export function getStandardSetup(playerCount) {
   return setups[playerCount] || setups[10];
 }
 
+export function isTravellerPlayer(player) {
+  return Boolean(player?.isTraveller || player?.seatType === "traveller");
+}
+
+export function getResidentPlayers(game) {
+  return (game?.players || []).filter((player) => !isTravellerPlayer(player));
+}
+
+export function getTravellerPlayers(game) {
+  return (game?.players || []).filter(isTravellerPlayer);
+}
+
+export function getTotalPlayerCount(game) {
+  return (game?.players || []).length || Number(game?.playerCount) || 0;
+}
+
+export function getMaxSeatNumber(game) {
+  const maxSeat = (game?.players || []).reduce(
+    (max, player) => Math.max(max, Number(player.seat) || 0),
+    0,
+  );
+  return Math.max(Number(game?.playerCount) || 0, maxSeat, getTotalPlayerCount(game));
+}
+
 export function getAliveCount(game) {
   return game.players.filter((player) => player.status === "alive").length;
 }
 
 export function getPlayerLabel(player, game) {
   const name = String(player.name || "").trim();
-  const seatLabel = `${player.seat}号位`;
+  const seatLabel = isTravellerPlayer(player)
+    ? `${player.seat}号旅行者`
+    : `${player.seat}号位`;
   if (name) {
     return `${seatLabel} ${name}`;
   }

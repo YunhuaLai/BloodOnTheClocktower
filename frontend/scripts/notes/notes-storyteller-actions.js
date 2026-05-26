@@ -1,8 +1,8 @@
-import { getClaimRoleOptions, getGameScript, isCustomRoleGame } from "../notes-claims.js";
+import { getClaimRoleOptions, getGameScript, isCustomRoleGame, isFabledRole, isTravellerRole } from "../notes-claims.js";
 import { clearPlayerDraft, createDefaultStorytellerState, createEmptyRoleInfo, getActiveGame, saveNotesState } from "../notes-state.js";
 import { roleTypeOrder, state, typeLabels } from "../state.js";
 import { createId } from "../utils.js";
-import { formatPhaseLabel, getStandardSetup } from "./notes-core.js";
+import { formatPhaseLabel, getResidentPlayers, getStandardSetup, isTravellerPlayer } from "./notes-core.js";
 import { normalizeRoleName } from "./notes-role-info.js";
 import { renderNotesPage } from "./notes-shell.js";
 
@@ -32,7 +32,11 @@ export function getRoleByLooseName(value, game = getActiveGame()) {
 
   return (
     roleOptions.find(matchesRole) ||
-    (game && isCustomRoleGame(game) ? null : state.roles.find(matchesRole)) ||
+    (game && isCustomRoleGame(game)
+      ? null
+      : state.roles.find(
+          (role) => !isFabledRole(role) && !isTravellerRole(role) && matchesRole(role),
+        )) ||
     null
   );
 }
@@ -98,6 +102,7 @@ export function getScriptIdentityOverlayRoles(game) {
 
 export function getAssignedSetupAlertRoles(game) {
   return game.players
+    .filter((player) => !isTravellerPlayer(player))
     .map((player) => getRoleByLooseName(player.trueRole, game))
     .filter(
       (role, index, roles) =>
@@ -175,7 +180,7 @@ export function assignRandomStorytellerRoles() {
   ];
   const shuffledRoles = shuffleItems(selectedRoles);
 
-  game.players.forEach((player, index) => {
+  getResidentPlayers(game).forEach((player, index) => {
     const role = shuffledRoles[index];
     clearPlayerDraft(player.id);
     player.trueRole = role?.name || "";
@@ -231,7 +236,7 @@ export function clearStorytellerAssignments() {
     return;
   }
 
-  game.players.forEach((player) => {
+  getResidentPlayers(game).forEach((player) => {
     clearPlayerDraft(player.id);
     player.trueRole = "";
     player.trueAlignment = "unknown";

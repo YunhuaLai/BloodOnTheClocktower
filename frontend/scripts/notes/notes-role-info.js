@@ -1,4 +1,4 @@
-import { getClaimRoleOptions, isCustomRoleGame } from "../notes-claims.js";
+import { getClaimRoleOptions, isCustomRoleGame, isFabledRole, isTravellerRole } from "../notes-claims.js";
 import { clampNumber, cloneRoleInfo, cloneRoleInfoEntries, createEmptyRoleInfo, getActiveGame } from "../notes-state.js";
 import { state, typeLabels } from "../state.js";
 import { getClaimAbbreviation } from "./notes-core.js";
@@ -86,7 +86,11 @@ export function getClaimedRole(playerOrClaim, game = getActiveGame()) {
 
   return (
     roleOptions.find(matchRole) ||
-    (game && isCustomRoleGame(game) ? null : state.roles.find(matchRole)) ||
+    (game && isCustomRoleGame(game)
+      ? null
+      : state.roles.find(
+          (role) => !isFabledRole(role) && !isTravellerRole(role) && matchRole(role),
+        )) ||
     null
   );
 }

@@ -11,7 +11,11 @@ const yesValues = new Set(["yes", "true", "1", "是", "有", "命中"]);
 const noValues = new Set(["no", "false", "0", "否", "无", "没有", "未命中"]);
 
 function getAnalysisPlayers(game) {
-  return Array.isArray(game?.players) ? game.players : [];
+  return Array.isArray(game?.players)
+    ? game.players.filter(
+        (player) => !(player?.isTraveller || player?.seatType === "traveller"),
+      )
+    : [];
 }
 
 function getRoleByName(name, catalog) {

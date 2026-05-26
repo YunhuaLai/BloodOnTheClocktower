@@ -1,4 +1,5 @@
 import { createId } from "../utils.js";
+import { getMaxSeatNumber } from "./notes-core.js";
 
 function clampNumber(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -148,10 +149,11 @@ export function ensureDayRecords(game) {
     return [];
   }
 
-  game.dayRecords = normalizeDayRecords(game.dayRecords, game.playerCount);
+  const seatCount = getMaxSeatNumber(game) || game.playerCount;
+  game.dayRecords = normalizeDayRecords(game.dayRecords, seatCount);
   game.autoExecutionApplied = normalizeAutoExecutionApplied(
     game.autoExecutionApplied,
-    game.playerCount,
+    seatCount,
   );
   return game.dayRecords;
 }
@@ -172,7 +174,7 @@ export function getDayRecord(game, dayNumber, createIfMissing = false) {
 
 function getSameDayAutoExecutionSeats(game, dayNumber) {
   return new Set(
-    normalizeAutoExecutionApplied(game?.autoExecutionApplied, game?.playerCount || 15)
+    normalizeAutoExecutionApplied(game?.autoExecutionApplied, getMaxSeatNumber(game) || game?.playerCount || 15)
       .filter((entry) => Number(entry.dayNumber) === Number(dayNumber))
       .map((entry) => Number(entry.seat)),
   );
@@ -205,8 +207,9 @@ export function resolveAutomaticDayExecution(game, record) {
   const threshold = getDayExecutionThreshold(game, record.dayNumber);
   return (record.nominations || []).reduce(
     (current, nomination) => {
-      const nomineeSeat = normalizeSeatValue(nomination.nomineeSeat, game.playerCount);
-      const votes = normalizeVoteSeats(nomination.voterSeats, game.playerCount).length;
+      const seatCount = getMaxSeatNumber(game) || game.playerCount;
+      const nomineeSeat = normalizeSeatValue(nomination.nomineeSeat, seatCount);
+      const votes = normalizeVoteSeats(nomination.voterSeats, seatCount).length;
       if (!nomineeSeat || votes < threshold || votes <= current.votes) {
         return current;
       }
@@ -246,7 +249,7 @@ export function resolveDayExecution(game, record) {
     };
   }
 
-  const overrideSeat = normalizeSeatValue(record.executionOverride, game.playerCount);
+  const overrideSeat = normalizeSeatValue(record.executionOverride, getMaxSeatNumber(game) || game.playerCount);
   if (overrideSeat) {
     return {
       mode: "manual-seat",
@@ -277,7 +280,7 @@ export function syncAutoExecutionStatuses(game) {
 
   const previous = normalizeAutoExecutionApplied(
     game.autoExecutionApplied,
-    game.playerCount,
+    getMaxSeatNumber(game) || game.playerCount,
   );
 
   previous.forEach((entry) => {
@@ -319,7 +322,7 @@ export function getDayVotingSeats(game, dayNumber) {
 
   return normalizeVoteSeats(
     record.nominations.flatMap((nomination) => nomination.voterSeats || []),
-    game.playerCount,
+    getMaxSeatNumber(game) || game.playerCount,
   ).map(Number);
 }
 
@@ -332,7 +335,7 @@ export function getDayNominatorSeats(game, dayNumber) {
   return [
     ...new Set(
       record.nominations
-        .map((nomination) => normalizeSeatValue(nomination.nominatorSeat, game.playerCount))
+        .map((nomination) => normalizeSeatValue(nomination.nominatorSeat, getMaxSeatNumber(game) || game.playerCount))
         .filter(Boolean)
         .map(Number),
     ),

@@ -60,6 +60,11 @@
   background: rgba(35, 104, 162, 0.06);
 }
 
+.notes-overview-row.is-traveller {
+  border-color: var(--teal);
+  background: rgba(33, 115, 102, 0.07);
+}
+
 .notes-overview-cell {
   min-width: 0;
   overflow: hidden;

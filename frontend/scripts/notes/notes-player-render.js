@@ -2,7 +2,7 @@ import { getClaimPickerHint, getGameScript, isCustomRoleGame } from "../notes-cl
 import { getDraftOrPlayer, getPlayerDraft } from "../notes-state.js";
 import { noteAlignmentOptions, noteTagOptions, state } from "../state.js";
 import { escapeHtml, renderSelectOptions } from "../utils.js";
-import { getSeatLabel } from "./notes-core.js";
+import { getSeatLabel, isTravellerPlayer } from "./notes-core.js";
 import { renderRoleInfoInputs } from "./notes-role-info-panel.js";
 
 function renderNoteTagButtons(player) {
@@ -201,16 +201,18 @@ function renderSeatTabs(game, selectedPlayer) {
         .map((player) => {
           const active = player.id === selectedPlayer?.id;
           const isSelf = player.seat === game.selfSeat;
+          const isTraveller = isTravellerPlayer(player);
           return `
             <button
               type="button"
-              class="notes-seat-tab${active ? " active" : ""}${isSelf ? " is-self" : ""}"
+              class="notes-seat-tab${active ? " active" : ""}${isSelf ? " is-self" : ""}${isTraveller ? " is-traveller" : ""}"
               data-notes-action="select-player"
               data-player-id="${escapeHtml(player.id)}"
               aria-pressed="${active ? "true" : "false"}"
               aria-label="${escapeHtml(`${player.seat}号位${isSelf ? "（自己）" : ""}`)}"
             >
               <span>${player.seat}</span>
+              ${isTraveller ? `<small>旅行者</small>` : ""}
             </button>
           `;
         })
@@ -262,6 +264,7 @@ function renderPlayerDetail(player, game) {
           ${renderSeatNameEditor(draft)}
         </div>
         ${player.seat === game.selfSeat ? `<span class="notes-self-badge">自己</span>` : ""}
+        ${isTravellerPlayer(player) ? `<span class="notes-self-badge notes-traveller-badge">旅行者</span>` : ""}
       </header>
 
       <div class="notes-form-grid">

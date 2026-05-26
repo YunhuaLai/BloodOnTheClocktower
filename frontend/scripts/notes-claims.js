@@ -2,6 +2,9 @@ import { sortCatalogRoles, sortScriptRoles } from "./catalog-helpers.js";
 import { state, typeLabels } from "./state.js";
 import { escapeHtml } from "./utils.js";
 
+const baseRoleTypes = new Set(["townsfolk", "outsider", "minion", "demon"]);
+const travellerRoleTypes = new Set(["traveller", "traveler"]);
+
 export function normalizeMatchText(value) {
   return String(value || "").trim().toLowerCase();
 }
@@ -20,6 +23,53 @@ function includesRoleValue(role, query) {
   );
 }
 
+export function isBaseRole(role) {
+  return baseRoleTypes.has(role?.type);
+}
+
+export function isFabledRole(role) {
+  return role?.type === "fabled";
+}
+
+export function isTravellerRole(role) {
+  return travellerRoleTypes.has(role?.type);
+}
+
+function uniqueRoles(roles) {
+  const seen = new Set();
+  return roles.filter((role) => {
+    if (!role?.id || seen.has(role.id)) {
+      return false;
+    }
+
+    seen.add(role.id);
+    return true;
+  });
+}
+
+function roleIdsFromValues(values) {
+  return [
+    ...new Set(
+      (Array.isArray(values) ? values : [])
+        .map((roleId) => String(roleId || "").trim())
+        .filter(Boolean),
+    ),
+  ];
+}
+
+function getRolesFromIds(roleIds, predicate = () => true) {
+  const idSet = new Set(roleIdsFromValues(roleIds));
+  if (!idSet.size) {
+    return [];
+  }
+
+  return state.roles.filter((role) => idSet.has(role.id) && predicate(role));
+}
+
+function isTravellerPlayer(player) {
+  return Boolean(player?.isTraveller || player?.seatType === "traveller");
+}
+
 export function isCustomRoleGame(game) {
   return game?.scriptMode === "custom";
 }
@@ -28,29 +78,32 @@ export function getAllRoleOptions() {
   return sortCatalogRoles(state.roles);
 }
 
-export function getCustomRoleOptionsFromIds(roleIds) {
-  const idSet = new Set(
-    (Array.isArray(roleIds) ? roleIds : [])
-      .map((roleId) => String(roleId || "").trim())
-      .filter(Boolean),
-  );
-
-  if (!idSet.size) {
-    return [];
-  }
-
-  return sortCatalogRoles(state.roles.filter((role) => idSet.has(role.id)));
+export function getBaseRoleOptions() {
+  return sortCatalogRoles(state.roles.filter(isBaseRole));
 }
 
-export function findCatalogRole(value) {
+export function getFabledRoleOptions() {
+  return sortCatalogRoles(state.roles.filter(isFabledRole));
+}
+
+export function getTravellerRoleOptions() {
+  return sortCatalogRoles(state.roles.filter(isTravellerRole));
+}
+
+export function getCustomRoleOptionsFromIds(roleIds, predicate = () => true) {
+  return sortCatalogRoles(getRolesFromIds(roleIds, predicate));
+}
+
+export function findCatalogRole(value, candidates = state.roles) {
   const query = normalizeMatchText(value);
   if (!query) {
     return null;
   }
 
+  const roles = Array.isArray(candidates) && candidates.length ? candidates : state.roles;
   return (
-    state.roles.find((role) => matchesRoleValue(role, query)) ||
-    state.roles.find((role) => includesRoleValue(role, query)) ||
+    roles.find((role) => matchesRoleValue(role, query)) ||
+    roles.find((role) => includesRoleValue(role, query)) ||
     null
   );
 }
@@ -96,19 +149,88 @@ function roleBelongsToScript(role, scriptId) {
   return (role.scriptIds || [role.scriptId]).filter(Boolean).includes(scriptId);
 }
 
-export function getClaimRoleOptions(game) {
-  if (isCustomRoleGame(game)) {
-    return getCustomRoleOptionsFromIds(game.customRoleIds);
-  }
+function getScriptRolesFromField(script, field, predicate = () => true) {
+  const roleIds = roleIdsFromValues(script?.[field]);
+  return state.roles.filter((role) => roleIds.includes(role.id) && predicate(role));
+}
 
+function getScriptBaseRoles(game) {
   const script = getGameScript(game);
   if (!script) {
-    return getAllRoleOptions();
+    return getAllRoleOptions().filter((role) => !isFabledRole(role) && !isTravellerRole(role));
+  }
+
+  const explicitRoles = getScriptRolesFromField(
+    script,
+    "roleIds",
+    (role) => !isFabledRole(role) && !isTravellerRole(role),
+  );
+  if (explicitRoles.length) {
+    return sortScriptRoles(script, explicitRoles);
   }
 
   return sortScriptRoles(
     script,
-    state.roles.filter((role) => roleBelongsToScript(role, script.id)),
+    state.roles.filter(
+      (role) =>
+        roleBelongsToScript(role, script.id) &&
+        !isFabledRole(role) &&
+        !isTravellerRole(role),
+    ),
+  );
+}
+
+export function getRoomFabledRoleOptions(game) {
+  return getCustomRoleOptionsFromIds(game?.fabledRoleIds, isFabledRole);
+}
+
+export function getActiveTravellerRoleOptions(game) {
+  const configuredRoles = getCustomRoleOptionsFromIds(game?.travellerRoleIds, isTravellerRole);
+  const claimedTravellerRoles = (game?.players || [])
+    .filter(isTravellerPlayer)
+    .map((player) => findCatalogRole(player.trueRole || player.claim))
+    .filter(isTravellerRole);
+
+  return sortCatalogRoles(uniqueRoles([...configuredRoles, ...claimedTravellerRoles]));
+}
+
+export function getAvailableTravellerOptions(game) {
+  const script = getGameScript(game);
+  if (script?.travellerIds?.length) {
+    return sortScriptRoles(
+      script,
+      getScriptRolesFromField(script, "travellerIds", isTravellerRole),
+    );
+  }
+
+  return getTravellerRoleOptions();
+}
+
+export function getClaimRoleOptions(game) {
+  if (isCustomRoleGame(game)) {
+    return sortCatalogRoles(
+      uniqueRoles([
+        ...getCustomRoleOptionsFromIds(
+          game.customRoleIds,
+          (role) => !isFabledRole(role) && !isTravellerRole(role),
+        ),
+        ...getActiveTravellerRoleOptions(game),
+      ]),
+    );
+  }
+
+  const script = getGameScript(game);
+  const roles = uniqueRoles([
+    ...getScriptBaseRoles(game),
+    ...getActiveTravellerRoleOptions(game),
+  ]);
+
+  return script ? sortScriptRoles(script, roles) : sortCatalogRoles(roles);
+}
+
+export function getRoomRoleOptions(game) {
+  return sortCatalogRoles(
+    uniqueRoles([...getClaimRoleOptions(game), ...getRoomFabledRoleOptions(game)]),
   );
 }
 
@@ -146,7 +268,33 @@ export function renderRoleNameDatalist(game) {
 export function renderAllRoleNameDatalist() {
   return `
     <datalist id="allRoleNameList">
-      ${getAllRoleOptions()
+      ${getBaseRoleOptions()
+        .map(
+          (role) =>
+            `<option value="${escapeHtml(role.name)}" label="${escapeHtml(typeLabels[role.type] || role.type)}"></option>`,
+        )
+        .join("")}
+    </datalist>
+  `;
+}
+
+export function renderFabledRoleNameDatalist() {
+  return `
+    <datalist id="fabledRoleNameList">
+      ${getFabledRoleOptions()
+        .map(
+          (role) =>
+            `<option value="${escapeHtml(role.name)}" label="${escapeHtml(typeLabels[role.type] || role.type)}"></option>`,
+        )
+        .join("")}
+    </datalist>
+  `;
+}
+
+export function renderTravellerRoleNameDatalist(game) {
+  return `
+    <datalist id="travellerRoleNameList">
+      ${getAvailableTravellerOptions(game)
         .map(
           (role) =>
             `<option value="${escapeHtml(role.name)}" label="${escapeHtml(typeLabels[role.type] || role.type)}"></option>`,

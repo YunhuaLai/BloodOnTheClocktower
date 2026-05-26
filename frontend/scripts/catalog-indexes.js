@@ -143,6 +143,7 @@ export function renderRoleIndex() {
         <button class="filter" data-filter="outsider">外来者</button>
         <button class="filter" data-filter="minion">爪牙</button>
         <button class="filter" data-filter="demon">恶魔</button>
+        <button class="filter" data-filter="traveller">旅行者</button>
         <button class="filter" data-filter="fabled">传奇</button>
       </div>
 

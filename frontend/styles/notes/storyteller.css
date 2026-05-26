@@ -172,6 +172,11 @@
   border-left-color: var(--gold);
 }
 
+.story-grimoire-seat--traveller,
+.story-grimoire-seat--traveler {
+  border-left-color: var(--teal);
+}
+
 .story-grimoire-seat--unknown {
   border-left-color: var(--outsider);
 }
@@ -371,6 +376,11 @@
 .story-role-badge--demon {
   color: var(--ink);
   background: var(--gold);
+}
+
+.story-role-badge--traveller,
+.story-role-badge--traveler {
+  background: var(--teal);
 }
 
 .story-night-item {

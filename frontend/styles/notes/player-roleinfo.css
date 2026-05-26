@@ -12,6 +12,10 @@
   font-weight: 800;
 }
 
+.notes-traveller-badge {
+  background: var(--teal);
+}
+
 .notes-script-sheet-button {
   justify-self: end;
 }
@@ -231,6 +235,10 @@
 .notes-seat-tab.active,
 .notes-seat-tab.is-self {
   border-color: var(--blue);
+}
+
+.notes-seat-tab.is-traveller {
+  border-color: var(--teal);
 }
 
 .notes-seat-tab.active {

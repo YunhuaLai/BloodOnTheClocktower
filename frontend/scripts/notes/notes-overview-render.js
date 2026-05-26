@@ -2,7 +2,7 @@ import { getGameScript, isCustomRoleGame } from "../notes-claims.js";
 import { cloneSuspectedRoles, getDraftOrPlayer } from "../notes-state.js";
 import { state } from "../state.js";
 import { escapeHtml } from "../utils.js";
-import { getOverviewSecondaryText } from "./notes-core.js";
+import { getOverviewSecondaryText, isTravellerPlayer } from "./notes-core.js";
 import { renderPlayerCycleField } from "./notes-player-render.js";
 import { renderOverviewRoleInfoInputs } from "./notes-role-info-overview.js";
 import { getRoleInfoSummary } from "./notes-role-info.js";
@@ -142,6 +142,7 @@ function renderOverviewRows(game) {
     .map((player) => {
       const draft = getDraftOrPlayer(player);
       const isSelf = player.seat === game.selfSeat;
+      const isTraveller = isTravellerPlayer(player);
       const summaryText = getRoleInfoSummary(draft, game);
       const supplementText = getOverviewSecondaryText(draft);
       const isExpanded = expandedPlayerId === player.id;
@@ -149,7 +150,7 @@ function renderOverviewRows(game) {
       return `
         <article class="notes-overview-item${isExpanded ? " is-expanded" : ""}">
           <div
-            class="notes-overview-row${isSelf ? " is-self" : ""}${isExpanded ? " is-expanded" : ""}"
+            class="notes-overview-row${isSelf ? " is-self" : ""}${isTraveller ? " is-traveller" : ""}${isExpanded ? " is-expanded" : ""}"
             aria-expanded="${isExpanded ? "true" : "false"}"
           >
             <button
@@ -159,7 +160,7 @@ function renderOverviewRows(game) {
               data-player-id="${escapeHtml(player.id)}"
               aria-label="${escapeHtml(`${player.seat}号位${isExpanded ? "，收起" : "，展开"}`)}"
             >
-              ${player.seat}${isSelf ? "*" : ""}
+              ${player.seat}${isSelf ? "*" : ""}${isTraveller ? "旅" : ""}
             </button>
             <div class="notes-overview-cell notes-overview-cell--status">
               ${renderPlayerCycleField(draft, "status", "状态")}

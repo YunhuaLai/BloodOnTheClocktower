@@ -1,5 +1,5 @@
 import { clearPlayerDraft, createDefaultSetupDraft, ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
-import { addNominationRecord, addSetupCustomRole, addTimelineEntry, adjustSuspectedRoles, clearSavedGameSelection, deleteNominationRecord, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, removeSetupCustomRole, saveDayPublicRecord, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateDayExecutionOverride, updateGameField, updateInferenceField, updateNominationRecordField, updateNominationVoter, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField, updateSuspectedRole } from "./notes/notes-game-actions.js";
+import { addNominationRecord, addSetupCustomRole, addSetupFabledRole, addTimelineEntry, addTravellerToGame, adjustSuspectedRoles, clearSavedGameSelection, deleteNominationRecord, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, removeSetupCustomRole, removeSetupFabledRole, removeTravellerFromGame, saveDayPublicRecord, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateDayExecutionOverride, updateGameField, updateInferenceField, updateNominationRecordField, updateNominationVoter, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField, updateSuspectedRole } from "./notes/notes-game-actions.js";
 import { adjustPlayerDraftRoleInfoRows, autoFillStorytellerRoleInfoResult, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, togglePlayerStoryMarker, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
 import { assignRandomStorytellerRoles, clearStorytellerAssignments } from "./notes/notes-storyteller-actions.js";
@@ -178,6 +178,20 @@ export function handleNotesAction(button) {
     return;
   }
 
+  if (action === "add-fabled-role") {
+    if (addSetupFabledRole(document.querySelector("#fabledRoleInput")?.value || "")) {
+      renderNotesPage();
+    }
+    return;
+  }
+
+  if (action === "remove-fabled-role") {
+    if (removeSetupFabledRole(button.dataset.roleId || "")) {
+      renderNotesPage();
+    }
+    return;
+  }
+
   if (action === "new-game") {
     notes.ui.creatingGame = true;
     notes.ui.screen = "setup";
@@ -261,6 +275,20 @@ export function handleNotesAction(button) {
 
   if (action === "clear-assignments") {
     clearStorytellerAssignments();
+    return;
+  }
+
+  if (action === "add-traveller") {
+    if (addTravellerToGame(document.querySelector("#travellerRoleInput")?.value || "")) {
+      renderNotesPage();
+    }
+    return;
+  }
+
+  if (action === "remove-traveller") {
+    if (removeTravellerFromGame(button.dataset.playerId || "")) {
+      renderNotesPage();
+    }
     return;
   }
 

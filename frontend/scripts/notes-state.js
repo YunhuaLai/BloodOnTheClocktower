@@ -1,5 +1,6 @@
-import { normalizeMatchText } from "./notes-claims.js";
+import { isBaseRole, isFabledRole, isTravellerRole, normalizeMatchText } from "./notes-claims.js";
 import { normalizeAutoExecutionApplied, normalizeDayRecords, syncAutoExecutionStatuses } from "./notes/notes-day-records.js";
+import { isTravellerPlayer } from "./notes/notes-core.js";
 import { noteAlignmentOptions, noteConditionOptions, noteModeOptions, noteStatusOptions, noteTagOptions, notesStorageKey, phaseTypeOptions, scriptModeOptions, state, timelineTypeOptions } from "./state.js";
 import { createId, escapeHtml, getOptionLabel } from "./utils.js";
 
@@ -15,6 +16,8 @@ export function createDefaultSetupDraft() {
     scriptName: "",
     customRoleIds: [],
     customRoleQuery: "",
+    fabledRoleIds: [],
+    fabledRoleQuery: "",
     playerCount: 10,
     selfSeat: 1,
     mode: "player",
@@ -53,12 +56,15 @@ export function createDefaultStorytellerState() {
   };
 }
 
-function createDefaultPlayer(seat) {
+export function createDefaultPlayer(seat, options = {}) {
+  const isTraveller = Boolean(options.isTraveller || options.seatType === "traveller");
   return {
     id: createId("player"),
     seat,
+    isTraveller,
+    seatType: isTraveller ? "traveller" : "player",
     name: "",
-    claim: "",
+    claim: options.claim || "",
     alignment: "unknown",
     status: "alive",
     condition: "unknown",
@@ -66,10 +72,10 @@ function createDefaultPlayer(seat) {
     extraInfo: "",
     notes: "",
     roleInfo: createEmptyRoleInfo(),
-    trueRole: "",
-    trueAlignment: "unknown",
+    trueRole: options.trueRole || "",
+    trueAlignment: options.trueAlignment || "unknown",
     storytellerNotes: "",
-    newRoleFirstNight: false,
+    newRoleFirstNight: Boolean(options.newRoleFirstNight),
   };
 }
 
@@ -153,21 +159,38 @@ function getValidScriptMode(value) {
     : "script";
 }
 
-function normalizeCustomRoleIds(roleIds) {
-  const validRoleIds = new Set(state.roles.map((role) => role.id));
+function normalizeRoleIds(roleIds, predicate = () => true) {
+  const rolesById = new Map(state.roles.map((role) => [role.id, role]));
   return [
     ...new Set(
       (Array.isArray(roleIds) ? roleIds : [])
         .map((roleId) => String(roleId || "").trim())
         .filter(Boolean),
     ),
-  ].filter((roleId) => !validRoleIds.size || validRoleIds.has(roleId));
+  ].filter((roleId) => {
+    const role = rolesById.get(roleId);
+    return !rolesById.size || (role && predicate(role));
+  });
+}
+
+function normalizeCustomRoleIds(roleIds) {
+  return normalizeRoleIds(roleIds, isBaseRole);
+}
+
+function normalizeFabledRoleIds(roleIds) {
+  return normalizeRoleIds(roleIds, isFabledRole);
+}
+
+function normalizeTravellerRoleIds(roleIds) {
+  return normalizeRoleIds(roleIds, isTravellerRole);
 }
 
 export function createGameFromSetup(setup, nextIndex = 1) {
   const scriptMode = getValidScriptMode(setup.scriptMode);
   const customRoleIds =
     scriptMode === "custom" ? normalizeCustomRoleIds(setup.customRoleIds) : [];
+  const fabledRoleIds = normalizeFabledRoleIds(setup.fabledRoleIds);
+  const travellerRoleIds = normalizeTravellerRoleIds(setup.travellerRoleIds);
   const script = scriptMode === "script" ? findScriptFromSetup(setup) : null;
   const playerCount = clampNumber(Number(setup.playerCount) || 10, 5, 15);
   const mode = noteModeOptions.some((option) => option.value === setup.mode)
@@ -188,6 +211,8 @@ export function createGameFromSetup(setup, nextIndex = 1) {
     scriptId: scriptMode === "script" ? script?.id || "" : "",
     scriptName: scriptMode === "custom" ? customScriptName : script?.name || scriptName,
     customRoleIds,
+    fabledRoleIds,
+    travellerRoleIds,
     playerCount,
     selfSeat,
     mode,
@@ -239,7 +264,7 @@ function parseLegacyPhase(game) {
   return { phaseType: "day", phaseNumber: 1 };
 }
 
-function normalizePlayer(player, index) {
+function normalizePlayer(player, index, options = {}) {
   const validTags = new Set(noteTagOptions.map((tag) => tag.value));
   const tags = Array.isArray(player?.tags)
     ? player.tags.filter((tag) => validTags.has(tag))
@@ -265,7 +290,12 @@ function normalizePlayer(player, index) {
   )
     ? player.trueAlignment
     : "unknown";
-  const seat = clampNumber(Number(player?.seat) || index + 1, 1, 15);
+  const isTraveller = Boolean(
+    options.isTraveller ||
+      player?.isTraveller ||
+      player?.seatType === "traveller",
+  );
+  const seat = clampNumber(Number(player?.seat) || index + 1, 1, 25);
   const notesParts = [String(player?.notes || "").trim()];
 
   if (player?.votes) {
@@ -275,6 +305,8 @@ function normalizePlayer(player, index) {
   return {
     id: player?.id || createId("player"),
     seat,
+    isTraveller,
+    seatType: isTraveller ? "traveller" : "player",
     name: player?.name || "",
     claim: player?.claim || "",
     alignment,
@@ -336,27 +368,63 @@ function normalizeGame(game, index) {
   );
   const customRoleIds =
     scriptMode === "custom" ? normalizeCustomRoleIds(game?.customRoleIds) : [];
+  const fabledRoleIds = normalizeFabledRoleIds([
+    ...(Array.isArray(game?.fabledRoleIds) ? game.fabledRoleIds : []),
+    ...(Array.isArray(game?.customRoleIds) ? game.customRoleIds : []),
+  ]);
+  const storedTravellerRoleIds = normalizeTravellerRoleIds(game?.travellerRoleIds);
   const rawPlayerCount =
     Number(game?.playerCount) ||
     (Array.isArray(game?.players) ? game.players.length : 0) ||
     fallbackSetup.playerCount;
   const playerCount = clampNumber(rawPlayerCount, 5, 15);
   const players = Array.isArray(game?.players)
-    ? game.players.map(normalizePlayer)
+    ? game.players.map((player, playerIndex) =>
+        normalizePlayer(player, playerIndex, {
+          isTraveller: isTravellerPlayer(player) || playerIndex >= playerCount,
+        }),
+      )
     : createPlayersForCount(playerCount);
 
-  while (players.length < playerCount) {
-    players.push(createDefaultPlayer(players.length + 1));
+  const residentPlayers = players.filter((player) => !isTravellerPlayer(player));
+  const travellerPlayers = players.filter(isTravellerPlayer);
+
+  while (residentPlayers.length < playerCount) {
+    residentPlayers.push(createDefaultPlayer(residentPlayers.length + 1));
   }
 
-  const normalizedPlayers = players
+  const normalizedResidents = residentPlayers
     .slice(0, playerCount)
     .map((player, playerIndex) => ({
       ...player,
       seat: playerIndex + 1,
+      isTraveller: false,
+      seatType: "player",
     }));
+  const normalizedTravellers = travellerPlayers.map((player, travellerIndex) => ({
+    ...player,
+    seat: playerCount + travellerIndex + 1,
+    isTraveller: true,
+    seatType: "traveller",
+  }));
+  const normalizedPlayers = [...normalizedResidents, ...normalizedTravellers];
+  const travellerRoleIds = [
+    ...new Set([
+      ...storedTravellerRoleIds,
+      ...normalizedTravellers
+        .map((player) => {
+          const role = state.roles.find((item) =>
+            [item.name, item.en, item.id, item.englishName].some(
+              (value) => normalizeMatchText(value) === normalizeMatchText(player.trueRole || player.claim),
+            ),
+          );
+          return isTravellerRole(role) ? role.id : "";
+        })
+        .filter(Boolean),
+    ]),
+  ];
 
-  const selfSeat = clampNumber(Number(game?.selfSeat) || 1, 1, playerCount);
+  const selfSeat = clampNumber(Number(game?.selfSeat) || 1, 1, normalizedPlayers.length || playerCount);
   const mode = noteModeOptions.some((option) => option.value === game?.mode)
     ? game.mode
     : "player";
@@ -371,6 +439,8 @@ function normalizeGame(game, index) {
         ? game?.scriptName || "自定义角色池"
         : game?.scriptName || "",
     customRoleIds,
+    fabledRoleIds,
+    travellerRoleIds,
     playerCount,
     selfSeat,
     mode,
@@ -469,6 +539,9 @@ export function ensureNotesState() {
       customRoleIds: Array.isArray(state.notes.ui.setupDraft.customRoleIds)
         ? state.notes.ui.setupDraft.customRoleIds
         : [],
+      fabledRoleIds: Array.isArray(state.notes.ui.setupDraft.fabledRoleIds)
+        ? state.notes.ui.setupDraft.fabledRoleIds
+        : [],
     };
   }
 
@@ -504,7 +577,11 @@ export function ensureNotesState() {
 
   if (!state.notes.ui.selectedPlayerId) {
     const game = state.notes.games.find((item) => item.id === state.notes.activeGameId);
-    const selectedSeat = clampNumber(Number(game?.selfSeat) || 1, 1, game?.playerCount || 1);
+    const selectedSeat = clampNumber(
+      Number(game?.selfSeat) || 1,
+      1,
+      game?.players?.length || game?.playerCount || 1,
+    );
     state.notes.ui.selectedPlayerId =
       game?.players.find((player) => player.seat === selectedSeat)?.id ||
       game?.players[0]?.id ||

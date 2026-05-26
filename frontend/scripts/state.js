@@ -5,6 +5,8 @@ export const typeLabels = {
   outsider: "外来者",
   minion: "爪牙",
   demon: "恶魔",
+  traveller: "旅行者",
+  traveler: "旅行者",
   fabled: "传奇角色",
 };
 
@@ -13,6 +15,8 @@ export const typeDescriptions = {
   outsider: "善良阵营，但能力常带来负担或干扰",
   minion: "邪恶阵营，负责保护恶魔并制造混乱",
   demon: "邪恶阵营核心，通常决定夜晚死亡",
+  traveller: "游戏开始后可加入的特殊玩家角色，由玩家控制",
+  traveler: "游戏开始后可加入的特殊玩家角色，由玩家控制",
   fabled: "由说书人使用的特殊规则或配置工具",
 };
 
@@ -109,7 +113,7 @@ export const oneInOneOutRoleOrder = [
   "spirit-of-ivory",
 ];
 
-export const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "fabled"];
+export const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "traveller", "fabled"];
 
 export const state = {
   activeFilter: "all",

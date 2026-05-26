@@ -42,25 +42,69 @@ function roleBelongsToScript(role, scriptId) {
   return (role?.scriptIds || [role?.scriptId]).filter(Boolean).includes(scriptId);
 }
 
+function isFabledRole(role) {
+  return role?.type === "fabled";
+}
+
+function isTravellerRole(role) {
+  return role?.type === "traveller" || role?.type === "traveler";
+}
+
+function uniqueRoles(roles) {
+  const seen = new Set();
+  return roles.filter((role) => {
+    if (!role?.id || seen.has(role.id)) {
+      return false;
+    }
+
+    seen.add(role.id);
+    return true;
+  });
+}
+
+function getRolesFromIds(roles, roleIds, predicate = () => true) {
+  const idSet = new Set(
+    (Array.isArray(roleIds) ? roleIds : [])
+      .map((roleId) => String(roleId || "").trim())
+      .filter(Boolean),
+  );
+  return idSet.size ? roles.filter((role) => idSet.has(role.id) && predicate(role)) : [];
+}
+
 function getClaimRoleOptions(game, catalog) {
   const roles = catalog?.roles || [];
   if (game?.scriptMode === "custom") {
-    const customRoleIds = new Set(
-      (Array.isArray(game?.customRoleIds) ? game.customRoleIds : [])
-        .map((roleId) => String(roleId || "").trim())
-        .filter(Boolean),
-    );
-    return customRoleIds.size
-      ? roles.filter((role) => customRoleIds.has(role.id))
-      : [];
+    return uniqueRoles([
+      ...getRolesFromIds(
+        roles,
+        game?.customRoleIds,
+        (role) => !isFabledRole(role) && !isTravellerRole(role),
+      ),
+      ...getRolesFromIds(roles, game?.travellerRoleIds, isTravellerRole),
+    ]);
   }
 
   const script = getGameScript(game, catalog);
   if (!script) {
-    return roles;
+    return roles.filter((role) => !isFabledRole(role) && !isTravellerRole(role));
   }
 
-  return roles.filter((role) => roleBelongsToScript(role, script.id));
+  const scriptRoles = getRolesFromIds(
+    script?.roleIds?.length ? roles : [],
+    script?.roleIds,
+    (role) => !isFabledRole(role) && !isTravellerRole(role),
+  );
+  return uniqueRoles([
+    ...(scriptRoles.length
+      ? scriptRoles
+      : roles.filter(
+          (role) =>
+            roleBelongsToScript(role, script.id) &&
+            !isFabledRole(role) &&
+            !isTravellerRole(role),
+        )),
+    ...getRolesFromIds(roles, game?.travellerRoleIds, isTravellerRole),
+  ]);
 }
 
 function getClaimedRole(playerOrClaim, game, catalog) {
@@ -77,7 +121,10 @@ function getClaimedRole(playerOrClaim, game, catalog) {
 
     if (game?.scriptMode !== "custom") {
       const fallbackById = (catalog?.roles || []).find(
-        (role) => role.id === explicitRoleId || role.englishName === explicitRoleId,
+        (role) =>
+          !isFabledRole(role) &&
+          !isTravellerRole(role) &&
+          (role.id === explicitRoleId || role.englishName === explicitRoleId),
       );
       if (fallbackById) {
         return fallbackById;
@@ -96,7 +143,11 @@ function getClaimedRole(playerOrClaim, game, catalog) {
     matchesExact(role, normalizedClaim, ["name", "en", "id", "englishName"]);
   return (
     roleOptions.find(matchRole) ||
-    (game?.scriptMode === "custom" ? null : (catalog?.roles || []).find(matchRole)) ||
+    (game?.scriptMode === "custom"
+      ? null
+      : (catalog?.roles || []).find(
+          (role) => !isFabledRole(role) && !isTravellerRole(role) && matchRole(role),
+        )) ||
     null
   );
 }

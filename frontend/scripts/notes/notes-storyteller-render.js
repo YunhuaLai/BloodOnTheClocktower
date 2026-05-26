@@ -3,7 +3,7 @@ import { getClaimRoleOptions, getGameScript } from "../notes-claims.js";
 import { clampNumber, createDefaultStorytellerState, getDraftOrPlayer } from "../notes-state.js";
 import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state, typeLabels } from "../state.js";
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
-import { formatPhaseLabel, getAliveCount, getPlayerLabel, getStandardSetup } from "./notes-core.js";
+import { formatPhaseLabel, getAliveCount, getMaxSeatNumber, getPlayerLabel, getStandardSetup, getTotalPlayerCount, getTravellerPlayers, isTravellerPlayer } from "./notes-core.js";
 import { renderPlayerCycleField } from "./notes-player-render.js";
 import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
 import { ensureRoleInfoMatchesClaim, formatRoleInfoEntrySummary, getRoleInfoEntries, getRoleInfoNode, getRoleInfoSectionLabel, isRoleInfoEntryFilled } from "./notes-role-info.js";
@@ -46,7 +46,7 @@ function getRoleBadgeClass(role) {
 
 function getStorytellerSetupSummary(game) {
   const config = getStandardSetup(game.playerCount);
-  const counts = game.players.reduce(
+  const counts = game.players.filter((player) => !isTravellerPlayer(player)).reduce(
     (result, player) => {
       const role = getStorytellerRole(player, game);
       if (role?.type && result[role.type] !== undefined) {
@@ -57,12 +57,16 @@ function getStorytellerSetupSummary(game) {
     { townsfolk: 0, outsider: 0, minion: 0, demon: 0 },
   );
 
-  return ["townsfolk", "outsider", "minion", "demon"].map((type) => ({
+  const setupRows = ["townsfolk", "outsider", "minion", "demon"].map((type) => ({
     type,
     label: typeLabels[type],
     expected: config[type],
     actual: counts[type],
   }));
+  const travellerCount = getTravellerPlayers(game).length;
+  return travellerCount
+    ? [...setupRows, { type: "traveller", label: typeLabels.traveller, expected: travellerCount, actual: travellerCount }]
+    : setupRows;
 }
 
 function getStorytellerMarkerOptions(game) {
@@ -142,7 +146,7 @@ function renderStorytellerRoleInfoSection(sectionKey, node, roleInfo, abilityDat
     return "";
   }
 
-  const maxSeat = clampNumber(Number(game?.playerCount) || 15, 1, 15);
+  const maxSeat = clampNumber(getMaxSeatNumber(game) || 15, 1, 25);
   const entries = getRoleInfoEntries(roleInfo, sectionKey);
   const minimumRows =
     node.repeatMode === "once"
@@ -378,18 +382,19 @@ function renderGrimoireSeat(player, game, index, selectedPlayer) {
   const angle = (360 / Math.max(game.players.length, 1)) * index - 90;
   const isSelected = player.id === selectedPlayer?.id;
   const markerTokens = getStorytellerMarkerTokens(draft);
+  const isTraveller = isTravellerPlayer(player);
 
   return `
     <button
       type="button"
-      class="story-grimoire-seat story-grimoire-seat--${escapeHtml(role?.type || "unknown")}${draft.status === "alive" ? "" : " is-dead"}${isSelected ? " is-selected" : ""}"
+      class="story-grimoire-seat story-grimoire-seat--${escapeHtml(role?.type || (isTraveller ? "traveller" : "unknown"))}${draft.status === "alive" ? "" : " is-dead"}${isSelected ? " is-selected" : ""}${isTraveller ? " is-traveller" : ""}"
       style="--seat-angle: ${angle}deg;"
       data-notes-action="select-story-player"
       data-player-id="${escapeHtml(player.id)}"
       aria-pressed="${isSelected ? "true" : "false"}"
     >
       <span class="story-seat-number">${player.seat}</span>
-      <span class="story-seat-name">${escapeHtml(player.name || "未命名")}</span>
+      <span class="story-seat-name">${escapeHtml(player.name || (isTraveller ? "旅行者" : "未命名"))}</span>
       <strong>${escapeHtml(draft.trueRole || "未设置身份")}</strong>
       <span class="story-seat-alignment">${escapeHtml(getOptionLabel(noteAlignmentOptions, draft.trueAlignment))}</span>
       <span class="story-seat-markers">
@@ -535,7 +540,7 @@ function renderStorytellerGrimoire(game) {
         <div class="story-grimoire-board" aria-label="说书人魔典座位盘">
           <div class="story-grimoire-center">
             <span>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))}</span>
-            <strong>${getAliveCount(game)} / ${game.playerCount}</strong>
+            <strong>${getAliveCount(game)} / ${getTotalPlayerCount(game)}</strong>
             <small>${escapeHtml(game.scriptName || "未选剧本")}</small>
           </div>
           ${game.players

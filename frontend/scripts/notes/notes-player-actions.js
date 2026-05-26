@@ -380,6 +380,8 @@ function pickRoleByAlignment(game, alignment, excludedRoleId = "") {
   return getClaimRoleOptions(game).find(
     (role) =>
       role.type !== "fabled" &&
+      role.type !== "traveller" &&
+      role.type !== "traveler" &&
       role.id !== excludedRoleId &&
       getRoleAlignmentGroup(role) === alignment,
   );

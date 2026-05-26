@@ -199,6 +199,11 @@
   --role-color: var(--red);
 }
 
+.role-folder[data-type="traveller"],
+.role-folder[data-type="traveler"] {
+  --role-color: var(--teal);
+}
+
 .role-folder[data-type="fabled"] {
   --role-color: var(--gold);
 }
@@ -255,6 +260,11 @@
 
 .role-card[data-type="demon"] {
   --role-color: var(--red);
+}
+
+.role-card[data-type="traveller"],
+.role-card[data-type="traveler"] {
+  --role-color: var(--teal);
 }
 
 .role-card[data-type="fabled"] {
@@ -503,6 +513,11 @@
   --role-color: var(--red);
 }
 
+.compact-list a[data-type="traveller"],
+.compact-list a[data-type="traveler"] {
+  --role-color: var(--teal);
+}
+
 .compact-list a[data-type="fabled"] {
   --role-color: var(--gold);
 }
@@ -549,6 +564,11 @@
 
 .role-detail-hero[data-type="demon"] {
   --role-color: var(--red);
+}
+
+.role-detail-hero[data-type="traveller"],
+.role-detail-hero[data-type="traveler"] {
+  --role-color: var(--teal);
 }
 
 .role-detail-hero[data-type="fabled"] {

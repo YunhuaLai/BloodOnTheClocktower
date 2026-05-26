@@ -159,6 +159,11 @@
   --role-color: var(--red);
 }
 
+.notes-custom-role-chip--traveller,
+.notes-custom-role-chip--traveler {
+  --role-color: var(--teal);
+}
+
 .notes-custom-role-chip--fabled {
   --role-color: var(--gold);
 }
@@ -477,6 +482,104 @@
 .notes-game-meta-line {
   margin: 0;
   font-size: 13px;
+}
+
+.notes-room-role-tools {
+  display: grid;
+  gap: 10px;
+  margin-top: 8px;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+}
+
+.notes-room-role-section {
+  display: grid;
+  gap: 8px;
+}
+
+.notes-room-role-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.notes-room-role-header strong {
+  font-size: 13px;
+}
+
+.notes-room-role-header span,
+.notes-room-role-empty {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.notes-room-role-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.notes-room-role-chip {
+  display: inline-flex;
+  align-items: center;
+  max-width: 100%;
+  min-height: 30px;
+  gap: 6px;
+  padding: 4px 8px;
+  color: var(--ink);
+  background: #f7f8f4;
+  border: 1px solid var(--role-color, var(--line));
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.notes-room-role-chip--traveller,
+.notes-room-role-chip--traveler {
+  --role-color: var(--teal);
+}
+
+.notes-room-role-chip--fabled {
+  --role-color: var(--gold);
+}
+
+.notes-room-role-chip strong {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notes-room-role-chip small {
+  color: var(--muted);
+}
+
+.notes-room-role-chip button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  color: var(--red);
+  background: transparent;
+  border: 0;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.notes-room-role-control {
+  display: grid;
+  gap: 8px;
+}
+
+.notes-room-role-control .note-icon-button {
+  align-self: end;
+  min-height: 44px;
 }
 
 .notes-header {

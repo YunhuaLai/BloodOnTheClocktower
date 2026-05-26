@@ -58,6 +58,11 @@
     align-items: end;
   }
 
+  .notes-room-role-control {
+    grid-template-columns: minmax(0, 1fr) 104px;
+    align-items: end;
+  }
+
   .notes-stagebar {
     margin: 0 -24px;
     padding: 12px 24px;

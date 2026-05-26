@@ -1,8 +1,8 @@
-import { getAllRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getGameScript, isCustomRoleGame, renderAllRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist } from "../notes-claims.js";
+import { getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getGameScript, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
 import { createDefaultSetupDraft, ensureNotesState, getActiveGame, getDraftOrPlayer } from "../notes-state.js";
 import { app, noteModeOptions, noteTabOptions, roleTypeOrder, scriptModeOptions, state, typeLabels } from "../state.js";
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
-import { formatPhaseLabel, getAliveCount, getStandardSetup } from "./notes-core.js";
+import { formatPhaseLabel, getAliveCount, getStandardSetup, getTotalPlayerCount, getTravellerPlayers } from "./notes-core.js";
 import { renderOverviewTab } from "./notes-overview-render.js";
 import { renderPlayersTab } from "./notes-player-render.js";
 import { getClaimedRole } from "./notes-role-info.js";
@@ -36,7 +36,7 @@ function renderNotesStageBar(game) {
       </div>
       <div class="notes-stagebar-item">
         <span>存活</span>
-        <strong>${aliveCount} / ${game.playerCount}</strong>
+        <strong>${aliveCount} / ${getTotalPlayerCount(game)}</strong>
       </div>
     </header>
   `;
@@ -70,11 +70,9 @@ function renderScriptSheetOverlay(game) {
 
   const script = getGameScript(game);
   const isCustom = isCustomRoleGame(game);
-  const roles = getClaimRoleOptions(game).filter(
-    (role) => isCustom || role.type !== "fabled",
-  );
+  const roles = getRoomRoleOptions(game);
   const selectedRoleIds = getOverviewClaimedRoleIds(game);
-  const groupedRoles = (isCustom ? roleTypeOrder : ["townsfolk", "outsider", "minion", "demon"])
+  const groupedRoles = roleTypeOrder
     .map((type) => ({
       type,
       roles: roles.filter((role) => role.type === type),
@@ -127,11 +125,81 @@ function renderScriptSheetOverlay(game) {
   `;
 }
 
+function renderRoomRoleChip(role, extra = "") {
+  return `
+    <span class="notes-room-role-chip notes-room-role-chip--${escapeHtml(role.type || "unknown")}">
+      <strong>${escapeHtml(role.name)}</strong>
+      <small>${escapeHtml(typeLabels[role.type] || role.type || "角色")}</small>
+      ${extra}
+    </span>
+  `;
+}
+
+function renderRoomRoleTools(game) {
+  const fabledRoles = getRoomFabledRoleOptions(game);
+  const travellerPlayers = getTravellerPlayers(game);
+  const travellerOptions = getAvailableTravellerOptions(game);
+
+  return `
+    <section class="notes-room-role-tools">
+      <div class="notes-room-role-section">
+        <div class="notes-room-role-header">
+          <strong>传奇角色</strong>
+          <span>${fabledRoles.length ? `${fabledRoles.length} 个已启用` : "未启用"}</span>
+        </div>
+        ${
+          fabledRoles.length
+            ? `<div class="notes-room-role-list">${fabledRoles.map((role) => renderRoomRoleChip(role)).join("")}</div>`
+            : `<p class="notes-room-role-empty">创建房间时可添加；不会占用玩家席位。</p>`
+        }
+      </div>
+      <div class="notes-room-role-section">
+        <div class="notes-room-role-header">
+          <strong>旅行者</strong>
+          <span>${travellerPlayers.length ? `${travellerPlayers.length} 位在场` : "可在开局后加入"}</span>
+        </div>
+        ${
+          travellerPlayers.length
+            ? `
+              <div class="notes-room-role-list">
+                ${travellerPlayers
+                  .map((player) =>
+                    renderRoomRoleChip(
+                      { name: `${player.seat}号 ${player.claim || player.trueRole || "旅行者"}`, type: "traveller" },
+                      `<button type="button" data-notes-action="remove-traveller" data-player-id="${escapeHtml(player.id)}" aria-label="${escapeHtml(`移除${player.seat}号旅行者`)}">×</button>`,
+                    ),
+                  )
+                  .join("")}
+              </div>
+            `
+            : ""
+        }
+        <div class="notes-room-role-control">
+          <label class="note-field">
+            <span>添加旅行者</span>
+            <input
+              id="travellerRoleInput"
+              list="travellerRoleNameList"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              placeholder="${travellerOptions.length ? "输入旅行者角色" : "暂无旅行者角色"}"
+              ${travellerOptions.length ? "" : "disabled"}
+            />
+          </label>
+          <button type="button" class="note-icon-button" data-notes-action="add-traveller" ${travellerOptions.length ? "" : "disabled"}>添加</button>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
 function renderGameMeta(game) {
   const config = getStandardSetup(game.playerCount);
   const script = getGameScript(game);
   const isCustom = isCustomRoleGame(game);
-  const roleCount = getClaimRoleOptions(game).length;
+  const roleCount = getRoomRoleOptions(game).length;
+  const travellerCount = getTravellerPlayers(game).length;
   const showScriptButton = state.notes.ui.activeTab === "overview";
 
   return `
@@ -158,8 +226,9 @@ function renderGameMeta(game) {
         ${game.playerCount} 人 / 镇民 ${config.townsfolk} / 外来者 ${config.outsider} / 爪牙 ${config.minion} / 恶魔 ${config.demon}
       </p>
       <p class="notes-game-meta-line">
-        ${escapeHtml(game.scriptName || (isCustom ? "自定义角色池" : "未选剧本"))} / ${escapeHtml(getOptionLabel(noteModeOptions, game.mode))}${isCustom ? ` / ${roleCount} 个角色` : ""}
+        ${escapeHtml(game.scriptName || (isCustom ? "自定义角色池" : "未选剧本"))} / ${escapeHtml(getOptionLabel(noteModeOptions, game.mode))}${isCustom ? ` / ${roleCount} 个角色` : ""}${travellerCount ? ` / 旅行者 ${travellerCount}` : ""}
       </p>
+      ${renderRoomRoleTools(game)}
     </section>
     ${showScriptButton ? renderScriptSheetOverlay(game) : ""}
   `;
@@ -189,7 +258,7 @@ function renderCustomRoleChip(role) {
 }
 
 function renderCustomRoleGroups(draft) {
-  const selectedRoles = getCustomRoleOptionsFromIds(draft.customRoleIds);
+  const selectedRoles = getCustomRoleOptionsFromIds(draft.customRoleIds, isBaseRole);
   if (!selectedRoles.length) {
     return `<div class="notes-custom-role-empty">还没有添加角色。</div>`;
   }
@@ -218,14 +287,14 @@ function renderCustomRoleGroups(draft) {
 }
 
 function renderCustomRoleBuilder(draft) {
-  const selectedCount = getCustomRoleOptionsFromIds(draft.customRoleIds).length;
+  const selectedCount = getCustomRoleOptionsFromIds(draft.customRoleIds, isBaseRole).length;
 
   return `
     <section class="notes-custom-roles">
       <div class="notes-custom-role-header">
         <div>
           <strong>自定义角色池</strong>
-          <span>${selectedCount} / ${getAllRoleOptions().length}</span>
+          <span>${selectedCount} / ${getBaseRoleOptions().length}</span>
         </div>
       </div>
       <div class="notes-custom-role-control">
@@ -247,6 +316,74 @@ function renderCustomRoleBuilder(draft) {
       </div>
       ${renderAllRoleNameDatalist()}
       ${renderCustomRoleGroups(draft)}
+    </section>
+  `;
+}
+
+function renderFabledRoleGroups(draft) {
+  const selectedRoles = getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole);
+  if (!selectedRoles.length) {
+    return `<div class="notes-custom-role-empty">未启用传奇角色。</div>`;
+  }
+
+  return `
+    <div class="notes-custom-role-groups">
+      <section class="notes-custom-role-group notes-custom-role-group--fabled">
+        <h3>传奇角色 <span>${selectedRoles.length}</span></h3>
+        <div class="notes-custom-role-chips">
+          ${selectedRoles
+            .map(
+              (role) => `
+                <button
+                  type="button"
+                  class="notes-custom-role-chip notes-custom-role-chip--${escapeHtml(role.type || "unknown")}"
+                  data-notes-action="remove-fabled-role"
+                  data-role-id="${escapeHtml(role.id)}"
+                  aria-label="${escapeHtml(`移除${role.name}`)}"
+                >
+                  <span>${escapeHtml(role.name)}</span>
+                  <small>${escapeHtml(typeLabels[role.type] || role.type || "角色")}</small>
+                  <strong aria-hidden="true">×</strong>
+                </button>
+              `,
+            )
+            .join("")}
+        </div>
+      </section>
+    </div>
+  `;
+}
+
+function renderFabledRoleBuilder(draft) {
+  const selectedCount = getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole).length;
+
+  return `
+    <section class="notes-custom-roles notes-fabled-roles">
+      <div class="notes-custom-role-header">
+        <div>
+          <strong>传奇角色</strong>
+          <span>${selectedCount} / ${getFabledRoleOptions().length}</span>
+        </div>
+      </div>
+      <div class="notes-custom-role-control">
+        <label class="note-field">
+          <span>添加传奇角色</span>
+          <input
+            id="fabledRoleInput"
+            name="fabledRoleQuery"
+            data-setup-field="fabledRoleQuery"
+            value="${escapeHtml(draft.fabledRoleQuery || "")}"
+            list="fabledRoleNameList"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            placeholder="输入传奇角色名"
+          />
+        </label>
+        <button type="button" class="note-icon-button" data-notes-action="add-fabled-role">添加</button>
+      </div>
+      ${renderFabledRoleNameDatalist()}
+      ${renderFabledRoleGroups(draft)}
     </section>
   `;
 }
@@ -317,6 +454,8 @@ function renderSetupPage(notes) {
                 </label>
               `
           }
+
+          ${renderFabledRoleBuilder(draft)}
 
           <label class="note-field note-field--wide">
             <span>记录视角</span>
@@ -412,7 +551,7 @@ function renderSavedGameCard(game, selectedGameIds) {
         >
           <strong>${escapeHtml(game.title)}</strong>
           <span>${escapeHtml(game.scriptName || "未选剧本")}</span>
-          <small>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))} / 存活 ${aliveCount} / ${game.playerCount}</small>
+          <small>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))} / 存活 ${aliveCount} / ${getTotalPlayerCount(game)}</small>
         </button>
         <button
           type="button"
@@ -552,6 +691,7 @@ function renderGamePage(notes, game) {
       </main>
 
       ${renderRoleNameDatalist(game)}
+      ${renderTravellerRoleNameDatalist(game)}
       ${renderTabBar()}
     </section>
   `;

@@ -20,7 +20,7 @@ function getRoleInfoFieldOptions(field, game) {
 
   if (field.type === "character_type") {
     return roleTypeOrder
-      .filter((type) => type !== "fabled")
+      .filter((type) => type !== "fabled" && type !== "traveller" && type !== "traveler")
       .map((type) => ({
         value: type,
         label: typeLabels[type] || type,

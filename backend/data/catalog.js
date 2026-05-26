@@ -5,6 +5,8 @@ const ROLE_TYPES = {
   outsider: "外来者",
   minion: "爪牙",
   demon: "恶魔",
+  traveller: "旅行者",
+  traveler: "旅行者",
   fabled: "传奇角色",
 };
 
@@ -76,6 +78,16 @@ function makeDetail(roleData) {
       "主动设计一个能解释死亡、信息异常和投票行为的身份故事。",
       "残局前要确认哪些玩家会阻碍胜利路线，优先处理他们。",
     ],
+    traveller: [
+      "你是额外加入的玩家角色，先确认本局对旅行者提名、流放和投票的处理方式。",
+      "公开讨论自己的善恶倾向和能力使用时机，避免基础配置被误算。",
+      "中途加入后，尽快补齐前几天的公开信息和当前阵营判断。",
+    ],
+    traveler: [
+      "你是额外加入的玩家角色，先确认本局对旅行者提名、流放和投票的处理方式。",
+      "公开讨论自己的善恶倾向和能力使用时机，避免基础配置被误算。",
+      "中途加入后，尽快补齐前几天的公开信息和当前阵营判断。",
+    ],
     fabled: [
       "把它视为说书人工具或特殊规则提示，而不是普通玩家角色。",
       "开局前确认全桌理解它如何改变配置、流程或信息结构。",
@@ -103,6 +115,16 @@ function makeDetail(roleData) {
       "恶魔能力决定整局节奏，要保证死亡和信息污染路径自洽。",
       "给邪恶方足够伪装空间，也给善良方足够追查线索。",
       "复杂恶魔需要提前理清夜晚顺序和异常结算。",
+    ],
+    traveller: [
+      "旅行者不改变基础配置人数，加入时单独记录座位、身份和当前阵营。",
+      "如果旅行者能力需要夜晚处理，按其加入后的首个可用时机补进流程。",
+      "明确流放、投票和死亡状态，避免和普通玩家处决记录混淆。",
+    ],
+    traveler: [
+      "旅行者不改变基础配置人数，加入时单独记录座位、身份和当前阵营。",
+      "如果旅行者能力需要夜晚处理，按其加入后的首个可用时机补进流程。",
+      "明确流放、投票和死亡状态，避免和普通玩家处决记录混淆。",
     ],
     fabled: [
       "只在剧本结构确实需要时使用，避免让玩家觉得配置被任意操控。",
@@ -157,14 +179,24 @@ function normalizeRole(rawRole, context) {
   return normalized;
 }
 
-function normalizeScript(script, roleIds, termReplacements) {
+function normalizeScript(script, roleIds, termReplacements, roleIdByEnglishName = new Map()) {
   const corrected = replaceTerms(script, termReplacements);
+  const travellerIds = uniqueValues(corrected.travellerIds || corrected.travelerIds || [])
+    .map((roleReference) => mapRoleReference(roleReference, roleIdByEnglishName, roleIds))
+    .filter((roleId) => roleIds.has(roleId));
+  const fabledIds = uniqueValues(corrected.fabledIds || [])
+    .map((roleReference) => mapRoleReference(roleReference, roleIdByEnglishName, roleIds))
+    .filter((roleId) => roleIds.has(roleId));
 
   return withResolvedImage({
     ...corrected,
     status: corrected.status || "published",
     tags: Array.isArray(corrected.tags) ? corrected.tags : [],
-    roleIds: uniqueValues(script.roleIds || []).filter((roleId) => roleIds.has(roleId)),
+    roleIds: uniqueValues(corrected.roleIds || [])
+      .map((roleReference) => mapRoleReference(roleReference, roleIdByEnglishName, roleIds))
+      .filter((roleId) => roleIds.has(roleId)),
+    travellerIds,
+    fabledIds,
   }, "scripts");
 }
 
@@ -198,11 +230,13 @@ function augmentEncyclopedia(data) {
   const roleAbilityById = new Map(
     rawRoleAbilities.filter((ability) => ability.id).map((ability) => [ability.id, ability]),
   );
-  const scripts = rawScripts.map((script) => normalizeScript(script, roleIds, termReplacements));
+  const scripts = rawScripts.map((script) =>
+    normalizeScript(script, roleIds, termReplacements, roleIdByEnglishName),
+  );
   const roleScriptIdsById = new Map(rawRoles.map((role) => [role.id, []]));
 
   scripts.forEach((script) => {
-    script.roleIds.forEach((roleId) => {
+    [...(script.roleIds || []), ...(script.travellerIds || []), ...(script.fabledIds || [])].forEach((roleId) => {
       const scriptIds = roleScriptIdsById.get(roleId);
 
       if (scriptIds) {

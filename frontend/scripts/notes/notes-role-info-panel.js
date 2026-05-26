@@ -1,6 +1,7 @@
 import { clampNumber } from "../notes-state.js";
 import { escapeHtml } from "../utils.js";
 import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
+import { getMaxSeatNumber } from "./notes-core.js";
 import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityMetaSummary, getAbilityTimingText, getClaimedRole, getDisplayedRoleInfoEntries, getRoleInfoAvailability, getRoleInfoMinimumRows, getRoleInfoNode, getRoleInfoRowLimit, getRoleInfoSectionLabel } from "./notes-role-info.js";
 
 export function renderRoleInfoInputs(player, game) {
@@ -27,7 +28,7 @@ export function renderRoleInfoInputs(player, game) {
   const roleInfo = ensureRoleInfoMatchesClaim(player, game);
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
-  const maxSeat = clampNumber(Number(game?.playerCount) || 15, 1, 15);
+  const maxSeat = clampNumber(getMaxSeatNumber(game) || 15, 1, 25);
   const roleInfoContext = { abilityData, player, game };
   const availability = getRoleInfoAvailability(abilityData, player, game);
   const rowLimit = getRoleInfoRowLimit(abilityData, player, game);
