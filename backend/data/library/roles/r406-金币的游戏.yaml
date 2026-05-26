@@ -22,6 +22,33 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 玩家初始4金币，上限20。每个黎明存活玩家获得2金币（红方4金）。每名玩家白天可进行1次转增，存活玩家可用金币购买技能卡并于当晚使用（效果仍受毒/酒影响）。
-keywords: fabled
 ability: 玩家初始4金币，上限20。每个黎明存活玩家获得2金币（红方4金）。每名玩家白天可进行1次转增，存活玩家可用金币购买技能卡并于当晚使用（效果仍受毒/酒影响）。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - alive
+    - fabled
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

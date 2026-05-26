@@ -149,6 +149,7 @@ function normalizeRole(rawRole, context) {
     ),
   };
   normalized.abilityData =
+    corrected.abilityData ||
     context.roleAbilityById.get(corrected.id) ||
     context.roleAbilityByEnglishName.get(roleEnglishName) ||
     null;

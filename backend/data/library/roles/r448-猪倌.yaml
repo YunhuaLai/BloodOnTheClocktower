@@ -23,6 +23,34 @@ remindersGlobal:
   - 更换短语
 firstNightReminder: ''
 otherNightReminder: 如果猪倌死亡，当夜给牙噶巴卜一条新的短语寻问恶魔是否更换秘密短语。
-summary: 如果你死亡，恶魔选择并获得第二个恶魔能力。每个夜晚，他选择要作为哪个恶魔行动。
-keywords: outsider 死亡
 ability: 如果你死亡，恶魔选择并获得第二个恶魔能力。每个夜晚，他选择要作为哪个恶魔行动。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - night
+    - death
+    - outsider
+    - demon
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

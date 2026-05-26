@@ -24,6 +24,56 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒塞壬并让他选择一名玩家，为该玩家标记死亡，然后让塞壬选择是否失去下一条能力，如果他点头，为他放置“休止符”标记。
-summary: 每个夜晚*，你要选择一名玩家：他死亡，且你要选择是否永久失去你的下一条能力。镇民玩家的能力都会产生错误信息。
-keywords: demon 夜晚 死亡
 ability: 每个夜晚*，你要选择一名玩家：他死亡，且你要选择是否永久失去你的下一条能力。镇民玩家的能力都会产生错误信息。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - information
+    - death
+    - townsfolk
+    - demon
+  abilityPattern: target_demon_check
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null

@@ -1,8 +1,6 @@
 id: r092
 name: 食人魔
 type: outsider
-summary: 首夜绑定一名玩家并变成其阵营，为阵营数量和信任关系制造压力。
-keywords: 阵营转变 外来者 选择
 englishName: ogre
 ability: 在你的首个夜晚，你要选择除你以外的一名玩家：你转变为他的阵营，即使你已醉酒或中毒，但你不知道你转变后的阵营。
 edition: custom
@@ -26,3 +24,57 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒食人魔，让他选择一名玩家。如果他选择了邪恶玩家，将他的角色标记在魔典中倒置以表示他转变为邪恶阵营。
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 首夜
+    - 主动选玩家
+    - 阵营变化
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - drunk
+    - alignment
+    - outsider
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 结果阵营
+          required: false
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

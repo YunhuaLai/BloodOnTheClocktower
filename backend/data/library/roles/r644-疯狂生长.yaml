@@ -22,6 +22,37 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 游戏的第三个夜晚（首夜为0），存活的村民和邪恶阵营会疯狂生长，玩家的技能会发生改变。游戏的第四个夜晚，存活的外来者会疯狂生长，玩家的技能会发生改变。
-keywords: '111'
 ability: 游戏的第三个夜晚（首夜为0），存活的村民和邪恶阵营会疯狂生长，玩家的技能会发生改变。游戏的第四个夜晚，存活的外来者会疯狂生长，玩家的技能会发生改变。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - night
+    - first-night
+    - alive
+    - alignment
+    - evil
+    - outsider
+    - madness
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

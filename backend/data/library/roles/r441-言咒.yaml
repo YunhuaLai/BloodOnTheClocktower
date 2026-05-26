@@ -22,6 +22,55 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 过于沉默或强制他人沉默的玩家可能会发生不好的事情。游戏开始时，一名善良玩家会获得能力：首个夜晚，你得知一段短语。每局游戏限一次，一名存活爪牙可以公开猜测你是言咒。如果猜测正确或你在某个白天没有公开说过该短语，你的阵营落败，即使你已死亡。
-keywords: fabled 首夜 死亡
 ability: 过于沉默或强制他人沉默的玩家可能会发生不好的事情。游戏开始时，一名善良玩家会获得能力：首个夜晚，你得知一段短语。每局游戏限一次，一名存活爪牙可以公开猜测你是言咒。如果猜测正确或你在某个白天没有公开说过该短语，你的阵营落败，即使你已死亡。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - death
+    - alive
+    - alignment
+    - good
+    - minion
+    - fabled
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

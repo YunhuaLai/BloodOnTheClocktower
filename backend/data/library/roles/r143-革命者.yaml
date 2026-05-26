@@ -23,6 +23,37 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 公开声明一对邻座玩家本局游戏一直保持同一阵营。每局游戏限一次，他们中的一人可能被当作其他的角色/阵营。
-keywords: fabled
 ability: 公开声明一对邻座玩家本局游戏一直保持同一阵营。每局游戏限一次，他们中的一人可能被当作其他的角色/阵营。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - alignment
+    - fabled
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: natural_language
+    note: ''

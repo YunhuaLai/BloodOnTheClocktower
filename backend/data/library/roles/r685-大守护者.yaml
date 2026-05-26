@@ -24,6 +24,53 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒巡查，让他选择两个善良角色（镇民或外来者）（和上个夜晚不同），如果他们都在场并存活（华白注：应该是需要在场的），他们两个今晚不会死亡。
-summary: 每个夜晚*，你选择两名其他玩家，在当晚，当首次有被你选择的玩家死亡时，他免受本次死亡，然后你得知一条关于死亡能力来源的信息
-keywords: townsfolk 夜晚 死亡
 ability: 每个夜晚*，你选择两名其他玩家，在当晚，当首次有被你选择的玩家死亡时，他免受本次死亡，然后你得知一条关于死亡能力来源的信息
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - information
+    - death
+    - townsfolk
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

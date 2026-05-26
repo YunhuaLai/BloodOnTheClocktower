@@ -29,6 +29,54 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 如果一名初始邪恶玩家在你存活时因处决外的原因死亡，你和他交换角色。如果那名玩家是你，改为恶魔的自动获胜天数提前一天（所有玩家都会知道此事）。[+1外来者]
-keywords: minion 设置 死亡
 ability: 如果一名初始邪恶玩家在你存活时因处决外的原因死亡，你和他交换角色。如果那名玩家是你，改为恶魔的自动获胜天数提前一天（所有玩家都会知道此事）。[+1外来者]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+    - 信息型
+  termIds:
+    - setup
+    - information
+    - execution
+    - death
+    - alive
+    - evil
+    - outsider
+    - minion
+    - demon
+  abilityPattern: execution_trigger
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: setup
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

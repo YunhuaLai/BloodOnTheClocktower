@@ -23,6 +23,38 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 毒
 otherNightReminder: 毒
-summary: 与你顺时针距离为1的玩家中毒。如果是邪恶的非旅行者玩家，改为和他交换角色。每个夜晚*，或该玩家死亡时，该距离+1。
-keywords: minion 首夜 夜晚 死亡 中毒
 ability: 与你顺时针距离为1的玩家中毒。如果是邪恶的非旅行者玩家，改为和他交换角色。每个夜晚*，或该玩家死亡时，该距离+1。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - death
+    - evil
+    - minion
+    - traveler
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -24,6 +24,58 @@ remindersGlobal:
   - 死亡
 firstNightReminder: 爪牙认识你且代替你得知三个不在场的善良角色。
 otherNightReminder: 每晚的死亡由说书人决定。
-summary: 你以为你是个善良角色，其实你不是。爪牙认识你且代替你得知三个不在场的善良角色。每晚的死亡由说书人决定。【±1外来者，如果初始航天员在场，替换为邪恶的航线】
-keywords: demon 首夜 夜晚 设置 死亡
 ability: 你以为你是个善良角色，其实你不是。爪牙认识你且代替你得知三个不在场的善良角色。每晚的死亡由说书人决定。【±1外来者，如果初始航天员在场，替换为邪恶的航线】
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - death
+    - good
+    - evil
+    - outsider
+    - minion
+    - demon
+    - storyteller
+  abilityPattern: role_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

@@ -23,6 +23,38 @@ remindersGlobal:
   - 巫毒师的邪术
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 只有你和死亡的玩家可以投票，且投票不需要使用投票标记。忽略票数需要过半的要求。
-keywords: traveller 死亡
 ability: 只有你和死亡的玩家可以投票，且投票不需要使用投票标记。忽略票数需要过半的要求。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - vote
+    - death
+    - traveler
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

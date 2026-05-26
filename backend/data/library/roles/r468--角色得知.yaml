@@ -22,6 +22,46 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 如果没有特别指代，则“得知一名玩家的角色”会同时得知假面角色与基础角色。例如：流莺
-keywords: a jinxes
 ability: 如果没有特别指代，则“得知一名玩家的角色”会同时得知假面角色与基础角色。例如：流莺
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 信息型
+  termIds:
+    - information
+    - jinx
+  abilityPattern: role_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

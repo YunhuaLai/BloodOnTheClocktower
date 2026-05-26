@@ -1,8 +1,6 @@
 id: r080
 name: 亡骨魔
 type: demon
-summary: 杀死爪牙后可让其能力继续运作，但会污染附近镇民。
-keywords: 爪牙 中毒 恶魔
 englishName: vigormortis
 ability: 每个夜晚*，你要选择一名玩家：他死亡。  被你杀死的爪牙保留他的能力，且与他邻近的两名镇民之一中毒。[-1外来者]
 edition: custom
@@ -34,3 +32,87 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: '8'
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r080
+    officialId: vigormortis
+    sourceHash: fd8bcf24d9e680126af9285367cb0e98c142daff
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 击杀型
+  termIds:
+    - night
+    - poisoned
+    - death
+    - townsfolk
+    - outsider
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

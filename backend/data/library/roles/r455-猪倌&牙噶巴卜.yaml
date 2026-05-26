@@ -22,6 +22,47 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 猪倌能力修改：如果你死亡，牙噶巴卜得知第二条秘密短语。每个夜晚，他选择哪条短语在下一天生效。
-keywords: a jinxed 死亡
 ability: 猪倌能力修改：如果你死亡，牙噶巴卜得知第二条秘密短语。每个夜晚，他选择哪条短语在下一天生效。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - jinx
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

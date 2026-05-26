@@ -23,6 +23,61 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒狐媚娘，让她选择一名玩家。标记那名玩家“被魅惑”。随后唤醒那名玩家，对他展示“该角色的能力对你触发”和狐媚娘角色标记。
 otherNightReminder: 如果今日狐媚娘死于处决，且被魅惑的玩家为善良阵营，唤醒被魅惑的玩家，对他展示“你是”和朝下的大拇指。
-summary: 在你的首个夜晚，你要选择一名玩家：他会知道狐媚娘在场。如果你死于处决，当晚他转变为邪恶阵营。
-keywords: minion 首夜 夜晚
 ability: 在你的首个夜晚，你要选择一名玩家：他会知道狐媚娘在场。如果你死于处决，当晚他转变为邪恶阵营。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - execution
+    - alignment
+    - evil
+    - minion
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

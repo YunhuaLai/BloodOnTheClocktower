@@ -23,6 +23,33 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 每局游戏限一次，在夜晚时*，你可以选择一名说书人：他成为正确之神，直到下个黄昏。
-summary: 每局游戏限一次，在夜晚时*，你可以选择一名说书人：他成为正确之神，直到下个黄昏。
-keywords: townsfolk 夜晚
 ability: 每局游戏限一次，在夜晚时*，你可以选择一名说书人：他成为正确之神，直到下个黄昏。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - townsfolk
+    - storyteller
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

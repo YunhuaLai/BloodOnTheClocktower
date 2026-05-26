@@ -22,6 +22,33 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每局游戏一次，在夜晚你可以决定下次拜访日事件或者使所有拜访者醉酒直到下次黎明）。
-keywords: minion 醉酒
 ability: 每局游戏一次，在夜晚你可以决定下次拜访日事件或者使所有拜访者醉酒直到下次黎明）。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - night
+    - drunk
+    - minion
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

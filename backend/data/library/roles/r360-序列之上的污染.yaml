@@ -22,6 +22,33 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每个黎明，说书人会公布一个源质，最疯狂地证明自己是一个该源质中的角色的玩家，会在当晚获得那个角色的能力，直到下个黄昏。
-keywords: fabled
 ability: 每个黎明，说书人会公布一个源质，最疯狂地证明自己是一个该源质中的角色的玩家，会在当晚获得那个角色的能力，直到下个黄昏。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - storyteller
+    - madness
+    - fabled
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,8 +1,6 @@
 id: r082
 name: 诺-达鲺
 type: demon
-summary: 让相邻镇民中毒，制造稳定且隐蔽的信息污染。
-keywords: 中毒 邻座 恶魔
 englishName: no-dashii
 ability: 每个夜晚*，你要选择一名玩家：他死亡。与你邻近的两名镇民中毒。
 edition: custom
@@ -27,3 +25,78 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 让诺-达鲺选择一名玩家。标记那名玩家死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r082
+    officialId: no-dashii
+    sourceHash: e7a2dfaee63e576d023edd0f9cbeb898f3ce2c87
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 击杀型
+  termIds:
+    - night
+    - poisoned
+    - death
+    - townsfolk
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

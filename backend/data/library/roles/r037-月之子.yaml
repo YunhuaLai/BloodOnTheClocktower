@@ -1,8 +1,6 @@
 id: r037
 name: 月之子
 type: outsider
-summary: 死亡后选择一名玩家；若选中善良玩家，可能导致对方死亡。
-keywords: 死亡 选择 善良 风险
 englishName: moonchild
 ability: 当你得知你死亡时，你要公开选择一名存活的玩家。如果他是善良的，在当晚他会死亡。
 edition: custom
@@ -26,3 +24,72 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果月之子在今天白天的时候使用自己的能力选择了一名善良玩家，那名玩家死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r037
+    officialId: moonchild
+    sourceHash: 422dbcb9fee835effce8aa3a5f194c9dc7c5907d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 死亡触发
+    - 主动选玩家
+    - 外来者
+  termIds:
+    - death
+    - alive
+    - good
+    - outsider
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_death
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: once
+    activationMode: conditional
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

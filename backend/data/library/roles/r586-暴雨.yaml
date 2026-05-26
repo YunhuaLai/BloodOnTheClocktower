@@ -23,6 +23,32 @@ remindersGlobal:
   - ''
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 白天禁止任何形式的私聊
-keywords: fabled
 ability: 白天禁止任何形式的私聊
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - day
+    - fabled
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

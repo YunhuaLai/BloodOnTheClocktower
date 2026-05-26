@@ -1,8 +1,6 @@
 id: r068
 name: 心上人
 type: outsider
-summary: 死亡后会让一名玩家醉酒。
-keywords: 死亡 醉酒 外来者
 englishName: sweetheart
 ability: 当你死亡时，会有一名玩家开始醉酒。
 edition: custom
@@ -26,3 +24,78 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r068
+    officialId: sweetheart
+    sourceHash: fa42a46800ad00ce76d8957175519bfdcd0ee724
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 死亡触发
+    - 中毒/醉酒
+    - 外来者
+  termIds:
+    - poisoned
+    - drunk
+    - death
+    - outsider
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_death
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 1
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: once
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 醉酒玩家
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

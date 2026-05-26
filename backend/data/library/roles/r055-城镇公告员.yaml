@@ -1,8 +1,6 @@
 id: r055
 name: 城镇公告员
 type: townsfolk
-summary: 得知白天是否有爪牙发起过提名。
-keywords: 提名 爪牙 信息
 englishName: town-crier
 ability: 每个夜晚*，你会得知在今天白天时是否有爪牙发起过提名。
 edition: custom
@@ -27,3 +25,84 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 对他点头或摇头示意今天白天是否有爪牙发起过提名。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r055
+    officialId: town-crier
+    sourceHash: c05cd093115ef183a4f56fe74100edabfc22b793
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 信息型
+    - 提名相关
+  termIds:
+    - day
+    - night
+    - information
+    - nomination
+    - townsfolk
+    - minion
+  abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: nomination_check
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: nominated
+          type: boolean
+          label: 爪牙是否提名
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: minion_nominated_today
+        value:
+          source: result
+          keys:
+            - nominated
+            - answer
+            - value
+    label: 已接入自动推理；需要对应白天的结构化提名记录

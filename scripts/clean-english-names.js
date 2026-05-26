@@ -1,5 +1,4 @@
 const {
-  ROLE_ABILITIES_DIR,
   ROLES_DIR,
   readYamlCollection,
   writeYamlFile,
@@ -800,9 +799,6 @@ function shouldCleanRoleEnglishName(role) {
 function main() {
   const write = process.argv.includes("--write");
   const roles = readYamlCollection(ROLES_DIR);
-  const abilities = readYamlCollection(ROLE_ABILITIES_DIR);
-  const roleById = new Map(roles.map((entry) => [entry.data.id, entry]));
-  const abilityById = new Map(abilities.map((entry) => [entry.data.id, entry]));
   const usedNames = new Map(
     roles
       .filter((entry) => !shouldCleanRoleEnglishName(entry.data))
@@ -832,14 +828,6 @@ function main() {
       if (write) {
         const nextRole = orderFieldsLikeRole(role, { englishName });
         writeYamlFile(entry.filePath, nextRole);
-
-        const abilityEntry = abilityById.get(role.id);
-        if (abilityEntry) {
-          writeYamlFile(
-            abilityEntry.filePath,
-            orderFieldsLikeRole(abilityEntry.data, { englishName }),
-          );
-        }
       }
     });
 
@@ -850,7 +838,7 @@ function main() {
   });
 
   if (!write && changes.length) {
-    console.log("Run with --write to update roles and role-abilities.");
+    console.log("Run with --write to update roles.");
   }
 }
 

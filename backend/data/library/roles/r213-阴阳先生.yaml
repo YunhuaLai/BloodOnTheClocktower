@@ -26,6 +26,37 @@ remindersGlobal:
   - 是阴阳先生
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 你以为你是一个外来者，但其实你不是。 当邪恶玩家被处决时，你变成一个不在场的镇民角色。
-keywords: townsfolk 设置
 ability: 你以为你是一个外来者，但其实你不是。如果有邪恶阵营玩家被处决，你变为一个不在场的镇民。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+    - 事件触发
+  termIds:
+    - setup
+    - execution
+    - alignment
+    - evil
+    - townsfolk
+    - outsider
+  abilityPattern: execution_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: setup
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

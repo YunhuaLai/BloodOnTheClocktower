@@ -1,8 +1,6 @@
 id: r097
 name: 小精灵
 type: townsfolk
-summary: 开局得知一个在场镇民，并通过持续疯狂证明自己来等待获得该能力。
-keywords: 首夜 疯狂 能力继承 镇民
 englishName: pixie
 ability: 在你的首个夜晚，你会得知一个在场的镇民角色。如果你“疯狂”地证明你是该角色，当他死亡时你获得该角色的能力。
 edition: custom
@@ -27,3 +25,49 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 对小精灵展示一个在场的镇民角色。
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 首夜
+    - 信息型
+    - 疯狂机制
+    - 能力继承
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - townsfolk
+    - madness
+  abilityPattern: role_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 得知在场镇民
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

@@ -23,6 +23,33 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 乌金噬星芒， 骸骨塑冕章。仅完成四个任务后可以选择。毕业快乐:下黄昏结束时，邪恶阵营获胜。
-keywords: fabled
 ability: 乌金噬星芒， 骸骨塑冕章。仅完成四个任务后可以选择。毕业快乐:下黄昏结束时，邪恶阵营获胜。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - alignment
+    - evil
+    - fabled
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

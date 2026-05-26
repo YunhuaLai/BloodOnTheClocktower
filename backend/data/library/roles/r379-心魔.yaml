@@ -24,6 +24,36 @@ remindersGlobal:
   - 死亡
 firstNightReminder: ''
 otherNightReminder: 死亡
-summary: 游戏开始时，一名镇民玩家被心魔附身，被心魔附身的玩家会被视为邪恶阵营以及外来者角色且可能在第三个夜晚死亡。[+1镇民]
-keywords: outsider 夜晚 死亡
 ability: 游戏开始时，一名镇民玩家被心魔附身，被心魔附身的玩家会被视为邪恶阵营以及外来者角色且可能在第三个夜晚死亡。[+1镇民]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - alignment
+    - evil
+    - townsfolk
+    - outsider
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

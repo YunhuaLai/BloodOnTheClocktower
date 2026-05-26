@@ -22,6 +22,47 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每个白天，你可以拜访说书人并得知一名玩家做错的事。
-keywords: townsfolk
 ability: 每个白天，你可以拜访说书人并得知一名玩家做错的事。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 信息型
+  termIds:
+    - day
+    - information
+    - townsfolk
+    - storyteller
+  abilityPattern: player_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

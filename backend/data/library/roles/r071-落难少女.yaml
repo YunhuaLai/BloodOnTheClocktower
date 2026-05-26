@@ -1,8 +1,6 @@
 id: r071
 name: 落难少女
 type: outsider
-summary: 所有爪牙都知道场上有她；若爪牙公开猜中她，善良方立刻失败，是极强的身份保密压力源。
-keywords: 外来者 公开猜测 失败条件 保密
 englishName: damsel
 ability: 所有爪牙都知道落难少女在场。每局游戏限一次，任意爪牙可以公开猜测你是落难少女，如果猜对，你的阵营落败。
 edition: custom
@@ -26,3 +24,31 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 如果落难少女在场，对爪牙展示落难少女角色标记。
 otherNightReminder: '0'
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 被动
+    - 公开猜测
+    - 外来者
+  termIds:
+    - alignment
+    - outsider
+    - minion
+  abilityPattern: rule_modifier
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

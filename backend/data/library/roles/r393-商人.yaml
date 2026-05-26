@@ -24,6 +24,32 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 你可以与任意一名其他玩家缔结约定。在新约定达成之前，如果有玩家违约，你和他之一会在当晚死亡。
-keywords: townsfolk 死亡
 ability: 你可以与任意一名其他玩家缔结约定。在新约定达成之前，如果有玩家违约，你和他之一会死亡。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - death
+    - townsfolk
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

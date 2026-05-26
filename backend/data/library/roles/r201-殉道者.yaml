@@ -24,6 +24,34 @@ remindersGlobal:
   - MARTYRED
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 如果你死亡且下一个死亡的玩家是恶魔，你的阵营落败.
-keywords: outsider 死亡
 ability: 如果你死亡且下一个死亡的玩家是恶魔，你的阵营落败.
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - death
+    - alignment
+    - outsider
+    - demon
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

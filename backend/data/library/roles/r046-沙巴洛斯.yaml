@@ -1,8 +1,6 @@
 id: r046
 name: 沙巴洛斯
 type: demon
-summary: 每晚可造成多名玩家死亡，也可能让死者复活。
-keywords: 多杀 复活 恶魔
 englishName: shabaloth
 ability: 每个夜晚*，你要选择两名玩家：他们死亡。你上个夜晚选择过且当前死亡的玩家之一可能会被你反刍。
 edition: custom
@@ -27,3 +25,78 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 上一夜被沙巴洛斯选择且当前已死亡的玩家之一可能被反刍，如果被反刍，标记那名玩家被复活。让沙巴洛斯选择两名玩家。标记这两名玩家死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r046
+    officialId: shabaloth
+    sourceHash: daeb7ff9a82e003e35a3f2c00dd2d7500dc337b6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 多杀型
+  termIds:
+    - night
+    - death
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

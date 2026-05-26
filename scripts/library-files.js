@@ -6,7 +6,6 @@ const ROOT_DIR = path.resolve(__dirname, "..");
 const LIBRARY_DIR = path.join(ROOT_DIR, "backend", "data", "library");
 const SCRIPTS_DIR = path.join(LIBRARY_DIR, "scripts");
 const ROLES_DIR = path.join(LIBRARY_DIR, "roles");
-const ROLE_ABILITIES_DIR = path.join(LIBRARY_DIR, "role-abilities");
 const TERMS_FILE = path.join(LIBRARY_DIR, "terms.yaml");
 
 function readYamlFile(filePath, fallback = null) {
@@ -50,7 +49,6 @@ function relativeToRoot(filePath) {
 
 module.exports = {
   LIBRARY_DIR,
-  ROLE_ABILITIES_DIR,
   ROLES_DIR,
   ROOT_DIR,
   SCRIPTS_DIR,

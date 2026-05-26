@@ -1,8 +1,6 @@
 id: r045
 name: 普卡
 type: demon
-summary: 通过中毒和延迟死亡制造节奏差，让死亡结果更难判断。
-keywords: 中毒 延迟死亡 恶魔
 englishName: pukka
 ability: 每个夜晚，你要选择一名玩家：他中毒。  上个因你的能力中毒的玩家会死亡并恢复健康。
 edition: custom
@@ -27,3 +25,77 @@ reminders:
 remindersGlobal: []
 firstNightReminder: '4'
 otherNightReminder: '6'
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r045
+    officialId: pukka
+    sourceHash: f5ce3e9ef496077ab98c3473ce2c1a1671c642bf
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 中毒型
+  termIds:
+    - night
+    - poisoned
+    - death
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

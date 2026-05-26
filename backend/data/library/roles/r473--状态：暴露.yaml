@@ -22,6 +22,33 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 玩家首次死亡时，他不会死亡，而是获得“暴露”状态，死亡会保留。玩家对自己的“暴露”状态不自知。每个黎明，说书人要公开拥有暴露状态的玩家人数，并令其中一个玩家死亡。
-keywords: a jinxes 死亡
 ability: 玩家首次死亡时，他不会死亡，而是获得“暴露”状态，死亡会保留。玩家对自己的“暴露”状态不自知。每个黎明，说书人要公开拥有暴露状态的玩家人数，并令其中一个玩家死亡。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - death
+    - storyteller
+    - jinx
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

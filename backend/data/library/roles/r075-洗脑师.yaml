@@ -1,8 +1,6 @@
 id: r075
 name: 洗脑师
 type: minion
-summary: 让玩家疯狂地宣称自己是某个身份，否则可能被处决。
-keywords: 疯狂 宣称 爪牙
 englishName: cerenovus
 ability: 每个夜晚，你要选择一名玩家和一个善良角色。他明天白天和夜晚需要“疯狂”地证明自己是这个角色，不然他可能被处决。
 edition: custom
@@ -26,3 +24,89 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 让洗脑师选择一名玩家和一个善良角色。标记那名玩家疯狂。让洗脑师重新入睡。唤醒洗脑师的目标。对这名玩家展示该玩家需要疯狂证明的事。
 otherNightReminder: 让洗脑师选择一名玩家和一个善良角色。标记那名玩家疯狂。让洗脑师重新入睡。唤醒洗脑师的目标。对这名玩家展示该玩家需要疯狂证明的事。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r075
+    officialId: cerenovus
+    sourceHash: bbf010cdb1d24fdd7bf2ec7d95363fdc1ee85709
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 主动选角色
+    - 疯狂机制
+  termIds:
+    - day
+    - night
+    - execution
+    - good
+    - minion
+    - madness
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 宣称身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

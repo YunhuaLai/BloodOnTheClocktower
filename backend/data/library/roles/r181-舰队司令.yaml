@@ -24,6 +24,49 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每局游戏限一次，在白天时，你可以私下询问说书人以得知两名玩家：其中一名是对你们帮助最大的对立阵营玩家，另一名是对你们损害最大的我方阵营玩家。
-keywords: townsfolk
 ability: 每局游戏限一次，在白天时，你可以私下询问说书人以得知两名玩家：其中一名是对你们帮助最大的对立阵营玩家，另一名是对你们损害最大的我方阵营玩家。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 信息型
+  termIds:
+    - day
+    - information
+    - alignment
+    - townsfolk
+    - storyteller
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

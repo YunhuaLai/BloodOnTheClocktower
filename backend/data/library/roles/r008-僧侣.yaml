@@ -1,28 +1,6 @@
 id: r008
 name: 僧侣
 type: townsfolk
-summary: 夜晚保护一名玩家免受恶魔影响。保护选择常常能改变邪恶方节奏。
-keywords: 保护 夜晚 恶魔
-detail:
-  overview: 僧侣是夜晚保护位。它不直接给信息，但成功保护可能改变死亡结果，并让善良方判断恶魔目标。
-  abilitySummary: 每晚选择一名其他玩家，使其免受恶魔影响。
-  playTips:
-    - 优先保护公开强信息位或残局关键身份。
-    - 不要总按固定模式保护，邪恶方会读你的习惯。
-    - 没有死亡不一定代表你保护成功，也可能有其他原因。
-  storytellerTips:
-    - 僧侣保护会影响夜晚死亡，要清楚区分恶魔影响和其他效果。
-    - 新手局可让保护结果有讨论价值。
-    - 如果僧侣长期公开，邪恶方应仍有合理处理路线。
-  commonMistakes:
-    - 认为无死亡一定是僧侣立功。
-    - 保护目标过于固定。
-    - 忘记不能保护自己。
-  relatedRoleIds:
-    - r011
-    - r012
-    - r009
-    - r021
 englishName: monk
 ability: 每个夜晚*，你要选择除你以外的一名玩家：当晚恶魔的负面能力对他无效。
 edition: custom
@@ -46,3 +24,70 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒僧侣，让他选择除自己以外的一名玩家，那名玩家今晚免受恶魔负面效果影响。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r008
+    officialId: monk
+    sourceHash: d0a19f721ce0785d71a2e2881bc475d0e0cd3d63
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 保护型
+  termIds:
+    - night
+    - protected
+    - townsfolk
+    - demon
+  abilityPattern: choose_player_protection
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: protect_player
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

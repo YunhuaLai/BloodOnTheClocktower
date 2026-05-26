@@ -26,6 +26,36 @@ remindersGlobal:
   - 离题
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 本局游戏中有小镇做题家，每个白天必须有玩家通过小镇做题家拜访说书人（此过程称为获取小镇做题家）。 如果邪恶的或已死亡的玩家获取小镇做题家累计超过两次，邪恶阵营在当晚获胜。
-keywords: fabled 死亡
 ability: 本局游戏中有小镇做题家，每个白天必须有玩家通过小镇做题家拜访说书人（此过程称为获取小镇做题家）。 如果邪恶的或已死亡的玩家获取小镇做题家累计超过两次，邪恶阵营在当晚获胜。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - death
+    - alignment
+    - evil
+    - storyteller
+    - fabled
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: each_day
+    eventTiming: on_death
+    usagePattern: once_per_day
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

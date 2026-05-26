@@ -22,6 +22,50 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 在你的首个夜晚，你会得知有多少名在场角色拥有设置调整的能力。
-keywords: townsfolk 首夜
 ability: 在你的首个夜晚，你会得知有多少名在场角色拥有设置调整的能力。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - townsfolk
+  abilityPattern: number_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

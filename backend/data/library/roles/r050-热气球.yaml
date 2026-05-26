@@ -1,8 +1,6 @@
 id: r050
 name: 热气球
 type: townsfolk
-summary: 每晚得知一名不同角色类型的玩家，并可能让场上额外增加一名外来者，是强力但需要持续校验的长期信息位。
-keywords: 每晚 类型 外来者 信息
 englishName: balloonist
 ability: 每晚得知一名与上一晚不同角色类型的玩家。[+0 或 +1 外来者]
 setupMeta:
@@ -23,3 +21,45 @@ setupMeta:
       note: 配置调整：外来者数量 0 到 +1。
   setupNotes:
     - 配置调整：外来者数量 0 到 +1。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 每晚
+    - 信息型
+    - 角色类型
+  termIds:
+    - night
+    - information
+    - townsfolk
+    - outsider
+  abilityPattern: player_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 得知玩家
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

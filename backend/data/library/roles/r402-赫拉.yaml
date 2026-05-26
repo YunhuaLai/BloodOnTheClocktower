@@ -23,6 +23,44 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 赫拉使用恶魔卡
-summary: 初始携带金苹果。所有邪恶玩家共同唤醒。每个夜晚*选择一个其他恶魔，获得其能力直到你下次选择。你杀死玩家后你会获得他的金苹果。当你首次死亡时你会在当晚复活。[必定出场]
-keywords: demon 夜晚 死亡
 ability: 初始携带金苹果。所有邪恶玩家共同唤醒。每个夜晚*选择一个其他恶魔，获得其能力直到你下次选择。你杀死玩家后你会获得他的金苹果。当你首次死亡时你会在当晚复活。[必定出场]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - evil
+    - demon
+  abilityPattern: choose_player_death
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

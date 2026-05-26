@@ -1,28 +1,6 @@
 id: r015
 name: 酒鬼
 type: outsider
-summary: 自以为是镇民，但能力不可靠。它会让一条看似漂亮的信息链出现裂缝。
-keywords: 醉酒 错误信息 外来者
-detail:
-  overview: 酒鬼是信息污染的核心来源。最危险的地方在于玩家通常不知道自己是酒鬼。
-  abilitySummary: 玩家以为自己是某个镇民，但其能力不会可靠生效。
-  playTips:
-    - 如果你的信息长期和全局矛盾，要把自己可能醉酒纳入讨论。
-    - 不要因为信息错了就立即放弃发言价值，错误本身也是线索。
-    - 和图书管理员、配置人数一起判断是否存在酒鬼。
-  storytellerTips:
-    - 酒鬼选谁会定义整局的信息迷雾，尽量让错误能被推理出来。
-    - 新手局不要让酒鬼信息过度摧毁所有善良线索。
-    - 要清楚记录酒鬼以为什么身份在行动。
-  commonMistakes:
-    - 把信息矛盾全部归因于说谎。
-    - 酒鬼玩家因为信息错了就被彻底排除讨论。
-    - 忘记酒鬼会影响外来者配置理解。
-  relatedRoleIds:
-    - r002
-    - r001
-    - r010
-    - r017
 englishName: drunk
 ability: 你不知道你是酒鬼。你以为你是一个镇民角色，但其实你不是。
 edition: custom
@@ -48,3 +26,57 @@ remindersGlobal:
   - 是酒鬼
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r015
+    officialId: drunk
+    sourceHash: 2a3f0bd908bebee88af5dda3c323eed3eee9e4bc
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 被动
+    - 特殊机制
+    - 外来者
+  termIds:
+    - townsfolk
+    - outsider
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

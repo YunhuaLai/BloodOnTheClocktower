@@ -22,6 +22,51 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: 在首个夜晚，校准风向标。用大拇指向上，告诉他奇数位邪恶玩家较多；或者用大拇指向下，告诉他偶数位邪恶玩家较多。如果奇数位邪恶玩家等于偶数位邪恶玩家，那么你需要向风向标提供错误信息。让风向标重新入睡。
 otherNightReminder: ''
-summary: 在你的首个夜晚，你会知晓是否奇数位邪恶玩家较多。如果相同，你会知晓错误信息作为替代。
-keywords: townsfolk 首夜
 ability: 在你的首个夜晚，你会知晓是否奇数位邪恶玩家较多。如果相同，你会知晓错误信息作为替代。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - evil
+    - townsfolk
+  abilityPattern: boolean_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

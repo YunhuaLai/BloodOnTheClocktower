@@ -24,6 +24,48 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒监管者，如果监管者决定使用他的能力，让他为每个剧本上的恶魔角色分别选择一名玩家。在对应在场恶魔被选择的玩家的角色旁放“不受影响”提示标记。
-summary: 每局游戏限一次，在夜晚时*，为每个剧本上的恶魔角色分别选择一名玩家，这些玩家不受对应恶魔的负面能力的影响。
-keywords: townsfolk 夜晚
 ability: 每局游戏限一次，在夜晚时*，为每个剧本上的恶魔角色分别选择一名玩家，这些玩家不受对应恶魔的负面能力的影响。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - townsfolk
+    - demon
+  abilityPattern: choose_player_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

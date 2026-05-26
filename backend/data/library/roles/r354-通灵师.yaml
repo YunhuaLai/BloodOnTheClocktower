@@ -23,6 +23,48 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒通灵师，让他选择三名存活玩家。
-summary: 每个白天，你可以私下拜访说书人并给出一个关键词。你会得知一条与之相关的信息。如果与你邻近的存活玩家中有邪恶的，你会获得错误的信息。
-keywords: townsfolk
 ability: 每个夜晚*，你要选择三名存活玩家，如果他们的角色类型都不相同，他们中一名玩家死亡。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - alive
+    - townsfolk
+  abilityPattern: record_result_only
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

@@ -23,6 +23,31 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 当日你的下一次公开宣称不会生效且视为未发生。
-keywords: fabled
 ability: 当日你的下一次公开宣称不会生效且视为未发生。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - fabled
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

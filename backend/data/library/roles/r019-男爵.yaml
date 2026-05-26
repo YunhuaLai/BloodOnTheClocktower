@@ -1,29 +1,6 @@
 id: r019
 name: 男爵
 type: minion
-summary: 改变外来者数量，让善良方配置判断更困难。存在感常藏在开局结构里。
-keywords: 配置 外来者 数量 爪牙
-detail:
-  overview: 男爵通过改变配置制造长期压力。它不一定需要主动操作，外来者数量本身就是邪恶方收益。
-  abilitySummary: 让场上外来者数量增加，并相应压缩镇民数量。
-  playTips:
-    - 利用外来者配置异常来混淆善良方判断。
-    - 可以假装自己只是普通镇民，不必急着围绕能力做文章。
-    - 如果图书管理员或外来者公开，准备好合理配置解释。
-  storytellerTips:
-    - 男爵会改变整局角色结构，开局配置要清晰记录。
-    - 新手局可用男爵让玩家理解人数配置不是固定答案。
-    - 注意外来者组合不要让新玩家体验过于受挫。
-  commonMistakes:
-    - 邪恶方忘记利用配置异常做伪装。
-    - 善良方只按基础人数表判断外来者数量。
-    - 把所有外来者都当成不可信发言。
-  relatedRoleIds:
-    - r002
-    - r013
-    - r014
-    - r015
-    - r016
 englishName: baron
 ability: 会有额外的外来者在场。[+2 外来者]
 edition: custom
@@ -52,3 +29,63 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r019
+    officialId: baron
+    sourceHash: aa6c89c3a5d6ebc56c05f76356c30cd4af342967
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 开局
+    - 被动
+    - 规则修饰
+  termIds:
+    - first-night
+    - outsider
+    - minion
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 2
+            max: 2
+            source: '[+2 外来者]'
+            note: 配置调整：外来者数量 +2。
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

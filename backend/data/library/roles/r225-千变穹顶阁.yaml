@@ -25,6 +25,58 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 形无常驻，念即疆域。①姑获鸟:恶魔拥有上个死于处决的爪牙的能力。②麻脸巫婆:每局游戏限一次，在夜晚*时，选择一名玩家和一个非恶魔角色:如果该角色不在场，他变为那个角色。
-keywords: fabled
 ability: 形无常驻，念即疆域。①姑获鸟:恶魔拥有上个死于处决的爪牙的能力。②熬药巫婆:每局游戏限一次，在夜晚*时，选择一名玩家和一个非恶魔角色:如果该角色不在场，他变为那个角色。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 主动选择
+  termIds:
+    - night
+    - execution
+    - minion
+    - demon
+    - fabled
+  abilityPattern: execution_trigger
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

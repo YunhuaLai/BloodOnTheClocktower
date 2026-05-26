@@ -23,6 +23,50 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 当烟囱幽灵得知自己死亡时，烟囱幽灵公开选择一名存活玩家；该玩家转变为列表中下一种角色类型的不在场角色与阵营。
-summary: 得知自己死亡时，公开选择一名存活玩家，使其转变为下一角色类型的不在场角色与阵营。
-keywords: 死亡 公开选择 转变 角色类型
 ability: 当你得知你死亡时，你要公开选择一名存活玩家：他转变为列表中下一种角色类型的不在场角色与阵营。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 死亡触发
+    - 转变
+  termIds:
+    - death
+    - alive
+    - alignment
+    - outsider
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: special
+    eventTiming: on_death
+    usagePattern: once
+    activationMode: conditional
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: chosen_seat
+          type: seat
+          label: 公开选择号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: new_role
+          type: text
+          label: 转变为
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null

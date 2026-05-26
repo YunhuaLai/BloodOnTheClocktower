@@ -1,8 +1,6 @@
 id: r065
 name: 无神论者
 type: townsfolk
-summary: 把整局目标改成处决说书人，要求玩家从全局不一致中判断这是不是一局没有邪恶的游戏。
-keywords: 无邪恶 处决说书人 特殊胜利 规则
 englishName: atheist
 ability: 说书人可以打破游戏规则。如果说书人被处决，善良阵营获胜，即使你已死亡。[无邪恶角色在场]
 edition: custom
@@ -25,3 +23,35 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 被动
+    - 特殊胜利
+    - 规则修饰
+  termIds:
+    - execution
+    - death
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - storyteller
+  abilityPattern: rule_modifier
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

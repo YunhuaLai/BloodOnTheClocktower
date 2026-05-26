@@ -23,6 +23,34 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果你死亡，恶魔改为选择2个天气事件，这两个天气事件必定生效。
-summary: 如果你死亡，恶魔改为选择2个天气事件，这两个天气事件必定生效。。
-keywords: outsider 夜晚 死亡
 ability: 如果你死亡，恶魔改为选择2个天气事件，这两个天气事件必定生效。。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - outsider
+    - demon
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

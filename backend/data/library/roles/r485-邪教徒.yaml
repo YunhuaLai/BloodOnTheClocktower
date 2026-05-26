@@ -22,6 +22,36 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 当你在夜晚首次将要被恶魔杀死时，你转变为邪恶阵营并与恶魔相识，然后你可以与恶魔交换角色并让他代替你死亡
-keywords: outsider 死亡
 ability: 当你在夜晚首次将要被恶魔杀死时，你转变为邪恶阵营并与恶魔相识，然后你可以与恶魔交换角色并让他代替你死亡
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - night
+    - death
+    - alignment
+    - evil
+    - outsider
+    - demon
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

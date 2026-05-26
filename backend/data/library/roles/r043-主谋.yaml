@@ -1,8 +1,6 @@
 id: r043
 name: 主谋
 type: minion
-summary: 恶魔被处决后可能延长游戏一天，让邪恶方获得最后反打。
-keywords: 续局 恶魔 处决
 englishName: mastermind
 ability: 如果恶魔因为死于处决而因此导致游戏结束时，再额外进行一个夜晚和一个白天。在那个白天如果有玩家被处决，他的阵营落败。
 edition: custom
@@ -25,3 +23,60 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r043
+    officialId: mastermind
+    sourceHash: c7c9035749991f975a783ad97c715a59be58b87a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 被动
+    - 残局
+    - 规则修饰
+  termIds:
+    - day
+    - night
+    - execution
+    - alignment
+    - minion
+    - demon
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

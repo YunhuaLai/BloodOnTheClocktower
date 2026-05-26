@@ -27,6 +27,52 @@ firstNightReminder: >-
   每个夜晚，移除先前的标记并在任一角色标记旁放置咖啡师的“清醒且健康”标记或“行动两次”提示。唤醒那个角色的玩家并向他展示“该角色的能力对你生效”信息标记，咖啡师标记和一根手指（代表他现在清醒且健康）或两根手指（代表他要行动两次）。让这名玩家入睡。
 otherNightReminder: >-
   每个夜晚，移除先前的标记并在任一角色标记旁放置咖啡师的“清醒且健康”标记或“行动两次”提示。唤醒那个角色的玩家并向他展示“该角色的能力对你生效”信息标记，咖啡师标记和一根手指（代表他现在清醒且健康）或两根手指（代表他要行动两次）。让这名玩家入睡。
-summary: 每个夜晚，直至下个黄昏，由说书人二选一：1）一名玩家解除并免受醉酒和中毒影响，且会得知正确信息；2）一名玩家的能力可以生效两次。该玩家会得知是哪个效果。
-keywords: traveller 首夜 夜晚 中毒 醉酒
 ability: 每个夜晚，直至下个黄昏，由说书人二选一：1）一名玩家解除并免受醉酒和中毒影响，且会得知正确信息；2）一名玩家的能力可以生效两次。该玩家会得知是哪个效果。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - drunk
+    - information
+    - storyteller
+    - traveler
+  abilityPattern: status_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

@@ -1,28 +1,6 @@
 id: r017
 name: 投毒者
 type: minion
-summary: 每晚让一名玩家能力不可靠。目标选择会决定善良方信息链的破坏程度。
-keywords: 中毒 每晚 信息污染 爪牙
-detail:
-  overview: 投毒者是暗流涌动里最直接的信息破坏者。它不需要说服全桌，只要让关键能力在关键时刻失准。
-  abilitySummary: 每晚选择一名玩家，使其能力在一段时间内不可靠。
-  playTips:
-    - 优先观察谁的信息会成为全桌锚点，再决定投毒目标。
-    - 连续投同一人能制造稳定错线，切换目标能制造更大混乱。
-    - 白天发言要准备好解释被污染的信息。
-  storytellerTips:
-    - 投毒会显著影响信息可信度，要准确记录目标和时间。
-    - 新手局中毒信息可以错得有迹可循，避免完全无解。
-    - 投毒者和酒鬼同时存在时，注意信息污染不要过量。
-  commonMistakes:
-    - 只投最显眼的人，忽略潜在强信息位。
-    - 没有和恶魔伪装配合。
-    - 让错误信息太离谱，反而暴露有投毒。
-  relatedRoleIds:
-    - r007
-    - r006
-    - r005
-    - r015
 englishName: poisoner
 ability: 每个夜晚，你要选择一名玩家：他在当晚和明天白天中毒。
 edition: custom
@@ -46,3 +24,76 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒投毒者。让投毒者指向任意一名玩家。被选择的玩家中毒。
 otherNightReminder: 唤醒投毒者。让投毒者指向任意一名玩家。被选择的玩家中毒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r017
+    officialId: poisoner
+    sourceHash: ade9cc6d417c09f132c8c606793083049d0375ff
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 中毒型
+  termIds:
+    - day
+    - night
+    - poisoned
+    - minion
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: manual
+    effectType: poison_drunk
+    note: ''

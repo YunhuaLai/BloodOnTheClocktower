@@ -1,8 +1,6 @@
 id: r108
 name: 阴阳师
 type: townsfolk
-summary: 首夜得到两个善良角色和两个邪恶角色，其中恰好两个在场，是强力的配置拼图角色。
-keywords: 首夜 角色 信息 在场
 englishName: yin-yang-master
 ability: 在你的首个夜晚，你会得知两个善良角色和两个邪恶角色。其中有且只有两个角色在场。
 edition: custom
@@ -27,3 +25,75 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒阴阳师，并对其展示两个善良角色，两个邪恶角色，共四个角色标记。其中正好只有两个角色在场。
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 首夜
+    - 信息型
+    - 角色提示
+  termIds:
+    - night
+    - first-night
+    - information
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: role_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: good_role_1
+          type: role
+          label: 善良角色1
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: good_role_2
+          type: role
+          label: 善良角色2
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: evil_role_1
+          type: role
+          label: 邪恶角色1
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: evil_role_2
+          type: role
+          label: 邪恶角色2
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

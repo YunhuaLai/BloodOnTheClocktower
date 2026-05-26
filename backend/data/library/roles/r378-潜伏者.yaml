@@ -26,6 +26,36 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 在潜伏者旁边标记第一夜。
 otherNightReminder: 在潜伏者旁边标记第二夜，第三夜，如果是第四夜标记加入邪恶。
-summary: 你在你的第四个夜晚转变为邪恶阵营。
-keywords: outsider 首夜 夜晚
 ability: 你在你的第四个夜晚转变为邪恶阵营。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - alignment
+    - evil
+    - outsider
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

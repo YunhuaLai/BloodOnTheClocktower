@@ -24,6 +24,52 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果雕刻家在今天白天被善良玩家提名，雕刻家死亡并醉酒，提名者转变为雕刻家。
-summary: 你以为你是一个善良角色。每个夜晚*，首个使用其自身能力选择了你或在当天白天提名你的善良玩家会转变为雕刻家，随后你死亡并醉酒。
-keywords: minion 夜晚 死亡 醉酒
 ability: 你以为你是一个善良角色。每个夜晚*，首个使用其自身能力选择了你或在当天白天提名你的善良玩家会转变为雕刻家，随后你死亡并醉酒。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - drunk
+    - nomination
+    - death
+    - good
+    - minion
+  abilityPattern: choose_player_death
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

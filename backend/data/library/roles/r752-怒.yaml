@@ -22,6 +22,40 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 如果被处决的玩家以及他的临近存活玩家中存在邪恶，再进行一次提名。（受蛊雕影响）
-keywords: fabled
 ability: 如果被处决的玩家以及他的临近存活玩家中存在邪恶，再进行一次提名。（受蛊雕影响）
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - nomination
+    - execution
+    - alive
+    - evil
+    - fabled
+  abilityPattern: nomination_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

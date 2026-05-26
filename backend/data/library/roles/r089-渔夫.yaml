@@ -1,8 +1,6 @@
 id: r089
 name: 渔夫
 type: townsfolk
-summary: 一次性向说书人获取获胜建议，适合在信息卡住或残局前寻找方向。
-keywords: 建议 一次性 白天 信息
 englishName: fisherman
 ability: 每局游戏限一次，在白天时，你可以让说书人给你一些能帮助你的阵营获胜的建议。
 edition: custom
@@ -26,3 +24,46 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 白天
+    - 一次性
+    - 建议型
+  termIds:
+    - day
+    - alignment
+    - townsfolk
+    - storyteller
+  abilityPattern: record_result_only
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: day
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: advice
+          type: text
+          label: 建议
+          required: true
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

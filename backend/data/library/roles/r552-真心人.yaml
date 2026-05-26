@@ -23,6 +23,49 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 在你的首个白天，你可以邀请玩家共同拜访说书人并说出各自的角色(不限次)，你可以私下询问说书人在上次拜访中是否有人说谎(限一次)。
-keywords: townsfolk
 ability: 在你的首个白天，你可以邀请玩家共同拜访说书人并说出各自的角色(不限次)，你可以私下询问说书人在上次拜访中是否有人说谎(限一次)。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 信息型
+  termIds:
+    - day
+    - information
+    - townsfolk
+    - storyteller
+  abilityPattern: boolean_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

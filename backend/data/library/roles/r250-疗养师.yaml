@@ -24,6 +24,52 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果有玩家因为疗养师的能力避免了死亡（即：他避免了本应发生的死亡，且没有受到其他角色的保护）：在他的旁边放置护理标志，如果有玩家有护理标志，告知疗养师是，否则告知否
-summary: 一名玩家醉酒。中毒或醉酒的玩家不会死亡，每个夜晚*，你会得知是否有玩家因为你避免了死亡（从上个黎明到你被唤醒时）。
-keywords: townsfolk 夜晚 死亡 中毒 醉酒
 ability: 一名玩家醉酒。中毒或醉酒的玩家不会死亡，每个夜晚*，你会得知是否有玩家因为你避免了死亡（从上个黎明到你被唤醒时）。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - poisoned
+    - drunk
+    - information
+    - death
+    - townsfolk
+  abilityPattern: boolean_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

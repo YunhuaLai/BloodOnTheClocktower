@@ -1,8 +1,6 @@
 id: r066
 name: 罂粟种植者
 type: townsfolk
-summary: 让恶魔与爪牙开局互不相认，直到自己死亡才恢复邪恶方协作，是强力的前期信息封锁位。
-keywords: 邪恶不互认 死亡触发 信息封锁
 englishName: poppy-grower
 ability: 爪牙和恶魔互相不认识。如果你死亡，当晚他们会互相认识。
 edition: custom
@@ -26,3 +24,33 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 如果罂粟种植者在场，跳过今晚的爪牙信息和恶魔信息环节。
 otherNightReminder: 如果罂粟种植者死于白天，插入执行爪牙信息和恶魔信息（不包含恶魔伪装）流程。如果罂粟种植者死于夜晚，则在当前玩家行动结束后立即执行相关流程。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 被动
+    - 邪恶不互认
+    - 规则修饰
+  termIds:
+    - death
+    - evil
+    - townsfolk
+    - minion
+    - demon
+  abilityPattern: rule_modifier
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

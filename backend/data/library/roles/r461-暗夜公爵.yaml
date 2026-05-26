@@ -29,6 +29,85 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 首次有善良玩家选择邪恶玩家时，打上标记。告知暗夜公爵首个点到邪恶玩家的玩家的角色。
 otherNightReminder: ''
-summary: 每局游戏限一次，首个使用自身能力选择了邪恶玩家的善良玩家会中毒，直到下个黄昏。你会得知他的角色。[+1外来者]
-keywords: traveller2 首夜 设置 中毒
 ability: 每局游戏限一次，首个使用自身能力选择了邪恶玩家的善良玩家会中毒，直到下个黄昏。你会得知他的角色。[+1外来者]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 设置
+    - 主动选择
+  termIds:
+    - setup
+    - first-night
+    - poisoned
+    - good
+    - evil
+    - outsider
+    - traveler
+  abilityPattern: target_role_info
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：目标身份信息
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

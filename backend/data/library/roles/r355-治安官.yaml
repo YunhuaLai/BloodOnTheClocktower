@@ -23,6 +23,54 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 在你的首个夜晚，你会得知一名外来者或爪牙玩家。如果你在夜晚死亡，你会得知一名外来者或爪牙玩家（角色类型与上次不同）。[+1外来者]
-keywords: townsfolk 首夜 设置 死亡
 ability: 每局游戏限一次，在夜晚时*，你可以选择三名存活玩家，他们之外的玩家在下个白天与夜晚不会受到恶魔能力的影响。恶魔得知你选择了哪些玩家。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - day
+    - night
+    - setup
+    - first-night
+    - information
+    - alive
+    - townsfolk
+    - demon
+  abilityPattern: role_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

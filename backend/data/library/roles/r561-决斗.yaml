@@ -24,6 +24,40 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 即将被处决者可以向说书人申请与提名者展开“决斗”。如果说书人同意，提名者与被处决者要轮流公开宣称一个邪恶角色，宣称不在场角色的玩家可能被立即处决。
-keywords: fabled
 ability: 即将被处决者可以向说书人申请与提名者展开“决斗”。如果说书人同意，提名者与被处决者要轮流公开宣称一个邪恶角色，宣称不在场角色的玩家可能被立即处决。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - nomination
+    - execution
+    - evil
+    - storyteller
+    - fabled
+  abilityPattern: nomination_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

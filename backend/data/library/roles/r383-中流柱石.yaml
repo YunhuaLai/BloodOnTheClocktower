@@ -25,6 +25,51 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每局游戏限一次，在夜晚时，你可以选择一个效果（与上一次不同）和一名玩家：①你拥有他的能力直到下个黄昏；②他失去能力直到下个黄昏；③此后他会成为你①②项的额外目标。非镇民玩家死亡的当晚，你可以再次使用此能力。
-keywords: minion 首夜 夜晚 死亡
 ability: 每局游戏限一次，在夜晚时，你可以选择一个效果（与上一次不同）和一名玩家：①你拥有他的能力直到下个黄昏；②他失去能力直到下个黄昏；③此后他会成为你①②项的额外目标。非镇民玩家死亡的当晚，你可以再次使用此能力。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - townsfolk
+    - minion
+  abilityPattern: choose_player_death
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

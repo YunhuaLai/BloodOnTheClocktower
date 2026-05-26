@@ -22,6 +22,32 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 如果外来者的能力描述中没有“可能”，在合适的地方添加“可能”两个字。外来者能力不会表现得很负面。
-keywords: townsfolk
 ability: 如果外来者的能力描述中没有“可能”，在合适的地方添加“可能”两个字。外来者能力不会表现得很负面。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - townsfolk
+    - outsider
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

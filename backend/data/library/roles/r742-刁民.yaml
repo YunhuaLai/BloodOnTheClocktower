@@ -23,6 +23,35 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果有人在白天粗暴地打断过刁民的发言，选择让他们当中的一个醉酒，即使刁民已死亡。
-summary: 曾在白天粗暴地打断过你的发言的玩家之一会在当晚醉酒，即使你已死亡。
-keywords: traveller 夜晚 死亡 醉酒
 ability: 曾在白天粗暴地打断过你的发言的玩家之一会在当晚醉酒，即使你已死亡。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - drunk
+    - death
+    - traveler
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

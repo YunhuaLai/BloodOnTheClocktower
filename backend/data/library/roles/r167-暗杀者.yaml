@@ -24,6 +24,59 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 持有恶魔伪装标记；提名阶段可投掷角色标记，击中远处存活玩家则立刻处决。
-keywords: 提名 投掷 处决 恶魔伪装 距离
 ability: 你持有恶魔的伪装标记。提名阶段，你可以将一枚角色标记扔向一名与你距离大于 1 的存活玩家；如果击中他，他立刻被处决。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 白天
+    - 提名阶段
+  termIds:
+    - day
+    - nomination
+    - execution
+    - alive
+    - minion
+    - demon
+  abilityPattern: nomination_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: day
+    eventTiming: on_nomination
+    usagePattern: once
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: target_seat
+          type: seat
+          label: 投掷目标
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: hit
+          type: boolean
+          label: 是否击中并处决
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

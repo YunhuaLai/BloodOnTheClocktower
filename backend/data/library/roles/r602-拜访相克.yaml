@@ -22,6 +22,51 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 善良阵营的技能在白天造成的死亡由说书人决定死亡时间，死亡时发动的技能在得知死亡的那天白天才能发动。
-keywords: fabled 死亡
 ability: 善良阵营的技能在白天造成的死亡由说书人决定死亡时间，死亡时发动的技能在得知死亡的那天白天才能发动。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 信息型
+  termIds:
+    - day
+    - information
+    - death
+    - alignment
+    - good
+    - storyteller
+    - fabled
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

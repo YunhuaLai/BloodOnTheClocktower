@@ -22,6 +22,35 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每局游戏限一次，在白天时，你可以公开猜测哪些玩家是邪恶阵营。 如果你全部猜对，善良阵营获胜。
-keywords: townsfolk
 ability: 每局游戏限一次，在白天时，你可以公开猜测哪些玩家是邪恶阵营。 如果你全部猜对，善良阵营获胜。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - alignment
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,8 +1,6 @@
 id: r086
 name: 女祭司
 type: townsfolk
-summary: 每晚得到一名最值得交流的玩家，能把社交推理导向关键节点。
-keywords: 每晚 交流 信息
 englishName: high-priestess
 ability: 每个夜晚，你会得知一名说书人认为你最应该与其交流的玩家。
 edition: custom
@@ -26,3 +24,45 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒女祭司，指向一名玩家。
 otherNightReminder: 唤醒女祭司，指向一名玩家
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 每晚
+    - 信息型
+    - 交流建议
+  termIds:
+    - night
+    - information
+    - townsfolk
+    - storyteller
+  abilityPattern: player_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 建议交流对象
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

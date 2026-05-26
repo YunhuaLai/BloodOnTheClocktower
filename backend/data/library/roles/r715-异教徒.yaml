@@ -24,6 +24,35 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒一名邪恶玩家，对他指向异教徒玩家，并展示异教徒角色标记。
 otherNightReminder: ''
-summary: 一名邪恶玩家知道你是异教徒，如果他死于处决，你加入邪恶阵营。
-keywords: outsider 首夜
 ability: 一名邪恶玩家知道你是异教徒，如果他死于处决，你加入邪恶阵营。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+  termIds:
+    - first-night
+    - execution
+    - alignment
+    - evil
+    - outsider
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

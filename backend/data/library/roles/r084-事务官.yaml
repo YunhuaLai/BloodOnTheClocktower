@@ -1,8 +1,6 @@
 id: r084
 name: 事务官
 type: townsfolk
-summary: 开局确认一名善良玩家，是建立初始信任链的干净信息位。
-keywords: 开局 善良 信息
 englishName: steward
 ability: 在你的首个夜晚，你会得知一名善良玩家。
 edition: custom
@@ -26,3 +24,54 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒事务官，对他指向一名善良玩家。
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 首夜
+    - 信息型
+    - 善良定位
+  termIds:
+    - night
+    - first-night
+    - information
+    - good
+    - townsfolk
+  abilityPattern: player_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 善良玩家
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: good_player
+        seat:
+          source: result
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat

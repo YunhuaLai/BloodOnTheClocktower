@@ -29,6 +29,51 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 在首个夜晚，唤醒铁匠。向铁匠展示所有在场的外来者的总数。让铁匠重新入睡。
 otherNightReminder: ''
-summary: 在你的首个夜晚，你会得知有几名外来者在场。所有外来者醉酒。[+1外来者]
-keywords: townsfolk 首夜 醉酒
 ability: 在你的首个夜晚，你会得知有几名外来者在场。所有外来者醉酒。[+1外来者]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - information
+    - townsfolk
+    - outsider
+  abilityPattern: number_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

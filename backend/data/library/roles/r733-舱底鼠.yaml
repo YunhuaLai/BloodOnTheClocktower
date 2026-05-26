@@ -23,6 +23,40 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 被外来者提名的镇民会中毒到下个黎明。[有且仅有3名外来者]
-keywords: minion 中毒
 ability: 被外来者提名的镇民会中毒到下个黎明。[有且仅有3名外来者]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - poisoned
+    - nomination
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: nomination_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

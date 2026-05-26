@@ -1,8 +1,6 @@
 id: r022
 name: 猎手
 type: townsfolk
-summary: 可在白天尝试射杀一名玩家；若命中恶魔，能直接造成巨大突破。
-keywords: 白天 击杀 恶魔 一次性
 englishName: slayer
 ability: 每局游戏限一次，你可以在白天时公开选择一名玩家：如果他是恶魔，他死亡。
 edition: custom
@@ -26,3 +24,99 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r022
+    officialId: slayer
+    sourceHash: 132c42a477c66b19dc9af549d60748d228baee47
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 白天
+    - 一次性
+    - 主动选玩家
+    - 击杀型
+  termIds:
+    - day
+    - death
+    - townsfolk
+    - demon
+  abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: day
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: demon_check
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: day
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: hit_demon
+          type: boolean
+          label: 命中恶魔
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: demon_in_group
+        seats:
+          source: target
+          keys:
+            - seat
+        value:
+          source: result
+          keys:
+            - hit_demon
+            - answer
+            - value

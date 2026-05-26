@@ -4,7 +4,6 @@
 
 - `scripts/s000-剧本模板.yaml`
 - `roles/r000-角色模板.yaml`
-- `role-abilities/r000-角色模板.yaml`
 
 建议流程：
 
@@ -15,7 +14,7 @@
    - 暂时不想出现在常用目录里的旧剧本用 `status: archived`
 3. 复制角色模板，改成新的 `rxxx-中文名.yaml`
 4. 填写角色自身字段，不要在角色里维护所属剧本
-5. 如果这个角色需要笔记页结构化记录，再复制 `role-abilities` 模板
+5. 如果这个角色需要笔记页结构化记录，维护角色文件里的 `abilityData`
 
 官方 JSON 导入/导出约定：
 
@@ -35,8 +34,12 @@
 - 导出官方 JSON 时，角色对象的 `id` 可以直接使用本站角色 id；不需要单独维护官方 `sourceId`
 - 官方 JSON 中的旅行者会导入到 `travellerIds`，传奇角色会导入到 `fabledIds`
 - 导出官方 JSON 时顺序为 `_meta`、旅行者、常规剧本角色、传奇角色
-- 自动生成 `role-abilities` 时会优先生成结构化字段，如目标号码、选择角色、数字结果、是否结果、身份结果、阵营结果；复杂角色会标记 `needsReview: true`
-- `role-abilities` 是本站笔记页交互结构。官方 JSON 只能半自动生成初稿，复杂角色应标记 `needsReview: true`
+- 自动生成 `roles.abilityData` 时会优先生成结构化字段，如目标号码、选择角色、数字结果、是否结果、身份结果、阵营结果；复杂角色会标记 `needsReview: true`
+- `roles.abilityData` 是本站笔记页交互结构。官方 JSON 只能半自动生成初稿，复杂角色应标记 `needsReview: true`
+- v2 `roles.abilityData` 会同时保存 `sourceAbility` 和 `abilitySemantics`：
+  - `sourceAbility` 指回 `roles/*.yaml`，只保存 `roleId`、`officialId`、`sourceHash` 和参与 hash 的字段列表；官方技能文字、类型、提醒标记仍以 `roles` 为准
+  - `abilitySemantics` 是从官方文字抽出的技能语义层；它先描述“技能本质做什么”，再派生笔记页 `interactionSchema` 和推理 `deduction`
+  - `reviewStatus: auto` 表示自动生成未人工确认；`needs_review` 表示复杂技能需复核；`reviewed` 表示人工确认；`source_changed` 表示官方源文本变化后需要重新确认
 
 注意：
 

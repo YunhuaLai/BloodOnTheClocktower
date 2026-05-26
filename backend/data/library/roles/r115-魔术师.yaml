@@ -22,6 +22,33 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: 告知其邪恶方的接头暗号。如果醉酒，改为告知错误的暗号。
 otherNightReminder: ''
-summary: 恶魔会以为你是爪牙。爪牙会以为你是恶魔。
-keywords: townsfolk
 ability: 恶魔会以为你是爪牙。爪牙会以为你是恶魔。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - townsfolk
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

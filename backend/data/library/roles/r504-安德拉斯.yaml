@@ -24,6 +24,49 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒安德拉斯，让他攻击一名玩家。然后如果安德拉斯未使用过能力，询问其是否要杀死所有爪牙。
-summary: 每个夜晚*，你要选择一名玩家：他死亡。每局游戏限一次，你可以选择杀死所有爪牙。
-keywords: demon 夜晚 死亡
 ability: 每个夜晚*，你要选择一名玩家：他死亡。每局游戏限一次，你可以选择杀死所有爪牙。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

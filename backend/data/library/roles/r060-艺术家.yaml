@@ -1,8 +1,6 @@
 id: r060
 name: 艺术家
 type: townsfolk
-summary: 一次性向说书人提出一个是非问题并得到回答。
-keywords: 是非问题 一次性 信息
 englishName: artist
 ability: 每局游戏限一次，在白天时，你可以私下询问说书人一个是非问题，你会得知该问题的答案。
 edition: custom
@@ -26,3 +24,83 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r060
+    officialId: artist
+    sourceHash: 8b95a1c36a4b9ead4c8c987482d46483881ec1cb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 白天
+    - 一次性
+    - 问答型
+  termIds:
+    - day
+    - townsfolk
+    - storyteller
+  abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: day
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: boolean_check
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: day
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: question
+          type: text
+          label: 问题
+          required: true
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: answer
+          type: boolean
+          label: 回答
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: manual
+    effectType: natural_language
+    note: ''

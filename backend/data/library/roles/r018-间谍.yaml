@@ -1,28 +1,6 @@
 id: r018
 name: 间谍
 type: minion
-summary: 掌握大量局面信息，并可能在侦测中表现得像善良角色。
-keywords: 全局信息 伪装 爪牙
-detail:
-  overview: 间谍是信息型爪牙。它知道得多，适合帮助邪恶方选择伪装、避开危险和反制信息角色。
-  abilitySummary: 能获得大量局面信息，并可能在侦测中被视作善良身份。
-  playTips:
-    - 利用你掌握的信息帮恶魔选择安全伪装。
-    - 不要因为知道太多就说得太准，过度精准会像开视角。
-    - 可以主动跳一个能解释当前局面的身份。
-  storytellerTips:
-    - 间谍信息强度高，要给玩家足够时间理解局面。
-    - 侦测中把间谍视作善良时，要考虑这会如何影响信息链。
-    - 新手局里间谍可以帮助邪恶方不至于被开局信息压垮。
-  commonMistakes:
-    - 发言过于全知，暴露信息来源。
-    - 只顾自保，不帮恶魔规划伪装。
-    - 忘记自己可能在侦测中表现得不像爪牙。
-  relatedRoleIds:
-    - r003
-    - r007
-    - r001
-    - r021
 englishName: spy
 ability: 每个夜晚，你能查看魔典。  你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。
 edition: custom
@@ -45,3 +23,76 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: '14'
 otherNightReminder: '18'
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r018
+    officialId: spy
+    sourceHash: b52faaac26bf13d773927e9a4a60403a3ab4be49
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 信息型
+    - 特殊机制
+  termIds:
+    - night
+    - information
+    - death
+    - alignment
+    - good
+    - townsfolk
+    - outsider
+    - minion
+    - grimoire
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: grimoire_note
+          type: text
+          label: 魔典记录
+          required: true
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 记录当晚看到的关键信息
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

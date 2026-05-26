@@ -1,28 +1,6 @@
 id: r009
 name: 守鸦人
 type: townsfolk
-summary: 如果夜晚死亡，可以立即查看一名玩家身份。死亡本身会变成一次反击机会。
-keywords: 死亡 查看 身份 夜晚
-detail:
-  overview: 守鸦人是反击型信息位。邪恶方杀到他会付出信息代价，但善良方也不能只靠求死来赢。
-  abilitySummary: 如果在夜晚死亡，可以查看一名玩家身份。
-  playTips:
-    - 不要过早暴露自己，否则恶魔通常会避开你。
-    - 如果你死亡，优先查能影响残局或解释矛盾的人。
-    - 活着时也要正常参与发言，不要只等待能力触发。
-  storytellerTips:
-    - 守鸦人查验对象会强烈影响残局，给出的身份要准确结算。
-    - 可以让邪恶方通过发言判断是否冒险杀他。
-    - 新手局可提醒玩家夜晚死亡和白天处决触发条件不同。
-  commonMistakes:
-    - 白天被处决后期待触发能力。
-    - 过早跳明导致永远不被杀。
-    - 查一个对当前局面帮助不大的目标。
-  relatedRoleIds:
-    - r008
-    - r007
-    - r021
-    - r017
 englishName: ravenkeeper
 ability: 如果你在夜晚死亡，你会被唤醒，然后你要选择一名玩家：你会得知他的角色。
 edition: custom
@@ -45,3 +23,101 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果守鸦人死于夜晚，唤醒守鸦人，让他选择一名玩家。对他展示这名玩家的角色标记。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r009
+    officialId: ravenkeeper
+    sourceHash: 63a649dab876599fedd595f47788ecb246dfdf23
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 死亡触发
+    - 信息型
+    - 查看身份
+  termIds:
+    - night
+    - information
+    - death
+    - townsfolk
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_death
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: once
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 查看身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

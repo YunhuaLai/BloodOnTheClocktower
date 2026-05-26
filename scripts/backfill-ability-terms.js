@@ -4,7 +4,6 @@ const {
   readTermsConfig,
 } = require("./ability-term-utils");
 const {
-  ROLE_ABILITIES_DIR,
   ROLES_DIR,
   readYamlCollection,
   writeYamlFile,
@@ -17,19 +16,23 @@ function stable(value) {
 function main() {
   const write = process.argv.includes("--write");
   const termsConfig = readTermsConfig();
-  const roles = readYamlCollection(ROLES_DIR).map((entry) => entry.data);
-  const roleById = new Map(roles.map((role) => [role.id, role]));
-  const abilities = readYamlCollection(ROLE_ABILITIES_DIR);
+  const roleEntries = readYamlCollection(ROLES_DIR);
   const unmatchedCounts = new Map();
   let changed = 0;
 
-  abilities.forEach((entry) => {
-    const role = roleById.get(entry.data.id) || {};
-    const nextData = applyAbilityTermMetadata(entry.data, role, termsConfig);
-    const before = stable(entry.data);
+  roleEntries.forEach((entry) => {
+    const role = entry.data;
+    const abilityData = {
+      id: role.id,
+      englishName: role.englishName,
+      name: role.name,
+      ...(role.abilityData || {}),
+    };
+    const nextData = applyAbilityTermMetadata(abilityData, role, termsConfig);
+    const before = stable(abilityData);
     const after = stable(nextData);
 
-    getUnmatchedKeywordTokens(role, entry.data, termsConfig).forEach((keyword) => {
+    getUnmatchedKeywordTokens(role, abilityData, termsConfig).forEach((keyword) => {
       unmatchedCounts.set(keyword, (unmatchedCounts.get(keyword) || 0) + 1);
     });
 
@@ -37,7 +40,9 @@ function main() {
       changed += 1;
 
       if (write) {
-        writeYamlFile(entry.filePath, nextData);
+        const { id, englishName, name, ...embeddedData } = nextData;
+        role.abilityData = embeddedData;
+        writeYamlFile(entry.filePath, role);
       }
     }
   });
@@ -60,7 +65,7 @@ function main() {
   }
 
   if (!write && changed) {
-    console.log("Run with --write to update role-abilities/*.yaml.");
+    console.log("Run with --write to update roles/*.yaml abilityData.");
   }
 }
 

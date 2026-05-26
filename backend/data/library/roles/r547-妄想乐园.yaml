@@ -31,8 +31,67 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒所有妄想乐园进行互认，然后再分别唤醒每个妄想乐园，让他得知哪些乐园游民把他当做恶魔/爪牙，他们以为谁是爪牙、他们自以为的角色。
 otherNightReminder: 唤醒所有妄想乐园，让他们共同选择一名玩家。
-summary: >-
-  你们相互认识，你会得知哪些乐园游民以为你是恶魔/爪牙、他们以为谁是爪牙、他们自以为的角色。每个夜晚*，你们共同选择一名玩家：他死亡。任何一名妄想乐园死于处决，邪恶阵营落败。[会有2-4名妄想乐园在场，无爪牙在场，所有善良玩家都是乐园游民]
-keywords: demon 首夜 夜晚 设置 死亡
 ability: >-
   你们相互认识，你会得知哪些乐园游民以为你是恶魔/爪牙、他们以为谁是爪牙、他们自以为的角色。每个夜晚*，你们共同选择一名玩家：他死亡。任何一名妄想乐园死于处决，邪恶阵营落败。[会有2-4名妄想乐园在场，无爪牙在场，所有善良玩家都是乐园游民]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - first-night
+    - execution
+    - death
+    - alignment
+    - good
+    - evil
+    - minion
+    - demon
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

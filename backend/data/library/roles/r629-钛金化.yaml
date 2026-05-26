@@ -22,6 +22,56 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 一名玩家获得一个不在场的能力直到他死亡，且被当做该能力所属的角色。选择了该玩家的善良玩家会从他这里获取这个能力。建议使用角色名后带有"♦"的能力。
-keywords: fabled 死亡
 ability: 一名玩家获得一个不在场的能力直到他死亡，且被当做该能力所属的角色。选择了该玩家的善良玩家会从他这里获取这个能力。建议使用角色名后带有"♦"的能力。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 主动选择
+  termIds:
+    - death
+    - good
+    - fabled
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

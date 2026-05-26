@@ -1,8 +1,6 @@
 id: r044
 name: 僵怖
 type: demon
-summary: 第一次死亡后可能看似死亡但继续作为恶魔行动。
-keywords: 假死 恶魔 生存
 englishName: zombuul
 ability: 每个夜晚*，如果今天白天没有人死亡，你会被唤醒并要选择一名玩家：他死亡。当你首次死亡后，你仍存活，但会被当作死亡。
 edition: custom
@@ -27,3 +25,59 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果白天无人死亡，唤醒僵怖，让他攻击一名玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r044
+    officialId: zombuul
+    sourceHash: bd343eb78691d2570b5c70ee3296b6336409ecf1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 被动
+    - 假死
+    - 恶魔
+  termIds:
+    - day
+    - night
+    - death
+    - alive
+    - demon
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

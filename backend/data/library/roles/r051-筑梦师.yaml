@@ -1,8 +1,6 @@
 id: r051
 name: 筑梦师
 type: townsfolk
-summary: 每晚查看一名玩家，得到一个善良身份和一个邪恶身份作为候选。
-keywords: 每晚 身份 二选一
 englishName: dreamer
 ability: 每个夜晚，你要选择除你及旅行者以外的一名玩家：你会得知一个善良角色和一个邪恶角色，该玩家是其中一个角色。
 edition: custom
@@ -25,3 +23,114 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: 让筑梦师指向一名玩家。对他展示善良和邪恶的角色标记各一个，其中一个是属于该玩家的角色。
 otherNightReminder: 让筑梦师指向一名玩家。对他展示善良和邪恶的角色标记各一个，其中一个是属于该玩家的角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r051
+    officialId: dreamer
+    sourceHash: fef1f506bccd0a60a6ca6e9bcc5b23d159ce7e62
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 身份提示
+  termIds:
+    - night
+    - good
+    - evil
+    - townsfolk
+    - traveler
+  abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: good_role
+          type: role
+          label: 好身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: evil_role
+          type: role
+          label: 坏身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: either_role
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        goodRole:
+          source: result
+          keys:
+            - good_role
+            - goodRole
+            - good
+        evilRole:
+          source: result
+          keys:
+            - evil_role
+            - evilRole
+            - evil

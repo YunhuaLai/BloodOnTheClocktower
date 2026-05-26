@@ -1,8 +1,6 @@
 id: r109
 name: 道士
 type: townsfolk
-summary: 每晚*选择玩家，若选中恶魔则自己死亡并让恶魔醉酒到下个黎明。
-keywords: 每晚 选择 恶魔 醉酒 死亡
 englishName: taoist
 ability: 每个夜晚*，你要选择一名玩家：如果你选中了恶魔，你死亡，然后他醉酒直到下个黎明。
 edition: custom
@@ -27,3 +25,70 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒道士，让其选择一名玩家。如果他选中了恶魔，在道士角色标记旁放置“死亡”提示标记，并且在恶魔角色标记旁放置“醉酒”提示标记。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 醉酒
+    - 死亡
+  termIds:
+    - night
+    - drunk
+    - death
+    - townsfolk
+    - demon
+  abilityPattern: target_demon_check
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: hit_demon
+          type: boolean
+          label: 选中恶魔
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：目标是否恶魔
+    templates:
+      - type: demon_in_group
+        seats:
+          source: target
+          keys:
+            - seat
+        value:
+          source: result
+          keys:
+            - hit_demon
+            - answer
+            - value

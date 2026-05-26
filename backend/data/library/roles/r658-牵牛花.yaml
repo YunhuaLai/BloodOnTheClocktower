@@ -24,6 +24,34 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每个白天，说书人会公开一条绕口令，你可以将它念好，如果你这么做了你得到一条正确的信息，否则你得到一条错误的信息。生长：你获得，如果你这么做了，你额外获得一条说书人的建议。
-keywords: townsfolk
 ability: 每个白天，说书人会公开一条绕口令，你可以将它念好，如果你这么做了你得到一条正确的信息，否则你得到一条错误的信息。生长：你获得，如果你这么做了，你额外获得一条说书人的建议。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - day
+    - information
+    - townsfolk
+    - storyteller
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -23,6 +23,50 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 在房间里找到说书人留下的线索，即可获得奖励。
-keywords: 线索 奖励 白天 事件
 ability: 在房间里找到说书人留下的线索，即可获得奖励。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 白天
+    - 事件触发
+  termIds:
+    - day
+    - information
+    - townsfolk
+    - storyteller
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: day
+    eventTiming: null
+    usagePattern: repeatable
+    activationMode: conditional
+    drivenBy: mixed
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: clue
+          type: text
+          label: 找到的线索
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: reward
+          type: text
+          label: 奖励
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null

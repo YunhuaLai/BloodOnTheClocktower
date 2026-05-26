@@ -1,8 +1,6 @@
 id: r023
 name: 祖母
 type: townsfolk
-summary: 开局知道一名善良玩家及其角色；如果该玩家被恶魔杀死，祖母也会一同死亡。
-keywords: 开局 信息 连死 恶魔
 englishName: grandmother
 ability: 在你的首个夜晚，你会得知一名善良玩家和他的角色。如果恶魔杀死了他，你也会死亡。
 edition: custom
@@ -27,3 +25,99 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 指向她的孙子玩家，并展示该玩家的角色标记。
 otherNightReminder: 如果孙子被恶魔杀死，祖母也会一同死亡。标记祖母死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r023
+    officialId: grandmother
+    sourceHash: 29fae8901fffd86a1791aaf916bb1ad8ff83a8fb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 首夜
+    - 信息型
+    - 身份提示
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - good
+    - townsfolk
+    - demon
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: demon
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 善良玩家
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: good_player
+        seat:
+          source: result
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

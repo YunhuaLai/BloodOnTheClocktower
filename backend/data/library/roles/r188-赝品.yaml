@@ -23,6 +23,33 @@ remindersGlobal:
   - 是赝品
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 你拥有一个在场爪牙的能力。如果没有其他爪牙在场，在你的首个夜晚，你选择一名爪牙：你获得他的能力。
-keywords: minion 首夜
 ability: 你拥有一个在场爪牙的能力。如果没有其他爪牙在场，在你的首个夜晚，你选择一名爪牙：你获得他的能力。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+  termIds:
+    - night
+    - first-night
+    - minion
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

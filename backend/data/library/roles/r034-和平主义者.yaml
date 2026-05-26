@@ -1,8 +1,6 @@
 id: r034
 name: 和平主义者
 type: townsfolk
-summary: 善良玩家被处决时，可能不会死亡。
-keywords: 处决 保护 善良
 englishName: pacifist
 ability: 被处决的善良玩家可能不会死亡。
 edition: custom
@@ -25,3 +23,60 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r034
+    officialId: pacifist
+    sourceHash: 04c6cff8b022ebbb14e1516b101d38770716595a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 被动
+    - 保护型
+    - 处决
+  termIds:
+    - execution
+    - death
+    - protected
+    - good
+    - townsfolk
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

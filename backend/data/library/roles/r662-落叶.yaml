@@ -23,6 +23,37 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 整局游戏限一次，当晚所有邪恶阵营的技能目标之一改为你，即使你已死亡。
-summary: 如果你死亡时，场上的存活玩家大于四，当晚恶魔可以行动两次。生长：你的技能改为，整局游戏限一次，当晚所有邪恶阵营的技能目标之一改为你，即使你已死亡。
-keywords: outsider 夜晚 死亡
 ability: 如果你死亡时，场上的存活玩家大于四，当晚恶魔可以行动两次。生长：你的技能改为，整局游戏限一次，当晚所有邪恶阵营的技能目标之一改为你，即使你已死亡。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - alive
+    - alignment
+    - evil
+    - outsider
+    - demon
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

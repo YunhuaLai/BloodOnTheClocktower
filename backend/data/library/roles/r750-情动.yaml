@@ -22,6 +22,33 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每个夜晚*，在夜晚开始时，会有一种情绪降临。说书人会在黎明公布是哪种情绪（喜、怒、忧、思，悲，恐、惊）。该情绪会持续到下一个黎明，出现过的情绪不会再次出现。
-keywords: fabled
 ability: 每个夜晚*，在夜晚开始时，会有一种情绪降临。说书人会在黎明公布是哪种情绪（喜、怒、忧、思，悲，恐、惊）。该情绪会持续到下一个黎明，出现过的情绪不会再次出现。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - night
+    - storyteller
+    - fabled
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

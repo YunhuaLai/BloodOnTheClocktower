@@ -1,6 +1,5 @@
 const { inferDeductionData } = require("./deduction-profile-utils");
 const {
-  ROLE_ABILITIES_DIR,
   ROLES_DIR,
   readYamlCollection,
 } = require("./library-files");
@@ -27,7 +26,17 @@ function summarize(items, limit = 14) {
 
 function main() {
   const roles = readYamlCollection(ROLES_DIR).map((entry) => entry.data);
-  const abilities = readYamlCollection(ROLE_ABILITIES_DIR);
+  const abilities = roles
+    .filter((role) => role.abilityData)
+    .map((role) => ({
+      fileName: role.name,
+      data: {
+        id: role.id,
+        englishName: role.englishName,
+        name: role.name,
+        ...role.abilityData,
+      },
+    }));
   const roleById = new Map(roles.map((role) => [role.id, role]));
   const buckets = new Map();
 
@@ -54,7 +63,7 @@ function main() {
     ["none", "不可记录/被动规则"],
   ];
 
-  console.log(`Deduction profile audit: ${abilities.length} role abilities`);
+  console.log(`Deduction profile audit: ${abilities.length} role abilityData entries`);
   order.forEach(([key, label]) => {
     const items = buckets.get(key) || [];
     console.log(`\n${label}: ${items.length}`);

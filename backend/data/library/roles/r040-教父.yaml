@@ -1,8 +1,6 @@
 id: r040
 name: 教父
 type: minion
-summary: 知道外来者情况；外来者死亡后可制造额外击杀。
-keywords: 外来者 击杀 爪牙
 englishName: godfather
 ability: 在你的首个夜晚，你会得知有哪些外来者角色在场。如果有外来者在白天死亡，你会在当晚被唤醒并且你要选择一名玩家：他死亡。[-1或+1外来者]
 edition: custom
@@ -33,3 +31,89 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 对他展示所有在场的外来者标记。
 otherNightReminder: 如果有外来者在今天白天死亡，让教父选择一名玩家。标记那名玩家死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r040
+    officialId: godfather
+    sourceHash: 2b894c9062d3159164bbcd95d96547eb3767e709
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 特殊机制
+    - 开局信息
+    - 击杀型
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - death
+    - outsider
+    - minion
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: special
+      event: null
+      frequency: variable
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: 1
+            source: '[-1或+1外来者]'
+            note: 配置调整：外来者数量 -1 到 +1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: special
+    eventTiming: null
+    usagePattern: variable
+    activationMode: active
+    drivenBy: mixed
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: variable
+      defaultRows: 2
+      fields:
+        - key: seat
+          type: seat
+          label: 击杀号码
+          required: false
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: variable
+      defaultRows: 2
+      fields:
+        - key: note
+          type: text
+          label: 外来者与击杀记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null

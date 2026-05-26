@@ -1,8 +1,6 @@
 id: r070
 name: 理发师
 type: outsider
-summary: 死亡后恶魔可能交换两名玩家的角色。
-keywords: 死亡 交换 角色
 englishName: barber
 ability: 如果你死亡，在当晚恶魔可以选择两名玩家（不能选择其他恶魔）交换角色。
 edition: custom
@@ -26,3 +24,79 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果理发师今天死亡了，唤醒恶魔并展示“该角色的效果对你生效”信息标记和理发师角色标记。如果恶魔选择了两名玩家，将这两名玩家分别独自唤醒。对他们展示“你是”信息标记和他们的新角色标记。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r070
+    officialId: barber
+    sourceHash: 01d49c3fd2eba2af128c97dff44f52284376c148
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 死亡触发
+    - 换身份
+    - 外来者
+  termIds:
+    - death
+    - outsider
+    - demon
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 2
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: once
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null

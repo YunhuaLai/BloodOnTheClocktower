@@ -22,6 +22,54 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: 告诉将军你认为的答案。
 otherNightReminder: 告诉将军你认为的答案。
-summary: 每个夜晚，你会得知说书人认为哪个阵营当前更有优势（善良/邪恶/均势）。
-keywords: townsfolk 首夜 夜晚
 ability: 每个夜晚，你会得知说书人认为哪个阵营当前更有优势（善良/邪恶/均势）。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - storyteller
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

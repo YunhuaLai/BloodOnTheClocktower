@@ -1,8 +1,6 @@
 id: r107
 name: 灵言师
 type: minion
-summary: 用关键词诱导善良玩家转变为邪恶阵营，给善良方的公开讨论制造压力。
-keywords: 关键词 阵营转变 爪牙 邪恶
 englishName: spirit-tongue
 ability: 在你的首个夜晚，你会得知一个关键词。首个说出该关键词的善良玩家会在当晚转变为邪恶阵营。
 edition: custom
@@ -27,3 +25,58 @@ reminders:
 remindersGlobal: []
 firstNightReminder: '唤醒灵言师，对他展示他的关键词。 '
 otherNightReminder: 唤醒第一个说出灵言师词语的玩家并告知他已经变成邪恶阵营。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 首夜
+    - 关键词
+    - 阵营转变
+    - 爪牙
+  termIds:
+    - night
+    - first-night
+    - alignment
+    - good
+    - evil
+    - minion
+  abilityPattern: player_info
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: conditional
+    drivenBy: mixed
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: keyword
+          type: text
+          label: 关键词
+          required: true
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: converted_seat
+          type: seat
+          label: 转变号码
+          required: false
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

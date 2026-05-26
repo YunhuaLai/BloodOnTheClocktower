@@ -1,29 +1,6 @@
 id: r002
 name: 图书管理员
 type: townsfolk
-summary: 开局寻找外来者线索。人数配置、外来者真假和邪恶伪装会影响判断。
-keywords: 开局 信息 外来者
-detail:
-  overview: 图书管理员帮助全桌理解外来者配置。它常常不是为了抓狼，而是为了判断场上是否存在男爵、酒鬼或陌客造成的信息异常。
-  abilitySummary: 开局得到一个外来者身份，以及两名候选玩家；也可能得知没有外来者。
-  playTips:
-    - 先结合玩家人数判断理论外来者数量，再看你的信息是否异常。
-    - 如果你看到酒鬼或陌客，不要急着用常规逻辑排除矛盾。
-    - 你的信息可以帮助判断男爵是否在场。
-  storytellerTips:
-    - 外来者信息会影响玩家对配置的理解，给法要服务整局推理。
-    - 新手局可以让图书管理员看到较容易解释的外来者。
-    - 如果给出没有外来者，也要确保这个信息能参与讨论。
-  commonMistakes:
-    - 认为外来者必然弱，忽略他们也能解释关键矛盾。
-    - 只看身份，不看人数配置。
-    - 遇到酒鬼时仍把所有信息按正常能力解释。
-  relatedRoleIds:
-    - r013
-    - r014
-    - r015
-    - r016
-    - r019
 englishName: librarian
 ability: 在你的首个夜晚，你会得知两名玩家和一个外来者角色：这两名玩家之一是该角色（或者你会得知没有外来者在场）。
 edition: custom
@@ -48,3 +25,104 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒图书管理员，告知其信息。
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r002
+    officialId: librarian
+    sourceHash: 3b26be49f0bfa9b5e28b26c5696d2ceee25dfc1d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 首夜
+    - 信息型
+    - 身份提示
+  termIds:
+    - night
+    - first-night
+    - information
+    - townsfolk
+    - outsider
+  abilityPattern: role_in_group_hint
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role_in_group
+        seats: 2
+        roleType: outsider
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: role_in_group
+        seats:
+          source: result
+          keys:
+            - seat1
+            - seat2
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

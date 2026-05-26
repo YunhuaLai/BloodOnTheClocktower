@@ -1,8 +1,6 @@
 id: r063
 name: 贤者
 type: townsfolk
-summary: 若被恶魔杀死，得知两名玩家中有一名是杀死自己的恶魔。
-keywords: 死亡 恶魔 二选一
 englishName: sage
 ability: 如果恶魔杀死了你，在当晚你会被唤醒并得知两名玩家，其中一名是杀死你的那个恶魔。
 edition: custom
@@ -25,3 +23,90 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果恶魔杀死了贤者，唤醒贤者并指向两名玩家，其中一名玩家是杀死他的恶魔。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r063
+    officialId: sage
+    sourceHash: f17b050d940ffe0903c9921d06eee8aa575e13a4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 死亡触发
+    - 信息型
+    - 二选一
+  termIds:
+    - information
+    - death
+    - townsfolk
+    - demon
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_death
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 2
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: once
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: demon_in_group
+        seats:
+          source: result
+          keys:
+            - seat1
+            - seat2
+        fixedValue: true

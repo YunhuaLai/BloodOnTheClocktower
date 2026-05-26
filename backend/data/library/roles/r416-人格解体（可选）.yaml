@@ -22,6 +22,48 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 所有玩家不再收到角色，不会得知自己的真实身份与阵营。游戏中不会出现交换师。舞狮人得知的恶魔伪装改为一个不在场角色。
-keywords: fabled
 ability: 所有玩家不再收到角色，不会得知自己的真实身份与阵营。游戏中不会出现交换师。舞狮人得知的恶魔伪装改为一个不在场角色。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 信息型
+  termIds:
+    - information
+    - alignment
+    - demon
+    - fabled
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

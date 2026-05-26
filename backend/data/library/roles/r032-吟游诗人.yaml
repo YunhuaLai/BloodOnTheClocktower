@@ -1,8 +1,6 @@
 id: r032
 name: 吟游诗人
 type: townsfolk
-summary: 爪牙被处决后，可能让所有其他玩家暂时醉酒。
-keywords: 处决 爪牙 醉酒
 englishName: minstrel
 ability: 当一名爪牙死于处决时，除了你和旅行者以外的所有其他玩家醉酒直到明天黄昏。
 edition: custom
@@ -26,3 +24,68 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r032
+    officialId: minstrel
+    sourceHash: bd3a80def0d3e24fcf52413963dd2e419dc4c955
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 处决触发
+    - 全局影响
+    - 特殊机制
+  termIds:
+    - drunk
+    - execution
+    - townsfolk
+    - minion
+    - traveler
+  abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_execution
+      frequency: variable
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: variable
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

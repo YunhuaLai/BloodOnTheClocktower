@@ -22,6 +22,66 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: '1'
 otherNightReminder: ''
-summary: 在你的首个夜晚，你要选择一名玩家：你会得知该玩家以及与他邻近的玩家之中有几种角色类型。
-keywords: townsfolk 首夜
 ability: 在你的首个夜晚，你要选择一名玩家：你会得知该玩家以及与他邻近的玩家之中有几种角色类型。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - townsfolk
+  abilityPattern: target_number_info
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

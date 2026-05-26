@@ -1,8 +1,6 @@
 id: r104
 name: 圣洁之魂
 type: fabled
-summary: 限制额外邪恶玩家数量，避免阵营变化角色让邪恶方人数失衡。
-keywords: 传奇角色 额外邪恶 阵营平衡 象牙精魂
 englishName: spirit-of-ivory
 ability: 游戏过程中邪恶玩家的总数最多能比初始设置多一名（旅行者不计算在内）。
 edition: custom
@@ -26,3 +24,32 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 被动
+    - 人数限制
+    - 传说角色
+  termIds:
+    - setup
+    - evil
+    - traveler
+    - fabled
+  abilityPattern: rule_modifier
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

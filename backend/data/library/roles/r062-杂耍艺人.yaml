@@ -1,8 +1,6 @@
 id: r062
 name: 杂耍艺人
 type: townsfolk
-summary: 白天猜测玩家身份，并在夜晚得知猜对数量。
-keywords: 猜测 身份 数字
 englishName: juggler
 ability: 在你的首个白天，你可以公开猜测任意玩家的角色最多五次。在当晚，你会得知猜测正确的角色数量。
 edition: custom
@@ -26,3 +24,116 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果杂耍艺人在今天白天使用了能力，唤醒杂耍艺人，对他用手势比划数字来告知他白天猜测正确的次数。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r062
+    officialId: juggler
+    sourceHash: 2c849a2fef365b73316f098f6c874fae33ff7ad2
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 白天
+    - 一次性
+    - 多目标
+  termIds:
+    - day
+    - townsfolk
+  abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: day
+      event: null
+      frequency: once
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_number
+        numberKind: count
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: day
+    eventTiming: null
+    usagePattern: once
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: variable
+      defaultRows: 5
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 猜测身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: correct_count
+          type: number
+          label: 猜中数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 5
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: role_guess_count
+        rowMode: all_targets
+        guesses:
+          seat:
+            source: target
+            keys:
+              - seat
+              - player
+              - target
+              - target_seat
+          role:
+            source: target
+            keys:
+              - role
+              - character
+              - claim
+        value:
+          source: result
+          keys:
+            - correct_count
+            - count
+            - number
+            - value

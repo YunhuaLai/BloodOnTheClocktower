@@ -1,28 +1,6 @@
 id: r010
 name: 贞洁者
 type: townsfolk
-summary: 被镇民提名时可能让提名者立刻死亡。常用于验证提名者或制造白天爆点。
-keywords: 提名 验证 死亡
-detail:
-  overview: 贞洁者是公开验证位。它能用一次提名事件验证提名者身份方向，但也会打乱当天节奏。
-  abilitySummary: 第一次被镇民提名时，提名者可能立即死亡。
-  playTips:
-    - 如果要公开验证，最好让值得验证的人来提名。
-    - 触发后要迅速讨论这次死亡说明了什么。
-    - 没有触发不一定代表提名者邪恶，也可能有醉酒或中毒。
-  storytellerTips:
-    - 触发时机很有戏剧性，要清楚处理提名和死亡流程。
-    - 新手局可提醒玩家这是一次性强验证，不是普通处决。
-    - 中毒或醉酒会让结果产生巨大讨论空间。
-  commonMistakes:
-    - 随便让低价值目标提名浪费验证。
-    - 没有触发就直接定死提名者身份。
-    - 忘记触发会立即改变白天处决节奏。
-  relatedRoleIds:
-    - r007
-    - r014
-    - r017
-    - r015
 englishName: virgin
 ability: 当你首次被提名时，如果提名你的玩家是镇民，他立刻被处决。
 edition: custom
@@ -46,3 +24,77 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r010
+    officialId: virgin
+    sourceHash: 81d33ac8b5ad70fa340cadbac5ddbaef6bd360e8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 提名触发
+    - 一次性
+    - 特殊机制
+  termIds:
+    - nomination
+    - execution
+    - townsfolk
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: nomination_check
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: once
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: triggered
+          type: boolean
+          label: 是否触发
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

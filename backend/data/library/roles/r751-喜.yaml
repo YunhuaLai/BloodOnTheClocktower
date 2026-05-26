@@ -23,6 +23,39 @@ remindersGlobal:
   - 失去能力
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 被处决的玩家不会死亡，改为失去能力。如果被处决的玩家是善良的，当晚一名善良玩家的能力可能产生错误效果。
-keywords: fabled 死亡
 ability: 被处决的玩家不会死亡，改为失去能力。如果被处决的玩家是善良的，当晚一名善良玩家的能力可能产生错误效果。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - execution
+    - death
+    - good
+    - fabled
+  abilityPattern: execution_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

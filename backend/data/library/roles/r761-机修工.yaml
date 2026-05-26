@@ -23,6 +23,35 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 在你的首个白天，你可以拜访说书人获得一个剧本外角色的能力，即使你醉酒或中毒。[+0-2机修工]
-keywords: townsfolk 中毒 醉酒
 ability: 在你的首个白天，你可以拜访说书人获得一个剧本外角色的能力，即使你醉酒或中毒。[+0-2机修工]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - day
+    - poisoned
+    - drunk
+    - townsfolk
+    - storyteller
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

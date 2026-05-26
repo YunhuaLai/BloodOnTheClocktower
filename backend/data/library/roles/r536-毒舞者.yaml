@@ -23,6 +23,51 @@ reminders:
 remindersGlobal: []
 firstNightReminder: '1'
 otherNightReminder: ''
-summary: 会有一名存活的玩家中毒。你会得知他的角色。 如果该玩家被镇民选择，改为那个镇民中毒。
-keywords: minion 首夜 中毒
 ability: 会有一名存活的玩家中毒。你会得知他的角色。 如果该玩家被镇民选择，改为那个镇民中毒。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - first-night
+    - poisoned
+    - information
+    - alive
+    - townsfolk
+    - minion
+  abilityPattern: role_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

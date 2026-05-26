@@ -24,6 +24,43 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 每个夜晚*，你可以选择一名其他玩家，他死亡。如果你这么做了，下个夜晚你不会被唤醒。生长：你的技能改为，每个夜晚*，你可以选择两名其他玩家，他们死亡。如果你这么做了，下个夜晚你不会被唤醒。
-summary: 每个夜晚*，你可以选择一名其他玩家，他死亡。如果你这么做了，下个夜晚你不会被唤醒。生长：你的技能改为，每个夜晚*，你可以选择两名其他玩家，他们死亡。如果你这么做了，下个夜晚你不会被唤醒。
-keywords: minion 夜晚 死亡
 ability: 每个夜晚*，你可以选择一名其他玩家，他死亡。如果你这么做了，下个夜晚你不会被唤醒。生长：你的技能改为，每个夜晚*，你可以选择两名其他玩家，他们死亡。如果你这么做了，下个夜晚你不会被唤醒。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - minion
+  abilityPattern: choose_player_death
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

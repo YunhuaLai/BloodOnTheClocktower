@@ -23,6 +23,37 @@ remindersGlobal:
   - 死亡
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每个夜晚*，如果与你邻近的存活善良玩家之一醉酒或中毒，你死亡。
-keywords: outsider 夜晚 死亡 中毒 醉酒
 ability: 每个夜晚*，如果与你邻近的存活善良玩家之一醉酒或中毒，你死亡。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - poisoned
+    - drunk
+    - death
+    - alive
+    - good
+    - outsider
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

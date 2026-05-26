@@ -24,6 +24,52 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 当贡品死亡时，恶魔获得一个不在场恶魔能力。
-summary: 以为自己是镇民；死亡时恶魔获得一个不在场恶魔能力。
-keywords: 误认 镇民 死亡 恶魔 额外能力 设置
 ability: 你以为你是一个镇民，但你不是。当你死亡时，恶魔会获得一个不在场恶魔能力。[你与恶魔之间没有镇民]
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 死亡触发
+    - 误认
+  termIds:
+    - death
+    - townsfolk
+    - outsider
+    - demon
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: special
+    eventTiming: on_death
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: out_of_play_demon
+          type: text
+          label: 恶魔获得的能力
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: demon_notified
+          type: boolean
+          label: 已提示恶魔
+          required: false
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null

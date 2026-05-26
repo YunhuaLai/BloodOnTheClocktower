@@ -1,8 +1,6 @@
 id: r081
 name: 哈迪寂亚
 type: demon
-summary: 每晚公开点三人，在沉默中逼他们选生或死；若三人都求生则三人全死，是极高波动的多杀恶魔。
-keywords: 三人 生死选择 多杀 沉默
 englishName: al-hadikhia
 ability: 每个夜晚*，你可以选择三名玩家（所有玩家会得知你选了谁）：他们分别秘密决定自己的生死，然后如果他们都存活则都死亡。
 edition: custom
@@ -30,3 +28,92 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒哈迪寂亚，让他选择三名玩家。执行哈迪寂亚的能力流程（参考哈迪寂亚的百科页面）。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 多杀型
+  termIds:
+    - night
+    - death
+    - alive
+    - demon
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 号码3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1_choice
+          type: choice
+          label: 1号选择
+          required: true
+          optionsSource: custom
+          options:
+            - live
+            - die
+          min: null
+          max: null
+          placeholder: null
+        - key: seat2_choice
+          type: choice
+          label: 2号选择
+          required: true
+          optionsSource: custom
+          options:
+            - live
+            - die
+          min: null
+          max: null
+          placeholder: null
+        - key: seat3_choice
+          type: choice
+          label: 3号选择
+          required: true
+          optionsSource: custom
+          options:
+            - live
+            - die
+          min: null
+          max: null
+          placeholder: null

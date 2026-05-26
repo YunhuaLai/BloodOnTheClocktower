@@ -24,6 +24,37 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果今天有恶魔遗子死亡，且场上还有一名存活的恶魔遗子，唤醒他告知他他变成了一个不在场的恶魔，然后由你来决定今晚谁死亡。
-summary: 如果你死亡，一名存活的恶魔遗子会变成邪恶的不在场恶魔，当晚的死亡由说书人决定。[可能会有2名外来者是恶魔遗子]
-keywords: outsider 夜晚 死亡
 ability: 如果你死亡，一名存活的恶魔遗子会变成邪恶的不在场恶魔，当晚的死亡由说书人决定。[可能会有2名外来者是恶魔遗子]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - alive
+    - evil
+    - outsider
+    - demon
+    - storyteller
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

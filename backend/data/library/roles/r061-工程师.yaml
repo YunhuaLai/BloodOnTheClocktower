@@ -1,8 +1,6 @@
 id: r061
 name: 工程师
 type: townsfolk
-summary: 一次性重写在场恶魔或爪牙配置，能直接扭转威胁结构，也会让整桌重新评估局势。
-keywords: 换恶魔 换爪牙 一次性 配置
 englishName: engineer
 ability: 每局游戏限一次，在夜晚时，你可以选择让恶魔变成你选择的恶魔角色，或让所有爪牙变成你选择的爪牙角色。
 edition: custom
@@ -26,3 +24,58 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 工程师选择不使用能力，或在剧本列表中选择恶魔或爪牙角色。如果他选择爪牙角色，则需要选择对应数量的爪牙。然后将这些玩家依次唤醒，并告知他们变成了什么角色。
 otherNightReminder: 工程师选择不使用能力，或在剧本列表中选择恶魔或爪牙角色。如果他选择爪牙角色，则需要选择对应数量的爪牙。然后将这些玩家依次唤醒，并告知他们变成了什么角色。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 一次性
+    - 主动选角色
+    - 配置变更
+  termIds:
+    - night
+    - setup
+    - townsfolk
+    - minion
+    - demon
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: variable
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 新邪恶身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: change_type
+          type: choice
+          label: 变更类型
+          required: true
+          optionsSource: custom
+          options:
+            - demon
+            - minions
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

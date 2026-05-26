@@ -24,6 +24,53 @@ remindersGlobal:
   - 妖狐
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 首个夜晚，你会得知两名善良玩家。你们三人首次有玩家死于处决时，当晚其中一名善良玩家转变为邪恶阵营，另一名善良玩家得知妖狐在场。
-keywords: minion 首夜
 ability: 首个夜晚，你会得知两名善良玩家。你们三人首次有玩家死于处决时，当晚其中一名善良玩家转变为邪恶阵营，另一名善良玩家得知妖狐在场。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - execution
+    - alignment
+    - good
+    - evil
+    - minion
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

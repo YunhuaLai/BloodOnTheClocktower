@@ -24,6 +24,43 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 魂命少女可以选择一名死亡玩家。如果她这么做了，唤醒这名死亡玩家示意他重获能力，之后的夜晚不再唤醒魂命少女
-summary: 每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家:他重新获得自己的能力
-keywords: townsfolk 夜晚 死亡
 ability: 每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家:他重新获得自己的能力
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - townsfolk
+  abilityPattern: choose_player_death
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 死亡玩家号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

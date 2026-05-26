@@ -22,6 +22,31 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 陌客可以被化尸道人当作其他角色。但只有化尸道人在使用他的能力时因此受到干扰的当晚，才会被小镇做题家检测。
-keywords: jinxes
 ability: 陌客可以被化尸道人当作其他角色。但只有化尸道人在使用他的能力时因此受到干扰的当晚，才会被小镇做题家检测。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - jinx
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

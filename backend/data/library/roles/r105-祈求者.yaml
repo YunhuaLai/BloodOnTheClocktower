@@ -1,8 +1,6 @@
 id: r105
 name: 祈求者
 type: townsfolk
-summary: 每晚得到一个当前局面对某一阵营有较大帮助的角色，能为讨论提供方向性线索。
-keywords: 每晚 角色 信息 阵营帮助
 englishName: invoker
 ability: 每晚，你会得知一个目前情况下对某一阵营有较大帮助的角色。
 setupMeta:
@@ -17,3 +15,55 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 每晚
+    - 信息型
+    - 角色提示
+  termIds:
+    - night
+    - information
+    - alignment
+    - townsfolk
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: helped_team
+          type: team
+          label: 帮助阵营
+          required: false
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

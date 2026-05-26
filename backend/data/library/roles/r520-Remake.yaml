@@ -22,6 +22,36 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 在第三个白天结束后，游戏回到为首个夜晚做准备前，但是已经死亡的玩家依旧会在对应的时间死亡。（绣刃领袖 佞舌不会参与邪恶方互认，自杀的半巫妖会被当作杀死自己）
-keywords: fabled 死亡
 ability: 在第三个白天结束后，游戏回到为首个夜晚做准备前，但是已经死亡的玩家依旧会在对应的时间死亡。（绣刃领袖 佞舌不会参与邪恶方互认，自杀的半巫妖会被当作杀死自己）
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - night
+    - first-night
+    - death
+    - evil
+    - fabled
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

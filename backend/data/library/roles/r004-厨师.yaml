@@ -1,28 +1,6 @@
 id: r004
 name: 厨师
 type: townsfolk
-summary: 得知相邻邪恶玩家的组合数量。座位关系越清晰，信息价值越高。
-keywords: 开局 相邻 邪恶 数字
-detail:
-  overview: 厨师把座位关系变成线索。数字不告诉你谁邪恶，但能限制邪恶方可能的相邻组合。
-  abilitySummary: 开局得到邪恶玩家相邻组合数量。
-  playTips:
-    - 把你的数字和座位图一起看，不要孤立理解。
-    - 当有人被确认善良或邪恶时，厨师信息会突然变得更有价值。
-    - 低数字不代表安全，高数字也不代表所有相邻都可疑。
-  storytellerTips:
-    - 厨师数字影响范围大，新手局要确保玩家能理解相邻组合的含义。
-    - 如果数字很极端，注意邪恶方是否还有可用伪装空间。
-    - 可以提醒玩家死亡不会改变开局座位关系。
-  commonMistakes:
-    - 把相邻玩家个人化，而不是理解为组合数量。
-    - 死亡后重新计算座位，导致逻辑偏离。
-    - 忽略陌客或间谍可能影响侦测类理解。
-  relatedRoleIds:
-    - r005
-    - r018
-    - r016
-    - r021
 englishName: chef
 ability: 在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。
 edition: custom
@@ -45,3 +23,81 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: 唤醒厨师，对他用手势比划数字来告知他邻座邪恶玩家有几对。
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r004
+    officialId: chef
+    sourceHash: 11794d6beee41d03a67f78832756cef70fb80b5f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 首夜
+    - 信息型
+    - 数字
+  termIds:
+    - night
+    - first-night
+    - information
+    - evil
+    - townsfolk
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: evil_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: count
+          type: number
+          label: 相邻邪恶数
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 5
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: adjacent_evil_pair_count
+        value:
+          source: result
+          keys:
+            - count
+            - evilCount
+            - number
+            - value

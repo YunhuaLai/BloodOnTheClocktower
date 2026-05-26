@@ -1,8 +1,6 @@
 id: r054
 name: 卖花女孩
 type: townsfolk
-summary: 得知白天是否有恶魔参与投票。
-keywords: 投票 恶魔 信息
 englishName: flowergirl
 ability: 每个夜晚*，你会得知在今天白天时是否有恶魔投过票。
 edition: custom
@@ -27,3 +25,84 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 对她点头或摇头来示意今天白天是否有恶魔投过票。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r054
+    officialId: flowergirl
+    sourceHash: 47e538dfa06a8ca38ba04e37696769225277d46c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 信息型
+    - 投票相关
+  termIds:
+    - day
+    - night
+    - information
+    - vote
+    - townsfolk
+    - demon
+  abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: demon_check
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: voted
+          type: boolean
+          label: 恶魔是否投票
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: demon_voted_today
+        value:
+          source: result
+          keys:
+            - voted
+            - answer
+            - value
+    label: 已接入自动推理；需要对应白天的结构化投票记录

@@ -2,7 +2,6 @@ const fs = require("node:fs");
 const path = require("node:path");
 const {
   LIBRARY_DIR,
-  ROLE_ABILITIES_DIR,
   ROLES_DIR,
   readYamlFile,
   relativeToRoot,
@@ -127,14 +126,6 @@ function stable(value) {
   return JSON.stringify(value);
 }
 
-function findRoleAbilityFile(roleId) {
-  return fs
-    .readdirSync(ROLE_ABILITIES_DIR, { withFileTypes: true })
-    .filter((entry) => entry.isFile() && entry.name.endsWith(".yaml"))
-    .map((entry) => path.join(ROLE_ABILITIES_DIR, entry.name))
-    .find((filePath) => readYamlFile(filePath, {})?.id === roleId);
-}
-
 function main() {
   const write = process.argv.includes("--write");
   const roleEntries = readRoleEntries();
@@ -144,10 +135,7 @@ function main() {
   const duplicateRoleFiles = roleEntries
     .filter((entry) => duplicateRoleIds.has(entry.data.id))
     .map((entry) => entry.filePath);
-  const duplicateAbilityFiles = Array.from(duplicateRoleIds)
-    .map(findRoleAbilityFile)
-    .filter(Boolean);
-  const deleteFileSet = new Set([...duplicateRoleFiles, ...duplicateAbilityFiles]);
+  const deleteFileSet = new Set(duplicateRoleFiles);
   const changedFiles = [];
 
   collectYamlFiles(LIBRARY_DIR).forEach((filePath) => {

@@ -23,6 +23,34 @@ remindersGlobal:
   - 是炼金术士
 firstNightReminder: 唤醒炼金术士，对他展示他获得的能力所对应的爪牙角色标记。
 otherNightReminder: ''
-summary: 你拥有一个爪牙角色的能力。当你使用能力时，说书人可能会要求你更换选择。
-keywords: townsfolk 首夜
 ability: 你拥有一个爪牙角色的能力。当你使用能力时，说书人可能会要求你更换选择。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+  termIds:
+    - first-night
+    - townsfolk
+    - minion
+    - storyteller
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,9 +1,9 @@
 const fs = require("node:fs");
+const crypto = require("node:crypto");
 const path = require("node:path");
 const { applyAbilityTermMetadata } = require("./ability-term-utils");
 const { inferDeductionData } = require("./deduction-profile-utils");
 const {
-  ROLE_ABILITIES_DIR,
   ROLES_DIR,
   SCRIPTS_DIR,
   readYamlCollection,
@@ -129,10 +129,231 @@ function makeRoleData(existingRole, officialRole) {
     remindersGlobal: officialRole.remindersGlobal || [],
     firstNightReminder: officialRole.firstNightReminder || "",
     otherNightReminder: officialRole.otherNightReminder || "",
-    summary: base.summary || officialRole.ability || "",
-    keywords: base.keywords || buildKeywords(type, officialRole),
-    detail: base.detail,
     ability,
+  };
+}
+
+function hashSourceAbilityPayload(payload) {
+  return crypto
+    .createHash("sha1")
+    .update(JSON.stringify(payload))
+    .digest("hex");
+}
+
+const ROLE_ABILITY_SOURCE_HASH_FIELDS = [
+  "ability",
+  "type",
+  "setup",
+  "reminders",
+  "remindersGlobal",
+  "firstNightReminder",
+  "otherNightReminder",
+];
+
+function makeSourceAbilityData(roleData, officialRole = {}) {
+  const payload = {
+    ability: roleData.ability || "",
+    type: roleData.type || "",
+    setup: Boolean(roleData.setup),
+    reminders: roleData.reminders || [],
+    remindersGlobal: roleData.remindersGlobal || [],
+    firstNightReminder: roleData.firstNightReminder || "",
+    otherNightReminder: roleData.otherNightReminder || "",
+  };
+
+  return {
+    source: "role-file",
+    roleId: roleData.id || "",
+    officialId: officialRole.id || roleData.englishName || "",
+    sourceHash: hashSourceAbilityPayload(payload),
+    sourceHashFields: ROLE_ABILITY_SOURCE_HASH_FIELDS,
+  };
+}
+
+function getSchemaFields(node) {
+  return Array.isArray(node?.fields) ? node.fields : [];
+}
+
+function countFieldsByType(node, type) {
+  return getSchemaFields(node).filter((field) => field?.type === type).length;
+}
+
+function hasFieldType(node, type) {
+  return getSchemaFields(node).some((field) => field?.type === type);
+}
+
+function hasFieldKey(node, key) {
+  return getSchemaFields(node).some((field) => field?.key === key);
+}
+
+function inferRoleTypeHint(ability) {
+  if (/镇民/.test(ability)) return "townsfolk";
+  if (/外来者/.test(ability)) return "outsider";
+  if (/爪牙/.test(ability)) return "minion";
+  if (/恶魔/.test(ability)) return "demon";
+  return null;
+}
+
+function inferBooleanQuestionKind(ability) {
+  if (/恶魔/.test(ability)) return "demon_check";
+  if (/同阵营|同一阵营|相同阵营/.test(ability)) return "team_relation";
+  if (/投票/.test(ability)) return "vote_check";
+  if (/提名/.test(ability)) return "nomination_check";
+  return "boolean_check";
+}
+
+function inferNumberKind(ability) {
+  if (/距离/.test(ability)) return "distance";
+  if (/死亡|死去|死者/.test(ability)) return "death_count";
+  if (/邪恶|恶/.test(ability)) return "evil_count";
+  return "count";
+}
+
+function inferSemanticOperations({ ability, officialRole, roleData, target, result, pageType, eventTiming }) {
+  const operations = [];
+  const targetSeatCount = countFieldsByType(target, "seat");
+  const resultSeatCount = countFieldsByType(result, "seat");
+  const hasTargetRole = hasFieldType(target, "role");
+  const hasResultRole = hasFieldType(result, "role");
+  const hasResultBoolean = hasFieldType(result, "boolean");
+  const hasResultNumber = hasFieldType(result, "number");
+  const hasResultTeam = hasFieldType(result, "team");
+
+  if (officialRole.setup || roleData.setupMeta?.configurationAdjustments?.length) {
+    operations.push({
+      kind: "setup_modifier",
+      adjustments: roleData.setupMeta?.configurationAdjustments || [],
+    });
+  }
+
+  if (targetSeatCount) {
+    operations.push({
+      kind: "choose_player",
+      count: targetSeatCount,
+      source: "target",
+    });
+  }
+
+  if (hasTargetRole) {
+    operations.push({
+      kind: "choose_role",
+      source: "target",
+    });
+  }
+
+  if (hasFieldKey(result, "seat1") && hasFieldKey(result, "seat2") && hasResultRole) {
+    operations.push({
+      kind: "learn_role_in_group",
+      seats: resultSeatCount || 2,
+      roleType: inferRoleTypeHint(ability),
+    });
+  } else if (targetSeatCount && hasResultRole) {
+    operations.push({
+      kind: "learn_role_at_target",
+      targetSource: "target",
+    });
+  } else if (hasResultRole) {
+    operations.push({
+      kind: "learn_role",
+      roleType: inferRoleTypeHint(ability),
+    });
+  }
+
+  if (hasResultBoolean) {
+    operations.push({
+      kind: "learn_boolean",
+      question: inferBooleanQuestionKind(ability),
+    });
+  }
+
+  if (hasResultNumber) {
+    operations.push({
+      kind: "learn_number",
+      numberKind: inferNumberKind(ability),
+    });
+  }
+
+  if (hasResultTeam) {
+    operations.push({
+      kind: "learn_team",
+    });
+  }
+
+  if (resultSeatCount && !hasResultRole) {
+    operations.push({
+      kind: "learn_player",
+      count: resultSeatCount,
+    });
+  }
+
+  if (/中毒|醉酒|失去能力/.test(ability)) {
+    operations.push({
+      kind: "apply_status_effect",
+      effect: "poison_drunk_or_malfunction",
+    });
+  }
+
+  if (/保护|不会死亡|免于死亡|免受|免疫|无效/.test(ability)) {
+    operations.push({
+      kind: "protect_player",
+    });
+  }
+
+  if (/死亡|死去|处决/.test(ability) && !operations.some((operation) => operation.kind === "learn_number")) {
+    operations.push({
+      kind: "death_or_execution_effect",
+    });
+  }
+
+  if (pageType === "event_triggered") {
+    operations.push({
+      kind: "event_trigger",
+      eventTiming,
+    });
+  }
+
+  if (!operations.length) {
+    operations.push({
+      kind: pageType === "rule_modifier" || pageType === "no_input" ? "passive_rule" : "manual_record",
+    });
+  }
+
+  return operations;
+}
+
+function makeAbilitySemantics({
+  ability,
+  officialRole,
+  roleData,
+  target,
+  result,
+  pageType,
+  phaseTiming,
+  eventTiming,
+  usagePattern,
+  needsReview,
+}) {
+  return {
+    schemaVersion: 1,
+    reviewStatus: needsReview ? "needs_review" : "auto",
+    confidence: needsReview ? 0.45 : 0.75,
+    timing: {
+      phase: phaseTiming,
+      event: eventTiming,
+      frequency: usagePattern,
+    },
+    actor: {
+      drivenBy: pageType === "pick_and_record" ? "player" : pageType === "rule_modifier" ? "system" : "storyteller",
+    },
+    operations: inferSemanticOperations({
+      ability,
+      officialRole,
+      roleData,
+      target,
+      result,
+      pageType,
+      eventTiming,
+    }),
   };
 }
 
@@ -244,19 +465,6 @@ function formatSignedRange(min, max) {
   return min === max ? format(min) : `${format(min)} 到 ${format(max)}`;
 }
 
-function buildKeywords(type, officialRole) {
-  const keywords = [type];
-
-  if (officialRole.firstNight) keywords.push("首夜");
-  if (officialRole.otherNight) keywords.push("夜晚");
-  if (officialRole.setup) keywords.push("设置");
-  if (String(officialRole.ability || "").includes("死亡")) keywords.push("死亡");
-  if (String(officialRole.ability || "").includes("中毒")) keywords.push("中毒");
-  if (String(officialRole.ability || "").includes("醉酒")) keywords.push("醉酒");
-
-  return keywords.join(" ");
-}
-
 function makeRoleAbilityData(roleData, officialRole) {
   const ability = officialRole.ability || "";
   const hasFirstNight = Number(officialRole.firstNight) > 0;
@@ -271,6 +479,7 @@ function makeRoleAbilityData(roleData, officialRole) {
   const isSetupOnly = Boolean(officialRole.setup) && !hasFirstNight && !hasOtherNight;
   const needsReview = needsAbilityReview(ability, target, result);
   const phaseTiming = inferPhaseTiming(ability, hasFirstNight, hasOtherNight, isSetupOnly, isEvent);
+  const eventTiming = isEvent ? inferEventTiming(ability) : null;
   const pageType = chooses
     ? "pick_and_record"
     : learnsInfo
@@ -284,20 +493,33 @@ function makeRoleAbilityData(roleData, officialRole) {
     id: roleData.id,
     englishName: roleData.englishName,
     name: roleData.name,
-    schemaVersion: 1,
+    schemaVersion: 2,
     generatedFromOfficial: true,
+    sourceAbility: makeSourceAbilityData(roleData, officialRole),
     needsReview,
     reviewReason: needsReview ? "官方能力文本包含复杂结算，需人工确认笔记页记录字段。" : "",
     tags: buildAbilityTags(officialRole, pageType),
     abilityMeta: {
       pageType,
       phaseTiming,
-      eventTiming: isEvent ? inferEventTiming(ability) : null,
+      eventTiming,
       usagePattern,
       activationMode: chooses ? "active" : isEvent ? "conditional" : "passive",
       drivenBy: chooses ? "player" : isSetupOnly ? "system" : "storyteller",
       recordable: pageType !== "no_input" && pageType !== "rule_modifier",
     },
+    abilitySemantics: makeAbilitySemantics({
+      ability,
+      officialRole,
+      roleData,
+      target,
+      result,
+      pageType,
+      phaseTiming,
+      eventTiming,
+      usagePattern,
+      needsReview,
+    }),
     interactionSchema: {
       target: stripSchemaNodeMeta(target),
       result: stripSchemaNodeMeta(result),
@@ -309,6 +531,66 @@ function makeRoleAbilityData(roleData, officialRole) {
   }
 
   return applyAbilityTermMetadata(abilityData, { ...roleData, ability });
+}
+
+function stable(value) {
+  return JSON.stringify(value);
+}
+
+function stripEmbeddedAbilityFields(abilityData) {
+  const { id, englishName, name, ...rest } = abilityData;
+  return rest;
+}
+
+function makeExistingRoleAbilityData(existingAbilityData, roleData, officialRole) {
+  const ability = officialRole.ability || roleData.ability || "";
+  const generatedAbilityData = makeRoleAbilityData(roleData, officialRole);
+  const sourceAbility = makeSourceAbilityData(roleData, officialRole);
+  const sourceChanged =
+    existingAbilityData.sourceAbility?.source === sourceAbility.source &&
+    existingAbilityData.sourceAbility?.sourceHash &&
+    existingAbilityData.sourceAbility.sourceHash !== sourceAbility.sourceHash;
+  const nextData = {
+    ...existingAbilityData,
+    schemaVersion: Math.max(Number(existingAbilityData.schemaVersion) || 1, 2),
+    generatedFromOfficial: true,
+    sourceAbility,
+  };
+
+  if (!existingAbilityData.abilitySemantics || sourceChanged) {
+    const abilityMeta = existingAbilityData.abilityMeta || generatedAbilityData.abilityMeta || {};
+    const interactionSchema = existingAbilityData.interactionSchema || generatedAbilityData.interactionSchema || {};
+    const target = interactionSchema.target || generatedAbilityData.interactionSchema.target;
+    const result = interactionSchema.result || generatedAbilityData.interactionSchema.result;
+
+    nextData.abilitySemantics = makeAbilitySemantics({
+      ability,
+      officialRole,
+      roleData,
+      target,
+      result,
+      pageType: abilityMeta.pageType || generatedAbilityData.abilityMeta.pageType,
+      phaseTiming:
+        Object.prototype.hasOwnProperty.call(abilityMeta, "phaseTiming")
+          ? abilityMeta.phaseTiming
+          : generatedAbilityData.abilityMeta.phaseTiming,
+      eventTiming:
+        Object.prototype.hasOwnProperty.call(abilityMeta, "eventTiming")
+          ? abilityMeta.eventTiming
+          : generatedAbilityData.abilityMeta.eventTiming,
+      usagePattern: abilityMeta.usagePattern || generatedAbilityData.abilityMeta.usagePattern,
+      needsReview: sourceChanged || Boolean(existingAbilityData.needsReview ?? generatedAbilityData.needsReview),
+    });
+
+    if (sourceChanged) {
+      nextData.abilitySemantics.reviewStatus = "source_changed";
+      nextData.needsReview = true;
+      nextData.reviewReason =
+        nextData.reviewReason || "Official ability text changed; review semantics and note fields.";
+    }
+  }
+
+  return applyAbilityTermMetadata(nextData, { ...roleData, ability });
 }
 
 function stripSchemaNodeMeta(node) {
@@ -603,7 +885,6 @@ function importOfficialJson(inputPath) {
   const { meta, roles: officialRoles } = normalizeOfficialInput(inputPath);
   const scripts = readYamlCollection(SCRIPTS_DIR);
   const roles = readYamlCollection(ROLES_DIR);
-  const roleAbilities = readYamlCollection(ROLE_ABILITIES_DIR);
   const scriptId = makeScriptId(scripts, meta.name);
   const existingScript = findEntryById(scripts, scriptId);
   const roleIdByOfficialName = new Map();
@@ -619,10 +900,6 @@ function importOfficialJson(inputPath) {
     const roleData = makeRoleData(existingRole?.data ? { ...existingRole.data, id: roleId } : { id: roleId }, officialRole);
     const filePath = existingRole?.filePath || path.join(ROLES_DIR, `${roleId}-${safeFileName(officialRole.name)}.yaml`);
 
-    writeYamlFile(filePath, roleData);
-    roleIdByOfficialName.set(officialRole.name, roleId);
-    changed.push(relativeToRoot(filePath));
-
     if (!existingRole) {
       roles.push({ fileName: path.basename(filePath), filePath, data: roleData });
       createdRoles.push({ id: roleId, name: officialRole.name });
@@ -630,27 +907,30 @@ function importOfficialJson(inputPath) {
       reusedRoles.push({ id: roleId, name: officialRole.name });
     }
 
-    const existingAbility = roleAbilities.find((entry) => entry.data?.id === roleId);
-    if (!existingAbility) {
-      const abilityData = makeRoleAbilityData(roleData, officialRole);
-      const abilityPath = path.join(ROLE_ABILITIES_DIR, `${roleId}-${safeFileName(officialRole.name)}.yaml`);
-      writeYamlFile(abilityPath, abilityData);
-      roleAbilities.push({ fileName: path.basename(abilityPath), filePath: abilityPath, data: abilityData });
-      changed.push(relativeToRoot(abilityPath));
-      createdRoleAbilities.push({ id: roleId, name: officialRole.name });
-      if (abilityData.needsReview) {
-        reviewRoles.push({ id: roleId, name: officialRole.name });
-      }
-    } else if (!existingAbility.data?.deduction) {
-      const deduction = inferDeductionData(existingAbility.data, { ...roleData, ability: officialRole.ability || roleData.ability || "" });
+    const existingAbility = roleData.abilityData
+      ? { id: roleData.id, englishName: roleData.englishName, name: roleData.name, ...roleData.abilityData }
+      : null;
+    const abilityData = existingAbility
+      ? makeExistingRoleAbilityData(existingAbility, roleData, officialRole)
+      : makeRoleAbilityData(roleData, officialRole);
+
+    if (!abilityData.deduction) {
+      const deduction = inferDeductionData(abilityData, { ...roleData, ability: officialRole.ability || roleData.ability || "" });
       if (deduction) {
-        existingAbility.data.deduction = deduction;
-        writeYamlFile(existingAbility.filePath, existingAbility.data);
-        changed.push(relativeToRoot(existingAbility.filePath));
+        abilityData.deduction = deduction;
       }
     }
 
-    if (existingAbility?.data?.needsReview) {
+    roleData.abilityData = stripEmbeddedAbilityFields(abilityData);
+    writeYamlFile(filePath, roleData);
+    roleIdByOfficialName.set(officialRole.name, roleId);
+    changed.push(relativeToRoot(filePath));
+
+    if (!existingAbility) {
+      createdRoleAbilities.push({ id: roleId, name: officialRole.name });
+    }
+
+    if (abilityData.needsReview) {
       reviewRoles.push({ id: roleId, name: officialRole.name });
     }
   });
@@ -870,4 +1150,8 @@ module.exports = {
   inferConfigurationAdjustments,
   inferUsagePattern,
   inferPhaseTiming,
+  makeSourceAbilityData,
+  makeRoleAbilityData,
+  makeExistingRoleAbilityData,
+  makeAbilitySemantics,
 };

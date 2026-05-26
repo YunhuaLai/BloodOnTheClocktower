@@ -1,28 +1,6 @@
 id: r001
 name: 洗衣妇
 type: townsfolk
-summary: 开局得知两名玩家中有一位是某个镇民。适合早期建立可信信息链。
-keywords: 开局 信息 镇民 二选一
-detail:
-  overview: 洗衣妇是善良方早期拼图角色，价值在于确认一个镇民身份，并帮助被确认者更容易被全桌接纳。
-  abilitySummary: 开局得到一个镇民身份，以及两名候选玩家；其中一名候选与该身份有关。
-  playTips:
-    - 不要只报两个名字，最好说明你想验证的逻辑和候选人的发言质量。
-    - 如果候选人中有人主动跳出对应身份，可以让他先给信息，再决定是否公开你自己的线索。
-    - 你的信息更适合建立可信链，不适合单独决定处决。
-  storytellerTips:
-    - 新手局可给较容易理解的身份，帮助玩家学习信息链。
-    - 如果场上有酒鬼或投毒者，可以让信息略有张力，但仍保留可推理空间。
-    - 注意不要让洗衣妇信息直接锁死邪恶方全部伪装。
-  commonMistakes:
-    - 把候选二选一当成绝对验人结果。
-    - 过早公开导致邪恶方轻松调整伪装。
-    - 忽略候选人的实际发言和投票行为。
-  relatedRoleIds:
-    - r002
-    - r003
-    - r007
-    - r015
 englishName: washerwoman
 ability: 在你的首个夜晚，你会得知两名玩家和一个镇民角色：这两名玩家之一是该角色。
 edition: custom
@@ -47,3 +25,103 @@ reminders:
 remindersGlobal: []
 firstNightReminder: '6'
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r001
+    officialId: washerwoman
+    sourceHash: 1d70cf6e863e0044c516a37e5ff08847c79d4396
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 首夜
+    - 信息型
+    - 身份提示
+  termIds:
+    - night
+    - first-night
+    - information
+    - townsfolk
+  abilityPattern: role_in_group_hint
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role_in_group
+        seats: 2
+        roleType: townsfolk
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: role_in_group
+        seats:
+          source: result
+          keys:
+            - seat1
+            - seat2
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

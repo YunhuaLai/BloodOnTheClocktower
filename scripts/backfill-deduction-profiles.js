@@ -1,6 +1,5 @@
 const { inferDeductionData } = require("./deduction-profile-utils");
 const {
-  ROLE_ABILITIES_DIR,
   ROLES_DIR,
   readYamlCollection,
   writeYamlFile,
@@ -11,31 +10,37 @@ function stable(value) {
 }
 
 function main() {
-  const roles = readYamlCollection(ROLES_DIR).map((entry) => entry.data);
-  const roleById = new Map(roles.map((role) => [role.id, role]));
-  const abilities = readYamlCollection(ROLE_ABILITIES_DIR);
+  const roleEntries = readYamlCollection(ROLES_DIR);
   let changed = 0;
   let removed = 0;
 
-  abilities.forEach((entry) => {
-    const role = roleById.get(entry.data.id) || {};
-    const nextDeduction = inferDeductionData(entry.data, role);
-    const before = stable(entry.data.deduction || null);
+  roleEntries.forEach((entry) => {
+    const role = entry.data;
+    const abilityData = {
+      id: role.id,
+      englishName: role.englishName,
+      name: role.name,
+      ...(role.abilityData || {}),
+    };
+    const nextDeduction = inferDeductionData(abilityData, role);
+    const before = stable(abilityData.deduction || null);
 
     if (nextDeduction) {
-      entry.data.deduction = nextDeduction;
-    } else if (entry.data.deduction) {
-      delete entry.data.deduction;
+      abilityData.deduction = nextDeduction;
+    } else if (abilityData.deduction) {
+      delete abilityData.deduction;
       removed += 1;
     }
 
-    if (stable(entry.data.deduction || null) !== before) {
-      writeYamlFile(entry.filePath, entry.data);
+    if (stable(abilityData.deduction || null) !== before) {
+      const { id, englishName, name, ...embeddedData } = abilityData;
+      role.abilityData = embeddedData;
+      writeYamlFile(entry.filePath, role);
       changed += 1;
     }
   });
 
-  console.log(`Backfilled deduction profiles: ${changed} file(s) changed, ${removed} stale profile(s) removed.`);
+  console.log(`Backfilled deduction profiles: ${changed} role file(s) changed, ${removed} stale profile(s) removed.`);
 }
 
 main();

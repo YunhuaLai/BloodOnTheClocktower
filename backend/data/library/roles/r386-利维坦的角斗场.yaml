@@ -22,6 +22,39 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 在游戏的前两个白天，提名阶段改为决斗阶段。玩家可以向另一名玩家发起决斗，输掉决斗的玩家之一会在当晚死亡。如果出现平局，他们重新决斗。
-keywords: fabled 死亡
 ability: 在游戏的前两个白天，提名阶段改为决斗阶段。玩家可以向另一名玩家发起决斗，输掉决斗的玩家之一会在当晚死亡。如果出现平局，他们重新决斗。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - nomination
+    - death
+    - fabled
+  abilityPattern: nomination_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

@@ -23,6 +23,39 @@ remindersGlobal:
   - 是乐园游民
 firstNightReminder: 唤醒一定数量的乐园游民，告诉他们谁是他们认知里的恶魔。
 otherNightReminder: ''
-summary: 你以为你是爪牙，但你不是。说书人可以打破规则让你相信自己是爪牙。[恶魔是妄想乐园]
-keywords: outsider 首夜 夜晚 设置
 ability: 你以为你是爪牙，但你不是。说书人可以打破规则让你相信自己是爪牙。[恶魔是妄想乐园]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - outsider
+    - minion
+    - demon
+    - storyteller
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

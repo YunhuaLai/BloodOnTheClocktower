@@ -24,6 +24,40 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 被你提名的玩家会被当作他对立的阵营直到下个黄昏。如果他是镇民，他中毒直到下个黄昏。
-keywords: minion 中毒
 ability: 被你提名的玩家会被当作他对立的阵营直到下个黄昏。如果他是镇民，他中毒直到下个黄昏。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - poisoned
+    - nomination
+    - alignment
+    - townsfolk
+    - minion
+  abilityPattern: nomination_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

@@ -1,8 +1,6 @@
 id: r064
 name: 巡山人
 type: townsfolk
-summary: 夜晚一次性寻找落难少女，命中后可把她变成不在场镇民，是对抗落难少女输法的关键功能位。
-keywords: 落难少女 一次性 变镇民 夜晚
 englishName: huntsman
 ability: 每局游戏限一次，在夜晚时，你可以选择一名存活的玩家：如果你选中了落难少女，她会变成一个不在场的镇民角色。[+落难少女]
 edition: custom
@@ -26,3 +24,56 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒巡山人，他可以摇头不使用能力，或选择一名玩家。如果巡山人选中了落难少女，则在巡山人入睡后通知落难少女角色变化。
 otherNightReminder: 如果巡山人未曾使用能力，唤醒巡山人，他可以摇头不使用能力，或选择一名玩家。如果巡山人选中了落难少女，则在巡山人入睡后通知落难少女角色变化。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 一次性
+    - 主动选玩家
+    - 转化型
+  termIds:
+    - night
+    - alive
+    - townsfolk
+  abilityPattern: target_boolean_check
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: found_damsel
+          type: boolean
+          label: 命中落难少女
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

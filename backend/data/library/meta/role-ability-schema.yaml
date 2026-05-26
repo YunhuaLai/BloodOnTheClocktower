@@ -1,12 +1,15 @@
-schemaVersion: 1
-description: Role ability classification schema for search, structured storage, and notes-page form generation.
+schemaVersion: 2
+description: Role ability classification schema for source tracking, semantic modeling, notes-page form generation, and deduction.
 topLevelFields:
   schemaVersion: Schema version.
   id: Role id. Prefer to reuse the existing role id in the catalog.
   name: Display name.
+  generatedFromOfficial: Whether the entry started from an official JSON role object.
+  sourceAbility: Role-file source pointer and hash used to detect ability-source changes without duplicating role fields.
   tags: Search/display tags for frontend filtering. Free-form but preferably controlled.
   termIds: Canonical glossary term ids detected from ability text, role keywords, and ability tags.
   abilityPattern: Coarse ability template used for import review and future form suggestions.
+  abilitySemantics: Source-independent semantic operations inferred from the ability text.
   abilityMeta: High-level semantic classification for page behavior and querying.
   interactionSchema: Structured input definition reused by target/result sections on the notes page.
   deduction: Optional deduction profile used by the notes-page possible-world analyzer.
@@ -79,6 +82,28 @@ enums:
     - storyteller
     - system
     - mixed
+  semanticReviewStatus:
+    - auto
+    - needs_review
+    - reviewed
+    - source_changed
+  semanticOperationKind:
+    - setup_modifier
+    - choose_player
+    - choose_role
+    - learn_role_in_group
+    - learn_role_at_target
+    - learn_role
+    - learn_boolean
+    - learn_number
+    - learn_team
+    - learn_player
+    - apply_status_effect
+    - protect_player
+    - death_or_execution_effect
+    - event_trigger
+    - passive_rule
+    - manual_record
   repeatMode:
     - none
     - once
@@ -169,12 +194,38 @@ fieldTypeDictionary:
   text: Free-form text.
 templates:
   roleEntry:
-    schemaVersion: 1
+    schemaVersion: 2
     id: string
     name: string
+    generatedFromOfficial: false
+    sourceAbility:
+      source: role-file
+      roleId: role-id
+      officialId: official-id
+      sourceHash: sha1
+      sourceHashFields:
+        - ability
+        - type
+        - setup
+        - reminders
+        - remindersGlobal
+        - firstNightReminder
+        - otherNightReminder
     tags: []
     termIds: []
     abilityPattern: manual_record
+    abilitySemantics:
+      schemaVersion: 1
+      reviewStatus: needs_review
+      confidence: 0.5
+      timing:
+        phase: each_night
+        event: null
+        frequency: once_per_night
+      actor:
+        drivenBy: player
+      operations:
+        - kind: manual_record
     abilityMeta:
       pageType: pick_and_record
       phaseTiming: each_night
@@ -238,6 +289,15 @@ usageRules:
   - >-
     Target and result reuse the same field definitions, but remain separate containers because their
     semantics differ.
+  - >-
+    sourceAbility points back to the role file and stores a hash of sourceHashFields. roles/*.yaml remains
+    the authoritative source for ability text, team/type, setup, reminders, and night reminder text.
+  - >-
+    abilitySemantics is the bridge between source text and downstream behavior. interactionSchema should
+    describe what to record; deduction should describe what can be inferred.
+  - >-
+    reviewStatus='auto' means generated and not manually checked; 'reviewed' means a human checked it;
+    'source_changed' means the source text changed after a previous semantic pass.
   - >-
     deduction.status='supported' means the possible-world analyzer can build observations from
     deduction.templates. status='candidate' marks a likely future template but should not be used as

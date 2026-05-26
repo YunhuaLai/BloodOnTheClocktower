@@ -23,6 +23,44 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果恶魔在夜晚杀死了醉面客，将“狂欢”标记放在魔典正中间。
-summary: 如果恶魔在夜晚杀死了你，且下一名被处决的玩家还是邪恶的，你的阵营获胜。在最后一个白天，你醉酒。
-keywords: minion 醉酒
 ability: 如果恶魔在夜晚杀死了你，且下一名被处决的玩家还是邪恶的，你的阵营获胜。在最后一个白天，你醉酒。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - night
+    - drunk
+    - execution
+    - death
+    - alignment
+    - evil
+    - minion
+    - demon
+  abilityPattern: execution_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

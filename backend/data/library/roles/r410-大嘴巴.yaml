@@ -22,6 +22,54 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: 在你的首个夜晚，你得知一段短语。
 otherNightReminder: ''
-summary: 在你的首个夜晚，你得知一段短语。每个黄昏，如果没有其他存活的善良玩家说出这个短语或一名存活的爪牙公开猜测出了该短语（即使你已经死亡），你的阵营落败。
-keywords: outsider 首夜 死亡
 ability: 在你的首个夜晚，你得知一段短语。每个黄昏，如果没有其他存活的善良玩家说出这个短语或一名存活的爪牙公开猜测出了该短语（即使你已经死亡），你的阵营落败。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - alive
+    - alignment
+    - good
+    - outsider
+    - minion
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

@@ -1,8 +1,6 @@
 id: r091
 name: 食人族
 type: townsfolk
-summary: 获得上一名被处决玩家的能力，但若吃到邪恶角色会中毒。
-keywords: 处决 获得能力 中毒
 englishName: cannibal
 ability: 你拥有上个死于处决的玩家的能力。如果该玩家属于邪恶阵营，你中毒直到下个善良玩家死于处决。
 edition: custom
@@ -27,3 +25,34 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 被动
+    - 能力继承
+    - 特殊机制
+  termIds:
+    - poisoned
+    - execution
+    - alignment
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: rule_modifier
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

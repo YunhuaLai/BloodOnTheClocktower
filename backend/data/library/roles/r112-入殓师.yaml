@@ -1,8 +1,6 @@
 id: r112
 name: 入殓师
 type: outsider
-summary: 若提名并处决恶魔，会变成邪恶恶魔；四名或更少存活玩家时失去能力。
-keywords: 提名 处决 恶魔 阵营转变 失去能力
 englishName: embalmer
 ability: 如果你提名并处决了恶魔，你会变成邪恶的恶魔。当剩余存活玩家小于等于四人时（旅行者除外），你失去能力。
 edition: custom
@@ -26,3 +24,62 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 如果白天入殓师提名了恶魔且恶魔被处决，唤醒他，并对他展示“你是”提示标记和恶魔角色标记。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 提名
+    - 处决
+    - 阵营转变
+    - 恶魔
+  termIds:
+    - nomination
+    - execution
+    - alive
+    - alignment
+    - evil
+    - outsider
+    - demon
+    - traveler
+  abilityPattern: execution_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: day
+    eventTiming: on_execution
+    usagePattern: variable
+    activationMode: conditional
+    drivenBy: mixed
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 2
+      fields:
+        - key: executed_seat
+          type: seat
+          label: 被处决号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 2
+      fields:
+        - key: became_demon
+          type: boolean
+          label: 转为恶魔
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

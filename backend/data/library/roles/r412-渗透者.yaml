@@ -27,6 +27,34 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 每局游戏限一次，在夜晚时，你决定下个黎明播报什么学院的格言或不播报。
 otherNightReminder: 每局游戏限一次，在夜晚时，你决定下个黎明播报什么学院的格言或不播报。
-summary: 每局游戏限一次，在夜晚时，你决定下个黎明播报什么学院的格言或不播报。
-keywords: minion 首夜 夜晚
 ability: 每局游戏限一次，在夜晚时，你决定下个黎明播报什么学院的格言或不播报。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - minion
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

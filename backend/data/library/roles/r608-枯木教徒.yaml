@@ -26,6 +26,64 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 前三个夜晚，让其选择一名玩家:他成为祭品。第三天夜晚结束时，祭品之一成为邪恶的枯木，其他两名祭品中毒，即使他已死亡。（无恶魔在场）
 otherNightReminder: 前三个夜晚，让其选择一名玩家:他成为祭品。第三天夜晚结束时，祭品之一成为邪恶的枯木，其他两名祭品中毒，即使他已死亡。（无恶魔在场）
-summary: 在你的首个夜晚，你得知三个伪装。前三个夜晚，你要选择一名玩家:他成为祭品。第三天夜晚结束时，祭品之一成为邪恶的枯木，其他祭品中毒，你得知谁是枯木，即使你已死亡。[无恶魔在场]
-keywords: minion 首夜 夜晚 设置 死亡 中毒
 ability: 在你的首个夜晚，你得知三个伪装。前三个夜晚，你要选择一名玩家:他成为祭品。第三天夜晚结束时，祭品之一成为邪恶的枯木，其他祭品中毒，你得知谁是枯木，即使你已死亡。[无恶魔在场]
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - first-night
+    - poisoned
+    - death
+    - evil
+    - minion
+    - demon
+  abilityPattern: status_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

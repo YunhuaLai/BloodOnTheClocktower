@@ -23,6 +23,35 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 每个夜晚，一名玩家的信息会变得毫无意义。
 otherNightReminder: 每个夜晚，一名玩家的信息会变得毫无意义。
-summary: 每个夜晚，一名玩家的信息会变得毫无意义。
-keywords: townsfolk 首夜 夜晚
 ability: 每个夜晚，一名玩家的信息会变得毫无意义。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - information
+    - townsfolk
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

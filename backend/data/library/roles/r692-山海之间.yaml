@@ -22,6 +22,46 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 在首个夜晚，恶魔可以在三个凶兽之间选择一个秘密降临人间（没有恶魔则由召唤师选择）。每局游戏限一次，在白天时，所有玩家可以选择一名存活玩家，他需要选择一个神兽庇护人间。
-keywords: fabled 首夜
 ability: 在首个夜晚，恶魔可以在三个凶兽之间选择一个秘密降临人间（没有恶魔则由召唤师选择）。每局游戏限一次，在白天时，所有玩家可以选择一名存活玩家，他需要选择一个神兽庇护人间。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - alive
+    - demon
+    - fabled
+  abilityPattern: choose_player_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

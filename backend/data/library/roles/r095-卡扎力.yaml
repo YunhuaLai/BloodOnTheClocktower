@@ -1,8 +1,6 @@
 id: r095
 name: 卡扎力
 type: demon
-summary: 开局亲自选择爪牙玩家与爪牙角色，并在后续夜晚正常击杀。
-keywords: 恶魔 爪牙 配置 击杀
 englishName: kazali
 ability: 每个夜晚*，你要选择一名玩家：他死亡。[由你决定谁是什么爪牙，-或+任意数量外来者]
 edition: custom
@@ -26,3 +24,67 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 开局
+    - 每晚
+    - 特殊机制
+    - 自定义
+  termIds:
+    - night
+    - first-night
+    - death
+    - outsider
+    - minion
+    - demon
+  abilityPattern: player_info
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: special
+    eventTiming: null
+    usagePattern: variable
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: variable
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 爪牙身份
+          required: false
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: variable
+      defaultRows: 3
+      fields:
+        - key: kill_seat
+          type: seat
+          label: 击杀号码
+          required: false
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

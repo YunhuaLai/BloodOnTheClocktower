@@ -1,28 +1,6 @@
 id: r006
 name: 占卜师
 type: townsfolk
-summary: 每晚检查两名玩家中是否存在恶魔。强力但可能受到红鲱鱼等误导。
-keywords: 每晚 恶魔 检查 二选一
-detail:
-  overview: 占卜师是强力找恶魔角色，但它天然带有误导点。它适合逐步排除范围，而不是一晚直接拍死目标。
-  abilitySummary: 每晚选择两名玩家，得知其中是否有恶魔相关命中；场上会有一个特殊误导目标。
-  playTips:
-    - 用交叉检查缩小范围，不要只围绕一次命中做结论。
-    - 尽量规划检查组合，让每晚结果都能排除一批可能性。
-    - 记得误导目标可能让善良玩家看起来像恶魔。
-  storytellerTips:
-    - 误导目标应制造推理张力，而不是让信息完全失效。
-    - 占卜师过强时，投毒或误导目标能给邪恶方喘息空间。
-    - 新手局可以让检查结果更适合讲解排除法。
-  commonMistakes:
-    - 把命中结果直接等同于两人里必有恶魔。
-    - 忽略红鲱鱼式误导目标。
-    - 每晚随意点人，导致信息无法互相验证。
-  relatedRoleIds:
-    - r021
-    - r017
-    - r016
-    - r018
 englishName: fortune-teller
 ability: 每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。会有一名善良玩家始终被你的能力当作恶魔。
 edition: custom
@@ -46,3 +24,108 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 让占卜师选择两名玩家。如果其中有恶魔或“干扰项”，点头示意，否则摇头。
 otherNightReminder: 让占卜师选择两名玩家。如果其中有恶魔或“干扰项”，点头示意，否则摇头。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r006
+    officialId: fortune-teller
+    sourceHash: bc18922186ad77cfe6d9ebb5595a61474dbe5cf4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 信息型
+  termIds:
+    - night
+    - information
+    - good
+    - townsfolk
+    - demon
+  abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: learn_boolean
+        question: demon_check
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: has_demon
+          type: boolean
+          label: 是否含恶魔
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: manual
+    templates:
+      - type: demon_in_group
+        seats:
+          source: target
+          keys:
+            - seat1
+            - seat2
+        value:
+          source: result
+          keys:
+            - has_demon
+            - answer
+            - value

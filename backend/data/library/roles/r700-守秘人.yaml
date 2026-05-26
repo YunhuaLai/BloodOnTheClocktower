@@ -23,6 +23,53 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 唤醒守秘人，对他指向一名善良玩家，并展示该玩家的角色标记。
 otherNightReminder: 唤醒守秘人，对他指向一名善良玩家，并展示该玩家的角色标记。
-summary: 在你的首个夜晚，你会得知一个善良玩家和他的角色，如果他死亡，你会得知另一个存活善良玩家和他的角色。
-keywords: townsfolk 首夜 夜晚 死亡
 ability: 在你的首个夜晚，你会得知一个善良玩家和他的角色，如果他死亡，你会得知另一个存活善良玩家和他的角色。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - alive
+    - good
+    - townsfolk
+  abilityPattern: role_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

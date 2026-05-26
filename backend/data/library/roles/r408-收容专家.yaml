@@ -22,6 +22,34 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 每个白天，你可以私下询问说书人一个有关恶魔能力的是非问题。
-keywords: townsfolk
 ability: 每个白天，你可以私下询问说书人一个有关恶魔能力的是非问题。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - day
+    - townsfolk
+    - demon
+    - storyteller
+  abilityPattern: no_input
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

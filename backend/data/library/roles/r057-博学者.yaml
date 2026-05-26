@@ -1,8 +1,6 @@
 id: r057
 name: 博学者
 type: townsfolk
-summary: 每天得到两条信息，其中一条为真、一条为假。
-keywords: 每日 信息 真话 假话
 englishName: savant
 ability: 每个白天，你可以私下询问说书人以得知两条信息：一个是正确的，一个是错误的。
 edition: custom
@@ -25,3 +23,80 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r057
+    officialId: savant
+    sourceHash: a38950b2f23300bebda4ce63328db3c2d634ce73
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 白天
+    - 信息型
+    - 双信息
+  termIds:
+    - day
+    - information
+    - townsfolk
+    - storyteller
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: repeatable
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: repeatable
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: statement1
+          type: text
+          label: 信息1
+          required: true
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: statement2
+          type: text
+          label: 信息2
+          required: true
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

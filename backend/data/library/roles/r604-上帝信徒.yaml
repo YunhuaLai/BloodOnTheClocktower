@@ -22,6 +22,41 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 如果你是善良的，你不会死亡。每次你触发这个能力便会使一名镇民醉酒；当你首你因邪恶阵营的能力触发，由你决定下次拜访日事件。
-keywords: townsfolk 死亡 醉酒
 ability: 如果你是善良的，你不会死亡。每次你触发这个能力便会使一名镇民醉酒；当你首你因邪恶阵营的能力触发，由你决定下次拜访日事件。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - drunk
+    - death
+    - alignment
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

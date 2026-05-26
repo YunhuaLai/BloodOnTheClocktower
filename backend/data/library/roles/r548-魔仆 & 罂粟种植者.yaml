@@ -22,6 +22,42 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 罂粟种植者在场时，首先唤醒魔仆让其选择一名玩家，随后唤醒恶魔，告知其魔仆的选择，随后恶魔选择的玩家死亡。
-keywords: a jinxed 死亡
 ability: 罂粟种植者在场时，首先唤醒魔仆让其选择一名玩家，随后唤醒恶魔，告知其魔仆的选择，随后恶魔选择的玩家死亡。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 主动选择
+  termIds:
+    - death
+    - demon
+    - jinx
+  abilityPattern: choose_player_death
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

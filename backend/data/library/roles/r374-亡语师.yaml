@@ -23,6 +23,33 @@ remindersGlobal:
   - 是亡语师
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 当你死亡时，你获得一个除恶魔外的死亡角色能力且在本局游戏中不会失效。
-keywords: townsfolk 死亡
 ability: 当你死亡时，你获得一个除恶魔外的死亡角色能力且在本局游戏中不会失效。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - death
+    - townsfolk
+    - demon
+  abilityPattern: death_trigger
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

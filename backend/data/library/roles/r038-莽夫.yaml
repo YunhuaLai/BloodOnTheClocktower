@@ -1,8 +1,6 @@
 id: r038
 name: 莽夫
 type: outsider
-summary: 第一个影响他的玩家可能醉酒，且莽夫可能改变阵营。
-keywords: 醉酒 转阵营 目标
 englishName: goon
 ability: 每个夜晚，首个使用其自身能力选择了你的玩家会醉酒直到下个黄昏。你会转变为他的阵营。
 edition: custom
@@ -26,3 +24,59 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r038
+    officialId: goon
+    sourceHash: 2bafe989756d8965311e5466e1bee557d086446e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 被动
+    - 阵营变化
+    - 特殊机制
+  termIds:
+    - night
+    - drunk
+    - alignment
+    - outsider
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

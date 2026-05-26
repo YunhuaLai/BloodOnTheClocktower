@@ -25,6 +25,51 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 每个夜晚*，选择两名存活的其他玩家，一名玩家的技能目标之一改为你，一名玩家醉酒直到下个黄昏。邪恶阵营不会受到你的技能效果影响。生长：你的技能改为，整局游戏限一次，当晚所有邪恶阵营醉酒直到下个黄昏。
-summary: 每个夜晚*，选择两名存活的其他玩家，一名玩家的技能目标之一改为你，一名玩家醉酒直到下个黄昏。邪恶阵营不会受到你的技能效果影响。生长：你的技能改为，整局游戏限一次，当晚所有邪恶阵营醉酒直到下个黄昏。
-keywords: outsider 夜晚 醉酒
 ability: 每个夜晚*，选择两名存活的其他玩家，一名玩家的技能目标之一改为你，一名玩家醉酒直到下个黄昏。邪恶阵营不会受到你的技能效果影响。生长：你的技能改为，整局游戏限一次，当晚所有邪恶阵营醉酒直到下个黄昏。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - drunk
+    - alive
+    - alignment
+    - evil
+    - outsider
+  abilityPattern: choose_player_status_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

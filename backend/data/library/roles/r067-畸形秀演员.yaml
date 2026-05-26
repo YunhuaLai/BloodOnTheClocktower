@@ -1,8 +1,6 @@
 id: r067
 name: 畸形秀演员
 type: outsider
-summary: 若表现得像外来者，可能被处决；需要处理疯狂机制压力。
-keywords: 疯狂 外来者 处决
 englishName: mutant
 ability: 如果你“疯狂”地证明自己是外来者，你可能被处决。
 edition: custom
@@ -25,3 +23,57 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r067
+    officialId: mutant
+    sourceHash: be778cdd27726972e0674ce2f2516f0290da3bf5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 被动
+    - 疯狂机制
+    - 外来者
+  termIds:
+    - execution
+    - outsider
+    - madness
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

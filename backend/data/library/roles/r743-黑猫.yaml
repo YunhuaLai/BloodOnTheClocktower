@@ -22,6 +22,50 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 在你的首个夜晚，你会得知当晚有多少名除你以外的玩家因自身能力而被唤醒。如果与你邻近的玩家中有邪恶玩家，你会得知错误的信息。（作者：Morek）
-keywords: townsfolk 首夜
 ability: 在你的首个夜晚，你会得知当晚有多少名除你以外的玩家因自身能力而被唤醒。如果与你邻近的玩家中有邪恶玩家，你会得知错误的信息。（作者：Morek）
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - evil
+    - townsfolk
+  abilityPattern: number_info
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

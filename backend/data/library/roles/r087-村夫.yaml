@@ -1,8 +1,6 @@
 id: r087
 name: 村夫
 type: townsfolk
-summary: 每晚读取一名玩家的阵营，但额外村夫与醉酒设置会让信息需要反复校验。
-keywords: 每晚 阵营 醉酒 信息
 englishName: village-idiot
 ability: 每个夜晚，你要选择一名玩家：你会得知他的阵营。[+0~2村夫，复数村夫中有一人醉酒]
 edition: custom
@@ -26,3 +24,56 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 选择玩家，得知他的阵营。
 otherNightReminder: 选择玩家，得知他的阵营。
+abilityData:
+  schemaVersion: 1
+  tags:
+    - 每晚
+    - 主动选玩家
+    - 信息型
+  termIds:
+    - night
+    - drunk
+    - information
+    - alignment
+    - townsfolk
+  abilityPattern: team_info
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

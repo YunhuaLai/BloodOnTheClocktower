@@ -1,8 +1,6 @@
 id: r083
 name: 涡流
 type: demon
-summary: 让善良玩家获得的信息系统性错误，迫使全桌反向解读。
-keywords: 错误信息 恶魔 混乱
 englishName: vortox
 ability: 每个夜晚*，你要选择一名玩家：他死亡。镇民玩家的能力都会产生错误信息。如果白天没人被处决，邪恶阵营获胜。
 edition: custom
@@ -26,3 +24,63 @@ reminders:
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒涡流，让他攻击一名玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r083
+    officialId: vortox
+    sourceHash: 1f2d93025b07f43b24bea8703e1a977276411d1e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  tags:
+    - 被动
+    - 错误信息
+    - 规则修饰
+  termIds:
+    - day
+    - night
+    - information
+    - execution
+    - death
+    - alignment
+    - evil
+    - townsfolk
+    - demon
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

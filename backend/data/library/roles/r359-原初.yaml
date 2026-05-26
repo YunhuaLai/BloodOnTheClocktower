@@ -23,6 +23,58 @@ remindersGlobal:
   - 是原初
 firstNightReminder: ''
 otherNightReminder: ' '
-summary: '恶魔的伪装改为在第一个夜晚由所有爪牙得知。在第二个夜晚，一名存活的善良玩家变成邪恶的原初，并仍保留原能力。 每个夜晚*，你要选择一名玩家：他死亡 。 [-1恶魔] '
-keywords: demon 夜晚 设置 死亡
 ability: '恶魔的伪装改为在第一个夜晚由所有爪牙得知。在第二个夜晚，一名存活的善良玩家变成邪恶的原初，并仍保留原能力。 每个夜晚*，你要选择一名玩家：他死亡 。 [-1恶魔] '
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - death
+    - alive
+    - good
+    - evil
+    - minion
+    - demon
+  abilityPattern: manual_record
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

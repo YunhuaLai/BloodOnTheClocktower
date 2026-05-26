@@ -22,6 +22,56 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-summary: 如果懂王选择了刀客的能力，会立刻得知一个在场的爪牙角色。
-keywords: a jinxed
 ability: 如果懂王选择了刀客的能力，可以立刻拜访说书人得知一个爪牙角色。
+abilityData:
+  schemaVersion: 1
+  generatedFromOfficial: true
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 主动选择
+  termIds:
+    - minion
+    - storyteller
+    - jinx
+  abilityPattern: role_info
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []
