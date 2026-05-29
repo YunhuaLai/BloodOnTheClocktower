@@ -334,7 +334,7 @@ function main() {
   });
 
   console.log(
-    `${write ? "Backfilled" : "Checked"} ability semantics: ${changed} file(s) ${
+    `${write ? "Synced" : "Checked"} ability semantics: ${changed} file(s) ${
       write ? "changed" : "would change"
     }.`,
   );

@@ -1,4 +1,4 @@
-const { inferSetupMeta } = require("./official-json");
+const { inferSetupMeta } = require("./manage-official-json");
 const {
   ROLES_DIR,
   readYamlCollection,
@@ -164,9 +164,9 @@ function printChangedFiles(files) {
 
 function printUsage() {
   console.log(`用法:
-  node scripts/backfill-setup-meta.js
-  node scripts/backfill-setup-meta.js --write
-  node scripts/backfill-setup-meta.js --write --refresh
+  node scripts/sync-setup-meta.js
+  node scripts/sync-setup-meta.js --write
+  node scripts/sync-setup-meta.js --write --refresh
 
 说明:
   默认只检查，不写文件。

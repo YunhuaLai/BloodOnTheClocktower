@@ -1106,17 +1106,22 @@ function formatRoleList(items, limit = 8) {
 
 function printUsage() {
   console.log(`用法:
-  node scripts/official-json.js import <official.json|folder>
-  node scripts/official-json.js export <scriptId|scriptName> <output.json>
+  node scripts/manage-official-json.js import <official.json|folder>
+  node scripts/manage-official-json.js export <scriptId|scriptName> <output.json>
 
 示例:
-  node scripts/official-json.js import "C:\\path\\#暗流涌动.json"
-  node scripts/official-json.js import "C:\\path\\官方剧本文件夹"
-  node scripts/official-json.js export s001 ".\\dist\\暗流涌动.json"`);
+  node scripts/manage-official-json.js import "C:\\path\\#暗流涌动.json"
+  node scripts/manage-official-json.js import "C:\\path\\官方剧本文件夹"
+  node scripts/manage-official-json.js export s001 ".\\dist\\暗流涌动.json"`);
 }
 
 function main() {
   const [, , command, firstArg, secondArg] = process.argv;
+
+  if (command === "--help" || command === "-h") {
+    printUsage();
+    return;
+  }
 
   if (command === "import" && firstArg) {
     const result = importOfficialJsonPath(path.resolve(firstArg));

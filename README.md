@@ -37,12 +37,14 @@ npm start
 
 ## 维护脚本
 
-常用数据维护入口都在 `package.json` 的 `scripts` 中，脚本说明见 `scripts/README.md`。
+常用数据维护入口都在 `package.json` 的 `scripts` 中，完整脚本说明见 `scripts/README.md`。
 
 ```bash
 npm run check
 npm run official:import -- "C:\path\官方剧本文件夹"
 npm run official:export -- s001 ".\dist\暗流涌动.json"
+npm run images:cache -- --kind=roles --limit=20 --dry-run
+npm run setup-meta:refresh
 ```
 
 ## API

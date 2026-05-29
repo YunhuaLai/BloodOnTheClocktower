@@ -10,6 +10,7 @@ function stable(value) {
 }
 
 function main() {
+  const write = process.argv.includes("--write");
   const roleEntries = readYamlCollection(ROLES_DIR);
   let changed = 0;
   let removed = 0;
@@ -33,14 +34,25 @@ function main() {
     }
 
     if (stable(abilityData.deduction || null) !== before) {
-      const { id, englishName, name, ...embeddedData } = abilityData;
-      role.abilityData = embeddedData;
-      writeYamlFile(entry.filePath, role);
       changed += 1;
+
+      if (write) {
+        const { id, englishName, name, ...embeddedData } = abilityData;
+        role.abilityData = embeddedData;
+        writeYamlFile(entry.filePath, role);
+      }
     }
   });
 
-  console.log(`Backfilled deduction profiles: ${changed} role file(s) changed, ${removed} stale profile(s) removed.`);
+  console.log(
+    `${write ? "Synced" : "Checked"} deduction profiles: ${changed} role file(s) ${
+      write ? "changed" : "would change"
+    }, ${removed} stale profile(s) ${write ? "removed" : "would be removed"}.`,
+  );
+
+  if (!write && changed) {
+    console.log("Run with --write to update roles/*.yaml abilityData.");
+  }
 }
 
 main();

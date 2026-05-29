@@ -52,7 +52,7 @@ function main() {
     .slice(0, 30);
 
   console.log(
-    `${write ? "Backfilled" : "Checked"} ability term metadata: ${changed} file(s) ${
+    `${write ? "Synced" : "Checked"} ability term metadata: ${changed} file(s) ${
       write ? "changed" : "would change"
     }.`,
   );
