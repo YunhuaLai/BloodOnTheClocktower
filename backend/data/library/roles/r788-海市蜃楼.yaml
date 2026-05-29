@@ -1,0 +1,116 @@
+id: r788
+englishName: 25-fengqidamo
+name: 海市蜃楼
+type: demon
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/6/61/0pd49y2fbxd7vifxjgdeg2c6i054zp6.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 幻景
+  - 谎报
+  - 迷雾中人
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 每个夜晚*，你要选择一名玩家：他死亡。 每局游戏限一次，你会被善良玩家当作善良角色和善良阵营。 始终会有一名存活的善良玩家被当做邪恶的海市蜃楼，你可以决定其获得一条错误的通知。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。 每局游戏限一次，你会被善良玩家当作善良角色和善良阵营。 始终会有一名存活的善良玩家被当做邪恶的海市蜃楼，你可以决定其获得一条错误的通知。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r788
+    officialId: 25_fengqidamo
+    sourceHash: 094bde4373c952e93a11cfccbc804687dd4bed3a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

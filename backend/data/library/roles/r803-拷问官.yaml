@@ -1,0 +1,113 @@
+id: r803
+englishName: 10-newhero
+name: 拷问官
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/10_newhero.png
+flavor: 你以为你能骗得了我？比你更狡猾的家伙我都碰到过，你的那点小把戏就像透明一样。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 撒谎
+  - 没有撒谎
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果他白天发动过技能，则告知他询问的那名玩家或说书人有没有撒谎(被询问对象视角)。如果他选择的玩家为恶魔，则给他标记上“醉酒”。
+ability: 每个白天，你可以公开询问一名玩家或说书人一个问题(正面回答/我不知道)：当晚你会得知他有没有撒谎(被询问对象视角)。如果选择的玩家为恶魔，你当晚醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r803
+    officialId: 10_newhero
+    sourceHash: 85da4bd70ecfb47d0d5f406250481b5463f7883b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - drunk
+    - townsfolk
+    - demon
+    - storyteller
+  abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

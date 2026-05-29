@@ -1,10 +1,10 @@
-id: r354
-englishName: medium
-name: 通灵师
+id: r765
+englishName: 1-fengqidamo
+name: 太史令
 type: townsfolk
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/6_newhero.png
-flavor: 无论是生还是死，你的灵魂都会存在。
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/5d/lzstbc8yheda1d2j9sm99vtmknmkqkg.png
+flavor: ''
 setup: false
 setupMeta:
   randomAssignable: true
@@ -18,20 +18,19 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders:
-  - 已得知
+reminders: []
 remindersGlobal: []
-firstNightReminder: ''
-otherNightReminder: 他会得知(从未得知过的)当晚之前死亡玩家的角色。
-ability: 每个夜晚*，你会得知(从未得知过的)当晚之前死亡玩家的角色。
+firstNightReminder: 在你的首个夜晚，你会得知距离你最近和最远的邪恶玩家与你的距离之和。 如果与你邻近的玩家中有邪恶阵营，你得知的距离之和会 ±1。
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知距离你最近和最远的邪恶玩家与你的距离之和。 如果与你邻近的玩家中有邪恶阵营，你得知的距离之和会 ±1。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r354
-    officialId: 6_newhero
-    sourceHash: a4a4c70157c40310d110fd88e5f0753154921ad2
+    roleId: r765
+    officialId: 1_fengqidamo
+    sourceHash: c522cb450caab6845d79a0bd8b0fce4751a5f4f5
     sourceHashFields:
       - ability
       - type
@@ -43,30 +42,33 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 首夜
     - 信息型
   termIds:
     - night
+    - first-night
     - information
-    - death
+    - alignment
+    - evil
     - townsfolk
-  abilityPattern: record_result_only
+  abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_day
+      phase: first_night
       event: null
-      frequency: once_per_day
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
-      - kind: death_or_execution_effect
+      - kind: learn_team
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: each_day
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_day
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -76,19 +78,20 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
           options: null
           min: null
           max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：阵营信息
+    templates: []

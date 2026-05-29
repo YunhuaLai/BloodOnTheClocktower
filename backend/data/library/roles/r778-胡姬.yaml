@@ -1,0 +1,104 @@
+id: r778
+englishName: 15-fengqidamo
+name: 胡姬
+type: outsider
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/4/44/hcsecf9c7rqqb96ijiit3x5moa6maxf.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 随附
+remindersGlobal: []
+firstNightReminder: 在游戏的首个夜晚，你要选择左 / 右，你会秘密转变为与你邻近左 / 右存活玩家的阵营。 每个夜晚*，换选至另外一侧。 你不会中毒醉酒。
+otherNightReminder: 在游戏的首个夜晚，你要选择左 / 右，你会秘密转变为与你邻近左 / 右存活玩家的阵营。 每个夜晚*，换选至另外一侧。 你不会中毒醉酒。
+ability: 在游戏的首个夜晚，你要选择左 / 右，你会秘密转变为与你邻近左 / 右存活玩家的阵营。 每个夜晚*，换选至另外一侧。 你不会中毒醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r778
+    officialId: 15_fengqidamo
+    sourceHash: 87a412c9988d50fcdb69ac24aaab7345db48c08f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - drunk
+    - alive
+    - alignment
+    - outsider
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

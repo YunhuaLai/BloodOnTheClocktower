@@ -1,9 +1,9 @@
-id: r621
-englishName: qiaoqiaoqiaoqiaojiang
-name: 巧匠
+id: r772
+englishName: 8-fengqidamo
+name: 玉门都尉
 type: townsfolk
 edition: custom
-image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/99/me1y0mmdnqgmi6sxxc44uxfswsb1nkr.png
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/7/78/ntd42js3xlu8el8m1mpj5ft6uuts437.png
 flavor: ''
 setup: false
 setupMeta:
@@ -18,20 +18,19 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders:
-  - ？
+reminders: []
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 你不知道你的能力是什么。 在游戏的首个白天，你可以拜访说书人并提供三个关键词，你的能力将包含这些关键词。 在第三个白天，你可以拜访说书人得知你的能力的完整描述。
-ability: 你不知道你的能力是什么。 在游戏的首个白天，你可以拜访说书人并提供三个关键词，你的能力将包含这些关键词。 在第三个白天，你可以拜访说书人得知你的能力的完整描述。
+otherNightReminder: 每个夜晚*，你会得知当天天死亡玩家里不同角色类型的数量。
+ability: 每个夜晚*，你会得知当天天死亡玩家里不同角色类型的数量。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r621
-    officialId: 13_fengqidamo
-    sourceHash: 8c9a9bb756dd813f9d7672bb2c27597b1896b2cf
+    roleId: r772
+    officialId: 8_fengqidamo
+    sourceHash: e7c3f7b48ee27c0d3d4086380584030288f2f91f
     sourceHashFields:
       - ability
       - type
@@ -40,36 +39,33 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
-    - 首夜
     - 每晚
     - 信息型
   termIds:
-    - day
     - night
-    - first-night
     - information
+    - death
     - townsfolk
-    - storyteller
-  abilityPattern: player_info
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_player
-        count: 1
+      - kind: learn_number
+        numberKind: death_count
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: each_night
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_night
     activationMode: passive
@@ -84,16 +80,17 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
-          type: seat
-          label: 号码
+        - key: count
+          type: number
+          label: 数量
           required: true
           optionsSource: null
           options: null
-          min: 1
+          min: 0
           max: 15
           placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：数字信息
+    templates: []

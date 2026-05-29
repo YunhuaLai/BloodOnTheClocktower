@@ -1,10 +1,10 @@
-id: r147
-englishName: voodoo-master
-name: 巫毒师
-type: minion
+id: r781
+englishName: 18-fengqidamo
+name: 麻布袋
+type: outsider
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/23_newhero.png
-flavor: 厄运终将会降临到你的头上，我只不过是让它来得更快一些罢了。
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/8/87/t8976a0zaui3f3na5pfbl4tioo3i896.png
+flavor: ''
 setup: false
 setupMeta:
   randomAssignable: true
@@ -13,25 +13,25 @@ setupMeta:
   identityOverlay:
     enabled: false
     shownToken: self
-    actualRoleType: traveller
+    actualRoleType: outsider
     shownRoleTypes: []
     note: ''
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 中毒
+  - 种子
 remindersGlobal: []
-firstNightReminder: 让他选择一名玩家，该玩家标记上“中毒”。
-otherNightReminder: 让他选择一名玩家，该玩家标记上“中毒”。
-ability: 每个夜晚，你要选择一名玩家：他在当晚和明天白天中毒，并且他可能会被当做邪恶阵营、爪牙或恶魔角色。
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 种子持有者可能会被当作错误的阵营和角色。 每个白天限一次，玩家可以发起提名获取持有者的种子。 游戏结束时，如果你仍持有种子，你独自获胜，即使你已死亡。 [游戏初始你拥有种子]
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r147
-    officialId: 23_newhero
-    sourceHash: 039bc346112343a9583136d41a89a25d2af883c0
+    roleId: r781
+    officialId: 18_fengqidamo
+    sourceHash: cc9d19d8d6cc16610a8695692b652b7118d58c94
     sourceHashFields:
       - ability
       - type
@@ -41,38 +41,35 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 事件触发
   termIds:
     - day
-    - night
-    - poisoned
+    - nomination
+    - death
     - alignment
-    - evil
-    - minion
-    - demon
-  abilityPattern: death_trigger
+    - outsider
+  abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: null
-      event: on_death
-      frequency: passive
+      phase: each_day
+      event: on_nomination
+      frequency: once_per_game
     actor:
       drivenBy: storyteller
     operations:
-      - kind: apply_status_effect
-        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
       - kind: event_trigger
-        eventTiming: on_death
+        eventTiming: on_nomination
   abilityMeta:
     pageType: event_triggered
-    phaseTiming: null
-    eventTiming: on_death
-    usagePattern: passive
+    phaseTiming: each_day
+    eventTiming: on_nomination
+    usagePattern: once_per_game
     activationMode: conditional
     drivenBy: storyteller
     recordable: true

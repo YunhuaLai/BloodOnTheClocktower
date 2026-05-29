@@ -1,0 +1,104 @@
+id: r813
+englishName: 24-newhero
+name: 路西法
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/24_newhero.png
+flavor: 这个世界是多么冷酷无情，然而，只要你投入我的怀抱，世界就会变得美好而温柔了。
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 活尸
+  - 三个邪恶名额
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让她选择一名玩家杀害，但本次死亡会被当做仍然存活，她可以选择与那名玩家进行秘密猜拳：若她获胜，且那名玩家是活尸，那名加入邪恶阵营，否则那名玩家再次死亡。
+ability: 每个夜晚*，你要选择一名玩家：他死亡，但本次死亡会被当做仍然存活。你可以选择与那名玩家进行秘密猜拳：若你获胜，且他是活尸，他加入邪恶阵营，否则他再次死亡。最多有三名善良玩家加入邪恶。[-1爪牙]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r813
+    officialId: 24_newhero
+    sourceHash: c81a0d7eac34cf519085fe5fdaa4ce5c663ba4d3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

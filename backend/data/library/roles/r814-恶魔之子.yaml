@@ -1,10 +1,10 @@
-id: r253
-englishName: slime
-name: 史莱姆
-type: minion
+id: r814
+englishName: 13-newhero
+name: 恶魔之子
+type: demon
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/20_newhero.png
-flavor: 史莱姆虽然很弱小，但史莱姆从来没有被战胜过。
+image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/13_newhero.png
+flavor: 不知为何，所有见到我的动物都会瑟瑟发抖，并且眼神中透露出莫名的恐惧。
 setup: true
 setupMeta:
   randomAssignable: false
@@ -13,7 +13,7 @@ setupMeta:
   identityOverlay:
     enabled: true
     shownToken: other_role
-    actualRoleType: outsider
+    actualRoleType: demon
     shownRoleTypes:
       - townsfolk
       - outsider
@@ -22,18 +22,20 @@ setupMeta:
   setupNotes:
     - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
 reminders: []
-remindersGlobal: []
+remindersGlobal:
+  - 死亡
+  - 恶魔之子
 firstNightReminder: ''
-otherNightReminder: ''
-ability: 如果大于等于五名玩家存活时(旅行者不计算在内)恶魔死亡，一名存活的爪牙变成那个恶魔，即使你已死亡。[-1外来者]
+otherNightReminder: 必定有一名玩家死亡。
+ability: 你以为你是一个善良角色，但其实你不是。每个夜晚*，必定有一名玩家死亡。爪牙与你不互认并且会得知三个伪装身份，爪牙的能力对你无效。[如果外来者在场，你与外来者邻座]
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r253
-    officialId: 20_newhero
-    sourceHash: 13e929cc4e6876556fba17cd372649b5d2ab4ba2
+    roleId: r814
+    officialId: 13_newhero
+    sourceHash: 0b22238d1f40169bdb54ebc2726a742e97dc38b2
     sourceHashFields:
       - ability
       - type
@@ -42,27 +44,28 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  needsReview: false
+  reviewReason: ''
   tags:
     - 每晚
     - 设置
+    - 信息型
   termIds:
     - night
     - setup
+    - information
     - death
-    - alive
+    - good
     - outsider
     - minion
     - demon
-    - traveler
-  abilityPattern: no_input
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_night
     actor:
@@ -70,21 +73,38 @@ abilityData:
     operations:
       - kind: setup_modifier
         adjustments: []
+      - kind: learn_role
+        roleType: outsider
+      - kind: protect_player
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: no_input
-    phaseTiming: each_night
+    pageType: record_result_only
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_night
     activationMode: passive
     drivenBy: storyteller
-    recordable: false
+    recordable: true
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

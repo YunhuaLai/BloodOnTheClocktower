@@ -1,10 +1,10 @@
-id: r147
-englishName: voodoo-master
-name: 巫毒师
-type: minion
+id: r779
+englishName: 16-fengqidamo
+name: 阴阳术士
+type: outsider
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/23_newhero.png
-flavor: 厄运终将会降临到你的头上，我只不过是让它来得更快一些罢了。
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/b/b5/hxyt1i7yebnfveqexeakjjh2ulhmdt0.png
+flavor: ''
 setup: false
 setupMeta:
   randomAssignable: true
@@ -13,25 +13,24 @@ setupMeta:
   identityOverlay:
     enabled: false
     shownToken: self
-    actualRoleType: traveller
+    actualRoleType: outsider
     shownRoleTypes: []
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders:
-  - 中毒
+reminders: []
 remindersGlobal: []
-firstNightReminder: 让他选择一名玩家，该玩家标记上“中毒”。
-otherNightReminder: 让他选择一名玩家，该玩家标记上“中毒”。
-ability: 每个夜晚，你要选择一名玩家：他在当晚和明天白天中毒，并且他可能会被当做邪恶阵营、爪牙或恶魔角色。
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果你死亡，一名恶魔玩家会获得一个不在场的爪牙能力。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r147
-    officialId: 23_newhero
-    sourceHash: 039bc346112343a9583136d41a89a25d2af883c0
+    roleId: r779
+    officialId: 16_fengqidamo
+    sourceHash: ec59f9d3f024cb1a30a76667325f3cc215d1e0f2
     sourceHashFields:
       - ability
       - type
@@ -40,23 +39,20 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 事件触发
   termIds:
-    - day
-    - night
-    - poisoned
-    - alignment
-    - evil
+    - death
+    - outsider
     - minion
     - demon
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: null
       event: on_death
@@ -64,8 +60,7 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: apply_status_effect
-        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_death
   abilityMeta:
@@ -85,8 +80,3 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: action_history
-    note: ''

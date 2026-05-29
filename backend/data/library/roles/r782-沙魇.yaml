@@ -1,0 +1,120 @@
+id: r782
+englishName: 19-fengqidamo
+name: 沙魇
+type: minion
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/4/4d/5q7nt3t54calkik87dza66jd00m3tl7.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 吸附
+  - 得知
+remindersGlobal: []
+firstNightReminder: 在你的首个夜晚，你要选择一名玩家：他中毒并获取错误信息，且会被视为邪恶的沙魔。 随后每个夜晚，该能力会顺时针移动至下一位存活镇民玩家，直至其死亡。 当因你中毒的玩家死亡，你重获能力，随后会有一名善良玩家得知此事。
+otherNightReminder: 在你的首个夜晚，你要选择一名玩家：他中毒并获取错误信息，且会被视为邪恶的沙魔。 随后每个夜晚，该能力会顺时针移动至下一位存活镇民玩家，直至其死亡。 当因你中毒的玩家死亡，你重获能力，随后会有一名善良玩家得知此事。
+ability: 在你的首个夜晚，你要选择一名玩家：他中毒并获取错误信息，且会被视为邪恶的沙魔。 随后每个夜晚，该能力会顺时针移动至下一位存活镇民玩家，直至其死亡。 当因你中毒的玩家死亡，你重获能力，随后会有一名善良玩家得知此事。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r782
+    officialId: 19_fengqidamo
+    sourceHash: fdc3a7bf28e1d65c9901a99f35e048616e6a951b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - information
+    - death
+    - alive
+    - good
+    - evil
+    - townsfolk
+    - minion
+  abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: direction
+          type: choice
+          label: 方向
+          required: true
+          optionsSource: custom
+          options:
+            - clockwise
+            - counterclockwise
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

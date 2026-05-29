@@ -1,10 +1,10 @@
-id: r621
-englishName: qiaoqiaoqiaoqiaojiang
-name: 巧匠
+id: r804
+englishName: 12-newhero
+name: 观星师
 type: townsfolk
 edition: custom
-image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/99/me1y0mmdnqgmi6sxxc44uxfswsb1nkr.png
-flavor: ''
+image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/12_newhero.png
+flavor: 仰望这璀璨星空，那是宇宙写给生命的诗歌。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -18,20 +18,20 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders:
-  - ？
-remindersGlobal: []
-firstNightReminder: ''
-otherNightReminder: 你不知道你的能力是什么。 在游戏的首个白天，你可以拜访说书人并提供三个关键词，你的能力将包含这些关键词。 在第三个白天，你可以拜访说书人得知你的能力的完整描述。
-ability: 你不知道你的能力是什么。 在游戏的首个白天，你可以拜访说书人并提供三个关键词，你的能力将包含这些关键词。 在第三个白天，你可以拜访说书人得知你的能力的完整描述。
+reminders: []
+remindersGlobal:
+  - 改变
+firstNightReminder: 给他展示数字手势来告诉他一共有几名玩家的角色或阵营发生改变。
+otherNightReminder: 给他展示数字手势来告诉他一共有几名玩家的角色或阵营发生改变。
+ability: 每个夜晚，你会得知一共有几名玩家的角色或阵营发生过改变。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r621
-    officialId: 13_fengqidamo
-    sourceHash: 8c9a9bb756dd813f9d7672bb2c27597b1896b2cf
+    roleId: r804
+    officialId: 12_newhero
+    sourceHash: 0998299f804854e9f42aab649cc6b26c84c19312
     sourceHashFields:
       - ability
       - type
@@ -40,24 +40,23 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
     - 每晚
     - 信息型
   termIds:
-    - day
     - night
     - first-night
     - information
+    - alignment
     - townsfolk
-    - storyteller
-  abilityPattern: player_info
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: each_night
       event: null
@@ -65,8 +64,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_player
-        count: 1
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -84,16 +83,17 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
-          type: seat
-          label: 号码
+        - key: count
+          type: number
+          label: 数量
           required: true
           optionsSource: null
           options: null
-          min: 1
+          min: 0
           max: 15
           placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：数字信息
+    templates: []

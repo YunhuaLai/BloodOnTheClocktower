@@ -1,10 +1,10 @@
-id: r354
-englishName: medium
-name: 通灵师
+id: r774
+englishName: 10-fengqidamo
+name: 悬泉驿长
 type: townsfolk
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/6_newhero.png
-flavor: 无论是生还是死，你的灵魂都会存在。
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/0/01/rzxqgdfxv7z8sgikdyir0fv85qt5p88.png
+flavor: ''
 setup: false
 setupMeta:
   randomAssignable: true
@@ -19,19 +19,22 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 已得知
+  - 得知遇袭
+  - 醉酒
+  - 死亡
+  - 不会死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 他会得知(从未得知过的)当晚之前死亡玩家的角色。
-ability: 每个夜晚*，你会得知(从未得知过的)当晚之前死亡玩家的角色。
+otherNightReminder: 每个白天限一次，公开邀请两名除你以外的存活玩家（与前一晚不同）留宿驿站。 如果他们都同意留宿，当晚他们不会死亡。 如果有邪恶玩家留宿，其中留宿的善良玩家立即醉酒，你会在当晚死亡，随后会有一名玩家会得知驿站遇袭。
+ability: 每个白天限一次，公开邀请两名除你以外的存活玩家（与前一晚不同）留宿驿站。 如果他们都同意留宿，当晚他们不会死亡。 如果有邪恶玩家留宿，其中留宿的善良玩家立即醉酒，你会在当晚死亡，随后会有一名玩家会得知驿站遇袭。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r354
-    officialId: 6_newhero
-    sourceHash: a4a4c70157c40310d110fd88e5f0753154921ad2
+    roleId: r774
+    officialId: 10_fengqidamo
+    sourceHash: 842db4331ef2c4e616d383b343bab72e2640ffa8
     sourceHashFields:
       - ability
       - type
@@ -40,33 +43,42 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  needsReview: false
+  reviewReason: ''
   tags:
+    - 每晚
     - 信息型
   termIds:
+    - day
     - night
+    - drunk
     - information
     - death
+    - alive
+    - good
+    - evil
     - townsfolk
-  abilityPattern: record_result_only
+  abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: each_day
       event: null
-      frequency: once_per_day
+      frequency: once_per_game
     actor:
       drivenBy: storyteller
     operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: protect_player
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_day
+    usagePattern: once_per_game
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -76,8 +88,8 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: note
           type: text

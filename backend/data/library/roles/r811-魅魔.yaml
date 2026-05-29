@@ -1,0 +1,114 @@
+id: r811
+englishName: 21-newhero
+name: 魅魔
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/21_newhero.png
+flavor: 再凶猛的狗狗也有调教的方式...人也一样...哼哼。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 奴仆
+  - 第一晚
+  - 第二晚
+  - 第三晚
+remindersGlobal: []
+firstNightReminder: 让她选择两名善良玩家，标记他们为“奴仆”，被标记的玩家会得知“成为了魅魔的奴仆”。
+otherNightReminder: 在她的第三个夜晚，让她选择一个被标记的玩家，加入邪恶阵营。
+ability: 在你的首个夜晚，你要选择两名善良玩家，标记他们为“奴仆”，被标记的玩家会得知“成为了魅魔的奴仆”。你的第三个夜晚，选择一个被标记的玩家，加入邪恶阵营。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r811
+    officialId: 21_newhero
+    sourceHash: 1d9356c692f8870d7c064da8f6f05c4e1d9e2198
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alignment
+    - good
+    - evil
+    - minion
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_team
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

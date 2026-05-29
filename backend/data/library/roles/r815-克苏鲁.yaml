@@ -1,0 +1,100 @@
+id: r815
+englishName: 27-newhero
+name: 克苏鲁
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/27_newhero.png
+flavor: 克苏鲁的呢喃带有一种无尽的疯狂和混乱，仿佛一切秩序和规则在它面前都变得毫无意义。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 疯狂
+remindersGlobal: []
+firstNightReminder: 让他选择一名玩家并编造一条信息，那名玩家明天白天和夜晚需要对这条信息“疯狂”，否则那名玩家可能被处决。
+otherNightReminder: 让他选择一名玩家杀害。让他选择一名玩家并编造一条信息，那名玩家明天白天和夜晚需要对这条信息“疯狂”，否则那名玩家可能被处决。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。每个夜晚，你要选择一名玩家并编造一条信息，他明天白天和夜晚需要对这条信息“疯狂”，否则他可能被处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r815
+    officialId: 27_newhero
+    sourceHash: 7b8ddec5da977aa20248cd9d94728fd53cee7a5e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - execution
+    - death
+    - demon
+    - madness
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

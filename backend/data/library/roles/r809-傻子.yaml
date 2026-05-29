@@ -1,39 +1,36 @@
-id: r253
-englishName: slime
-name: 史莱姆
-type: minion
+id: r809
+englishName: 17-newhero
+name: 傻子
+type: outsider
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/20_newhero.png
-flavor: 史莱姆虽然很弱小，但史莱姆从来没有被战胜过。
-setup: true
+image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/17_newhero.png
+flavor: 傻子，他总是比聪明人快乐。
+setup: false
 setupMeta:
-  randomAssignable: false
+  randomAssignable: true
   tokenRequired: true
-  setupAlertLevel: danger
+  setupAlertLevel: none
   identityOverlay:
-    enabled: true
-    shownToken: other_role
+    enabled: false
+    shownToken: self
     actualRoleType: outsider
-    shownRoleTypes:
-      - townsfolk
-      - outsider
-    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+    shownRoleTypes: []
+    note: ''
   configurationAdjustments: []
-  setupNotes:
-    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  setupNotes: []
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: ''
-ability: 如果大于等于五名玩家存活时(旅行者不计算在内)恶魔死亡，一名存活的爪牙变成那个恶魔，即使你已死亡。[-1外来者]
+otherNightReminder: 如果他于处决，当晚一名存活的玩家变成傻子。
+ability: 你需要“疯狂”地证明自己是某一个镇民角色，否则你可能被处决。如果你死于处决，当晚一名存活的玩家变成傻子。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r253
-    officialId: 20_newhero
-    sourceHash: 13e929cc4e6876556fba17cd372649b5d2ab4ba2
+    roleId: r809
+    officialId: 17_newhero
+    sourceHash: 74eba8e67c4d5fc868ce44ed00e1ee1499fd826f
     sourceHashFields:
       - ability
       - type
@@ -46,20 +43,17 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
-    - 设置
   termIds:
     - night
-    - setup
-    - death
+    - execution
     - alive
+    - townsfolk
     - outsider
-    - minion
-    - demon
-    - traveler
+    - madness
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night
@@ -68,8 +62,6 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: setup_modifier
-        adjustments: []
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input

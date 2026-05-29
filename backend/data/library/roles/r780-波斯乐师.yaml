@@ -1,0 +1,106 @@
+id: r780
+englishName: 17-fengqidamo
+name: 波斯乐师
+type: outsider
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/7/77/g0kir7vn5pb5519pl15h4axniaa3ij7.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你要选择一名除你以外的存活玩家（与之前不同），他醉酒直到下个黄昏，即使你已死亡。 如果你选择了邪恶玩家，当晚你不会造成醉酒且一名恶魔玩家获得你的能力。
+otherNightReminder: 每个夜晚，你要选择一名除你以外的存活玩家（与之前不同），他醉酒直到下个黄昏，即使你已死亡。 如果你选择了邪恶玩家，当晚你不会造成醉酒且一名恶魔玩家获得你的能力。
+ability: 每个夜晚，你要选择一名除你以外的存活玩家（与之前不同），他醉酒直到下个黄昏，即使你已死亡。 如果你选择了邪恶玩家，当晚你不会造成醉酒且一名恶魔玩家获得你的能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r780
+    officialId: 17_fengqidamo
+    sourceHash: 3b348330139aa3939233d34ae93920168c0c55b6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - death
+    - alive
+    - evil
+    - outsider
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

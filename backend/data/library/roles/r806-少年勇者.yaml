@@ -1,10 +1,10 @@
-id: r253
-englishName: slime
-name: 史莱姆
-type: minion
+id: r806
+englishName: 11-newhero
+name: 少年勇者
+type: outsider
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/20_newhero.png
-flavor: 史莱姆虽然很弱小，但史莱姆从来没有被战胜过。
+image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/11_newhero.png
+flavor: 这位少年因为某种原因，憧憬着成为一名出色的勇者，每天都在修行。
 setup: true
 setupMeta:
   randomAssignable: false
@@ -22,18 +22,20 @@ setupMeta:
   setupNotes:
     - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
 reminders: []
-remindersGlobal: []
+remindersGlobal:
+  - 少年勇者
+  - 保留能力
 firstNightReminder: ''
 otherNightReminder: ''
-ability: 如果大于等于五名玩家存活时(旅行者不计算在内)恶魔死亡，一名存活的爪牙变成那个恶魔，即使你已死亡。[-1外来者]
+ability: 你以为你是勇者，但其实你不是。你拥有勇者相同的能力，但被你杀死的爪牙保留他的能力。[你与勇者不会同时在场]
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r253
-    officialId: 20_newhero
-    sourceHash: 13e929cc4e6876556fba17cd372649b5d2ab4ba2
+    roleId: r806
+    officialId: 11_newhero
+    sourceHash: c183635e34e3fcd6691e23184f73a77fcf3d6cef
     sourceHashFields:
       - ability
       - type
@@ -42,42 +44,35 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  needsReview: false
+  reviewReason: ''
   tags:
-    - 每晚
     - 设置
   termIds:
-    - night
     - setup
-    - death
-    - alive
     - outsider
     - minion
-    - demon
-    - traveler
-  abilityPattern: no_input
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_night
+      phase: setup
       event: null
-      frequency: once_per_night
+      frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: death_or_execution_effect
   abilityMeta:
-    pageType: no_input
-    phaseTiming: each_night
+    pageType: rule_modifier
+    phaseTiming: setup
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: passive
     activationMode: passive
-    drivenBy: storyteller
+    drivenBy: system
     recordable: false
   interactionSchema:
     target:
