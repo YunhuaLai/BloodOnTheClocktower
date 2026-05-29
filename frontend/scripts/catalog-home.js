@@ -18,12 +18,12 @@ function renderHomeDirectory() {
   const cards = [
     {
       eyebrow: "对局房间",
-      title: "新建或继续一局",
-      href: "/notes",
+      title: "创建新房间",
+      href: "/notes?create=1",
       count: getNotesGameCount(),
       countLabel: "个本地对局",
-      text: "把座位、声明、标签和每天得到的信息按局保存下来，复盘时不用在零散记录里来回翻。",
-      action: "进入对局房间",
+      text: "先把剧本、人数和记录视角定下来，创建后直接进入座位与线索记录。",
+      action: "立即创建",
       featured: true,
     },
     {
@@ -74,75 +74,67 @@ function renderHomeDirectory() {
 }
 
 export function renderHome() {
-  document.title = "血染钟楼百科";
+  document.title = "血染钟楼对局房间";
+  const savedGameCount = getNotesGameCount();
   app.innerHTML = `
     <section class="workspace" id="overview">
       <div class="intro-panel">
         <p class="eyebrow">对局房间 · 本地记录 · 快速推理</p>
-        <h1>先开一局，再把线索和判断都放进同一个房间。</h1>
+        <h1>
+          <span class="home-title-line">开房间是第一步，</span>
+          <span class="home-title-line">百科只是随手查。</span>
+        </h1>
         <p class="lead">
-          本地记录座位、声明、标签和每日信息；查角色、看板子、做推理都围绕当前这一局展开。
+          先创建这一局的房间，再记录座位、声明、标签和每天得到的信息；需要查角色或板子时，再从房间旁边进资料库。
         </p>
         <div class="home-actions" aria-label="常用入口">
-          <a class="primary-link" href="/notes" data-link>进入对局房间</a>
-          <a class="secondary-link" href="/roles" data-link>查角色百科</a>
-          <a class="secondary-link" href="/scripts" data-link>看板子目录</a>
+          <a class="primary-link primary-link--hero" href="/notes?create=1" data-link>创建房间</a>
+          <a class="secondary-link" href="/notes" data-link>继续对局</a>
         </div>
-        <div class="quick-stats" aria-label="对局与资料概览">
+        <div class="quick-stats quick-stats--compact" aria-label="对局与资料概览">
           <div>
-            <strong>${getNotesGameCount()}</strong>
+            <strong>${savedGameCount}</strong>
             <span>个本地对局</span>
           </div>
           <div>
             <strong>${state.scripts.length}</strong>
-            <span>个板子</span>
+            <span>个附属板子</span>
           </div>
           <div>
             <strong>${state.roles.length}</strong>
-            <span>个角色</span>
+            <span>个附属角色</span>
           </div>
           <div>
             <strong>${state.terms.length}</strong>
-            <span>个术语</span>
+            <span>个附属术语</span>
           </div>
         </div>
       </div>
 
-      <div class="image-strip" aria-label="氛围图">
-        <img
-          src="/assets/clock-tower-night.jpg"
-          alt="夜色中的钟楼"
-          width="1200"
-          height="1600"
-          decoding="async"
-          fetchpriority="high"
-        />
-        <img
-          src="/assets/medieval-town-night.jpg"
-          alt="夜晚的中世纪街巷"
-          width="1280"
-          height="887"
-          loading="lazy"
-          decoding="async"
-        />
-        <img
-          src="/assets/candle-book.jpg"
-          alt="烛光下的旧书"
-          width="1280"
-          height="853"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
+      <aside class="room-launch-panel" aria-labelledby="roomLaunchTitle">
+        <p class="eyebrow">开局入口</p>
+        <h2 id="roomLaunchTitle">创建对局房间</h2>
+        <p>进入创建表单后，只需要选剧本、人数和记录视角，就能马上开始记录这一局。</p>
+        <a class="primary-link room-launch-action" href="/notes?create=1" data-link>立即创建房间</a>
+        <div class="room-launch-steps" aria-label="创建房间会记录的内容">
+          <span>剧本</span>
+          <span>人数</span>
+          <span>视角</span>
+          <span>座位</span>
+        </div>
+        <a class="room-continue-link" href="/notes" data-link>
+          ${savedGameCount ? `继续 ${savedGameCount} 个已保存对局` : "查看对局房间"}
+        </a>
+      </aside>
     </section>
 
     <section class="section directory-section" aria-labelledby="directoryTitle">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">主要入口</p>
-          <h2 id="directoryTitle">对局在前，百科在后</h2>
+          <p class="eyebrow">附属资料</p>
+          <h2 id="directoryTitle">需要时再查百科</h2>
         </div>
-        <p class="section-note">先进入当前对局；需要查角色、板子或术语时，再去下面的资料目录。</p>
+        <p class="section-note">角色、板子和术语保留为资料入口，但不再抢占主页的首要位置。</p>
       </div>
       <div class="directory-grid">
         ${renderHomeDirectory()}

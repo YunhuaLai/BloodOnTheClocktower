@@ -3,7 +3,7 @@ import { renderHome } from "./catalog-home.js";
 import { renderRoleIndex, renderRoles, renderScriptIndex, renderScripts, renderTermIndex, syncFilterButtons } from "./catalog-indexes.js";
 import { handleNotesAction, handleNotesFieldChange } from "./notes-actions.js";
 import { deleteSavedGames, toggleGameFavorite } from "./notes/notes-game-actions.js";
-import { ensureNotesState } from "./notes-state.js";
+import { createDefaultSetupDraft, ensureNotesState } from "./notes-state.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
 import { state } from "./state.js";
 
@@ -55,8 +55,15 @@ export function renderRoute() {
   }
 
   if (segments.length === 1 && segments[0] === "notes") {
-    if (previousPath !== "/notes") {
-      const notes = ensureNotesState();
+    const notes = ensureNotesState();
+    const shouldCreate = new URLSearchParams(window.location.search).get("create") === "1";
+
+    if (shouldCreate) {
+      notes.ui.creatingGame = true;
+      notes.ui.screen = "setup";
+      notes.ui.setupDraft = createDefaultSetupDraft();
+      window.history.replaceState({}, "", "/notes");
+    } else if (previousPath !== "/notes") {
       if (notes.ui.screen !== "setup") {
         notes.ui.screen = "home";
       }

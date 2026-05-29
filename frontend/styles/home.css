@@ -1,9 +1,9 @@
 .workspace {
   display: grid;
-  grid-template-columns: minmax(0, 1.04fr) minmax(320px, 0.96fr);
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.72fr);
   gap: clamp(24px, 4vw, 56px);
   align-items: stretch;
-  min-height: min(720px, calc(100vh - 128px));
+  min-height: min(660px, calc(100vh - 128px));
   padding: clamp(28px, 5vw, 72px);
   border-bottom: 1px solid var(--line);
 }
@@ -38,6 +38,10 @@ h1 {
   letter-spacing: 0;
 }
 
+.home-title-line {
+  display: block;
+}
+
 .lead {
   max-width: 720px;
   margin: 24px 0 0;
@@ -55,6 +59,14 @@ h1 {
 .home-actions .primary-link,
 .home-actions .secondary-link {
   margin: 0;
+}
+
+.primary-link--hero {
+  min-height: 56px;
+  padding: 12px 22px;
+  background: var(--red);
+  border-color: var(--red);
+  font-size: 18px;
 }
 
 .quick-stats {
@@ -86,27 +98,67 @@ h1 {
   color: var(--muted);
 }
 
-.image-strip {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1.15fr 0.85fr 0.85fr;
-  gap: 14px;
-  min-height: 460px;
-}
-
-.image-strip img {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  object-fit: cover;
+.room-launch-panel {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(22px, 4vw, 36px);
+  background: var(--surface);
   border: 2px solid var(--ink);
+  border-top: 8px solid var(--red);
   border-radius: 8px;
   box-shadow: var(--shadow);
 }
 
-.image-strip img:nth-child(2),
-.image-strip img:nth-child(3) {
-  box-shadow: none;
+.room-launch-panel h2 {
+  font-size: clamp(32px, 4vw, 48px);
+}
+
+.room-launch-panel > p:not(.eyebrow) {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.room-launch-action {
+  justify-content: center;
+  min-height: 58px;
+  margin: 28px 0 0;
+  background: var(--red);
+  border-color: var(--red);
+  font-size: 18px;
+}
+
+.room-launch-steps {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.room-launch-steps span {
+  display: grid;
+  min-height: 54px;
+  place-items: center;
+  background: #f4f5f1;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-weight: 800;
+}
+
+.room-continue-link {
+  display: inline-flex;
+  align-self: center;
+  margin-top: auto;
+  padding-top: 28px;
+  color: var(--muted);
+  font-weight: 800;
+  border-bottom: 2px solid transparent;
+}
+
+.room-continue-link:hover {
+  color: var(--red);
+  border-color: var(--red);
 }
 
 .section {
@@ -328,7 +380,6 @@ h2 {
 }
 
 .directory-card--featured {
-  grid-column: span 2;
   color: #fff;
   background:
     linear-gradient(135deg, rgba(21, 21, 21, 0.94), rgba(67, 21, 27, 0.94)),
