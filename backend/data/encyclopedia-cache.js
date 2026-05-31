@@ -5,7 +5,17 @@ const { getImageAssetDirectories } = require("./image-assets");
 const { loadLibraryData } = require("./library");
 
 const LIBRARY_DIR = path.join(__dirname, "library");
-const CACHE_CHECK_INTERVAL_MS = 1000;
+
+function getCacheCheckIntervalMs() {
+  const configured = Number(process.env.DATA_CACHE_CHECK_INTERVAL_MS);
+  if (Number.isFinite(configured) && configured >= 0) {
+    return configured;
+  }
+
+  return process.env.NODE_ENV === "production" ? 60_000 : 1_000;
+}
+
+const CACHE_CHECK_INTERVAL_MS = getCacheCheckIntervalMs();
 
 let cachedEntry = null;
 let lastSignatureCheckAt = 0;

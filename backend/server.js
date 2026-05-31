@@ -1,6 +1,7 @@
 const fs = require("node:fs");
 const http = require("node:http");
 const path = require("node:path");
+const zlib = require("node:zlib");
 const {
   getEncyclopediaData,
   getRoleById,
@@ -12,6 +13,7 @@ const { analyzeWorlds } = require("./deduction/scorer");
 const DEFAULT_PORT = Number(process.env.PORT || 3000);
 const MAX_PORT_ATTEMPTS = 20;
 const MAX_JSON_BODY_BYTES = 512 * 1024;
+const MIN_GZIP_BYTES = 1024;
 const ROOT_DIR = path.resolve(__dirname, "..");
 const FRONTEND_DIR = path.join(ROOT_DIR, "frontend");
 
@@ -28,44 +30,115 @@ const contentTypes = {
   ".webp": "image/webp",
 };
 
-function sendJson(response, statusCode, payload) {
-  response.writeHead(statusCode, {
-    "Content-Type": "application/json; charset=utf-8",
-    "Cache-Control": "no-store",
-  });
-  response.end(JSON.stringify(payload));
+function acceptsGzip(request) {
+  return /\bgzip\b/.test(String(request.headers["accept-encoding"] || ""));
 }
 
-function sendRawJson(response, statusCode, payload) {
-  response.writeHead(statusCode, {
-    "Content-Type": "application/json; charset=utf-8",
-    "Cache-Control": "no-store",
-  });
-  response.end(JSON.stringify(payload));
+function isCompressibleContentType(contentType) {
+  return /(?:application\/json|text\/|javascript|svg\+xml)/i.test(contentType);
 }
 
-function sendFile(response, filePath) {
+function writeResponse(request, response, statusCode, headers, body) {
+  const buffer = Buffer.isBuffer(body) ? body : Buffer.from(String(body));
+  const contentType = headers["Content-Type"] || headers["content-type"] || "";
+  const shouldCompress =
+    buffer.length >= MIN_GZIP_BYTES &&
+    acceptsGzip(request) &&
+    isCompressibleContentType(contentType);
+
+  if (!shouldCompress) {
+    response.writeHead(statusCode, {
+      ...headers,
+      "Content-Length": buffer.length,
+    });
+    response.end(buffer);
+    return;
+  }
+
+  zlib.gzip(buffer, (error, compressed) => {
+    if (error) {
+      response.writeHead(statusCode, {
+        ...headers,
+        "Content-Length": buffer.length,
+      });
+      response.end(buffer);
+      return;
+    }
+
+    response.writeHead(statusCode, {
+      ...headers,
+      "Content-Encoding": "gzip",
+      "Content-Length": compressed.length,
+      Vary: "Accept-Encoding",
+    });
+    response.end(compressed);
+  });
+}
+
+function sendJson(request, response, statusCode, payload) {
+  writeResponse(request, response, statusCode, {
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "no-store",
+  }, JSON.stringify(payload));
+}
+
+function sendRawJson(request, response, statusCode, payload) {
+  sendJson(request, response, statusCode, payload);
+}
+
+function getStaticCacheControl(filePath) {
+  const extension = path.extname(filePath).toLowerCase();
+
+  if (extension === ".html") {
+    return "no-store";
+  }
+
+  if ([".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp"].includes(extension)) {
+    return "public, max-age=86400";
+  }
+
+  return "no-cache";
+}
+
+function sendFile(request, response, filePath, stats = null) {
+  if (stats?.mtime) {
+    const modifiedSince = Date.parse(request.headers["if-modified-since"] || "");
+    if (Number.isFinite(modifiedSince) && stats.mtime.getTime() <= modifiedSince + 999) {
+      response.writeHead(304, {
+        "Cache-Control": getStaticCacheControl(filePath),
+        "Last-Modified": stats.mtime.toUTCString(),
+      });
+      response.end();
+      return;
+    }
+  }
+
   fs.readFile(filePath, (error, content) => {
     if (error) {
-      sendJson(response, 404, { error: "Not found" });
+      sendJson(request, response, 404, { error: "Not found" });
       return;
     }
 
     const extension = path.extname(filePath).toLowerCase();
-    response.writeHead(200, {
+    const headers = {
       "Content-Type": contentTypes[extension] || "application/octet-stream",
-      "Cache-Control": "no-store",
-    });
-    response.end(content);
+      "Cache-Control": getStaticCacheControl(filePath),
+    };
+
+    if (stats?.mtime) {
+      headers["Last-Modified"] = stats.mtime.toUTCString();
+    }
+
+    writeResponse(request, response, 200, headers, content);
   });
 }
 
-function readData(response, errorMessage) {
+function readData(request, response, errorMessage) {
   try {
     return getEncyclopediaData();
   } catch (error) {
     console.error(error);
-    sendJson(response, 500, { error: errorMessage });
+    sendJson(request, response, 500, { error: errorMessage });
     return null;
   }
 }
@@ -82,7 +155,7 @@ function readJsonBody(request, response, onBody) {
     body += chunk;
     if (Buffer.byteLength(body, "utf8") > MAX_JSON_BODY_BYTES) {
       tooLarge = true;
-      sendJson(response, 413, { error: "Request body too large" });
+      sendJson(request, response, 413, { error: "Request body too large" });
       request.destroy();
     }
   });
@@ -95,13 +168,13 @@ function readJsonBody(request, response, onBody) {
     try {
       onBody(body ? JSON.parse(body) : {});
     } catch (error) {
-      sendJson(response, 400, { error: "Invalid JSON body" });
+      sendJson(request, response, 400, { error: "Invalid JSON body" });
     }
   });
 
   request.on("error", () => {
     if (!response.headersSent) {
-      sendJson(response, 400, { error: "Failed to read request body" });
+      sendJson(request, response, 400, { error: "Failed to read request body" });
     }
   });
 }
@@ -112,113 +185,113 @@ function handleApi(request, response) {
 
   if (requestUrl.pathname === "/api/deduction/analyze") {
     if (request.method !== "POST") {
-      sendJson(response, 405, { error: "Method not allowed" });
+      sendJson(request, response, 405, { error: "Method not allowed" });
       return;
     }
 
     readJsonBody(request, response, (payload) => {
-      const data = readData(response, "Failed to read deduction data");
+      const data = readData(request, response, "Failed to read deduction data");
       if (!data) {
         return;
       }
 
       if (!payload?.game || typeof payload.game !== "object") {
-        sendJson(response, 400, { error: "Missing game payload" });
+        sendJson(request, response, 400, { error: "Missing game payload" });
         return;
       }
 
       try {
-        sendJson(response, 200, analyzeWorlds(payload.game, data));
+        sendJson(request, response, 200, analyzeWorlds(payload.game, data));
       } catch (error) {
         console.error(error);
-        sendJson(response, 500, { error: "Failed to analyze deduction state" });
+        sendJson(request, response, 500, { error: "Failed to analyze deduction state" });
       }
     });
     return;
   }
 
   if (request.method !== "GET") {
-    sendJson(response, 405, { error: "Method not allowed" });
+    sendJson(request, response, 405, { error: "Method not allowed" });
     return;
   }
 
   if (requestUrl.pathname === "/api/health") {
-    sendJson(response, 200, { ok: true, service: "botc-encyclopedia" });
+    sendJson(request, response, 200, { ok: true, service: "botc-encyclopedia" });
     return;
   }
 
   if (requestUrl.pathname === "/api/encyclopedia") {
-    const data = readData(response, "Failed to read encyclopedia data");
+    const data = readData(request, response, "Failed to read encyclopedia data");
     if (data) {
-      sendRawJson(response, 200, data);
+      sendRawJson(request, response, 200, data);
     }
     return;
   }
 
   if (segments[0] === "api" && segments[1] === "scripts") {
-    const data = readData(response, "Failed to read script data");
+    const data = readData(request, response, "Failed to read script data");
     if (!data) {
       return;
     }
 
     if (!segments[2]) {
-      sendRawJson(response, 200, data.scripts || []);
+      sendRawJson(request, response, 200, data.scripts || []);
       return;
     }
 
     const script = getScriptById(segments[2]);
     if (!script) {
-      sendJson(response, 404, { error: "Script not found" });
+      sendJson(request, response, 404, { error: "Script not found" });
       return;
     }
 
-    sendRawJson(response, 200, script);
+    sendRawJson(request, response, 200, script);
     return;
   }
 
   if (segments[0] === "api" && segments[1] === "roles") {
-    const data = readData(response, "Failed to read role data");
+    const data = readData(request, response, "Failed to read role data");
     if (!data) {
       return;
     }
 
     if (!segments[2]) {
-      sendRawJson(response, 200, data.roles || []);
+      sendRawJson(request, response, 200, data.roles || []);
       return;
     }
 
     const role = getRoleById(segments[2]);
     if (!role) {
-      sendJson(response, 404, { error: "Role not found" });
+      sendJson(request, response, 404, { error: "Role not found" });
       return;
     }
 
-    sendRawJson(response, 200, role);
+    sendRawJson(request, response, 200, role);
     return;
   }
 
   if (segments[0] === "api" && segments[1] === "terms") {
-    const data = readData(response, "Failed to read term data");
+    const data = readData(request, response, "Failed to read term data");
     if (!data) {
       return;
     }
 
     if (!segments[2]) {
-      sendRawJson(response, 200, data.terms || []);
+      sendRawJson(request, response, 200, data.terms || []);
       return;
     }
 
     const term = getTermById(segments[2]);
     if (!term) {
-      sendJson(response, 404, { error: "Term not found" });
+      sendJson(request, response, 404, { error: "Term not found" });
       return;
     }
 
-    sendRawJson(response, 200, term);
+    sendRawJson(request, response, 200, term);
     return;
   }
 
-  sendJson(response, 404, { error: "API route not found" });
+  sendJson(request, response, 404, { error: "API route not found" });
 }
 
 function handleStatic(request, response) {
@@ -230,28 +303,31 @@ function handleStatic(request, response) {
     filePath === FRONTEND_DIR || filePath.startsWith(`${FRONTEND_DIR}${path.sep}`);
 
   if (!isInsideFrontend) {
-    sendJson(response, 403, { error: "Forbidden" });
+    sendJson(request, response, 403, { error: "Forbidden" });
     return;
   }
 
   fs.stat(filePath, (error, stats) => {
     if (!error && stats.isFile()) {
-      sendFile(response, filePath);
+      sendFile(request, response, filePath, stats);
       return;
     }
 
     if (path.extname(filePath)) {
-      sendJson(response, 404, { error: "Not found" });
+      sendJson(request, response, 404, { error: "Not found" });
       return;
     }
 
-    sendFile(response, path.join(FRONTEND_DIR, "index.html"));
+    const indexPath = path.join(FRONTEND_DIR, "index.html");
+    fs.stat(indexPath, (indexError, indexStats) => {
+      sendFile(request, response, indexPath, indexError ? null : indexStats);
+    });
   });
 }
 
 const server = http.createServer((request, response) => {
   if (!request.url || !request.method) {
-    sendJson(response, 400, { error: "Bad request" });
+    sendJson(request, response, 400, { error: "Bad request" });
     return;
   }
 
@@ -261,7 +337,7 @@ const server = http.createServer((request, response) => {
   }
 
   if (request.method !== "GET") {
-    sendJson(response, 405, { error: "Method not allowed" });
+    sendJson(request, response, 405, { error: "Method not allowed" });
     return;
   }
 

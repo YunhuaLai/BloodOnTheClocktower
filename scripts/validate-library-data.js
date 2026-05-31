@@ -110,6 +110,14 @@ const KNOWN_SEMANTIC_OPERATION_KINDS = new Set([
   "manual_record",
 ]);
 
+const ARCHIVED_ORPHAN_ROLE_TYPES = new Set([
+  "a jinxed",
+  "a jinxes",
+  "fabled",
+  "jinxes",
+  "traveller2",
+]);
+
 const errors = [];
 const warnings = [];
 
@@ -450,13 +458,16 @@ function validateRelatedRoles(data, roleIds) {
 
 function validateOrphans(data) {
   const orphanRoles = data.roles.filter((role) => !(role.scriptIds || []).length);
+  const actionableOrphans = orphanRoles.filter(
+    (role) => !ARCHIVED_ORPHAN_ROLE_TYPES.has(role?.type),
+  );
 
-  if (orphanRoles.length) {
+  if (actionableOrphans.length) {
     addWarning(
-      `${orphanRoles.length} roles are not included in any script: ${orphanRoles
+      `${actionableOrphans.length} roles are not included in any script: ${actionableOrphans
         .slice(0, 12)
         .map(label)
-        .join(", ")}${orphanRoles.length > 12 ? ", ..." : ""}`,
+        .join(", ")}${actionableOrphans.length > 12 ? ", ..." : ""}`,
     );
   }
 }

@@ -2,7 +2,7 @@ import { isBaseRole, isFabledRole, isTravellerRole, normalizeMatchText } from ".
 import { normalizeAutoExecutionApplied, normalizeDayRecords, syncAutoExecutionStatuses } from "./notes/notes-day-records.js";
 import { isTravellerPlayer } from "./notes/notes-core.js";
 import { noteAlignmentOptions, noteConditionOptions, noteModeOptions, noteStatusOptions, noteTagOptions, notesStorageKey, phaseTypeOptions, scriptModeOptions, state, timelineTypeOptions } from "./state.js";
-import { createId, escapeHtml, getOptionLabel } from "./utils.js";
+import { createId, getOptionLabel } from "./utils.js";
 
 export function clampNumber(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -617,17 +617,4 @@ export function clearPlayerDraft(playerId) {
 
 export function getDraftOrPlayer(player) {
   return getPlayerDraft(player.id) || player;
-}
-
-function getNoteTagLabel(value) {
-  return getOptionLabel(noteTagOptions, value);
-}
-
-function renderGameSelectOptions(notes) {
-  return notes.games
-    .map(
-      (game, index) =>
-        `<option value="${escapeHtml(game.id)}"${game.id === notes.activeGameId ? " selected" : ""}>${escapeHtml(game.title || `第 ${index + 1} 局`)}</option>`,
-    )
-    .join("");
 }

@@ -7,20 +7,23 @@ image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/20_newhero.png
 flavor: 史莱姆虽然很弱小，但史莱姆从来没有被战胜过。
 setup: true
 setupMeta:
-  randomAssignable: false
+  randomAssignable: true
   tokenRequired: true
   setupAlertLevel: danger
   identityOverlay:
-    enabled: true
-    shownToken: other_role
-    actualRoleType: outsider
-    shownRoleTypes:
-      - townsfolk
-      - outsider
-    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
-  configurationAdjustments: []
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -1
+      source: '[-1外来者]'
+      note: 配置调整：外来者数量 -1。
   setupNotes:
-    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+    - 配置调整：外来者数量 -1。
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''

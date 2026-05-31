@@ -13,7 +13,7 @@ setupMeta:
   identityOverlay:
     enabled: false
     shownToken: self
-    actualRoleType: traveller
+    actualRoleType: minion
     shownRoleTypes: []
     note: ''
   configurationAdjustments: []
@@ -88,5 +88,5 @@ abilityData:
   deduction:
     status: world_effect
     source: inferred
-    effectType: action_history
+    effectType: poison_drunk
     note: ''
