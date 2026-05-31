@@ -1,8 +1,28 @@
-import { clearPlayerDraft, createDefaultSetupDraft, ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
-import { addNominationRecord, addSetupCustomRole, addSetupFabledRole, addTimelineEntry, addTravellerToGame, adjustSuspectedRoles, clearSavedGameSelection, deleteNominationRecord, deleteSavedGames, exportActiveGame, getSelectedPlayerIdForGame, handleCreateGame, handleDeleteGame, openGameById, removeSetupCustomRole, removeSetupFabledRole, removeTravellerFromGame, saveDayPublicRecord, selectAllSavedGames, shiftGamePhase, toggleGameFavorite, toggleSavedGameSelection, updateDayExecutionOverride, updateGameField, updateInferenceField, updateNominationRecordField, updateNominationVoter, updateSetupDraftField, updateStorytellerBluff, updateStorytellerField, updateSuspectedRole } from "./notes/notes-game-actions.js";
-import { adjustPlayerDraftRoleInfoRows, autoFillStorytellerRoleInfoResult, cyclePlayerDraftRoleInfoField, cyclePlayerFieldValue, ensurePlayerDraftForId, persistPlayerDraft, savePlayerDraft, togglePlayerStoryMarker, updatePlayerDraftRoleInfo, updatePlayerField } from "./notes/notes-player-actions.js";
+import { ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
+import {
+  getSelectedPlayerIdForGame,
+  updateDayExecutionOverride,
+  updateGameField,
+  updateInferenceField,
+  updateNominationRecordField,
+  updateNominationVoter,
+  updateSetupDraftField,
+  updateStorytellerBluff,
+  updateStorytellerField,
+  updateSuspectedRole,
+} from "./notes/notes-game-actions.js";
+import {
+  persistPlayerDraft,
+  updatePlayerDraftRoleInfo,
+  updatePlayerField,
+} from "./notes/notes-player-actions.js";
+import { handlePlayerUiAction } from "./notes/notes-player-ui-actions.js";
+import { handleRoomAction } from "./notes/notes-room-actions.js";
+import { handleSavedGameAction } from "./notes/notes-saved-actions.js";
+import { handleSetupAction } from "./notes/notes-setup-actions.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
-import { assignRandomStorytellerRoles, clearStorytellerAssignments } from "./notes/notes-storyteller-actions.js";
+import { handleStorytellerAction } from "./notes/notes-storyteller-ui-actions.js";
+import { handleTimelineAction } from "./notes/notes-timeline-actions.js";
 import { state } from "./state.js";
 
 export function handleNotesFieldChange(target, refreshInterface = false) {
@@ -149,9 +169,7 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
     if (["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
       persistPlayerDraft(playerId);
     }
-    return;
   }
-
 }
 
 export function handleNotesAction(button) {
@@ -159,325 +177,29 @@ export function handleNotesAction(button) {
   const notes = ensureNotesState();
   const game = getActiveGame();
 
-  if (action === "create-game") {
-    handleCreateGame();
+  if (handleSetupAction(action, button, notes)) {
     return;
   }
 
-  if (action === "add-custom-role") {
-    if (addSetupCustomRole(document.querySelector("#customRoleInput")?.value || "")) {
-      renderNotesPage();
-    }
+  if (handleSavedGameAction(action, button, notes)) {
     return;
   }
 
-  if (action === "remove-custom-role") {
-    if (removeSetupCustomRole(button.dataset.roleId || "")) {
-      renderNotesPage();
-    }
+  if (!game) {
     return;
   }
 
-  if (action === "add-fabled-role") {
-    if (addSetupFabledRole(document.querySelector("#fabledRoleInput")?.value || "")) {
-      renderNotesPage();
-    }
+  if (handleRoomAction(action, button, notes, game)) {
     return;
   }
 
-  if (action === "remove-fabled-role") {
-    if (removeSetupFabledRole(button.dataset.roleId || "")) {
-      renderNotesPage();
-    }
+  if (handleStorytellerAction(action, button, notes)) {
     return;
   }
 
-  if (action === "new-game") {
-    notes.ui.creatingGame = true;
-    notes.ui.screen = "setup";
-    notes.ui.setupDraft = createDefaultSetupDraft();
-    renderNotesPage();
+  if (handlePlayerUiAction(action, button, notes)) {
     return;
   }
 
-  if (action === "cancel-create" || action === "go-home") {
-    notes.ui.creatingGame = false;
-    notes.ui.screen = "home";
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "open-current-game" || action === "open-game") {
-    openGameById(button.dataset.gameId || notes.activeGameId);
-    return;
-  }
-
-  if (action === "view-saved") {
-    document.querySelector("#notesSavedSection")?.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-    return;
-  }
-
-  if (action === "toggle-game-favorite") {
-    toggleGameFavorite(notes, button.dataset.gameId || "");
-    return;
-  }
-
-  if (action === "toggle-saved-selection") {
-    toggleSavedGameSelection(
-      notes,
-      button.dataset.gameId || "",
-      Boolean(button.checked),
-    );
-    return;
-  }
-
-  if (action === "select-all-saved-games") {
-    selectAllSavedGames(notes);
-    return;
-  }
-
-  if (action === "clear-saved-selection") {
-    clearSavedGameSelection(notes);
-    return;
-  }
-
-  if (action === "delete-saved-game") {
-    deleteSavedGames(notes, [button.dataset.gameId || ""], "删除这个对局记录？这只会清除本机保存。");
-    return;
-  }
-
-  if (action === "delete-selected-games") {
-    deleteSavedGames(notes, notes.ui.selectedSavedGameIds || []);
-    return;
-  }
-
-  if (!game && action !== "open-current-game") {
-    return;
-  }
-
-  if (action === "delete-game") {
-    handleDeleteGame(notes, game);
-    return;
-  }
-
-  if (action === "export-game") {
-    exportActiveGame();
-    return;
-  }
-
-  if (action === "random-assign-roles") {
-    assignRandomStorytellerRoles();
-    return;
-  }
-
-  if (action === "clear-assignments") {
-    clearStorytellerAssignments();
-    return;
-  }
-
-  if (action === "add-traveller") {
-    if (addTravellerToGame(document.querySelector("#travellerRoleInput")?.value || "")) {
-      renderNotesPage();
-    }
-    return;
-  }
-
-  if (action === "remove-traveller") {
-    if (removeTravellerFromGame(button.dataset.playerId || "")) {
-      renderNotesPage();
-    }
-    return;
-  }
-
-  if (action === "save-game") {
-    saveNotesState();
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "switch-tab") {
-    notes.ui.activeTab = button.dataset.tab || "overview";
-    notes.ui.scriptSheetOpen = false;
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "select-story-player") {
-    notes.ui.selectedPlayerId = button.dataset.playerId || "";
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "toggle-story-marker") {
-    const playerId = button.dataset.playerId || "";
-    if (togglePlayerStoryMarker(playerId, button.dataset.marker || "")) {
-      persistPlayerDraft(playerId);
-    }
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "autofill-story-result") {
-    const playerId = button.dataset.playerId || "";
-    if (autoFillStorytellerRoleInfoResult(playerId)) {
-      persistPlayerDraft(playerId);
-    }
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "open-player" || action === "select-player") {
-    notes.ui.selectedPlayerId = button.dataset.playerId || "";
-    notes.ui.activeTab = "players";
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "toggle-overview-player") {
-    const playerId = button.dataset.playerId || "";
-    const wasExpanded = notes.ui.overviewExpandedPlayerId === playerId;
-    notes.ui.selectedPlayerId = playerId;
-    notes.ui.overviewExpandedPlayerId = wasExpanded ? "" : playerId;
-    if (wasExpanded || notes.ui.overviewExpandedExtraPlayerId !== playerId) {
-      notes.ui.overviewExpandedExtraPlayerId = "";
-    }
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "toggle-overview-extra") {
-    const playerId = button.dataset.playerId || "";
-    notes.ui.selectedPlayerId = playerId;
-    notes.ui.overviewExpandedPlayerId = playerId;
-    notes.ui.overviewExpandedExtraPlayerId =
-      notes.ui.overviewExpandedExtraPlayerId === playerId ? "" : playerId;
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "toggle-script-sheet") {
-    notes.ui.scriptSheetOpen = !notes.ui.scriptSheetOpen;
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "close-script-sheet") {
-    notes.ui.scriptSheetOpen = false;
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "cycle-player-field") {
-    cyclePlayerFieldValue(button.dataset.playerId, button.dataset.field);
-    if (["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
-      persistPlayerDraft(button.dataset.playerId);
-    }
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "cycle-roleinfo-field") {
-    const playerId =
-      button.dataset.playerId ||
-      button.closest(".notes-player-detail, .notes-overview-editor, .story-night-detail")?.dataset.playerId ||
-      "";
-    cyclePlayerDraftRoleInfoField(
-      playerId,
-      button.dataset.section || "result",
-      Number(button.dataset.row || 0),
-      button.dataset.field || "",
-    );
-    if (["overview", "storyteller"].includes(state.notes.ui.activeTab) && playerId) {
-      persistPlayerDraft(playerId);
-    }
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "toggle-tag") {
-    const draft = ensurePlayerDraftForId(button.dataset.playerId);
-    if (!draft) {
-      return;
-    }
-
-    const tag = button.dataset.tag;
-    draft.tags = draft.tags.includes(tag)
-      ? draft.tags.filter((item) => item !== tag)
-      : [...draft.tags, tag];
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "add-roleinfo-row" || action === "remove-roleinfo-row") {
-    adjustPlayerDraftRoleInfoRows(
-      button.dataset.playerId,
-      button.dataset.section || "target",
-      action === "add-roleinfo-row" ? 1 : -1,
-    );
-    if (["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
-      persistPlayerDraft(button.dataset.playerId);
-    }
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "add-suspected-role" || action === "remove-suspected-role") {
-    adjustSuspectedRoles(action === "add-suspected-role" ? 1 : -1);
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "save-player") {
-    savePlayerDraft(button.dataset.playerId);
-    notes.ui.activeTab = "overview";
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "discard-player") {
-    clearPlayerDraft(button.dataset.playerId);
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "add-nomination") {
-    addNominationRecord(Number(button.dataset.dayNumber || game.phaseNumber || 1));
-    return;
-  }
-
-  if (action === "delete-nomination") {
-    deleteNominationRecord(
-      Number(button.dataset.dayNumber || game.phaseNumber || 1),
-      button.dataset.nominationId || "",
-    );
-    return;
-  }
-
-  if (action === "save-day-public-record") {
-    saveDayPublicRecord(Number(button.dataset.dayNumber || game.phaseNumber || 1));
-    return;
-  }
-
-  if (action === "add-timeline") {
-    addTimelineEntry();
-    return;
-  }
-
-  if (action === "delete-timeline") {
-    game.timeline = game.timeline.filter(
-      (entry) => entry.id !== button.dataset.entryId,
-    );
-    saveNotesState();
-    renderNotesPage();
-    return;
-  }
-
-  if (action === "advance-phase") {
-    shiftGamePhase(game, Number(button.dataset.step) || 1);
-    saveNotesState();
-    renderNotesPage();
-  }
+  handleTimelineAction(action, button, game);
 }

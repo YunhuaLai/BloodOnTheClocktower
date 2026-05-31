@@ -1,4 +1,5 @@
 import { renderLoadError, renderNotFound, renderRoleDetail, renderScriptDetail, renderTermDetail } from "./catalog-details.js";
+import { ensureCatalogDetail, ensureFullCatalog, loadBootstrapCatalog } from "./catalog-data.js";
 import { renderHome } from "./catalog-home.js";
 import { renderRoleIndex, renderRoles, renderScriptIndex, renderScripts, renderTermIndex, syncFilterButtons } from "./catalog-indexes.js";
 import { handleNotesAction, handleNotesFieldChange } from "./notes-actions.js";
@@ -24,7 +25,7 @@ export function scrollToHash() {
   });
 }
 
-export function renderRoute() {
+export async function renderRoute() {
   const previousPath = state.currentPath;
   const segments = window.location.pathname.split("/").filter(Boolean);
   const isNotesRoute = segments.length === 1 && segments[0] === "notes";
@@ -55,6 +56,7 @@ export function renderRoute() {
   }
 
   if (segments.length === 1 && segments[0] === "notes") {
+    await ensureFullCatalog();
     const notes = ensureNotesState();
     const shouldCreate = new URLSearchParams(window.location.search).get("create") === "1";
 
@@ -73,16 +75,19 @@ export function renderRoute() {
   }
 
   if (segments.length === 2 && segments[0] === "scripts") {
+    await ensureCatalogDetail("scripts", segments[1]);
     renderScriptDetail(segments[1]);
     return;
   }
 
   if (segments.length === 2 && segments[0] === "roles") {
+    await ensureCatalogDetail("roles", segments[1]);
     renderRoleDetail(segments[1]);
     return;
   }
 
   if (segments.length === 2 && segments[0] === "terms") {
+    await ensureCatalogDetail("terms", segments[1]);
     renderTermDetail(segments[1]);
     return;
   }
@@ -95,22 +100,16 @@ function navigateTo(url) {
   if (url !== current) {
     window.history.pushState({}, "", url);
   }
-  renderRoute();
+  renderRoute().catch((error) => {
+    console.error(error);
+    renderLoadError();
+  });
 }
 
-async function loadEncyclopedia() {
+async function loadInitialCatalog() {
   try {
-    const response = await fetch("/api/encyclopedia");
-    if (!response.ok) {
-      throw new Error(`API returned ${response.status}`);
-    }
-
-    const data = await response.json();
-    state.rules = data.rules || [];
-    state.scripts = data.scripts || [];
-    state.roles = data.roles || [];
-    state.terms = data.terms || [];
-    renderRoute();
+    await loadBootstrapCatalog();
+    await renderRoute();
   } catch (error) {
     console.error(error);
     renderLoadError();
@@ -271,8 +270,13 @@ document.addEventListener("pointerup", (event) => {
   }
 });
 
-window.addEventListener("popstate", renderRoute);
+window.addEventListener("popstate", () => {
+  renderRoute().catch((error) => {
+    console.error(error);
+    renderLoadError();
+  });
+});
 
 export function startApp() {
-  loadEncyclopedia();
+  loadInitialCatalog();
 }

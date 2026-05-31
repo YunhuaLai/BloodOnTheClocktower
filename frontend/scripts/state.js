@@ -117,6 +117,10 @@ export const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "trave
 
 export const state = {
   activeFilter: "all",
+  catalog: {
+    bootstrapLoaded: false,
+    fullLoaded: false,
+  },
   currentPath: "",
   scriptLevelFilter: "all",
   scriptQuery: "",

@@ -3,6 +3,7 @@ const http = require("node:http");
 const path = require("node:path");
 const zlib = require("node:zlib");
 const {
+  getBootstrapData,
   getEncyclopediaData,
   getRoleById,
   getScriptById,
@@ -217,6 +218,16 @@ function handleApi(request, response) {
 
   if (requestUrl.pathname === "/api/health") {
     sendJson(request, response, 200, { ok: true, service: "botc-encyclopedia" });
+    return;
+  }
+
+  if (requestUrl.pathname === "/api/bootstrap") {
+    try {
+      sendRawJson(request, response, 200, getBootstrapData());
+    } catch (error) {
+      console.error(error);
+      sendJson(request, response, 500, { error: "Failed to read bootstrap data" });
+    }
     return;
   }
 
