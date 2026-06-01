@@ -132,12 +132,12 @@ function getPlayerChoicePrompt(role, abilityData) {
   const firstField = targetNode.fields[0];
   if (["seat", "player", "number"].includes(firstField.type)) {
     return meta.drivenBy === "player" || meta.activationMode === "active"
-      ? "提示玩家：请给我一个号码。"
+      ? "问号码。"
       : "记录目标号码。";
   }
 
   return meta.drivenBy === "player" || meta.activationMode === "active"
-    ? `提示玩家：请选择${firstField.label || "目标"}。`
+    ? `问${firstField.label || "目标"}。`
     : `记录${firstField.label || "目标"}。`;
 }
 
@@ -307,8 +307,8 @@ function renderStorytellerSetupAlerts(game) {
               <strong>${escapeHtml(role.name)} 标记需手动放置</strong>
               <p>${escapeHtml(
                 markers.length
-                  ? `可用标记：${markers.join("、")}。随机分配不会直接发放该身份。`
-                  : "随机分配不会直接发放该身份，请说书人手动记录覆盖关系。",
+                  ? `标记：${markers.join("、")}。需手动处理。`
+                  : "需手动记录覆盖关系。",
               )}</p>
               ${notes.length ? `<small>${escapeHtml(notes.join("；"))}</small>` : ""}
             </article>
@@ -324,7 +324,7 @@ function renderStorytellerSetupAlerts(game) {
               <p>${escapeHtml(
                 notes.length
                   ? notes.join("；")
-                  : "请说书人检查外来者、爪牙或其他配置人数是否需要调整。",
+                  : "检查配置人数。",
               )}</p>
             </article>
           `;
@@ -478,12 +478,12 @@ function renderGrimoireInspector(player, game) {
           data-player-id="${escapeHtml(player.id)}"
           data-field="storytellerNotes"
           value="${escapeHtml(draft.storytellerNotes)}"
-          placeholder="例如 中毒、保护、红鲱鱼、一次性能力已用"
+          placeholder="中毒、保护、红鲱鱼"
         />
       </label>
       <div class="story-inspector-ability">
         <strong>${escapeHtml(draft.trueRole || "未设置身份")}</strong>
-        <p>${escapeHtml(role?.ability || "选择真实身份后，这里会显示角色能力摘要。")}</p>
+        <p>${escapeHtml(role?.ability || "选择身份后显示能力。")}</p>
       </div>
     </aside>
   `;
@@ -851,7 +851,7 @@ function renderNightOrderPanel(game) {
                 .join("")}
             </div>
           `
-          : `<div class="empty-state">当前剧本或分配里还没有可显示的夜晚提醒。</div>`
+          : `<div class="empty-state">暂无夜晚提醒。</div>`
       }
     </section>
   `;
@@ -885,14 +885,14 @@ function renderPublicBoardPanel(game) {
                 .join("")}
             </div>
           `
-          : `<div class="empty-state">还没有记录给玩家的信息。展开夜晚流程里的角色，录入目标和结果后会出现在这里。</div>`
+          : `<div class="empty-state">暂无告知记录。</div>`
       }
       <label class="note-field note-field--wide">
         <span>补充记录</span>
         <textarea
           data-storyteller-field="publicNotes"
           rows="3"
-          placeholder="记录已经告知玩家的信息、提醒和需要回头核对的答案。"
+          placeholder="已告知信息、提醒、待核对答案"
         >${escapeHtml(storyteller.publicNotes)}</textarea>
       </label>
     </section>
@@ -903,7 +903,7 @@ export function renderStorytellerTab(game) {
   if (game.mode !== "storyteller") {
     return `
       <section class="notes-panel">
-        <div class="empty-state">当前局是玩家模式。到时间线里把记录视角切成说书人后，这里会出现控制台。</div>
+        <div class="empty-state">说书人模式下显示控制台。</div>
       </section>
     `;
   }

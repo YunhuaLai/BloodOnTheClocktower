@@ -41,7 +41,7 @@ function renderOverviewInlineEditor(player, game) {
           data-player-id="${escapeHtml(draft.id)}"
           data-field="extraInfo"
           value="${escapeHtml(draft.extraInfo)}"
-          placeholder="例如 首夜报 3/8，或今天不该先出票"
+          placeholder="首夜报 3/8，今天别先出票"
         />
       </label>
     </section>
@@ -96,7 +96,7 @@ function renderOverviewSuspectedRoles(game) {
                 .join("")}
             </div>
           `
-          : `<div class="notes-roleinfo-empty">还没有疑似存在角色。</div>`
+          : `<div class="notes-roleinfo-empty">暂无疑似角色。</div>`
       }
       <div class="notes-roleinfo-actions">
         <button

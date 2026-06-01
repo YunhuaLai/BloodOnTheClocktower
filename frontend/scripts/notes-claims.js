@@ -237,17 +237,15 @@ export function getRoomRoleOptions(game) {
 export function getClaimPickerHint(game) {
   if (isCustomRoleGame(game)) {
     const count = getClaimRoleOptions(game).length;
-    return count
-      ? `当前只显示自定义角色池里的 ${count} 个角色。`
-      : "自定义角色池还是空的。";
+    return count ? `自定义池：${count} 个角色。` : "自定义池为空。";
   }
 
   const script = getGameScript(game);
   if (!script) {
-    return "先选具体剧本，自称身份才会收窄到该剧本角色。";
+    return "先选剧本。";
   }
 
-  return `当前只显示《${script.name}》角色。`;
+  return `《${script.name}》角色。`;
 }
 
 export function renderRoleNameDatalist(game) {

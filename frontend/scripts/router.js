@@ -266,7 +266,7 @@ document.addEventListener("pointerup", (event) => {
   if (deltaX > 0) {
     toggleGameFavorite(notes, gameId);
   } else {
-    deleteSavedGames(notes, [gameId], "删除这个对局记录？这只会清除本机保存。");
+    deleteSavedGames(notes, [gameId], "删除这个对局？");
   }
 });
 

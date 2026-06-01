@@ -9,7 +9,7 @@ export function renderRoleInfoInputs(player, game) {
     return `
       <section class="notes-detail-section notes-roleinfo-panel">
         <p class="eyebrow">技能记录</p>
-        <p class="notes-inline-hint">先选择自称身份，这里再按角色类型展开录入项。</p>
+        <p class="notes-inline-hint">先选身份。</p>
       </section>
     `;
   }
@@ -19,7 +19,7 @@ export function renderRoleInfoInputs(player, game) {
     return `
       <section class="notes-detail-section notes-roleinfo-panel">
         <p class="eyebrow">技能记录</p>
-        <p class="notes-inline-hint">当前身份还没有匹配到角色数据，先用额外信息补充。</p>
+        <p class="notes-inline-hint">未匹配角色数据。</p>
       </section>
     `;
   }
@@ -122,7 +122,7 @@ export function renderRoleInfoInputs(player, game) {
   const emptyMessage =
     hasStructuredFields && availability.reason
       ? availability.reason
-      : "这个身份目前更偏规则效果，先用“额外信息”补充关键点。";
+      : "规则效果，写在额外信息里。";
 
   return `
     <section class="notes-detail-section notes-roleinfo-panel">

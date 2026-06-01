@@ -46,7 +46,7 @@ export function handleSavedGameAction(action, button, notes) {
   }
 
   if (action === "delete-saved-game") {
-    deleteSavedGames(notes, [button.dataset.gameId || ""], "删除这个对局记录？这只会清除本机保存。");
+    deleteSavedGames(notes, [button.dataset.gameId || ""], "删除这个对局？");
     return true;
   }
 

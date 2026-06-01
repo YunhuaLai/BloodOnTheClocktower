@@ -19,7 +19,7 @@ export function getScriptsForRole(role) {
 }
 
 export function getRoleScriptLabel(role) {
-  return (role.scriptNames || []).join(" / ") || role.script || "未归属剧本";
+  return (role.scriptNames || []).join(" / ") || role.script || "未归属";
 }
 
 function getTermForKeyword(keyword) {
@@ -55,7 +55,7 @@ export function detailBlock(title, content) {
 
 export function compactListLinks(items, type) {
   if (!items.length) {
-    return `<p class="muted">当前还没有录入关联条目。</p>`;
+    return `<p class="muted">无关联条目。</p>`;
   }
 
   return `
@@ -135,7 +135,7 @@ export function sortCatalogRoles(roles) {
 export function renderKeywordLinks(keywords) {
   const tokens = splitKeywords(keywords);
   if (!tokens.length) {
-    return `<p class="muted">当前没有关键词。</p>`;
+    return `<p class="muted">无关键词。</p>`;
   }
 
   return `

@@ -131,7 +131,7 @@ function buildRandomSetupNoteLines(game, selectedRoles) {
             ? `${role.name}（${markers.join("、")}）`
             : role.name;
         })
-        .join("、")} 不会直接随机分配，请说书人手动指定并放置标记。`,
+        .join("、")} 需手动指定。`,
     );
   }
 
@@ -140,7 +140,7 @@ function buildRandomSetupNoteLines(game, selectedRoles) {
     lines.push(
       notes.length
         ? `${role.name}：${notes.join("；")}`
-        : `${role.name}：需要说书人手动检查开局配置。`,
+        : `${role.name}：检查开局配置。`,
     );
   });
 
@@ -156,7 +156,7 @@ export function assignRandomStorytellerRoles() {
   const script = getGameScript(game);
   const isCustom = isCustomRoleGame(game);
   if (!script && !isCustom) {
-    window.alert("先选择剧本，再随机分配身份。");
+    window.alert("先选择剧本。");
     return;
   }
 

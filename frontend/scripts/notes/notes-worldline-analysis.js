@@ -17,7 +17,7 @@ function renderObservationList(items, emptyText, limit = 5) {
 
 function renderFalseObservationList(items, limit = 5) {
   if (!items.length) {
-    return "<li>无需要解释的错误信息</li>";
+    return "<li>无冲突信息</li>";
   }
 
   return items
@@ -74,7 +74,7 @@ function renderWorldResult(result, index) {
       <div class="notes-world-card-grid">
         <section>
           <h5>自然成立</h5>
-          <ul>${renderObservationList(result.trueObservations, "暂无自然成立的信息")}</ul>
+          <ul>${renderObservationList(result.trueObservations, "暂无成立信息")}</ul>
         </section>
         <section>
           <h5>需要解释</h5>
@@ -116,7 +116,7 @@ function renderUnsupported(unsupported) {
 
   return `
     <section class="notes-analysis-signals notes-analysis-signals--muted">
-      <h4>暂未接入自动推理</h4>
+      <h4>未接入自动推理</h4>
       <ul>
         ${unsupported
           .slice(0, 8)
@@ -135,7 +135,7 @@ function renderEmpty(analysis) {
   return `
     <section class="notes-analysis-signals">
       <h4>局势推理</h4>
-      <p>还没有能自动计算的信息。先在玩家行里录入共情、女裁、占卜、祖母、贵族、筑梦等结构化结果。</p>
+      <p>暂无可计算信息。</p>
     </section>
   `;
 }
@@ -161,7 +161,7 @@ function renderAnalysisPanel(game, analysis) {
         <h4>已读取的信息</h4>
         <ul>
           <li>${escapeHtml(`自动计算 ${analysis.observations.length} 条；枚举 ${analysis.worldsChecked} 个局势；暂未接入 ${analysis.unsupported.length} 条`)}</li>
-          ${renderObservationList(analysis.observations, "暂无自动计算信息", 6)}
+          ${renderObservationList(analysis.observations, "暂无计算信息", 6)}
         </ul>
       </section>
 
@@ -173,7 +173,7 @@ function renderAnalysisPanel(game, analysis) {
               ${
                 analysis.results.length
                   ? analysis.results.slice(0, 10).map(renderWorldResult).join("")
-                  : "<p class=\"notes-analysis-empty\">没有找到可展示的局势。</p>"
+                  : "<p class=\"notes-analysis-empty\">暂无局势。</p>"
               }
             </div>
             ${renderUnsupported(analysis.unsupported)}
@@ -208,7 +208,7 @@ function renderAnalysisError() {
   return `
     <section class="notes-analysis-signals notes-analysis-signals--muted">
       <h4>局势推理</h4>
-      <p>暂时没有拿到推理结果，请稍后再试。</p>
+      <p>暂无推理结果。</p>
     </section>
   `;
 }

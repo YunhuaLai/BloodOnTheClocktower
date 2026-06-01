@@ -22,7 +22,7 @@ function renderHomeDirectory() {
       href: "/notes?create=1",
       count: getNotesGameCount(),
       countLabel: "个本地对局",
-      text: "先把剧本、人数和记录视角定下来，创建后直接进入座位与线索记录。",
+      text: "选剧本、人数和视角。",
       action: "立即创建",
       featured: true,
     },
@@ -32,7 +32,7 @@ function renderHomeDirectory() {
       href: "/roles",
       count: state.roles.length,
       countLabel: "个角色",
-      text: "按身份筛选，或直接搜索能力、板子和关键词。",
+      text: "按身份或关键词查。",
       action: "查角色",
     },
     {
@@ -41,7 +41,7 @@ function renderHomeDirectory() {
       href: "/scripts",
       count: state.scripts.length,
       countLabel: "个板子",
-      text: "先看每个板子的节奏、适合人群和常见坑。",
+      text: "查看板子与角色表。",
       action: "看板子",
     },
     {
@@ -50,7 +50,7 @@ function renderHomeDirectory() {
       href: "/terms",
       count: state.terms.length,
       countLabel: "个术语",
-      text: "把中毒、醉酒、疯狂等容易混淆的词先对齐。",
+      text: "查规则关键词。",
       action: "查术语",
     },
   ];
@@ -85,7 +85,7 @@ export function renderHome() {
           <span class="home-title-line">百科只是随手查。</span>
         </h1>
         <p class="lead">
-          先创建这一局的房间，再记录座位、声明、标签和每天得到的信息；需要查角色或板子时，再从房间旁边进资料库。
+          创建房间，记录座位、声明和每日信息。
         </p>
         <div class="home-actions" aria-label="常用入口">
           <a class="primary-link primary-link--hero" href="/notes?create=1" data-link>创建房间</a>
@@ -114,7 +114,7 @@ export function renderHome() {
       <aside class="room-launch-panel" aria-labelledby="roomLaunchTitle">
         <p class="eyebrow">开局入口</p>
         <h2 id="roomLaunchTitle">创建对局房间</h2>
-        <p>进入创建表单后，只需要选剧本、人数和记录视角，就能马上开始记录这一局。</p>
+        <p>选剧本、人数和视角。</p>
         <a class="primary-link room-launch-action" href="/notes?create=1" data-link>立即创建房间</a>
         <div class="room-launch-steps" aria-label="创建房间会记录的内容">
           <span>剧本</span>
@@ -132,9 +132,9 @@ export function renderHome() {
       <div class="section-heading">
         <div>
           <p class="eyebrow">附属资料</p>
-          <h2 id="directoryTitle">需要时再查百科</h2>
+          <h2 id="directoryTitle">百科资料</h2>
         </div>
-        <p class="section-note">角色、板子和术语保留为资料入口，但不再抢占主页的首要位置。</p>
+        <p class="section-note">角色、板子、术语。</p>
       </div>
       <div class="directory-grid">
         ${renderHomeDirectory()}
@@ -144,10 +144,10 @@ export function renderHome() {
     <section class="section rules-section" aria-labelledby="rulesTitle">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">先懂这几个词</p>
+          <p class="eyebrow">规则速览</p>
           <h2 id="rulesTitle">游戏速览</h2>
         </div>
-        <p class="section-note">点开当下需要的规则点，先把开局会用到的概念看明白。</p>
+        <p class="section-note">常用规则点。</p>
       </div>
       <div class="rule-grid" id="ruleGrid"></div>
     </section>

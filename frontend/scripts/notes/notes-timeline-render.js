@@ -210,7 +210,7 @@ function renderDayRecordPanel(game) {
             ? record.nominations
                 .map((nomination, index) => renderNominationRow(game, record, nomination, index))
                 .join("")
-            : `<div class="empty-state">还没有记录今天的提名。</div>`
+            : `<div class="empty-state">暂无提名。</div>`
         }
       </div>
       ${
@@ -317,7 +317,7 @@ function renderStructuredTimeline(game) {
 
 function renderTimelineEntries(game) {
   if (!game.timeline.length) {
-    return `<div class="empty-state">还没有时间线，先记一条今天最重要的信息。</div>`;
+    return `<div class="empty-state">暂无时间线。</div>`;
   }
 
   return game.timeline
@@ -390,7 +390,7 @@ export function renderTimelineTab(game) {
             <textarea
               id="timelineText"
               rows="4"
-              placeholder="例如 2号提名 7号；3、4、8 对 7 号投票；今晚死了 11 号"
+              placeholder="2号提名7号；今晚死11号"
             ></textarea>
           </label>
           <button type="button" class="primary-link notes-timeline-submit" data-notes-action="add-timeline">
@@ -412,7 +412,7 @@ export function renderInferenceTab(game) {
       <div class="notes-panel-header">
         <div>
           <p class="eyebrow">推理</p>
-          <h2>把桌面判断先收拢</h2>
+          <h2>桌面判断</h2>
         </div>
       </div>
 
@@ -438,7 +438,7 @@ export function renderInferenceTab(game) {
           <textarea
             data-inference-field="evilTeam"
             rows="4"
-            placeholder="恶魔/爪牙候选，当前最关键的矛盾"
+            placeholder="恶魔/爪牙候选，关键矛盾"
           >${escapeHtml(game.inference.evilTeam)}</textarea>
         </label>
         <label class="note-field note-field--wide">

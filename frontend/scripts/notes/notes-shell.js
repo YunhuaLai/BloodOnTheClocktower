@@ -58,7 +58,7 @@ function renderScriptSheetRole(role, selectedRoleIds) {
         <strong>${escapeHtml(role.name)}</strong>
         <span>${escapeHtml(typeLabels[role.type] || role.type || "角色")}</span>
       </div>
-      <p>${escapeHtml(role.ability || role.detail?.abilitySummary || "暂无能力文本")}</p>
+      <p>${escapeHtml(role.ability || role.detail?.abilitySummary || "无能力文本")}</p>
     </article>
   `;
 }
@@ -150,7 +150,7 @@ function renderRoomRoleTools(game) {
         ${
           fabledRoles.length
             ? `<div class="notes-room-role-list">${fabledRoles.map((role) => renderRoomRoleChip(role)).join("")}</div>`
-            : `<p class="notes-room-role-empty">创建房间时可添加；不会占用玩家席位。</p>`
+            : `<p class="notes-room-role-empty">可在创建时添加。</p>`
         }
       </div>
       <div class="notes-room-role-section">
@@ -183,7 +183,7 @@ function renderRoomRoleTools(game) {
               autocomplete="off"
               autocapitalize="off"
               spellcheck="false"
-              placeholder="${travellerOptions.length ? "输入旅行者角色" : "暂无旅行者角色"}"
+              placeholder="${travellerOptions.length ? "输入旅行者角色" : "无旅行者"}"
               ${travellerOptions.length ? "" : "disabled"}
             />
           </label>
@@ -260,7 +260,7 @@ function renderCustomRoleChip(role) {
 function renderCustomRoleGroups(draft) {
   const selectedRoles = getCustomRoleOptionsFromIds(draft.customRoleIds, isBaseRole);
   if (!selectedRoles.length) {
-    return `<div class="notes-custom-role-empty">还没有添加角色。</div>`;
+    return `<div class="notes-custom-role-empty">未添加角色。</div>`;
   }
 
   return `
@@ -323,7 +323,7 @@ function renderCustomRoleBuilder(draft) {
 function renderFabledRoleGroups(draft) {
   const selectedRoles = getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole);
   if (!selectedRoles.length) {
-    return `<div class="notes-custom-role-empty">未启用传奇角色。</div>`;
+    return `<div class="notes-custom-role-empty">未启用传奇。</div>`;
   }
 
   return `
@@ -401,8 +401,8 @@ function renderSetupPage(notes) {
     <section class="notes-setup">
       <div class="notes-setup-panel">
         <p class="eyebrow">对局房间</p>
-        <h1>先把这一局定下来</h1>
-        <p class="lead">先选剧本、记录视角和人数，创建后直接进入对局，把座位和信息从第一天就放稳。</p>
+        <h1>创建对局</h1>
+        <p class="lead">选剧本、人数和视角。</p>
 
         <form id="notesSetupForm" class="notes-setup-form">
           <label class="note-field note-field--wide notes-setup-title-field">
@@ -614,7 +614,7 @@ function renderNotesHome(notes) {
           `
           : `
             <section class="notes-home-empty">
-              <p>还没有已保存的对局，先创建一局。</p>
+              <p>暂无保存对局。</p>
             </section>
           `
       }

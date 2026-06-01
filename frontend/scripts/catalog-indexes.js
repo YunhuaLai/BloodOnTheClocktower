@@ -34,9 +34,9 @@ export function renderTermIndex() {
       <div class="collection-hero-grid">
         <div>
           <p class="eyebrow">关键词 / 术语</p>
-          <h1>先把黑话对齐。</h1>
+          <h1>术语目录</h1>
           <p class="lead">
-            中毒、醉酒、疯狂、处决这些词会影响整局判断。这里先按概念查，再去角色详情看它们怎么落到实战里。
+            按关键词查规则概念。
           </p>
         </div>
         <div class="collection-stats" aria-label="术语目录概览">
@@ -69,9 +69,9 @@ export function renderScriptIndex() {
       <div class="collection-hero-grid">
         <div>
           <p class="eyebrow">剧本 / 板子</p>
-          <h1>从入门到混乱。</h1>
+          <h1>板子目录</h1>
           <p class="lead">
-            先看板子的节奏、适合玩家和说书人提醒，再决定这一局要开哪一张。
+            查板子、作者和角色表。
           </p>
         </div>
         <div class="collection-stats" aria-label="板子目录概览">
@@ -113,9 +113,9 @@ export function renderRoleIndex() {
       <div class="collection-hero-grid">
         <div>
           <p class="eyebrow">角色百科</p>
-          <h1>按身份、板子和关键词查。</h1>
+          <h1>角色目录</h1>
           <p class="lead">
-            ${escapeHtml(getRoleTypeSummary())}。输入角色名、能力关键词或所属板子，快速缩小范围。
+            ${escapeHtml(getRoleTypeSummary())}。
           </p>
         </div>
         <div class="collection-stats" aria-label="角色目录概览">
@@ -337,7 +337,7 @@ export function renderScripts() {
   }
 
   if (!visibleScripts.length) {
-    scriptGrid.innerHTML = `<div class="empty-state">没有找到匹配板子。换个状态、难度或关键词试试。</div>`;
+    scriptGrid.innerHTML = `<div class="empty-state">无匹配板子。</div>`;
     return;
   }
 
@@ -403,7 +403,7 @@ export function renderRoles() {
   );
 
   if (!visibleRoles.length) {
-    roleGrid.innerHTML = `<div class="empty-state">没有找到匹配角色。换个关键词试试，比如“保护”“恶魔”“开局”。</div>`;
+    roleGrid.innerHTML = `<div class="empty-state">无匹配角色。</div>`;
     return;
   }
 

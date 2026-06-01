@@ -320,11 +320,11 @@ export function getRoleInfoAvailability(abilityData, player, game) {
   let reason = "";
   if (rowLimit <= 0) {
     if (abilityMeta.eventTiming === "on_death") {
-      reason = "该角色尚未死亡，死亡触发信息暂不可录入。";
+      reason = "死亡后可录入。";
     } else if (isTimedRecurringAbility(abilityMeta) && !isAliveForAutomaticRows(player)) {
-      reason = "该玩家已死亡，后续不会自动新增信息位。";
+      reason = "已死亡，不再自动新增。";
     } else {
-      reason = `${getPhaseLabel(game)}还没有到这个技能的可记录时机。`;
+      reason = "未到记录时机。";
     }
   }
 

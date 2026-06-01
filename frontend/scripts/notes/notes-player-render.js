@@ -250,7 +250,7 @@ function renderClaimControl(player, game) {
 
 function renderPlayerDetail(player, game) {
   if (!player) {
-    return `<div class="empty-state">还没有玩家信息。</div>`;
+    return `<div class="empty-state">暂无玩家。</div>`;
   }
 
   const draft = getDraftOrPlayer(player);
@@ -287,7 +287,7 @@ function renderPlayerDetail(player, game) {
             data-player-id="${escapeHtml(draft.id)}"
             data-field="extraInfo"
             value="${escapeHtml(draft.extraInfo)}"
-            placeholder="例如 首夜报 3/8，或今天不该先出票"
+            placeholder="首夜报 3/8，今天别先出票"
           />
         </label>
       </section>
@@ -305,7 +305,7 @@ function renderPlayerDetail(player, game) {
       </section>
 
       <div class="notes-savebar">
-        <span class="notes-savehint">${hasDraft ? "有未保存修改" : "当前已保存"}</span>
+        <span class="notes-savehint">${hasDraft ? "未保存" : "已保存"}</span>
         <div class="notes-savebar-actions">
           <button type="button" class="secondary-link" data-notes-action="discard-player" data-player-id="${escapeHtml(player.id)}">取消</button>
           <button type="button" class="primary-link" data-notes-action="save-player" data-player-id="${escapeHtml(player.id)}">保存</button>

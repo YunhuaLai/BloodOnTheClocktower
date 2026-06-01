@@ -6,7 +6,7 @@ export function renderScriptDetail(id) {
   const script = getScriptById(id);
 
   if (!script) {
-    renderNotFound("没有找到这个剧本。");
+    renderNotFound("剧本不存在。");
     return;
   }
 
@@ -41,7 +41,7 @@ export function renderScriptDetail(id) {
 
       <aside class="detail-side">
         <section class="side-panel">
-          <p class="eyebrow">当前资料</p>
+          <p class="eyebrow">资料</p>
           <h2>${roles.length} 个已录入角色</h2>
           ${renderScriptRoleList(script, roles)}
         </section>
@@ -54,7 +54,7 @@ export function renderRoleDetail(id) {
   const role = getRoleById(id);
 
   if (!role) {
-    renderNotFound("没有找到这个角色。");
+    renderNotFound("角色不存在。");
     return;
   }
 
@@ -118,7 +118,7 @@ export function renderTermDetail(id) {
   const term = getTermById(id);
 
   if (!term) {
-    renderNotFound("没有找到这个术语。");
+    renderNotFound("术语不存在。");
     return;
   }
 
@@ -168,13 +168,13 @@ export function renderTermDetail(id) {
   `;
 }
 
-export function renderNotFound(message = "这个页面不存在。") {
+export function renderNotFound(message = "页面不存在。") {
   document.title = "未找到 · 血染钟楼百科";
   app.innerHTML = `
     <section class="not-found">
       <p class="eyebrow">404</p>
       <h1>${escapeHtml(message)}</h1>
-      <p class="lead">可能是链接写错了，也可能是这条资料还没录入。</p>
+      <p class="lead">请返回目录重新选择。</p>
       <a class="primary-link" href="/" data-link>回到百科首页</a>
     </section>
   `;
@@ -185,8 +185,8 @@ export function renderLoadError() {
   app.innerHTML = `
     <section class="not-found">
       <p class="eyebrow">加载失败</p>
-      <h1>资料加载失败。</h1>
-      <p class="lead">请确认后端服务正在运行，然后刷新页面。</p>
+      <h1>加载失败。</h1>
+      <p class="lead">刷新后再试。</p>
     </section>
   `;
 }

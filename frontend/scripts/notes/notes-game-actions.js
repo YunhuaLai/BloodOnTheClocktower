@@ -56,7 +56,7 @@ export function addSetupCustomRole(value) {
   const role = findCatalogRole(value || draft.customRoleQuery, getBaseRoleOptions());
 
   if (!role) {
-    window.alert("没有找到这个基础角色。传奇角色请在“传奇角色”区添加，旅行者在开局后添加。");
+    window.alert("基础角色不存在。");
     return false;
   }
 
@@ -101,7 +101,7 @@ export function addSetupFabledRole(value) {
   const role = findCatalogRole(value || draft.fabledRoleQuery, getFabledRoleOptions());
 
   if (!role || !isFabledRole(role)) {
-    window.alert("没有找到这个传奇角色。");
+    window.alert("传奇角色不存在。");
     return false;
   }
 
@@ -396,7 +396,7 @@ export function addTravellerToGame(value) {
 
   const role = findCatalogRole(value, getAvailableTravellerOptions(game));
   if (!role || !isTravellerRole(role)) {
-    window.alert("没有找到这个旅行者角色。");
+    window.alert("旅行者不存在。");
     return false;
   }
 
@@ -571,7 +571,7 @@ export function clearSavedGameSelection(notes) {
   renderNotesPage();
 }
 
-export function deleteSavedGames(notes, gameIds, confirmMessage = "删除已选择的对局记录？这只会清除本机保存。") {
+export function deleteSavedGames(notes, gameIds, confirmMessage = "删除所选对局？") {
   const ids = new Set(gameIds.filter(Boolean));
   if (!ids.size || !window.confirm(confirmMessage)) {
     return;
@@ -620,7 +620,7 @@ export function handleCreateGame() {
       : [];
   setup.fabledRoleIds = [...(state.notes.ui.setupDraft?.fabledRoleIds || [])];
   if (setup.scriptMode === "custom" && !setup.customRoleIds.length) {
-    window.alert("先给自定义角色池添加至少一个角色。");
+    window.alert("自定义池为空。");
     return;
   }
   setup.selfSeat = setup.mode === "storyteller" ? 1 : Number(formData.get("selfSeat") || 1);
@@ -638,7 +638,7 @@ export function handleCreateGame() {
 }
 
 export function handleDeleteGame(notes, game) {
-  if (!window.confirm("删除当前局次记录？这只会清除本机保存。")) {
+  if (!window.confirm("删除当前对局？")) {
     return;
   }
 
