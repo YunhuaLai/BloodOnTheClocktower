@@ -96,14 +96,59 @@ function getOneInOneOutSortValue(role) {
   return index === -1 ? Number.MAX_SAFE_INTEGER : index;
 }
 
-export function sortScriptRoles(script, roles) {
-  if ((script.englishName || script.id) !== "one-in-one-out") {
-    return roles;
-  }
+function getScriptRoleIds(script) {
+  return [
+    ...(script?.roleIds || []),
+    ...(script?.travellerIds || script?.travelerIds || []),
+    ...(script?.fabledIds || []),
+  ].filter(Boolean);
+}
 
-  return [...roles].sort((left, right) => {
-    return getOneInOneOutSortValue(left) - getOneInOneOutSortValue(right);
-  });
+function getScriptRoleOrder(script) {
+  return new Map(getScriptRoleIds(script).map((roleId, index) => [roleId, index]));
+}
+
+function getScriptRoleSortValue(role, scriptRoleOrder) {
+  const ids = [role.id, role.englishName].filter(Boolean);
+  const orderedId = ids.find((id) => scriptRoleOrder.has(id));
+  return orderedId ? scriptRoleOrder.get(orderedId) : Number.MAX_SAFE_INTEGER;
+}
+
+export function sortScriptRoles(script, roles) {
+  const scriptRoleOrder = getScriptRoleOrder(script);
+  const hasScriptOrder = scriptRoleOrder.size > 0;
+  const isOneInOneOut = (script.englishName || script.id) === "one-in-one-out";
+
+  return roles
+    .map((role, index) => ({ role, index }))
+    .sort((left, right) => {
+      if (hasScriptOrder) {
+        const scriptOrderDelta =
+          getScriptRoleSortValue(left.role, scriptRoleOrder) -
+          getScriptRoleSortValue(right.role, scriptRoleOrder);
+        if (scriptOrderDelta) {
+          return scriptOrderDelta;
+        }
+      }
+
+      if (isOneInOneOut) {
+        const oneInOneOutDelta =
+          getOneInOneOutSortValue(left.role) -
+          getOneInOneOutSortValue(right.role);
+        if (oneInOneOutDelta) {
+          return oneInOneOutDelta;
+        }
+      }
+
+      const typeDelta =
+        getRoleTypeSortValue(left.role) - getRoleTypeSortValue(right.role);
+      if (typeDelta) {
+        return typeDelta;
+      }
+
+      return left.index - right.index;
+    })
+    .map(({ role }) => role);
 }
 
 export function renderScriptRoleList(script, roles) {
