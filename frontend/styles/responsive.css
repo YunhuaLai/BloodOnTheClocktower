@@ -24,6 +24,7 @@
   .detail-hero-grid,
   .collection-hero-grid,
   .detail-layout,
+  .game-overview-grid,
   .notes-hero,
   .notes-layout {
     grid-template-columns: 1fr;
@@ -39,6 +40,7 @@
 
   .notes-meta-grid,
   .script-tools,
+  .quick-rule-grid,
   .note-player-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -147,8 +149,18 @@
   }
 
   .script-role-grid,
-  .script-night-list {
+  .script-night-list,
+  .quick-rule-grid {
     grid-template-columns: 1fr;
+  }
+
+  .game-flow-card {
+    grid-template-columns: 42px minmax(0, 1fr);
+  }
+
+  .game-flow-card span {
+    width: 42px;
+    height: 42px;
   }
 
   h1 {
