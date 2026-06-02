@@ -36,14 +36,34 @@ function splitKeywords(keywords) {
     .filter(Boolean);
 }
 
+function isBlankDetailValue(value) {
+  if (value === undefined || value === null) {
+    return true;
+  }
+
+  const text = String(value).trim();
+  return !text || text === "undefined" || text === "null" || text.startsWith("这里填写");
+}
+
+function cleanDetailItems(items) {
+  return items.map((item) => String(item ?? "").trim()).filter((item) => !isBlankDetailValue(item));
+}
+
 function listItems(items) {
-  return `<ul class="detail-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+  const cleanItems = cleanDetailItems(items);
+  return `<ul class="detail-list">${cleanItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
 }
 
 export function detailBlock(title, content) {
+  const cleanItems = Array.isArray(content) ? cleanDetailItems(content) : [];
+  const text = Array.isArray(content) ? "" : String(content ?? "").trim();
   const body = Array.isArray(content)
-    ? listItems(content)
-    : `<p>${escapeHtml(content)}</p>`;
+    ? cleanItems.length
+      ? listItems(cleanItems)
+      : `<p class="muted">暂无资料。</p>`
+    : isBlankDetailValue(text)
+      ? `<p class="muted">暂无资料。</p>`
+      : `<p>${escapeHtml(text)}</p>`;
 
   return `
     <section class="detail-block">

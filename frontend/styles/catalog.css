@@ -401,6 +401,279 @@
   min-width: 0;
 }
 
+.script-detail-layout {
+  grid-template-columns: minmax(0, 1fr) minmax(270px, 340px);
+  align-items: start;
+}
+
+.script-sheet-layout {
+  display: grid;
+  grid-template-columns: minmax(128px, 170px) minmax(0, 1fr) minmax(128px, 170px);
+  gap: clamp(12px, 2vw, 18px);
+  align-items: start;
+  min-width: 0;
+}
+
+.script-night-column,
+.script-role-sheet {
+  min-width: 0;
+  background: #fffdf7;
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 0 12px 26px rgba(21, 21, 21, 0.08);
+}
+
+.script-night-column {
+  padding: 14px;
+}
+
+.script-role-sheet {
+  padding: clamp(14px, 2.4vw, 22px);
+}
+
+.script-sheet-heading h2 {
+  font-size: clamp(20px, 2vw, 28px);
+}
+
+.script-role-sheet-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.script-role-groups {
+  display: grid;
+  gap: 18px;
+}
+
+.script-role-group {
+  --role-color: var(--blue);
+  min-width: 0;
+}
+
+.script-role-group[data-type="townsfolk"] {
+  --role-color: var(--blue);
+}
+
+.script-role-group[data-type="outsider"] {
+  --role-color: var(--outsider);
+}
+
+.script-role-group[data-type="minion"] {
+  --role-color: var(--green);
+}
+
+.script-role-group[data-type="demon"] {
+  --role-color: var(--red);
+}
+
+.script-role-group[data-type="traveller"],
+.script-role-group[data-type="traveler"] {
+  --role-color: var(--teal);
+}
+
+.script-role-group[data-type="fabled"] {
+  --role-color: var(--gold);
+}
+
+.script-role-group-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+  padding: 7px 10px;
+  color: #fff;
+  background: var(--role-color);
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+}
+
+.script-role-group[data-type="fabled"] .script-role-group-heading {
+  color: var(--ink);
+}
+
+.script-role-group-heading h3 {
+  font-size: 18px;
+}
+
+.script-role-group-heading span {
+  display: inline-grid;
+  place-items: center;
+  min-width: 28px;
+  min-height: 28px;
+  padding: 2px 8px;
+  color: var(--ink);
+  background: #fff;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.script-role-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.script-role-card {
+  --role-color: var(--blue);
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  min-height: 116px;
+  padding: 11px 12px 12px;
+  color: var(--ink);
+  background: #f8f7ef;
+  border: 1px solid var(--line);
+  border-left: 6px solid var(--role-color);
+  border-radius: 8px;
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.script-role-card[data-type="townsfolk"],
+.script-night-list a[data-type="townsfolk"] {
+  --role-color: var(--blue);
+}
+
+.script-role-card[data-type="outsider"],
+.script-night-list a[data-type="outsider"] {
+  --role-color: var(--outsider);
+}
+
+.script-role-card[data-type="minion"],
+.script-night-list a[data-type="minion"] {
+  --role-color: var(--green);
+}
+
+.script-role-card[data-type="demon"],
+.script-night-list a[data-type="demon"] {
+  --role-color: var(--red);
+}
+
+.script-role-card[data-type="traveller"],
+.script-role-card[data-type="traveler"],
+.script-night-list a[data-type="traveller"],
+.script-night-list a[data-type="traveler"] {
+  --role-color: var(--teal);
+}
+
+.script-role-card[data-type="fabled"],
+.script-night-list a[data-type="fabled"] {
+  --role-color: var(--gold);
+}
+
+.script-role-card:hover,
+.script-role-card:focus-visible {
+  border-color: var(--ink);
+  box-shadow: 0 10px 24px rgba(21, 21, 21, 0.1);
+  transform: translateY(-2px);
+}
+
+.script-role-card header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.script-role-card strong {
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.script-role-card small {
+  flex: 0 0 auto;
+  padding: 3px 7px;
+  color: #fff;
+  background: var(--role-color);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.script-role-card[data-type="fabled"] small {
+  color: var(--ink);
+}
+
+.script-role-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.script-night-list {
+  display: grid;
+  gap: 8px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.script-night-list li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 7px;
+  align-items: stretch;
+}
+
+.script-night-index {
+  display: grid;
+  place-items: center;
+  min-height: 42px;
+  color: #fff;
+  background: var(--ink);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.script-night-list a {
+  --role-color: var(--blue);
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+  min-height: 42px;
+  padding: 7px 8px;
+  color: var(--ink);
+  background: #f8f7ef;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--role-color);
+  border-radius: 8px;
+}
+
+.script-night-list a:hover,
+.script-night-list a:focus-visible {
+  border-color: var(--ink);
+}
+
+.script-night-list strong {
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.script-night-list small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.script-detail-side .detail-block:first-child {
+  border-color: var(--ink);
+}
+
 .detail-block,
 .side-panel {
   min-width: 0;

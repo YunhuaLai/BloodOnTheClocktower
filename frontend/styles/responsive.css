@@ -29,6 +29,14 @@
     grid-template-columns: 1fr;
   }
 
+  .script-sheet-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .script-night-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .notes-meta-grid,
   .script-tools,
   .note-player-grid {
@@ -130,6 +138,17 @@
 
   .claim-row small {
     justify-self: start;
+  }
+
+  .script-role-sheet-heading,
+  .script-role-card header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .script-role-grid,
+  .script-night-list {
+    grid-template-columns: 1fr;
   }
 
   h1 {
