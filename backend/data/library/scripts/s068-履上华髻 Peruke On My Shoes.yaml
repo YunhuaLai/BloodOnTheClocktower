@@ -1,0 +1,84 @@
+id: s068
+englishName: peruke-on-my-shoes
+name: 履上华髻 Peruke On My Shoes
+en: Peruke On My Shoes
+author: Ben & Jams
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/PerukeOnMyShoes/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/PerukeOnMyShoes/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r085
+  - r023
+  - r139
+  - r087
+  - r051
+  - r054
+  - r055
+  - r056
+  - r007
+  - r011
+  - r088
+  - r063
+  - r015
+  - r016
+  - r070
+  - r135
+  - r018
+  - r093
+  - r074
+  - r302
+  - r095
+  - r080
+  - r099
+travellerIds: []
+fabledIds:
+  - r818
+nightOrder:
+  first:
+    - r088
+    - r074
+    - r095
+    - r093
+    - r302
+    - r084
+    - r087
+    - r051
+    - r085
+    - r023
+    - r018
+    - r139
+  other:
+    - r088
+    - r302
+    - r093
+    - r074
+    - r099
+    - r080
+    - r007
+    - r095
+    - r070
+    - r023
+    - r056
+    - r063
+    - r051
+    - r055
+    - r018
+    - r087
+    - r054
+    - r139
+status: draft

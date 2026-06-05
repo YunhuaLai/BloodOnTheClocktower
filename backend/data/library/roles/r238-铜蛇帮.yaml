@@ -9,27 +9,23 @@ setup: false
 setupMeta:
   randomAssignable: true
   tokenRequired: true
-  setupAlertLevel: danger
+  setupAlertLevel: none
   identityOverlay:
     enabled: false
     shownToken: self
     actualRoleType: minion
     shownRoleTypes: []
     note: ''
-  configurationAdjustments:
-    - type: outsider_count
-      min: -1
-      max: 1
-      source: '[-1或+1外来者]'
-      note: 配置调整：外来者数量 -1 到 +1。
-  setupNotes:
-    - 配置调整：外来者数量 -1 到 +1。
+  configurationAdjustments: []
+  setupNotes: []
 reminders:
-  - 中毒
+  - 蛇毒
+  - 蛇毒
+  - 蛇毒
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: ''
-ability: 如果你提名了一名玩家，他和与他邻座的玩家中的善良玩家中毒，直到你下次提名。[-1或+1外来者]
+otherNightReminder: 如果铜蛇帮发起了提名，则在被提名者和他邻座的玩家中的善良玩家放置'蛇毒'（检测被提名者以及他邻座的玩家中谁是善良，然后放token）。
+ability: 如果你提名了一名玩家，他和与他邻座的玩家中的善良玩家中毒，直到你下次提名。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
@@ -37,7 +33,7 @@ abilityData:
     source: role-file
     roleId: r238
     officialId: sheeeeeeeee
-    sourceHash: 8fcb54f02abf2d8f9988530853f1b4ecbd023341
+    sourceHash: fc5ead29b2eec0e95ca943e6c616e9e929394360
     sourceHashFields:
       - ability
       - type
@@ -54,7 +50,6 @@ abilityData:
     - poisoned
     - nomination
     - good
-    - outsider
     - minion
   abilityPattern: nomination_trigger
   abilitySemantics:
@@ -68,13 +63,6 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: setup_modifier
-        adjustments:
-          - type: outsider_count
-            min: -1
-            max: 1
-            source: '[-1或+1外来者]'
-            note: 配置调整：外来者数量 -1 到 +1。
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: event_trigger

@@ -1,5 +1,5 @@
 id: r302
-englishName: limit
+englishName: xaan
 name: 限
 type: minion
 edition: custom
@@ -9,15 +9,21 @@ setup: true
 setupMeta:
   randomAssignable: true
   tokenRequired: true
-  setupAlertLevel: none
+  setupAlertLevel: danger
   identityOverlay:
     enabled: false
     shownToken: self
     actualRoleType: minion
     shownRoleTypes: []
     note: ''
-  configurationAdjustments: []
-  setupNotes: []
+  configurationAdjustments:
+    - type: outsider_count
+      min: 0
+      max: 15
+      source: '[外来者数量任意]'
+      note: 配置调整：外来者数量任意；X 等于初始外来者数量。
+  setupNotes:
+    - 配置调整：外来者数量任意；X 等于初始外来者数量。
 reminders:
   - 第一晚
   - 第二晚
@@ -34,7 +40,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r302
-    officialId: limit
+    officialId: xaan
     sourceHash: 1db56d1a58b8aa86d15f7505de1e52e7192c6442
     sourceHashFields:
       - ability
@@ -50,17 +56,17 @@ abilityData:
     - 首夜
     - 每晚
     - 设置
-    - 信息型
+    - 状态效果
+    - 规则修饰
   termIds:
     - night
     - setup
     - first-night
     - poisoned
-    - information
     - townsfolk
     - outsider
     - minion
-  abilityPattern: number_info
+  abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -73,39 +79,33 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: setup_modifier
-        adjustments: []
-      - kind: learn_number
-        numberKind: count
+        adjustments:
+          - type: outsider_count
+            min: 0
+            max: 15
+            source: '[外来者数量任意]'
+            note: 配置调整：外来者数量任意；X 等于初始外来者数量。
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
-    pageType: record_result_only
+    pageType: rule_modifier
     phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: count
-          type: number
-          label: 数量
-          required: true
-          optionsSource: null
-          options: null
-          min: 0
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：数字信息
-    templates: []
+    effectType: poison_drunk
+    note: 第 X 夜所有镇民中毒；X 等于初始外来者数量。

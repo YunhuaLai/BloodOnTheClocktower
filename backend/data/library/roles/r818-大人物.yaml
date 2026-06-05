@@ -1,0 +1,103 @@
+id: r818
+englishName: bigwig
+name: 大人物
+type: fabled
+edition: custom
+image: https://wiki.bloodontheclocktower.com/images/8/8f/Icon_big_wig.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 代言人
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每当有玩家被提名，被提名者选择一名玩家：直到投票开始前，只有该玩家可以发言，且该玩家需疯狂地表示被提名者是善良的，否则他可能死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r818
+    officialId: bigwig
+    sourceHash: f0e7c51f345376b3936c9c53db421375cc99170b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Big Wig 官方类型是 Loric；当前资料库暂用 fabled 承载，待模型支持 Loric 后迁移。
+  tags:
+    - 提名触发
+    - 疯狂
+    - 规则修饰
+    - Loric
+  termIds:
+    - nomination
+    - madness
+    - death
+    - fabled
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: day
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: mixed
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: day
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: mixed
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 代言人号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: manual
+    effectType: action_history
+    note: 被提名者选择代言人；投票前只有代言人可发言，并需维持被提名者为善良的疯狂。
