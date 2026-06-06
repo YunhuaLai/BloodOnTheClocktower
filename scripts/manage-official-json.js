@@ -1275,6 +1275,7 @@ function main() {
     const result = exportOfficialJson(firstArg, path.resolve(secondArg));
     console.log(`导出完成：${result.outputPath}`);
     console.log(`角色数：${result.roles}`);
+    console.log(`相克规则数：${result.jinxes}`);
     return;
   }
 
