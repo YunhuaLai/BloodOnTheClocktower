@@ -1,0 +1,20 @@
+id: j071
+kind: jinx
+name: 芬里尔之爪&莽夫
+roleIds:
+  - r1285
+  - r038
+roleNames:
+  - 芬里尔之爪
+  - 莽夫
+unresolvedRoleNames: []
+rule: 芬里尔之爪在游戏的第一个夜晚选择莽夫，会让莽夫成为狼之子，芬里尔之爪不会因此醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1286
+  englishName: 1123123122222305-meta
+  officialId: 1123123122222305_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2024/12/02/674d576350bd1.png

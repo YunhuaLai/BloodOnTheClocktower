@@ -1,0 +1,20 @@
+id: j304
+kind: jinx
+name: 利维坦&徊影
+roleIds:
+  - r384
+  - r4033
+roleNames:
+  - 利维坦
+  - 徊影
+unresolvedRoleNames: []
+rule: 如果利维坦在场，被徊影选择的玩家中毒，直到你的下次选择。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4050
+  englishName: 58-31-meta
+  officialId: 58.31_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/0/0a/Leviathan.png/300px-Leviathan.png

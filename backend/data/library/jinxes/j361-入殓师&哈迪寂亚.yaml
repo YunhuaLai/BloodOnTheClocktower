@@ -1,0 +1,20 @@
+id: j361
+kind: jinx
+name: 入殓师&哈迪寂亚
+roleIds:
+  - r112
+  - r081
+roleNames:
+  - 入殓师
+  - 哈迪寂亚
+unresolvedRoleNames: []
+rule: 如果出现两名存活的哈迪寂亚，则入殓师变成的哈迪寂亚会变回入殓师，但阵营保持邪恶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r827
+  englishName: 12322999-meta
+  officialId: 6ccc00cb-f01f-4e77-96bc-1ac287b3bc761
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_5757097694761_2de60c7b.jpg

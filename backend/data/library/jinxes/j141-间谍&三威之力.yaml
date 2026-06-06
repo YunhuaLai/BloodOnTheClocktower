@@ -1,0 +1,20 @@
+id: j141
+kind: jinx
+name: 间谍&三威之力
+roleIds:
+  - r018
+  - r1701
+roleNames:
+  - 间谍
+  - 三威之力
+unresolvedRoleNames: []
+rule: 间谍必定会被三威之力当做外来者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1700
+  englishName: 2042-meta
+  officialId: 2042_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2025/02/14/67ae21c2e68bf.png

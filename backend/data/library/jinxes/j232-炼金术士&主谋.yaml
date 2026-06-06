@@ -1,0 +1,20 @@
+id: j232
+kind: jinx
+name: 炼金术士&主谋
+roleIds:
+  - r155
+  - r043
+roleNames:
+  - 炼金术士
+  - 主谋
+unresolvedRoleNames: []
+rule: 如果炼金术士本应该获得主谋的能力，那么他不会拥有该能力并改为主谋一定不在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1926
+  englishName: 26-shizhijiaobi
+  officialId: 26_shizhijiaobi
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

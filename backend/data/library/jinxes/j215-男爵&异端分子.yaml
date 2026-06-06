@@ -1,0 +1,20 @@
+id: j215
+kind: jinx
+name: 男爵&异端分子
+roleIds:
+  - r019
+  - r116
+roleNames:
+  - 男爵
+  - 异端分子
+unresolvedRoleNames: []
+rule: 如果异端分子在剧本中，男爵的效果可能会只增加一个而非两个外来者。（全追慎用）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1858
+  englishName: 34-meta
+  officialId: 34_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/4/40/Baron.png/300px-Baron.png

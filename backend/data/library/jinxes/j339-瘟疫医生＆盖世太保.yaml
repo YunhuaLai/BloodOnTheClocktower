@@ -1,0 +1,20 @@
+id: j339
+kind: jinx
+name: 瘟疫医生＆盖世太保
+roleIds:
+  - r159
+  - r429
+roleNames:
+  - 瘟疫医生
+  - 盖世太保
+unresolvedRoleNames: []
+rule: 一名邪恶玩家会代替说书人获得盖世太保的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r436
+  englishName: wewnyiyishengs
+  officialId: wewnyiyishengs
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2d/Plaguedoctor.png/300px-Plaguedoctor.png

@@ -1,0 +1,20 @@
+id: j014
+kind: jinx
+name: 呆瓜&印度教教徒
+roleIds:
+  - r072
+  - r1038
+roleNames:
+  - 呆瓜
+  - 印度教教徒
+unresolvedRoleNames: []
+rule: 呆瓜的能力会保留到他得知自己死亡并公开做出选择之后。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1046
+  englishName: 45-jinghuashuiyue
+  officialId: 45_jinghuashuiyue
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

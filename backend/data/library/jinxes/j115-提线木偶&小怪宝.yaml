@@ -1,0 +1,20 @@
+id: j115
+kind: jinx
+name: 提线木偶&小怪宝
+roleIds:
+  - r121
+  - r103
+roleNames:
+  - 提线木偶
+  - 小怪宝
+unresolvedRoleNames: []
+rule: 提线木偶会与一名爪牙玩家邻座，而不是恶魔。提线木偶不会被唤醒来决定是否照看小怪宝，也不会在照看小怪宝时得知自己是提线木偶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1573
+  englishName: 29-meta
+  officialId: 29_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/3/3d/Marionette.png/300px-Marionette.png

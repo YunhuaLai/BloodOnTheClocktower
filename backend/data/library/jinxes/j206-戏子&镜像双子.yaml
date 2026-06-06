@@ -1,0 +1,20 @@
+id: j206
+kind: jinx
+name: 戏子&镜像双子
+roleIds:
+  - r1191
+  - r073
+roleNames:
+  - 戏子
+  - 镜像双子
+unresolvedRoleNames: []
+rule: 互为克星的角色在同一时间里只能有其中一个角色在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1841
+  englishName: 125-me4ta
+  officialId: 125_me4ta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/1/13/Xizi.png/300px-Xizi.png

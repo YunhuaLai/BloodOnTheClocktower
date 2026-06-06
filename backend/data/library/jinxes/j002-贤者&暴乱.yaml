@@ -1,0 +1,20 @@
+id: j002
+kind: jinx
+name: 贤者&暴乱
+roleIds:
+  - r063
+  - r929
+roleNames:
+  - 贤者
+  - 暴乱
+unresolvedRoleNames: []
+rule: 每个夜晚*，暴乱要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果贤者被选择，他的能力生效但不会死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1012
+  englishName: 766e936b-b6f2-45db-b6b8-16375b3c2cb7
+  officialId: 766e936b-b6f2-45db-b6b8-16375b3c2cb7
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/sage.png

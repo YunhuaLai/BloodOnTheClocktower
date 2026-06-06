@@ -1,0 +1,20 @@
+id: j197
+kind: jinx
+name: 卡扎力&半仙
+roleIds:
+  - r095
+  - r891
+roleNames:
+  - 卡扎力
+  - 半仙
+unresolvedRoleNames: []
+rule: 卡扎力可以把半仙转变成邪恶的爪牙。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1830
+  englishName: 121321341245-meta
+  officialId: 121321341245_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/4/46/Kazali.png/300px-Kazali.png

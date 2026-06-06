@@ -1,0 +1,21 @@
+id: j261
+kind: jinx
+name: 奈亚拉托提普&驱魔人
+roleIds:
+  - r2954
+  - r026
+roleNames:
+  - 奈亚拉托提普
+  - 驱魔人
+unresolvedRoleNames: []
+rule: 如果驱魔人选择了奈亚拉托提普，说书人不能使用奈亚拉托提普的能力造成死亡。
+audience: both
+sourceScriptIds:
+  - s627
+source:
+  roleId: r2958
+  englishName: nyarlathotep1-redacted
+  officialId: nyarlathotep1_redacted
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

@@ -1,0 +1,20 @@
+id: j222
+kind: jinx
+name: 炸弹人&幻梦境
+roleIds:
+  - r120
+  - r1908
+roleNames:
+  - 炸弹人
+  - 幻梦境
+unresolvedRoleNames: []
+rule: 当炸弹人被引爆时，邪恶阵营会直接获得胜利。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1909
+  englishName: 51-elysuim
+  officialId: 51_elysuim
+  officialTeam: jinxes
+  edition: custom
+  image: ''

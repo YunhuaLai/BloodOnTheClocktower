@@ -1,0 +1,20 @@
+id: j367
+kind: jinx
+name: 路比&麻脸巫婆
+roleIds:
+  - r874
+  - r076
+roleNames:
+  - 路比
+  - 麻脸巫婆
+unresolvedRoleNames: []
+rule: 如果麻脸巫婆创造了路比，改为由说书人决定哪名玩家变成路比。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r877
+  englishName: 1121232134-meta
+  officialId: 1121232134_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2025/01/12/678389a9601a4.png

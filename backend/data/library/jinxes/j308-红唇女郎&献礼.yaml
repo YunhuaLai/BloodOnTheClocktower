@@ -1,0 +1,20 @@
+id: j308
+kind: jinx
+name: 红唇女郎&献礼
+roleIds:
+  - r020
+  - r3945
+roleNames:
+  - 红唇女郎
+  - 献礼
+unresolvedRoleNames: []
+rule: 如果献礼成功转化了镇民并因此死亡，红唇女郎不会变成献礼。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4059
+  englishName: 26-lixianchangye
+  officialId: 26_lixianchangye
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

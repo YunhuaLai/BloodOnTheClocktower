@@ -1,0 +1,20 @@
+id: j024
+kind: jinx
+name: 帽匠&召唤师
+roleIds:
+  - r324
+  - r113
+roleNames:
+  - 帽匠
+  - 召唤师
+unresolvedRoleNames: []
+rule: 召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1076
+  englishName: 57b1d4be-c60d-42b4-b249-c2c0d41a8a6f
+  officialId: 4eff3500-66dc-4bf6-91f3-39a795134416
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202312/c_9723021341071_86da6df4.jpg

@@ -1,0 +1,20 @@
+id: j083
+kind: jinx
+name: 召唤师&普卡
+roleIds:
+  - r113
+  - r045
+roleNames:
+  - 召唤师
+  - 普卡
+unresolvedRoleNames: []
+rule: 召唤师可以选择在第二个夜晚将一名玩家变成普卡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r138
+  englishName: summoner-pukka-jinx
+  officialId: 47.3_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2f/Summoner.png/300px-Summoner.png

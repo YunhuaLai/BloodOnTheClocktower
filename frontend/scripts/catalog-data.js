@@ -3,6 +3,7 @@ import { state } from "./state.js";
 const detailRequests = {
   roles: new Map(),
   scripts: new Map(),
+  jinxes: new Map(),
   terms: new Map(),
 };
 
@@ -40,6 +41,7 @@ function applyCatalogData(data, { full = false } = {}) {
   state.rules = data.rules || [];
   state.scripts = data.scripts || [];
   state.roles = data.roles || [];
+  state.jinxes = data.jinxes || [];
   state.terms = data.terms || [];
   state.catalog.bootstrapLoaded = true;
   state.catalog.fullLoaded = Boolean(full);
@@ -97,6 +99,10 @@ function getCollection(kind) {
     return state.scripts;
   }
 
+  if (kind === "jinxes") {
+    return state.jinxes;
+  }
+
   return state.terms;
 }
 
@@ -111,6 +117,10 @@ function hasFullDetail(kind, item) {
 
   if (kind === "scripts") {
     return Boolean(item.detail);
+  }
+
+  if (kind === "jinxes") {
+    return Boolean(item.rule);
   }
 
   return Boolean(item.detail);

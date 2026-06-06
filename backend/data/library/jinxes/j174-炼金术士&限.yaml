@@ -1,0 +1,20 @@
+id: j174
+kind: jinx
+name: 炼金术士&限
+roleIds:
+  - r155
+  - r302
+roleNames:
+  - 炼金术士
+  - 限
+unresolvedRoleNames: []
+rule: 如果炼金术士拥有科学怪人的能力，效果改为“所有爪牙玩家中毒直至下个黄昏。”
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1773
+  englishName: lianjinshushixian-meta
+  officialId: lianjinshushixian_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/alchemist.png

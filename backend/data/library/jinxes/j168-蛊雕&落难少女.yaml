@@ -1,0 +1,20 @@
+id: j168
+kind: jinx
+name: 蛊雕&落难少女
+roleIds:
+  - r609
+  - r071
+roleNames:
+  - 蛊雕
+  - 落难少女
+unresolvedRoleNames: []
+rule: 如果蛊雕得知了落难少女的角色，落难少女中毒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1761
+  englishName: 91241241344313421213-meta
+  officialId: 91241241344313421213_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/gudiao.png

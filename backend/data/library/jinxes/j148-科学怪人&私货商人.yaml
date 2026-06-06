@@ -1,0 +1,20 @@
+id: j148
+kind: jinx
+name: 科学怪人&私货商人
+roleIds:
+  - r336
+  - r348
+roleNames:
+  - 科学怪人
+  - 私货商人
+unresolvedRoleNames: []
+rule: 科学怪人只会赋予恶魔守夜人的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1728
+  englishName: 12-yexingzhe
+  officialId: 12_yexingzhe
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

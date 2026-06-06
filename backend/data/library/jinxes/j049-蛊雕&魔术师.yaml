@@ -1,0 +1,20 @@
+id: j049
+kind: jinx
+name: 蛊雕&魔术师
+roleIds:
+  - r609
+  - r115
+roleNames:
+  - 蛊雕
+  - 魔术师
+unresolvedRoleNames: []
+rule: 蛊雕飞行时会越过魔术师。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1144
+  englishName: 30-jinghua
+  officialId: 30_jinghua
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

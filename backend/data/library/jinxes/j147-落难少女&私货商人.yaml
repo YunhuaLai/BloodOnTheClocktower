@@ -1,0 +1,20 @@
+id: j147
+kind: jinx
+name: 落难少女&私货商人
+roleIds:
+  - r071
+  - r348
+roleNames:
+  - 落难少女
+  - 私货商人
+unresolvedRoleNames: []
+rule: 爪牙不会得知落难少女在场
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1727
+  englishName: 11-yexingzhe
+  officialId: 11_yexingzhe
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

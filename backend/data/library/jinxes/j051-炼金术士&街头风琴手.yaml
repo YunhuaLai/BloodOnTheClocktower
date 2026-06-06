@@ -1,0 +1,20 @@
+id: j051
+kind: jinx
+name: 炼金术士&街头风琴手
+roleIds:
+  - r155
+  - r337
+roleNames:
+  - 炼金术士
+  - 街头风琴手
+unresolvedRoleNames: []
+rule: 如果炼金术士获得街头风琴手的能力，街头风琴手一定在场。如果炼金术士和街头风琴手都是清醒的，改为他们都醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1188
+  englishName: 4dd4f4fa-adeb-4f48-87f6-51793012deb1123213
+  officialId: 26_obstrvctionofjustice
+  officialTeam: jinxes
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/alchemist.png

@@ -1,0 +1,20 @@
+id: j164
+kind: jinx
+name: 卡扎力&唱诗男孩
+roleIds:
+  - r095
+  - r1251
+roleNames:
+  - 卡扎力
+  - 唱诗男孩
+unresolvedRoleNames: []
+rule: 如果唱诗男孩在场，卡扎力在选择国王后无法将他变成爪牙。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1750
+  englishName: 107-meta
+  officialId: 107_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/4/46/Kazali.png/300px-Kazali.png

@@ -1,0 +1,20 @@
+id: j381
+kind: jinx
+name: 贵族&长安红茶
+roleIds:
+  - r049
+  - r975
+roleNames:
+  - 贵族
+  - 长安红茶
+unresolvedRoleNames: []
+rule: 贵族可以得知因长安红茶选择转变的邪恶玩家。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r984
+  englishName: 39-jubushiyi
+  officialId: 39_jubushiyi
+  officialTeam: jinxes
+  edition: custom
+  image: ''

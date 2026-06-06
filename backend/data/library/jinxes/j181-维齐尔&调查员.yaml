@@ -1,0 +1,20 @@
+id: j181
+kind: jinx
+name: 维齐尔&调查员
+roleIds:
+  - r1613
+  - r003
+roleNames:
+  - 维齐尔
+  - 调查员
+unresolvedRoleNames: []
+rule: 如果调查员的能力使其得知了维齐尔，则说书人不会告知所有人维齐尔在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1790
+  englishName: 38-meta
+  officialId: 38_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/0/09/Vizier.png/300px-Vizier.png

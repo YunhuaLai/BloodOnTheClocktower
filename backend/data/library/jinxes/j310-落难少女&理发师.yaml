@@ -1,0 +1,20 @@
+id: j310
+kind: jinx
+name: 落难少女&理发师
+roleIds:
+  - r071
+  - r070
+roleNames:
+  - 落难少女
+  - 理发师
+unresolvedRoleNames: []
+rule: 参考麻脸巫婆。建议“如果恶魔选择交换落难少女的角色，参与角色交换的另一名玩家改为由说书人来决定”。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4109
+  englishName: ea07eb72-9e66-43d2-9093-bb75adbc8df3
+  officialId: ea07eb72-9e66-43d2-9093-bb75adbc8df3
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/damsel.png

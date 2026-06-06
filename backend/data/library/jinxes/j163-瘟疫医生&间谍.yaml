@@ -1,0 +1,20 @@
+id: j163
+kind: jinx
+name: 瘟疫医生&间谍
+roleIds:
+  - r159
+  - r018
+roleNames:
+  - 瘟疫医生
+  - 间谍
+unresolvedRoleNames: []
+rule: 如果瘟疫医生死亡且说书人会因此获得间谍的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1749
+  englishName: 7bf7910a-1f15-40a1-ba83-2f1c9e8b56a5
+  officialId: 7bf7910a-1f15-40a1-ba83-2f1c9e8b56a5
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202310/c_9614144308961_fe5074b8.jpg

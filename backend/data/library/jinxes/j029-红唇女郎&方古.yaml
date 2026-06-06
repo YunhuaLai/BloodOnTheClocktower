@@ -1,0 +1,20 @@
+id: j029
+kind: jinx
+name: 红唇女郎&方古
+roleIds:
+  - r020
+  - r079
+roleNames:
+  - 红唇女郎
+  - 方古
+unresolvedRoleNames: []
+rule: 如果方古成功转化了外来者并因此死去，红唇女郎不会变成方古。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1081
+  englishName: b9d16fec-d9ed-409b-9bd3-7fb09e49820f
+  officialId: 6df433f0-321a-4e8e-bc47-a160fd13dd60
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/scarlet_woman.png

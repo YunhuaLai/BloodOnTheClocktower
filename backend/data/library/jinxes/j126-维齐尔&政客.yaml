@@ -1,0 +1,20 @@
+id: j126
+kind: jinx
+name: 维齐尔&政客
+roleIds:
+  - r1613
+  - r135
+roleNames:
+  - 维齐尔
+  - 政客
+unresolvedRoleNames: []
+rule: 维齐尔的能力可能会将政客当作邪恶阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1614
+  englishName: 116-meta
+  officialId: 116_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/0/09/Vizier.png/300px-Vizier.png

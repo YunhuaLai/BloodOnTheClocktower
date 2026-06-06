@@ -1,0 +1,17 @@
+id: j244
+kind: jinx
+name: 受伤
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 受伤
+rule: 异常状态，本身无任何效果（除非有特殊说明）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2458
+  englishName: rule2
+  officialId: rule2
+  officialTeam: jinxes
+  edition: custom
+  image: https://i.postimg.cc/TPY483vL/image.png

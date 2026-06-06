@@ -1,0 +1,20 @@
+id: j005
+kind: jinx
+name: 疯子&数学家
+roleIds:
+  - r039
+  - r053
+roleNames:
+  - 疯子
+  - 数学家
+unresolvedRoleNames: []
+rule: 数学家会得知疯子是否攻击力与真正的恶魔不同的目标。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1019
+  englishName: 28-xiaoguidangjia
+  officialId: 27_anliuchunsheng
+  officialTeam: jinxes
+  edition: custom
+  image: ''

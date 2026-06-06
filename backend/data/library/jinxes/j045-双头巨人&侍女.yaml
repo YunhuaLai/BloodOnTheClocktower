@@ -1,0 +1,20 @@
+id: j045
+kind: jinx
+name: 双头巨人&侍女
+roleIds:
+  - r1133
+  - r025
+roleNames:
+  - 双头巨人
+  - 侍女
+unresolvedRoleNames: []
+rule: 首夜选择的双头巨人和被选择的双头巨人都会被侍女得知+1。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1139
+  englishName: 5-daoluyimu
+  officialId: 5_daoluyimu
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

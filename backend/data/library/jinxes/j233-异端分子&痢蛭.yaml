@@ -1,0 +1,20 @@
+id: j233
+kind: jinx
+name: 异端分子&痢蛭
+roleIds:
+  - r116
+  - r141
+roleNames:
+  - 异端分子
+  - 痢蛭
+unresolvedRoleNames: []
+rule: 如果痢蛭选择异端分子作为宿主，痢蛭死亡时异端分子仍然中毒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1927
+  englishName: 27-shizhijiaobi
+  officialId: 27_shizhijiaobi
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

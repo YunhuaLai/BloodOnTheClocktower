@@ -1,0 +1,20 @@
+id: j363
+kind: jinx
+name: 阎罗&落难少女
+roleIds:
+  - r642
+  - r071
+roleNames:
+  - 阎罗
+  - 落难少女
+unresolvedRoleNames: []
+rule: 如果阎罗正在场或曾经在场，落难少女中毒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r841
+  englishName: 20231-meta
+  officialId: 20231_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/yanluo.png

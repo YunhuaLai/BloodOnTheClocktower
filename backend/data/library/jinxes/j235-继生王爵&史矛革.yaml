@@ -1,0 +1,20 @@
+id: j235
+kind: jinx
+name: 卓尔卡尼斯&死魂灵
+roleIds:
+  - r2015
+  - r1356
+roleNames:
+  - 卓尔卡尼斯
+  - 死魂灵
+unresolvedRoleNames: []
+rule: 如果卓尔卡尼斯交换了自己和死魂灵，死魂灵会变成存活的恶魔。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2017
+  englishName: jinx1
+  officialId: jinx1
+  officialTeam: a jinxed
+  edition: custom
+  image: https://postimage.me/images/2024/08/01/2e49d0c0ce4dde60acda5bb5db8b2e0f.png

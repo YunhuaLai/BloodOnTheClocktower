@@ -1,0 +1,20 @@
+id: j104
+kind: jinx
+name: 痢蛭&猎手
+roleIds:
+  - r141
+  - r022
+roleNames:
+  - 痢蛭
+  - 猎手
+unresolvedRoleNames: []
+rule: 如果猎手选择了痢蛭的宿主，则宿主会死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r154
+  englishName: lleech-slayer-jinx
+  officialId: 102meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/7/70/Lleech.png/300px-Lleech.png

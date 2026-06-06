@@ -1,0 +1,22 @@
+id: j040
+kind: jinx
+name: 科学怪人&隐士&渡鸦信使
+roleIds:
+  - r336
+  - r186
+  - r1110
+roleNames:
+  - 科学怪人
+  - 隐士
+  - 渡鸦信使
+unresolvedRoleNames: []
+rule: 如果恶魔拥有隐士/渡鸦信使的能力，改为提名恶魔的镇民变成隐士/渡鸦信使。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1118
+  englishName: 34-binpengmanzuo
+  officialId: 34_binpengmanzuo
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

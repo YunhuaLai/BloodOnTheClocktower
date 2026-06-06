@@ -1,0 +1,17 @@
+id: j245
+kind: jinx
+name: 隐伤
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 隐伤
+rule: 同受伤，但是玩家第二天醒来时会得知自己处于活跃状态（除非有特殊说明）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2459
+  englishName: rule3
+  officialId: rule3
+  officialTeam: jinxes
+  edition: custom
+  image: https://i.postimg.cc/8cVY0BpD/image.png

@@ -1,0 +1,22 @@
+id: j044
+kind: jinx
+name: 亡骨魔&双头巨人&僧侣
+roleIds:
+  - r080
+  - r1133
+  - r008
+roleNames:
+  - 亡骨魔
+  - 双头巨人
+  - 僧侣
+unresolvedRoleNames: []
+rule: 如果僧侣守护了因为被亡骨魔杀死而被连带死亡的双头巨人，那么被守护的双头巨人不会死我转而会在下个夜晚死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1138
+  englishName: 4-daoluyimu
+  officialId: 4_daoluyimu
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

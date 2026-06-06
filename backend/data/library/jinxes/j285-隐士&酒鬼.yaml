@@ -1,0 +1,20 @@
+id: j285
+kind: jinx
+name: 隐士&酒鬼
+roleIds:
+  - r186
+  - r015
+roleNames:
+  - 隐士
+  - 酒鬼
+unresolvedRoleNames: []
+rule: 隐士可能认知自己是在场的镇民角色。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3978
+  englishName: ysjg-meta
+  officialId: ysjg_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png

@@ -1,0 +1,20 @@
+id: j205
+kind: jinx
+name: 戏子&卡扎力
+roleIds:
+  - r1191
+  - r095
+roleNames:
+  - 戏子
+  - 卡扎力
+unresolvedRoleNames: []
+rule: 卡扎力和戏子不能在初始时同时在场。如果有角色能力能够使得善良玩家在第一个夜晚变成戏子，卡扎力会在这一效果生效之前先进行转变爪牙的行动。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1840
+  englishName: 125-me3ta
+  officialId: 125_me3ta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/1/13/Xizi.png/300px-Xizi.png

@@ -1,0 +1,22 @@
+id: j121
+kind: jinx
+name: 傀授王命：提线木偶&寻踪者&继生王爵
+roleIds:
+  - r121
+  - r728
+  - r450
+roleNames:
+  - 提线木偶
+  - 寻踪者
+  - 继生王爵
+unresolvedRoleNames: []
+rule: 如果提线木偶因寻踪者而获得继生王爵的能力，改为由恶魔选择玩家并得知信息，且他会得知此事。如果恶魔死亡时他们均已死亡，提线木偶变成那个恶魔
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4049
+  englishName: 24-meta
+  officialId: 24_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/hGYkrvWD/equinox.png

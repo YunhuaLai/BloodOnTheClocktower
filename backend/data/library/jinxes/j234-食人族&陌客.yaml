@@ -1,0 +1,20 @@
+id: j234
+kind: jinx
+name: 食人族&陌客
+roleIds:
+  - r091
+  - r016
+roleNames:
+  - 食人族
+  - 陌客
+unresolvedRoleNames: []
+rule: 如果陌客被食人魔当作邪恶阵营，食人魔会得知自己转变为邪恶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1929
+  englishName: 24-zhiruochujian
+  officialId: 24_zhiruochujian
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

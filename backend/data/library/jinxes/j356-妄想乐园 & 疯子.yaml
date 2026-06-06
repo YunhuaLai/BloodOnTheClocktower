@@ -1,0 +1,20 @@
+id: j356
+kind: jinx
+name: 妄想乐园 & 疯子
+roleIds:
+  - r547
+  - r039
+roleNames:
+  - 妄想乐园
+  - 疯子
+unresolvedRoleNames: []
+rule: 妄想乐园在场时可能存在认为自己是妄想乐园的疯子，也会被唤醒参与杀人。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r550
+  englishName: delusion-park-lunatic-jinx
+  officialId: a jinxed_3
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

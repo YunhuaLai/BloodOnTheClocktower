@@ -1,0 +1,20 @@
+id: j089
+kind: jinx
+name: 稻草人&舞蛇人
+roleIds:
+  - r801
+  - r052
+roleNames:
+  - 稻草人
+  - 舞蛇人
+unresolvedRoleNames: []
+rule: 如果舞蛇人选择了被他当作邪恶的非恶魔玩家，他们只会交换角色不会交换阵营，并且交换后也不会中毒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1420
+  englishName: 35-matiwan
+  officialId: 35_matiwan
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

@@ -1,0 +1,20 @@
+id: j036
+kind: jinx
+name: 炼金术士&寡妇
+roleIds:
+  - r155
+  - r078
+roleNames:
+  - 炼金术士
+  - 寡妇
+unresolvedRoleNames: []
+rule: 如果炼金术士获得了寡妇的能力，他无法查看魔典。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1108
+  englishName: 25-meta
+  officialId: 25_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/alchemist.png

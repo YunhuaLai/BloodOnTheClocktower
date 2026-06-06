@@ -1,0 +1,20 @@
+id: j058
+kind: jinx
+name: 洗脑师&哥布林
+roleIds:
+  - r075
+  - r641
+roleNames:
+  - 洗脑师
+  - 哥布林
+unresolvedRoleNames: []
+rule: 洗脑师可以选择将玩家洗脑成哥布林。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1209
+  englishName: cerenovus-goblin
+  officialId: 16_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/4/4d/Cerenovus.png/300px-Cerenovus.png

@@ -5,6 +5,7 @@ const zlib = require("node:zlib");
 const {
   getBootstrapData,
   getEncyclopediaData,
+  getJinxById,
   getRoleById,
   getScriptById,
   getTermById,
@@ -278,6 +279,27 @@ function handleApi(request, response) {
     }
 
     sendRawJson(request, response, 200, role);
+    return;
+  }
+
+  if (segments[0] === "api" && segments[1] === "jinxes") {
+    const data = readData(request, response, "Failed to read jinx data");
+    if (!data) {
+      return;
+    }
+
+    if (!segments[2]) {
+      sendRawJson(request, response, 200, data.jinxes || []);
+      return;
+    }
+
+    const jinx = getJinxById(segments[2]);
+    if (!jinx) {
+      sendJson(request, response, 404, { error: "Jinx not found" });
+      return;
+    }
+
+    sendRawJson(request, response, 200, jinx);
     return;
   }
 

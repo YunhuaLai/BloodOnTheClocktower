@@ -1,0 +1,20 @@
+id: j291
+kind: jinx
+name: 科学怪人&囚犯
+roleIds:
+  - r336
+  - r1008
+roleNames:
+  - 科学怪人
+  - 囚犯
+unresolvedRoleNames: []
+rule: 如果恶魔被释放，改为恶魔在当晚获得那个角色的能力并且不会转变阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3997
+  englishName: 1122000000222222222222233-meta
+  officialId: 1122000000222222222222233_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png

@@ -1,0 +1,20 @@
+id: j281
+kind: jinx
+name: 教授 & 追猎者
+roleIds:
+  - r031
+  - r246
+roleNames:
+  - 教授
+  - 追猎者
+unresolvedRoleNames: []
+rule: 追猎者因教授能力复活后，可以在当晚行动。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3994
+  englishName: patches
+  officialId: patches
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/djinn.png

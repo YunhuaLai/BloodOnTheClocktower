@@ -1,0 +1,20 @@
+id: j275
+kind: jinx
+name: 罂粟种植者&提线木偶
+roleIds:
+  - r066
+  - r121
+roleNames:
+  - 罂粟种植者
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 当罂粟种植者死亡后，恶魔会知道谁是提线木偶，但提线木偶什么都不会知道。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3936
+  englishName: 29-jianxianshen
+  officialId: fb0798f6-bf38-4017-bf38-a4c10a94a13b
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/poppy_grower.png

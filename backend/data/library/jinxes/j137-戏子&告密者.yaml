@@ -1,0 +1,20 @@
+id: j137
+kind: jinx
+name: 戏子&告密者
+roleIds:
+  - r1191
+  - r098
+roleNames:
+  - 戏子
+  - 告密者
+unresolvedRoleNames: []
+rule: 告密者不会因为戏子的能力醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1696
+  englishName: 5672865121342-meta
+  officialId: 5672865121342_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/xizi.png

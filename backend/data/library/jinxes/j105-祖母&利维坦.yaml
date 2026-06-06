@@ -1,0 +1,21 @@
+id: j105
+kind: jinx
+name: 祖母&利维坦
+roleIds:
+  - r023
+  - r384
+roleNames:
+  - 祖母
+  - 利维坦
+unresolvedRoleNames: []
+rule: 如果利维坦在场，孙子死于处决，邪恶阵营获胜。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1548
+  englishName: 15-daxianjiangzhi
+  officialId: 15_daxianjiangzhi
+  officialTeam: a jinxed
+  edition: custom
+  image:
+    - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/df/cud437aq02j4lnizdmdyxp1dcc5lojm.png

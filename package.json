@@ -24,7 +24,8 @@
     "roles:dedupe:check": "node scripts/dedupe-role-abilities.js",
     "roles:dedupe": "node scripts/dedupe-role-abilities.js --write",
     "roles:english-names:check": "node scripts/clean-role-english-names.js",
-    "roles:english-names:clean": "node scripts/clean-role-english-names.js --write"
+    "roles:english-names:clean": "node scripts/clean-role-english-names.js --write",
+    "jinxes:migrate": "node scripts/migrate-jinx-roles.js --write"
   },
   "dependencies": {
     "js-yaml": "^4.1.0"

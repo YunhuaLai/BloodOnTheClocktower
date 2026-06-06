@@ -1,0 +1,20 @@
+id: j282
+kind: jinx
+name: 战车 & 普卡
+roleIds:
+  - r1037
+  - r045
+roleNames:
+  - '战车 '
+  - 普卡
+unresolvedRoleNames: []
+rule: 如果普卡的角色因战车发生了交换，不会因此移除原本普卡的“中毒”提示标记与效果。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3947
+  englishName: pc
+  officialId: pc
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.bloodstar.xyz/p/Airell_clocktower/Assets_of_Lei_Gallery/chariot_assets_of_lei_gallery.png

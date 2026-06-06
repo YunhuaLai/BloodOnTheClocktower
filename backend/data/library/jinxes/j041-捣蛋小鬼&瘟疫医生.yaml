@@ -1,0 +1,20 @@
+id: j041
+kind: jinx
+name: 捣蛋小鬼&瘟疫医生
+roleIds:
+  - r1119
+  - r159
+roleNames:
+  - 捣蛋小鬼
+  - 瘟疫医生
+unresolvedRoleNames: []
+rule: 如果瘟疫医生死亡且说书人会因此获得捣蛋小鬼的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1130
+  englishName: 49-ys
+  officialId: 49_ys
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

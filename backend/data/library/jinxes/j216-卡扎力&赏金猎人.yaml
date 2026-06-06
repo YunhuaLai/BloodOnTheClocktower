@@ -1,0 +1,20 @@
+id: j216
+kind: jinx
+name: 卡扎力&赏金猎人
+roleIds:
+  - r095
+  - r139
+roleNames:
+  - 卡扎力
+  - 赏金猎人
+unresolvedRoleNames: []
+rule: 在卡扎力行动完毕后，如果赏金猎人仍然在场，才会创造邪恶镇民。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1859
+  englishName: 104-meta
+  officialId: 104_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/4/46/Kazali.png/300px-Kazali.png

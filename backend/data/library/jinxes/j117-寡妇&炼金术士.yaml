@@ -1,0 +1,20 @@
+id: j117
+kind: jinx
+name: 寡妇&炼金术士
+roleIds:
+  - r078
+  - r155
+roleNames:
+  - 寡妇
+  - 炼金术士
+unresolvedRoleNames: []
+rule: 如果炼金术士获得了寡妇的能力，他无法查看魔典。(炼金术士仍然需要选择一名玩家：他中毒。随后，始终会有一名善良玩家知道寡妇在场。）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1575
+  englishName: 25-meta
+  officialId: 26.1_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/1/1e/Widow.png/300px-Widow.png

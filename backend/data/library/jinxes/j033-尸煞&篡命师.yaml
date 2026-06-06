@@ -1,0 +1,20 @@
+id: j033
+kind: jinx
+name: 尸煞&篡命师
+roleIds:
+  - r1091
+  - r1089
+roleNames:
+  - 尸煞
+  - 篡命师
+unresolvedRoleNames: []
+rule: 如果尸煞获得篡命师的能力，改为'随后会有一名善良玩家知道说书人做了什么'。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1101
+  englishName: c1abb0ab-c8b5-4aa5-aae8-f99ee6eeb8fe
+  officialId: c1abb0ab-c8b5-4aa5-aae8-f99ee6eeb8fe
+  officialTeam: A jinxed
+  edition: custom
+  image: https://www.freeimg.cn/uploads/535/691708e9539fb.png

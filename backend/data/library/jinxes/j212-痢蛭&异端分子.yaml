@@ -1,0 +1,20 @@
+id: j212
+kind: jinx
+name: 痢蛭&半兽人
+roleIds:
+  - r141
+  - r150
+roleNames:
+  - 痢蛭
+  - 半兽人
+unresolvedRoleNames: []
+rule: 如果痢蛭选择善良玩家作为宿主，半兽人的干扰项可以在此之后改为痢蛭的宿主。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4054
+  englishName: 103-meta
+  officialId: 103_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/7/70/Lleech.png/300px-Lleech.png

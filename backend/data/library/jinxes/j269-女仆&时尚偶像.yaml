@@ -1,0 +1,20 @@
+id: j269
+kind: jinx
+name: 女仆&时尚偶像
+roleIds:
+  - r799
+  - r3847
+roleNames:
+  - 女仆
+  - 时尚偶像
+unresolvedRoleNames: []
+rule: 如果恶魔获得了时尚偶像的能力，在夜晚时，他可以选择让一名爪牙死亡(不是他自己)以发动时尚偶像的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3854
+  englishName: servantfashionista-despair
+  officialId: servantfashionista_despair
+  officialTeam: jinxes
+  edition: custom
+  image: ''

@@ -1,0 +1,21 @@
+id: j001
+kind: jinx
+name: 祖母&暴乱
+roleIds:
+  - r023
+  - r929
+roleNames:
+  - 祖母
+  - 暴乱
+unresolvedRoleNames: []
+rule: 如果暴乱在场，孙子在白天死亡，祖母会一同死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1011
+  englishName: 3220e821-8b89-489e-83c8-653f1adece20
+  officialId: 16_daxianjiangzhi
+  officialTeam: a jinxed
+  edition: custom
+  image:
+    - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/df/cud437aq02j4lnizdmdyxp1dcc5lojm.png

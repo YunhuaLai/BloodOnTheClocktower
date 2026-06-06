@@ -1,0 +1,20 @@
+id: j145
+kind: jinx
+name: 堤丰之首&召唤师
+roleIds:
+  - r683
+  - r113
+roleNames:
+  - 堤丰之首
+  - 召唤师
+unresolvedRoleNames: []
+rule: 如果召唤师创造了堤丰之首，则堤丰之首必须与一名爪牙相邻，且堤丰之首另一侧的玩家会变成一个邪恶的爪牙。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1724
+  englishName: 112312312312312122333-meta
+  officialId: 32_xindalu
+  officialTeam: jinxes
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/1/18/Lordoftyphon.png

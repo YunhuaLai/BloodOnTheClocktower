@@ -1,0 +1,20 @@
+id: j112
+kind: jinx
+name: 召唤师&钟表匠
+roleIds:
+  - r113
+  - r048
+roleNames:
+  - 召唤师
+  - 钟表匠
+unresolvedRoleNames: []
+rule: 如果召唤师在场，在创造恶魔之后钟表匠才会得知信息。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1570
+  englishName: 45-meta
+  officialId: 45_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2f/Summoner.png/300px-Summoner.png

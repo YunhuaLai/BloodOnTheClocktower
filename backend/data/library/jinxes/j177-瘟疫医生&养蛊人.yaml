@@ -1,0 +1,20 @@
+id: j177
+kind: jinx
+name: 瘟疫医生&养蛊人
+roleIds:
+  - r159
+  - r237
+roleNames:
+  - 瘟疫医生
+  - 养蛊人
+unresolvedRoleNames: []
+rule: 如果瘟疫医生死亡且说书人会因此获得养蛊人的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1778
+  englishName: 21-shewoqishei
+  officialId: 138_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2d/Plaguedoctor.png/300px-Plaguedoctor.png

@@ -1,0 +1,20 @@
+id: j353
+kind: jinx
+name: 化尸道人&陌客
+roleIds:
+  - r537
+  - r016
+roleNames:
+  - 化尸道人
+  - 陌客
+unresolvedRoleNames: []
+rule: 陌客可以被化尸道人当作其他角色。但只有化尸道人在使用他的能力时因此受到干扰的当晚，才会被小镇做题家检测。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r542
+  englishName: corpse-taoist-recluse-jinx
+  officialId: 27_jtxx
+  officialTeam: jinxes
+  edition: custom
+  image: https://www.bloodstar.xyz/p/bluebell/jtxx/27_jtxx.png

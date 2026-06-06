@@ -1,0 +1,20 @@
+id: j289
+kind: jinx
+name: 多罗迈特&养蜂人
+roleIds:
+  - r1454
+  - r885
+roleNames:
+  - 多罗迈特
+  - 养蜂人
+unresolvedRoleNames: []
+rule: 受多罗迈特影响能力影响转变为邪恶阵营的第一名玩家会被视为善良阵营，镇民或外来者角色。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3991
+  englishName: duoluomaiteyangfengren
+  officialId: duoluomaiteyangfengren
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/9085cVb6/image-8.webp

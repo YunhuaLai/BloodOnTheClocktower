@@ -1,0 +1,20 @@
+id: j015
+kind: jinx
+name: 渊沼&腐化之源
+roleIds:
+  - r1048
+  - r1049
+roleNames:
+  - 渊沼
+  - 腐化之源
+unresolvedRoleNames: []
+rule: 渊沼导致的交换角色不会刷新腐化之源的能力，原被腐化的玩家仍然被腐化。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1052
+  englishName: 29-lianjinshushidezhizhuo
+  officialId: 29_lianjinshushidezhizhuo
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

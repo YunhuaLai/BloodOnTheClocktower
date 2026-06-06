@@ -1,0 +1,20 @@
+id: j003
+kind: jinx
+name: 士兵&暴乱
+roleIds:
+  - r011
+  - r929
+roleNames:
+  - 士兵
+  - 暴乱
+unresolvedRoleNames: []
+rule: 如果暴乱在场，士兵免疫所有邪恶阵营的负面效果。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1013
+  englishName: ed96719a-f30a-4a60-bd91-371fd4c6f092
+  officialId: ed96719a-f30a-4a60-bd91-371fd4c6f092
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/soldier.png

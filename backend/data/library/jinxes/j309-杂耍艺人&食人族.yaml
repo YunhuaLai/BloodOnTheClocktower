@@ -1,0 +1,20 @@
+id: j309
+kind: jinx
+name: 杂耍艺人&食人族
+roleIds:
+  - r062
+  - r091
+roleNames:
+  - 杂耍艺人
+  - 食人族
+unresolvedRoleNames: []
+rule: 如果杂耍艺人在自己的首个白天猜测后在当天死于处决，当晚食人族会替杂耍艺人得知对应的信息。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4108
+  englishName: d5c9f81d-f154-4da8-a668-230109e54fd2
+  officialId: d5c9f81d-f154-4da8-a668-230109e54fd2
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/juggler.png

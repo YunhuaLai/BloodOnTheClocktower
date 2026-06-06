@@ -1,0 +1,19 @@
+id: j379
+kind: jinx
+name: 教父&遗忘之门
+roleIds:
+  - r040
+roleNames:
+  - 教父
+unresolvedRoleNames:
+  - 遗忘之门
+rule: 教父首夜不会得知外来者角色，改为得知在场外来者数量。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r982
+  englishName: 37-jubushiyi
+  officialId: 37_jubushiyi
+  officialTeam: jinxes
+  edition: custom
+  image: ''

@@ -1,0 +1,20 @@
+id: j088
+kind: jinx
+name: 迷途羔羊&理发师
+roleIds:
+  - r1412
+  - r070
+roleNames:
+  - 迷途羔羊
+  - 理发师
+unresolvedRoleNames: []
+rule: 恶魔将一名邪恶阵营玩家与迷途羔羊交换角色后，该玩家无法再因自身能力转变为善良阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1419
+  englishName: 33-matiwan
+  officialId: 33_matiwan
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

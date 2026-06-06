@@ -1,0 +1,20 @@
+id: j079
+kind: jinx
+name: 落难少女&麻脸巫婆
+roleIds:
+  - r071
+  - r076
+roleNames:
+  - 落难少女
+  - 麻脸巫婆
+unresolvedRoleNames: []
+rule: 如果麻脸巫婆创造了落难少女，改为由说书人来决定哪一名玩家变成落难少女。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1352
+  englishName: 629c349b-a9c8-4ec0-b6a9-c66e64d824b3
+  officialId: 6ccc00cb-f01f-4e77-96bc-1ac287b3bc76
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/damsel.png

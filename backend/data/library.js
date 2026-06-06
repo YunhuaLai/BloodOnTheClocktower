@@ -6,6 +6,7 @@ const LIBRARY_DIR = path.join(__dirname, "library");
 const RULES_FILE = path.join(LIBRARY_DIR, "rules.yaml");
 const SCRIPTS_DIR = path.join(LIBRARY_DIR, "scripts");
 const ROLES_DIR = path.join(LIBRARY_DIR, "roles");
+const JINXES_DIR = path.join(LIBRARY_DIR, "jinxes");
 const TERMS_FILE = path.join(LIBRARY_DIR, "terms.yaml");
 const META_DIR = path.join(LIBRARY_DIR, "meta");
 const ROLE_ABILITY_SCHEMA_FILE = path.join(META_DIR, "role-ability-schema.yaml");
@@ -51,6 +52,7 @@ function loadLibraryData() {
     rules: Array.isArray(rules) ? rules : [],
     scripts: readYamlCollection(SCRIPTS_DIR),
     roles,
+    jinxes: readYamlCollection(JINXES_DIR),
     roleAbilities: roles.map(makeRoleAbilityFromRole).filter(Boolean),
     terms: Array.isArray(termData) ? termData : Array.isArray(termData?.terms) ? termData.terms : [],
     termReplacements: Array.isArray(termData?.replacements) ? termData.replacements : [],

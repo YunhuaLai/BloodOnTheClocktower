@@ -1,0 +1,19 @@
+id: j380
+kind: jinx
+name: 长安红茶&遗忘之门
+roleIds:
+  - r975
+roleNames:
+  - 长安红茶
+unresolvedRoleNames:
+  - 遗忘之门
+rule: 长安红茶首夜选择等同于初始爪牙数量的玩家转变阵营改为：每个夜晚，选择一名除你以外的玩家转变为邪恶阵营直到等同于初始爪牙数量。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r983
+  englishName: 38-jubushiyi
+  officialId: 38_jubushiyi
+  officialTeam: jinxes
+  edition: custom
+  image: ''

@@ -1,0 +1,20 @@
+id: j292
+kind: jinx
+name: 科学怪人&牧驴者
+roleIds:
+  - r336
+  - r3952
+roleNames:
+  - 科学怪人
+  - 牧驴者
+unresolvedRoleNames: []
+rule: 如果在游戏开始前，说书人决定让恶魔获得牧驴者的能力，那么在盲抽袋中移除恶魔的角色标记，加入牧驴者的角色标记，抽到牧驴者的玩家是恶魔。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3998
+  englishName: 112200000022222222222222233-meta
+  officialId: 112200000022222222222222233_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png

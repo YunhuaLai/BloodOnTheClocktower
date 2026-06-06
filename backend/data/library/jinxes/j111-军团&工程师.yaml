@@ -1,0 +1,20 @@
+id: j111
+kind: jinx
+name: 军团&工程师
+roleIds:
+  - r099
+  - r061
+roleNames:
+  - 军团
+  - 工程师
+unresolvedRoleNames: []
+rule: 军团和工程师不能在初始时同时在场。如果工程师创造了军团，那么包括所有邪恶玩家在内的绝大多数玩家都会变成邪恶的军团。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r157
+  englishName: legion-engineer-jinx
+  officialId: 67_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/25/Legion.png/300px-Legion.png

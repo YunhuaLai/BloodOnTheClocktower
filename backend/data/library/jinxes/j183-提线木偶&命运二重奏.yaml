@@ -1,0 +1,20 @@
+id: j183
+kind: jinx
+name: 提线木偶&命运二重奏
+roleIds:
+  - r121
+  - r1793
+roleNames:
+  - 提线木偶
+  - 命运二重奏
+unresolvedRoleNames: []
+rule: 恶魔即将死亡时候，提线木偶存活且提现木偶是唯一存活的爪牙，那么提线木偶会成为不在场的恶魔。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1792
+  englishName: 32131231231231231-meta
+  officialId: 32131231231231231_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png

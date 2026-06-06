@@ -1,0 +1,20 @@
+id: j208
+kind: jinx
+name: 帽匠&军团
+roleIds:
+  - r324
+  - r099
+roleNames:
+  - 帽匠
+  - 军团
+unresolvedRoleNames: []
+rule: 如果帽匠死亡时军团在场，则无事发生。如果帽匠死亡时一名邪恶玩家选择变成军团，当前所有邪恶玩家都会一同变成军团。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1843
+  englishName: c07f528f-659c-4b23-a845-821f7f6c49d2
+  officialId: c07f528f-659c-4b23-a845-821f7f6c49d2
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202312/c_9723021341071_86da6df4.jpg

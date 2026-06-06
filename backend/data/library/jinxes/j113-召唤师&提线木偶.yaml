@@ -1,0 +1,20 @@
+id: j113
+kind: jinx
+name: 召唤师&提线木偶
+roleIds:
+  - r113
+  - r121
+roleNames:
+  - 召唤师
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 在初始设置时，提线木偶会与召唤师邻座。召唤师会得知谁是提线木偶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1571
+  englishName: 47-meta
+  officialId: 47_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2f/Summoner.png/300px-Summoner.png

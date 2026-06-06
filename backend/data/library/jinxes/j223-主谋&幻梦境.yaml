@@ -1,0 +1,20 @@
+id: j223
+kind: jinx
+name: 主谋&幻梦境
+roleIds:
+  - r043
+  - r1908
+roleNames:
+  - 主谋
+  - 幻梦境
+unresolvedRoleNames: []
+rule: 当主谋所在的城镇的恶魔因为死于处决而因此导致游戏结束时，主谋所在的城镇不会被封锁且会在下次进入的时候再额外进行一个夜晚和一个白天，在那个白天如果有玩家被处决，他的阵营落败。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1910
+  englishName: 46-elysuim
+  officialId: 46_elysuim
+  officialTeam: jinxes
+  edition: custom
+  image: ''

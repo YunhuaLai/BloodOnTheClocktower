@@ -1,0 +1,20 @@
+id: j195
+kind: jinx
+name: 入殓师&梼杌
+roleIds:
+  - r112
+  - r689
+roleNames:
+  - 入殓师
+  - 梼杌
+unresolvedRoleNames: []
+rule: 入殓师可以提名处决并杀死梼杌，且不会因此移除原本梼杌的“失去能力”提示标记。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1828
+  englishName: 126662-meta
+  officialId: 05e49448-b902-4123123213bef-a338-f98fb5d69844
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_5757097694761_2de60c7b.jpg

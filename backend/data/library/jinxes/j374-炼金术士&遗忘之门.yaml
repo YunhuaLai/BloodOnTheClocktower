@@ -1,0 +1,19 @@
+id: j374
+kind: jinx
+name: 炼金术士&遗忘之门
+roleIds:
+  - r155
+roleNames:
+  - 炼金术士
+unresolvedRoleNames:
+  - 遗忘之门
+rule: 炼金术士不会得知自己获得了什么爪牙能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r977
+  englishName: 32-jubushiyi
+  officialId: 1shizhanyachao
+  officialTeam: jinxes
+  edition: custom
+  image: ''

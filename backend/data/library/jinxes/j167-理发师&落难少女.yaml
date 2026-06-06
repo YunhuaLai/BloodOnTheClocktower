@@ -1,0 +1,20 @@
+id: j167
+kind: jinx
+name: 理发师&落难少女
+roleIds:
+  - r070
+  - r071
+roleNames:
+  - 理发师
+  - 落难少女
+unresolvedRoleNames: []
+rule: 建议相克：如果恶魔选择交换落难少女的角色，参与角色交换的另一名玩家改为由说书人来决定
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1760
+  englishName: 9112367895213-meta
+  officialId: 9112367895213_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/barber.png

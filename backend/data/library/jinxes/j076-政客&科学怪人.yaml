@@ -1,0 +1,20 @@
+id: j076
+kind: jinx
+name: 政客&科学怪人
+roleIds:
+  - r135
+  - r336
+roleNames:
+  - 政客
+  - 科学怪人
+unresolvedRoleNames: []
+rule: 恶魔无法拥有政客的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1337
+  englishName: e5882042-c3ac-4335-95dd-be03d62b853d
+  officialId: 360ebf7e-fe03-4c5d-95db-3461fbd45410
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/politician.png

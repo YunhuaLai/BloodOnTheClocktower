@@ -1,0 +1,20 @@
+id: j140
+kind: jinx
+name: 间谍&鸯
+roleIds:
+  - r018
+  - r1703
+roleNames:
+  - 间谍
+  - 鸯
+unresolvedRoleNames: []
+rule: 鸯不会因为落难少女&间谍的相克规则中毒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1699
+  englishName: 2320-meta
+  officialId: 2320_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2025/02/14/67ae22662976d.png

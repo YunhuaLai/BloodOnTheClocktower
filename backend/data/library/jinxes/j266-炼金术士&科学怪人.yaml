@@ -1,0 +1,20 @@
+id: j266
+kind: jinx
+name: 炼金术士&科学怪人
+roleIds:
+  - r155
+  - r336
+roleNames:
+  - 炼金术士
+  - 科学怪人
+unresolvedRoleNames: []
+rule: 如果炼金术士拥有科学怪人的能力，炼金术士不会得知恶魔因此获得了哪个角色的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r342
+  englishName: alchemist-frankenstein-jinx
+  officialId: 112222222222435325645742222222222222333_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/alchemist.png

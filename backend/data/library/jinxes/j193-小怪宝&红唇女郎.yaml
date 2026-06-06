@@ -1,0 +1,20 @@
+id: j193
+kind: jinx
+name: 小怪宝&红唇女郎
+roleIds:
+  - r103
+  - r020
+roleNames:
+  - 小怪宝
+  - 红唇女郎
+unresolvedRoleNames: []
+rule: 如果在五名及以上的玩家存活时照看小怪宝的玩家死亡，当晚红唇女郎必须要照看小怪宝。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1826
+  englishName: 63-meta
+  officialId: 63_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/3/39/Lilmonsta.png/300px-Lilmonsta.png

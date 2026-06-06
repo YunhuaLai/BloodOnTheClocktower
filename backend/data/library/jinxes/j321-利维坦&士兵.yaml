@@ -1,0 +1,20 @@
+id: j321
+kind: jinx
+name: 利维坦&士兵
+roleIds:
+  - r384
+  - r011
+roleNames:
+  - 利维坦
+  - 士兵
+unresolvedRoleNames: []
+rule: 如果利维坦在场，士兵免疫所有邪恶阵营的负面效果。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4149
+  englishName: 49-meta
+  officialId: 49_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/0/0a/Leviathan.png/300px-Leviathan.png

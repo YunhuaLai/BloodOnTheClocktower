@@ -1,0 +1,20 @@
+id: j087
+kind: jinx
+name: 起誓人&炼金术士
+roleIds:
+  - r1390
+  - r155
+roleNames:
+  - 起誓人
+  - 炼金术士
+unresolvedRoleNames: []
+rule: 如果炼金术士获得了起誓人的能力，改为由恶魔决定自己是否行动，如果是，当晚炼金术士不会因自身能力被唤醒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1391
+  englishName: 29-kuanglieshenyuan
+  officialId: 29_kuanglieshenyuan
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

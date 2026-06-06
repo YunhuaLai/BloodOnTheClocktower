@@ -1,0 +1,20 @@
+id: j063
+kind: jinx
+name: 瘟疫医生 & 男爵
+roleIds:
+  - r159
+  - r019
+roleNames:
+  - 瘟疫医生
+  - 男爵
+unresolvedRoleNames: []
+rule: 如果说书人获得了男爵的能力，至多两名玩家会变成不在场的外来者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1254
+  englishName: 32-the-radiance-descends
+  officialId: 32_the_radiance_descends
+  officialTeam: jinxes
+  edition: custom
+  image: ''

@@ -1,0 +1,20 @@
+id: j227
+kind: jinx
+name: 麻脸巫婆&异端分子
+roleIds:
+  - r076
+  - r116
+roleNames:
+  - 麻脸巫婆
+  - 异端分子
+unresolvedRoleNames: []
+rule: 麻脸巫婆无法创造异端分子。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1918
+  englishName: 12-meta
+  officialId: 12_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/heretic.png

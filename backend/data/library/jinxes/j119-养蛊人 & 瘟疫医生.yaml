@@ -1,0 +1,20 @@
+id: j119
+kind: jinx
+name: 暴乱&驱魔人
+roleIds:
+  - r929
+  - r026
+roleNames:
+  - 暴乱
+  - 驱魔人
+unresolvedRoleNames: []
+rule: 互为克星的角色在同一时间里只能有其中一个角色在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4134
+  englishName: 1-meta
+  officialId: 1_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

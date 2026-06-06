@@ -1,0 +1,20 @@
+id: j297
+kind: jinx
+name: 理发师&风语命轨
+roleIds:
+  - r070
+  - r1423
+roleNames:
+  - 理发师
+  - 风语命轨
+unresolvedRoleNames: []
+rule: 如果风语命轨因理发师能力而交换角色，不会因此移动风语命轨的任何标记。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4015
+  englishName: 112222222299999222222222286222333-meta
+  officialId: 112222222299999222222222286222333_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png

@@ -1,0 +1,24 @@
+id: j038
+kind: jinx
+name: 瘟疫医生&红唇女郎&赶尸人&蛊孤菇
+roleIds:
+  - r159
+  - r020
+  - r633
+  - r1111
+roleNames:
+  - 瘟疫医生
+  - 红唇女郎
+  - 赶尸人
+  - 蛊孤菇
+unresolvedRoleNames: []
+rule: 如果瘟疫医生死亡且说书人会因此获得红唇女郎/赶尸人/蛊孤菇的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1116
+  englishName: 31-binpengmanzuo
+  officialId: 31_binpengmanzuo
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

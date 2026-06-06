@@ -1,0 +1,20 @@
+id: j080
+kind: jinx
+name: 莽夫&麻脸巫婆
+roleIds:
+  - r038
+  - r076
+roleNames:
+  - 莽夫
+  - 麻脸巫婆
+unresolvedRoleNames: []
+rule: 被麻脸巫婆创造的邪恶莽夫无法因为自身能力转变为善良阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1353
+  englishName: bea47a74-339f-4f42-a57c-67fb6b191817
+  officialId: 26_rulindadi
+  officialTeam: jinxes
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/goon.png

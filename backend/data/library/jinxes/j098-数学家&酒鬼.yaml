@@ -1,0 +1,21 @@
+id: j098
+kind: jinx
+name: 数学家&酒鬼
+roleIds:
+  - r053
+  - r015
+roleNames:
+  - 数学家
+  - 酒鬼
+unresolvedRoleNames: []
+rule: 数学家可能会得知酒鬼产生了错误信息或“能力未正常生效”。
+audience: both
+sourceScriptIds:
+  - s514
+source:
+  roleId: r1486
+  englishName: 26-mingzhengandou
+  officialId: 5c600c7c-c422-4739-b47f-88a87a4633eb33
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/mathematician.png

@@ -1,0 +1,20 @@
+id: j072
+kind: jinx
+name: 巫祝&诡面
+roleIds:
+  - r769
+  - r1306
+roleNames:
+  - 巫祝
+  - 诡面
+unresolvedRoleNames: []
+rule: 当巫祝因为互动干扰选择到了诡面时，巫祝可以判定为祝祷成功，但是巫祝代替诡面醉酒并获得祝祷状态。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1310
+  englishName: '145786456456546546565'
+  officialId: '145786456456546546565'
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c4/Djinn.png/200px-Djinn.png

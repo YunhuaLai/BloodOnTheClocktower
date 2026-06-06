@@ -1,0 +1,20 @@
+id: j026
+kind: jinx
+name: 落难少女&间谍
+roleIds:
+  - r071
+  - r018
+roleNames:
+  - 落难少女
+  - 间谍
+unresolvedRoleNames: []
+rule: 如果间谍正在场或曾经在场，落难少女中毒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1078
+  englishName: 60ac4649-0c9f-4f0e-9042-c4ee879d45a3
+  officialId: 60ac4649-0c9f-4f0e-9042-c4ee879d45a3
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/damsel.png

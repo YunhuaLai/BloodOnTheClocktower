@@ -1,0 +1,20 @@
+id: j039
+kind: jinx
+name: 渡鸦信使&隐士
+roleIds:
+  - r1110
+  - r186
+roleNames:
+  - 渡鸦信使
+  - 隐士
+unresolvedRoleNames: []
+rule: 如果他存活，提名隐士的镇民玩家会在当晚变成隐士。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1117
+  englishName: 32-binpengmanzuo
+  officialId: 32_binpengmanzuo
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

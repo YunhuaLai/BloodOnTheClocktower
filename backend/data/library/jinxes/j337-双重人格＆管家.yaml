@@ -1,0 +1,20 @@
+id: j337
+kind: jinx
+name: 双重人格＆管家
+roleIds:
+  - r413
+  - r013
+roleNames:
+  - 双重人格
+  - 管家
+unresolvedRoleNames: []
+rule: 若真实身份为管家的玩家违反了管家规定，则他无法获胜。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r434
+  englishName: fengzis
+  officialId: fengzis
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/butler.png

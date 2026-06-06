@@ -1,0 +1,20 @@
+id: j179
+kind: jinx
+name: 莽夫&科学怪人
+roleIds:
+  - r038
+  - r336
+roleNames:
+  - 莽夫
+  - 科学怪人
+unresolvedRoleNames: []
+rule: 如果恶魔拥有莽夫的能力，他无法因为该能力转变为善良阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1784
+  englishName: f37a1392-695e-4b62-974a-f32167ff15e0
+  officialId: f37a1392-695e-4b62-974a-f32167ff15e0
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/goon.png

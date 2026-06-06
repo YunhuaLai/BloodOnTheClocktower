@@ -1,0 +1,20 @@
+id: j217
+kind: jinx
+name: 无神论者&异端分子
+roleIds:
+  - r065
+  - r116
+roleNames:
+  - 无神论者
+  - 异端分子
+unresolvedRoleNames: []
+rule: 异端分子无法对调因处决说书人而带来的胜负。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1860
+  englishName: 11231231231231-meta
+  officialId: 5558_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2025/02/04/67a2305085a90.png

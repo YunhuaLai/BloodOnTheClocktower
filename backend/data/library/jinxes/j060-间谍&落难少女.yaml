@@ -1,0 +1,18 @@
+id: j060
+kind: jinx
+name: 偏轨启示：占星师
+roleIds:
+  - r310
+roleNames:
+  - 占星师
+unresolvedRoleNames: []
+rule: 如果占星师选择了给出错误信息的说书人，会得知正确信息。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4046
+  englishName: 20-meta
+  officialId: 20_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/65Sp8Wqg/astro.png

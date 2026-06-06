@@ -1,0 +1,17 @@
+id: j246
+kind: jinx
+name: 倒地
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 倒地
+rule: 异常状态，受伤状态下再次成功进入受伤状态会倒地，倒地状态下失去所有能力。（除非有特殊说明）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2460
+  englishName: rule4
+  officialId: rule4
+  officialTeam: jinxes
+  edition: custom
+  image: https://i.postimg.cc/J4H8gK5V/image.png

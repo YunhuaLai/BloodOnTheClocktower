@@ -1,5 +1,6 @@
-import { getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getGameScript, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
+import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getGameScript, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
 import { createDefaultSetupDraft, ensureNotesState, getActiveGame, getDraftOrPlayer } from "../notes-state.js";
+import { getJinxesForRoleIds, getJinxRoleLabel } from "../catalog-helpers.js";
 import { app, noteModeOptions, noteTabOptions, roleTypeOrder, scriptModeOptions, state, typeLabels } from "../state.js";
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
 import { formatPhaseLabel, getAliveCount, getStandardSetup, getTotalPlayerCount, getTravellerPlayers } from "./notes-core.js";
@@ -63,6 +64,53 @@ function renderScriptSheetRole(role, selectedRoleIds) {
   `;
 }
 
+function getObservedRoomRoleIds(game) {
+  const roleOptions = getClaimRoleOptions(game);
+  const roleIds = getOverviewClaimedRoleIds(game);
+
+  game.players.forEach((player) => {
+    const draft = getDraftOrPlayer(player);
+    const trueRole = findCatalogRole(draft.trueRole, roleOptions);
+    if (trueRole?.id) {
+      roleIds.add(trueRole.id);
+    }
+  });
+
+  return roleIds;
+}
+
+function renderScriptSheetJinxRules(jinxes, observedRoleIds) {
+  if (!jinxes.length) {
+    return "";
+  }
+
+  return `
+    <section class="notes-script-sheet-jinxes">
+      <h4>相克规则</h4>
+      <div class="notes-script-sheet-jinx-list">
+        ${jinxes
+          .map((jinx) => {
+            const roleIds = (jinx.roleIds || []).filter(Boolean);
+            const isObserved =
+              roleIds.length >= 2 && roleIds.every((roleId) => observedRoleIds.has(roleId));
+            const roleLabel = getJinxRoleLabel(jinx) || jinx.name;
+            return `
+              <article class="notes-script-sheet-jinx${isObserved ? " is-observed" : ""}">
+                <div>
+                  <strong>${escapeHtml(jinx.name || roleLabel)}</strong>
+                  <small>${escapeHtml(roleLabel || "相克规则")}</small>
+                </div>
+                ${isObserved ? `<span>已出现</span>` : ""}
+                <p>${escapeHtml(jinx.rule || "暂无规则文本。")}</p>
+              </article>
+            `;
+          })
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
 function renderScriptSheetOverlay(game) {
   if (!state.notes.ui.scriptSheetOpen) {
     return "";
@@ -72,6 +120,10 @@ function renderScriptSheetOverlay(game) {
   const isCustom = isCustomRoleGame(game);
   const roles = getRoomRoleOptions(game);
   const selectedRoleIds = getOverviewClaimedRoleIds(game);
+  const observedRoleIds = getObservedRoomRoleIds(game);
+  const jinxes = getJinxesForRoleIds(roles.map((role) => role.id), {
+    sourceScriptId: script?.id || "",
+  });
   const groupedRoles = roleTypeOrder
     .map((type) => ({
       type,
@@ -120,6 +172,7 @@ function renderScriptSheetOverlay(game) {
             )
             .join("")}
         </div>
+        ${renderScriptSheetJinxRules(jinxes, observedRoleIds)}
       </section>
     </div>
   `;

@@ -1,0 +1,20 @@
+id: j151
+kind: jinx
+name: 利维坦&镇长
+roleIds:
+  - r384
+  - r012
+roleNames:
+  - 利维坦
+  - 镇长
+unresolvedRoleNames: []
+rule: 如果利维坦在场，镇长存活且第五天没有处决发生，则善良阵营获胜。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1733
+  englishName: 56-meta
+  officialId: 56_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/0/0a/Leviathan.png/300px-Leviathan.png

@@ -1,0 +1,20 @@
+id: j052
+kind: jinx
+name: 暴乱&报丧女妖
+roleIds:
+  - r929
+  - r233
+roleNames:
+  - 暴乱
+  - 报丧女妖
+unresolvedRoleNames: []
+rule: 如果暴乱提名并杀死了报丧女妖，所有玩家都会得知报丧女妖死亡，随后报丧女妖可以立即提名两名玩家。（同时或按顺序结算这两条提名链。）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4135
+  englishName: 4-meta
+  officialId: 4_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

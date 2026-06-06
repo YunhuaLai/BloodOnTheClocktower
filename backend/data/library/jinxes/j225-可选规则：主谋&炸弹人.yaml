@@ -1,0 +1,20 @@
+id: j225
+kind: jinx
+name: 可选规则：主谋&炸弹人
+roleIds:
+  - r043
+  - r120
+roleNames:
+  - 主谋
+  - 炸弹人
+unresolvedRoleNames: []
+rule: 说书人可以在游戏之前宣布，移除剧本中的主谋替换成炸弹人。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1912
+  englishName: 50-elysuim
+  officialId: 50_elysuim
+  officialTeam: jinxes
+  edition: custom
+  image: ''

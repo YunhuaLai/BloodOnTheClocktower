@@ -1,0 +1,20 @@
+id: j021
+kind: jinx
+name: 钟表匠&召唤师
+roleIds:
+  - r048
+  - r113
+roleNames:
+  - 钟表匠
+  - 召唤师
+unresolvedRoleNames: []
+rule: 召唤师会被钟表匠当作恶魔。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1073
+  englishName: 551d77dd-7748-4369-961d-8170af5fe289
+  officialId: 551d77dd-7748-4369-961d-8170af5fe289
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/clockmaker.png

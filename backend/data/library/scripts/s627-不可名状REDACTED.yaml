@@ -42,7 +42,6 @@ roleIds:
   - r815
   - r093
   - r2951
-  - r2952
   - r2953
   - r2690
   - r2954
@@ -54,15 +53,11 @@ travellerIds:
   - r2961
 fabledIds:
   - r2956
-  - r2957
-  - r2952
-  - r2958
 nightOrder:
   first:
     - r155
     - r815
     - r093
-    - r2952
     - r2954
     - r2939
     - r086
@@ -73,7 +68,6 @@ nightOrder:
     - r026
     - r815
     - r093
-    - r2952
     - r2690
     - r2955
     - r2954

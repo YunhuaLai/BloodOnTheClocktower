@@ -1,0 +1,20 @@
+id: j061
+kind: jinx
+name: 食人族 & 罂粟种植者
+roleIds:
+  - r091
+  - r066
+roleNames:
+  - 食人族
+  - 罂粟种植者
+unresolvedRoleNames: []
+rule: 如果食人族获得了罂粟种植者的能力，当他死亡或丢失罂粟种植者的能力时，爪牙和恶魔会互相认识。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1252
+  englishName: 35-the-radiance-descends
+  officialId: 35_the_radiance_descends
+  officialTeam: jinxes
+  edition: custom
+  image: ''

@@ -1,0 +1,20 @@
+id: j109
+kind: jinx
+name: 瘟疫医生&红唇女郎
+roleIds:
+  - r159
+  - r020
+roleNames:
+  - 瘟疫医生
+  - 红唇女郎
+unresolvedRoleNames: []
+rule: 如果瘟疫医生死亡且说书人会因此获得红唇女郎的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r156
+  englishName: plague-doctor-scarlet-woman-jinx
+  officialId: ff5baace-53e7-4e0d-8a89-4e6496152b01
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202310/c_9614144308961_fe5074b8.jpg

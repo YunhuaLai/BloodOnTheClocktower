@@ -1,0 +1,20 @@
+id: j055
+kind: jinx
+name: 戏子&无神论者
+roleIds:
+  - r1191
+  - r065
+roleNames:
+  - 戏子
+  - 无神论者
+unresolvedRoleNames: []
+rule: 无神论者在剧本中时，处决说书人导致的胜负结果不会被反转，无神论者不会因为戏子的能力醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1206
+  englishName: xizi-atheist
+  officialId: 133_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/1/13/Xizi.png/300px-Xizi.png

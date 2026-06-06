@@ -1,0 +1,20 @@
+id: j077
+kind: jinx
+name: 酒鬼&科学怪人
+roleIds:
+  - r015
+  - r336
+roleNames:
+  - 酒鬼
+  - 科学怪人
+unresolvedRoleNames: []
+rule: 如果恶魔拥有酒鬼的能力，改为由科学怪人选择一名玩家：如果他是镇民，他醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1338
+  englishName: a629dc2a-ad96-4375-ae1f-7ed1ab2d630e
+  officialId: 5c600c7c-c422-4739-b47f-88a87a4633eb
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/drunk.png

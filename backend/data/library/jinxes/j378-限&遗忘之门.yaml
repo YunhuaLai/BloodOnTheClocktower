@@ -1,0 +1,19 @@
+id: j378
+kind: jinx
+name: 限&遗忘之门
+roleIds:
+  - r302
+roleNames:
+  - 限
+unresolvedRoleNames:
+  - 遗忘之门
+rule: 限将同时得知能力发动当晚有多少名玩家的能力因为你的能力而未正常生效。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r981
+  englishName: 36-jubushiyi
+  officialId: 36_jubushiyi
+  officialTeam: jinxes
+  edition: custom
+  image: ''

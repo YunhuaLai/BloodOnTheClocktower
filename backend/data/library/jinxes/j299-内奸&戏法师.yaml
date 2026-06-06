@@ -1,0 +1,20 @@
+id: j299
+kind: jinx
+name: 内奸&戏法师
+roleIds:
+  - r4018
+  - r334
+roleNames:
+  - 内奸
+  - 戏法师
+unresolvedRoleNames: []
+rule: 戏法师不需要猜测谁是内奸。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4024
+  englishName: shabineijian2
+  officialId: shabineijian2
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/CMBZsvtJ/image.png

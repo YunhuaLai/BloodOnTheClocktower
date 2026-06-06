@@ -1,0 +1,20 @@
+id: j365
+kind: jinx
+name: 醉汉&科学怪人
+roleIds:
+  - r808
+  - r336
+roleNames:
+  - 醉汉
+  - 科学怪人
+unresolvedRoleNames: []
+rule: 如果恶魔拥有醉汉的能力，改为由科学怪人选择一名玩家：他醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r853
+  englishName: 30-shangsuofangjian
+  officialId: 30_shangsuofangjian
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

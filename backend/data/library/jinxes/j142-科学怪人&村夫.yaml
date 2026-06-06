@@ -1,0 +1,20 @@
+id: j142
+kind: jinx
+name: 村夫&羽师
+roleIds:
+  - r087
+  - r1453
+roleNames:
+  - 村夫
+  - 羽师
+unresolvedRoleNames: []
+rule: 复数村夫中可能包括羽师。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4030
+  englishName: 112222222226662222222222222222222333-meta
+  officialId: 112222222226662222222222222222222333_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/village_idiot.png

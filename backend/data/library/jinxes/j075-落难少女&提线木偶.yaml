@@ -1,0 +1,20 @@
+id: j075
+kind: jinx
+name: 落难少女&提线木偶
+roleIds:
+  - r071
+  - r121
+roleNames:
+  - 落难少女
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 提线木偶不会得知落难少女在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1336
+  englishName: 4f8cbfdf-166c-45b5-bbdf-a89d3fadd3db
+  officialId: 2b08064a-01d7-43e8-a930-4edc63a2560b
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/damsel.png

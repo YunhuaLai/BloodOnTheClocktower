@@ -1,0 +1,20 @@
+id: j027
+kind: jinx
+name: 落难少女&阎罗
+roleIds:
+  - r071
+  - r642
+roleNames:
+  - 落难少女
+  - 阎罗
+unresolvedRoleNames: []
+rule: 如果阎罗正在场，落难少女中毒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1079
+  englishName: 133cc9cc-ce10-4bba-9097-5e3236a443a5
+  officialId: 133cc9cc-ce10-4bba-9097-5e3236a443a5
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/damsel.png

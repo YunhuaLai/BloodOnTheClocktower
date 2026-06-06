@@ -1,0 +1,22 @@
+id: j325
+kind: jinx
+name: 落难少女&间谍/寡妇
+roleIds:
+  - r071
+  - r018
+  - r078
+roleNames:
+  - 落难少女
+  - 间谍
+  - 寡妇
+unresolvedRoleNames: []
+rule: 落难少女会被间谍/寡妇当作钦天监
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4157
+  englishName: 2120-meta
+  officialId: 2120_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/damsel.png

@@ -1,0 +1,20 @@
+id: j342
+kind: jinx
+name: 魔像&皮影
+roleIds:
+  - r069
+  - r449
+roleNames:
+  - 魔像
+  - 皮影
+unresolvedRoleNames: []
+rule: 拥有魔像能力但认知非魔像的玩家会在首次提名后失去魔像能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r453
+  englishName: golem-shadow-puppet-jinx
+  officialId: 5566_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/golem.png

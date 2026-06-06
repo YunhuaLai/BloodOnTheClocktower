@@ -1,0 +1,22 @@
+id: j210
+kind: jinx
+name: 科学怪人&酒鬼/政客
+roleIds:
+  - r336
+  - r015
+  - r135
+roleNames:
+  - 科学怪人
+  - 酒鬼
+  - 政客
+unresolvedRoleNames: []
+rule: 恶魔无法拥有酒鬼/政客的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1850
+  englishName: 22-hajimi
+  officialId: 22_hajimi
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

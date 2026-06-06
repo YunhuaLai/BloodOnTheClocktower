@@ -1,0 +1,19 @@
+id: j338
+kind: jinx
+name: 舞狮人＆恶魔伪装
+roleIds:
+  - r1470
+roleNames:
+  - 舞狮人
+unresolvedRoleNames:
+  - 恶魔伪装
+rule: 恶魔的身份伪装会被替换为除恶魔外收到的另一个身份。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r435
+  englishName: wushirens
+  officialId: wushirens
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.bloodstar.xyz//p//Deodar2//double//17_double.png

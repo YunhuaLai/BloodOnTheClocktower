@@ -1,0 +1,24 @@
+id: j272
+kind: jinx
+name: 瘟疫医生&红唇女郎/哥布林/恐惧之灵
+roleIds:
+  - r159
+  - r020
+  - r641
+  - r117
+roleNames:
+  - 瘟疫医生
+  - 红唇女郎
+  - 哥布林
+  - 恐惧之灵
+unresolvedRoleNames: []
+rule: 如果瘟疫医生死亡且说书人会因此获得红唇女郎/哥布林/恐惧之灵的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3925
+  englishName: 10-meta
+  officialId: 10_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2d/Plaguedoctor.png/300px-Plaguedoctor.png

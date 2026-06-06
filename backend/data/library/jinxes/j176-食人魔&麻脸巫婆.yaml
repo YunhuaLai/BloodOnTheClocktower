@@ -1,0 +1,19 @@
+id: j176
+kind: jinx
+name: 食人魔&熬药巫婆
+roleIds:
+  - r092
+roleNames:
+  - 食人魔
+unresolvedRoleNames:
+  - 熬药巫婆
+rule: 被麻脸巫婆创造的邪恶食人魔无法因为自身能力转变为善良阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3924
+  englishName: 167-meta
+  officialId: 167_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c5/Ogre.png/300px-Ogre.png

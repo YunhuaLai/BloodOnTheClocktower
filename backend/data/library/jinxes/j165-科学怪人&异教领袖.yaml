@@ -1,0 +1,20 @@
+id: j165
+kind: jinx
+name: 科学怪人&异教领袖
+roleIds:
+  - r336
+  - r142
+roleNames:
+  - 科学怪人
+  - 异教领袖
+unresolvedRoleNames: []
+rule: 如果恶魔拥有异教领袖的能力，他无法因为该能力转变为善良阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1751
+  englishName: 11222222222222244422222222222333-meta
+  officialId: 11222222222222244422222222222333_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png

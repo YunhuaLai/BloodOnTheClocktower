@@ -1,0 +1,20 @@
+id: j301
+kind: jinx
+name: 食人族&罂粟种植者
+roleIds:
+  - r091
+  - r066
+roleNames:
+  - 食人族
+  - 罂粟种植者
+unresolvedRoleNames: []
+rule: 如果食人族获得了罂粟种植者的能力，当他获得下一个能力时，爪牙和恶魔也会互相认识。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r825
+  englishName: 56786542-meta
+  officialId: 56786542_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/e/ed/Cannibal.png/300px-Cannibal.png

@@ -1,0 +1,20 @@
+id: j124
+kind: jinx
+name: 暴乱&逆臣
+roleIds:
+  - r929
+  - r111
+roleNames:
+  - 暴乱
+  - 逆臣
+unresolvedRoleNames: []
+rule: 被提名且死亡的玩家算作被处决。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1602
+  englishName: 144-meta
+  officialId: 144_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

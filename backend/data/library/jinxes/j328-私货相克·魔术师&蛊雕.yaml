@@ -1,0 +1,19 @@
+id: j328
+kind: jinx
+name: 私货相克·魔术师&蛊雕
+roleIds:
+  - r609
+roleNames:
+  - 蛊雕
+unresolvedRoleNames:
+  - 私货相克·魔术师
+rule: 蛊雕在飞行时会越过魔术师
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4161
+  englishName: '123121322212323123'
+  officialId: '123121322212323123'
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png

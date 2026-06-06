@@ -1,0 +1,20 @@
+id: j240
+kind: jinx
+name: 银行家&愚人
+roleIds:
+  - r2345
+  - r2351
+roleNames:
+  - 银行家
+  - 愚人
+unresolvedRoleNames: []
+rule: 如果被银行家选择的玩家在明天白天给愚人投票，则当天如果仅有一名玩家未给愚人投票，愚人也会获胜。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2356
+  englishName: yinhangjiayuren-meta
+  officialId: yinhangjiayuren_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://s2.loli.net/2025/09/07/7PHhmvWS1zcbgy6.png

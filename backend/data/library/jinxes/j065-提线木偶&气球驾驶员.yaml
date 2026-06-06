@@ -1,0 +1,20 @@
+id: j065
+kind: jinx
+name: 提线木偶&气球驾驶员
+roleIds:
+  - r121
+  - r140
+roleNames:
+  - 提线木偶
+  - 气球驾驶员
+unresolvedRoleNames: []
+rule: 如果提线木偶抽到了气球驾驶员，也可能会+1外来者
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1258
+  englishName: 31-meta
+  officialId: 31_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/3/3d/Marionette.png/300px-Marionette.png

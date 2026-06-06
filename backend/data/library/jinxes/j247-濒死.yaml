@@ -1,0 +1,17 @@
+id: j247
+kind: jinx
+name: 濒死
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 濒死
+rule: 异常状态，濒死状态下失去所有能力, 角色进入濒死后的下一个夜晚会立刻死亡。所有玩家第二次进入濒死状态会立刻死亡。所有玩家第二次进入濒死状态也会立刻死亡。（除非有特殊说明）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2461
+  englishName: rule5
+  officialId: rule5
+  officialTeam: jinxes
+  edition: custom
+  image: https://i.postimg.cc/bN4yN4ww/image.png

@@ -1,0 +1,20 @@
+id: j333
+kind: jinx
+name: 圣洁之魂&军团
+roleIds:
+  - r104
+  - r099
+roleNames:
+  - 圣洁之魂
+  - 军团
+unresolvedRoleNames: []
+rule: 圣洁之魂对初始的军团无效。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4166
+  englishName: 34-xindalu
+  officialId: 34_xindalu
+  officialTeam: jinxes
+  edition: custom
+  image: ''

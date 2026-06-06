@@ -1,0 +1,20 @@
+id: j136
+kind: jinx
+name: 戏子&舞龙尾
+roleIds:
+  - r1191
+  - r845
+roleNames:
+  - 戏子
+  - 舞龙尾
+unresolvedRoleNames: []
+rule: 舞龙尾不会因为戏子的能力醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1695
+  englishName: 567865212142-meta
+  officialId: 567865212142_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/xizi.png

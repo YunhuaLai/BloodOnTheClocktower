@@ -1,0 +1,20 @@
+id: j287
+kind: jinx
+name: 半兽人&浊瘴
+roleIds:
+  - r150
+  - r478
+roleNames:
+  - 半兽人
+  - 浊瘴
+unresolvedRoleNames: []
+rule: 受半兽人影响的玩家不会被浊瘴视为邪恶玩家。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3989
+  englishName: banshourenzhuozhang
+  officialId: banshourenzhuozhang
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c1/Lycanthrope.png/300px-Lycanthrope.png

@@ -1,0 +1,20 @@
+id: j276
+kind: jinx
+name: 哲学家&赏金猎人
+roleIds:
+  - r059
+  - r139
+roleNames:
+  - 哲学家
+  - 赏金猎人
+unresolvedRoleNames: []
+rule: 如果哲学家获得了赏金猎人的能力，可能会有一名镇民玩家转变为邪恶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3937
+  englishName: 25-chengxinjianshang
+  officialId: 169_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/e/e0/Philosopher.png/300px-Philosopher.png

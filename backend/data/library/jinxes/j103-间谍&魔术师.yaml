@@ -1,0 +1,20 @@
+id: j103
+kind: jinx
+name: 恶作剧者&军团
+roleIds:
+  - r3724
+  - r099
+roleNames:
+  - 恶作剧者
+  - 军团
+unresolvedRoleNames: []
+rule: 互为克星的角色在同一时间里只能有其中一个角色在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4076
+  englishName: 17-meta
+  officialId: 17_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.vgy.me/vpkMrv.png

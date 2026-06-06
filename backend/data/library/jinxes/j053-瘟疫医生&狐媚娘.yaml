@@ -1,0 +1,20 @@
+id: j053
+kind: jinx
+name: 瘟疫医生&狐媚娘
+roleIds:
+  - r159
+  - r235
+roleNames:
+  - 瘟疫医生
+  - 狐媚娘
+unresolvedRoleNames: []
+rule: 如果瘟疫医生死亡且说书人会因此获得狐媚娘的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1190
+  englishName: 4dd4f4fa-adeb-4f48-87f6-51793012deb331123123213
+  officialId: 4dd4f4fa-adeb-4f48-87f6-51793012deb331123123213
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/plague_doctor.png

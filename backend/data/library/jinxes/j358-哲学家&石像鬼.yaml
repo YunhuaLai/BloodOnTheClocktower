@@ -1,0 +1,20 @@
+id: j358
+kind: jinx
+name: 哲学家&石像鬼
+roleIds:
+  - r059
+  - r763
+roleNames:
+  - 哲学家
+  - 石像鬼
+unresolvedRoleNames: []
+rule: 哲学家无法选择获得石像鬼的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r584
+  englishName: philosopher-gargoyle-jinx
+  officialId: xiangke1
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/philosopher.png

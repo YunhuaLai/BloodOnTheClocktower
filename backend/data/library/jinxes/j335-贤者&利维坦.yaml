@@ -1,0 +1,20 @@
+id: j335
+kind: jinx
+name: 贤者&利维坦
+roleIds:
+  - r063
+  - r384
+roleNames:
+  - 贤者
+  - 利维坦
+unresolvedRoleNames: []
+rule: 每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果贤者被选择，他的能力生效但不会死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4168
+  englishName: 528520f1-eda7-409f-a9f9-bed70c489fef
+  officialId: 528520f1-eda7-409f-a9f9-bed70c489fef
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/sage.png

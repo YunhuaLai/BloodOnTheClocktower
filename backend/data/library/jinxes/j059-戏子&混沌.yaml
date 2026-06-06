@@ -1,0 +1,20 @@
+id: j059
+kind: jinx
+name: 戏子&混沌
+roleIds:
+  - r1191
+  - r114
+roleNames:
+  - 戏子
+  - 混沌
+unresolvedRoleNames: []
+rule: (私货商人相克规则)如果混沌杀死了与自己邻近的戏子，所有戏子会立即中毒直到混沌下一次被唤醒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1210
+  englishName: xizi-hundun
+  officialId: xizi+hundun
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bootlegger.png

@@ -1,0 +1,20 @@
+id: j296
+kind: jinx
+name: 姑获鸟&符文吞噬者
+roleIds:
+  - r635
+  - r4012
+roleNames:
+  - 姑获鸟
+  - 符文吞噬者
+unresolvedRoleNames: []
+rule: 如果符文吞噬者被处决，姑获鸟因此获得了符文吞噬者的能力，姑获鸟会拥有最近被恶魔杀死角色的能力且得知他的角色，但不会被当作该角色以及对应阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4014
+  englishName: 112222222299999222227222286222333-meta
+  officialId: 112222222299999222227222286222333_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png

@@ -1,0 +1,20 @@
+id: j180
+kind: jinx
+name: 奸佞&提线木偶
+roleIds:
+  - r241
+  - r121
+roleNames:
+  - 奸佞
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 如果提线木偶死亡，当晚由奸佞代替提线木偶选择一名玩家：他死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1785
+  englishName: f37a1392-69a-f32167ff15e0
+  officialId: f37a1392-69a-f32167ff15e0
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202401/c_6705607816071_60588424.jpg

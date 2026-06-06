@@ -1,0 +1,21 @@
+id: j069
+kind: jinx
+name: 提线木偶&落难少女
+roleIds:
+  - r121
+  - r071
+roleNames:
+  - 提线木偶
+  - 落难少女
+unresolvedRoleNames: []
+rule: |
+  提线木偶不会得知落难少女在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1280
+  englishName: 139-meta
+  officialId: 41_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c4/Djinn.png/200px-Djinn.png

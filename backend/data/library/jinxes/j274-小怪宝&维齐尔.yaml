@@ -1,0 +1,20 @@
+id: j274
+kind: jinx
+name: 小怪宝&维齐尔
+roleIds:
+  - r103
+  - r1613
+roleNames:
+  - 小怪宝
+  - 维齐尔
+unresolvedRoleNames: []
+rule: 照看小怪宝的维齐尔能够死于处决。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3927
+  englishName: 65-meta
+  officialId: 615_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/vizier.png

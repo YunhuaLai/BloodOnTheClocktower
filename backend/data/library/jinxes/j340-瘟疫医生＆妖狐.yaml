@@ -1,0 +1,20 @@
+id: j340
+kind: jinx
+name: 瘟疫医生＆妖狐
+roleIds:
+  - r159
+  - r430
+roleNames:
+  - 瘟疫医生
+  - 妖狐
+unresolvedRoleNames: []
+rule: 一名邪恶玩家会代替说书人获得妖狐的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r437
+  englishName: wewnyiyishengss
+  officialId: wewnyiyishengss
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2d/Plaguedoctor.png/300px-Plaguedoctor.png

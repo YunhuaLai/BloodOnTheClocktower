@@ -1,0 +1,24 @@
+id: j331
+kind: jinx
+name: 提线木偶&小怪宝&召唤师&卡扎力
+roleIds:
+  - r121
+  - r103
+  - r113
+  - r095
+roleNames:
+  - 提线木偶
+  - 小怪宝
+  - 召唤师
+  - 卡扎力
+unresolvedRoleNames: []
+rule: 如果提线木偶本应初始在场，i他们会在恶魔之后进场并与恶魔邻座。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4164
+  englishName: 29-xindalu
+  officialId: 29_xindalu
+  officialTeam: jinxes
+  edition: custom
+  image: ''

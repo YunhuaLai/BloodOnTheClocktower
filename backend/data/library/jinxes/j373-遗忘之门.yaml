@@ -1,0 +1,18 @@
+id: j373
+kind: jinx
+name: 遗忘之门
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 遗忘之门
+rule: 角色发生改变的玩家只会得知自己的角色发生了变化。如果玩家选择到了非法目标，说书人会让他重新选择。
+audience: both
+sourceScriptIds:
+  - s090
+source:
+  roleId: r976
+  englishName: 30-jubushiyi
+  officialId: 2shizhanyachao
+  officialTeam: jinxes
+  edition: custom
+  image: https://www.bloodstar.xyz/p/SerraEvelyn/jubushiyi/30_jubushiyi.png

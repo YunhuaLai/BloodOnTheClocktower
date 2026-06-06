@@ -1,0 +1,20 @@
+id: j133
+kind: jinx
+name: 春夏秋冬&纸人
+roleIds:
+  - r1656
+  - r1651
+roleNames:
+  - 春夏秋冬
+  - 纸人
+unresolvedRoleNames: []
+rule: 如果春夏秋冬获得了纸人的能力，他需要选择一名玩家：如果他是镇民，他会变成纸人。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1659
+  englishName: '1111111111111113'
+  officialId: '1111111111111113'
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2025/04/04/67ef53396fd65.png

@@ -1,0 +1,19 @@
+id: j012
+kind: jinx
+name: 乾坤如意袋&印度教教徒
+roleIds:
+  - r1038
+roleNames:
+  - 印度教教徒
+unresolvedRoleNames:
+  - 乾坤如意袋
+rule: 被印度教教徒复活的非恶魔玩家会把他原本的角色放入宝袋之中。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1044
+  englishName: 43-jinghuashuiyue
+  officialId: 43_jinghuashuiyue
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

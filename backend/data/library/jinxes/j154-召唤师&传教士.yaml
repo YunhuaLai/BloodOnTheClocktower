@@ -1,0 +1,20 @@
+id: j154
+kind: jinx
+name: 召唤师&传教士
+roleIds:
+  - r113
+  - r101
+roleNames:
+  - 召唤师
+  - 传教士
+unresolvedRoleNames: []
+rule: 如果召唤师在第三个夜晚或之前被传教士选中，由召唤师来选择创造哪种恶魔，由说书人来决定哪名玩家发生转变。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1737
+  englishName: jinxed03
+  officialId: jinxed03
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

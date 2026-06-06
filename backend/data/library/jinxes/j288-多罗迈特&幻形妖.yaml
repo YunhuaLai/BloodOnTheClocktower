@@ -1,0 +1,20 @@
+id: j288
+kind: jinx
+name: 多罗迈特&幻形妖
+roleIds:
+  - r1454
+  - r3948
+roleNames:
+  - 多罗迈特
+  - 幻形妖
+unresolvedRoleNames: []
+rule: 因为多罗迈特加入邪恶阵营的幻形妖不会因自身能力交换阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3990
+  englishName: duoluomaitehuanxingyao
+  officialId: duoluomaitehuanxingyao
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/9085cVb6/image-8.webp

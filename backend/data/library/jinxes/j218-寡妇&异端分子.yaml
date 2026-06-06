@@ -1,0 +1,20 @@
+id: j218
+kind: jinx
+name: 寡妇&异端分子
+roleIds:
+  - r078
+  - r116
+roleNames:
+  - 寡妇
+  - 异端分子
+unresolvedRoleNames: []
+rule: 异端分子会被寡妇当作一个不在场的外来者，异端分子会知道是哪个外来者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1862
+  englishName: 26-meta
+  officialId: 26_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/1/1e/Widow.png/300px-Widow.png

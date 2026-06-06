@@ -1,0 +1,20 @@
+id: j279
+kind: jinx
+name: 暴乱&管家
+roleIds:
+  - r929
+  - r013
+roleNames:
+  - 暴乱
+  - 管家
+unresolvedRoleNames: []
+rule: 管家无法提名主人
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3940
+  englishName: 1372771-meta
+  officialId: 1372771_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

@@ -1,0 +1,20 @@
+id: j091
+kind: jinx
+name: 食人魔&间谍
+roleIds:
+  - r092
+  - r018
+roleNames:
+  - 食人魔
+  - 间谍
+unresolvedRoleNames: []
+rule: 间谍必定被食人魔当作邪恶阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r145
+  englishName: ogre-spy-jinx
+  officialId: 168_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c5/Ogre.png/300px-Ogre.png

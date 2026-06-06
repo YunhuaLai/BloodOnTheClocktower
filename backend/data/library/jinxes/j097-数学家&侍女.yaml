@@ -1,0 +1,20 @@
+id: j097
+kind: jinx
+name: 数学家&侍女
+roleIds:
+  - r053
+  - r025
+roleNames:
+  - 数学家
+  - 侍女
+unresolvedRoleNames: []
+rule: 侍女会得知数学家是否醒来，即使她是在数学家之前醒来。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1485
+  englishName: 25-mingzhengandou
+  officialId: 94319705-2ea0-473a-bd03-5b2a8c375ea4
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/mathematician.png

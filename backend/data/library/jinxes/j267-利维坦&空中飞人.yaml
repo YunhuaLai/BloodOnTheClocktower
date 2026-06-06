@@ -1,0 +1,20 @@
+id: j267
+kind: jinx
+name: 利维坦&空中飞人
+roleIds:
+  - r384
+  - r370
+roleNames:
+  - 利维坦
+  - 空中飞人
+unresolvedRoleNames: []
+rule: 每个夜晚*，利维坦要选择一名存活的善良玩家（与之前的每个夜晚不同）：如果空中飞人被选择，他死亡并能力生效。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r385
+  englishName: leviathan-trapeze-artist-jinx
+  officialId: 54_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/0/0a/Leviathan.png/300px-Leviathan.png

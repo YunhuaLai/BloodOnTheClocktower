@@ -1,0 +1,20 @@
+id: j034
+kind: jinx
+name: 侍女&天道化身
+roleIds:
+  - r025
+  - r1093
+roleNames:
+  - 侍女
+  - 天道化身
+unresolvedRoleNames: []
+rule: 侍女会得知天道化身是否醒来，即使她是在天道化身之前醒来。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1102
+  englishName: c1abb0ab-c8b5-4aa5-aae8-f99ee6eeb8ff
+  officialId: c1abb0ab-c8b5-4aa5-aae8-f99ee6eeb8ff
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/chambermaid.png

@@ -1,0 +1,20 @@
+id: j073
+kind: jinx
+name: 巡山人&提线木偶
+roleIds:
+  - r064
+  - r121
+roleNames:
+  - 巡山人
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 如果提线木偶抽到了巡山人，也会增加落难少女。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1334
+  englishName: b0c2ce4c-4119-4633-80cc-4bc57e388a7a
+  officialId: dfb48224-50bd-4e0a-b34d-f3cc13f9933e
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/huntsman.png

@@ -1,0 +1,17 @@
+id: j258
+kind: jinx
+name: 暗莺※
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 暗莺※
+rule: 每个夜晚*，你得知所有负伤的玩家。每局游戏限一次，你可以选择一名玩家：若他是负伤镇民，他死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r295
+  englishName: dark-nightingale
+  officialId: 11_zhiminghuaerzi
+  officialTeam: a jinxed
+  edition: custom
+  image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/7/7e/mawtfrfguajylerjbt2ta627hl5ovv8.png

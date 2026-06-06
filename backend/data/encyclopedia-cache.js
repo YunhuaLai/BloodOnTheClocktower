@@ -102,6 +102,21 @@ function summarizeRole(role) {
   };
 }
 
+function summarizeJinx(jinx) {
+  return {
+    id: jinx.id,
+    kind: jinx.kind,
+    name: jinx.name,
+    roleIds: jinx.roleIds,
+    roleNames: jinx.roleNames,
+    unresolvedRoleNames: jinx.unresolvedRoleNames,
+    rule: jinx.rule,
+    audience: jinx.audience,
+    sourceScriptIds: jinx.sourceScriptIds,
+    source: jinx.source,
+  };
+}
+
 function summarizeTerm(term) {
   return {
     id: term.id,
@@ -119,6 +134,7 @@ function buildBootstrapData(data) {
     rules: data.rules || [],
     scripts: (data.scripts || []).map(summarizeScript),
     roles: (data.roles || []).map(summarizeRole),
+    jinxes: (data.jinxes || []).map(summarizeJinx),
     terms: (data.terms || []).map(summarizeTerm),
   };
 }
@@ -132,6 +148,7 @@ function buildCacheEntry(signature) {
     indexes: {
       scriptsById: createIndex(data.scripts),
       rolesById: createIndex(data.roles),
+      jinxesById: createIndex(data.jinxes),
       termsById: createIndex(data.terms),
     },
     signature,
@@ -171,6 +188,10 @@ function getRoleById(id) {
   return getCacheEntry().indexes.rolesById.get(id) || null;
 }
 
+function getJinxById(id) {
+  return getCacheEntry().indexes.jinxesById.get(id) || null;
+}
+
 function getTermById(id) {
   return getCacheEntry().indexes.termsById.get(id) || null;
 }
@@ -178,6 +199,7 @@ function getTermById(id) {
 module.exports = {
   getBootstrapData,
   getEncyclopediaData,
+  getJinxById,
   getRoleById,
   getScriptById,
   getTermById,

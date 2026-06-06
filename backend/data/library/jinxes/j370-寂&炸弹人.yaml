@@ -1,0 +1,20 @@
+id: j370
+kind: jinx
+name: 寂&炸弹人
+roleIds:
+  - r901
+  - r120
+roleNames:
+  - 寂
+  - 炸弹人
+unresolvedRoleNames: []
+rule: 若炸弹人因寂能力被处决，炸弹人不会触发自己的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r905
+  englishName: 123888-m123eta
+  officialId: 123888_m123eta
+  officialTeam: A jinxed
+  edition: custom
+  image: https://s2.loli.net/2025/09/07/6bQsycoWLXKxePm.png

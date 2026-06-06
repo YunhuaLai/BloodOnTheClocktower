@@ -1,0 +1,20 @@
+id: j298
+kind: jinx
+name: 内奸&多罗迈特
+roleIds:
+  - r4018
+  - r1454
+roleNames:
+  - 内奸
+  - 多罗迈特
+unresolvedRoleNames: []
+rule: 互为克星的角色在同一时间只能有一名角色在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4023
+  englishName: shabineijian1
+  officialId: shabineijian1
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/CMBZsvtJ/image.png

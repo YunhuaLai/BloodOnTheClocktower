@@ -1,0 +1,20 @@
+id: j134
+kind: jinx
+name: 春夏秋冬&召唤师
+roleIds:
+  - r1656
+  - r113
+roleNames:
+  - 春夏秋冬
+  - 召唤师
+unresolvedRoleNames: []
+rule: 召唤师可以选择在第二个夜晚将一名玩家变成春夏秋冬，如果春夏秋冬创造了一个恶魔，当晚的死亡由说书人决定。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1660
+  englishName: '1111111111111114'
+  officialId: '1111111111111114'
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2025/04/04/67ef53396fd65.png

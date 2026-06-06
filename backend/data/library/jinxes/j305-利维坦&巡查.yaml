@@ -1,0 +1,19 @@
+id: j305
+kind: jinx
+name: 利维坦&巡查
+roleIds:
+  - r384
+roleNames:
+  - 利维坦
+unresolvedRoleNames:
+  - 巡查
+rule: 如果利维坦在场，被巡查选择的两个善良角色都存活，他们都免疫免疫所有邪恶阵营的负面效果，直到下个黄昏。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4051
+  englishName: 58-32-meta
+  officialId: 58.32_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/0/0a/Leviathan.png/300px-Leviathan.png

@@ -1,0 +1,20 @@
+id: j100
+kind: jinx
+name: 入殓师&红唇女郎
+roleIds:
+  - r112
+  - r020
+roleNames:
+  - 入殓师
+  - 红唇女郎
+unresolvedRoleNames: []
+rule: 入殓师提名并处决了恶魔并成功变成邪恶恶魔时，红唇女郎不会变成恶魔。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1488
+  englishName: 26-mingdongjingcheng
+  officialId: 123888_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/rulianshi.png

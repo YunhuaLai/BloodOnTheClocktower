@@ -1,0 +1,20 @@
+id: j094
+kind: jinx
+name: 骷咔啪&圣徒
+roleIds:
+  - r1447
+  - r014
+roleNames:
+  - 骷咔啪
+  - 圣徒
+unresolvedRoleNames: []
+rule: 如果圣徒'是恶魔'，他失去能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1452
+  englishName: 112222222299999222222222222256354-meta
+  officialId: 112222222299999222222222222256354_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/MGnvTh8D/image.webp

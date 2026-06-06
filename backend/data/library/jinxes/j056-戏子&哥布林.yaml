@@ -1,0 +1,20 @@
+id: j056
+kind: jinx
+name: 戏子&哥布林
+roleIds:
+  - r1191
+  - r641
+roleNames:
+  - 戏子
+  - 哥布林
+unresolvedRoleNames: []
+rule: 戏子无法反转由哥布林的能力产生的胜负结果。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1207
+  englishName: xizi-goblin
+  officialId: xizi+goblin
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/7hHZZRHj/xizi-goblin.png

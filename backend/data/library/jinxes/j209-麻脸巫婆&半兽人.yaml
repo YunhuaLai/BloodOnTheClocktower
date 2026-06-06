@@ -1,0 +1,20 @@
+id: j209
+kind: jinx
+name: 麻脸巫婆&半兽人
+roleIds:
+  - r076
+  - r150
+roleNames:
+  - 麻脸巫婆
+  - 半兽人
+unresolvedRoleNames: []
+rule: 如果半兽人攻击了没有失足标记的善良玩家，当晚麻脸巫婆无法将非恶魔玩家变成恶魔角色。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1849
+  englishName: 14-meta
+  officialId: 14_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/d/de/Pithag.png/300px-Pithag.png

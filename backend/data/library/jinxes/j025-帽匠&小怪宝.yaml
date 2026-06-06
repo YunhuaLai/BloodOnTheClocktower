@@ -1,0 +1,20 @@
+id: j025
+kind: jinx
+name: 帽匠&小怪宝
+roleIds:
+  - r324
+  - r103
+roleNames:
+  - 帽匠
+  - 小怪宝
+unresolvedRoleNames: []
+rule: 如果恶魔选择了小怪宝，则还需要选择一个爪牙角色，他变成这个爪牙且当晚照看小怪宝。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1077
+  englishName: 24c5b988-3310-4908-87f4-b353bed23db4
+  officialId: a34788b8-aba5-4318-b3d4-7aea23030991
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202312/c_9723021341071_86da6df4.jpg

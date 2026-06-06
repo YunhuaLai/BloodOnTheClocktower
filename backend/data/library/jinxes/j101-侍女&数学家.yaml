@@ -1,0 +1,20 @@
+id: j101
+kind: jinx
+name: 清洁工&召唤师
+roleIds:
+  - r688
+  - r113
+roleNames:
+  - 清洁工
+  - 召唤师
+unresolvedRoleNames: []
+rule: 召唤师要死于处决清洁工才能获得召唤师能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r699
+  englishName: cleaner-summoner-jinx
+  officialId: 0_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/summoner.png

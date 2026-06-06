@@ -1,0 +1,20 @@
+id: j265
+kind: jinx
+name: 议&旅店老板
+roleIds:
+  - r339
+  - r027
+roleNames:
+  - 议
+  - 旅店老板
+unresolvedRoleNames: []
+rule: 如果议在场，旅店老板保护的玩家免疫所有邪恶阵营的负面效果。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r341
+  englishName: council-innkeeper-jinx
+  officialId: 28_seve
+  officialTeam: jinxes
+  edition: custom
+  image: https://www.bloodstar.xyz/p/Guiltier/seve/28_seve.png

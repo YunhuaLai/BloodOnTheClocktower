@@ -1,0 +1,20 @@
+id: j237
+kind: jinx
+name: 脊蛊&迷雾人
+roleIds:
+  - r1971
+  - r1445
+roleNames:
+  - 脊蛊
+  - 迷雾人
+unresolvedRoleNames: []
+rule: 如果迷雾人首夜选择了镇民角色，会被病魔的能力当作镇民而中毒。中毒后迷雾人失去能力，病魔的中毒效果不会再次转移。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1975
+  englishName: jinx3
+  officialId: jinx3
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.bloodstar.xyz/p/jc3635/EquinoxFlower/24_equinoxflower.png

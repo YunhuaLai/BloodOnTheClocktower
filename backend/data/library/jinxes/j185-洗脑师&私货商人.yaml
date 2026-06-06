@@ -1,0 +1,20 @@
+id: j185
+kind: jinx
+name: 洗脑师&私货商人
+roleIds:
+  - r075
+  - r348
+roleNames:
+  - 洗脑师
+  - 私货商人
+unresolvedRoleNames: []
+rule: 洗脑师可以选择将玩家洗脑成提线木偶。（每局游戏限一次）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1810
+  englishName: 28-buyaoxiwoya
+  officialId: 28_buyaoxiwoya
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

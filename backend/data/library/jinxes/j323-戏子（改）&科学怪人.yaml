@@ -1,0 +1,20 @@
+id: j323
+kind: jinx
+name: 戏子（改）&科学怪人
+roleIds:
+  - r1191
+  - r336
+roleNames:
+  - 戏子
+  - 科学怪人
+unresolvedRoleNames: []
+rule: 科学怪人无法使恶魔获得戏子（改）的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4152
+  englishName: 132-meta
+  officialId: 132_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/1/13/Xizi.png/300px-Xizi.png

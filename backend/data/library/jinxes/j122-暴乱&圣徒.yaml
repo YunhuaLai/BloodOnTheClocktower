@@ -1,0 +1,20 @@
+id: j122
+kind: jinx
+name: 暴乱&圣徒
+roleIds:
+  - r929
+  - r014
+roleNames:
+  - 暴乱
+  - 圣徒
+unresolvedRoleNames: []
+rule: 如果善良玩家提名并杀死了圣徒，圣徒的阵营落败。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1599
+  englishName: 75-meta
+  officialId: 75_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

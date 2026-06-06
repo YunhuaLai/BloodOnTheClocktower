@@ -1,0 +1,20 @@
+id: j194
+kind: jinx
+name: 引路人&数学家
+roleIds:
+  - r530
+  - r053
+roleNames:
+  - 引路人
+  - 数学家
+unresolvedRoleNames: []
+rule: 引路人会得知数学家是否被影响，即使他是在数学家之前醒来。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1827
+  englishName: 123222-meta
+  officialId: 123222_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/yinluren.png

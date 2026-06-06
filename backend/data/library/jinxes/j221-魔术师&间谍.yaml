@@ -1,0 +1,20 @@
+id: j221
+kind: jinx
+name: 魔术师&间谍
+roleIds:
+  - r115
+  - r018
+roleNames:
+  - 魔术师
+  - 间谍
+unresolvedRoleNames: []
+rule: 当间谍查看魔典时，魔术师和恶魔的角色标记会被说书人移除。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1887
+  englishName: f30e04dd-84d0-43f3-bd13-6a8767fc9989
+  officialId: f30e04dd-84d0-43f3-bd13-6a8767fc9989
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/magician.png

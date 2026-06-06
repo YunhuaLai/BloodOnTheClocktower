@@ -1,0 +1,20 @@
+id: j123
+kind: jinx
+name: 暴乱&贤者
+roleIds:
+  - r929
+  - r063
+roleNames:
+  - 暴乱
+  - 贤者
+unresolvedRoleNames: []
+rule: 如果暴乱提名并杀死了贤者，当晚贤者会被唤醒并使用其能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1600
+  englishName: 81-meta
+  officialId: 81_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

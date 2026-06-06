@@ -1,0 +1,20 @@
+id: j158
+kind: jinx
+name: 男爵&瘟疫医生
+roleIds:
+  - r019
+  - r159
+roleNames:
+  - 男爵
+  - 瘟疫医生
+unresolvedRoleNames: []
+rule: 如果说书人获得了男爵的能力，至多两名玩家会变成不在场的外来者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1744
+  englishName: jinx02
+  officialId: jinx02
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

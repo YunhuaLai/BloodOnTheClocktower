@@ -1,0 +1,20 @@
+id: j191
+kind: jinx
+name: 梼杌&红唇女郎
+roleIds:
+  - r689
+  - r020
+roleNames:
+  - 梼杌
+  - 红唇女郎
+unresolvedRoleNames: []
+rule: 红唇女郎在梼杌的能力判断中被当作“不具有能力”。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1823
+  englishName: 147-meta
+  officialId: 147_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/5/52/Taowu.png/300px-Taowu.png

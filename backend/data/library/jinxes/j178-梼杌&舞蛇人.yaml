@@ -1,0 +1,21 @@
+id: j178
+kind: jinx
+name: 梼杌&舞蛇人
+roleIds:
+  - r689
+  - r052
+roleNames:
+  - 梼杌
+  - 舞蛇人
+unresolvedRoleNames: []
+rule: 如果梼杌的角色发生了交换，不会因此移除原本梼杌的“失去能力”提示标记。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1779
+  englishName: 24-shewoqishei
+  officialId: 24_shewoqishei
+  officialTeam: a jinxed
+  edition: custom
+  image:
+    - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/e/e7/mittdbt0hah21yo07wia0acr050lie4.png

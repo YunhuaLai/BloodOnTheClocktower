@@ -1,0 +1,20 @@
+id: j144
+kind: jinx
+name: 召唤师&侍臣
+roleIds:
+  - r113
+  - r030
+roleNames:
+  - 召唤师
+  - 侍臣
+unresolvedRoleNames: []
+rule: 如果存活的召唤师失去能力，说书人会获得召唤师的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1723
+  englishName: 47-1-meta
+  officialId: 30_xindalu
+  officialTeam: jinxes
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2f/Summoner.png/300px-Summoner.png

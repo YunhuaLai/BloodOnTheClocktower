@@ -1,0 +1,20 @@
+id: j238
+kind: jinx
+name: 双穹&渊潜者
+roleIds:
+  - r2213
+  - r2205
+roleNames:
+  - 双穹
+  - 渊潜者
+unresolvedRoleNames: []
+rule: 如果双穹选择了渊潜者，说书人与双穹进行秘密的猜拳。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2219
+  englishName: 531239-meta
+  officialId: 531239_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.bloodstar.xyz/p/Tiger/DARK-DUEL/19_darkduel.png

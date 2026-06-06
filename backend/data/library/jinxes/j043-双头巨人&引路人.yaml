@@ -1,0 +1,20 @@
+id: j043
+kind: jinx
+name: 双头巨人&引路人
+roleIds:
+  - r1133
+  - r530
+roleNames:
+  - 双头巨人
+  - 引路人
+unresolvedRoleNames: []
+rule: 引路人会得知被加入的双头巨人（引路人在首夜选择了被加入红的双头巨人会得知是）。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1137
+  englishName: 3-daoluyimu
+  officialId: 3_daoluyimu
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

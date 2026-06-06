@@ -1,0 +1,18 @@
+id: j303
+kind: jinx
+name: 线中虚实：提线木偶
+roleIds:
+  - r121
+roleNames:
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 提线木偶因自身能力获取的信息均会正误对调。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4047
+  englishName: 21-meta
+  officialId: 21_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/Z5thkCCq/mario.png

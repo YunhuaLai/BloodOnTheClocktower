@@ -141,6 +141,7 @@ export const state = {
   rules: [],
   scripts: [],
   roles: [],
+  jinxes: [],
   terms: [],
 };
 

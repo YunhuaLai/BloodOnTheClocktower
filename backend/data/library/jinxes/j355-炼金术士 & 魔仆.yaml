@@ -1,0 +1,20 @@
+id: j355
+kind: jinx
+name: 炼金术士 & 魔仆
+roleIds:
+  - r155
+  - r546
+roleNames:
+  - 炼金术士
+  - 魔仆
+unresolvedRoleNames: []
+rule: 炼金术士无法获得魔仆的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r549
+  englishName: alchemist-familiar-jinx
+  officialId: a jinxed_2
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

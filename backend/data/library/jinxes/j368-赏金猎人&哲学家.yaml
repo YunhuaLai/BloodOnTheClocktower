@@ -1,0 +1,20 @@
+id: j368
+kind: jinx
+name: 赏金猎人&哲学家
+roleIds:
+  - r139
+  - r059
+roleNames:
+  - 赏金猎人
+  - 哲学家
+unresolvedRoleNames: []
+rule: 如果哲学家获得了赏金猎人的能力，可能会有一名镇民玩家转变为邪恶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r889
+  englishName: 4ca57ecc-4f24-4557-81f0-79413d9cf0ae
+  officialId: a164c664-8303-43ac-a699-706745f914ca
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/bounty_hunter.png

@@ -1,0 +1,21 @@
+id: j260
+kind: jinx
+name: 炼金术士&盲目
+roleIds:
+  - r155
+  - r2961
+roleNames:
+  - 炼金术士
+  - 盲目
+unresolvedRoleNames: []
+rule: 认为自己是盲目的炼金术士不会得知自己的获得的能力。
+audience: both
+sourceScriptIds:
+  - s627
+source:
+  roleId: r2957
+  englishName: alchemist1-redacted
+  officialId: alchemist1_redacted
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

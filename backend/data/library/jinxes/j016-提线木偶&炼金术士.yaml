@@ -1,0 +1,20 @@
+id: j016
+kind: jinx
+name: 提线木偶&炼金术士
+roleIds:
+  - r121
+  - r155
+roleNames:
+  - 提线木偶
+  - 炼金术士
+unresolvedRoleNames: []
+rule: 若存在获得了提线木偶能力的炼金术士，说书人会公开宣布此事。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1053
+  englishName: 30-lianjinshushidezhizhuo
+  officialId: 30_lianjinshushidezhizhuo
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

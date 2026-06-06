@@ -1,0 +1,20 @@
+id: j214
+kind: jinx
+name: 小怪宝&魔术师
+roleIds:
+  - r103
+  - r115
+roleNames:
+  - 小怪宝
+  - 魔术师
+unresolvedRoleNames: []
+rule: 每个夜晚，由魔术师来选择一个爪牙角色：如果他和小怪宝均存活，由他来照看小怪宝。[进阶可选规则：否则，由魔术师来照看小怪宝，但如果魔术师在照看小怪宝时死亡，邪恶阵营获胜。]
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1855
+  englishName: 62-meta
+  officialId: 62_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/3/39/Lilmonsta.png/300px-Lilmonsta.png

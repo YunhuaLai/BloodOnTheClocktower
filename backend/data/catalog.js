@@ -200,6 +200,28 @@ function normalizeScript(script, roleIds, termReplacements, roleIdByEnglishName 
   }, "scripts");
 }
 
+function normalizeJinx(jinx, context) {
+  const corrected = replaceTerms({ ...jinx }, context.termReplacements);
+  const roleIds = uniqueValues(corrected.roleIds || [])
+    .map((roleReference) => mapRoleReference(roleReference, context.roleIdByEnglishName, context.roleIds))
+    .filter((roleId) => context.roleIds.has(roleId));
+  const resolvedRoleNames = roleIds.map((roleId) => context.roleNamesById.get(roleId) || roleId);
+  const storedRoleNames = Array.isArray(corrected.roleNames) ? corrected.roleNames.filter(Boolean) : [];
+
+  return {
+    ...corrected,
+    kind: corrected.kind || "jinx",
+    roleIds,
+    roleNames: resolvedRoleNames.length ? resolvedRoleNames : storedRoleNames,
+    unresolvedRoleNames: Array.isArray(corrected.unresolvedRoleNames)
+      ? corrected.unresolvedRoleNames.filter(Boolean)
+      : [],
+    rule: corrected.rule || corrected.ability || "",
+    audience: corrected.audience || "both",
+    sourceScriptIds: uniqueValues(corrected.sourceScriptIds || []),
+  };
+}
+
 function normalizeTerms(rawTerms, roleIdByEnglishName, roleIds, termReplacements) {
   return replaceTerms(rawTerms, termReplacements).map((term) => ({
     ...term,
@@ -214,6 +236,7 @@ function augmentEncyclopedia(data) {
   delete baseData.termReplacements;
   const rawScripts = data.scripts || [];
   const rawRoles = data.roles || [];
+  const rawJinxes = data.jinxes || [];
   const rawRoleAbilities = data.roleAbilities || [];
   const rawTerms = Array.isArray(data.terms) ? data.terms : [];
   const termReplacements = normalizeTermReplacements(data.termReplacements);
@@ -221,6 +244,7 @@ function augmentEncyclopedia(data) {
   const roleIdByEnglishName = new Map(
     rawRoles.map((role) => [role.englishName || role.id, role.id]),
   );
+  const roleNamesById = new Map(rawRoles.map((role) => [role.id, role.name || role.id]));
   const scriptNamesById = new Map(rawScripts.map((script) => [script.id, script.name]));
   const roleAbilityByEnglishName = new Map(
     rawRoleAbilities
@@ -256,6 +280,14 @@ function augmentEncyclopedia(data) {
         roleIds,
         roleAbilityById,
         roleAbilityByEnglishName,
+        termReplacements,
+      }),
+    ),
+    jinxes: rawJinxes.map((jinx) =>
+      normalizeJinx(jinx, {
+        roleIdByEnglishName,
+        roleIds,
+        roleNamesById,
         termReplacements,
       }),
     ),

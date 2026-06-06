@@ -1,0 +1,20 @@
+id: j099
+kind: jinx
+name: 主谋&亡骨魔
+roleIds:
+  - r043
+  - r080
+roleNames:
+  - 主谋
+  - 亡骨魔
+unresolvedRoleNames: []
+rule: 数学家会得知疯子是否攻击了与真正恶魔不同的目标。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1487
+  englishName: 28-mingzhengandou
+  officialId: 28_anliuchunsheng
+  officialTeam: jinxes
+  edition: custom
+  image: ''

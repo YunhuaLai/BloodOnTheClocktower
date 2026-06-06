@@ -1,0 +1,19 @@
+id: j326
+kind: jinx
+name: 私货哈迪寂亚&主谋
+roleIds:
+  - r043
+roleNames:
+  - 主谋
+unresolvedRoleNames:
+  - 私货哈迪寂亚
+rule: 如果哈迪寂亚死于处决，且主谋存活，当晚哈迪寂亚要选择三名善良玩家：如果他们的选择一致，善良阵营落败。否则，善良阵营获胜。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4158
+  englishName: 60-meta
+  officialId: 60_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/9/97/Bootlegger.png

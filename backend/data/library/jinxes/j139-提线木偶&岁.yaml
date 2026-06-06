@@ -1,0 +1,20 @@
+id: j139
+kind: jinx
+name: 提线木偶&岁
+roleIds:
+  - r121
+  - r1693
+roleNames:
+  - 提线木偶
+  - 岁
+unresolvedRoleNames: []
+rule: 岁会知道提线木偶是谁，提线木偶无法猜测谁是岁，其他爪牙会知道提线木偶在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1698
+  englishName: 2000000-meta
+  officialId: 2000000_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/3/3d/Marionette.png/300px-Marionette.png

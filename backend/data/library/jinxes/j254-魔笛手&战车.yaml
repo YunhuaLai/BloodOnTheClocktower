@@ -1,0 +1,20 @@
+id: j254
+kind: jinx
+name: 魔笛手&战车
+roleIds:
+  - r283
+  - r1037
+roleNames:
+  - 魔笛手
+  - '战车 '
+unresolvedRoleNames: []
+rule: 如果魔笛手因为战车交换角色而重新入场，不会因此移除魔笛手的任何提示标记，魔笛手不会重获能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r287
+  englishName: pied-piper-chariot-jinx
+  officialId: 31_sanshenmiti
+  officialTeam: jinxes
+  edition: custom
+  image: ''

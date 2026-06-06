@@ -1,0 +1,20 @@
+id: j184
+kind: jinx
+name: 弃徒&村夫
+roleIds:
+  - r1808
+  - r087
+roleNames:
+  - 弃徒
+  - 村夫
+unresolvedRoleNames: []
+rule: 弃徒不会以为自己是村夫。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1809
+  englishName: 27-buyaoxiwoya
+  officialId: 27_buyaoxiwoya
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

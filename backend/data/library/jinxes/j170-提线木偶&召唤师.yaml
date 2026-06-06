@@ -1,0 +1,20 @@
+id: j170
+kind: jinx
+name: 提线木偶&召唤师
+roleIds:
+  - r121
+  - r113
+roleNames:
+  - 提线木偶
+  - 召唤师
+unresolvedRoleNames: []
+rule: 在初始设置时，提线木偶会与召唤师邻座。召唤师会得知谁是提线木偶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1764
+  englishName: 95e6469e-6af9-4b57-86ef-039939176606
+  officialId: 95e6469e-6af9-4b57-86ef-039939176606
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/marionette.png

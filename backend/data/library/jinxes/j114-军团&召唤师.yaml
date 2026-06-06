@@ -1,0 +1,20 @@
+id: j114
+kind: jinx
+name: 军团&召唤师
+roleIds:
+  - r099
+  - r113
+roleNames:
+  - 军团
+  - 召唤师
+unresolvedRoleNames: []
+rule: 如果召唤师召唤了军团，所有邪恶玩家会变成军团。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1572
+  englishName: 70-meta
+  officialId: 31_xindalu
+  officialTeam: jinxes
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/25/Legion.png/300px-Legion.png

@@ -1,0 +1,20 @@
+id: j013
+kind: jinx
+name: 赌徒&半兽人
+roleIds:
+  - r028
+  - r150
+roleNames:
+  - 赌徒
+  - 半兽人
+unresolvedRoleNames: []
+rule: 赌徒会先于半兽人行动，如果赌徒赌博失败且半兽人存活，那么无论半兽人选择了哪名玩家，当晚只会有赌徒死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1045
+  englishName: 44-jinghuashuiyue
+  officialId: 44_jinghuashuiyue
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

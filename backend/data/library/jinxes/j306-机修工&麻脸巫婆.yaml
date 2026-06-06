@@ -1,0 +1,20 @@
+id: j306
+kind: jinx
+name: 机修工&麻脸巫婆
+roleIds:
+  - r761
+  - r076
+roleNames:
+  - 机修工
+  - 麻脸巫婆
+unresolvedRoleNames: []
+rule: 如果机修工在场数量不足3人，麻脸巫婆可以创造新的机修工。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4052
+  englishName: 25-wuyejulebu
+  officialId: 25_wuyejulebu
+  officialTeam: jinxes
+  edition: custom
+  image: ''

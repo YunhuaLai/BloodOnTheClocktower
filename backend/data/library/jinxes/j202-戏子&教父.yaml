@@ -1,0 +1,20 @@
+id: j202
+kind: jinx
+name: 戏子&教父
+roleIds:
+  - r1191
+  - r040
+roleNames:
+  - 戏子
+  - 教父
+unresolvedRoleNames: []
+rule: 互为克星的角色在同一时间里只能有其中一个角色在场。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1837
+  englishName: d1bf5f40-55c3-43eb-9414-0497e17e0ac3
+  officialId: d1bf5f40-55c3-43eb-9414-0497e17e0ac3
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202310/c_8392176308961_c524bafb.jpg

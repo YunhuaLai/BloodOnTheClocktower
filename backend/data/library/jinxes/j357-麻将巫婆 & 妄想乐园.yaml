@@ -1,0 +1,19 @@
+id: j357
+kind: jinx
+name: 麻将巫婆 & 妄想乐园
+roleIds:
+  - r547
+roleNames:
+  - 妄想乐园
+unresolvedRoleNames:
+  - 麻将巫婆
+rule: 麻脸巫婆无法创造妄想乐园。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r551
+  englishName: mahjong-witch-delusion-park-jinx
+  officialId: a jinxed_2222
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

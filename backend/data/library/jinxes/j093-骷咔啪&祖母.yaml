@@ -1,0 +1,20 @@
+id: j093
+kind: jinx
+name: 骷咔啪&祖母
+roleIds:
+  - r1447
+  - r023
+roleNames:
+  - 骷咔啪
+  - 祖母
+unresolvedRoleNames: []
+rule: 只有骷咔啪被祖母的能力当作'是恶魔'。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1451
+  englishName: 112222222299999222222222222222354-meta
+  officialId: 112222222299999222222222222222354_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/MGnvTh8D/image.webp

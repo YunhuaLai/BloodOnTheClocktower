@@ -1,0 +1,22 @@
+id: j070
+kind: jinx
+name: 电车难题&提线木偶/疯子
+roleIds:
+  - r1278
+  - r121
+  - r039
+roleNames:
+  - 电车难题
+  - 提线木偶
+  - 疯子
+unresolvedRoleNames: []
+rule: 初始提线木偶/疯子会被电车难题当作错误的阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1281
+  englishName: 142-meta
+  officialId: 142_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://s21.ax1x.com/2025/02/05/pEe1g2D.png

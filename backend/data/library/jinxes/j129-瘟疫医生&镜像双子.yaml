@@ -1,0 +1,20 @@
+id: j129
+kind: jinx
+name: 暴乱&帽匠
+roleIds:
+  - r929
+  - r324
+roleNames:
+  - 暴乱
+  - 帽匠
+unresolvedRoleNames: []
+rule: 如果帽匠死亡时暴乱在场，一名暴乱选择变成其他恶魔，则其他所有暴乱需要选择变成其他爪牙。如果帽匠死亡时恶魔选择变成暴乱，所有爪牙会一同变成暴乱（如果发生在第三天后，则游戏会多进行一天）。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4136
+  englishName: 6-meta
+  officialId: 6_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

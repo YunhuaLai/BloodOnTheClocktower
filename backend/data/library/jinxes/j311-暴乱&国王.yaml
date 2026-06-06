@@ -1,0 +1,20 @@
+id: j311
+kind: jinx
+name: 暴乱&国王
+roleIds:
+  - r929
+  - r1250
+roleNames:
+  - 暴乱
+  - 国王
+unresolvedRoleNames: []
+rule: 如果暴乱在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4110
+  englishName: 86-meta
+  officialId: 86_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

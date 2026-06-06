@@ -1,0 +1,20 @@
+id: j022
+kind: jinx
+name: 工程师&召唤师
+roleIds:
+  - r061
+  - r113
+roleNames:
+  - 工程师
+  - 召唤师
+unresolvedRoleNames: []
+rule: 如果工程师的能力使得召唤师在使用自己的能力前离场，召唤师会在此前立即使用自己的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1074
+  englishName: 99f5eb5b-ed4a-47c6-b91c-936e41fe2b3d
+  officialId: 99f5eb5b-ed4a-47c6-b91c-936e41fe2b3d
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/engineer.png

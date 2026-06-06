@@ -1,0 +1,20 @@
+id: j143
+kind: jinx
+name: 科学怪人&食人魔
+roleIds:
+  - r336
+  - r092
+roleNames:
+  - 科学怪人
+  - 食人魔
+unresolvedRoleNames: []
+rule: 恶魔无法拥有食人魔的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1722
+  englishName: 1122222222222222222222222353578822222333-meta
+  officialId: 1122222222222222222222222353578822222333_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png

@@ -1,0 +1,20 @@
+id: j286
+kind: jinx
+name: 炼金术士&劫匪
+roleIds:
+  - r155
+  - r3976
+roleNames:
+  - 炼金术士
+  - 劫匪
+unresolvedRoleNames: []
+rule: 如果炼金术士获得了劫匪的能力，同时也会+1旅行者，且该旅行者必定是善良的。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3979
+  englishName: ljjf-meta
+  officialId: ljjf_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png

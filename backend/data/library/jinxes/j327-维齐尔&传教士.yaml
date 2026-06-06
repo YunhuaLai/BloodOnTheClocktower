@@ -1,0 +1,20 @@
+id: j327
+kind: jinx
+name: 维齐尔&传教士
+roleIds:
+  - r1613
+  - r101
+roleNames:
+  - 维齐尔
+  - 传教士
+unresolvedRoleNames: []
+rule: 如果维齐尔失去能力，他会得知这一信息。如果传教士在剧本列表中，且维齐尔在具有能力时被处决，他的阵营获胜。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4159
+  englishName: 319-meta
+  officialId: 319_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/vizier.png

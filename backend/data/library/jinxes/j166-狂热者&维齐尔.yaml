@@ -1,0 +1,20 @@
+id: j166
+kind: jinx
+name: 狂热者&维齐尔
+roleIds:
+  - r234
+  - r1613
+roleNames:
+  - 狂热者
+  - 维齐尔
+unresolvedRoleNames: []
+rule: 维齐尔的能力可能会将狂热者当作邪恶阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1753
+  englishName: 111232323231-meta
+  officialId: 1213123123123_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/1/1a/Zealot.png

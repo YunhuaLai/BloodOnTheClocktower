@@ -1,0 +1,20 @@
+id: j290
+kind: jinx
+name: 多罗迈特&囚犯
+roleIds:
+  - r1454
+  - r1008
+roleNames:
+  - 多罗迈特
+  - 囚犯
+unresolvedRoleNames: []
+rule: 因为多罗迈特能力加入邪恶阵营的囚犯不会因自身能力回到善良。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3992
+  englishName: duoluomaiteqiufan
+  officialId: duoluomaiteqiufan
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/9085cVb6/image-8.webp

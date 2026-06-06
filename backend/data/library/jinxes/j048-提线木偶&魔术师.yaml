@@ -1,0 +1,20 @@
+id: j048
+kind: jinx
+name: 提线木偶&魔术师
+roleIds:
+  - r121
+  - r115
+roleNames:
+  - 提线木偶
+  - 魔术师
+unresolvedRoleNames: []
+rule: 如果魔术师存活，恶魔不会得知谁是提线木偶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1143
+  englishName: 29-jinghua
+  officialId: 29_jinghua
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

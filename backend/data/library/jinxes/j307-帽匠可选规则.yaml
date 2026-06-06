@@ -1,0 +1,17 @@
+id: j307
+kind: jinx
+name: 帽匠可选规则
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 帽匠可选规则
+rule: 如果帽匠死亡，允许恶魔变成爪牙，且（仅）一名爪牙变成恶魔，这可能会在邪恶阵营内制造一些混乱，因为他们可能会尝试在夜晚用手势交流由谁来成为恶魔。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4058
+  englishName: 25-lixianchangye
+  officialId: 25_lixianchangye
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

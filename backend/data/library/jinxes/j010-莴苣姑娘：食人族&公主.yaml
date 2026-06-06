@@ -1,0 +1,20 @@
+id: j010
+kind: jinx
+name: 痢蛭&主谋
+roleIds:
+  - r141
+  - r043
+roleNames:
+  - 痢蛭
+  - 主谋
+unresolvedRoleNames: []
+rule: 如果主谋存活且痢蛭的宿主死于处决，痢蛭存活但失去能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1928
+  englishName: 28-shizhijiaobi
+  officialId: 111_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/7/70/Lleech.png/300px-Lleech.png

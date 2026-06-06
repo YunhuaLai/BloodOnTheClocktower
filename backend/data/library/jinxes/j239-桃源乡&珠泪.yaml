@@ -1,0 +1,20 @@
+id: j239
+kind: jinx
+name: 桃源乡&珠泪
+roleIds:
+  - r2199
+  - r2200
+roleNames:
+  - 桃源乡
+  - 珠泪
+unresolvedRoleNames: []
+rule: 如果恶魔获得珠泪的能力，他可以选择自杀但不会死亡，并变成一个不在场的恶魔。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2220
+  englishName: 61230-meta
+  officialId: 61230_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.bloodstar.xyz/p/Tiger/DARK-DUEL/5_darkduel.png

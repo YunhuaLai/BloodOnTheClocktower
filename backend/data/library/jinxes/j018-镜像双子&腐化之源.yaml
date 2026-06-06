@@ -1,0 +1,20 @@
+id: j018
+kind: jinx
+name: 镜像双子&腐化之源
+roleIds:
+  - r073
+  - r1049
+roleNames:
+  - 镜像双子
+  - 腐化之源
+unresolvedRoleNames: []
+rule: 镜像双子以及对立双子不可被腐化。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1055
+  englishName: 32-lianjinshushidezhizhuo
+  officialId: 32_lianjinshushidezhizhuo
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

@@ -1,0 +1,20 @@
+id: j224
+kind: jinx
+name: 可选规则：国王&贤者
+roleIds:
+  - r1250
+  - r063
+roleNames:
+  - 国王
+  - 贤者
+unresolvedRoleNames: []
+rule: 说书人可以在游戏之前宣布，移除剧本中的国王替换成贤者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1911
+  englishName: 49-elysuim
+  officialId: 49_elysuim
+  officialTeam: jinxes
+  edition: custom
+  image: ''

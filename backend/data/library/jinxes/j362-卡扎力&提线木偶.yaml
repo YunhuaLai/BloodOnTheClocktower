@@ -1,0 +1,20 @@
+id: j362
+kind: jinx
+name: 卡扎力&提线木偶
+roleIds:
+  - r095
+  - r121
+roleNames:
+  - 卡扎力
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 如果卡扎力选择创造提线木偶，他只能选择将自己的邻座玩家变成提线木偶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r828
+  englishName: 106-meta
+  officialId: 106_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/4/46/Kazali.png/300px-Kazali.png

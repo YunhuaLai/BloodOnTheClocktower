@@ -1,0 +1,20 @@
+id: j268
+kind: jinx
+name: 虚假的希望&时尚偶像
+roleIds:
+  - r3850
+  - r3847
+roleNames:
+  - 虚假的希望
+  - 时尚偶像
+unresolvedRoleNames: []
+rule: 如果一名爪牙获得了时尚偶像的能力，他的能力变为 "每局游戏限一次，在夜晚时*，你可以选择让所有玩家被当作与自身阵营对立的阵营，直到下个黄昏。"
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r3853
+  englishName: falsehopefashionista-despair
+  officialId: falsehopefashionista_despair
+  officialTeam: jinxes
+  edition: custom
+  image: ''

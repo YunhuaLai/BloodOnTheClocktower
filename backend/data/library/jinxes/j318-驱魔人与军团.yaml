@@ -1,0 +1,17 @@
+id: j318
+kind: jinx
+name: 驱魔人与军团
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 驱魔人与军团
+rule: 驱魔人可能会得知自己通过自身能力选择了军团
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4145
+  englishName: 37-chargementday
+  officialId: 37_chargementday
+  officialTeam: jinxes
+  edition: custom
+  image: ''

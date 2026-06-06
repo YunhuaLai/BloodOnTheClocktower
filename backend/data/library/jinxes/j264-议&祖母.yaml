@@ -1,0 +1,20 @@
+id: j264
+kind: jinx
+name: 议&祖母
+roleIds:
+  - r339
+  - r023
+roleNames:
+  - 议
+  - 祖母
+unresolvedRoleNames: []
+rule: 如果孙子被议转变为邪恶的爪牙，祖母会立即死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r340
+  englishName: council-grandmother-jinx
+  officialId: 27_seve
+  officialTeam: jinxes
+  edition: custom
+  image: https://www.bloodstar.xyz/p/Guiltier/seve/27_seve.png

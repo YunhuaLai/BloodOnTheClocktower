@@ -1,0 +1,20 @@
+id: j131
+kind: jinx
+name: 召唤师&僵怖
+roleIds:
+  - r113
+  - r044
+roleNames:
+  - 召唤师
+  - 僵怖
+unresolvedRoleNames: []
+rule: 如果召唤师将一名已死亡的玩家变成了僵怖，该玩家会变成“已经死过一次”的僵怖。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1657
+  englishName: 47-2-meta
+  officialId: 47.2_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2f/Summoner.png/300px-Summoner.png

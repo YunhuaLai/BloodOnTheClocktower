@@ -1,0 +1,20 @@
+id: j149
+kind: jinx
+name: 公主&食人族
+roleIds:
+  - r106
+  - r091
+roleNames:
+  - 公主
+  - 食人族
+unresolvedRoleNames: []
+rule: 如果食人族提名并处决了公主，当晚恶魔不会造成死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1729
+  englishName: 108222313213123123213-meta
+  officialId: 108222313213123123213_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f2/Princess.png

@@ -1,0 +1,20 @@
+id: j054
+kind: jinx
+name: 食人族&狂热者
+roleIds:
+  - r091
+  - r234
+roleNames:
+  - 食人族
+  - 狂热者
+unresolvedRoleNames: []
+rule: 如果食人族获得了狂热者的能力，他会得知这一信息。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1205
+  englishName: cannibal-zealot
+  officialId: 3e9c4216-3317-461e-a7f8-d16d07e82a5a
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/cannibal.png

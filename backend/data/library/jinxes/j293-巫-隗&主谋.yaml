@@ -1,0 +1,20 @@
+id: j293
+kind: jinx
+name: 巫-隗&主谋
+roleIds:
+  - r4008
+  - r043
+roleNames:
+  - 巫-隗
+  - 主谋
+unresolvedRoleNames: []
+rule: 如果巫-隗死于处决并触发主谋的能力，则在当晚宣布巫-隗猜对了所有爪牙。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4009
+  englishName: 60231-meta
+  officialId: 60231_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2025/01/10/6780d9a0cb667.png

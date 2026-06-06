@@ -1,0 +1,19 @@
+id: j330
+kind: jinx
+name: 气球&提线木偶
+roleIds:
+  - r121
+roleNames:
+  - 提线木偶
+unresolvedRoleNames:
+  - 气球
+rule: 如果提线木偶抽到了气球驾驶员，在设置调整阶段可能会+1外来者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4163
+  englishName: 27-xindalu
+  officialId: 27_xindalu
+  officialTeam: jinxes
+  edition: custom
+  image: ''

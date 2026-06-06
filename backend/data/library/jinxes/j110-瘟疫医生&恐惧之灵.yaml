@@ -1,0 +1,20 @@
+id: j110
+kind: jinx
+name: 召唤师&炼金术士
+roleIds:
+  - r113
+  - r155
+roleNames:
+  - 召唤师
+  - 炼金术士
+unresolvedRoleNames: []
+rule: 如果炼金术士获得了召唤师的能力，游戏会以初始有恶魔在场进行。炼金术士召唤师选择的玩家会变成恶魔但不会改变阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1857
+  englishName: 44-meta
+  officialId: 8_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2f/Summoner.png/300px-Summoner.png

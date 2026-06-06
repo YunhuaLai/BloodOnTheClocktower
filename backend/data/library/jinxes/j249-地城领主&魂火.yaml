@@ -1,0 +1,20 @@
+id: j249
+kind: jinx
+name: 地城领主&魂火
+roleIds:
+  - r2474
+  - r2476
+roleNames:
+  - 地城领主
+  - 魂火
+unresolvedRoleNames: []
+rule: 如果地城领主选择了魂火，地城领主是爪牙且死亡后保留能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2496
+  englishName: jinxz2
+  officialId: jinxz2
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.bloodstar.xyz/p/jc3635/TwinCity/_twincity.png

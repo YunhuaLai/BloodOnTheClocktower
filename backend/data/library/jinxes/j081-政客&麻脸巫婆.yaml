@@ -1,0 +1,20 @@
+id: j081
+kind: jinx
+name: 政客&麻脸巫婆
+roleIds:
+  - r135
+  - r076
+roleNames:
+  - 政客
+  - 麻脸巫婆
+unresolvedRoleNames: []
+rule: 被麻脸巫婆创造的邪恶政客无法因为自身能力转变为善良阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1373
+  englishName: 27-shizhanyachao
+  officialId: be4084b4-9e07-4cdb-8cf7-14baffb07d42
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/politician.png

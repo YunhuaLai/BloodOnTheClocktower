@@ -1,0 +1,20 @@
+id: j364
+kind: jinx
+name: 锁匠&科学怪人
+roleIds:
+  - r842
+  - r336
+roleNames:
+  - 锁匠
+  - 科学怪人
+unresolvedRoleNames: []
+rule: 如果恶魔拥有锁匠的能力，他不会以为自己是一个外来者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r852
+  englishName: 29-shangsuofangjian
+  officialId: 29_shangsuofangjian
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

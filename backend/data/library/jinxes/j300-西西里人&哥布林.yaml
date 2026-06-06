@@ -1,0 +1,20 @@
+id: j300
+kind: jinx
+name: 西西里人&哥布林
+roleIds:
+  - r4019
+  - r641
+roleNames:
+  - 西西里人
+  - 哥布林
+unresolvedRoleNames: []
+rule: 如果西西里人选择了哥布林，哥布林即使进行了公开声称也不会发动他的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4025
+  englishName: xixixixixixixixixixixixili
+  officialId: xixixixixixixixixixixixili
+  officialTeam: a jinxed
+  edition: custom
+  image: https://i.postimg.cc/PJct567S/image-8.png

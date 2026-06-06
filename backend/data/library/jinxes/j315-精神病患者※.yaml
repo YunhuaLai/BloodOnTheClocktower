@@ -1,0 +1,17 @@
+id: j315
+kind: jinx
+name: 精神病患者※
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 精神病患者※
+rule: 每个白天，在提名开始前，你可以公开选择一名玩家：他死亡。如果你被处决，提名你的玩家需要和你猜拳，只有你输了你才会死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4124
+  englishName: 7-zhiminghuaerzi
+  officialId: 7_zhiminghuaerzi
+  officialTeam: a jinxed
+  edition: custom
+  image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/d7/msb759ew0f2hudkvxhsz15jnxsqqpy9.png

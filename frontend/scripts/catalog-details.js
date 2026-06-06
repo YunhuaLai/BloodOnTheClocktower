@@ -1,4 +1,4 @@
-import { abilityBlock, compactListLinks, detailBlock, getRoleById, getRoleScriptLabel, getScriptById, getScriptsForRole, getTermById, renderKeywordLinks, sortScriptRoles } from "./catalog-helpers.js";
+import { abilityBlock, compactListLinks, detailBlock, getJinxesForScript, getJinxRoleLabel, getRoleById, getRoleScriptLabel, getScriptById, getScriptsForRole, getTermById, renderKeywordLinks, sortScriptRoles } from "./catalog-helpers.js";
 import { app, roleTypeOrder, state, typeDescriptions, typeLabels } from "./state.js";
 import { escapeHtml } from "./utils.js";
 
@@ -224,6 +224,43 @@ function renderScriptRoleSheet(roles) {
   `;
 }
 
+function renderScriptJinxRules(jinxes) {
+  if (!jinxes.length) {
+    return "";
+  }
+
+  return `
+    <section class="script-jinx-rules">
+      <div class="script-sheet-heading script-role-sheet-heading">
+        <p class="eyebrow">相克规则</p>
+        <h2>${jinxes.length} 条当前剧本相克</h2>
+      </div>
+      <div class="script-jinx-grid">
+        ${jinxes
+          .map((jinx) => {
+            const roleLabel = getJinxRoleLabel(jinx) || jinx.name;
+            const unresolved = (jinx.unresolvedRoleNames || []).filter(Boolean);
+            return `
+              <article class="script-jinx-card">
+                <header>
+                  <strong>${escapeHtml(jinx.name || roleLabel)}</strong>
+                  <small>${escapeHtml(roleLabel || "相克规则")}</small>
+                </header>
+                <p>${escapeHtml(jinx.rule || "暂无规则文本。")}</p>
+                ${
+                  unresolved.length
+                    ? `<div class="script-jinx-note">未解析：${escapeHtml(unresolved.join("、"))}</div>`
+                    : ""
+                }
+              </article>
+            `;
+          })
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
 export function renderScriptDetail(id) {
   const script = getScriptById(id);
 
@@ -233,6 +270,7 @@ export function renderScriptDetail(id) {
   }
 
   const roles = getScriptRoles(script);
+  const jinxes = getJinxesForScript(script);
   const overview = getScriptOverview(script, roles);
   const heroTags = [
     cleanText(script.mood),
@@ -265,6 +303,7 @@ export function renderScriptDetail(id) {
           ${renderScriptRoleSheet(roles)}
           ${renderNightOrderColumn("其他夜晚", "无固定其他夜晚行动。", script.nightOrder?.other)}
         </div>
+        ${renderScriptJinxRules(jinxes)}
       </article>
 
       <aside class="detail-side script-detail-side">

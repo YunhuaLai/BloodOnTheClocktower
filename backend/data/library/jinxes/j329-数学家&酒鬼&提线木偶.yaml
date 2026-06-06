@@ -1,0 +1,22 @@
+id: j329
+kind: jinx
+name: 数学家&酒鬼&提线木偶
+roleIds:
+  - r053
+  - r015
+  - r121
+roleNames:
+  - 数学家
+  - 酒鬼
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 数学家可能会得知酒鬼/提线木偶产生了错误信息或“能力未正常生效”。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4162
+  englishName: 26-xindalu
+  officialId: 26_xindalu
+  officialTeam: jinxes
+  edition: custom
+  image: ''

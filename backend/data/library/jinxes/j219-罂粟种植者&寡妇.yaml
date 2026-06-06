@@ -1,0 +1,20 @@
+id: j219
+kind: jinx
+name: 罂粟种植者&寡妇
+roleIds:
+  - r066
+  - r078
+roleNames:
+  - 罂粟种植者
+  - 寡妇
+unresolvedRoleNames: []
+rule: 如果罂粟种植者在场，直到其死亡前寡妇无法查看魔典。寡妇会在罂粟种植者死后的首个夜晚触发自身的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1865
+  englishName: 42bcf549-137e-45a8-948d-ab5baf18d59d
+  officialId: 42bcf549-137e-45a8-948d-ab5baf18d59d
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/poppy_grower.png

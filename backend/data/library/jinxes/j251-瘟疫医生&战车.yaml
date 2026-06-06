@@ -1,0 +1,20 @@
+id: j251
+kind: jinx
+name: 瘟疫医生&战车
+roleIds:
+  - r159
+  - r1037
+roleNames:
+  - 瘟疫医生
+  - '战车 '
+unresolvedRoleNames: []
+rule: 如果瘟疫医生死亡且说书人因此获得战车的能力，改为一名存活的爪牙玩家获得此能力，且他会得知此事。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r285
+  englishName: plague-doctor-chariot-jinx
+  officialId: 29_sanshenmiti
+  officialTeam: jinxes
+  edition: custom
+  image: ''

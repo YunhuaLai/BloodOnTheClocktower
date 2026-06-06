@@ -1,0 +1,20 @@
+id: j228
+kind: jinx
+name: 教父&异端分子
+roleIds:
+  - r040
+  - r116
+roleNames:
+  - 教父
+  - 异端分子
+unresolvedRoleNames: []
+rule: 异端分子会被教父当作一个不在场的外来者，异端分子会知道是哪个外来者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1919
+  englishName: 27-meta
+  officialId: 27_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/heretic.png

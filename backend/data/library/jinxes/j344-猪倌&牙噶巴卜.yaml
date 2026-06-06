@@ -1,0 +1,20 @@
+id: j344
+kind: jinx
+name: 猪倌&牙噶巴卜
+roleIds:
+  - r448
+  - r136
+roleNames:
+  - 猪倌
+  - 牙噶巴卜
+unresolvedRoleNames: []
+rule: 猪倌能力修改：如果你死亡，牙噶巴卜得知第二条秘密短语。每个夜晚，他选择哪条短语在下一天生效。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r455
+  englishName: swineherd-yaggababble-jinx
+  officialId: 556688_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.bloodstar.xyz/usersave/static_h/sta/1_sta.png

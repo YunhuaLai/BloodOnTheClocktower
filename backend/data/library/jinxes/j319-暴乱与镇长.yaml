@@ -1,0 +1,17 @@
+id: j319
+kind: jinx
+name: 暴乱与镇长
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 暴乱与镇长
+rule: 镇长可以停止提名。如果他这样做了，并且场上只有一名暴乱存活，善良阵营获胜；否则，邪恶阵营获胜。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4146
+  englishName: 39-chargementday
+  officialId: 39_chargementday
+  officialTeam: jinxes
+  edition: custom
+  image: ''

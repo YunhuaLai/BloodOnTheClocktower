@@ -1,0 +1,20 @@
+id: j334
+kind: jinx
+name: 国王&利维坦
+roleIds:
+  - r1250
+  - r384
+roleNames:
+  - 国王
+  - 利维坦
+unresolvedRoleNames: []
+rule: 如果利维坦在场，当至少一名玩家死亡时，国王每晚就会得知一个存活的角色。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4167
+  englishName: cce20389-0f20-4f43-a14e-805184f23671
+  officialId: cce20389-0f20-4f43-a14e-805184f23671
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/king.png

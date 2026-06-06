@@ -1,0 +1,20 @@
+id: j188
+kind: jinx
+name: 半兽人&麻脸巫婆
+roleIds:
+  - r150
+  - r076
+roleNames:
+  - 半兽人
+  - 麻脸巫婆
+unresolvedRoleNames: []
+rule: 如果半兽人攻击了善良玩家，当晚麻脸巫婆无法将非恶魔玩家变成恶魔角色.
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1820
+  englishName: jinxa1
+  officialId: jinxa1
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/lycanthrope.png

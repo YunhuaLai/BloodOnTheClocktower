@@ -1,0 +1,20 @@
+id: j322
+kind: jinx
+name: 戏子（改）&书生
+roleIds:
+  - r1191
+  - r820
+roleNames:
+  - 戏子
+  - 书生
+unresolvedRoleNames: []
+rule: 书生不会因为戏子（改）的能力醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4151
+  englishName: 13339999999933-meta
+  officialId: 13339999999933_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/1/13/Xizi.png/300px-Xizi.png

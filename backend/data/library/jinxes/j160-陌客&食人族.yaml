@@ -1,0 +1,20 @@
+id: j160
+kind: jinx
+name: 陌客&食人族
+roleIds:
+  - r016
+  - r091
+roleNames:
+  - 陌客
+  - 食人族
+unresolvedRoleNames: []
+rule: 如果陌客被食人族当作邪恶阵营，食人族会得知自己转变为邪恶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1746
+  englishName: 25-yangcongpai
+  officialId: 25_yangcongpai
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

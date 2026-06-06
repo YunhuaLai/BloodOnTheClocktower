@@ -1,0 +1,20 @@
+id: j135
+kind: jinx
+name: 戏子&疯子
+roleIds:
+  - r1191
+  - r039
+roleNames:
+  - 戏子
+  - 疯子
+unresolvedRoleNames: []
+rule: 疯子不会因为戏子能力参与互认，也不会因为戏子的能力醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1694
+  englishName: 567865124223-meta
+  officialId: 567865124223_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/web/icons/xizi.png

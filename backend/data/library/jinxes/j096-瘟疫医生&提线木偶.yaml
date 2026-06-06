@@ -1,0 +1,17 @@
+id: j096
+kind: jinx
+name: 暴乱与召唤师
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 暴乱与召唤师
+rule: 如果召唤师创造了暴乱，被选择的玩家和所有邪恶玩家都变成邪恶的暴乱。被选择的玩家必须是与召唤师邻近的存活善良玩家。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4137
+  englishName: 7-meta
+  officialId: 7_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

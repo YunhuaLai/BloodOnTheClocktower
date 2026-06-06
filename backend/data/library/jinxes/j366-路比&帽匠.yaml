@@ -1,0 +1,20 @@
+id: j366
+kind: jinx
+name: 路比&帽匠
+roleIds:
+  - r874
+  - r324
+roleNames:
+  - 路比
+  - 帽匠
+unresolvedRoleNames: []
+rule: 如果帽匠死亡，当夜非路比的恶魔不能改变为路比。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r876
+  englishName: 11q4-meta
+  officialId: 11q4_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2025/01/12/678389a9601a4.png

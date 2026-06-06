@@ -1,0 +1,20 @@
+id: j007
+kind: jinx
+name: 召唤师&姑获鸟
+roleIds:
+  - r113
+  - r635
+roleNames:
+  - 召唤师
+  - 姑获鸟
+unresolvedRoleNames: []
+rule: 如果召唤师成功召唤了姑获鸟，召唤师会变成一个不在场的爪牙，姑获鸟本局游戏中无法获得爪牙能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1021
+  englishName: 30-xiaoguidangjia
+  officialId: 30_xiaoguidangjia
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

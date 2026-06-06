@@ -1,0 +1,17 @@
+id: j352
+kind: jinx
+name: 超新星与幽灵
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 超新星与幽灵
+rule: 幽灵不会和超新星同时被唤醒
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r492
+  englishName: supernova-and-ghost
+  officialId: 27_spacebound
+  officialTeam: jinxes
+  edition: custom
+  image: ''

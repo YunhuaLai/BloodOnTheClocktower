@@ -1,0 +1,19 @@
+id: j032
+kind: jinx
+name: 尸煞&能力修改
+roleIds:
+  - r1091
+roleNames:
+  - 尸煞
+unresolvedRoleNames:
+  - 能力修改
+rule: 如果玩家人数少于10人，尸煞能力中的'中毒'改为'死于天条的镇民始终中毒，即使他复活'。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1100
+  englishName: c1abb0ab-c8b5-4aa5-aae8-f99ee6eeb8fd
+  officialId: c1abb0ab-c8b5-4aa5-aae8-f99ee6eeb8fd
+  officialTeam: A jinxed
+  edition: custom
+  image: https://www.freeimg.cn/uploads/535/691708e9539fb.png

@@ -1,0 +1,20 @@
+id: j295
+kind: jinx
+name: 店小二&符文吞噬者
+roleIds:
+  - r227
+  - r4012
+roleNames:
+  - 店小二
+  - 符文吞噬者
+unresolvedRoleNames: []
+rule: 如果恶魔杀死了店小二导致符文吞噬者获得了店小二的能力，店小二的醉酒标记不会移动。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4013
+  englishName: 112222222299999222222222562222333-meta
+  officialId: 112222222299999222222222562222333_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png

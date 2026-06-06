@@ -1,0 +1,20 @@
+id: j211
+kind: jinx
+name: 科学怪人&异端分子
+roleIds:
+  - r336
+  - r116
+roleNames:
+  - 科学怪人
+  - 异端分子
+unresolvedRoleNames: []
+rule: 恶魔无法拥有异端分子的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1852
+  englishName: 1122222222222343422222222222222222333-meta
+  officialId: 1122222222222343422222222222222222333_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png

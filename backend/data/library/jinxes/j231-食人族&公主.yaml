@@ -1,0 +1,20 @@
+id: j231
+kind: jinx
+name: 食人族&公主
+roleIds:
+  - r091
+  - r106
+roleNames:
+  - 食人族
+  - 公主
+unresolvedRoleNames: []
+rule: 如果食人族提名并处决了公主且公主因此死亡，当晚恶魔不会造成死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1925
+  englishName: 26-guangyinsujian
+  officialId: jzsrz_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png

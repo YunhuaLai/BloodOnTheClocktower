@@ -1,0 +1,20 @@
+id: j182
+kind: jinx
+name: 哈迪寂亚&姑苏慕容
+roleIds:
+  - r081
+  - r2539
+roleNames:
+  - 哈迪寂亚
+  - 姑苏慕容
+unresolvedRoleNames: []
+rule: 如果出现两名存活的恶魔，则姑苏慕容变成的恶魔会变回姑苏慕容。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4060
+  englishName: 59-meta
+  officialId: 59_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202408/c_4704392653271_1ec8a149.jpg

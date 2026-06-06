@@ -1,0 +1,20 @@
+id: j107
+kind: jinx
+name: 魔术师&寡妇
+roleIds:
+  - r115
+  - r078
+roleNames:
+  - 魔术师
+  - 寡妇
+unresolvedRoleNames: []
+rule: 当寡妇查看魔典时，魔术师和恶魔的标记会被说书人移除。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1552
+  englishName: 27-tuqiongbixian
+  officialId: d783df53-22cd-40db-ba86-26207e81e636
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/magician.png

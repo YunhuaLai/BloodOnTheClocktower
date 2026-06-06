@@ -11,9 +11,6 @@ const KNOWN_ROLE_TYPES = new Set([
   "fabled",
   "traveller",
   "traveller2",
-  "jinxes",
-  "a jinxed",
-  "a jinxes",
 ]);
 
 const KNOWN_DEDUCTION_STATUSES = new Set([
@@ -111,10 +108,7 @@ const KNOWN_SEMANTIC_OPERATION_KINDS = new Set([
 ]);
 
 const ARCHIVED_ORPHAN_ROLE_TYPES = new Set([
-  "a jinxed",
-  "a jinxes",
   "fabled",
-  "jinxes",
   "traveller2",
 ]);
 
@@ -265,6 +259,51 @@ function validateTerms(terms) {
       }
     });
   });
+}
+
+function validateJinxes(jinxes, roleIds, scriptIds) {
+  const unresolved = [];
+
+  jinxes.forEach((jinx) => {
+    requireString(jinx, "id", "jinx");
+    requireString(jinx, "name", "jinx");
+
+    if (jinx?.kind && jinx.kind !== "jinx") {
+      addWarning(`jinx ${label(jinx)} has unknown kind "${jinx.kind}"`);
+    }
+
+    if (!String(jinx?.rule || "").trim()) {
+      addWarning(`jinx ${label(jinx)} is missing rule`);
+    }
+
+    if (!Array.isArray(jinx?.roleIds)) {
+      addError(`jinx ${label(jinx)} must have a roleIds array`);
+    } else {
+      jinx.roleIds.forEach((roleId) => {
+        if (!roleIds.has(roleId)) {
+          addError(`jinx ${label(jinx)} references missing role "${roleId}"`);
+        }
+      });
+    }
+
+    (jinx?.sourceScriptIds || []).forEach((scriptId) => {
+      if (!scriptIds.has(scriptId)) {
+        addWarning(`jinx ${label(jinx)} sourceScriptIds references missing script "${scriptId}"`);
+      }
+    });
+
+    if ((jinx?.unresolvedRoleNames || []).length) {
+      unresolved.push(label(jinx));
+    }
+  });
+
+  if (unresolved.length) {
+    addWarning(
+      `${unresolved.length} jinxes have unresolved role names: ${unresolved
+        .slice(0, 12)
+        .join(", ")}${unresolved.length > 12 ? ", ..." : ""}`,
+    );
+  }
 }
 
 function validateRoleAbilities(roles, roleAbilities, termIds) {
@@ -476,9 +515,11 @@ function main() {
   const rawData = loadLibraryData();
   const data = augmentEncyclopedia(rawData);
   const roleIds = new Set(rawData.roles.map((role) => role.id));
+  const scriptIds = new Set(rawData.scripts.map((script) => script.id));
 
   findDuplicates(rawData.scripts, "id", "scripts");
   findDuplicates(rawData.roles, "id", "roles");
+  findDuplicates(rawData.jinxes, "id", "jinxes");
   findDuplicates(rawData.roleAbilities, "id", "role abilityData");
   findDuplicates(rawData.terms, "id", "terms");
   warnDuplicateValues(rawData.roles, "englishName", "roles");
@@ -486,6 +527,7 @@ function main() {
 
   validateScripts(rawData.scripts, roleIds);
   validateRoles(rawData.roles);
+  validateJinxes(rawData.jinxes, roleIds, scriptIds);
   validateTerms(rawData.terms);
   validateRoleAbilities(rawData.roles, rawData.roleAbilities, new Set(rawData.terms.map((term) => term.id)));
   validateRelatedRoles(data, new Set(data.roles.map((role) => role.id)));
@@ -500,7 +542,7 @@ function main() {
   }
 
   console.log(
-    `Data validation passed: ${rawData.scripts.length} scripts, ${rawData.roles.length} roles, ${rawData.roleAbilities.length} role abilityData entries.`,
+    `Data validation passed: ${rawData.scripts.length} scripts, ${rawData.roles.length} roles, ${rawData.jinxes.length} jinxes, ${rawData.roleAbilities.length} role abilityData entries.`,
   );
 }
 

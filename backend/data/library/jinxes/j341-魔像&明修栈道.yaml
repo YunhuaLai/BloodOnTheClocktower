@@ -1,0 +1,20 @@
+id: j341
+kind: jinx
+name: 魔像&明修栈道
+roleIds:
+  - r069
+  - r439
+roleNames:
+  - 魔像
+  - 明修栈道
+unresolvedRoleNames: []
+rule: 魔像如果在首次提名前索要了明修栈道，他当日的提名不触发自身能力且不计入次数。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r452
+  englishName: golem-open-boardwalk-jinx
+  officialId: 66777_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/golem.png

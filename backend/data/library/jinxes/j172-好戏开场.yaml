@@ -1,0 +1,17 @@
+id: j172
+kind: jinx
+name: 好戏开场
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 好戏开场
+rule: 受到宁信其有的影响，戏法师会将陌客当做爪牙/恶魔（均视为猜测正确），将间谍当做非爪牙。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1770
+  englishName: ybd01024
+  officialId: ybd01024
+  officialTeam: a jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202406/c_0969358269171_d18a1072.jpg

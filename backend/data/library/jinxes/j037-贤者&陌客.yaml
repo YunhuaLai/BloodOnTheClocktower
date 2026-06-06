@@ -1,0 +1,20 @@
+id: j037
+kind: jinx
+name: 贤者&陌客
+roleIds:
+  - r063
+  - r016
+roleNames:
+  - 贤者
+  - 陌客
+unresolvedRoleNames: []
+rule: 陌客可能会被贤者当作杀死他的恶魔。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1115
+  englishName: 30-binpengmanzuo
+  officialId: 28_xindalu
+  officialTeam: jinxes
+  edition: custom
+  image: ''

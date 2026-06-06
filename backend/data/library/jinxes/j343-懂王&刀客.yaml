@@ -1,0 +1,20 @@
+id: j343
+kind: jinx
+name: 懂王&刀客
+roleIds:
+  - r446
+  - r442
+roleNames:
+  - 懂王
+  - 刀客
+unresolvedRoleNames: []
+rule: 如果懂王选择了刀客的能力，可以立刻拜访说书人得知一个爪牙角色。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r454
+  englishName: know-it-all-blade-master-jinx
+  officialId: 55668128_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.bloodstar.xyz/p/jc3635/TwinCity/16_twincity.png

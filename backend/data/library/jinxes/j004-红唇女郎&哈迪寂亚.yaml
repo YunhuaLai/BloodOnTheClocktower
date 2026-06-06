@@ -1,0 +1,20 @@
+id: j004
+kind: jinx
+name: 红唇女郎&哈迪寂亚
+roleIds:
+  - r020
+  - r081
+roleNames:
+  - 红唇女郎
+  - 哈迪寂亚
+unresolvedRoleNames: []
+rule: 如果出现两名存活的哈迪寂亚，则红唇女郎变成的哈迪寂亚会变回红唇女郎。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1014
+  englishName: 23c55d7f-478f-4029-a88b-03a3570b7436
+  officialId: 068d8621-6d50-43e9-b87a-67b37cf9009f
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/scarlet_woman.png

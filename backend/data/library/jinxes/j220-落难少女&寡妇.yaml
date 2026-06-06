@@ -1,0 +1,20 @@
+id: j220
+kind: jinx
+name: 落难少女&寡妇
+roleIds:
+  - r071
+  - r078
+roleNames:
+  - 落难少女
+  - 寡妇
+unresolvedRoleNames: []
+rule: 如果寡妇正在场或曾经在场，落难少女中毒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1866
+  englishName: 084c55bd-cdce-4c13-95e0-6a180fdd7f5f
+  officialId: af3c701c-2b94-49ef-b3c9-23de56815be3
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/damsel.png

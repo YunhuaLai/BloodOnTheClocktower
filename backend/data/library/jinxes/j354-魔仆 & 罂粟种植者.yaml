@@ -1,0 +1,20 @@
+id: j354
+kind: jinx
+name: 魔仆 & 罂粟种植者
+roleIds:
+  - r546
+  - r066
+roleNames:
+  - 魔仆
+  - 罂粟种植者
+unresolvedRoleNames: []
+rule: 罂粟种植者在场时，首先唤醒魔仆让其选择一名玩家，随后唤醒恶魔，告知其魔仆的选择，随后恶魔选择的玩家死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r548
+  englishName: familiar-poppy-grower-jinx
+  officialId: a jinxed_1
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

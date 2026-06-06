@@ -1,0 +1,20 @@
+id: j314
+kind: jinx
+name: 帽匠&利维坦
+roleIds:
+  - r324
+  - r384
+roleNames:
+  - 帽匠
+  - 利维坦
+unresolvedRoleNames: []
+rule: 如果帽匠在第五个白天或之后死亡，恶魔不能选择变成利维坦。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4118
+  englishName: ec7b6238-5c46-41fc-9679-6168efdf07c0
+  officialId: ec7b6238-5c46-41fc-9679-6168efdf07c0
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202312/c_9723021341071_86da6df4.jpg

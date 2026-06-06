@@ -1,0 +1,20 @@
+id: j187
+kind: jinx
+name: 私货商人&召唤师
+roleIds:
+  - r348
+  - r113
+roleNames:
+  - 私货商人
+  - 召唤师
+unresolvedRoleNames: []
+rule: 召唤师不会因莽夫的能力而醉酒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1814
+  englishName: 2-jinxed
+  officialId: 2_jinxed
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

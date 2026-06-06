@@ -1,0 +1,20 @@
+id: j050
+kind: jinx
+name: 气球驾驶员&提线木偶
+roleIds:
+  - r140
+  - r121
+roleNames:
+  - 气球驾驶员
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 如果提线木偶抽到了气球驾驶员，也可能会+1外来者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1147
+  englishName: 24-wuduyouou
+  officialId: bf35ab43-b8e9-4e53-a02e-62a32852880f
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/upload/202410/c_7787277188271_9eba6446.jpg

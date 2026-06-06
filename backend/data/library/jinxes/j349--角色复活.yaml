@@ -1,0 +1,17 @@
+id: j349
+kind: jinx
+name: '*角色复活'
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - '*角色复活'
+rule: 复活玩家的假面角色与真实角色均视为重新入场，但已经“暴露”的玩家并不重置暴露状态。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r471
+  englishName: role-revives
+  officialId: 35_inthegr_58
+  officialTeam: a jinxes
+  edition: custom
+  image: ''

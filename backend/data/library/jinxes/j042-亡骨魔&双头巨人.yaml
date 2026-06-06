@@ -1,0 +1,20 @@
+id: j042
+kind: jinx
+name: 亡骨魔&双头巨人
+roleIds:
+  - r080
+  - r1133
+roleNames:
+  - 亡骨魔
+  - 双头巨人
+unresolvedRoleNames: []
+rule: 如果亡骨魔杀死了双头巨人，那么两个双头巨人都视为被亡骨魔杀死，两个双头巨人两侧的镇民之一会中毒。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1136
+  englishName: 51-daoluyimu
+  officialId: 51_daoluyimu
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

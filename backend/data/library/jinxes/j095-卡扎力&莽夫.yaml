@@ -1,0 +1,20 @@
+id: j095
+kind: jinx
+name: 卡扎力&莽夫
+roleIds:
+  - r095
+  - r038
+roleNames:
+  - 卡扎力
+  - 莽夫
+unresolvedRoleNames: []
+rule: 卡扎力可以把莽夫转变成邪恶的爪牙。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r146
+  englishName: kazali-klutz-jinx
+  officialId: 105_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/4/46/Kazali.png/300px-Kazali.png

@@ -1,0 +1,20 @@
+id: j241
+kind: jinx
+name: 地下医生&清洁工
+roleIds:
+  - r2355
+  - r688
+roleNames:
+  - 地下医生
+  - 清洁工
+unresolvedRoleNames: []
+rule: 被地下医生选择的玩家被清洁工视为死亡，但清洁工不会知道那名玩家是谁。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2357
+  englishName: dixiayishengqingjiegong-meta
+  officialId: dixiayishengqingjiegong_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://s2.loli.net/2025/09/07/iOokQmA7FKHbvaB.png

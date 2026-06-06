@@ -1,0 +1,17 @@
+id: j317
+kind: jinx
+name: 驱魔人与暴乱
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 驱魔人与暴乱
+rule: 如果驱魔人通过自身能力选择了暴乱，第三个白天爪牙不会变成暴乱
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r4144
+  englishName: 36-chargementday
+  officialId: 36_chargementday
+  officialTeam: jinxes
+  edition: custom
+  image: ''

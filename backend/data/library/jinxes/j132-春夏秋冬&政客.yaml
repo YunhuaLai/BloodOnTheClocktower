@@ -1,0 +1,20 @@
+id: j132
+kind: jinx
+name: 春夏秋冬&政客
+roleIds:
+  - r1656
+  - r135
+roleNames:
+  - 春夏秋冬
+  - 政客
+unresolvedRoleNames: []
+rule: 春夏秋冬不能获得政客的能力。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1658
+  englishName: '1111111111111112'
+  officialId: '1111111111111112'
+  officialTeam: a jinxed
+  edition: custom
+  image: https://www.helloimg.com/i/2025/04/04/67ef53396fd65.png

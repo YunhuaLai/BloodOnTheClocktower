@@ -1,0 +1,21 @@
+id: j102
+kind: jinx
+name: 数学家&疯子
+roleIds:
+  - r053
+  - r039
+roleNames:
+  - 数学家
+  - 疯子
+unresolvedRoleNames: []
+rule: 数学家会得知疯子是否攻击了与真正的恶魔不同的目标。
+audience: both
+sourceScriptIds:
+  - s403
+source:
+  roleId: r152
+  englishName: mathematician-lunatic-jinx
+  officialId: 0.12_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/0/06/Mathematician.png/300px-Mathematician.png

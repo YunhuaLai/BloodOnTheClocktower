@@ -1,0 +1,20 @@
+id: j011
+kind: jinx
+name: 涡流&报丧女妖
+roleIds:
+  - r083
+  - r233
+roleNames:
+  - 涡流
+  - 报丧女妖
+unresolvedRoleNames: []
+rule: 如果恶魔杀死报丧女妖时涡流在场，玩家仍然会得知正确信息。（中文百科上的“通用简化原则”已涵盖包括多角色互动下的涡流信息的简化处理方式，此条仅做说明。）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1835
+  englishName: 112-meta
+  officialId: 112_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/7/78/Vortox.png/300px-Vortox.png

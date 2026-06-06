@@ -4,6 +4,13 @@ const path = require("node:path");
 const { applyAbilityTermMetadata } = require("./lib/ability-term-metadata");
 const { inferDeductionData } = require("./lib/deduction-profile-inference");
 const {
+  isJinxTeam,
+  makeRoleLookup,
+  resolveJinxRoleNames,
+  splitJinxRoleNames,
+} = require("./lib/jinx-utils");
+const {
+  JINXES_DIR,
   ROLES_DIR,
   SCRIPTS_DIR,
   readYamlCollection,
@@ -107,6 +114,53 @@ function makeScriptId(existingScripts, scriptName) {
   const nextId = nextNumericId(existingScripts, "s");
   const existing = existingScripts.find((entry) => entry.data?.name === scriptName);
   return existing?.data?.id || nextId;
+}
+
+function makeJinxId(existingJinxes, jinxName) {
+  const nextId = nextNumericId(existingJinxes, "j");
+  const existing = existingJinxes.find((entry) => entry.data?.name === jinxName);
+  return existing?.data?.id || nextId;
+}
+
+function findJinxEntry(jinxes, officialRole) {
+  return (
+    (officialRole.id
+      ? jinxes.find((entry) => entry.data?.source?.officialId === officialRole.id)
+      : null) ||
+    jinxes.find((entry) => entry.data?.name === officialRole.name) ||
+    null
+  );
+}
+
+function makeJinxData(existingJinx, officialRole, roleLookup, scriptId) {
+  const rawNames = splitJinxRoleNames(officialRole.name);
+  const resolved = resolveJinxRoleNames(rawNames, roleLookup);
+  const sourceScriptIds = [
+    ...new Set([
+      ...(Array.isArray(existingJinx?.sourceScriptIds) ? existingJinx.sourceScriptIds : []),
+      scriptId,
+    ].filter(Boolean)),
+  ];
+
+  return {
+    ...(existingJinx || {}),
+    id: existingJinx?.id,
+    kind: "jinx",
+    name: officialRole.name,
+    roleIds: resolved.roleIds,
+    roleNames: resolved.roleNames,
+    unresolvedRoleNames: resolved.unresolvedRoleNames,
+    rule: officialRole.ability || existingJinx?.rule || "",
+    audience: existingJinx?.audience || "both",
+    sourceScriptIds,
+    source: {
+      ...(existingJinx?.source || {}),
+      officialId: officialRole.id || existingJinx?.source?.officialId || "",
+      officialTeam: officialRole.team || existingJinx?.source?.officialTeam || "",
+      edition: officialRole.edition || existingJinx?.source?.edition || "",
+      image: officialRole.image || existingJinx?.source?.image || "",
+    },
+  };
 }
 
 function makeRoleData(existingRole, officialRole) {
@@ -897,15 +951,21 @@ function orderRoleIds(officialRoles, roleIdByOfficialName, fieldName) {
 }
 
 function importOfficialJson(inputPath) {
-  const { meta, roles: officialRoles } = normalizeOfficialInput(inputPath);
+  const { meta, roles: officialEntries } = normalizeOfficialInput(inputPath);
+  const officialRoles = officialEntries.filter((role) => !isJinxTeam(role.team));
+  const officialJinxes = officialEntries.filter((role) => isJinxTeam(role.team));
   const scripts = readYamlCollection(SCRIPTS_DIR);
   const roles = readYamlCollection(ROLES_DIR);
+  const jinxes = readYamlCollection(JINXES_DIR);
   const scriptId = makeScriptId(scripts, meta.name);
   const existingScript = findEntryById(scripts, scriptId);
   const roleIdByOfficialName = new Map();
   const changed = [];
   const createdRoles = [];
   const reusedRoles = [];
+  const createdJinxes = [];
+  const reusedJinxes = [];
+  const unresolvedJinxes = [];
   const createdRoleAbilities = [];
   const reviewRoles = [];
 
@@ -948,6 +1008,42 @@ function importOfficialJson(inputPath) {
     if (abilityData.needsReview) {
       reviewRoles.push({ id: roleId, name: officialRole.name });
     }
+  });
+
+  const roleLookup = makeRoleLookup(roles);
+
+  if (officialJinxes.length) {
+    fs.mkdirSync(JINXES_DIR, { recursive: true });
+  }
+
+  officialJinxes.forEach((officialRole) => {
+    const existingJinx = findJinxEntry(jinxes, officialRole);
+    const jinxId = existingJinx?.data?.id || makeJinxId(jinxes, officialRole.name);
+    const jinxData = makeJinxData(
+      existingJinx?.data ? { ...existingJinx.data, id: jinxId } : { id: jinxId },
+      officialRole,
+      roleLookup,
+      scriptId,
+    );
+    const filePath = existingJinx?.filePath || path.join(JINXES_DIR, `${jinxId}-${safeFileName(officialRole.name)}.yaml`);
+
+    if (!existingJinx) {
+      jinxes.push({ fileName: path.basename(filePath), filePath, data: jinxData });
+      createdJinxes.push({ id: jinxId, name: officialRole.name });
+    } else {
+      reusedJinxes.push({ id: jinxId, name: officialRole.name });
+    }
+
+    if (jinxData.unresolvedRoleNames.length) {
+      unresolvedJinxes.push({
+        id: jinxId,
+        name: officialRole.name,
+        unresolvedRoleNames: jinxData.unresolvedRoleNames,
+      });
+    }
+
+    writeYamlFile(filePath, jinxData);
+    changed.push(relativeToRoot(filePath));
   });
 
   const roleIds = officialRoles
@@ -1000,6 +1096,9 @@ function importOfficialJson(inputPath) {
     changed,
     createdRoles,
     reusedRoles,
+    createdJinxes,
+    reusedJinxes,
+    unresolvedJinxes,
     createdRoleAbilities,
     reviewRoles,
   };
@@ -1041,6 +1140,7 @@ function makeScriptDetail(meta) {
 function exportOfficialJson(scriptId, outputPath) {
   const scripts = readYamlCollection(SCRIPTS_DIR).map((entry) => entry.data);
   const roles = readYamlCollection(ROLES_DIR).map((entry) => entry.data);
+  const jinxes = readYamlCollection(JINXES_DIR).map((entry) => entry.data);
   const script = scripts.find((entry) => entry.id === scriptId || entry.englishName === scriptId || entry.name === scriptId);
 
   if (!script) {
@@ -1064,6 +1164,7 @@ function exportOfficialJson(scriptId, outputPath) {
     ...(script.roleIds || []),
     ...(script.fabledIds || []),
   ];
+  const scriptRoleIdSet = new Set(orderedScriptRoleIds);
   const officialRoles = orderedScriptRoleIds
     .map((roleId) => roleById.get(roleId))
     .filter(Boolean)
@@ -1083,12 +1184,36 @@ function exportOfficialJson(scriptId, outputPath) {
       team: TYPE_TO_TEAM[role.type] || role.type,
       firstNight: firstNightOrder.get(role.id) || 0,
     }));
-  const output = [meta, ...officialRoles];
+  const officialJinxes = jinxes
+    .filter((jinx) => {
+      const jinxRoleIds = (jinx.roleIds || []).filter(Boolean);
+      return (
+        (jinxRoleIds.length >= 2 && jinxRoleIds.every((roleId) => scriptRoleIdSet.has(roleId))) ||
+        (jinx.sourceScriptIds || []).includes(script.id)
+      );
+    })
+    .map((jinx) => ({
+      ability: jinx.rule || "",
+      image: jinx.source?.image || "",
+      edition: jinx.source?.edition || "custom",
+      flavor: "",
+      id: jinx.source?.officialId || jinx.id,
+      firstNightReminder: "",
+      otherNightReminder: "",
+      name: jinx.name,
+      otherNight: 0,
+      setup: 0,
+      reminders: [],
+      remindersGlobal: [],
+      team: jinx.source?.officialTeam || "jinxes",
+      firstNight: 0,
+    }));
+  const output = [meta, ...officialRoles, ...officialJinxes];
 
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(outputPath, `${JSON.stringify(output, null, "\t")}\n`, "utf8");
 
-  return { outputPath, roles: officialRoles.length };
+  return { outputPath, roles: officialRoles.length, jinxes: officialJinxes.length };
 }
 
 function isCoreScriptRole(type) {

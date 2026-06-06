@@ -1,0 +1,22 @@
+id: j190
+kind: jinx
+name: 戏子&军团/普卡
+roleIds:
+  - r1191
+  - r099
+  - r045
+roleNames:
+  - 戏子
+  - 军团
+  - 普卡
+unresolvedRoleNames: []
+rule: 在戏子存在于剧本中时，军团/普卡可以在游戏中任意时候向说书人示意自己“想要死亡”。说书人会在夜晚一同唤醒所有军团，并询问他们是否要一同死亡。/在当晚杀死这名普卡玩家。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1822
+  englishName: 1225-meta
+  officialId: 1225_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/1/13/Xizi.png/300px-Xizi.png

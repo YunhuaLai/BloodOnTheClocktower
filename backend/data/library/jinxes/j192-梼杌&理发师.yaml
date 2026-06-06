@@ -1,0 +1,20 @@
+id: j192
+kind: jinx
+name: 梼杌&理发师
+roleIds:
+  - r689
+  - r070
+roleNames:
+  - 梼杌
+  - 理发师
+unresolvedRoleNames: []
+rule: 如果梼杌变成了其他角色，因为梼杌而失去能力的爪牙会立即死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1824
+  englishName: 15226-meta
+  officialId: 156_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/5/52/Taowu.png/300px-Taowu.png

@@ -1,0 +1,20 @@
+id: j252
+kind: jinx
+name: 张飞&天意
+roleIds:
+  - r2846
+  - r2850
+roleNames:
+  - 张飞
+  - 天意
+unresolvedRoleNames: []
+rule: 说书人获得张飞能力，改为将一名邪恶玩家变成张飞。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r2855
+  englishName: zhangfeitianyi
+  officialId: zhangfeitianyi
+  officialTeam: a jinxed
+  edition: custom
+  image: https://free.picui.cn/free/2025/12/02/692f0c8796878.png

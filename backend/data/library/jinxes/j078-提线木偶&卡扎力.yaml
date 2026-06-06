@@ -1,0 +1,20 @@
+id: j078
+kind: jinx
+name: 提线木偶&卡扎力
+roleIds:
+  - r121
+  - r095
+roleNames:
+  - 提线木偶
+  - 卡扎力
+unresolvedRoleNames: []
+rule: 如果卡扎力创造提线木偶，他只能选择将自己的邻座玩家变成提线木偶。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1339
+  englishName: 5c07cfea-4ab2-4c28-a228-fc6224052a71
+  officialId: 40_yueyeyueyouji
+  officialTeam: jinxes
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/marionette.png

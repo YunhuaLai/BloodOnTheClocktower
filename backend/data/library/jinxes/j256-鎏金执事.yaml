@@ -1,0 +1,17 @@
+id: j256
+kind: jinx
+name: 鎏金执事
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - 鎏金执事
+rule: 首个夜晚，你得知两名阵营不同的玩家。若其中邪恶玩家被处决，则其中的善良玩家会在当晚死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r293
+  englishName: gilded-butler
+  officialId: 9_zhiminghuaerzi
+  officialTeam: a jinxed
+  edition: custom
+  image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f1/8k1pa13a2y1e7zhhvzjc2ge8it02cf8.png

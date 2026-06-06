@@ -1,0 +1,20 @@
+id: j372
+kind: jinx
+name: 驱魔人&梦
+roleIds:
+  - r026
+  - r970
+roleNames:
+  - 驱魔人
+  - 梦
+unresolvedRoleNames: []
+rule: 如果驱魔人选中了梦，那么梦的能力在当晚无法造成死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r971
+  englishName: xk1
+  officialId: xk1
+  officialTeam: a jinxed
+  edition: custom
+  image: https://free.picui.cn/free/2025/11/22/6921939baad8b.png

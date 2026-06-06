@@ -1,0 +1,17 @@
+id: j347
+kind: jinx
+name: '*角色选择'
+roleIds: []
+roleNames: []
+unresolvedRoleNames:
+  - '*角色选择'
+rule: 在能力描述中，"选择角色"可以选假面角色，也可以选基础角色。假面角色均视为“善良角色”。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r469
+  englishName: role-chooses
+  officialId: 33_inthegr_58
+  officialTeam: a jinxes
+  edition: custom
+  image: ''

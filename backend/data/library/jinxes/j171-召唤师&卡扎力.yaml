@@ -1,0 +1,20 @@
+id: j171
+kind: jinx
+name: 召唤师&卡扎力
+roleIds:
+  - r113
+  - r095
+roleNames:
+  - 召唤师
+  - 卡扎力
+unresolvedRoleNames: []
+rule: 召唤师无法创造已经在场的恶魔。如果召唤师创造了一个不在场的恶魔，当晚的死亡由说书人决定。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1765
+  englishName: b1cffba4-2801-4710-a6f9-ee6b2d8c3c8a
+  officialId: 109_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2f/Summoner.png/300px-Summoner.png

@@ -1,0 +1,20 @@
+id: j008
+kind: jinx
+name: 小怪宝&罂粟种植者
+roleIds:
+  - r103
+  - r066
+roleNames:
+  - 小怪宝
+  - 罂粟种植者
+unresolvedRoleNames: []
+rule: 如果罂粟种植者在场，爪牙们不会同时醒来选择照看小怪宝。他们会依次单独被唤醒，直到其中一人选择照看小怪宝。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1022
+  englishName: 31-xiaoguidangjia
+  officialId: 61_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/3/39/Lilmonsta.png/300px-Lilmonsta.png

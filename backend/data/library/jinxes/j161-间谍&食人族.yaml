@@ -1,0 +1,20 @@
+id: j161
+kind: jinx
+name: 间谍&食人族
+roleIds:
+  - r018
+  - r091
+roleNames:
+  - 间谍
+  - 食人族
+unresolvedRoleNames: []
+rule: 间谍必定被食人族当作邪恶阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1747
+  englishName: 26-yangcongpai
+  officialId: 26_yangcongpai
+  officialTeam: a jinxed
+  edition: custom
+  image: ''

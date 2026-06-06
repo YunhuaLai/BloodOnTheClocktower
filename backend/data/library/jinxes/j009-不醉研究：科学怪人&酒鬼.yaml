@@ -1,0 +1,20 @@
+id: j009
+kind: jinx
+name: 牙噶巴卜&驱魔人
+roleIds:
+  - r136
+  - r026
+roleNames:
+  - 牙噶巴卜
+  - 驱魔人
+unresolvedRoleNames: []
+rule: 如果驱魔人选中了牙噶巴卜，那么牙噶巴卜的能力在当晚无法造成死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r137
+  englishName: yaggababble-exorcist-jinx
+  officialId: 110_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/5/50/Yaggababble.png/300px-Yaggababble.png

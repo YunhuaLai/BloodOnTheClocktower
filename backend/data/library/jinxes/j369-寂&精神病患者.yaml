@@ -1,0 +1,20 @@
+id: j369
+kind: jinx
+name: 寂&精神病患者
+roleIds:
+  - r901
+  - r077
+roleNames:
+  - 寂
+  - 精神病患者
+unresolvedRoleNames: []
+rule: 精神病患者因寂能力被处决时，由说书人与其猜拳。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r904
+  englishName: d242564d-a2ea-4d2159-92d2-a31e899ab24c
+  officialId: d242564d-a2ea-4d2159-92d2-a31e899ab24c
+  officialTeam: A jinxed
+  edition: custom
+  image: https://s2.loli.net/2025/09/07/6bQsycoWLXKxePm.png

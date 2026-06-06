@@ -1,0 +1,20 @@
+id: j017
+kind: jinx
+name: 间谍&炼金术士
+roleIds:
+  - r018
+  - r155
+roleNames:
+  - 间谍
+  - 炼金术士
+unresolvedRoleNames: []
+rule: 如果炼金术士获得了间谍的能力，他无法查看魔典，并且间谍不能被当作善良阵营、镇民角色或外来者角色。（炼金术士可能被当做善良的镇民或外来者角色，并可以因此在间谍查看魔典时被当作不同的角色。）
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1054
+  englishName: 31-lianjinshushidezhizhuo
+  officialId: 21.1_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/3/36/Spy.png/300px-Spy.png

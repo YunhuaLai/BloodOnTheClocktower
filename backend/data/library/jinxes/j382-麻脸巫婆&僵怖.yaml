@@ -1,0 +1,20 @@
+id: j382
+kind: jinx
+name: 麻脸巫婆&僵怖
+roleIds:
+  - r076
+  - r044
+roleNames:
+  - 麻脸巫婆
+  - 僵怖
+unresolvedRoleNames: []
+rule: 麻脸巫婆无法选择“已经死过一次”的僵怖
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r987
+  englishName: jinxesserra01
+  officialId: jinxesserra01
+  officialTeam: jinxes
+  edition: custom
+  image: ''

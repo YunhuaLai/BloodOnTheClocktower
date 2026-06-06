@@ -1,0 +1,20 @@
+id: j064
+kind: jinx
+name: 精神病患者 & 魔像
+roleIds:
+  - r077
+  - r069
+roleNames:
+  - 精神病患者
+  - 魔像
+unresolvedRoleNames: []
+rule: 如果精神病患者“疯狂”地证明自己是魔像，他的能力会被魔像的能力代替，直到他“疯狂”地证明自己是精神病患者。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1255
+  englishName: 34-the-radiance-descends
+  officialId: 34_the_radiance_descends
+  officialTeam: jinxes
+  edition: custom
+  image: ''

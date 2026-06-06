@@ -1,0 +1,20 @@
+id: j230
+kind: jinx
+name: 镜像双子&首席律师
+roleIds:
+  - r073
+  - r1620
+roleNames:
+  - 镜像双子
+  - 首席律师
+unresolvedRoleNames: []
+rule: 互为镜像双子的玩家不会因“首席律师”死亡。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1923
+  englishName: 5c600c7c-c422-4739-b47f-88a87a4633e11b123
+  officialId: 5c600c7c-c422-4739-b47f-88a87a4633e11b123
+  officialTeam: A jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png

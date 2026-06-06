@@ -1,0 +1,20 @@
+id: j173
+kind: jinx
+name: 科学怪人&莽夫
+roleIds:
+  - r336
+  - r038
+roleNames:
+  - 科学怪人
+  - 莽夫
+unresolvedRoleNames: []
+rule: 如果恶魔拥有莽夫的能力，他无法因为该能力转变为善良阵营。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1771
+  englishName: 112222222222222222222225552333-meta
+  officialId: 112222222222222222222225552333_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png

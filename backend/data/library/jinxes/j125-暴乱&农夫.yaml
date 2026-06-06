@@ -1,0 +1,20 @@
+id: j125
+kind: jinx
+name: 暴乱&农夫
+roleIds:
+  - r929
+  - r090
+roleNames:
+  - 暴乱
+  - 农夫
+unresolvedRoleNames: []
+rule: 如果暴乱提名并杀死了农夫，当晚会有一名存活的善良玩家变成农夫。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1611
+  englishName: 79-meta
+  officialId: 79_meta
+  officialTeam: a jinxed
+  edition: custom
+  image: https://clocktower-wiki.gstonegames.com/images/thumb/c/c0/Riot.png/300px-Riot.png

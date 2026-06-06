@@ -116,7 +116,7 @@ function getOneInOneOutSortValue(role) {
   return index === -1 ? Number.MAX_SAFE_INTEGER : index;
 }
 
-function getScriptRoleIds(script) {
+export function getScriptRoleIds(script) {
   return [
     ...(script?.roleIds || []),
     ...(script?.travellerIds || script?.travelerIds || []),
@@ -169,6 +169,34 @@ export function sortScriptRoles(script, roles) {
       return left.index - right.index;
     })
     .map(({ role }) => role);
+}
+
+export function getJinxRoleLabel(jinx) {
+  return [
+    ...((jinx?.roleNames || []).filter(Boolean)),
+    ...((jinx?.unresolvedRoleNames || []).filter(Boolean)),
+  ].join(" & ");
+}
+
+export function getJinxesForRoleIds(roleIds, { sourceScriptId = "" } = {}) {
+  const roleIdSet = new Set((Array.isArray(roleIds) ? roleIds : []).filter(Boolean));
+  const scriptId = String(sourceScriptId || "").trim();
+
+  return (state.jinxes || []).filter((jinx) => {
+    const jinxRoleIds = (jinx.roleIds || []).filter(Boolean);
+    const hasResolvedMatch =
+      jinxRoleIds.length >= 2 && jinxRoleIds.every((roleId) => roleIdSet.has(roleId));
+    const hasSourceMatch =
+      scriptId && (jinx.sourceScriptIds || []).includes(scriptId);
+
+    return hasResolvedMatch || hasSourceMatch;
+  });
+}
+
+export function getJinxesForScript(script) {
+  return getJinxesForRoleIds(getScriptRoleIds(script), {
+    sourceScriptId: script?.id || "",
+  });
 }
 
 export function renderScriptRoleList(script, roles) {

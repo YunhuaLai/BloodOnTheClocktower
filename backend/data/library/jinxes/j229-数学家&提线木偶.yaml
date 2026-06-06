@@ -1,0 +1,20 @@
+id: j229
+kind: jinx
+name: 数学家&提线木偶
+roleIds:
+  - r053
+  - r121
+roleNames:
+  - 数学家
+  - 提线木偶
+unresolvedRoleNames: []
+rule: 数学家可能会得知提线木偶产生了错误信息或“能力未正常生效”。
+audience: both
+sourceScriptIds: []
+source:
+  roleId: r1922
+  englishName: 5c600c7c-c422-4739-b47f-88a87a4633e11b
+  officialId: 5c600c7c-c422-4739-b47f-88a87a4633e11b
+  officialTeam: A jinxed
+  edition: custom
+  image: https://oss.gstonegames.com/data_file/clocktower/role_icon/mathematician.png
