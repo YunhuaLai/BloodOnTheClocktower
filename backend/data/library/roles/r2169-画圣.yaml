@@ -1,0 +1,120 @@
+id: r2169
+englishName: 8450765e-4b3c-4005-8ef0-3f0370960457
+name: 画圣
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_3433787832071_9f609bc0.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 画圣可以选择一名玩家，若他这么做了，告诉他该玩家及其相邻存活玩家的角色种类数量，他顿悟，告知他获得的顿悟能力。
+otherNightReminder: 画圣可以选择一名玩家，若他这么做了，告诉他该玩家及其相邻存活玩家的角色种类数量，他顿悟，告知他获得的顿悟能力。
+ability: 每个夜晚，你可以选择一名玩家：你会得知该玩家以及与他邻近的存活的玩家中有多少种角色类型。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2169
+    officialId: 8450765e-4b3c-4005-8ef0-3f0370960457
+    sourceHash: 57e8889dc9aa231acf9cd2e2456ed1854d448aea
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alive
+    - townsfolk
+  abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_number
+        numberKind: count
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

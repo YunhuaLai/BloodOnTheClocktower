@@ -4,7 +4,7 @@ type: townsfolk
 englishName: grandmother
 ability: 在你的首个夜晚，你会得知一名善良玩家和他的角色。如果恶魔杀死了他，你也会死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/grandmother.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/grandmother.png
 flavor: ''
 setup: false
 setupMeta:
@@ -23,16 +23,16 @@ reminders:
   - 孙子
   - 死亡
 remindersGlobal: []
-firstNightReminder: 指向她的孙子玩家，并展示该玩家的角色标记。
-otherNightReminder: 如果孙子被恶魔杀死，祖母也会一同死亡。标记祖母死亡。
+firstNightReminder: 唤醒祖母，对她指向一名善良玩家，并展示该玩家的角色标记。
+otherNightReminder: 如果恶魔杀死了孙子，祖母死亡。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r023
-    officialId: grandmother
-    sourceHash: 29fae8901fffd86a1791aaf916bb1ad8ff83a8fb
+    officialId: woshininainai111
+    sourceHash: 96ea226cbedbfc5321c4651038db92b0dfbf6740
     sourceHashFields:
       - ability
       - type
@@ -41,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -56,8 +58,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

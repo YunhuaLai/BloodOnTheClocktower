@@ -1,0 +1,120 @@
+id: r1284
+englishName: baiyangheizhi
+name: 白羊黑痣
+type: demon
+edition: custom
+image: https://s21.ax1x.com/2025/03/20/pEwLJr4.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - '1'
+  - '2'
+  - '3'
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  白羊黑痣选择三名存活玩家。对所有人宣告第一名玩家，然后唤醒他并让他在其他两名玩家中秘密选择一名玩家，他死亡。然后宣告未被第一名玩家选择的那名玩家，并让他秘密决定第一名玩家是否被杀死，如果第一名玩家存活则宣告被第一名玩家选择的那名玩家并让他秘密决定让第一名玩家存活的玩家是否被杀死。
+ability: 每个夜晚*，你可以选择三名存活玩家（所有玩家都会得知你选了谁）：第一名玩家在其他两名玩家中秘密选择一名玩家，他死亡，然后另一名玩家秘密决定他是否被你杀死，如果他存活则被他选择的玩家秘密决定另一名玩家是否被你杀死。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1284
+    officialId: baiyangheizhi
+    sourceHash: 90964dcd0aa32cbbf840f0a831cb98231d250023
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - alive
+    - demon
+  abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null

@@ -4,7 +4,7 @@ name: 花花公子
 type: outsider
 edition: custom
 image: https://www.bloodstar.xyz/p/jc3635/MatchOfLei/4_matchoflei.png
-flavor: ''
+flavor: 哇噢！她真是个辣妹！然后看看他的肌肉！今晚有这么多火辣的人！别挡道，让我进去！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null
@@ -94,3 +94,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

@@ -4,7 +4,7 @@ name: 游侠
 type: traveller2
 edition: custom
 image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/12_inthegr_58.png
-flavor: ''
+flavor: You're safe with me, my friend. If anyone so much as lays a finger on you, they will face my wrath.
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r458
-    officialId: ranger
+    officialId: 12_inthegr_58
     sourceHash: 7f9a9c5d23762229b29378a6816c11fbfe036b2e
     sourceHashFields:
       - ability
@@ -54,7 +54,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

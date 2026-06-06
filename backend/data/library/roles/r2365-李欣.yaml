@@ -1,0 +1,99 @@
+id: r2365
+englishName: linxin
+name: 李欣
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/NeZhaNaoHai/4_nezhanaohai.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 主人
+  - 重获能力
+remindersGlobal: []
+firstNightReminder: 在黎明唤醒李欣，告诉他一名善良玩家，并给该玩家主人标记。
+otherNightReminder: 如果有主人标记的玩家在当天获得了混元珠，给李欣重获能力标记，并在黎明时唤醒李欣，告诉他一名善良玩家，并给该玩家主人标记。
+ability: 在你的首个夜晚，你得知一名善良玩家，如果他获得了混元珠，你重获能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2365
+    officialId: linxin
+    sourceHash: ddb97cf7b51235d6690be9e73902eb090e2cc275
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - good
+    - townsfolk
+  abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 1
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

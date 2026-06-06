@@ -1,0 +1,85 @@
+id: s197
+englishName: item
+name: 先礼后兵
+status: draft
+en: 先礼后兵
+author: MtyJ
+logo: https://www.helloimg.com/i/2024/12/10/67581a62eca52.png
+description: 先礼后兵
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 先礼后兵
+image: https://www.helloimg.com/i/2024/12/10/67581a62eca52.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 先礼后兵
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r108
+  - r307
+  - r005
+  - r006
+  - r101
+  - r140
+  - r109
+  - r214
+  - r089
+  - r606
+  - r059
+  - r278
+  - r015
+  - r037
+  - r092
+  - r363
+  - r017
+  - r020
+  - r040
+  - r042
+  - r074
+  - r021
+  - r096
+  - r114
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r101
+    - r017
+    - r040
+    - r074
+    - r004
+    - r005
+    - r006
+    - r140
+    - r108
+    - r092
+    - r307
+  other:
+    - r059
+    - r101
+    - r017
+    - r214
+    - r074
+    - r020
+    - r109
+    - r021
+    - r096
+    - r114
+    - r042
+    - r040
+    - r606
+    - r037
+    - r363
+    - r278
+    - r005
+    - r006
+    - r140

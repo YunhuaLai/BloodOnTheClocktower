@@ -1,0 +1,97 @@
+id: r2775
+englishName: 17-duolinrenjian
+name: 魅蝶女王
+type: minion
+edition: custom
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/a/aa/r5ynxe8ftggbtgitwvtljfbc73yn3nm.png/1200px-%E7%88%AA%E7%89%99_%E9%AD%85%E8%9D%B6%E5%A5%B3%E7%8E%8B_%E6%B4%9B%E7%94%9C%E8%95%BE.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[外来者<2时，+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 限一次
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 被恶魔使用其自身能力杀死的外来者改为变成邪恶的那个恶魔且那个恶魔代替他死亡，但每局游戏仅能成功转化一次。  [外来者<2时，+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2775
+    officialId: 17_duolinrenjian
+    sourceHash: 36f6a273d5cad96904412efcf08570ce51817b72
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+  termIds:
+    - setup
+    - death
+    - evil
+    - outsider
+    - minion
+    - demon
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[外来者<2时，+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

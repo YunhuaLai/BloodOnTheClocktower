@@ -1,0 +1,89 @@
+id: r3665
+englishName: hollywreath-averymerryclocktower
+name: 冬青花环
+type: outsider
+edition: custom
+image:
+  - https://chillclocktower.com/homebrew/merrryclocktower/holly.png
+flavor: Its supposed to be jolly, with mistletoe and holly and other things ending in olly.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+  - 提名
+  - 将要死亡
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  If it is possible to kill the player marked with the About to Die reminder token, do so and replace with the Dead
+  reminder token.
+ability: 首个提名你的善良玩家会在当晚死亡（复活不会刷新该能力）。如果你因冬青花环的能力死亡，你的阵营落败。〔+0~2冬青花环〕
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3665
+    officialId: hollywreath_averymerryclocktower
+    sourceHash: eb161a537f90a95aaf16e7f04bb3de39264f4b33
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - nomination
+    - death
+    - alignment
+    - good
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

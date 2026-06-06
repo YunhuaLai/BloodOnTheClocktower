@@ -1,0 +1,83 @@
+id: s805
+englishName: item
+name: 横行霸道
+status: draft
+en: 横行霸道
+author: Manny
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689598760_197011_8687.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689598760_197011_8687.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r155
+  - r024
+  - r133
+  - r006
+  - r052
+  - r008
+  - r057
+  - r089
+  - r064
+  - r062
+  - r033
+  - r066
+  - r091
+  - r038
+  - r116
+  - r071
+  - r135
+  - r070
+  - r017
+  - r041
+  - r117
+  - r077
+  - r641
+  - r021
+  - r141
+travellerIds: []
+fabledIds:
+  - r118
+  - r127
+nightOrder:
+  first:
+    - r155
+    - r066
+    - r024
+    - r141
+    - r017
+    - r052
+    - r041
+    - r117
+    - r064
+    - r071
+    - r006
+    - r133
+  other:
+    - r066
+    - r024
+    - r017
+    - r052
+    - r008
+    - r041
+    - r117
+    - r021
+    - r141
+    - r070
+    - r064
+    - r071
+    - r006
+    - r062
+    - r133

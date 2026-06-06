@@ -1,0 +1,85 @@
+id: s259
+englishName: item
+name: 囚死禁区
+status: draft
+en: 囚死禁区
+author: Lu
+logo: https://www.helloimg.com/i/2024/12/10/6757e55d51600.png
+description: 囚死禁区
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 囚死禁区
+image: https://www.helloimg.com/i/2024/12/10/6757e55d51600.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 囚死禁区
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r085
+  - r024
+  - r053
+  - r140
+  - r133
+  - r087
+  - r027
+  - r026
+  - r034
+  - r066
+  - r233
+  - r015
+  - r016
+  - r039
+  - r067
+  - r135
+  - r017
+  - r018
+  - r019
+  - r041
+  - r121
+  - r021
+  - r079
+  - r141
+travellerIds: []
+fabledIds:
+  - r1616
+nightOrder:
+  first:
+    - r066
+    - r039
+    - r121
+    - r024
+    - r141
+    - r017
+    - r041
+    - r097
+    - r085
+    - r140
+    - r087
+    - r018
+    - r133
+    - r053
+  other:
+    - r066
+    - r024
+    - r017
+    - r027
+    - r041
+    - r039
+    - r026
+    - r021
+    - r079
+    - r141
+    - r233
+    - r140
+    - r087
+    - r018
+    - r133
+    - r053

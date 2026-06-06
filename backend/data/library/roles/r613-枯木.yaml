@@ -5,7 +5,7 @@ type: demon
 edition: custom
 image: https://www.bloodstar.xyz/p/kuikuisama/guiyihuayuan/25_guiyihuayuan.png
 flavor: ''
-setup: false
+setup: true
 setupMeta:
   randomAssignable: false
   tokenRequired: true
@@ -20,19 +20,21 @@ setupMeta:
   setupNotes:
     - 初始配置不在场：不要将该角色加入初始随机直发池。
 reminders:
-  - 是恶魔
+  - 杀害
+  - 保留
+  - 诅咒发作
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: ''
-ability: 你的能力由祭品玩家的能力词语或能力类型构成。[初始配置不在场]
+otherNightReminder: 每个夜晚*，选择一名玩家，将他杀害。被你杀死的爪牙保留他的能力，如果你这么做了此后所有善良阵营受到诅咒不会生长并失去生长的效果。你不会生长。
+ability: 每个夜晚*，选择一名玩家，将他杀害。被你杀死的爪牙保留他的能力，如果你这么做了此后所有善良阵营受到诅咒不会生长并失去生长的效果。你不会生长。[-1外来者]
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r613
-    officialId: kumu
-    sourceHash: 98fe54231cfe7431a765f89f1bc9ab38fd43fafd
+    officialId: 25_guiyihuayuan
+    sourceHash: 1b720e49a72a10945c3bec07d7489ea6cc3f1434
     sourceHashFields:
       - ability
       - type
@@ -41,19 +43,22 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
   termIds:
     - night
-    - setup
+    - alignment
+    - good
+    - outsider
+    - minion
     - demon
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null
@@ -62,12 +67,7 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: setup_modifier
-        adjustments:
-          - type: outsider_count
-            min: -1
-            max: -1
-            source: '[-1外来者]'
-            note: 配置调整：外来者数量 -1。
+        adjustments: []
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

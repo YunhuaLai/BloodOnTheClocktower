@@ -4,7 +4,7 @@ name: 游歌者
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/qazwsxedc/aCup/3_acup.png
-flavor: ''
+flavor: 被我指尖点中的灵魂都将坠入梦境。当你们在酒精里踉跄时，我正数着震动的丝弦…三根？五根？这些数字会告诉我，究竟有多少‘诚实者’在甜梦里露出了谎言的形状。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r247
-    officialId: wandering-singer
+    officialId: xunchashaoihwronaklsndfkasnd
     sourceHash: 84b6fd7f3a55d1203f5bf5476c774445779dc698
     sourceHashFields:
       - ability
@@ -54,7 +54,7 @@ abilityData:
   abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

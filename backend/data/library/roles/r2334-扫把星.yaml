@@ -1,0 +1,87 @@
+id: r2334
+englishName: 3f257150-d53f-40db-8480-90a1f5d14105
+name: 扫把星
+type: outsider
+edition: custom
+image: https://i.postimg.cc/Y26gYSQz/扫把星.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: demon
+    shownRoleTypes:
+      - townsfolk
+    note: 身份覆盖：不要把酒鬼标记直接加入随机直发池；玩家应拿到一个镇民标记，酒鬼本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把酒鬼标记直接加入随机直发池；玩家应拿到一个镇民标记，酒鬼本体由说书人记录。
+reminders:
+  - 被处决
+remindersGlobal: []
+firstNightReminder: 为扫把星放置负伤标记。
+otherNightReminder: 如果扫把星放置了被处决标记，唤醒恶魔，询问他今晚是否要移动命运指针
+ability: 如果你被处决，在当晚，恶魔可以选择将命运指针拨动一格。你在首个夜晚负伤。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2334
+    officialId: 14_idesofbloodbra1nchinese
+    sourceHash: 9c13fa902e8053c9ca7a14d476dcc64c9b6a0468
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - execution
+    - outsider
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

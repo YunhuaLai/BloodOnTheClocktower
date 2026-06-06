@@ -1,0 +1,89 @@
+id: r4068
+englishName: captain-pandorasbox
+name: 船长 ¶
+type: outsider
+edition: custom
+image:
+  - https://i.vgy.me/MrV84o.png
+flavor: >-
+  What is it, what nameless, inscrutable, unearthly thing is it; what cozening, hidden lord and master, and cruel,
+  remorseless emperor commands me; Is it I, God, or who, that lifts this arm?
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 抛锚
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  If a Demon was killed other than by the Captain's execution & there are 5+ non-Travellers alive, they swap characters
+  with an alive evil (& then count as having died.)
+ability: 每局游戏限一次，在投票完成统计后，你可以公开宣布立刻执行处决。不因此原因死亡的恶魔在死亡前与一名爪牙交换角色，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4068
+    officialId: captain_pandorasbox
+    sourceHash: 8fa5b6aabaf85542b562812b59eec8ae1b81c5a6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - vote
+    - execution
+    - death
+    - outsider
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,100 @@
+id: r3260
+englishName: limbo
+name: 边狱·Limbo
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Svendetta/Purgatory/limbo_purgatory.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 第一日
+  - 第二日
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果上个白天和这个白天都没有处决发生，你和所有存活的外来者获胜，其他所有玩家落败。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3260
+    officialId: Limbo
+    sourceHash: 4b7c2e568975573649d22ef30fc9219865c743d6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+    - 事件触发
+  termIds:
+    - day
+    - setup
+    - execution
+    - alive
+    - outsider
+    - demon
+  abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: setup
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

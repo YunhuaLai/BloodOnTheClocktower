@@ -1,0 +1,88 @@
+id: r2321
+englishName: 9c2b6a0f-6f86-48e7-80d6-08442c294072
+name: 谏官
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_3032339077861_ee26449f.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 上个白天
+  - 不会被唤醒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果被你提名的玩家（与上个白天不同）是邪恶玩家，他当晚不会因其自身能力而被唤醒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2321
+    officialId: 9c2b6a0f-6f86-48e7-80d6-08442c294072
+    sourceHash: c353bef20bc8eedd548e648ef68573100df9467c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - nomination
+    - evil
+    - townsfolk
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

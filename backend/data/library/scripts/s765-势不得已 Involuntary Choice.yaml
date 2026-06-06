@@ -1,0 +1,83 @@
+id: s765
+englishName: involuntary-choice
+name: 势不得已 Involuntary Choice
+status: draft
+en: 势不得已 Involuntary Choice
+author: TDA & Lady Mist
+logo: https://free.picui.cn/free/2025/12/21/6947d12eabb7d.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/21/6947d12eabb7d.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r108
+  - r100
+  - r597
+  - r140
+  - r051
+  - r052
+  - r4039
+  - r027
+  - r484
+  - r3477
+  - r057
+  - r563
+  - r4040
+  - r254
+  - r016
+  - r369
+  - r4041
+  - r3972
+  - r4004
+  - r237
+  - r045
+  - r3964
+  - r079
+  - r114
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r3964
+    - r052
+    - r3972
+    - r045
+    - r4041
+    - r4004
+    - r051
+    - r597
+    - r049
+    - r140
+    - r108
+    - r100
+  other:
+    - r3972
+    - r027
+    - r484
+    - r052
+    - r4039
+    - r4041
+    - r4004
+    - r045
+    - r3964
+    - r079
+    - r114
+    - r237
+    - r254
+    - r597
+    - r563
+    - r051
+    - r140

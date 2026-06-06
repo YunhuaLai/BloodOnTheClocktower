@@ -1,0 +1,100 @@
+id: r1250
+englishName: 4-the-radiance-descends
+name: 国王
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/king.png
+flavor: https://i.postimg.cc/GpLssMjP/image.png
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: '如果国王在场，对恶魔展示国王角色标记并指向国王玩家。 '
+otherNightReminder: 如果死亡玩家人数大于存活玩家，唤醒国王并对其展示一个存活的角色标记。
+ability: '每个夜晚，如果死亡的玩家数量大于或等于存活的玩家数量，你会得知一个存活的角色。恶魔知道你是国王。 '
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1250
+    officialId: king_c
+    sourceHash: d2812c3cb497cc4de0d85d519961582107b7adb0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - alive
+    - townsfolk
+    - demon
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

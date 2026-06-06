@@ -4,7 +4,7 @@ type: demon
 englishName: kazali
 ability: 每个夜晚*，你要选择一名玩家：他死亡。[由你决定谁是什么爪牙，-或+任意数量外来者]
 edition: custom
-image: https://i.postimg.cc/X7PBBffv/Kazali.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/kazali.png
 flavor: ''
 setup: true
 setupMeta:
@@ -22,15 +22,16 @@ setupMeta:
 reminders:
   - 死亡
 remindersGlobal: []
-firstNightReminder: ''
-otherNightReminder: ''
+firstNightReminder: 唤醒卡扎力，让他选择玩家变成邪恶爪牙。
+otherNightReminder: 唤醒卡扎力，让他攻击一名玩家。
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r095
-    officialId: kazali
-    sourceHash: a5599b00b1f4ce1612c4645816c7d98ed8efe019
+    officialId: 23_xindalu
+    sourceHash: 3a244a43627f340a4fa49de3828bc5829061a603
     sourceHashFields:
       - ability
       - type
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 开局
     - 每晚
@@ -54,8 +57,8 @@ abilityData:
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: special
       event: null

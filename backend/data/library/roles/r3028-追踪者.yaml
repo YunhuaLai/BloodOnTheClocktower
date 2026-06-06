@@ -1,0 +1,99 @@
+id: r3028
+englishName: manstalker-the-delta-expedition
+name: 追踪者
+type: minion
+edition: custom
+image: https://i.postimg.cc/GpYRMg4s/seeker-shadowed-intentions.png
+flavor: 弱者，尔之消亡仅是时间问题。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 猎物
+  - 错误
+remindersGlobal: []
+firstNightReminder: Wake up the Prey and show them 2 players, one of which is the Seeker.
+otherNightReminder: ''
+ability: 一名善良玩家得知你在两名玩家之中。每个白天限一次，你可以公开猜测一名死亡的玩家得知了你在场，如果猜对，邪恶阵营获胜。如果你存活，善良阵营无法获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3028
+    officialId: 18_si
+    sourceHash: 2e9826247cdad7173fc52a0a32ab40f593f41a2a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

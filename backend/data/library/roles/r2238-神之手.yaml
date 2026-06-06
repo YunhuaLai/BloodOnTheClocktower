@@ -1,0 +1,109 @@
+id: r2238
+englishName: 24-darkage
+name: 神之手
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/C2H43g/DarkAge/24_darkage.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 献祭
+  - 保留能力
+  - 得知线索
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 选择一名玩家，然后决定是否献祭爪牙
+ability: 每个夜晚*，你选择一名玩家，他死亡，整局游戏限一次 ，你可以额外杀死一名爪牙，然后向说书人提出一条打破规则的建议，但会有一名善良玩家得知一条与之相关的线索。被你杀死的爪牙会保留能力
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2238
+    officialId: 24_darkage
+    sourceHash: 31ef43672c476b2fb01c9022adc24b464b2f4a48
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - information
+    - death
+    - good
+    - minion
+    - demon
+    - storyteller
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

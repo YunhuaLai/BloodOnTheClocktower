@@ -1,0 +1,110 @@
+id: r3045
+englishName: grave-diggerr
+name: 掘墓人
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/WedgeMcCloud/BeyondGoodAndEvil-V3/gravedigger_beyondgoodandevilv3.png
+flavor: >-
+  After all the flowery words are said and pretty tears are shed, they all leave the real work to me... but at the end
+  of it all, I get the final say... Now let's see if this one is useful.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 投票
+  - 死于今日
+  - 复活
+  - 中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果有玩家今天白天死于处决，向掘墓人展示该玩家的角色标记。如果掘墓人曾在该次处决中投票：如果他点头，那名玩家复活。否则，所有曾给那名玩家投票的存活镇民中毒直到下个黄昏。
+ability: 每个夜晚*，你会得知今天白天死于处决的玩家的角色。如果你在这项提名中投过票，你可以选择复活白天死于处决的玩家(每局游戏限一次)，或选择让在这项提名中投过票的存活镇民中毒直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3045
+    officialId: gravedigger_beyondgoodandevilv3
+    sourceHash: a7f189fb98d63b84878bcd1e28fff46f7dc7ad02
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - poisoned
+    - information
+    - nomination
+    - execution
+    - alive
+    - townsfolk
+    - minion
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: townsfolk
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

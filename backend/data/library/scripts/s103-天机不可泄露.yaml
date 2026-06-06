@@ -1,0 +1,87 @@
+id: s103
+englishName: item
+name: 天机不可泄露
+status: draft
+en: 天机不可泄露
+author: 奈何&amp;大庭
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/96/7rxnznqnj1irkd5gzg6wvoirda11fy1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/96/7rxnznqnj1irkd5gzg6wvoirda11fy1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r594
+  - r442
+  - r058
+  - r057
+  - r597
+  - r319
+  - r607
+  - r823
+  - r1084
+  - r1085
+  - r1086
+  - r1087
+  - r119
+  - r067
+  - r1088
+  - r1089
+  - r1090
+  - r121
+  - r1091
+  - r379
+  - r1092
+  - r114
+  - r642
+  - r1093
+  - r1094
+travellerIds: []
+fabledIds:
+  - r1095
+  - r1096
+  - r1097
+nightOrder:
+  first:
+    - r1092
+    - r121
+    - r1089
+    - r379
+    - r1091
+    - r594
+    - r1085
+    - r058
+    - r597
+    - r442
+    - r642
+    - r100
+    - r1087
+    - r1097
+  other:
+    - r1092
+    - r607
+    - r1093
+    - r114
+    - r642
+    - r1094
+    - r442
+    - r1090
+    - r1088
+    - r058
+    - r597
+    - r1086
+    - r594
+    - r1087
+    - r1097

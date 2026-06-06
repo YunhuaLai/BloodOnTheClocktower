@@ -4,8 +4,8 @@ type: outsider
 englishName: mutant
 ability: 如果你“疯狂”地证明自己是外来者，你可能被处决。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/mutant.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/mutant.png
+flavor: 我不是怪物！我是人！求你了！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r067
-    officialId: mutant
+    officialId: zhadiaole111
     sourceHash: be778cdd27726972e0674ce2f2516f0290da3bf5
     sourceHashFields:
       - ability
@@ -39,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 疯狂机制
@@ -50,7 +52,7 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

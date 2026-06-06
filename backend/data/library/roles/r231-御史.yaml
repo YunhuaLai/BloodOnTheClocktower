@@ -3,7 +3,7 @@ englishName: imperial-censor
 name: 御史
 type: townsfolk
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/amnesiac.png
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/e/ea/qnx7s455q9wsyrwc3jsk6qg6q7hwtdf.png
 flavor: ''
 setup: true
 setupMeta:
@@ -36,7 +36,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r231
-    officialId: imperial-censor
+    officialId: shiyizhezhezhezhe
     sourceHash: c38fdcd6d470e23edcccdcc91c1bccf9b4804387
     sourceHashFields:
       - ability
@@ -46,8 +46,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 设置
@@ -64,8 +64,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

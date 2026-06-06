@@ -4,7 +4,7 @@ name: 治安官
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/usersave/static_h/sta/7_sta.png
-flavor: ''
+flavor: 小心点伙计们，这里的地板湿透啦。我不想今晚有任何人受伤。别喝太多！让我们度过一个安全愉快的夜晚，好吗？
 setup: false
 setupMeta:
   randomAssignable: true
@@ -20,6 +20,8 @@ setupMeta:
   setupNotes: []
 reminders:
   - 选择
+  - 选择
+  - 选择
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
@@ -30,8 +32,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r355
-    officialId: sheriff
-    sourceHash: ec57a2d554b038529388a2d396cb5f227c66a459
+    officialId: zhianguan
+    sourceHash: 6354d866a9252cd7bd32aae2f0e55c9aee127295
     sourceHashFields:
       - ability
       - type
@@ -40,8 +42,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 设置
@@ -58,8 +60,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

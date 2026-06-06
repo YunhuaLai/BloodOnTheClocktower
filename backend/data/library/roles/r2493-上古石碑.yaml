@@ -1,0 +1,83 @@
+id: r2493
+englishName: shengjiezhipo
+name: 上古石碑
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/TwinCity/25_twincity.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 以为邪恶
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: ①最多只会有一名善良玩家转变为邪恶，当有更多的玩家将要转变为邪恶阵营时，他们可能会以为自己转变为邪恶阵营。②地城领主无法让玩家转变阵营。③如果惨绝戏子在场，当只有两名玩家实际存活时，善良阵营获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2493
+    officialId: shengjiezhipo
+    sourceHash: eefd33df9bbcefc30e17c0bb14245c801caea66a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - alive
+    - alignment
+    - good
+    - evil
+    - fabled
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

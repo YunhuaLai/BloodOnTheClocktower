@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r628
-    officialId: exchange-student
+    officialId: sihuoshangren
     sourceHash: bc9db50ec79bf527d92fb0321215c5c2a0a2ad5a
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
   termIds:
@@ -52,8 +52,8 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

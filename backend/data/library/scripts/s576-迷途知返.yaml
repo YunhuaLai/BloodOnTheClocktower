@@ -1,0 +1,85 @@
+id: s576
+englishName: item
+name: 迷途知返
+status: draft
+en: 迷途知返
+author: 栉风
+logo: https://i.postimg.cc/MKssZR7J/mi-tu-zhi-fan-LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/MKssZR7J/mi-tu-zhi-fan-LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r048
+  - r053
+  - r005
+  - r051
+  - r053
+  - r008
+  - r055
+  - r058
+  - r062
+  - r057
+  - r010
+  - r009
+  - r065
+  - r016
+  - r015
+  - r037
+  - r039
+  - r070
+  - r018
+  - r020
+  - r040
+  - r075
+  - r083
+  - r082
+  - r080
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r040
+    - r075
+    - r001
+    - r005
+    - r048
+    - r051
+    - r058
+    - r018
+    - r053
+    - r053
+  other:
+    - r008
+    - r075
+    - r020
+    - r039
+    - r082
+    - r083
+    - r080
+    - r040
+    - r037
+    - r070
+    - r009
+    - r005
+    - r051
+    - r055
+    - r058
+    - r062
+    - r018
+    - r053
+    - r053

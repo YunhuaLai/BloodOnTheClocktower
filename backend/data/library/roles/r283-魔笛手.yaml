@@ -4,7 +4,7 @@ name: 魔笛手
 type: minion
 edition: custom
 image: https://free.picui.cn/free/2025/09/12/68c3fe1fb18df.png
-flavor: ''
+flavor: 嘟嘟。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -32,7 +32,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r283
-    officialId: pied-piper
+    officialId: 24_sanshenmiti
     sourceHash: cebbfe032d4546b56e5e2c7ecd4e6ca8157b0e3f
     sourceHashFields:
       - ability
@@ -42,8 +42,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

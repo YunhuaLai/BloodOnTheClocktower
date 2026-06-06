@@ -1,0 +1,86 @@
+id: r3631
+englishName: diyrole14
+name: ”疯狂“
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/librarypimp21/Pedagogic_Pits_And_Pendulums/mad_pedagogic_pits_and_pendulums.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: outsider
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+reminders:
+  - 抽象の意外
+remindersGlobal:
+  - 是”疯狂“
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你以为你是一个剧本外的角色，但其实你不是。如果你的阵营即将落败，你的能力可能会生效。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3631
+    officialId: diyRole14
+    sourceHash: 330ef068fe8c01458784c0cbb9b73b88010604fa
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - alignment
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

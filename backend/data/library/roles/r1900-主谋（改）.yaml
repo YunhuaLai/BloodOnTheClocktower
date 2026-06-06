@@ -1,0 +1,112 @@
+id: r1900
+englishName: zheshigeyizi111
+name: 主谋（改）
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/mastermind.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死于处决
+  - 选择
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果白天恶魔死于处决，唤醒主谋，让他选择等同于游戏天数的玩家（必须包括自己），然后在黎明时告诉所有玩家主谋在他选择的玩家之中。
+ability: 如果恶魔死于处决，游戏不会结束：当晚你要选择至多等同于游戏天数的玩家（必须包含自己）：所有玩家得知主谋在你们之中，下个白天如果你们之中没有玩家被处决，你的阵营获胜，否则被处决玩家的阵营落败。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1900
+    officialId: zheshigeyizi111
+    sourceHash: ee80d33b442286f3bbf78164facf7ed46461f539
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - execution
+    - alignment
+    - minion
+    - demon
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

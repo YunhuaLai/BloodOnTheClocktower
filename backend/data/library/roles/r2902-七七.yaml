@@ -1,0 +1,81 @@
+id: r2902
+englishName: 13-the-favonius-mystery-de
+name: 七七
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Jerry0906/The_favonius_Mystery_DE/13_the_favonius_mystery_de.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 活尸
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果七七死亡，把七七的「活尸」标记放在第一個被惡魔提名的玩家的角色标记旁边。
+ability: 如果你死亡，第一個被惡魔提名的玩家不計入邪惡陣營獲勝時的人數。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2902
+    officialId: 13_the_favonius_mystery_de
+    sourceHash: e6d0f398d2e6675bd7fb74d612d03c335f295a10
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - nomination
+    - death
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

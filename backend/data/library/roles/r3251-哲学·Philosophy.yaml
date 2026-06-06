@@ -1,0 +1,95 @@
+id: r3251
+englishName: philosophy
+name: 哲学·Philosophy
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Svendetta/Purgatory/philosophy_purgatory.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 思考
+  - 已猜测
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 一名玩家会被当作与他所拥有的罪值相差1的镇民，即使你已死亡。每局游戏限一次，你可以猜测谁是那个玩家，如果猜测正确，你会得知一条有用的建议；如果猜测错误，你会得知错误的“有用的建议”。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3251
+    officialId: Philosophy
+    sourceHash: 46369fc189abb16f05be60ccc98b46b775aa614d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 信息型
+  termIds:
+    - information
+    - death
+    - townsfolk
+    - outsider
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_death
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: once_per_game
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

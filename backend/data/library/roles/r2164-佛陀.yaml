@@ -1,0 +1,97 @@
+id: r2164
+englishName: c47b228a-6755-4ac5-be55-89a0b4256973
+name: 佛陀
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_908027832071_d4a96c3b.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 佛陀每晚都可以得知一个当晚顿悟的角色，若他这么做了，他顿悟，并告知他获得的顿悟能力。
+otherNightReminder: 佛陀每晚都可以得知一个当晚顿悟的角色，若他这么做了，他顿悟，并告知他获得的顿悟能力。
+ability: 每个夜晚，你可以得知一个当晚顿悟的角色。你不会变成太岁。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2164
+    officialId: c47b228a-6755-4ac5-be55-89a0b4256973
+    sourceHash: 696d80c2f074eefea1a1d311f50315a27a40e101
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - townsfolk
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

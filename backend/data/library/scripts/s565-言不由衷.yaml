@@ -1,0 +1,84 @@
+id: s565
+englishName: item
+name: 言不由衷
+status: draft
+en: 言不由衷
+author: 上海7221俱乐部
+logo: https://i.postimg.cc/4xf1cmTx/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/4xf1cmTx/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r097
+  - r025
+  - r140
+  - r086
+  - r055
+  - r091
+  - r089
+  - r134
+  - r058
+  - r115
+  - r012
+  - r088
+  - r072
+  - r039
+  - r015
+  - r037
+  - r078
+  - r641
+  - r075
+  - r020
+  - r047
+  - r136
+  - r021
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r115
+    - r095
+    - r039
+    - r078
+    - r075
+    - r136
+    - r097
+    - r058
+    - r140
+    - r134
+    - r086
+    - r100
+    - r025
+  other:
+    - r088
+    - r075
+    - r020
+    - r039
+    - r021
+    - r047
+    - r136
+    - r095
+    - r037
+    - r055
+    - r058
+    - r140
+    - r134
+    - r086
+    - r025

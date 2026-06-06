@@ -1,0 +1,85 @@
+id: r2533
+englishName: longmenbiaoju
+name: 龙门镖局
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1722264621_197011_6829.png
+flavor: “梁子土了点的，里腥把合着，河吾——”
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 东家
+  - 失标
+remindersGlobal: []
+firstNightReminder: 在为首个夜晚进行准备时，将龙门镖局的“东家”提示标记放置在任意一名非恶魔的角色标记旁。唤醒“东家”标记的玩家，展示“这个角色在场”和“龙门镖局”的角色标记。
+otherNightReminder: ''
+ability: 始终有一名存活的非恶魔玩家知道龙门镖局在场，直到你中毒或者醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2533
+    officialId: LongMenBiaoJu
+    sourceHash: f0a37f04645d60d38d704a53b812dd230d43286e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+  termIds:
+    - first-night
+    - poisoned
+    - drunk
+    - alive
+    - townsfolk
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

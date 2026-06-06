@@ -5,7 +5,7 @@ englishName: seamstress
 ability: 每局游戏限一次，在夜晚时，你可以选择除你以外的两名玩家：你会得知他们是否为同一阵营。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/seamstress.png
-flavor: ''
+flavor: “你听到那个穿羊绒大衣的家伙对我们小贝尔说什么了吗？他说……‘好’？哎，行吧，和哈利还有那个杂耍艺人那一出相比，这算不了什么。说什么？我可不说，我又不是什么长舌妇。”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r058
-    officialId: seamstress
+    officialId: lingluowawa111
     sourceHash: d21f08d9e722c75a56c0f8a3a6c33c8cba690c00
     sourceHashFields:
       - ability
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 一次性
     - 主动选玩家
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: night
       event: null

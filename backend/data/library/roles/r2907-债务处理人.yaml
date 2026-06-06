@@ -1,0 +1,84 @@
+id: r2907
+englishName: 18-the-favonius-mystery-de
+name: 债务处理人
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Jerry0906/The_favonius_Mystery_DE/18_the_favonius_mystery_de.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 被處決
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果白天债务处理人使用过技能，在他的角色标记旁边放置「失去能力」标记。如果这是他第一次使用能力且被他处决的玩家是外来者则无事发生并告知他已重获能力。
+ability: 每局游戏限一次，當你發起提名時，你可以公开声称你是债务处理人，并喊出：償債吧！隨後，如果被你提名的玩家不是尘世执政，他被处决。如果你首次以自身能力杀死了一名外来者，當晚你重获能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2907
+    officialId: 18_the_favonius_mystery_de
+    sourceHash: 2b6fd02b610b6b834b0dd2873bc2742f68cb6e2e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - nomination
+    - execution
+    - death
+    - outsider
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

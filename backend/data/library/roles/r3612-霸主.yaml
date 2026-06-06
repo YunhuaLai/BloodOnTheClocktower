@@ -1,0 +1,83 @@
+id: r3612
+englishName: diyrole23
+name: 霸主
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Nightingale/Princesses_Requiem/thehegemon_princesses_requiem.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒霸主，告诉他获得了哪个不在场爪牙的能力。
+otherNightReminder: 会有一名玩家死亡。
+ability: 每个夜晚*，会有一名玩家死亡。你拥有一个不在场的爪牙角色的能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3612
+    officialId: diyRole23
+    sourceHash: 1f9f3de46a6a0edd653f9d32436063462be55c5e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - death
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

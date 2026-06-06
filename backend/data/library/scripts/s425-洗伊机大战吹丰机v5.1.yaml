@@ -1,0 +1,85 @@
+id: s425
+englishName: v5-1
+name: 洗伊机大战吹丰机v5.1
+status: draft
+en: 洗伊机大战吹丰机v5.1
+author: KNitrate
+logo: https://www.helloimg.com/i/2025/12/14/693eb0e3c58d7.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2025/12/14/693eb0e3c58d7.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r022
+  - r002
+  - r048
+  - r025
+  - r024
+  - r053
+  - r028
+  - r055
+  - r229
+  - r029
+  - r057
+  - r060
+  - r033
+  - r119
+  - r038
+  - r071
+  - r159
+  - r041
+  - r042
+  - r121
+  - r641
+  - r302
+  - r045
+  - r141
+  - r683
+travellerIds:
+  - r737
+  - r1800
+fabledIds:
+  - r158
+  - r118
+  - r1801
+nightOrder:
+  first:
+    - r683
+    - r071
+    - r121
+    - r024
+    - r141
+    - r302
+    - r041
+    - r045
+    - r002
+    - r048
+    - r025
+    - r053
+  other:
+    - r024
+    - r302
+    - r028
+    - r229
+    - r041
+    - r045
+    - r683
+    - r141
+    - r042
+    - r029
+    - r159
+    - r055
+    - r025
+    - r053

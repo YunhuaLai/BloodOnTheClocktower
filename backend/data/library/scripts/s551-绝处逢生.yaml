@@ -1,0 +1,90 @@
+id: s551
+englishName: item
+name: 绝处逢生
+status: draft
+en: 绝处逢生
+author: 仅贰宫
+logo: https://i.postimg.cc/XvH49BcG/LOGO-copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/XvH49BcG/LOGO-copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r101
+  - r055
+  - r033
+  - r028
+  - r063
+  - r025
+  - r142
+  - r005
+  - r056
+  - r007
+  - r053
+  - r052
+  - r1250
+  - r072
+  - r037
+  - r214
+  - r038
+  - r074
+  - r017
+  - r041
+  - r040
+  - r076
+  - r103
+  - r021
+  - r141
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r1250
+    - r101
+    - r141
+    - r103
+    - r017
+    - r052
+    - r040
+    - r041
+    - r074
+    - r005
+    - r142
+    - r025
+    - r053
+  other:
+    - r101
+    - r017
+    - r028
+    - r052
+    - r041
+    - r074
+    - r076
+    - r021
+    - r141
+    - r103
+    - r040
+    - r214
+    - r063
+    - r037
+    - r005
+    - r007
+    - r055
+    - r056
+    - r1250
+    - r142
+    - r025
+    - r053

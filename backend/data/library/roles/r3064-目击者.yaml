@@ -1,0 +1,101 @@
+id: r3064
+englishName: witness
+name: 目击者
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/cJJBHKvx/witness.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果今晚有玩家死亡：唤醒目击者，指向今晚死亡的玩家，并指向剧本列表上的角色类型。如果目击者今天从黎明开始被其他玩家使用其自身能力选择，为他放置“醉酒”标记。
+ability: 每个夜晚*，你会得知一名今晚死亡的玩家，以及杀死他的玩家的角色类型。如果你今天从黎明开始被其他玩家使用其自身能力选择，你醉酒直至下个黎明。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3064
+    officialId: witness
+    sourceHash: 399503ea8943077d3d10bf24ae3bbbc52076e9a6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - drunk
+    - information
+    - death
+    - townsfolk
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

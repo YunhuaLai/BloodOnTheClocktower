@@ -1,0 +1,137 @@
+id: r834
+englishName: 20827-8689
+name: 糊涂侦探
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1691596243_197011_6920.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 他是凶手
+  - 查验
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 糊涂侦探在白天声明后为那名角色做“他是凶手”标记，如果他是镇民且在夜晚死亡，则唤醒糊涂侦探，让他选择一名玩家并标记。破晓时再次唤醒糊涂侦探，向他展示那名玩家的身份类型。
+ability: 每个白天，你可以公开选择一名存活的玩家。如果被你选择过的玩家是镇民且在当晚死亡，你会被唤醒，然后你要选择一名玩家：破晓时，你会得知他的角色类型。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r834
+    officialId: '20827_8689'
+    sourceHash: 184399c70844187a6d6644e4166245b7be69a22d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - death
+    - alive
+    - townsfolk
+  abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：目标身份信息
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

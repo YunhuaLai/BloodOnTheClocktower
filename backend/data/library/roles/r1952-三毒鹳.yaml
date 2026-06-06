@@ -1,0 +1,96 @@
+id: r1952
+englishName: sanduhuan
+name: 三毒鹳
+type: demon
+edition: custom
+image: https://s2.loli.net/2025/07/30/FJr8fmaCKLeoQvS.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 疾恶
+  - 毒护
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个夜晚*，你可以分配四层疾恶在任意玩家身上。你和某个爪牙不会获得疾恶。昌隆可能无效。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1952
+    officialId: sanduhuan
+    sourceHash: a01bc69530a51c893f513312c1079ae26942d01f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - outsider
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: protect_player
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

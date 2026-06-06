@@ -1,0 +1,110 @@
+id: r2353
+englishName: mfzyx-9
+name: 烟火师
+type: demon
+edition: custom
+image: https://s2.loli.net/2025/09/07/Oq3PcJ5LgvmHSid.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 烟火
+  - 得知
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 每个夜晚*，你可以选择一名玩家：他获得一个烟火，拥有烟火的玩家在被提名时会死亡。拥有烟火的玩家会在拥有烟火的下一晚得知并可以传递烟火，若一名玩家拥有超过一个烟火，他和他一名邻近的玩家立即死亡。
+ability: 每个夜晚*，你可以选择一名玩家：他获得一个烟火，拥有烟火的玩家在被提名时会死亡。拥有烟火的玩家会在拥有烟火的下一晚得知并可以传递烟火，若一名玩家拥有超过一个烟火，他和他一名邻近的玩家立即死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2353
+    officialId: mfzyx_9
+    sourceHash: 3c164a3b2067ae5f65c13d4abf28dd40d1bc7e85
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - nomination
+    - death
+    - demon
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

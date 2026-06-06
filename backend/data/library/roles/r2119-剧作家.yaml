@@ -1,0 +1,97 @@
+id: r2119
+englishName: 15-bbb
+name: 剧作家
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Pip/Revolution_of_a_Lifetime/playwright_revolution_of_a_lifetime.png
+flavor: 'A production of a lifetime. The drama! The ambiance... The messaging. All, perfect. '
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 选择
+remindersGlobal: []
+firstNightReminder: '1'
+otherNightReminder: '1'
+ability: 每个夜晚，你要选择一名玩家。当你死亡时，你会得知你选择过的玩家中有多少名邪恶玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2119
+    officialId: playwright_revolution_of_a_lifetime
+    sourceHash: 4210be37b52abe0d65e16487664c7b1cd66194a7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - evil
+    - townsfolk
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

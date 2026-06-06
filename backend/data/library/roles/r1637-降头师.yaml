@@ -1,0 +1,110 @@
+id: r1637
+englishName: 265da8c1-42222220a1-4dda-aaf8-7aa28c2bb39e
+name: 降头师
+type: minion
+edition: custom
+image: https://www.helloimg.com/i/2024/09/14/66e46a76c4558.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 情降
+  - 鬼降
+  - 抱猫自杀
+  - 复活
+remindersGlobal: []
+firstNightReminder: 下情降还是鬼降？
+otherNightReminder: 下情降还是鬼降？【黑猫在的话，你可以自杀然后继续下降或者复活某人。】
+ability: >-
+  每个夜晚，你可以施展降头术，每种降头能够施展一次。情降：选择两名玩家：其中一人死亡时，另一人也会死亡；鬼降：选择一名玩家，如果他抱起黑猫，当晚他将杀死一名存活的恶魔并变成该恶魔。【当你抱着黑猫，当夜你可以自杀并选择其中一项：1.继续施展降头；2.让一名非恶魔玩家在次日复活】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1637
+    officialId: 265da8c1-42222220a1-4dda-aaf8-7aa28c2bb39e
+    sourceHash: f1be3cb09cb65e2488ee2f1732d3a6fad3110fff
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,102 @@
+id: r2628
+englishName: 29-a-bad-example
+name: 深渊巨口
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/ZhaoMarsh/A_Bad_Example/29_a_bad_example.png
+flavor: 这个说书人还蛮好吃的，鸡肉味儿，嘎嘣脆~
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果深渊巨口死于处决，向他展示魔典。
+ability: 如果你死于处决，你可以在黎明前查看魔典，且在黄昏时你可以选择成为夜晚的说书人，之后你可以任意地投票且对你的提名无效。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2628
+    officialId: 29_a_bad_example
+    sourceHash: daf3cf880690796242fc1b00940fa533b46010bb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - nomination
+    - vote
+    - execution
+    - minion
+    - storyteller
+    - grimoire
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

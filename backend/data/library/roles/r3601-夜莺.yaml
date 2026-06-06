@@ -1,0 +1,86 @@
+id: r3601
+englishName: diyrole8
+name: 夜莺
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Nightingale/Princesses_Requiem/nighthawk_princesses_requiem.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 疯狂
+  - 伤害
+  - 今晚伤害
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如技能条件触发，且夜莺曾在白天“疯狂”地证明角色在场，那么对应在场角色死亡。
+ability: 每个夜晚*，如果从上个黎明到你被唤醒时有邪恶玩家死亡且你曾在白天“疯狂”地证明你是一个在场的角色，你所证明的那个在场角色会死亡(你不会因此死亡)。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3601
+    officialId: diyRole8
+    sourceHash: 2d34dd26fa8ff91837f2fe4c4743fd4b5a6bb511
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - death
+    - evil
+    - townsfolk
+    - madness
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

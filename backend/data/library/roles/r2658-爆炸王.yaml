@@ -1,0 +1,94 @@
+id: r2658
+englishName: 5-goosegooseduck
+name: 爆炸王
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/victor647/GooseGooseDuck/5_goosegooseduck.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 传递过
+  - 持有炸弹
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒玩家并让玩家选择另一名玩家放置炸弹，可以不选。唤醒收到炸弹的玩家并询问是否继续传递。如果炸弹第二次传到同一名玩家，直接引爆炸弹，该玩家死亡且不会被唤醒。
+ability: 每个夜晚*，你可以选择一名除你以外的玩家：他会收到炸弹并要选择：炸弹爆炸自己死亡，或将炸弹传给另一位玩家。如果鹅将炸弹传给了另一只鹅，或炸弹传了第四次，则炸弹立刻爆炸：收到炸弹的玩家死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2658
+    officialId: 5_goosegooseduck
+    sourceHash: 4e2a1845cd099f9d1defdec1bdf3214692199f47
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

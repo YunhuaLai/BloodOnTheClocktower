@@ -1,0 +1,100 @@
+id: r3382
+englishName: hecatombthewizardsmeetrework
+name: 百牲祭
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/twf07wfz/TheWizardsMeetRework/hecatomb_thewizardsmeetrework.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 牺牲
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  Ask the Hecatomb if they'd like to die (if less than 4 players are alive, they cannot). If yes, kill the Hecatomb. If
+  the Hecatomb is dead, place the "Sacrificed" token on them. No Townsfolk Spells can be cast tonight.
+ability: 在你死亡的当晚，镇民的咒语不会被抽中。每个夜晚*，如果大于等于五名玩家存活，你可以选择死亡。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3382
+    officialId: hecatombthewizardsmeetrework
+    sourceHash: be98c53c049f52d793d3ee98e0d888810bd96896
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - death
+    - alive
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

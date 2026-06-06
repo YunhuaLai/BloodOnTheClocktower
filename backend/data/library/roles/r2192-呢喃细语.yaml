@@ -1,0 +1,81 @@
+id: r2192
+englishName: 6eb4d52c-ef4e-485e-8bf4-b1eed12476ac
+name: 呢喃细语
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_2477428832071_1a668a15.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 呢喃细语
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个白天，你要发表一些毫无关联的言论或疯狂的呓语，否则你顿悟或死亡。[顿悟可获得，获得概率极大]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2192
+    officialId: 6eb4d52c-ef4e-485e-8bf4-b1eed12476ac
+    sourceHash: b2577acaaf38185d7a5f9e3502b336e8574824b5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - day
+    - death
+    - madness
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

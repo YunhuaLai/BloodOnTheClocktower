@@ -1,0 +1,93 @@
+id: r3491
+englishName: 12-bundagee-inn-massacre-bigyellowfish
+name: 工会成员
+type: townsfolk
+edition: custom
+image: >-
+  https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/12_bundagee_inn_massacre_bigyellowfish.png
+flavor: 有段时间你会觉得操作机器是如此令人厌恶，让你由内至外感到恶心，以至于无法工作；你甚至无法被动地进行工作，你必须把你的身体放在齿轮上，轮子上，杠杆上，以及所有设备上，你必须让它停止！
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 是工会成员
+  - 中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 当你首次提名并处决一名玩家时，你获得他的能力。如果他是邪恶的，你中毒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3491
+    officialId: 12_bundagee_inn_massacre_bigyellowfish
+    sourceHash: 7a3c9dafc869a15f39d466b77c35a4723fb94825
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - poisoned
+    - nomination
+    - execution
+    - evil
+    - townsfolk
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

@@ -1,0 +1,116 @@
+id: r829
+englishName: pibaogongsi
+name: 皮包公司
+type: townsfolk
+edition: custom
+image: https://img.picui.cn/free/2025/04/04/67eeccc9e9f3e.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 在场
+  - 伪装
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知一个在场的善良角色。如果你在夜晚死亡，你会得知一个恶魔的伪装。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r829
+    officialId: pibaogongsi
+    sourceHash: 7642bba4d063353a17bc8272b4c64151cf525f97
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - good
+    - townsfolk
+    - outsider
+    - demon
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: learn_role
+        roleType: outsider
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

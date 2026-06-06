@@ -1,0 +1,83 @@
+id: s426
+englishName: item
+name: 你是好人嘛！！？
+status: draft
+en: 你是好人嘛！！？
+author: 饼干
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r108
+  - r085
+  - r307
+  - r232
+  - r057
+  - r140
+  - r006
+  - r055
+  - r007
+  - r329
+  - r606
+  - r233
+  - r544
+  - r015
+  - r159
+  - r068
+  - r069
+  - r302
+  - r093
+  - r336
+  - r020
+  - r021
+  - r683
+  - r082
+  - r568
+travellerIds: []
+fabledIds:
+  - r1739
+  - r1802
+  - r1050
+nightOrder:
+  first:
+    - r683
+    - r336
+    - r544
+    - r302
+    - r093
+    - r006
+    - r085
+    - r140
+    - r108
+    - r307
+  other:
+    - r302
+    - r329
+    - r093
+    - r020
+    - r021
+    - r082
+    - r683
+    - r568
+    - r606
+    - r068
+    - r159
+    - r006
+    - r007
+    - r232
+    - r055
+    - r140

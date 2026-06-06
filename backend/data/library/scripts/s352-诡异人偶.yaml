@@ -1,0 +1,82 @@
+id: s352
+englishName: item
+name: 诡异人偶
+status: draft
+en: 诡异人偶
+author: Ben & Jams
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/9c/f7t235m748j6cvnj87m3lna2o3e5p46.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/9c/f7t235m748j6cvnj87m3lna2o3e5p46.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r009
+  - r012
+  - r052
+  - r058
+  - r060
+  - r062
+  - r088
+  - r101
+  - r134
+  - r1250
+  - r1251
+  - r066
+  - r214
+  - r067
+  - r070
+  - r072
+  - r159
+  - r017
+  - r040
+  - r107
+  - r840
+  - r141
+travellerIds: []
+fabledIds:
+  - r1738
+nightOrder:
+  first:
+    - r066
+    - r1250
+    - r101
+    - r141
+    - r017
+    - r840
+    - r052
+    - r040
+    - r107
+    - r088
+    - r058
+    - r134
+  other:
+    - r066
+    - r101
+    - r017
+    - r840
+    - r214
+    - r052
+    - r107
+    - r141
+    - r040
+    - r070
+    - r159
+    - r1251
+    - r088
+    - r009
+    - r058
+    - r062
+    - r1250
+    - r134

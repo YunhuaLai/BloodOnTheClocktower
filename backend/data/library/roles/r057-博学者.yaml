@@ -4,8 +4,11 @@ type: townsfolk
 englishName: savant
 ability: 每个白天，你可以私下询问说书人以得知两条信息：一个是正确的，一个是错误的。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/savant.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/savant.png
+flavor: >-
+  Seventy-two matchsticks on the floor... the sun sets early but the moon is unchanged... a torn piece of cloth... evil
+  in the manor house... three by three... the one we trusted is not what he seems... green light means magnesium...
+  residue, but the pattern is wrong... Seventy-two matchsticks on the floor...
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +32,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r057
-    officialId: savant
+    officialId: huojin111
     sourceHash: a38950b2f23300bebda4ce63328db3c2d634ce73
     sourceHashFields:
       - ability
@@ -39,6 +42,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 白天
     - 信息型
@@ -51,8 +56,8 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_day
       event: null

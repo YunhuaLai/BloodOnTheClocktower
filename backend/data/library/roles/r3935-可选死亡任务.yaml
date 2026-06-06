@@ -1,0 +1,93 @@
+id: r3935
+englishName: laizhebushan-2
+name: 可选死亡任务
+type: fabled
+edition: custom
+image: https://free.picui.cn/free/2025/12/01/692d980b16fc7.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 随之获胜
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  如果第三方阵营玩家都死亡，说书人可以给每个第三方阵营玩家单独发布一条任务，完成任务后的玩家随获胜阵营一同获胜。1）不能对你睁眼看到的额外信息“疯狂”，并复原魔典。2）“疯狂”地证明自己是亡魂。3）在白天拜访说书人，秘密猜测3个不在场的角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3935
+    officialId: laizhebushan_2
+    sourceHash: eb464b330a109ef9221f0bc8218a1633e9949275
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - information
+    - death
+    - alignment
+    - storyteller
+    - grimoire
+    - madness
+    - fabled
+  abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

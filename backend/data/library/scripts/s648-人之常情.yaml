@@ -1,0 +1,63 @@
+id: s648
+englishName: item
+name: 人之常情
+status: draft
+en: 人之常情
+author: Moll
+logo: https://i.postimg.cc/wxbxyczP/LOGO.png
+description: 感谢鸭镇嗷
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 感谢鸭镇嗷
+image: https://i.postimg.cc/wxbxyczP/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 感谢鸭镇嗷
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3402
+  - r3403
+  - r3404
+  - r3405
+  - r744
+  - r3406
+  - r3407
+  - r3408
+  - r516
+  - r3409
+  - r3410
+  - r3411
+  - r3412
+  - r3413
+travellerIds:
+  - r3414
+fabledIds:
+  - r3415
+nightOrder:
+  first:
+    - r3409
+    - r516
+    - r3411
+    - r3402
+    - r3403
+    - r3404
+    - r3412
+  other:
+    - r3414
+    - r3409
+    - r3412
+    - r3411
+    - r3413
+    - r3406
+    - r3402
+    - r3403
+    - r3404
+    - r3405
+    - r744

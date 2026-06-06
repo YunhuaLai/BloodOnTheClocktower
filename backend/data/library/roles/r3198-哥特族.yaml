@@ -1,0 +1,100 @@
+id: r3198
+englishName: goth-ravenswoodhigh
+name: 哥特族
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/worryhours/rhigh/8_rhigh.png
+flavor: Spirit! Can you hear me? Speak to me now ... the name of your killer! And also if Leslie likes me or not!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ' '
+ability: 每局游戏限一次，在夜晚时*，你可以举行降神会：你会得知死亡玩家的角色。 殊荣：当晚，你会得知今天白天死于处决的玩家的角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3198
+    officialId: 8_rhigh
+    sourceHash: 4942b1d8221404e49522d4da9ab582fd2165f7a4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - information
+    - execution
+    - death
+    - townsfolk
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

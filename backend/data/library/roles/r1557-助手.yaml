@@ -1,0 +1,104 @@
+id: r1557
+englishName: zhushou-gen
+name: 助手
+type: townsfolk
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/da/m61bwq958rot798y3ybv5joqj8vxp01.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+  - 被选择
+  - 持证
+  - 被选择持证
+remindersGlobal: []
+firstNightReminder: 唤醒助手，询问他是否要发动他的能力，如果他发动让他选择一名除了助手以外的存活玩家，助手和被选择的玩家各自获得与被选择的玩家阵营不同的玩家的证据。
+otherNightReminder: 如果助手仍然具有能力，唤醒助手，询问他是否要发动他的能力，如果他发动让他选择一名除了助手以外的存活玩家，助手和被选择的玩家各自获得与被选择的玩家阵营不同的玩家的证据。
+ability: 每局游戏限一次，在夜晚时，你可以选择一名除你之外的存活玩家，你和他各获得一个与他不同阵营存活玩家的证据。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1557
+    officialId: zhushou_gen
+    sourceHash: ba991a26de21df7950aaa39b720a8bd1441dfc1d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alive
+    - alignment
+    - townsfolk
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

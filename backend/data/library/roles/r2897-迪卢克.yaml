@@ -1,0 +1,98 @@
+id: r2897
+englishName: 11-the-favonius-mystery-de
+name: 迪卢克
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Jerry0906/The_favonius_Mystery_DE/11_the_favonius_mystery_de.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 叫醒迪卢克。让他決定是否指向任何一名他以外的玩家並選擇一名角色。(與之前的選擇不同）。如果他選擇的角色與該玩家的角色一致且他不是[執行官]，在他角色标记旁放置「死亡」提示标记，並告知惡魔迪卢克在場。
+ability: 每個夜晚*，你可以選擇一名你以外的玩家和角色（都與之前不同）：如果他是那個角色且不是[執行官]，他死亡且惡魔得知你在場。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2897
+    officialId: 11_the_favonius_mystery_de
+    sourceHash: c64fc62c5c8571252b1fd7741f4c9c8b2589742a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - townsfolk
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

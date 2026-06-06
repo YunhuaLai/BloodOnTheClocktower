@@ -1,0 +1,149 @@
+id: r999
+englishName: meiyoudashi11111
+name: 诺-达鲺（改）
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/no_dashii.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -1
+      source: '[-1外来者]'
+      note: 配置调整：外来者数量 -1。
+  setupNotes:
+    - 配置调整：外来者数量 -1。
+reminders:
+  - 死亡
+  - 中毒
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 唤醒诺-达鲺，给他查看魔典，随后让他选择一名邪恶玩家，与他最近的两名镇民玩家中毒。
+otherNightReminder: 唤醒诺-达鲺，让他攻击一名玩家。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你可以查看魔典，随后选择一名邪恶玩家：与他最近的两名镇民玩家中毒。[-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r999
+    officialId: meiyoudashi11111
+    sourceHash: 7c6adf947e7dcb11f24f741a57f5ce8ea1b0ef1d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - first-night
+    - poisoned
+    - death
+    - evil
+    - townsfolk
+    - outsider
+    - demon
+    - grimoire
+  abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：目标身份信息
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

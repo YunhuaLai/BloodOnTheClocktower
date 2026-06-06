@@ -1,0 +1,133 @@
+id: r2831
+englishName: xsg-zm15
+name: 曹植
+type: townsfolk
+edition: custom
+image: https://free.picui.cn/free/2025/12/03/692f0d38d22c2.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: 曹植选择两名玩家。曹植会得知他们其中一人在天意修正后的角色及阵营。如果曹植选中恶魔，当晚曹植醉酒。
+otherNightReminder: 曹植选择两名玩家。曹植会得知他们其中一人在天意修正后的角色及阵营。如果曹植选中恶魔，当晚曹植醉酒。
+ability: 每个夜晚，你要选择两名玩家。你会得知他们其中一人在天意修正后的角色及阵营。如果你选中恶魔，当晚你醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2831
+    officialId: xsg_zm15
+    sourceHash: 789b7de31407e6313ed1c17f8c280ea4f73df990
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - alignment
+    - townsfolk
+    - demon
+  abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_team
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

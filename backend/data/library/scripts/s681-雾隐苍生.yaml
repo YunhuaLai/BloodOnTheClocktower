@@ -1,0 +1,86 @@
+id: s681
+englishName: item
+name: 雾隐苍生
+status: draft
+en: 雾隐苍生
+author: 新仔辣椒酱
+logo: https://i.postimg.cc/63hTMZ5q/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/63hTMZ5q/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r021
+  - r005
+  - r083
+  - r076
+  - r070
+  - r067
+  - r051
+  - r091
+  - r049
+  - r107
+  - r232
+  - r481
+  - r597
+  - r823
+  - r112
+  - r609
+  - r114
+  - r086
+  - r093
+  - r159
+  - r095
+  - r1176
+  - r209
+  - r361
+  - r606
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r095
+    - r609
+    - r093
+    - r107
+    - r005
+    - r051
+    - r049
+    - r597
+    - r481
+    - r086
+  other:
+    - r076
+    - r609
+    - r093
+    - r107
+    - r112
+    - r021
+    - r083
+    - r095
+    - r114
+    - r606
+    - r070
+    - r159
+    - r1176
+    - r005
+    - r232
+    - r051
+    - r597
+    - r361
+    - r209
+    - r481
+    - r086

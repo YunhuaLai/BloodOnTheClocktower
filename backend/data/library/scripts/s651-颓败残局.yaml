@@ -1,0 +1,91 @@
+id: s651
+englishName: item
+name: 颓败残局
+status: draft
+en: 颓败残局
+author: Subdog&Sionar
+logo: https://i.postimg.cc/4nR3kYCy/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/4nR3kYCy/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3464
+  - r3465
+  - r3466
+  - r3467
+  - r3468
+  - r3469
+  - r3470
+  - r3471
+  - r2343
+  - r3472
+  - r3473
+  - r106
+  - r3474
+  - r3475
+  - r3476
+  - r3477
+  - r2996
+  - r3478
+  - r3094
+  - r3479
+  - r3480
+  - r3481
+  - r3482
+  - r2937
+  - r3483
+travellerIds:
+  - r3456
+  - r247
+fabledIds:
+  - r3485
+nightOrder:
+  first:
+    - r3483
+    - r3469
+    - r3479
+    - r3478
+    - r2343
+    - r3470
+    - r3471
+    - r3465
+    - r3466
+    - r3467
+    - r3468
+    - r3094
+    - r3464
+    - r3484
+  other:
+    - r2996
+    - r3485
+    - r3469
+    - r3479
+    - r3481
+    - r3482
+    - r2937
+    - r3483
+    - r3480
+    - r3473
+    - r106
+    - r2343
+    - r3465
+    - r3466
+    - r3467
+    - r3468
+    - r3094
+    - r3464
+    - r3484
+    - r3478

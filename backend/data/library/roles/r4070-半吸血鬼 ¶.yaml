@@ -1,0 +1,116 @@
+id: r4070
+englishName: dhampir-pandorasbox
+name: 半吸血鬼 ¶
+type: minion
+edition: custom
+image:
+  - https://i.vgy.me/SW7QVt.png
+flavor: Run far from here, tenderfoot. Leave but nothing in thy stead. Zoti të bekoftë, i huaj.
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者。离你最远的外来者是邪恶的]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 新鲜血液
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: Mark a dead player with the *NEW BLOOD* reminder. Show that player's character to the Dhampir.
+ability: 每个夜晚*，你会得知一名死亡角色：你可能被当作该角色直到下个黎明。[+1外来者。离你最远的外来者是邪恶的]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4070
+    officialId: dhampir_pandorasbox
+    sourceHash: cf0aed657271e7453cee37c2883863356b900b48
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - information
+    - death
+    - evil
+    - outsider
+    - minion
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者。离你最远的外来者是邪恶的]'
+            note: 配置调整：外来者数量 +1。
+      - kind: learn_role
+        roleType: outsider
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

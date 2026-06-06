@@ -3,8 +3,8 @@ englishName: siren
 name: 塞壬
 type: demon
 edition: custom
-image: ''
-flavor: ''
+image: https://www.bloodstar.xyz/p/humlet/JI-SHI/41_jishi.png
+flavor: 嘘…听，这温柔的潮汐是我的呢喃。当我的歌声响起，你们追逐的真相，不过是我布景中的幻光。若我谢幕退场，你们是骤然惊醒？还是跌入更深的虚妄？
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r559
-    officialId: siren
+    officialId: 23_juedou
     sourceHash: 781899d09971369387d0da6f0aa5fd0b6601ac55
     sourceHashFields:
       - ability
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: target_demon_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null
@@ -68,7 +68,7 @@ abilityData:
         count: 1
         source: target
       - kind: learn_boolean
-        question: demon_check
+        question: boolean_check
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
@@ -107,3 +107,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

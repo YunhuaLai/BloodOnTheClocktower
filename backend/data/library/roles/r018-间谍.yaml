@@ -2,10 +2,10 @@ id: r018
 name: 间谍
 type: minion
 englishName: spy
-ability: 每个夜晚，你能查看魔典。  你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。
+ability: 每个夜晚，你能查看魔典。你可能会被当作善良阵营、镇民角色或外来者角色，即使你已死亡。
 edition: custom
-image: https://www.bloodstar.xyz/p/Tiger/Future-King/18_futureking.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/spy.png
+flavor: https://i.postimg.cc/GpLssMjP/image.png
 setup: false
 setupMeta:
   randomAssignable: true
@@ -21,16 +21,16 @@ setupMeta:
   setupNotes: []
 reminders: []
 remindersGlobal: []
-firstNightReminder: '14'
-otherNightReminder: '18'
+firstNightReminder: 唤醒间谍，让他查看魔典。
+otherNightReminder: 唤醒间谍，让他查看魔典。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r018
-    officialId: spy
-    sourceHash: b52faaac26bf13d773927e9a4a60403a3ab4be49
+    officialId: jiandieeeeeee111
+    sourceHash: eaf3288d6f6d791d4332db9f18d8b461ee74f708
     sourceHashFields:
       - ability
       - type
@@ -39,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -56,7 +58,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

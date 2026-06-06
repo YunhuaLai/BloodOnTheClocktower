@@ -4,8 +4,8 @@ type: townsfolk
 englishName: village-idiot
 ability: 每个夜晚，你要选择一名玩家：你会得知他的阵营。[+0~2村夫，复数村夫中有一人醉酒]
 edition: custom
-image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/4_inthegr_58.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/village_idiot.png
+flavor: “玫瑰花是蓝色哒！草桂花是红色哒！哦豁，俺说反啦！”
 setup: true
 setupMeta:
   randomAssignable: true
@@ -22,15 +22,16 @@ setupMeta:
 reminders:
   - 醉酒
 remindersGlobal: []
-firstNightReminder: 选择玩家，得知他的阵营。
-otherNightReminder: 选择玩家，得知他的阵营。
+firstNightReminder: 唤醒村夫，让他指向一名玩家，用手势告诉他那名玩家的阵营。
+otherNightReminder: 唤醒村夫，让他指向一名玩家，用手势告诉他那名玩家的阵营。
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r087
-    officialId: village-idiot
-    sourceHash: 53da3ebecf721b0ea6e7d4e655d884b210d5eb28
+    officialId: village_idiot22
+    sourceHash: f25ec6b9733c523511421aae0368f74e326456d2
     sourceHashFields:
       - ability
       - type
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -52,8 +55,8 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

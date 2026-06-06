@@ -1,0 +1,83 @@
+id: r3104
+englishName: ironman-avengersv2
+name: 钢铁侠
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/AvengersV2/ironman_avengersv2.png
+flavor: I'm sorry, Earth is closed today. You better pack it up and get outta here.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 我是钢铁侠
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: If the Iron Man claimed their role when they were nominated & executed today, the player who nominated them dies.
+ability: 如果你在被提名后公开声明自己是钢铁侠且在那个白天被处决，提名你的玩家会在当晚死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3104
+    officialId: ironman_avengersv2
+    sourceHash: 888d0f5965b336fdb8faa788210670487c3d0afb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - nomination
+    - execution
+    - death
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

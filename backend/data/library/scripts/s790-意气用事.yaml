@@ -1,0 +1,80 @@
+id: s790
+englishName: item
+name: 意气用事
+status: draft
+en: 意气用事
+author: Tpi
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r100
+  - r049
+  - r086
+  - r006
+  - r140
+  - r233
+  - r008
+  - r056
+  - r334
+  - r087
+  - r058
+  - r091
+  - r067
+  - r186
+  - r234
+  - r119
+  - r075
+  - r074
+  - r017
+  - r840
+  - r1361
+  - r080
+  - r079
+  - r683
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r683
+    - r017
+    - r074
+    - r075
+    - r002
+    - r006
+    - r058
+    - r049
+    - r140
+    - r087
+    - r086
+    - r100
+  other:
+    - r017
+    - r008
+    - r074
+    - r075
+    - r079
+    - r683
+    - r080
+    - r233
+    - r006
+    - r056
+    - r058
+    - r140
+    - r087
+    - r086

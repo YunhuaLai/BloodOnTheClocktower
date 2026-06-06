@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r581
-    officialId: yuzhao
+    officialId: YuZhao
     sourceHash: c758a8b79fffe69f0f2f872cc0a9e9e8f1db8cc7
     sourceHashFields:
       - ability
@@ -50,7 +50,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

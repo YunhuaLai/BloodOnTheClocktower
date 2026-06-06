@@ -1,0 +1,94 @@
+id: r1978
+englishName: 3-rainbow-party
+name: 任务M
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/xiaofu/Rainbow_Party/3_rainbow_party.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 主人
+remindersGlobal: []
+firstNightReminder: 在你的首个夜晚，你要选择一名玩家。如果之后的游戏中他给你分配了任务且你完成了该任务，你可以拜访说书人获得一条对你的阵营获胜有利的建议。
+otherNightReminder: ''
+ability: 在你的首个夜晚，你要选择一名玩家。如果之后的游戏中他给你分配了任务且你完成了该任务，你可以拜访说书人获得一条对你的阵营获胜有利的建议。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1978
+    officialId: 3_rainbow_party
+    sourceHash: fb31d4a3f55631d8722770609436d61f26b18e08
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alignment
+    - townsfolk
+    - storyteller
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

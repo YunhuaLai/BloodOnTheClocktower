@@ -1,0 +1,109 @@
+id: r3208
+englishName: fundie-ravenswoodhigh
+name: 基要派
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/marhepto/RavenswoodHigh/fundie_ravenswoodhigh.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 爱鸟
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 同时唤醒两名玩家，向他们展示对方是什么角色。 之后唤醒基要派，给他他这两个角色的标记。
+otherNightReminder: ''
+ability: 会有两名善良玩家互相知道对方是什么角色。在你的首个夜晚，你会得知他们的角色但不知道是谁。每局游戏限一次，你可以公开猜测他们的角色，如果猜对，你的阵营获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3208
+    officialId: fundie_ravenswoodhigh
+    sourceHash: 87cc152663c85e88782aabf144f12cc26f88cabb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alignment
+    - good
+    - minion
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_team
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

@@ -1,0 +1,93 @@
+id: r3501
+englishName: 28-bundagee-inn-massacre-bigyellowfish
+name: 板球运动员
+type: traveller
+edition: custom
+image: >-
+  https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/28_bundagee_inn_massacre_bigyellowfish.png
+flavor: 裁判你够了！那是直球正中！你眼睛瞎了吗？！
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 申诉成功
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果从游戏开始到现在正好有善良玩家发起过六次提名，此时你公开声明使用能力，则你的阵营的玩家在今天白天和夜晚不会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3501
+    officialId: 28_bundagee_inn_massacre_bigyellowfish
+    sourceHash: 64c5417ef1ff0282fddd0f28008d19cf1e4ac1bd
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - night
+    - nomination
+    - death
+    - alignment
+    - good
+    - traveler
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

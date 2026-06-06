@@ -4,7 +4,7 @@ name: 护火贞女
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/westwind/Goldapple/11_goldapple.png
-flavor: ''
+flavor: 维斯塔女神，我已经在维斯太圣焰中收到你的信息，现在我如受天启。我很快就会回来……感激神明……
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r396
-    officialId: vestal-flamekeeper
+    officialId: 11_goldapple
     sourceHash: b776f466f6907185bd9b66aabac0d4a637da550a
     sourceHashFields:
       - ability

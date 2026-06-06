@@ -1,0 +1,84 @@
+id: s215
+englishName: item
+name: 毒泷恶雾
+status: draft
+en: 毒泷恶雾
+author: 卫远
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/a/a6/h56gv1uzeset0qgtqlf7qs02r56ho37.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/a/a6/h56gv1uzeset0qgtqlf7qs02r56ho37.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r594
+  - r058
+  - r005
+  - r006
+  - r530
+  - r028
+  - r055
+  - r607
+  - r230
+  - r089
+  - r057
+  - r278
+  - r908
+  - r016
+  - r214
+  - r070
+  - r302
+  - r042
+  - r040
+  - r093
+  - r114
+  - r080
+  - r083
+  - r1065
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r302
+    - r040
+    - r093
+    - r005
+    - r006
+    - r023
+    - r058
+    - r594
+    - r530
+  other:
+    - r302
+    - r607
+    - r028
+    - r093
+    - r1065
+    - r083
+    - r080
+    - r114
+    - r042
+    - r040
+    - r214
+    - r023
+    - r070
+    - r278
+    - r005
+    - r006
+    - r055
+    - r058
+    - r594
+    - r230
+    - r530

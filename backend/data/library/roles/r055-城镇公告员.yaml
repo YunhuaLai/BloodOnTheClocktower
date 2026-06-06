@@ -4,7 +4,7 @@ type: townsfolk
 englishName: town-crier
 ability: 每个夜晚*，你会得知在今天白天时是否有爪牙发起过提名。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/town_crier.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/town_crier.png
 flavor: ''
 setup: false
 setupMeta:
@@ -24,15 +24,15 @@ reminders:
   - 爪牙已提名
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 对他点头或摇头示意今天白天是否有爪牙发起过提名。
+otherNightReminder: 唤醒城镇公告员，以点头或摇头告知他今天白天是否有爪牙发起提名。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r055
-    officialId: town-crier
-    sourceHash: c05cd093115ef183a4f56fe74100edabfc22b793
+    officialId: qiaozhong111
+    sourceHash: f73637cb34af186de3f985fc35fc0d2b3030c777
     sourceHashFields:
       - ability
       - type
@@ -41,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -55,8 +57,8 @@ abilityData:
   abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

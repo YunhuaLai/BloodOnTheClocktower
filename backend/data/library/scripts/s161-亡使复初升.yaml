@@ -1,0 +1,80 @@
+id: s161
+englishName: item
+name: 亡使复初升
+status: draft
+en: 亡使复初升
+author: 蓝铃兰
+logo: https://www.bloodstar.xyz/p/bluebell/wsf/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/bluebell/wsf/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1326
+  - r004
+  - r393
+  - r1327
+  - r029
+  - r033
+  - r034
+  - r1328
+  - r027
+  - r030
+  - r026
+  - r025
+  - r530
+  - r1329
+  - r038
+  - r037
+  - r1330
+  - r188
+  - r040
+  - r042
+  - r610
+  - r1331
+  - r044
+  - r046
+  - r141
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r141
+    - r1329
+    - r030
+    - r004
+    - r025
+    - r530
+    - r188
+    - r040
+    - r610
+  other:
+    - r1329
+    - r027
+    - r030
+    - r026
+    - r044
+    - r046
+    - r141
+    - r1331
+    - r042
+    - r040
+    - r1327
+    - r393
+    - r029
+    - r037
+    - r1326
+    - r025
+    - r530

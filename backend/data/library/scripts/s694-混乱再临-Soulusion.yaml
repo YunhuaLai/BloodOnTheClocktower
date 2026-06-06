@@ -1,0 +1,86 @@
+id: s694
+englishName: soulusion
+name: 混乱再临-Soulusion
+status: draft
+en: 混乱再临-Soulusion
+author: Soulusion
+logo: https://img.picui.cn/free/2025/04/08/67f528d6ca0e6.png
+description: 混乱再临
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 混乱再临
+image: https://img.picui.cn/free/2025/04/08/67f528d6ca0e6.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 混乱再临
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r002
+  - r005
+  - r024
+  - r027
+  - r059
+  - r088
+  - r032
+  - r066
+  - r233
+  - r091
+  - r015
+  - r039
+  - r119
+  - r135
+  - r098
+  - r071
+  - r075
+  - r017
+  - r107
+  - r1613
+  - r076
+  - r095
+  - r079
+  - r083
+travellerIds: []
+fabledIds:
+  - r348
+  - r344
+nightOrder:
+  first:
+    - r088
+    - r059
+    - r066
+    - r095
+    - r098
+    - r071
+    - r039
+    - r024
+    - r017
+    - r075
+    - r107
+    - r002
+    - r005
+    - r084
+    - r1613
+  other:
+    - r088
+    - r059
+    - r066
+    - r024
+    - r076
+    - r017
+    - r027
+    - r075
+    - r107
+    - r039
+    - r079
+    - r083
+    - r095
+    - r233
+    - r005

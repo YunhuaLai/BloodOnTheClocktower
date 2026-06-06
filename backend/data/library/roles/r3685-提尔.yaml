@@ -1,0 +1,85 @@
+id: r3685
+englishName: tr-ragnarok09
+name: 提尔
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/LemonSneeze/Ragnarok-09/tr_ragnarok09.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒提尔并询问他是否使用他的能力，如使用，提尔死亡，恶魔中毒直到下个黄昏
+ability: 每局游戏限一次，在夜晚时*，你可以选择杀死自己：若你因此死亡，恶魔会中毒直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3685
+    officialId: tr_ragnarok09
+    sourceHash: c15ff8744225ecf6d42b2fb2f4da06bd4c8408ed
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - poisoned
+    - death
+    - townsfolk
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

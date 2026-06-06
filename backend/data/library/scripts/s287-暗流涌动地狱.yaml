@@ -1,0 +1,76 @@
+id: s287
+englishName: item
+name: 暗流涌动地狱
+status: draft
+en: 暗流涌动地狱
+author: ''
+logo: https://i.postimg.cc/tCbRqJTz/5-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/tCbRqJTz/5-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r003
+  - r004
+  - r005
+  - r006
+  - r007
+  - r008
+  - r009
+  - r010
+  - r022
+  - r011
+  - r012
+  - r065
+  - r013
+  - r015
+  - r039
+  - r016
+  - r014
+  - r017
+  - r018
+  - r019
+  - r020
+  - r021
+  - r099
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r017
+    - r001
+    - r002
+    - r003
+    - r004
+    - r005
+    - r006
+    - r013
+    - r018
+  other:
+    - r017
+    - r008
+    - r020
+    - r039
+    - r021
+    - r099
+    - r009
+    - r005
+    - r006
+    - r013
+    - r007
+    - r018

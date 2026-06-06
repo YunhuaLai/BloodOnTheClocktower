@@ -1,0 +1,84 @@
+id: r2530
+englishName: kongtong
+name: 崆峒
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1722264611_197011_9713.png
+flavor: 五行之气调阴阳，损心伤肺摧肝肠。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 七伤
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果崆峒首次提名并处决了一名善良玩家，在魔典中间放置“七伤”标记。如果魔典中间有“七伤”标记，当晚不会有善良玩家死亡。在黎明时移除“七伤”标记
+ability: 你首次提名并处决一名存活的善良玩家后，当晚不会有善良玩家死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2530
+    officialId: KongTong
+    sourceHash: 0b87700465a3561f952e30fc7bbb4bedd4eac734
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - nomination
+    - execution
+    - death
+    - alive
+    - good
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

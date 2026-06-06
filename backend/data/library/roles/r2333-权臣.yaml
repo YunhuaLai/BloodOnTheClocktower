@@ -1,0 +1,102 @@
+id: r2333
+englishName: 59598e09-4eff-4344-9544-96c7300de95a
+name: 权臣
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/Nightingale/Princesses_Requiem/minister_princesses_requiem.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 平票
+  - 处决
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果白天提名阶段将以平票结束时，一名在票数最高的平票玩家中与你阵营不同玩家会被处决。如果获得票数最高的平票玩家中没有与你阵营不同玩家，一名在票数最高的平票玩家中与你阵营相同的玩家会被处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2333
+    officialId: diyRole30
+    sourceHash: 4348604fcbd2795ac0b1dbe9b31e3e4d72f8b97d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 主动选择
+  termIds:
+    - day
+    - first-night
+    - nomination
+    - execution
+    - alignment
+    - traveler
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

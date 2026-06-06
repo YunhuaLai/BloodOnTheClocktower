@@ -1,0 +1,81 @@
+id: r2670
+englishName: eschatologist
+name: 末世论者
+type: townsfolk
+edition: mia
+image: https://free.picui.cn/free/2025/11/28/6928977ec4f62.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 重构命运
+remindersGlobal:
+  - 末世论者
+firstNightReminder: ''
+otherNightReminder: 说书人可以实现末世论者的预言。如果末世论者进行预言时已丧失理智，说书人可以向完全相反的方向实现他的预言。
+ability: 每局游戏限一次，你可以在白天公开进行一次预言。你的预言可能会成真，即使你失去了本能力。如果你已丧失理智，事态发展会与你的预言截然相反。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2670
+    officialId: eschatologist
+    sourceHash: ef25a1e39472bf2c61bc0c4b13ec8b7f529c5f95
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

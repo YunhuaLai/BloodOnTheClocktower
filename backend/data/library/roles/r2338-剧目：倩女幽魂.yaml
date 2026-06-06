@@ -1,0 +1,96 @@
+id: r2338
+englishName: 3b9e1323-b2a1-4ee3-9b2b-3dfa4d0dd0c0
+name: 剧目：倩女幽魂
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_5443274341071_b24efb83.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 聂小倩
+  - 宁采臣
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 一名旦角饰演聂小倩、他的搭档饰演宁采臣。【聂小倩：饰主演。每个夜晚*，你要选择一名存活的玩家：他死亡。】【宁采臣：饰反派。如果你已死亡，聂小倩每个夜晚都可以额外行动一次。】——围观聂小倩与宁采臣的人鬼虐恋。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2338
+    officialId: 3b9e1323-b2a1-4ee3-9b2b-3dfa4d0dd0c0
+    sourceHash: 479a59751d015e4e8128ea10ca9639eec8db48ea
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - alive
+    - fabled
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

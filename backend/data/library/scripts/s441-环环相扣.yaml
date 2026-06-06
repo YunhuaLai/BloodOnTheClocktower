@@ -1,0 +1,84 @@
+id: s441
+englishName: item
+name: 环环相扣
+status: draft
+en: 环环相扣
+author: 爱4宝宝
+logo: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_7046307169961_bfec8767.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_7046307169961_bfec8767.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r085
+  - r023
+  - r056
+  - r006
+  - r025
+  - r059
+  - r232
+  - r481
+  - r463
+  - r026
+  - r028
+  - r029
+  - r090
+  - r038
+  - r037
+  - r908
+  - r363
+  - r040
+  - r042
+  - r043
+  - r609
+  - r047
+  - r045
+  - r612
+  - r239
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r609
+    - r040
+    - r045
+    - r239
+    - r006
+    - r023
+    - r085
+    - r025
+  other:
+    - r059
+    - r609
+    - r028
+    - r026
+    - r045
+    - r047
+    - r612
+    - r239
+    - r042
+    - r040
+    - r363
+    - r090
+    - r029
+    - r037
+    - r023
+    - r006
+    - r481
+    - r232
+    - r056
+    - r463
+    - r025

@@ -1,0 +1,78 @@
+id: r1680
+englishName: b399d9bc-5922-4727-823d-b09c7cc8af6b
+name: 封禅台
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_6176562838171_49588d1b.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 在封禅台
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 区域：氓山之顶，自古帝王祭天之所，有大功德、大造化。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1680
+    officialId: b399d9bc-5922-4727-823d-b09c7cc8af6b
+    sourceHash: 7861dc0ffbd730b81db7aabe29514aec00d67f06
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

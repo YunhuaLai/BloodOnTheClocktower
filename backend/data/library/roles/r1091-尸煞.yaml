@@ -1,0 +1,99 @@
+id: r1091
+englishName: shisha-c
+name: 尸煞
+type: minion
+edition: custom
+image: https://www.freeimg.cn/uploads/535/691708e9539fb.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -1
+      source: '[-1外来者]'
+      note: 配置调整：外来者数量 -1。
+  setupNotes:
+    - 配置调整：外来者数量 -1。
+reminders: []
+remindersGlobal:
+  - 中毒
+  - 是尸煞
+firstNightReminder: 唤醒尸煞，告知他获得的不在场外来者角色的能力。
+otherNightReminder: ''
+ability: 死于天条的镇民中毒，你拥有一个不在场的外来者角色的能力。[-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1091
+    officialId: shisha_c
+    sourceHash: 09659bc487205e8085e8f8dc76df097248490689
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 设置
+  termIds:
+    - setup
+    - first-night
+    - poisoned
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

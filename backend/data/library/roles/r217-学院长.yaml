@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r217
-    officialId: dean
+    officialId: 15_jinhulun
     sourceHash: 97ead521e2e35d0ae34fcee89474d4b345b39cd0
     sourceHashFields:
       - ability
@@ -55,14 +55,14 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: setup
       event: null
       frequency: passive
     actor:
-      drivenBy: system
+      drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments: []

@@ -1,9 +1,9 @@
 id: r816
 englishName: 3-newhero
 name: 戏精
-type: fabled
+type: traveller
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/3_newhero.png
+image: https://www.bloodstar.xyz/p/worryhours/rhigh/27_rhigh.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,15 +22,15 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-ability: 游戏中代入感表现得很强的玩家，会获得一些奖励。
+ability: 每局游戏限一次，在被处决的玩家选择了一名玩家“是皇室”后，你可以驳回该选择并选择一名不同的玩家。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r816
-    officialId: 3_newhero
-    sourceHash: 5ee9650b3efb12a30b715090b6b0399fd5bba620
+    officialId: 27_rhigh
+    sourceHash: b7f06c3e534418d7c7ed83114377fdd3a9bcd813
     sourceHashFields:
       - ability
       - type
@@ -39,17 +39,18 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
   termIds:
-    - fabled
+    - execution
+    - traveler
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null
@@ -57,7 +58,7 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: passive_rule
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

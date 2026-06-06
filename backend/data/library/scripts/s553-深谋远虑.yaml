@@ -1,0 +1,83 @@
+id: s553
+englishName: item
+name: 深谋远虑
+status: draft
+en: 深谋远虑
+author: 诸神无限
+logo: https://i.postimg.cc/sDrn8fXK/LOGO-copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/sDrn8fXK/LOGO-copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r048
+  - r023
+  - r025
+  - r006
+  - r056
+  - r008
+  - r028
+  - r058
+  - r134
+  - r060
+  - r010
+  - r009
+  - r016
+  - r070
+  - r015
+  - r214
+  - r020
+  - r040
+  - r078
+  - r121
+  - r045
+  - r021
+  - r082
+  - r079
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r121
+    - r078
+    - r040
+    - r045
+    - r006
+    - r023
+    - r048
+    - r058
+    - r049
+    - r134
+    - r025
+  other:
+    - r028
+    - r008
+    - r020
+    - r021
+    - r045
+    - r079
+    - r082
+    - r040
+    - r214
+    - r070
+    - r009
+    - r023
+    - r006
+    - r056
+    - r058
+    - r134
+    - r025

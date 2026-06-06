@@ -1,0 +1,100 @@
+id: r2144
+englishName: xuzhigong-duck
+name: 虚枝公
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/K8nXCMr8/11.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 天下有朋
+  - 遗风
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果虚枝公死亡，唤醒一名与他阵营相同玩家，对该玩家展示「该角色的能力对你生效」信息标记，虚枝公角色标记并且指向虚枝公。然后让他重新入睡，为该玩家放置“遗风”标记。
+ability: 你不会变成其他角色。当你死亡时，一名与你阵营相同的玩家会得知你是虚枝公，且如果他存活，他获得你所有的能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2144
+    officialId: XuZhiGong_Duck
+    sourceHash: 4837294f2986157ec5c123ad7858bb5800f97b54
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - alive
+    - alignment
+    - townsfolk
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

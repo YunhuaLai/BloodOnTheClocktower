@@ -1,0 +1,91 @@
+id: r3822
+englishName: shankaar-the-last-cull
+name: 商羯罗
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/BakedIce/The_Last_Cull__/shankaar2_the_last_cull__.png
+flavor: In unity we live...In fire we were born...
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: >-
+  Wake all evil players. Show them the 'This character chose you' info token and then the Shankaar character token. Give
+  them a silent countdown of '3, 2, 1…'. They can then secretly communicate for 1 minute. When the minute ends, put all
+  evil players to sleep.
+otherNightReminder: >-
+  Wake all evil players. Show them the 'This character chose you' info token and then the Shankaar character token. Give
+  them a silent countdown of '3, 2, 1…'. They can then secretly communicate for 1 minute. When the minute ends, put all
+  evil players to sleep.
+ability: 每个夜晚，邪恶玩家可以秘密交流1分钟。[与你邻座的一名善良玩家会变成邪恶的商羯罗]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3822
+    officialId: shankaar2_the_last_cull__
+    sourceHash: 048629a1759da5c5240268f2a605ceecb35e2e03
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - good
+    - evil
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

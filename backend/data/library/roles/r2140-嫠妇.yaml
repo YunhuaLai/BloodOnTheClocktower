@@ -1,0 +1,83 @@
+id: r2140
+englishName: lifu-duck
+name: 嫠妇
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/MpRxx4xx/9.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 限一次
+  - 嫠妇托付
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果嫠妇的能力曾被触发，唤醒嫠妇，对她展示「你是」信息标记和对应角色标记，以及用大拇指以表示嫠妇的阵营。
+ability: 每个白天，你可以询问一名玩家：如果他同意且你们阵营相同，你变成他的角色，他变成嫠妇；如果他同意且他是邪恶的，你们交换阵营，但每局游戏仅能成功转化一次，且他不知道角色或阵营的变化。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2140
+    officialId: LiFu_Duck
+    sourceHash: 6f9caef4aa2d0e6efaf6b94b4d84078bd0850154
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - alignment
+    - evil
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,92 @@
+id: r1158
+englishName: a3568401-338a-4f4f-a93d-80b1d44e746d
+name: 尸佛
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_6630385766861_bef5ec97.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 即将被处决
+  - 第一天
+  - 第二天
+  - 第三天
+  - 第四天
+  - 第五天
+remindersGlobal: []
+firstNightReminder: 将尸佛的标记转换到下一天。
+otherNightReminder: 让所有邪恶阵营的玩家睁眼，互相认识，将尸佛的标记转换到下一天。
+ability: 善良玩家死亡后立即变成邪恶的尸佛（旅行者不会改变角色）。仅邪恶玩家参与的投票会失效。邪恶阵营彼此知晓且在第五个黄昏获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1158
+    officialId: cd624157-016f-4fdc-b519-0a8fa09c4bb0
+    sourceHash: 36f2565186846a6ce529e838a52ec97547369506
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - vote
+    - death
+    - alignment
+    - good
+    - evil
+    - demon
+    - traveler
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

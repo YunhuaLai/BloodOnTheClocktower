@@ -1,0 +1,84 @@
+id: r3430
+englishName: 20d
+name: 雄辩家
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Imzecorella/Day_By_Day/orator_day_by_day.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 四天后
+  - 三天后
+  - 两天后
+  - 一天后
+  - '?'
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个白天，你可以私下向说书人声明一条规则及其生效日期。如果说书人同意，与之相关的后果会被一同确认，并从你指定的那个白天起宣布执行。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3430
+    officialId: 20d
+    sourceHash: 831736b34b1ba21d4ccb2582211a57f3f5a0d68b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - day
+    - minion
+    - storyteller
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

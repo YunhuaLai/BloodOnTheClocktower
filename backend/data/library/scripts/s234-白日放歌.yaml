@@ -1,0 +1,73 @@
+id: s234
+englishName: item
+name: 白日放歌
+status: draft
+en: 白日放歌
+author: 利尼维亚首席气球驾驶员
+logo: https://img2.imgtp.com/2024/04/23/EkXfWv9A.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://img2.imgtp.com/2024/04/23/EkXfWv9A.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r029
+  - r055
+  - r463
+  - r054
+  - r115
+  - r319
+  - r010
+  - r057
+  - r091
+  - r089
+  - r033
+  - r060
+  - r072
+  - r067
+  - r015
+  - r111
+  - r892
+  - r040
+  - r641
+  - r041
+  - r237
+  - r568
+  - r141
+  - r045
+travellerIds: []
+fabledIds:
+  - r1592
+nightOrder:
+  first:
+    - r141
+    - r040
+    - r041
+    - r892
+    - r045
+    - r097
+    - r111
+  other:
+    - r111
+    - r041
+    - r045
+    - r568
+    - r141
+    - r040
+    - r237
+    - r029
+    - r054
+    - r055
+    - r463

@@ -1,0 +1,81 @@
+id: s339
+englishName: item
+name: 王不见王
+status: draft
+en: 王不见王
+author: Ekin
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/202406/c_5359578269171_e9878e03.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202406/c_5359578269171_e9878e03.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r334
+  - r003
+  - r004
+  - r233
+  - r133
+  - r139
+  - r051
+  - r005
+  - r140
+  - r057
+  - r058
+  - r089
+  - r016
+  - r015
+  - r070
+  - r068
+  - r159
+  - r018
+  - r017
+  - r019
+  - r093
+  - r121
+  - r081
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r121
+    - r017
+    - r093
+    - r002
+    - r003
+    - r004
+    - r005
+    - r051
+    - r058
+    - r140
+    - r139
+    - r018
+    - r133
+  other:
+    - r017
+    - r093
+    - r081
+    - r070
+    - r068
+    - r159
+    - r233
+    - r005
+    - r051
+    - r058
+    - r140
+    - r139
+    - r018
+    - r133

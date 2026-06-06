@@ -1,9 +1,9 @@
 id: r156
 englishName: plague-doctor-scarlet-woman-jinx
 name: 瘟疫医生&红唇女郎
-type: a jinxed
+type: A jinxed
 edition: custom
-image: https://clocktower-wiki.gstonegames.com/images/thumb/2/2d/Plaguedoctor.png/300px-Plaguedoctor.png
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202310/c_9614144308961_fe5074b8.jpg
 flavor: ''
 setup: false
 setupMeta:
@@ -29,8 +29,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r156
-    officialId: plague-doctor-scarlet-woman-jinx
-    sourceHash: 48dfa4b9440e1fed982847a93dabeeb655b9cd9d
+    officialId: ff5baace-53e7-4e0d-8a89-4e6496152b01
+    sourceHash: 576a3dabf46222883cd82cd43207a8b6b2aa3ac3
     sourceHashFields:
       - ability
       - type
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 信息型
   termIds:
@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_death
@@ -63,8 +63,6 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_death
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

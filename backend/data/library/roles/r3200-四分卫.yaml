@@ -1,0 +1,88 @@
+id: r3200
+englishName: quarterback-ravenswoodhigh
+name: 四分卫
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/marhepto/RavenswoodHigh/quarterback_ravenswoodhigh.png
+flavor: YES! WOOOOO! You see that, babe? I'm NEVER gonna let you down!
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 白天死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果白天有善良玩家死亡，当晚你与拉拉队长都不会死亡。（+拉拉队长)
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3200
+    officialId: quarterback_ravenswoodhigh
+    sourceHash: 435bb326dc787a764c7887e8e7f13978fb8867fd
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 设置
+    - 事件触发
+  termIds:
+    - day
+    - setup
+    - death
+    - good
+    - townsfolk
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: setup
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: protect_player
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: setup
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,90 @@
+id: s589
+englishName: item
+name: 地下城沦陷日
+status: draft
+en: 地下城沦陷日
+author: 苏通染
+logo: https://postimage.me/image/UVWphN
+description: 无
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 无
+image: https://postimage.me/image/UVWphN
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 无
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r371
+  - r702
+  - r579
+  - r531
+  - r1042
+  - r197
+  - r198
+  - r974
+  - r1058
+  - r2009
+  - r727
+  - r211
+  - r2010
+  - r2011
+  - r1059
+  - r1966
+  - r2012
+  - r1395
+  - r253
+  - r2013
+  - r450
+  - r1356
+  - r236
+  - r2014
+  - r848
+  - r2015
+  - r2016
+travellerIds:
+  - r583
+  - r1032
+  - r1972
+fabledIds:
+  - r2008
+nightOrder:
+  first:
+    - r1972
+    - r2012
+    - r1966
+    - r1356
+    - r450
+    - r727
+    - r1395
+    - r2010
+    - r702
+    - r1042
+    - r371
+    - r531
+    - r198
+  other:
+    - r1059
+    - r1395
+    - r1966
+    - r2010
+    - r236
+    - r2013
+    - r848
+    - r2015
+    - r2016
+    - r2014
+    - r727
+    - r974
+    - r1042
+    - r579
+    - r531
+    - r197
+    - r198

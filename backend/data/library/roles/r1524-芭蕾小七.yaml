@@ -1,0 +1,107 @@
+id: r1524
+englishName: 6-shanhaiqiwenlu
+name: 芭蕾小七
+type: townsfolk
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/1/10/3y09kej7absngwtq84uk9xui2z6n0z9.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 选择
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 每个夜晚*，你要选择两名存活玩家（与上晚不同），当晚恶魔只能在你们之中进行选择。如果你被恶魔杀死，你得知今晚选择的玩家是否有邪恶玩家。
+ability: 每个夜晚*，你要选择两名存活玩家（与上晚不同），当晚恶魔只能在你们之中进行选择。如果你被恶魔杀死，你得知今晚选择的玩家是否有邪恶玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1524
+    officialId: 6_shanhaiqiwenlu
+    sourceHash: 8d2408679e048ae7add4fa95a194a4076a9401ef
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - alive
+    - evil
+    - townsfolk
+    - demon
+  abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: demon_check
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null

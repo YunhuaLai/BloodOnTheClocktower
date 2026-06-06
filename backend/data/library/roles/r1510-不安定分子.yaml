@@ -1,0 +1,122 @@
+id: r1510
+englishName: buandingfenzi-haiwu
+name: 不安定分子
+type: minion
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/1/1f/ibbyjv7sx5xwfgfa72w9oo3tnx7fk58.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: -1
+      source: '[+1或-1外来者]'
+      note: 配置调整：外来者数量 +1 到 -1。
+  setupNotes:
+    - 配置调整：外来者数量 +1 到 -1。
+reminders:
+  - 中毒
+  - 死亡
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 展示因不安定分子能力加入游戏的外来者或镇民角色标记。
+otherNightReminder: 如果不安定分子没有发动过能力，他可以杀死他得知的玩家。
+ability: 你得知因你而加入游戏的角色且该玩家中毒。每局游戏限一次，在夜晚时*，你可以令他死亡。[+1或-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1510
+    officialId: buandingfenzi_haiwu
+    sourceHash: a7087e1a4bb1b14d0ea1d7374e456aaade07a789
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - poisoned
+    - information
+    - death
+    - outsider
+    - minion
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: -1
+            source: '[+1或-1外来者]'
+            note: 配置调整：外来者数量 +1 到 -1。
+      - kind: learn_role
+        roleType: outsider
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

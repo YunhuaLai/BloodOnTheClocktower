@@ -1,9 +1,9 @@
 id: r147
 englishName: voodoo-master
 name: 巫毒师
-type: minion
+type: traveller
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/23_newhero.png
+image: https://i.postimg.cc/CMPNkC11/Voudon.png
 flavor: 厄运终将会降临到你的头上，我只不过是让它来得更快一些罢了。
 setup: false
 setupMeta:
@@ -18,20 +18,20 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders:
-  - 中毒
-remindersGlobal: []
-firstNightReminder: 让他选择一名玩家，该玩家标记上“中毒”。
-otherNightReminder: 让他选择一名玩家，该玩家标记上“中毒”。
-ability: 每个夜晚，你要选择一名玩家：他在当晚和明天白天中毒，并且他可能会被当做邪恶阵营、爪牙或恶魔角色。
+reminders: []
+remindersGlobal:
+  - 巫毒师的邪术
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 只有你和死亡的玩家可以投票，且投票不需要使用投票标记。忽略票数需要过半的要求。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r147
-    officialId: 23_newhero
-    sourceHash: 039bc346112343a9583136d41a89a25d2af883c0
+    officialId: voudon0
+    sourceHash: 5ccd5fd261040cb91a99332b05fd4348ca6be54a
     sourceHashFields:
       - ability
       - type
@@ -45,13 +45,9 @@ abilityData:
   tags:
     - 事件触发
   termIds:
-    - day
-    - night
-    - poisoned
-    - alignment
-    - evil
-    - minion
-    - demon
+    - vote
+    - death
+    - traveler
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
@@ -64,8 +60,7 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: apply_status_effect
-        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_death
   abilityMeta:

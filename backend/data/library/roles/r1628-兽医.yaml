@@ -1,0 +1,89 @@
+id: r1628
+englishName: 1c1e15cb-222222222222ca2c-4f31-8e8f-0e57c1be654c
+name: 兽医
+type: townsfolk
+edition: custom
+image: https://www.helloimg.com/i/2024/09/14/66e4678453ab5.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 1天
+  - 2天
+  - 失去能力
+remindersGlobal:
+  - 黑猫1
+  - 黑猫2
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每局游戏限一次，在白天时，你可以指定黑猫未来两天的访问顺序（不能访问自己）。如果该顺序发生改变，你会立刻知道。【当你抱起黑猫，会出现第二只黑猫】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1628
+    officialId: 1c1e15cb-222222222222ca2c-4f31-8e8f-0e57c1be654c
+    sourceHash: 365e1030fb9ec97d4f823518ab0e6e6cac0e4e65
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - townsfolk
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

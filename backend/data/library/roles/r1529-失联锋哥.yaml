@@ -1,0 +1,97 @@
+id: r1529
+englishName: 11-shanhaiqiwenlu
+name: 失联锋哥
+type: townsfolk
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/8/8c/edmu0pnhwmo2o0hvtc4m5k1rfz5l6x7.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+  - 阻止死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 每局游戏限一次。如果外来者在夜晚死亡，你防止他死亡并被唤醒得知此事。
+ability: 每局游戏限一次。如果外来者在夜晚死亡，你防止他死亡并被唤醒得知此事。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1529
+    officialId: 11_shanhaiqiwenlu
+    sourceHash: 321b50181558e5bd1ad96d9d11e4ae9974b3a898
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - townsfolk
+    - outsider
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

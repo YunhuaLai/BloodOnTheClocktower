@@ -1,11 +1,12 @@
 id: r043
 name: 主谋
-type: minion
+type: outsider
 englishName: mastermind
-ability: 如果恶魔因为死于处决而因此导致游戏结束时，再额外进行一个夜晚和一个白天。在那个白天如果有玩家被处决，他的阵营落败。
+ability: 如果在你死亡后的下个白天有善良玩家被处决，他的阵营落败。
 edition: custom
-image: https://www.bloodstar.xyz/p/spdm/SpaceBound/20_spacebound.png
-flavor: ''
+image:
+  - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/mastermind_b.png
+flavor: 怪物的触手被钉在了教堂大门上。母亲和孩子们在街上跳舞。棒极了。一切都在按我的计划进行。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -19,7 +20,8 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
+reminders:
+  - 幕后黑手
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
@@ -29,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r043
-    officialId: mastermind
-    sourceHash: c7c9035749991f975a783ad97c715a59be58b87a
+    officialId: 14_fan
+    sourceHash: c62a3adb658e157fdf7bc41484ada889e486c957
     sourceHashFields:
       - ability
       - type
@@ -39,21 +41,23 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 残局
     - 规则修饰
   termIds:
     - day
-    - night
     - execution
+    - death
     - alignment
-    - minion
-    - demon
+    - good
+    - outsider
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

@@ -1,0 +1,77 @@
+id: s548
+englishName: item
+name: 暗渡陈仓
+status: draft
+en: 暗渡陈仓
+author: 小猴子
+logo: https://i.postimg.cc/xdkC6Sj1/LOGO-copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/xdkC6Sj1/LOGO-copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r048
+  - r028
+  - r054
+  - r140
+  - r026
+  - r008
+  - r052
+  - r006
+  - r010
+  - r051
+  - r072
+  - r039
+  - r098
+  - r067
+  - r016
+  - r068
+  - r036
+  - r015
+  - r020
+  - r040
+  - r077
+  - r019
+  - r079
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r098
+    - r039
+    - r052
+    - r040
+    - r006
+    - r048
+    - r051
+    - r049
+    - r140
+  other:
+    - r028
+    - r052
+    - r008
+    - r020
+    - r039
+    - r026
+    - r079
+    - r040
+    - r068
+    - r036
+    - r006
+    - r051
+    - r054
+    - r140

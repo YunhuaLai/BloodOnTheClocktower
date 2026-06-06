@@ -1,0 +1,87 @@
+id: s430
+englishName: item
+name: 不要洗我丫
+status: draft
+en: 不要洗我丫
+author: KeVin
+logo: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/e/e6/f64m5t56772rp9859bpce4mtaxu6zed.png/1600px-%E4%B8%8D%E8%A6%81%E6%B4%97%E6%88%91%E4%B8%ABlogo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/e/e6/f64m5t56772rp9859bpce4mtaxu6zed.png/1600px-%E4%B8%8D%E8%A6%81%E6%B4%97%E6%88%91%E4%B8%ABlogo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r052
+  - r054
+  - r140
+  - r150
+  - r134
+  - r091
+  - r087
+  - r307
+  - r463
+  - r442
+  - r822
+  - r606
+  - r067
+  - r070
+  - r908
+  - r1808
+  - r074
+  - r075
+  - r076
+  - r121
+  - r609
+  - r136
+  - r114
+  - r240
+travellerIds: []
+fabledIds:
+  - r1807
+nightOrder:
+  first:
+    - r121
+    - r822
+    - r609
+    - r052
+    - r074
+    - r075
+    - r136
+    - r001
+    - r140
+    - r442
+    - r087
+    - r134
+    - r307
+  other:
+    - r822
+    - r076
+    - r609
+    - r052
+    - r074
+    - r075
+    - r150
+    - r136
+    - r114
+    - r240
+    - r606
+    - r463
+    - r070
+    - r054
+    - r140
+    - r087
+    - r134

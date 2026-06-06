@@ -1,0 +1,91 @@
+id: s804
+englishName: item
+name: 好事多磨
+status: draft
+en: 好事多磨
+author: ''
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689598220_197011_543.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689598220_197011_543.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r097
+  - r024
+  - r052
+  - r005
+  - r028
+  - r027
+  - r029
+  - r088
+  - r022
+  - r009
+  - r035
+  - r066
+  - r038
+  - r015
+  - r037
+  - r067
+  - r116
+  - r017
+  - r075
+  - r042
+  - r120
+  - r021
+  - r079
+  - r141
+travellerIds:
+  - r149
+  - r132
+  - r131
+  - r129
+  - r128
+fabledIds:
+  - r127
+nightOrder:
+  first:
+    - r149
+    - r128
+    - r066
+    - r024
+    - r088
+    - r141
+    - r017
+    - r052
+    - r075
+    - r097
+    - r005
+    - r049
+  other:
+    - r149
+    - r132
+    - r128
+    - r066
+    - r024
+    - r088
+    - r017
+    - r027
+    - r028
+    - r052
+    - r075
+    - r021
+    - r079
+    - r141
+    - r042
+    - r009
+    - r029
+    - r037
+    - r005

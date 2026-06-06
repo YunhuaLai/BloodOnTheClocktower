@@ -1,0 +1,88 @@
+id: r2012
+englishName: 7-sheshecup111
+name: 鳍裔怪人
+type: outsider
+edition: custom
+image: https://postimage.me/images/2024/08/01/bb0f9ab7566903f31ef62b1ef3c9b3fb.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 无法获胜
+remindersGlobal: []
+firstNightReminder: 唤醒恶魔，告知他鳍裔怪人在场。
+otherNightReminder: ''
+ability: 与你邻近的玩家中没有死亡的善良玩家时善良阵营无法获胜，即使你已死亡。恶魔知道你在场。[仅与一名邪恶玩家邻座]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2012
+    officialId: 7_sheshecup111
+    sourceHash: f2d6e0b4797e0f16a5ea582cf4cc05ddd3086875
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 设置
+  termIds:
+    - setup
+    - first-night
+    - death
+    - alignment
+    - good
+    - evil
+    - outsider
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,84 @@
+id: s871
+englishName: item
+name: 新大陆
+status: draft
+en: 新大陆
+author: 蓝铃兰
+logo: https://free.picui.cn/free/2025/12/06/69338ae577231.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/06/69338ae577231.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r030
+  - r053
+  - r054
+  - r060
+  - r063
+  - r097
+  - r133
+  - r140
+  - r089
+  - r597
+  - r319
+  - r230
+  - r361
+  - r015
+  - r016
+  - r068
+  - r186
+  - r073
+  - r121
+  - r113
+  - r235
+  - r103
+  - r099
+  - r095
+  - r683
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r683
+    - r095
+    - r113
+    - r121
+    - r103
+    - r030
+    - r073
+    - r235
+    - r097
+    - r140
+    - r597
+    - r133
+    - r053
+  other:
+    - r030
+    - r235
+    - r113
+    - r099
+    - r103
+    - r095
+    - r683
+    - r068
+    - r063
+    - r054
+    - r140
+    - r597
+    - r230
+    - r361
+    - r133
+    - r053

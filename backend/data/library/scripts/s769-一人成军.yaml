@@ -1,0 +1,79 @@
+id: s769
+englishName: item
+name: 一人成军
+status: draft
+en: 一人成军
+author: 提线政客
+logo: https://free.picui.cn/free/2025/12/11/693ab44c6eb4e.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/11/693ab44c6eb4e.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r195
+  - r024
+  - r052
+  - r181
+  - r150
+  - r185
+  - r761
+  - r394
+  - r350
+  - r974
+  - r066
+  - r4018
+  - r2642
+  - r116
+  - r135
+  - r071
+  - r186
+  - r4053
+  - r840
+  - r3981
+  - r077
+  - r315
+  - r641
+  - r634
+  - r141
+travellerIds:
+  - r149
+  - r350
+fabledIds:
+  - r1616
+  - r2346
+  - r118
+nightOrder:
+  first:
+    - r066
+    - r149
+    - r4018
+    - r071
+    - r024
+    - r2642
+    - r141
+    - r634
+    - r052
+    - r195
+  other:
+    - r4053
+    - r149
+    - r066
+    - r024
+    - r2642
+    - r052
+    - r150
+    - r141
+    - r634
+    - r394

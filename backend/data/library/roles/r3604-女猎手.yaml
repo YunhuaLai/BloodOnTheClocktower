@@ -1,0 +1,97 @@
+id: r3604
+englishName: diyrole11
+name: 女猎手
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Nightingale/Princesses_Requiem/huntress_princesses_requiem.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 唤醒女猎手并询问她是否发动能力，如发动，她会得知除她以外离你最近的带有提示标记的一名存活的玩家（或者她会得知没有）。
+otherNightReminder: 唤醒女猎手并询问她是否发动能力，如发动，她会得知除她以外离你最近的带有提示标记的一名存活的玩家（或者她会得知没有）。
+ability: 每局游戏限一次，在夜晚时，你会得知除你以外离你最近的带有提示标记的一名存活的玩家（或者你会得知没有）。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3604
+    officialId: diyRole11
+    sourceHash: 71f0332a8229dd6d089a5bb42f8e5311edaf604f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - alive
+    - townsfolk
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

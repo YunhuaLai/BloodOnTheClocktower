@@ -1,0 +1,89 @@
+id: r4090
+englishName: sprite
+name: 宝钻精灵
+type: outsider
+edition: custom
+image: https://youke1.picui.cn/s1/2025/07/27/6885de23cf520.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 第一天
+  - 第二天
+  - 第三天
+  - 第四天
+  - 第五天
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 在第五个白天结束时，邪恶阵营获胜，即使你已死亡。如果恶魔能够在特定天数后获胜，其获胜条件提前一天。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4090
+    officialId: Sprite
+    sourceHash: f9c8b9031b7f5de604fc34ac19e774a772a0fe10
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - death
+    - alignment
+    - evil
+    - outsider
+    - demon
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

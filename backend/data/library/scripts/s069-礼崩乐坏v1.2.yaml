@@ -1,0 +1,89 @@
+id: s069
+englishName: v1-2
+name: 礼崩乐坏v1.2
+status: draft
+en: 礼崩乐坏v1.2
+author: 摸鱼学徒
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1697467993_197011_2970.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1697467993_197011_2970.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r049
+  - r597
+  - r025
+  - r276
+  - r026
+  - r027
+  - r463
+  - r029
+  - r530
+  - r059
+  - r819
+  - r032
+  - r119
+  - r820
+  - r068
+  - r038
+  - r043
+  - r093
+  - r018
+  - r040
+  - r107
+  - r821
+  - r239
+  - r047
+travellerIds:
+  - r583
+fabledIds:
+  - r104
+  - r348
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r820
+    - r040
+    - r093
+    - r107
+    - r239
+    - r023
+    - r049
+    - r597
+    - r018
+    - r025
+    - r530
+  other:
+    - r059
+    - r027
+    - r093
+    - r107
+    - r026
+    - r047
+    - r239
+    - r821
+    - r820
+    - r040
+    - r068
+    - r463
+    - r029
+    - r023
+    - r597
+    - r018
+    - r819
+    - r025
+    - r530

@@ -1,0 +1,86 @@
+id: s861
+englishName: item
+name: 同室操戈
+status: draft
+en: 同室操戈
+author: 能天使
+logo: https://s2.loli.net/2025/07/22/36fZPx4l9mbderS.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/22/36fZPx4l9mbderS.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r108
+  - r005
+  - r051
+  - r053
+  - r027
+  - r150
+  - r056
+  - r058
+  - r057
+  - r319
+  - r089
+  - r091
+  - r544
+  - r016
+  - r119
+  - r820
+  - r068
+  - r040
+  - r043
+  - r235
+  - r336
+  - r113
+  - r099
+  - r103
+travellerIds: []
+fabledIds:
+  - r4150
+  - r1481
+  - r118
+nightOrder:
+  first:
+    - r336
+    - r113
+    - r820
+    - r544
+    - r103
+    - r040
+    - r235
+    - r005
+    - r023
+    - r051
+    - r058
+    - r108
+    - r053
+  other:
+    - r1481
+    - r027
+    - r235
+    - r113
+    - r150
+    - r099
+    - r103
+    - r820
+    - r040
+    - r023
+    - r068
+    - r005
+    - r051
+    - r056
+    - r058
+    - r053

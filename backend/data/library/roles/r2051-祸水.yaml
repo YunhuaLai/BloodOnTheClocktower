@@ -1,0 +1,104 @@
+id: r2051
+englishName: duiyizhongyan-8
+name: 祸水
+type: townsfolk
+edition: custom
+image: https://free.picui.cn/free/2025/03/07/67cae9512323f.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 已被猜测
+  - 获得爪牙能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知一个善良角色、一个邪恶角色和四名玩家，其中分别有两个玩家是这两个角色。邪恶玩家得知你在场，每局游戏限一次，邪恶玩家可以拜访说书人猜测谁是祸水，如果正确，这名玩家会获得一个不在场爪牙的能力，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2051
+    officialId: duiyizhongyan_8
+    sourceHash: e933adbf6f5a1c24a78142531d2e7e9a91e92836
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - good
+    - evil
+    - townsfolk
+    - minion
+    - storyteller
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: minion
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

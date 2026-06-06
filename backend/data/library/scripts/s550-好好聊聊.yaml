@@ -1,0 +1,88 @@
+id: s550
+englishName: item
+name: 好好聊聊
+status: draft
+en: 好好聊聊
+author: 诸神无限
+logo: https://i.postimg.cc/nctMygqn/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/nctMygqn/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r003
+  - r048
+  - r006
+  - r051
+  - r056
+  - r086
+  - r133
+  - r009
+  - r058
+  - r064
+  - r059
+  - r115
+  - r015
+  - r116
+  - r067
+  - r071
+  - r075
+  - r121
+  - r107
+  - r076
+  - r141
+  - r083
+  - r079
+  - r099
+travellerIds: []
+fabledIds:
+  - r104
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r121
+    - r141
+    - r075
+    - r107
+    - r064
+    - r071
+    - r001
+    - r003
+    - r006
+    - r048
+    - r051
+    - r058
+    - r086
+    - r133
+  other:
+    - r059
+    - r075
+    - r076
+    - r107
+    - r079
+    - r083
+    - r099
+    - r141
+    - r009
+    - r064
+    - r071
+    - r006
+    - r051
+    - r056
+    - r058
+    - r086
+    - r133

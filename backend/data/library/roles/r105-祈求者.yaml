@@ -2,7 +2,7 @@ id: r105
 name: 祈求者
 type: townsfolk
 englishName: invoker
-ability: 每晚，你会得知一个目前情况下对某一阵营有较大帮助的角色。
+ability: 每个夜晚，你会得知一个目前情况下对某一阵营有较大帮助的角色。
 setupMeta:
   randomAssignable: true
   tokenRequired: true
@@ -17,11 +17,12 @@ setupMeta:
   setupNotes: []
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r105
-    officialId: invoker
-    sourceHash: 4d301e538f4f285b93b7086341b842537d68dd62
+    officialId: _meiyuanchengzhen
+    sourceHash: 37ab28e67f0685d8c7256e32396d5d5875204341
     sourceHashFields:
       - ability
       - type
@@ -30,6 +31,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -42,8 +45,8 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null
@@ -94,3 +97,11 @@ abilityData:
     source: inferred
     label: 可模板化：阵营信息
     templates: []
+edition: custom
+image: ''
+flavor: ''
+setup: false
+reminders: []
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你会得知一个目前情况下对某一阵营有较大帮助的角色。
+otherNightReminder: 每个夜晚，你会得知一个目前情况下对某一阵营有较大帮助的角色。

@@ -1,0 +1,94 @@
+id: r1096
+englishName: 2034e219-6bd5-472b-a36b-9ee1600e418a
+name: 涅槃重生
+type: fabled
+edition: custom
+image: https://www.freeimg.cn/uploads/535/69170d5403af2.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每局游戏限一次，死于雷劫的玩家可以在下个白天拜访说书人猜测他触犯的天条是什么。如果猜测正确，他会在黄昏时起死回生。[7~9人时加入游戏，同时带▲的角色会不在剧本中]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1096
+    officialId: 2034e219-6bd5-472b-a36b-9ee1600e418a
+    sourceHash: 11286840ffbc6d85c34c467f5514c23dc967dc15
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 主动选择
+  termIds:
+    - day
+    - storyteller
+    - fabled
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

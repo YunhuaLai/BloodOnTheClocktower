@@ -1,0 +1,84 @@
+id: s684
+englishName: item
+name: 志怪书
+status: draft
+en: 志怪书
+author: 苏通染
+logo: https://www.helloimg.com/i/2024/11/12/673235d844161.png
+description: 志怪书
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 志怪书
+image: https://www.helloimg.com/i/2024/11/12/673235d844161.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 志怪书
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r108
+  - r442
+  - r025
+  - r597
+  - r530
+  - r594
+  - r230
+  - r109
+  - r229
+  - r278
+  - r334
+  - r823
+  - r098
+  - r069
+  - r908
+  - r112
+  - r040
+  - r042
+  - r237
+  - r610
+  - r045
+  - r689
+  - r239
+  - r240
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r098
+    - r689
+    - r040
+    - r610
+    - r045
+    - r239
+    - r108
+    - r597
+    - r442
+    - r594
+    - r307
+    - r530
+    - r025
+  other:
+    - r112
+    - r109
+    - r229
+    - r045
+    - r689
+    - r239
+    - r240
+    - r042
+    - r040
+    - r237
+    - r610
+    - r278
+    - r597
+    - r230
+    - r594
+    - r530
+    - r025

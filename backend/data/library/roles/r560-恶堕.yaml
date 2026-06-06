@@ -4,7 +4,7 @@ name: 恶堕
 type: demon
 edition: custom
 image: https://www.bloodstar.xyz/p/humlet/JUEDOU/24_juedou.png
-flavor: ''
+flavor: 拥抱黑暗吧，异乡人，我会将你的死亡与怮哭化作铠甲，将你受过的排挤与恶意化作刀刃，然后你要随我一起，向他们复仇。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r560
-    officialId: fallen
+    officialId: 24_juedou
     sourceHash: eae1cf046200c31eb873b844356e7d98bf60b9b5
     sourceHashFields:
       - ability
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 设置
@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

@@ -1,0 +1,86 @@
+id: r3721
+englishName: scared-halloween
+name: 恐慌
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/SeaBound/Halloween/scared_halloween.png
+flavor: It’s Halloween. I guess everyone’s entitled to one good scare.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 恐慌
+  - 死亡
+  - 处决
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: A scared player dies, then if no one was executed yesterday, another player might die.
+ability: 每个夜晚*，会有一名恐慌的玩家死亡，随后，如果上个白天没有玩家被处决，可能会有另一名玩家死亡。恐慌的玩家在被提名时可能死亡。当存活玩家小于等于3名时，恐慌的玩家不会因被提名而死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3721
+    officialId: scared_halloween
+    sourceHash: 0e565fd41a5a81607414a0f3e8e045c767cbc285
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - nomination
+    - execution
+    - death
+    - alive
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

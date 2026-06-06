@@ -1,0 +1,90 @@
+id: r1084
+englishName: tianjigezhu111
+name: 天机阁主
+type: townsfolk
+edition: custom
+image: https://www.freeimg.cn/uploads/535/691708ec463db.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个白天，你可以拜访说书人并猜测当天的天条，随后说书人会给你一条能帮助你的阵营获胜的建议。如果你猜测错误，你醉酒直到下一次猜测。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1084
+    officialId: tianjigezhu111
+    sourceHash: 11642a62176bedb78503867965e3fcfe7881608d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - drunk
+    - alignment
+    - townsfolk
+    - storyteller
+  abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

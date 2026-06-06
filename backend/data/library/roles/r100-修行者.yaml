@@ -4,8 +4,8 @@ type: townsfolk
 englishName: shugenja
 ability: 在你的首个夜晚，你会得知距离最近的邪恶玩家位于你的顺时针还是逆时针方向。如果两侧的邪恶玩家与你距离相等，你得知的信息由说书人决定。
 edition: custom
-image: https://www.bloodstar.xyz/p/Tiger/Future-King/2_futureking.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/shugenja.png
+flavor: 此即梦境。彼亦梦境。所见之物，非此即彼。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -21,15 +21,16 @@ setupMeta:
   setupNotes: []
 reminders: []
 remindersGlobal: []
-firstNightReminder: '12'
+firstNightReminder: 唤醒修行者，对他指向对应方向来告知他最近的邪恶玩家的方向。
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r100
-    officialId: shugenja
-    sourceHash: d76969f3739e4b779a09b3ac5ab76a13ab8e9121
+    officialId: qingtianjianbei111
+    sourceHash: bf830341effde914d7021ff4a53980d2aadee4a4
     sourceHashFields:
       - ability
       - type
@@ -38,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -52,8 +55,8 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

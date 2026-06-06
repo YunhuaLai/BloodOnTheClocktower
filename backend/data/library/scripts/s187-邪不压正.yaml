@@ -1,0 +1,62 @@
+id: s187
+englishName: item
+name: 邪不压正
+status: draft
+en: 邪不压正
+author: 503&面哥
+logo: https://www.bloodstar.xyz//p//comm503//DeathBetween//justiceabsents_deathbetween.png
+description: 正道的光洒在大地上！
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 正道的光洒在大地上！
+image: https://www.bloodstar.xyz//p//comm503//DeathBetween//justiceabsents_deathbetween.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 正道的光洒在大地上！
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r009
+  - r051
+  - r597
+  - r1470
+  - r823
+  - r005
+  - r1265
+  - r039
+  - r609
+  - r1267
+  - r1268
+  - r080
+travellerIds: []
+fabledIds:
+  - r305
+nightOrder:
+  first:
+    - r1265
+    - r1267
+    - r609
+    - r039
+    - r1268
+    - r597
+    - r005
+    - r1470
+    - r051
+  other:
+    - r1265
+    - r1267
+    - r609
+    - r039
+    - r1268
+    - r080
+    - r009
+    - r597
+    - r005
+    - r1470
+    - r051

@@ -1,0 +1,104 @@
+id: r2869
+englishName: 15-nature
+name: 恶土
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Yez/nature/15_nature.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - '+2'
+  - 第一天
+  - 第二天
+  - 第三天
+  - 是恶土
+remindersGlobal: []
+firstNightReminder: 在恶土的角色标记旁放置“+2”和"第一天"提示标记。唤醒恶土，向他展示角色列表中的一名不在场爪牙角色。
+otherNightReminder: 将恶土的标记替换到下一天，如果恶土的角色标记替换掉“第三天”标记后，则在恶土的角色标记旁放置“是恶土”标记，将恶土的角色标记替换为一个不在场的爪牙提示标记，然后唤醒他，给他展示该爪牙角色标记。
+ability: 在你的首个夜晚，你会得知一个不在场的爪牙角色且你腐蚀+2。在第四个夜晚，你会获得该角色能力并加入邪恶阵营。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2869
+    officialId: 15_nature
+    sourceHash: 4042b4dbd3eafd288a56feebaeb52f6d183279e8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - alignment
+    - evil
+    - outsider
+    - minion
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

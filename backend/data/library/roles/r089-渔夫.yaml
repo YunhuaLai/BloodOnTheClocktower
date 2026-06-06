@@ -4,7 +4,7 @@ type: townsfolk
 englishName: fisherman
 ability: 每局游戏限一次，在白天时，你可以让说书人给你一些能帮助你的阵营获胜的建议。
 edition: custom
-image: https://i.postimg.cc/mrQdhTrG/Fisherman.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/fisherman.png
 flavor: ''
 setup: false
 setupMeta:
@@ -26,10 +26,11 @@ firstNightReminder: ''
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r089
-    officialId: fisherman
+    officialId: 8_xindalu
     sourceHash: 2c4a8833057584286ec2678d9b80d5b400970537
     sourceHashFields:
       - ability
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 白天
     - 一次性
@@ -51,8 +54,8 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: day
       event: null

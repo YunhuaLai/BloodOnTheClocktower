@@ -1,0 +1,99 @@
+id: r3298
+englishName: standardbearer-fall-of-rome
+name: 掌旗官
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/AlexS/Fall_of_Rome/standardbearer_fall_of_rome.png
+flavor: 你说出来的并不总是你所了解的，但我总是知道你在说什么。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 正确
+  - 错误
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果掌旗官的公开声明正确：展示点头表示正确。否则：展示摇头表示错误。
+ability: 当你被提名时，你可以公开作出一个关于提名者（不能是你自己）的独特声明。当晚，你会得知这个声明是否正确。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3298
+    officialId: standardbearer_fall_of_rome
+    sourceHash: 7b871095ecd44370faae02ae4df5f11e977c5c95
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - nomination
+    - townsfolk
+  abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: nomination_check
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

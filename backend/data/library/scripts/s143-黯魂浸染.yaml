@@ -1,0 +1,88 @@
+id: s143
+englishName: item
+name: 黯魂浸染
+status: draft
+en: 黯魂浸染
+author: 洛甜蕾
+logo: https://i.postimg.cc/T1ZG22QJ/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/T1ZG22QJ/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r006
+  - r025
+  - r051
+  - r008
+  - r026
+  - r150
+  - r1250
+  - r134
+  - r059
+  - r009
+  - r233
+  - r066
+  - r012
+  - r015
+  - r039
+  - r037
+  - r324
+  - r837
+  - r042
+  - r073
+  - r121
+  - r626
+  - r047
+  - r079
+  - r045
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r066
+    - r039
+    - r837
+    - r1250
+    - r121
+    - r073
+    - r045
+    - r006
+    - r051
+    - r134
+    - r025
+  other:
+    - r059
+    - r837
+    - r324
+    - r066
+    - r008
+    - r039
+    - r026
+    - r150
+    - r045
+    - r047
+    - r079
+    - r626
+    - r042
+    - r037
+    - r009
+    - r233
+    - r006
+    - r051
+    - r1250
+    - r134
+    - r025

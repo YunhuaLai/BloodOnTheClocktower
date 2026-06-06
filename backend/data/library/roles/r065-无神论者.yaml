@@ -4,7 +4,7 @@ type: townsfolk
 englishName: atheist
 ability: 说书人可以打破游戏规则。如果说书人被处决，善良阵营获胜，即使你已死亡。[无邪恶角色在场]
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/atheist.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/atheist.png
 flavor: ''
 setup: true
 setupMeta:
@@ -25,10 +25,11 @@ firstNightReminder: ''
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r065
-    officialId: atheist
+    officialId: chuangsishuoshuren111
     sourceHash: 48eaa4a45b8cda80753864b99530455ee7722f17
     sourceHashFields:
       - ability
@@ -38,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 特殊胜利
@@ -53,14 +56,14 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: setup
       event: null
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []

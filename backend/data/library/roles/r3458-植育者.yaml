@@ -1,0 +1,97 @@
+id: r3458
+englishName: gardener-beyondgoodandevilv3
+name: 植育者
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/WedgeMcCloud/BeyondGoodAndEvil-V3/gardener_beyondgoodandevilv3.png
+flavor: Everyone wishes to grow something that will outlive them, right?
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 限一次
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让植育者指向一名玩家：那名玩家死亡。如果植育者死亡，并且场上至少有五名玩家存活，且没有其他植育者，在当晚唤醒新的植育者，向他展示“你是”提示卡并展示植育者的角色标记。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。如果大于等于五名玩家存活时（旅行者不计算在内）首个植育者死亡，会有一名爪牙变为园艺师。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3458
+    officialId: gardener_beyondgoodandevilv3
+    sourceHash: 047c406b2b0ee849269f9281389545550eac49b0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - alive
+    - minion
+    - demon
+    - traveler
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

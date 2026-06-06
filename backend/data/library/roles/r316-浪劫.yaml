@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r316
-    officialId: llongjawn
+    officialId: Llongjawn
     sourceHash: f0cdf85fdee646321b3146d882f8ba2b24465304
     sourceHashFields:
       - ability
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

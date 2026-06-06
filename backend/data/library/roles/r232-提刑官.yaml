@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r232
-    officialId: magistrate
+    officialId: tixingguanuahosnrowan34613
     sourceHash: 73f08a7f2ba5ad8de6eef24a0b386655ce94a6a7
     sourceHashFields:
       - ability
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

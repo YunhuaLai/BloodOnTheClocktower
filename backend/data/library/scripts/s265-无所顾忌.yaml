@@ -1,0 +1,86 @@
+id: s265
+englishName: item
+name: 无所顾忌
+status: draft
+en: 无所顾忌
+author: ''
+logo: https://www.helloimg.com/i/2024/10/30/6721e0bb16132.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2024/10/30/6721e0bb16132.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r060
+  - r059
+  - r052
+  - r005
+  - r029
+  - r049
+  - r155
+  - r140
+  - r139
+  - r088
+  - r097
+  - r064
+  - r066
+  - r038
+  - r067
+  - r015
+  - r071
+  - r017
+  - r040
+  - r120
+  - r117
+  - r641
+  - r103
+  - r083
+  - r099
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r059
+    - r155
+    - r066
+    - r071
+    - r103
+    - r017
+    - r052
+    - r040
+    - r117
+    - r097
+    - r064
+    - r005
+    - r049
+    - r140
+    - r139
+  other:
+    - r088
+    - r059
+    - r066
+    - r017
+    - r052
+    - r117
+    - r083
+    - r099
+    - r103
+    - r040
+    - r029
+    - r064
+    - r005
+    - r140
+    - r139

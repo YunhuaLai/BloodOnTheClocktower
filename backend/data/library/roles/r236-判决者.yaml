@@ -3,7 +3,7 @@ englishName: adjudicator
 name: 判决者
 type: minion
 edition: custom
-image: https://postimage.me/images/2024/08/01/07daeadebd9565978fa0c288af9677ab.png
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/3/3a/36qmalv0od54fmo6oymxfdp7m1gsupn.png
 flavor: ''
 setup: false
 setupMeta:
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r236
-    officialId: adjudicator
+    officialId: 3f4f7b8c-b436-4aff-8f73-dea8cd2984e2
     sourceHash: 329326d1320c083be20f2dd1e03810c0c180287d
     sourceHashFields:
       - ability
@@ -58,7 +58,7 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

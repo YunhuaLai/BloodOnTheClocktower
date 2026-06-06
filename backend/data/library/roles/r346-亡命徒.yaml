@@ -4,7 +4,7 @@ name: 亡命徒
 type: minion
 edition: custom
 image: https://www.bloodstar.xyz/p/C2H43g/night/4_night.png
-flavor: ''
+flavor: 嚼着肉。保持安静。反正他都已经病了，不可能在这活下去……
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r346
-    officialId: outlaw
+    officialId: 4_night
     sourceHash: 72b142ca6f129af79142969bc112194b178ab011
     sourceHashFields:
       - ability
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -59,8 +59,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

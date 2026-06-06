@@ -1,0 +1,90 @@
+id: s289
+englishName: item
+name: 环首奇景
+status: draft
+en: 环首奇景
+author: Navean
+logo: https://s1.ax1x.com/2023/01/24/pSY6KoV.png
+description: ''
+townsfolkName: 镇民
+additional:
+  - 剧本介绍: ''
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s1.ax1x.com/2023/01/24/pSY6KoV.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r008
+  - r024
+  - r025
+  - r035
+  - r054
+  - r056
+  - r057
+  - r058
+  - r063
+  - r115
+  - r091
+  - r142
+  - r015
+  - r036
+  - r039
+  - r072
+  - r040
+  - r041
+  - r107
+  - r120
+  - r044
+  - r080
+  - r141
+  - r083
+travellerIds:
+  - r739
+  - r738
+  - r131
+  - r132
+  - r124
+fabledIds: []
+nightOrder:
+  first:
+    - r124
+    - r039
+    - r024
+    - r141
+    - r040
+    - r041
+    - r107
+    - r004
+    - r058
+    - r142
+    - r025
+  other:
+    - r132
+    - r124
+    - r024
+    - r008
+    - r041
+    - r107
+    - r039
+    - r044
+    - r083
+    - r080
+    - r141
+    - r040
+    - r063
+    - r036
+    - r054
+    - r056
+    - r058
+    - r142
+    - r025

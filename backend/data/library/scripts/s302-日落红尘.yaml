@@ -1,0 +1,84 @@
+id: s302
+englishName: item
+name: 日落红尘
+status: draft
+en: 日落红尘
+author: 刘中奇
+logo: https://i.postimg.cc/DyYF0Y4f/7-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/DyYF0Y4f/7-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r023
+  - r442
+  - r140
+  - r087
+  - r025
+  - r229
+  - r028
+  - r057
+  - r029
+  - r058
+  - r134
+  - r091
+  - r015
+  - r214
+  - r070
+  - r363
+  - r020
+  - r609
+  - r121
+  - r237
+  - r683
+  - r099
+  - r114
+  - r240
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r683
+    - r121
+    - r609
+    - r004
+    - r023
+    - r058
+    - r140
+    - r442
+    - r087
+    - r134
+    - r025
+  other:
+    - r609
+    - r028
+    - r020
+    - r229
+    - r099
+    - r683
+    - r114
+    - r240
+    - r237
+    - r214
+    - r029
+    - r363
+    - r023
+    - r070
+    - r058
+    - r140
+    - r087
+    - r134
+    - r025

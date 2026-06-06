@@ -1,0 +1,57 @@
+id: s720
+englishName: v1-0
+name: 穷境求生 V1.0
+status: draft
+en: 穷境求生 V1.0
+author: 清清Jungle
+logo: https://www.bloodstar.xyz/p/Jungle/QiongQi/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Jungle/QiongQi/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r133
+  - r028
+  - r597
+  - r632
+  - r823
+  - r091
+  - r065
+  - r111
+  - r112
+  - r116
+  - r041
+  - r633
+  - r568
+travellerIds: []
+fabledIds:
+  - r127
+nightOrder:
+  first:
+    - r041
+    - r111
+    - r133
+    - r597
+    - r632
+  other:
+    - r112
+    - r823
+    - r028
+    - r041
+    - r568
+    - r111
+    - r597
+    - r133
+    - r632

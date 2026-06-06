@@ -1,0 +1,87 @@
+id: s163
+englishName: item
+name: 雪封三十天
+status: draft
+en: 雪封三十天
+author: Morek
+logo: https://i.postimg.cc/Z5CCQtGW/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/Z5CCQtGW/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r1340
+  - r532
+  - r1341
+  - r577
+  - r027
+  - r028
+  - r058
+  - r1342
+  - r033
+  - r251
+  - r009
+  - r1343
+  - r1344
+  - r1345
+  - r214
+  - r071
+  - r324
+  - r019
+  - r1346
+  - r075
+  - r042
+  - r043
+  - r103
+  - r1347
+  - r047
+  - r1348
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r1348
+    - r071
+    - r103
+    - r1344
+    - r1346
+    - r075
+    - r1347
+    - r532
+    - r097
+    - r1340
+    - r058
+  other:
+    - r324
+    - r1345
+    - r027
+    - r028
+    - r1346
+    - r075
+    - r047
+    - r103
+    - r1347
+    - r1348
+    - r042
+    - r1343
+    - r214
+    - r251
+    - r009
+    - r532
+    - r1340
+    - r1341
+    - r577
+    - r058

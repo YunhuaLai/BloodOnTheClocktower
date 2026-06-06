@@ -4,7 +4,7 @@ name: 神秘学家
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/humlet/JUEDOU/6_juedou.png
-flavor: ''
+flavor: '答案在星辰间，只需要我们前行。         创意来源：玉露玉某 '
 setup: true
 setupMeta:
   randomAssignable: true
@@ -36,7 +36,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r369
-    officialId: occultist
+    officialId: 6_juedou
     sourceHash: a658e545ca7093e5d741db5ea26f47f38030dbc3
     sourceHashFields:
       - ability
@@ -46,8 +46,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 设置
     - 信息型
@@ -61,14 +61,14 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_day
       event: null
       frequency: once_per_day
     actor:
-      drivenBy: system
+      drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments:

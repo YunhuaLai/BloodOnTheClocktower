@@ -3,7 +3,7 @@ englishName: baofengoabsoudbouawdo
 name: 暴风捕手
 type: fabled
 edition: custom
-image: https://clocktower-wiki.gstonegames.com/images/thumb/3/30/Stormcatcher.png/600px-Stormcatcher.png
+image: https://clocktower-wiki.gstonegames.com/images/thumb/3/30/Stormcatcher.png/200px-Stormcatcher.png
 flavor: ''
 setup: false
 setupMeta:
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r158
-    officialId: baofengoabsoudbouawdo
+    officialId: baofeng2222
     sourceHash: f24442fb31b59d33429b7552c072bac1b6e19c04
     sourceHashFields:
       - ability
@@ -55,7 +55,7 @@ abilityData:
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null
@@ -67,8 +67,6 @@ abilityData:
       - kind: learn_role
         roleType: null
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_execution
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

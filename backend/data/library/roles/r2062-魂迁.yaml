@@ -1,0 +1,80 @@
+id: r2062
+englishName: duiyizhongyan-1111
+name: 魂迁
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/LILZE/tendays/8_tendays.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 活尸
+firstNightReminder: ''
+otherNightReminder: '1'
+ability: 每当一名玩家在夜晚死亡，你获得他剩余的道。每局游戏限一次，你可以支付3颗道，选择一名玩家：他复活。如果技能发动失败，他会变成活尸。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2062
+    officialId: 8_tendays
+    sourceHash: 23950e9be9135313bc1a754d3b8e35c030e0c148
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

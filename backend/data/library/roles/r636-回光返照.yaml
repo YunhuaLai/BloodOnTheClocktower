@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r636
-    officialId: last-light
+    officialId: docj7otq
     sourceHash: 06d40364ffb695fb061c3b33c859b5a6d034688f
     sourceHashFields:
       - ability
@@ -51,7 +51,7 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

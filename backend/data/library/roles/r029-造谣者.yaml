@@ -2,10 +2,10 @@ id: r029
 name: 造谣者
 type: townsfolk
 englishName: gossip
-ability: 每个白天，你可以公开发表一个声明。如果该声明正确，在当晚会有一名玩家死亡。
+ability: 每个白天，你可以公开发表一个声明。在当晚，如果该声明是正确的，会有一名玩家死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/gossip.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/gossip.png
+flavor: “巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉巴拉。巴拉。”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -23,15 +23,15 @@ reminders:
   - 死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 如果白天的声明为真，会有一名玩家死亡，并由说书人来选择一名玩家，标记该玩家死亡。
+otherNightReminder: 如果造谣者今天白天的声明正确，一名玩家死亡。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r029
-    officialId: gossip
-    sourceHash: 58ba669d0a6b688690646abcfecbc50161262607
+    officialId: chunzaoyaoa
+    sourceHash: 3c7c4079607223e7641067753a214e36e498edc8
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 白天
     - 信息型
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_day
       event: null

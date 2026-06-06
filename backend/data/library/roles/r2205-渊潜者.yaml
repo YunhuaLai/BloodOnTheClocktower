@@ -1,0 +1,86 @@
+id: r2205
+englishName: 11-darkduel
+name: 渊潜者
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Tiger/DARK-DUEL/11_darkduel.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: outsider
+    shownRoleTypes:
+      - townsfolk
+    note: 身份覆盖：不要把酒鬼标记直接加入随机直发池；玩家应拿到一个镇民标记，酒鬼本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把酒鬼标记直接加入随机直发池；玩家应拿到一个镇民标记，酒鬼本体由说书人记录。
+reminders: []
+remindersGlobal:
+  - 是渊潜
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你不知道你是渊潜者。你以为你是一个善良角色，但其实你不是。你会被当作邪恶阵营、爪牙角色或恶魔角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2205
+    officialId: 11_darkduel
+    sourceHash: 0556b5e6d21d5b5b27bca3c4d89da3f2668777b7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - alignment
+    - good
+    - evil
+    - outsider
+    - minion
+    - demon
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

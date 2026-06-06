@@ -1,0 +1,106 @@
+id: r3204
+englishName: skank-ravenswoodhigh
+name: 骚货
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/marhepto/RavenswoodHigh/skank_ravenswoodhigh.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 唤醒邪恶的镇民。向他展示“恶魔”与骚货的角色标记. 之后向他展示骚货和恶魔在哪些玩家之中。
+otherNightReminder: ''
+ability: 在你的首个夜晚，邪恶的镇民会知道你和恶魔，但他不知道谁是恶魔。你在夜晚不会死亡。(会有一名镇民转变为邪恶阵营)
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3204
+    officialId: skank_ravenswoodhigh
+    sourceHash: 0fe66c8c644f0f574ac0142b0daae70495c1bb25
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - death
+    - alignment
+    - evil
+    - townsfolk
+    - outsider
+    - demon
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_team
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

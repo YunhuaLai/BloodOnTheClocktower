@@ -1,0 +1,78 @@
+id: s854
+englishName: item
+name: 奇异人生
+status: draft
+en: 奇异人生
+author: 海雾&奇异人生推理馆
+logo: https://img.picui.cn/free/2025/03/05/67c8453ede592.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://img.picui.cn/free/2025/03/05/67c8453ede592.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r052
+  - r051
+  - r142
+  - r150
+  - r030
+  - r059
+  - r057
+  - r155
+  - r091
+  - r066
+  - r233
+  - r065
+  - r015
+  - r016
+  - r014
+  - r069
+  - r116
+  - r017
+  - r020
+  - r641
+  - r077
+  - r136
+  - r079
+  - r4143
+travellerIds: []
+fabledIds:
+  - r127
+  - r4142
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r066
+    - r017
+    - r030
+    - r052
+    - r136
+    - r097
+    - r051
+    - r142
+  other:
+    - r059
+    - r066
+    - r017
+    - r030
+    - r052
+    - r020
+    - r150
+    - r4143
+    - r136
+    - r079
+    - r051
+    - r142

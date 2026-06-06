@@ -1,0 +1,102 @@
+id: r1632
+englishName: 98830d8222221-3d98-49d6-ad5a-4733dbdb2b3d
+name: 寿衣店老板
+type: townsfolk
+edition: custom
+image: https://www.helloimg.com/i/2024/09/14/66e468c49fe13.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 拥有技能
+  - 失去能力
+  - 死亡
+  - 明天复活
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 每局游戏限一次，在夜晚时，你可以选择一名死亡玩家：次日起你将获得他的能力。如果你选择的是邪恶玩家，你会死亡且当晚不会有其他玩家死亡。【当你抱起黑猫，次日一名死亡玩家会复活】
+ability: 每局游戏限一次，在夜晚时，你可以选择一名死亡玩家：次日起你将获得他的能力。如果你选择的是邪恶玩家，你会死亡且当晚不会有其他玩家死亡。【当你抱起黑猫，次日一名死亡玩家会复活】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1632
+    officialId: 98830d8222221-3d98-49d6-ad5a-4733dbdb2b3d
+    sourceHash: 5d3653119c5e719df3c9a3a8613e817b88f07bdf
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - evil
+    - townsfolk
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

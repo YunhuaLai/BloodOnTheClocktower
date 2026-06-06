@@ -1,0 +1,79 @@
+id: s354
+englishName: v1-2-0
+name: 奥法集会v1.2.0
+status: draft
+en: 奥法集会v1.2.0
+author: Ember
+logo: https://s2.loli.net/2025/07/26/LIqoDsjYBi1CrwH.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/26/LIqoDsjYBi1CrwH.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r049
+  - r006
+  - r024
+  - r027
+  - r055
+  - r056
+  - r029
+  - r057
+  - r089
+  - r033
+  - r009
+  - r091
+  - r016
+  - r324
+  - r015
+  - r036
+  - r017
+  - r040
+  - r041
+  - r336
+  - r021
+  - r047
+  - r096
+  - r080
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r024
+    - r017
+    - r040
+    - r041
+    - r006
+    - r023
+    - r049
+  other:
+    - r324
+    - r024
+    - r017
+    - r027
+    - r041
+    - r021
+    - r047
+    - r080
+    - r096
+    - r040
+    - r029
+    - r036
+    - r023
+    - r009
+    - r006
+    - r055
+    - r056

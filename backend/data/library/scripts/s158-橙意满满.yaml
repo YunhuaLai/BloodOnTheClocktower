@@ -1,0 +1,87 @@
+id: s158
+englishName: item
+name: 橙意满满
+status: draft
+en: 橙意满满
+author: 橙子
+logo: https://s2.loli.net/2025/07/23/6gSRnpLKzFC3JWx.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/23/6gSRnpLKzFC3JWx.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r049
+  - r1001
+  - r1298
+  - r005
+  - r006
+  - r597
+  - r008
+  - r028
+  - r056
+  - r059
+  - r233
+  - r1323
+  - r037
+  - r836
+  - r092
+  - r186
+  - r020
+  - r017
+  - r040
+  - r121
+  - r1324
+  - r082
+  - r095
+  - r240
+travellerIds: []
+fabledIds:
+  - r104
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r095
+    - r121
+    - r017
+    - r040
+    - r005
+    - r006
+    - r023
+    - r049
+    - r1001
+    - r1298
+    - r597
+    - r092
+  other:
+    - r059
+    - r017
+    - r028
+    - r008
+    - r020
+    - r082
+    - r095
+    - r240
+    - r040
+    - r1324
+    - r037
+    - r023
+    - r233
+    - r1323
+    - r005
+    - r006
+    - r056
+    - r597

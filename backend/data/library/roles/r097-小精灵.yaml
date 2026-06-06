@@ -4,8 +4,8 @@ type: townsfolk
 englishName: pixie
 ability: 在你的首个夜晚，你会得知一个在场的镇民角色。如果你“疯狂”地证明你是该角色，当他死亡时你获得该角色的能力。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/pixie.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/pixie.png
+flavor: 绕着花园转圈圈，女孩跑得疯癫癫。男孩树上荡秋千，小精灵在谁心间？淑女微笑小镇边，贵族抡斧树长眠。容貌相似难分辨，谜底揭晓圣光现：小精灵呀是神仙。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -23,15 +23,16 @@ reminders:
   - 疯狂
   - 获得能力
 remindersGlobal: []
-firstNightReminder: 对小精灵展示一个在场的镇民角色。
+firstNightReminder: 唤醒小精灵，对他展示一个在场镇民角色标记。
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r097
-    officialId: pixie
-    sourceHash: ac13b02753f5c3c75b60ade798d3ab0662239ea4
+    officialId: 5_xindalu
+    sourceHash: 8e905cb200f7c6cded90ebd1511dd0fb2d260a7e
     sourceHashFields:
       - ability
       - type
@@ -40,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -55,8 +58,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

@@ -1,0 +1,100 @@
+id: r2619
+englishName: 39-a-bad-example
+name: 业余黑客
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/ZhaoMarsh/A_Bad_Example/39_a_bad_example.png
+flavor: 等一下，我先在后台装个"小程序"，这样立直率就能上去了。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 邪恶投票
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 告诉业余黑客今天白天投票的玩家有几名是邪恶的。
+ability: 每个夜晚*，你得知今天白天在提名和流放时举手的玩家有几个现在是邪恶的。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2619
+    officialId: 39_a_bad_example
+    sourceHash: f60b328cac8bc3759bd8c6e6299d2d9f03769b65
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - information
+    - nomination
+    - vote
+    - evil
+    - townsfolk
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: evil_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

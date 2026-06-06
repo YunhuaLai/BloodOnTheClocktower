@@ -1,0 +1,133 @@
+id: r2155
+englishName: chunqiubi
+name: 春秋笔
+type: demon
+edition: custom
+image: https://i.postimg.cc/x8W74fXm/23.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 参与提名1
+  - 参与提名2
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒春秋笔，对他展示所有欢梦自以为的角色标记。
+otherNightReminder: 决定今晚谁会因为春秋笔能力死亡。随后，如果有符合条件的玩家，唤醒春秋笔，有必要的话为春秋笔指出哪些是符合条件的玩家，让他选择最多两名符合条件的玩家。让春秋笔重新入睡。为这些玩家放置“死亡”标记。
+ability: 每个夜晚*，可能会有一名玩家死亡。欢梦以为的角色能力可能会正常生效，你得知他们以为的角色。每个夜晚，你可以选择至多两名参与过至少四次提名的玩家：他们死亡。[半数以上的善良玩家为欢梦]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2155
+    officialId: ChunQiuBi
+    sourceHash: 98a3f7f3a8b2c418925cea4e54ed8c75e16dd9bc
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - first-night
+    - nomination
+    - death
+    - good
+    - demon
+  abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：目标身份信息
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

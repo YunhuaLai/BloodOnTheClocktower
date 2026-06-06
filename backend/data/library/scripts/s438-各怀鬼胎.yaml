@@ -1,0 +1,84 @@
+id: s438
+englishName: item
+name: 各怀鬼胎
+status: draft
+en: 各怀鬼胎
+author: 纸船
+logo: https://i.postimg.cc/T3wCmnYH/Title.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/T3wCmnYH/Title.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r108
+  - r004
+  - r133
+  - r005
+  - r052
+  - r024
+  - r632
+  - r530
+  - r056
+  - r058
+  - r319
+  - r823
+  - r038
+  - r039
+  - r112
+  - r111
+  - r633
+  - r019
+  - r076
+  - r121
+  - r045
+  - r080
+  - r082
+  - r141
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r039
+    - r121
+    - r024
+    - r141
+    - r052
+    - r045
+    - r002
+    - r004
+    - r005
+    - r111
+    - r058
+    - r108
+    - r530
+    - r133
+  other:
+    - r024
+    - r076
+    - r052
+    - r112
+    - r111
+    - r039
+    - r045
+    - r082
+    - r080
+    - r141
+    - r005
+    - r056
+    - r058
+    - r530
+    - r133

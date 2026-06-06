@@ -1,0 +1,97 @@
+id: r2407
+englishName: cae3c19d-8c03-4457-af1f-2177d46411b3
+name: 瘾君子
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/marhepto/RavenswoodHigh/pothead_ravenswoodhigh.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 得知瘾君子在场
+remindersGlobal: []
+firstNightReminder: Wake the player with the Pothead token and show them their real ability.
+otherNightReminder: ''
+ability: 你以为你是一个在场镇民，但其实你不是。该角色的玩家会知道瘾君子在场。如果你们之中其中一人“疯狂”证明瘾君子在场，你们可能都会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2407
+    officialId: pothead_ravenswoodhigh
+    sourceHash: c0702cbd8383b581815b2674299e7c2da58bbf4a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - first-night
+    - information
+    - death
+    - townsfolk
+    - outsider
+    - madness
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

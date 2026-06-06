@@ -1,0 +1,87 @@
+id: r3616
+englishName: diyrole28
+name: 金匠
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/8zKzjTVP/image.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 受到影响
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 金匠可以选择使用能力。如果他这么做了，向金匠战术所有今天内被邪恶玩家选择或影响的角色，且金匠失去能力，之后的夜晚无需再唤醒金匠。
+otherNightReminder: 金匠可以选择使用能力。如果他这么做了，向金匠战术所有今天内被邪恶玩家选择或影响的角色，且金匠失去能力，之后的夜晚无需再唤醒金匠。
+ability: 每局游戏限一次，在夜晚时，你可以得知今天有哪些除你以外的角色被邪恶玩家的能力选择或影响了。（从上个黎明到你被唤醒时）
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3616
+    officialId: goldsmith_button
+    sourceHash: a8f1fcfd92161631e7cbab5426e6e93f3c9233f4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 事件触发
+  termIds:
+    - night
+    - evil
+    - townsfolk
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

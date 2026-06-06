@@ -1,0 +1,107 @@
+id: r3817
+englishName: iconoclast-the-last-cull
+name: 反传统者
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/BakedIce/The_Last_Cull__/iconoclast_the_last_cull__.png
+flavor: >-
+  Your kings, they are dead. Your leaders have forsaken you. The trustworthy have turned traitorous. But you have
+  yourself, and your community. There is a fire in all of us, and I plan to bring it forward! Follow my lead, our lead!
+  Carry your banners like you carry your names! Carry your heart as you carry your flame! Die as you live, brothers,
+  impossible to conquer! We live as one, and die as one! Onwards!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 投票
+  - 投票
+  - 投票
+  - 投票
+  - 投票
+  - 投票
+  - 投票
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: Show the Iconoclast a character token of a player with the "Voted" reminder.
+ability: 每个夜晚*，你会得知一名在你首次提名时投过票的玩家的角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3817
+    officialId: iconoclast_the_last_cull__
+    sourceHash: be756820767c07626c258f1d15ddf37370bab646
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - nomination
+    - townsfolk
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

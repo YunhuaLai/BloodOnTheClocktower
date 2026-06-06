@@ -4,7 +4,14 @@ name: 灯神
 type: fabled
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/djinn.png
-flavor: ''
+flavor: |-
+  نحن لسنا هنا.
+
+  انت لست حقيقي.
+
+  كل شيء هو وهم.
+
+  أسئلتك هي جبل نار في يوم صافٍ.
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +36,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r118
-    officialId: djinn
+    officialId: '20003_107'
     sourceHash: 4f41f56a0ba2d688cbc0f9d062e1e642671b43e3
     sourceHashFields:
       - ability
@@ -39,8 +46,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 信息型
   termIds:
@@ -50,8 +57,8 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

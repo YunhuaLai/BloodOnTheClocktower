@@ -1,0 +1,81 @@
+id: s214
+englishName: item
+name: 信息时代
+status: draft
+en: 信息时代
+author: 柳柳
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/6/62/naex5i3cfvsmq3r7ebd0ty8bbpl01qv.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/6/62/naex5i3cfvsmq3r7ebd0ty8bbpl01qv.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r108
+  - r097
+  - r025
+  - r006
+  - r008
+  - r028
+  - r054
+  - r055
+  - r056
+  - r057
+  - r091
+  - r233
+  - r070
+  - r037
+  - r068
+  - r067
+  - r017
+  - r075
+  - r042
+  - r076
+  - r021
+  - r241
+  - r096
+  - r083
+travellerIds: []
+fabledIds:
+  - r127
+nightOrder:
+  first:
+    - r017
+    - r075
+    - r097
+    - r004
+    - r006
+    - r108
+    - r025
+  other:
+    - r017
+    - r028
+    - r008
+    - r075
+    - r076
+    - r021
+    - r083
+    - r096
+    - r241
+    - r042
+    - r037
+    - r070
+    - r068
+    - r233
+    - r006
+    - r054
+    - r055
+    - r056
+    - r025

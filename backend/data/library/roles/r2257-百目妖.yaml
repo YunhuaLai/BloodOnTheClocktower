@@ -1,0 +1,120 @@
+id: r2257
+englishName: jianghu-baimuyao
+name: 百目妖
+type: minion
+edition: custom
+image: https://www.helloimg.com/i/2024/10/31/6723899a59034.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -1
+      source: '[-1外来者]'
+      note: 配置调整：外来者数量 -1。
+  setupNotes:
+    - 配置调整：外来者数量 -1。
+reminders:
+  - 选择过
+remindersGlobal: []
+firstNightReminder: 百目妖不与其他爪牙和恶魔互认。唤醒百目妖，让他选择两名玩家。
+otherNightReminder: 唤醒百目妖，让他选择两名玩家。当百目妖累计选择过四个不同的镇民玩家后，百目妖变成一个不在场的恶魔。
+ability: 每个夜晚， 你要选择两名玩家：当你累计选择过四个不同的镇民玩家后， 你变成一个不在场的恶魔。你不与其他爪牙与恶魔互认。 [-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2257
+    officialId: jianghu_baimuyao
+    sourceHash: 7a9e43ef748abf755ea81003ca1637fc3a29617c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - first-night
+    - townsfolk
+    - outsider
+    - minion
+    - demon
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: choose_player
+        count: 2
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

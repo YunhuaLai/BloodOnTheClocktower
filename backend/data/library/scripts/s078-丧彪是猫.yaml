@@ -1,0 +1,36 @@
+id: s078
+englishName: item
+name: 丧彪是猫
+status: draft
+en: 丧彪是猫
+author: 棒棒糖
+logo: https://s21.ax1x.com/2025/07/01/pVut6L4.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s21.ax1x.com/2025/07/01/pVut6L4.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r884
+  - r885
+  - r886
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r884
+    - r886
+  other:
+    - r884
+    - r886

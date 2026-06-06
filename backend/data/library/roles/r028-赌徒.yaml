@@ -2,10 +2,10 @@ id: r028
 name: 赌徒
 type: townsfolk
 englishName: gambler
-ability: 每个夜晚*，你要选择一名玩家并猜测他的角色：如果你猜错了，你会死亡。
+ability: 每个夜晚*，你要选择一名玩家并猜测该玩家的角色：如果你猜错了，你会死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/gambler.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/gambler.png
+flavor: "“正面，我赢。\r\n反面，你输。”"
 setup: false
 setupMeta:
   randomAssignable: true
@@ -23,15 +23,15 @@ reminders:
   - 死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 让赌徒选择一名玩家和一个角色。如果赌徒猜错了，标记赌徒死亡。
+otherNightReminder: 唤醒赌徒，让他进行猜测。如果猜测错误，他死亡。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r028
-    officialId: gambler
-    sourceHash: ab335df859583aba845e75a7bc81ac73ee6a0db0
+    officialId: wojiushitukuai111
+    sourceHash: 7b3707da6cb8e789b0e82e02457064569415eb80
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -51,8 +53,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

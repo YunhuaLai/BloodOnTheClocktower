@@ -1,0 +1,80 @@
+id: s124
+englishName: v1-3
+name: 信任の试炼v1.3
+status: draft
+en: 信任の试炼v1.3
+author: Lei.
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1699696078_197011_1992.png
+description: 朋友游戏体验剧本
+townsfolkName: 镇民朋友
+additional: []
+level: 官方剧本
+mood: ''
+text: 朋友游戏体验剧本
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1699696078_197011_1992.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 朋友游戏体验剧本
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r009
+  - r031
+  - r155
+  - r086
+  - r066
+  - r276
+  - r369
+  - r052
+  - r002
+  - r008
+  - r091
+  - r140
+  - r062
+  - r015
+  - r039
+  - r119
+  - r069
+  - r159
+  - r019
+  - r235
+  - r077
+  - r337
+  - r076
+  - r046
+  - r1187
+travellerIds: []
+fabledIds:
+  - r118
+  - r348
+nightOrder:
+  first:
+    - r155
+    - r066
+    - r039
+    - r052
+    - r337
+    - r235
+    - r002
+    - r140
+    - r086
+  other:
+    - r066
+    - r337
+    - r235
+    - r052
+    - r008
+    - r076
+    - r039
+    - r046
+    - r1187
+    - r009
+    - r159
+    - r031
+    - r062
+    - r140
+    - r086

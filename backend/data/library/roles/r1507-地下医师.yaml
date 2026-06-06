@@ -1,0 +1,86 @@
+id: r1507
+englishName: dixiayishi-haiwu
+name: 地下医师
+type: outsider
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/0/08/9hd88ylhqcuszigrn9yqahe6ehon1n1.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 额外手术
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果你死亡，邪恶阵营获胜条件增加一名存活玩家，死于处决时额外增加一名。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1507
+    officialId: dixiayishi_haiwu
+    sourceHash: 6b4a75bd301a9243316b3ac58094462189d641f0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - execution
+    - death
+    - alive
+    - alignment
+    - evil
+    - outsider
+  abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

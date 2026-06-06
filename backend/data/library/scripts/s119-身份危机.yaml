@@ -1,0 +1,93 @@
+id: s119
+englishName: item
+name: 身份危机
+status: draft
+en: 身份危机
+author: Richard Black
+logo: https://i.postimg.cc/3wdb1rsb/copy.png
+description: ''
+townsfolkName: 镇民
+additional:
+  - 剧本介绍: 你是什么东西
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/3wdb1rsb/copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 你是什么东西
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r088
+  - r1184
+  - r141
+  - r079
+  - r081
+  - r103
+  - r107
+  - r121
+  - r076
+  - r075
+  - r039
+  - r037
+  - r070
+  - r015
+  - r139
+  - r090
+  - r066
+  - r091
+  - r155
+  - r028
+  - r101
+  - r133
+  - r024
+  - r140
+  - r052
+  - r097
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r155
+    - r066
+    - r039
+    - r024
+    - r121
+    - r101
+    - r141
+    - r103
+    - r052
+    - r075
+    - r107
+    - r097
+    - r140
+    - r139
+    - r133
+  other:
+    - r088
+    - r066
+    - r024
+    - r101
+    - r028
+    - r052
+    - r075
+    - r076
+    - r107
+    - r039
+    - r079
+    - r081
+    - r141
+    - r103
+    - r070
+    - r090
+    - r037
+    - r140
+    - r139
+    - r133

@@ -1,0 +1,110 @@
+id: r2738
+englishName: 6-ontheland
+name: “进化的本质”
+type: townsfolk
+edition: custom
+image:
+  - https://www.bloodstar.xyz/p/HydrogenXenon/Ontheland/6_ontheland.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 正在蜕变
+  - 免于左侧
+  - 免于右侧
+  - 不会死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 在你的第二个夜晚与白天，你不会死于你左侧一半玩家的能力或提名；在你的第三个夜晚与白天，你不会死于你右侧一半玩家的能力或提名；从你的第四个夜晚开始，你不会死亡。（所有的一半均向下取整）[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2738
+    officialId: 6_ontheland
+    sourceHash: ac41e1479f94f44898227ca21ec09e45260d469a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+    - 事件触发
+  termIds:
+    - day
+    - night
+    - setup
+    - nomination
+    - death
+    - townsfolk
+    - outsider
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: protect_player
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: setup
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

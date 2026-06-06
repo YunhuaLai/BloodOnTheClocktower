@@ -61,7 +61,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -102,3 +102,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

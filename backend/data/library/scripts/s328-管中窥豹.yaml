@@ -1,0 +1,78 @@
+id: s328
+englishName: item
+name: 管中窥豹
+status: draft
+en: 管中窥豹
+author: Katjam
+logo: https://i.postimg.cc/SxHfnb86/Title.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/SxHfnb86/Title.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r334
+  - r004
+  - r084
+  - r097
+  - r005
+  - r133
+  - r140
+  - r054
+  - r008
+  - r057
+  - r088
+  - r063
+  - r091
+  - r067
+  - r135
+  - r016
+  - r234
+  - r017
+  - r120
+  - r075
+  - r121
+  - r021
+  - r079
+  - r045
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r121
+    - r017
+    - r075
+    - r045
+    - r097
+    - r004
+    - r005
+    - r084
+    - r140
+    - r133
+  other:
+    - r088
+    - r017
+    - r008
+    - r075
+    - r021
+    - r045
+    - r079
+    - r083
+    - r063
+    - r005
+    - r054
+    - r140
+    - r133

@@ -1,0 +1,67 @@
+id: s713
+englishName: item
+name: 堕落天使
+status: draft
+en: 堕落天使
+author: Zets
+logo: https://www.bloodstar.xyz/p/ronchi/duoluotianshi/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/ronchi/duoluotianshi/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r057
+  - r005
+  - r025
+  - r053
+  - r059
+  - r061
+  - r062
+  - r067
+  - r039
+  - r077
+  - r041
+  - r076
+  - r045
+  - r080
+  - r082
+  - r099
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r039
+    - r061
+    - r041
+    - r045
+    - r005
+    - r025
+    - r053
+  other:
+    - r059
+    - r061
+    - r041
+    - r076
+    - r039
+    - r045
+    - r082
+    - r080
+    - r099
+    - r005
+    - r062
+    - r025
+    - r053

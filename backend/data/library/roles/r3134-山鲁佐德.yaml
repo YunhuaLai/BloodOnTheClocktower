@@ -1,0 +1,82 @@
+id: r3134
+englishName: 7-th
+name: 山鲁佐德
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/RZhznqRV/scheherazade-fairy-tale.png
+flavor: 你是在说我还必须再忍受一千个夜晚吗？
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 正确
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果山鲁佐德已经做出两个正确声明，他死亡。
+ability: 每个白天，你可以做出一个公开声明。如果你做出的声明之中有两个是正确的，你在当晚死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3134
+    officialId: 10_fairy_tale_hugo
+    sourceHash: 176c98122fca8cf496d4f7045d19b2bfed20e4c6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - death
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,79 @@
+id: s184
+englishName: item
+name: 费城枪击案
+status: draft
+en: 费城枪击案
+author: KNitrate
+logo: https://i.postimg.cc/VkSHvdkW/1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/VkSHvdkW/1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r023
+  - r198
+  - r228
+  - r051
+  - r056
+  - r055
+  - r028
+  - r462
+  - r060
+  - r091
+  - r010
+  - r543
+  - r565
+  - r253
+  - r036
+  - r014
+  - r098
+  - r040
+  - r1445
+  - r1355
+  - r1446
+  - r021
+  - r1447
+  - r1448
+travellerIds: []
+fabledIds:
+  - r1449
+nightOrder:
+  first:
+    - r565
+    - r098
+    - r1446
+    - r1445
+    - r040
+    - r1448
+    - r1355
+    - r004
+    - r023
+    - r051
+    - r198
+    - r228
+  other:
+    - r1446
+    - r028
+    - r1355
+    - r021
+    - r1448
+    - r040
+    - r023
+    - r051
+    - r055
+    - r056
+    - r198
+    - r228

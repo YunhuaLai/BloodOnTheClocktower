@@ -1,0 +1,75 @@
+id: s245
+englishName: item
+name: 进退两难
+status: draft
+en: 进退两难
+author: 刘中奇
+logo: https://www.helloimg.com/i/2025/01/07/677d3b341166d.png
+description: 进退两难
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 进退两难
+image: https://www.helloimg.com/i/2025/01/07/677d3b341166d.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 进退两难
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r108
+  - r307
+  - r025
+  - r595
+  - r597
+  - r008
+  - r059
+  - r057
+  - r029
+  - r091
+  - r090
+  - r823
+  - r016
+  - r067
+  - r071
+  - r820
+  - r074
+  - r075
+  - r121
+  - r237
+  - r568
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r071
+    - r121
+    - r820
+    - r074
+    - r075
+    - r595
+    - r049
+    - r108
+    - r597
+    - r307
+    - r025
+  other:
+    - r059
+    - r008
+    - r595
+    - r074
+    - r075
+    - r568
+    - r820
+    - r237
+    - r029
+    - r090
+    - r597
+    - r025

@@ -1,0 +1,83 @@
+id: s410
+englishName: item
+name: 诸子百家
+status: draft
+en: 诸子百家
+author: 逍遥の路边摊
+logo: https://www.helloimg.com/i/2024/11/13/673380d2d19e5.png
+description: 诸子百家
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 诸子百家
+image: https://www.helloimg.com/i/2024/11/13/673380d2d19e5.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 诸子百家
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r227
+  - r005
+  - r024
+  - r025
+  - r101
+  - r632
+  - r008
+  - r057
+  - r134
+  - r059
+  - r033
+  - r011
+  - r891
+  - r015
+  - r038
+  - r119
+  - r214
+  - r040
+  - r017
+  - r041
+  - r121
+  - r045
+  - r082
+  - r141
+  - r612
+travellerIds: []
+fabledIds:
+  - r1777
+nightOrder:
+  first:
+    - r059
+    - r121
+    - r024
+    - r101
+    - r141
+    - r017
+    - r040
+    - r041
+    - r045
+    - r005
+    - r227
+    - r134
+    - r025
+  other:
+    - r059
+    - r024
+    - r101
+    - r017
+    - r008
+    - r041
+    - r045
+    - r082
+    - r141
+    - r612
+    - r040
+    - r214
+    - r005
+    - r134
+    - r025

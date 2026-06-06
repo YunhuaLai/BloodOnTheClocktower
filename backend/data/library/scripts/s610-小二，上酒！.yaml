@@ -1,0 +1,83 @@
+id: s610
+englishName: item
+name: 小二，上酒！
+status: draft
+en: 小二，上酒！
+author: 刘中奇
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1722264598_197011_7204.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1722264598_197011_7204.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r2527
+  - r2528
+  - r2529
+  - r526
+  - r2530
+  - r2531
+  - r1041
+  - r274
+  - r2532
+  - r2533
+  - r2534
+  - r1323
+  - r2535
+  - r1808
+  - r215
+  - r2536
+  - r897
+  - r2537
+  - r2538
+  - r2539
+  - r1324
+  - r2540
+  - r2541
+  - r2542
+  - r541
+travellerIds:
+  - r1178
+  - r1010
+  - r2543
+  - r1179
+  - r2544
+fabledIds: []
+nightOrder:
+  first:
+    - r2541
+    - r541
+    - r2540
+    - r2533
+    - r526
+    - r2531
+    - r2529
+    - r2528
+  other:
+    - r2538
+    - r897
+    - r2539
+    - r2530
+    - r1041
+    - r2540
+    - r2541
+    - r541
+    - r2542
+    - r1324
+    - r1323
+    - r2535
+    - r2528
+    - r274
+    - r526
+    - r2531

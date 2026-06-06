@@ -4,7 +4,9 @@ name: 学者
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/smallbear/jinhulun/_jinhulun.png
-flavor: ''
+flavor: >-
+  The society that separates its scholars from its warriors will have its thinking done by cowards and its fighting done
+  by fools.
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r207
-    officialId: scholar
+    officialId: _jinhulun
     sourceHash: 67e4b6fc1fec79c8b652db261956fd55648b4be0
     sourceHashFields:
       - ability
@@ -39,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -53,8 +55,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

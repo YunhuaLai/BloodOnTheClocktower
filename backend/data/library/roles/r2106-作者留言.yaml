@@ -1,0 +1,77 @@
+id: r2106
+englishName: 29-the-french-revolution-2024-rv
+name: 作者留言
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/Hadrian_Caesar/The_French_Revolution_2024_RV/29_the_french_revolution_2024_rv.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 让革命与恐怖燃尽那些虚伪的面纱罢！此主体内容均为本人（哈德良凯撒）原创，未经本人授权，严禁私自商用此剧本及篡改内容。若需商用、制作视频及其他衍生物，以及咨询演绎及规则性问题请联系作者微信：Hadrian_Caesar
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2106
+    officialId: 29_the_french_revolution_2024_rv
+    sourceHash: ee42bf7c616b78547b1eca70055718bdd223f4d0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

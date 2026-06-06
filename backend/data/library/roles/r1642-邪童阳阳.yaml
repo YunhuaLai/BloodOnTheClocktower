@@ -1,0 +1,100 @@
+id: r1642
+englishName: 7a1a22222a3e8-ba5a-4f30-9d74-ab4de495668f
+name: 邪童阳阳
+type: demon
+edition: custom
+image: https://www.helloimg.com/i/2024/09/14/66e46c97b2e97.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 假猫访问
+remindersGlobal:
+  - 中邪
+firstNightReminder: ''
+otherNightReminder: 可以杀人，或者让人中邪。如果有猫，要想好让假猫去找谁。
+ability: 每个夜晚*，你要选择一名玩家：他死亡；或选择一名玩家：他中邪。（-1外来者）【如果你抱起黑猫，你每天可以选择一个玩家，他以为黑猫拜访了他】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1642
+    officialId: 7a1a22222a3e8-ba5a-4f30-9d74-ab4de495668f
+    sourceHash: 4110c7daac0291e93ba658a33aa879d36d27fec3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - death
+    - outsider
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

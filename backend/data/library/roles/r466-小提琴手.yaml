@@ -4,7 +4,7 @@ name: 小提琴手
 type: fabled
 edition: custom
 image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/16_inthegr_58.png
-flavor: ''
+flavor: Do you hear that? The higher notes in your deeper notes. No, that's a good thing, lean into it. From the top!
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r466
-    officialId: violinist
+    officialId: 16_inthegr_58
     sourceHash: 811d7b7665593648fd187b7d7001f8ea6240219d
     sourceHashFields:
       - ability
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night
@@ -100,3 +100,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: natural_language
+    note: ''

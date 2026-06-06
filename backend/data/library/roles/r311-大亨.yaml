@@ -56,7 +56,7 @@ abilityData:
   abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

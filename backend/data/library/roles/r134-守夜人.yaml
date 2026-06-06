@@ -3,8 +3,10 @@ englishName: nightwatchman
 name: 守夜人
 type: townsfolk
 edition: custom
-image: https://clocktower-wiki.gstonegames.com/images/thumb/3/3f/Nightwatchman.png/300px-Nightwatchman.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/nightwatchman.png
+flavor: >-
+  The night is cold and lonely, but I have the moon, the stars, the crisp wind and the soft thud of leather boots on
+  cobbled stone for company. Yonder, candlelight flickers behind a murky window...
 setup: false
 setupMeta:
   randomAssignable: true
@@ -21,8 +23,8 @@ setupMeta:
 reminders:
   - 失去能力
 remindersGlobal: []
-firstNightReminder: 守夜人可以指向一名玩家。如果他这么做，则唤醒那名玩家，告知其被守夜人选中，且告知他守夜人是谁。
-otherNightReminder: 守夜人可以指向一名玩家。如果他这么做，则唤醒那名玩家，告知其被守夜人选中，且告知他守夜人是谁。
+firstNightReminder: 唤醒守夜人，他可以摇头不使用能力，或选择一名玩家。如果守夜人选择了玩家，则在守夜人入睡后通知那名玩家谁是守夜人。
+otherNightReminder: 如果守夜人未曾使用能力，唤醒守夜人，他可以摇头不使用能力，或选择一名玩家。如果守夜人选择了玩家，则在守夜人入睡后通知那名玩家谁是守夜人。
 ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知你是守夜人。
 abilityData:
   schemaVersion: 2
@@ -30,8 +32,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r134
-    officialId: nightwatchman
-    sourceHash: 85e03626238536c98b78780fcb7432bd0e99a1c1
+    officialId: wolaishouhunidemama111
+    sourceHash: 2649689140c8eb0a4708729a33b331a3fd515367
     sourceHashFields:
       - ability
       - type
@@ -40,8 +42,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -53,8 +55,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

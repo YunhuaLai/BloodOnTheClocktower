@@ -1,0 +1,89 @@
+id: r1344
+englishName: yongshigejue-duck
+name: “永世隔绝”
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/7YbkfRNR/image.png
+flavor: Duck_Town
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 分别唤醒所有善良玩家，对他指向“永世隔绝”并展示“永世隔绝”角色标记。
+otherNightReminder: ''
+ability: 所有善良玩家都知道你是“永世隔绝”。当游戏结束时，只有除旅行者以外的善良玩家都“疯狂”地证明自己不是自己的角色且恶魔没有在夜晚死亡时，善良阵营才会获胜，否则落败，即使你醉酒，中毒或者已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1344
+    officialId: YongShiGeJue_Duck
+    sourceHash: 98148150eee51503660d382e40bedf59490180cb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - drunk
+    - death
+    - alignment
+    - good
+    - townsfolk
+    - demon
+    - madness
+    - traveler
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

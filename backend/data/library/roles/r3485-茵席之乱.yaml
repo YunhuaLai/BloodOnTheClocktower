@@ -1,0 +1,82 @@
+id: r3485
+englishName: zhogaowushang-123
+name: 茵席之乱
+type: fabled
+edition: custom
+image: https://i.postimg.cc/bvJJh5pp/image.png
+flavor: ' '
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 今夜行动
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 按象、马、车的顺序唤醒他们，并询问他们是否使用自己的限次能力。
+ability: 在初始设置时，至少会有一个王或被当作王的角色在场。象、马、车可以在夜晚提前使用自己的限次能力。只有当他们决定使用限次能力时才被当作一次唤醒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3485
+    officialId: ZhoGaoWuShang_ 123
+    sourceHash: 3d93cb0177b90cf42a082fad7920ee7f7199b65f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

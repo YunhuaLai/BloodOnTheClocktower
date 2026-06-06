@@ -20,8 +20,8 @@ setupMeta:
   setupNotes: []
 reminders: []
 remindersGlobal: []
-firstNightReminder: 告诉将军你认为的答案。
-otherNightReminder: 告诉将军你认为的答案。
+firstNightReminder: 唤醒将军，对他用手势比划当前的优势阵营。
+otherNightReminder: 唤醒将军，对他用手势比划当前的优势阵营。
 ability: 每个夜晚，你会得知说书人认为哪个阵营当前更有优势（善良/邪恶/均势）。
 abilityData:
   schemaVersion: 2
@@ -29,8 +29,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r133
-    officialId: general
-    sourceHash: ee0fc85665b8b299fc46dc6bec6548d0d5094330
+    officialId: 6_xindalu
+    sourceHash: 12329f1d00e0b72045b9976c5b47fe6942898b97
     sourceHashFields:
       - ability
       - type
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -57,8 +57,8 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

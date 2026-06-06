@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r762
-    officialId: weasley-brothers
+    officialId: 13_bbb
     sourceHash: 5e8b57de4580942747002265fc88eb60994cdd70
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
@@ -52,8 +52,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_day
       event: null

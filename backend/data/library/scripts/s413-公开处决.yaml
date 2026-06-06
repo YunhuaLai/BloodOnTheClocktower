@@ -1,0 +1,83 @@
+id: s413
+englishName: item
+name: 公开处决
+status: draft
+en: 公开处决
+author: 肥啵
+logo: https://s2.loli.net/2025/07/26/Y68jus5fWteHUqo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/26/Y68jus5fWteHUqo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r049
+  - r006
+  - r024
+  - r025
+  - r028
+  - r214
+  - r134
+  - r022
+  - r029
+  - r034
+  - r033
+  - r035
+  - r015
+  - r016
+  - r186
+  - r112
+  - r017
+  - r040
+  - r042
+  - r041
+  - r021
+  - r045
+  - r080
+  - r096
+travellerIds:
+  - r583
+fabledIds:
+  - r1782
+nightOrder:
+  first:
+    - r024
+    - r017
+    - r040
+    - r041
+    - r045
+    - r006
+    - r023
+    - r049
+    - r134
+    - r025
+  other:
+    - r024
+    - r017
+    - r028
+    - r214
+    - r041
+    - r112
+    - r021
+    - r045
+    - r080
+    - r096
+    - r042
+    - r040
+    - r029
+    - r023
+    - r006
+    - r134
+    - r025

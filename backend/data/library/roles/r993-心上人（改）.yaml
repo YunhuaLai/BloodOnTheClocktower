@@ -1,0 +1,88 @@
+id: r993
+englishName: wuwusidehaocan111
+name: 心上人（改）
+type: outsider
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/sweetheart.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 存活时醉酒
+  - 死亡后醉酒
+remindersGlobal: []
+firstNightReminder: 如果说书人决定让心上人在存活时使一名玩家醉酒，将存活时醉酒标记放置在与心上人邻近的一名善良玩家旁
+otherNightReminder: 如果心上人死亡且说书人决定让心上人死亡后使一名玩家醉酒，一名玩家醉酒。
+ability: 当你存活时或死亡后，会有一名与你邻近的镇民玩家醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r993
+    officialId: wuwusidehaocan111
+    sourceHash: 6451b72a05fdcdc3036a56a78427252569dbecdd
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - death
+    - alive
+    - townsfolk
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

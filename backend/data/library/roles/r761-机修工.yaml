@@ -4,7 +4,7 @@ name: 机修工
 type: townsfolk
 edition: custom
 image: https://i.postimg.cc/4dpBXC7j/image.png
-flavor: ''
+flavor: 等下，桌背面备的螺母是几个的来着？
 setup: false
 setupMeta:
   randomAssignable: true
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
   termIds:
@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

@@ -1,0 +1,100 @@
+id: r3667
+englishName: jackfrost-averymerryclocktower
+name: 冰霜杰克
+type: minion
+edition: custom
+image:
+  - https://chillclocktower.com/homebrew/merrryclocktower/jack-frost.png
+flavor: Snow day!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 霜冻
+  - 选择
+  - 选择
+  - 选择
+  - 选择
+remindersGlobal: []
+firstNightReminder: Choose an alive good player.
+otherNightReminder: Choose an alive good player.
+ability: 每个夜晚，你要选择一名存活的善良玩家:如果他能以自身能力选择玩家，改为你决定他当晚选择的目标。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3667
+    officialId: jackfrost_averymerryclocktower
+    sourceHash: 4afdb092ba9f0806a40ccc89a042af99030da3de
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alive
+    - good
+    - minion
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

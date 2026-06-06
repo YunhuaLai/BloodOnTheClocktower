@@ -1,0 +1,105 @@
+id: r2529
+englishName: gaibang
+name: 丐帮
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1722264606_197011_2569.png
+flavor: |-
+  我也曾轻裘肥马载高轩，指麾万众驱山前。<br>
+  今日黄金散尽谁复矜，朋友离群猎狗烹。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 莲花落
+remindersGlobal: []
+firstNightReminder: 在为首个夜晚进行准备时，将丐帮的“莲花落”提示标记放置在任意一名善良玩家的角色标记旁。在首个夜晚，唤醒丐帮，并指向标记有“莲花落”的那名玩家。让丐帮重新入睡。
+otherNightReminder: ''
+ability: 在你的首个夜晚，你得知一名善良玩家：每个夜晚*，如果他中毒或者醉酒，他变为丐帮，随后你死亡。你不会中毒和醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2529
+    officialId: GaiBang
+    sourceHash: a938713e0830d8f8020b72e9018634767c55075c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - drunk
+    - information
+    - death
+    - good
+    - townsfolk
+  abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 1
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

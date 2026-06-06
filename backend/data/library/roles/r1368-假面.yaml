@@ -1,0 +1,85 @@
+id: r1368
+englishName: jiamian
+name: 假面
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/BBB/_bbb.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: （不是传奇角色）假面：当你存活时，如果你试图向其他玩家说明或暗示你的真实角色，你可能会被说书人处决。（假面是角色能力，只有前6个镇民牌具有。其他人无需遵守。说书人不会因假面而进行对邪恶阵营不利的处决。剧幕宣布前不能处决）
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1368
+    officialId: _bbb
+    sourceHash: 4e43c2aefae3da0135dd6f553b070d1ff319cafd
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 事件触发
+  termIds:
+    - execution
+    - alive
+    - alignment
+    - evil
+    - townsfolk
+    - storyteller
+    - fabled
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

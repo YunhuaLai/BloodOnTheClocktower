@@ -1,0 +1,83 @@
+id: s753
+englishName: item
+name: 死神来了
+status: draft
+en: 死神来了
+author: 星火乐
+logo: https://www.helloimg.com/i/2025/01/11/67823020b3a15.png
+description: 死神来了
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 死神来了
+image: https://www.helloimg.com/i/2025/01/11/67823020b3a15.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 死神来了
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r4001
+  - r4002
+  - r4003
+  - r006
+  - r005
+  - r133
+  - r1803
+  - r027
+  - r3724
+  - r511
+  - r563
+  - r177
+  - r035
+  - r731
+  - r255
+  - r565
+  - r254
+  - r4004
+  - r4005
+  - r4006
+  - r840
+  - r567
+  - r4007
+  - r046
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r4005
+    - r565
+    - r4006
+    - r4007
+    - r4001
+    - r4002
+    - r4003
+    - r005
+    - r006
+    - r4004
+    - r133
+  other:
+    - r4005
+    - r731
+    - r027
+    - r3724
+    - r511
+    - r4004
+    - r046
+    - r083
+    - r4007
+    - r567
+    - r254
+    - r4001
+    - r563
+    - r4003
+    - r005
+    - r006
+    - r1803
+    - r133

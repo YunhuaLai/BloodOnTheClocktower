@@ -1,0 +1,81 @@
+id: r3834
+englishName: attendee-the-last-cull
+name: 出席者
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/BakedIce/The_Last_Cull__/attendee_the_last_cull__.png
+flavor: >-
+  hey, *hah*, guys *ah*, you'll uh, you'll never guess. *ugh*. You'll never guess who was going to wake at 6 in the
+  *Afternoon* instead of the morning. I uh, *hah*, am glad that I'm finally here.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 玩家们必须举手并被说书人点名后才能进行公开行动。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3834
+    officialId: attendee_the_last_cull__
+    sourceHash: cdd2f2ed7462e43b3fae50ee81f651054199105b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - vote
+    - storyteller
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r418
-    officialId: tunhuoyiren
+    officialId: 12_EquinoxFlower
     sourceHash: 287ae7f46f13e5d40dd08fc45f6ae309f4850317
     sourceHashFields:
       - ability
@@ -60,7 +60,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

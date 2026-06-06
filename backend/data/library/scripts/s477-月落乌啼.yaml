@@ -1,0 +1,83 @@
+id: s477
+englishName: item
+name: 月落乌啼
+status: draft
+en: 月落乌啼
+author: 驯鹿
+logo: https://i.postimg.cc/h42sDHdG/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/h42sDHdG/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r049
+  - r058
+  - r101
+  - r232
+  - r229
+  - r481
+  - r594
+  - r230
+  - r025
+  - r334
+  - r463
+  - r1292
+  - r067
+  - r069
+  - r112
+  - r363
+  - r042
+  - r633
+  - r093
+  - r610
+  - r240
+  - r612
+  - r568
+  - r239
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r101
+    - r610
+    - r093
+    - r239
+    - r058
+    - r049
+    - r100
+    - r594
+    - r481
+    - r025
+  other:
+    - r101
+    - r610
+    - r229
+    - r093
+    - r112
+    - r568
+    - r612
+    - r240
+    - r239
+    - r042
+    - r463
+    - r363
+    - r1292
+    - r058
+    - r232
+    - r594
+    - r481
+    - r230
+    - r025

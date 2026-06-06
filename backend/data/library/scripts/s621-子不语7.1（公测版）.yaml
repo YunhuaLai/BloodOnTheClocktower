@@ -1,0 +1,84 @@
+id: s621
+englishName: 7-1
+name: 子不语7.1（公测版）
+status: draft
+en: 子不语7.1（公测版）
+author: 痴愚
+logo: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_8852345695671_fb4d9fb1.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_8852345695671_fb4d9fb1.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r2780
+  - r2177
+  - r1223
+  - r2781
+  - r2782
+  - r2783
+  - r2784
+  - r844
+  - r845
+  - r2785
+  - r1220
+  - r819
+  - r843
+  - r2786
+  - r2787
+  - r1226
+  - r1104
+  - r2788
+  - r2789
+  - r2790
+  - r2791
+  - r451
+  - r2792
+  - r2793
+  - r2794
+  - r1398
+travellerIds:
+  - r1150
+  - r1151
+  - r801
+  - r1161
+  - r850
+fabledIds: []
+nightOrder:
+  first:
+    - r1161
+    - r2789
+    - r451
+    - r843
+    - r2783
+    - r2784
+    - r844
+  other:
+    - r2780
+    - r2789
+    - r451
+    - r2790
+    - r1398
+    - r2792
+    - r2793
+    - r2794
+    - r2177
+    - r819
+    - r2781
+    - r2783
+    - r2785
+    - r2784
+    - r1161
+    - r2782
+    - r844

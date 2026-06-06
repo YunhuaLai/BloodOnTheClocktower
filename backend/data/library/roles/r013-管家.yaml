@@ -21,18 +21,17 @@ setupMeta:
   setupNotes: []
 reminders:
   - 主人
-remindersGlobal:
-  - 管家
-firstNightReminder: 让管家选择一名玩家。标记那名玩家为他的主人。
-otherNightReminder: 让管家选择一名玩家。标记那名玩家为他的主人。
+remindersGlobal: []
+firstNightReminder: 唤醒管家，让他选择一名除自己以外的玩家，那名玩家成为他的主人。
+otherNightReminder: 唤醒管家，让他选择一名除自己以外的玩家，那名玩家成为他的主人。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r013
-    officialId: butler
-    sourceHash: 02e574b9a02aa1b93c1102b2a8dd02bd78982cd0
+    officialId: xunzhaonidezhuren111
+    sourceHash: 1fa0abd8835cc204c07147f07ff2254fd3daa35d
     sourceHashFields:
       - ability
       - type
@@ -41,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -53,8 +54,8 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

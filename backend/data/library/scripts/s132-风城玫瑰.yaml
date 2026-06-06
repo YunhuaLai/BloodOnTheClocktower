@@ -1,0 +1,91 @@
+id: s132
+englishName: item
+name: 风城玫瑰
+status: draft
+en: 风城玫瑰
+author: 梁介
+logo: https://www.helloimg.com/i/2024/11/09/672e3c2589539.png
+description: 风城玫瑰
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 风城玫瑰
+image: https://www.helloimg.com/i/2024/11/09/672e3c2589539.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 风城玫瑰
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r085
+  - r097
+  - r100
+  - r006
+  - r052
+  - r028
+  - r055
+  - r064
+  - r059
+  - r057
+  - r060
+  - r155
+  - r066
+  - r039
+  - r070
+  - r071
+  - r234
+  - r040
+  - r042
+  - r073
+  - r641
+  - r121
+  - r683
+  - r046
+  - r047
+travellerIds:
+  - r740
+  - r128
+fabledIds:
+  - r1203
+nightOrder:
+  first:
+    - r128
+    - r683
+    - r059
+    - r155
+    - r066
+    - r071
+    - r039
+    - r121
+    - r052
+    - r040
+    - r073
+    - r097
+    - r064
+    - r006
+    - r023
+    - r085
+    - r100
+  other:
+    - r128
+    - r059
+    - r066
+    - r028
+    - r052
+    - r039
+    - r046
+    - r047
+    - r683
+    - r042
+    - r040
+    - r023
+    - r070
+    - r064
+    - r006
+    - r055

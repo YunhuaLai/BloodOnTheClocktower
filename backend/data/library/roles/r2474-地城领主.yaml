@@ -1,0 +1,120 @@
+id: r2474
+englishName: 2-city-of-illusio
+name: 地城领主
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/TwinCity/_twincity.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 打破规则
+  - 魔王降临
+remindersGlobal: []
+firstNightReminder: 让地城领主查看魔典选择一个恶魔角色并提出打破规则的建议，说书人来决定是否采纳起建议，并告知目前一共打破了几条建议。当第三次打破规则时，唤醒一名善良玩家向他展示“魔王降临”标记。
+otherNightReminder: 让地城领主查看魔典并提出打破规则的建议，说书人来决定是否采纳起建议，并告知目前一共打破了几条建议。当第三次打破规则时，唤醒一名善良玩家向他展示“魔王降临”标记。
+ability: 你可以随时查看魔典并提出打破规则的建议，当说书人第三次打破规则时，一名善良玩家得知“魔王降临”。在你的首个夜晚，你可以选择获得一个其他恶魔角色的能力。如果说书人被处决，善良阵营获胜。【无爪牙】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2474
+    officialId: 2_city_of_illusio
+    sourceHash: f669316be3dc79bc278fb635782433df3249696c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - first-night
+    - execution
+    - alignment
+    - good
+    - minion
+    - demon
+    - storyteller
+    - grimoire
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_role
+        source: target
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

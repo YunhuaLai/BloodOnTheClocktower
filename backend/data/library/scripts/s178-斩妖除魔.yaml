@@ -1,0 +1,81 @@
+id: s178
+englishName: item
+name: 斩妖除魔
+status: draft
+en: 斩妖除魔
+author: 提线政客
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/9c/qqpdz9cuoh4sa0znu4mberkq8aqgtnh.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/9c/qqpdz9cuoh4sa0znu4mberkq8aqgtnh.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r442
+  - r619
+  - r052
+  - r198
+  - r150
+  - r249
+  - r057
+  - r319
+  - r576
+  - r1393
+  - r066
+  - r091
+  - r065
+  - r015
+  - r039
+  - r1394
+  - r1395
+  - r1182
+  - r1396
+  - r1397
+  - r075
+  - r1398
+  - r952
+  - r1183
+  - r612
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r066
+    - r039
+    - r619
+    - r052
+    - r075
+    - r1398
+    - r442
+    - r1395
+    - r198
+    - r576
+    - r100
+  other:
+    - r066
+    - r052
+    - r075
+    - r039
+    - r150
+    - r1398
+    - r952
+    - r1183
+    - r612
+    - r1182
+    - r1397
+    - r1395
+    - r198
+    - r249

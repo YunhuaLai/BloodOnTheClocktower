@@ -1,0 +1,90 @@
+id: s285
+englishName: item
+name: 硬核万圣劫
+status: draft
+en: 硬核万圣劫
+author: Cam
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/202410/c_8594819879271_23a0c2c6.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202410/c_8594819879271_23a0c2c6.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1713
+  - r005
+  - r140
+  - r052
+  - r1250
+  - r051
+  - r055
+  - r027
+  - r008
+  - r028
+  - r029
+  - r1251
+  - r115
+  - r039
+  - r015
+  - r016
+  - r135
+  - r121
+  - r040
+  - r017
+  - r093
+  - r113
+  - r336
+  - r021
+  - r080
+travellerIds: []
+fabledIds:
+  - r118
+  - r1714
+nightOrder:
+  first:
+    - r336
+    - r115
+    - r039
+    - r113
+    - r1250
+    - r121
+    - r017
+    - r052
+    - r040
+    - r093
+    - r005
+    - r051
+    - r140
+    - r1714
+  other:
+    - r017
+    - r027
+    - r028
+    - r052
+    - r008
+    - r093
+    - r113
+    - r039
+    - r021
+    - r080
+    - r040
+    - r029
+    - r1251
+    - r005
+    - r051
+    - r055
+    - r140
+    - r1250
+    - r1713
+    - r1714

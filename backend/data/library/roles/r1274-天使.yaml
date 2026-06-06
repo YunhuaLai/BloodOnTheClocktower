@@ -1,0 +1,80 @@
+id: r1274
+englishName: 37-baobao
+name: 天使
+type: fabled
+edition: custom
+image: https://clocktower-wiki.gstonegames.com/images/8/83/Angel.png
+flavor: 让无罪之人勇于向我所选之人举起手，因为成倍的风暴之怒以及正义终会降临在这群傻瓜身上。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 庇护
+  - 不好的事
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 对新玩家的死亡负最大责任的人，可能会遭遇一些不好的事情。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1274
+    officialId: wuwuuwhwuhuwhuwhuwhuhwhuw
+    sourceHash: a7e1204c5c8657fa772324da00fb4d256852d13a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - death
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

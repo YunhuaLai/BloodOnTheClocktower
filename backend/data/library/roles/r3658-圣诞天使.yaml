@@ -1,0 +1,102 @@
+id: r3658
+englishName: christmasangel-averymerryclocktower
+name: 圣诞天使
+type: townsfolk
+edition: custom
+image:
+  - https://chillclocktower.com/homebrew/merrryclocktower/christmasangel.png
+flavor: >-
+  Glimmering softly in the winter's night, the Christmas Angel descends with a serene grace, bestowing protection and
+  peace upon those who walk in the spirit of the season.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 保护
+  - 死亡
+remindersGlobal: []
+firstNightReminder: Once per game, at night, choose an alive player (not yourself).
+otherNightReminder: Once per game, at night, choose an alive player (not yourself).
+ability: 每局游戏限一次，在夜晚时，你可以选择除你之外的一名存活玩家:从此邪恶玩家的负面能力对他无效。如果你或他死亡，你们都会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3658
+    officialId: christmasangel_averymerryclocktower
+    sourceHash: 1d82bc9906198f7da5dd99f3e1b4782145d34b6a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - evil
+    - townsfolk
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,89 @@
+id: r2868
+englishName: 9-nature
+name: 蘑菇
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Yez/nature/9_nature.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: outsider
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+reminders: []
+remindersGlobal:
+  - 是蘑菇
+  - '+1'
+firstNightReminder: ''
+otherNightReminder: 在“是蘑菇”玩家的角色标记旁放置“+1”提示标记。
+ability: 你以为你是一个镇民或一个邪恶的恶魔，但其实你不是。每个夜晚*，你会腐蚀+1。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2868
+    officialId: 9_nature
+    sourceHash: c318e6d17d011c0b1d52191b724564d9ce523202
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - evil
+    - townsfolk
+    - outsider
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

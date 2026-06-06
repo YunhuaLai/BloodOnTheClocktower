@@ -1,0 +1,108 @@
+id: r893
+englishName: vortox-ccb
+name: 丝西娜
+type: demon
+edition: custom
+image: https://free.picui.cn/free/2025/10/23/68f90adb38e08.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+  - 死亡
+remindersGlobal:
+  - 中毒过
+  - 是丝西娜
+firstNightReminder: ''
+otherNightReminder: 让涡流选择一名玩家。标记那名玩家死亡。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。你提名以及提名你的玩家中毒直到下个黎明。当你死亡时如果大于等于五名玩家存活（旅行者不计算在内），因你的能力中毒过的玩家之一变为邪恶的丝西娜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r893
+    officialId: vortox_ccb
+    sourceHash: a8e3359d33b4e7a577ff5ef9278248974eb68bd7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - poisoned
+    - nomination
+    - death
+    - alive
+    - evil
+    - demon
+    - traveler
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

@@ -1,0 +1,90 @@
+id: s073
+englishName: item
+name: 上锁房间
+status: draft
+en: 上锁房间
+author: 小平
+logo: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/9/9d/8gyrdlb1hfkxh72osk2hzyaw7xq5bay.png/1600px-%E4%B8%8A%E9%94%81%E6%88%BF%E9%97%B4logo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/9/9d/8gyrdlb1hfkxh72osk2hzyaw7xq5bay.png/1600px-%E4%B8%8A%E9%94%81%E6%88%BF%E9%97%B4logo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r842
+  - r006
+  - r008
+  - r010
+  - r052
+  - r054
+  - r230
+  - r843
+  - r444
+  - r355
+  - r844
+  - r509
+  - r845
+  - r185
+  - r726
+  - r069
+  - r808
+  - r846
+  - r847
+  - r280
+  - r336
+  - r625
+  - r610
+  - r021
+  - r079
+  - r848
+  - r849
+travellerIds:
+  - r850
+fabledIds:
+  - r851
+nightOrder:
+  first:
+    - r846
+    - r336
+    - r808
+    - r610
+    - r280
+    - r052
+    - r006
+    - r843
+    - r355
+    - r509
+    - r844
+    - r185
+  other:
+    - r052
+    - r008
+    - r280
+    - r021
+    - r079
+    - r849
+    - r848
+    - r625
+    - r610
+    - r355
+    - r509
+    - r054
+    - r006
+    - r230
+    - r726
+    - r444
+    - r844
+    - r185

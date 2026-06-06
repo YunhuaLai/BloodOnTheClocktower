@@ -1,0 +1,97 @@
+id: r2638
+englishName: 13-goosegooseduck
+name: 观鸟者
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/victor647/GooseGooseDuck/13_goosegooseduck.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 唤醒玩家并告知玩家左或右的方向。
+otherNightReminder: 唤醒玩家并告知玩家是或否。
+ability: 在你的首个夜晚，你会得知离你最近的拥有致死能力的角色在左边还是右边，若距离相同则得知随机方向。每个夜晚*，你会得知今晚做任务的玩家中是否有人摸鱼。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2638
+    officialId: 13_goosegooseduck
+    sourceHash: 5fef7cd83a275fde79fd89ff724df6268dd4be25
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - townsfolk
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: direction
+          type: choice
+          label: 方向
+          required: true
+          optionsSource: custom
+          options:
+            - clockwise
+            - counterclockwise
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

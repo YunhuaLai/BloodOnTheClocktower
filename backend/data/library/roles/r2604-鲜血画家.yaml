@@ -1,0 +1,105 @@
+id: r2604
+englishName: 3-xiudao111
+name: 鲜血画家
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/xiudao111/3_xiudao111.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -1
+      source: '[-1外来者]'
+      note: 配置调整：外来者数量 -1。
+  setupNotes:
+    - 配置调整：外来者数量 -1。
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果鲜血画家在最高票数提名中投票了，被处决者邻近的两名镇民中毒直到下个黄昏
+ability: 每个夜晚*，如果你在当天最高票数的提名中投票，与被提名者邻近的两名镇民中毒直到下个黄昏。如果你在恶魔被处决时投票，并且场上存活玩家（不计旅行者）至少有5名，你成为那个恶魔。[-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2604
+    officialId: 3_xiudao111
+    sourceHash: 64e85e2ed618571846fff5f5076789e6723e3a8f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - poisoned
+    - nomination
+    - vote
+    - execution
+    - alive
+    - townsfolk
+    - outsider
+    - minion
+    - demon
+    - traveler
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

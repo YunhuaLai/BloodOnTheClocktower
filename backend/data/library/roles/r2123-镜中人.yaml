@@ -1,0 +1,85 @@
+id: r2123
+englishName: 20-bbb
+name: 镜中人
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/BBB/20_bbb.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 虚假剧幕A
+  - 虚假剧幕B
+remindersGlobal: []
+firstNightReminder: 镜中人选择一个剧幕或不使用能力。
+otherNightReminder: 镜中人选择一个剧幕或不使用能力。
+ability: 整局游戏限2次：夜晚，选择一个剧幕，它在下个白天必定会被宣布。仅能选择善良阵营剧幕一次。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2123
+    officialId: 20_bbb
+    sourceHash: 6c85dd204a4a9fc23491214e75c32cb0113562d7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - day
+    - night
+    - first-night
+    - alignment
+    - good
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

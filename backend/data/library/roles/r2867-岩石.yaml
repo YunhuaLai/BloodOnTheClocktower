@@ -1,0 +1,82 @@
+id: r2867
+englishName: 8-nature
+name: 岩石
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Yez/nature/8_nature.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - '+1'
+remindersGlobal: []
+firstNightReminder: 如果岩石有腐蚀提示标记，将腐蚀提示标记移除，在与岩石邻近的存活的玩家的角色标记旁放置“+1”提示标记。
+otherNightReminder: 如果岩石有腐蚀提示标记，将腐蚀提示标记移除，在与岩石邻近的存活的玩家的角色标记旁放置“+1”提示标记。
+ability: 每个夜晚，如果你的腐蚀大于0，与你邻近的存活玩家腐蚀+1，随后你的腐蚀变为0。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2867
+    officialId: 8_nature
+    sourceHash: 7260d6f0b890d2d49c697fdfede55c6bbb6d0b21
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - alive
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

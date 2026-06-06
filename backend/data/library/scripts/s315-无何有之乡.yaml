@@ -1,0 +1,85 @@
+id: s315
+englishName: item
+name: 无何有之乡
+status: draft
+en: 无何有之乡
+author: 鸭木布拉夫钟楼小镇
+logo: https://i.postimg.cc/0jzWkT2r/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/0jzWkT2r/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r100
+  - r087
+  - r086
+  - r056
+  - r008
+  - r057
+  - r058
+  - r059
+  - r062
+  - r090
+  - r066
+  - r091
+  - r015
+  - r135
+  - r324
+  - r159
+  - r107
+  - r017
+  - r020
+  - r093
+  - r018
+  - r096
+  - r095
+  - r099
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r066
+    - r095
+    - r017
+    - r093
+    - r107
+    - r097
+    - r100
+    - r058
+    - r087
+    - r086
+    - r018
+  other:
+    - r059
+    - r066
+    - r324
+    - r017
+    - r008
+    - r093
+    - r107
+    - r020
+    - r099
+    - r096
+    - r095
+    - r090
+    - r056
+    - r058
+    - r062
+    - r087
+    - r086
+    - r018

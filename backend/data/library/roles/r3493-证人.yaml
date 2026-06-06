@@ -1,0 +1,86 @@
+id: r3493
+englishName: 15-bundagee-inn-massacre-bigyellowfish
+name: 证人
+type: outsider
+edition: custom
+image: https://i.postimg.cc/9MXVwHWn/15-bundagee-inn-massacre-bigyellowfish.webp
+flavor: 我看到他们了！他们站在那个可怜的老太太旁边……看啊，天很黑，我没戴眼镜，并且我觉得灌木丛阻挡了我的视线，但我肯定就是他们！
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 目击对象告
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 会有一名玩家知道证人在场。如果他被提名并处决，他的阵营落败，即使你已死亡。他可能会被当作邪恶阵营、爪牙角色或恶魔角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3493
+    officialId: zhengren
+    sourceHash: 5bf8291fea8f22d1a450d4bf31b8638f10663b5e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+  termIds:
+    - first-night
+    - nomination
+    - execution
+    - death
+    - alignment
+    - evil
+    - outsider
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

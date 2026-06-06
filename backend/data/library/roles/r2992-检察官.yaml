@@ -1,0 +1,99 @@
+id: r2992
+englishName: prosecutor1-charged-dinner
+name: 检察官
+type: townsfolk
+edition: Charged Dinner
+image:
+  - https://i.postimg.cc/fTFSm5WG/image.png
+flavor: Your Honor! It is a gross indignity to have this witness brought before my stand! Look at them - they're dead!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 提名
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果检察官在白天发起过提名,向他展示一名与被他提名的玩家相同阵营的玩家。
+ability: 如果你在白天发起过提名，当晚，你会得知一名与被提名者相同阵营的玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2992
+    officialId: prosecutor1_charged_dinner
+    sourceHash: 52837e1c47b24600df3849b9ce9407e73871572f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - information
+    - nomination
+    - alignment
+    - townsfolk
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

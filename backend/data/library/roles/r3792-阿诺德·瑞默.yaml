@@ -1,0 +1,88 @@
+id: r3792
+englishName: rimmer
+name: 阿诺德·瑞默
+type: outsider
+edition: custom
+image:
+  - https://www.bloodstar.xyz/p/Rowlf/Reddwarf/rimmer_reddwarf.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 变成阿诺德·里默
+  - 疯狂
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  If the 'Mad' reminder token is next to Rimmer and Rimmer was executed today, you may select an alive good character
+  token and place the 'Becomes Rimmer' token next to them. Wake that player and show them the 'You Are' reminder token
+  and the Rimmer character token. Replace their character token with the Rimmer token.:reminder:
+ability: 如果你'疯狂'地证明你是阿诺德·里默且死于处决，一名存活的善良玩家可能会变成阿诺德·里默。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3792
+    officialId: rimmer
+    sourceHash: 5b9eab07c9c8459ccc30e052fab90e0658dd98aa
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - execution
+    - alive
+    - good
+    - outsider
+    - madness
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

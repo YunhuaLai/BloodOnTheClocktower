@@ -1,0 +1,100 @@
+id: r3295
+englishName: sculptor-fall-of-rome
+name: 雕塑家
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/AlexS/Fall_of_Rome/sculptor_fall_of_rome.png
+flavor: 你会发现我关注更精微的细节……
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 雕塑品
+  - 被提名
+remindersGlobal: []
+firstNightReminder: 指向一名玩家。放置"雕塑品"标记在该玩家旁
+otherNightReminder: 如果带有"雕塑品"标记的玩家今天白天发起了提名。如果被提名的玩家是邪恶的，向雕塑家展示表示邪恶的拇指向下手势。否则：向雕塑家展示表示善良的拇指向上手势。移除"被提名"标记。
+ability: 在你的首个夜晚，你会得知一名玩家。每个夜晚*，你会得知他最近提名的玩家的阵营。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3295
+    officialId: sculptor_fall_of_rome
+    sourceHash: 9d39b221126167a9bd1de217454949d3421c3fad
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - nomination
+    - alignment
+    - townsfolk
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

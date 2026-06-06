@@ -1,0 +1,94 @@
+id: r2410
+englishName: e6bf0472-8a61-4a84-8ce2-b01036cfe412
+name: 迷乱子嗣
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/17_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 蛊惑中毒
+  - 全场迷乱
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 与你邻近的一名存活镇民中毒。当你死亡时，镇民玩家的能力都会产生错误信息，直到下一次提名。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2410
+    officialId: e6bf0472-8a61-4a84-8ce2-b01036cfe412
+    sourceHash: 46b7d40bc5f5915d069ef2c69e5227249d95b9d2
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - poisoned
+    - information
+    - nomination
+    - death
+    - alive
+    - townsfolk
+    - minion
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

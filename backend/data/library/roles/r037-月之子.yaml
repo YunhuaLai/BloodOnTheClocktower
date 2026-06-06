@@ -5,7 +5,7 @@ englishName: moonchild
 ability: 当你得知你死亡时，你要公开选择一名存活的玩家。如果他是善良的，在当晚他会死亡。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/moonchild.png
-flavor: ''
+flavor: 天蝎座侧身遥望恋人，此刻即为抉择进行之时。以白银拂过我的掌心，你的宿命将在此地揭示。以钢铁穿过我的咽喉，群星在上你将追悔莫及。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r037
-    officialId: moonchild
+    officialId: chousha111
     sourceHash: 422dbcb9fee835effce8aa3a5f194c9dc7c5907d
     sourceHashFields:
       - ability
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 死亡触发
     - 主动选玩家
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_death

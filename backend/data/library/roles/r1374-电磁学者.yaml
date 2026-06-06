@@ -1,0 +1,114 @@
+id: r1374
+englishName: 20-zijianzhebuming
+name: 电磁学者
+type: minion
+edition: custom
+image: https://free.picui.cn/free/2025/11/30/692b2fb97e38c.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 奇数错误信息
+  - 偶数错误信息
+  - 得知在场
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你可以选择一个角色:他的能力会在与当晚奇偶性相同的白天和夜晚产生错误信息，且他会在他死亡的当晚得知电磁学者在场。
+otherNightReminder: 每个夜晚，你可以选择一个角色:他的能力会在与当晚奇偶性相同的白天和夜晚产生错误信息，且他会在他死亡的当晚得知电磁学者在场。
+ability: 每个夜晚，你可以选择一个角色:他的能力会在与当晚奇偶性相同的白天和夜晚产生错误信息，且他会在他死亡的当晚得知电磁学者在场。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1374
+    officialId: 20_zijianzhebuming
+    sourceHash: d20a969f3fe5386904e4b6ab9fb53bf2034ac537
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - death
+    - minion
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

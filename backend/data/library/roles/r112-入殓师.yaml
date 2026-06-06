@@ -2,9 +2,9 @@ id: r112
 name: 入殓师
 type: outsider
 englishName: embalmer
-ability: 如果你提名并处决了恶魔，你会变成邪恶的恶魔。当剩余存活玩家小于等于四人时（旅行者除外），你失去能力。
+ability: 如果你提名了恶魔且他死于这次处决，你会变成邪恶的恶魔。当剩余存活玩家小于等于四人时（旅行者除外），你失去能力。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_5757097694761_2de60c7b.jpg
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/rulianshi.png
 flavor: ''
 setup: false
 setupMeta:
@@ -23,14 +23,15 @@ reminders:
   - 是恶魔
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 如果白天入殓师提名了恶魔且恶魔被处决，唤醒他，并对他展示“你是”提示标记和恶魔角色标记。
+otherNightReminder: 如果入殓师白天提名了恶魔且恶魔死于这次处决，唤醒入殓师，告知他变成新的邪恶的恶魔。
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r112
-    officialId: embalmer
-    sourceHash: ee977fc411e1b7b00ff14a110d551f6c7d67ce94
+    officialId: zrulianshihsihsihsihishisihc-9j
+    sourceHash: c17080d28afd259836a12776d73efb8aa6f63a25
     sourceHashFields:
       - ability
       - type
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 提名
     - 处决
@@ -56,14 +59,14 @@ abilityData:
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: day
       event: on_execution
       frequency: variable
     actor:
-      drivenBy: mixed
+      drivenBy: storyteller
     operations:
       - kind: choose_player
         count: 1

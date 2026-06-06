@@ -20,6 +20,7 @@ setupMeta:
   setupNotes: []
 reminders:
   - 痴愚
+  - 痴愚
 remindersGlobal: []
 firstNightReminder: '1'
 otherNightReminder: '1'
@@ -30,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r529
-    officialId: truth-listener
-    sourceHash: 2581d7ec9ffa24ee45ae4acded92c58e3a57ccd9
+    officialId: 10_jtxx
+    sourceHash: 1259cf147e75aee7717004e9344303dddd1d6f0b
     sourceHashFields:
       - ability
       - type
@@ -54,7 +55,7 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

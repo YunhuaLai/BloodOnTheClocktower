@@ -31,29 +31,71 @@ detail:
     - 忘记混沌只在杀死邻近镇民时让除旅行者外所有善良玩家中毒。
 englishName: ge-ping-ben-shi
 roleIds:
-  - r049
   - r108
+  - r049
   - r005
   - r025
-  - r087
   - r006
-  - r050
-  - r008
   - r028
   - r109
-  - r059
+  - r484
+  - r057
+  - r087
   - r029
+  - r059
   - r110
   - r038
-  - r015
   - r111
+  - r015
   - r112
+  - r113
   - r017
   - r020
-  - r113
   - r040
   - r079
   - r096
-  - r114
+  - r082
   - r047
+status: published
+author: MtyJ
+logo: https://i.postimg.cc/9MgSJGx2/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+travellerIds: []
+fabledIds:
   - r104
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r113
+    - r017
+    - r040
+    - r005
+    - r006
+    - r111
+    - r049
+    - r108
+    - r087
+    - r025
+  other:
+    - r059
+    - r017
+    - r028
+    - r484
+    - r111
+    - r113
+    - r020
+    - r112
+    - r109
+    - r047
+    - r079
+    - r082
+    - r096
+    - r040
+    - r029
+    - r005
+    - r006
+    - r087
+    - r025

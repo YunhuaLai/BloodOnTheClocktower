@@ -1,0 +1,101 @@
+id: r2013
+englishName: 28671bc486-4de3-9026-bcc540fd60df1
+name: 附身灵
+type: minion
+edition: custom
+image: https://postimage.me/images/2024/08/01/24de9202acd2b929d0611cfd8dacc896.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 附身
+  - 邪恶
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒有附身标记的非镇民玩家，告诉他转变为邪恶的附身灵，然后告诉附身灵变成了那名非镇民玩家的角色。
+ability: 如果一名非镇民玩家死于爪牙发起的提名处决，他转变为邪恶阵营并和你交换角色。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2013
+    officialId: 28671bc486-4de3-9026-bcc540fd60df1
+    sourceHash: 23b066aea01096753e847c586fc217119c11e154
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - nomination
+    - execution
+    - alignment
+    - evil
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

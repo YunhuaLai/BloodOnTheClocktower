@@ -4,7 +4,7 @@ name: 科学怪人
 type: minion
 edition: custom
 image: https://clocktower-wiki.gstonegames.com/images/f/f1/Boffin.png
-flavor: ''
+flavor: 恒星的氢能，取之不尽，静待采掘；碳、氧、氖，尽数裂解。分子引发混沌，熵增由此产生，宇宙现象更替，原子紊乱重塑，物质聚合坍缩。所有的一切，都集中在这一个小小的锥形瓶中。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r336
-    officialId: frankenstein
+    officialId: weishenmebushilianjinshushi111
     sourceHash: dac438176b98bc11c843a87b3595354f38f04ec6
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
   termIds:
@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

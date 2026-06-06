@@ -4,7 +4,7 @@ type: townsfolk
 englishName: investigator
 ability: 在你的首个夜晚，你会得知两名玩家和一个爪牙角色：这两名玩家之一是该角色（或者你会得知没有爪牙在场）。
 edition: custom
-image: https://www.bloodstar.xyz/p/Tiger/Future-King/1_futureking.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/investigator.png
 flavor: ''
 setup: false
 setupMeta:
@@ -23,7 +23,7 @@ reminders:
   - 爪牙
   - 错误
 remindersGlobal: []
-firstNightReminder: '7'
+firstNightReminder: 唤醒调查员，对他指向两名玩家，并展示一个爪牙角色标记。这两名玩家其中之一是这个爪牙。
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
@@ -31,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r003
-    officialId: investigator
-    sourceHash: 09ebde076dab14fe82cd282cb60f6687535cb411
+    officialId: mangshengnifaxianlehuadian111
+    sourceHash: bc1b4a8cbfa1af398223c0781bb9212855a1224d
     sourceHashFields:
       - ability
       - type
@@ -41,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -54,8 +56,8 @@ abilityData:
   abilityPattern: role_in_group_hint
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

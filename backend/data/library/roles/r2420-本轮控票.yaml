@@ -1,0 +1,90 @@
+id: r2420
+englishName: 01e25aef-7f0a-486e-8850-a53d2758a174
+name: 本轮控票
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/28_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 控票状态
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 因“邪恶的点票员”开启了技能，所以本轮场上的票数计算变为：存活玩家总数-存活玩家投票数+已死亡玩家投票数。（若票数最高者有多名则一起处决）
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2420
+    officialId: 01e25aef-7f0a-486e-8850-a53d2758a174
+    sourceHash: 2ee3297a9ec6f99063a179473e4435137aaa4a20
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - vote
+    - execution
+    - death
+    - alive
+    - evil
+    - fabled
+  abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

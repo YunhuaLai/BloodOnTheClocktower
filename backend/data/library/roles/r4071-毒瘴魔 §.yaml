@@ -1,0 +1,95 @@
+id: r4071
+englishName: miasma-the-bootleggers-anthology
+name: 毒瘴魔 §
+type: minion
+edition: custom
+image:
+  - https://i.vgy.me/F2IzW1.png
+flavor: No, bless you.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 毒泷恶雾
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: >-
+  Each night, wake the Miasma. They either shake their head no or nod yes. If they shake their head, put the Miasma to
+  sleep. If they nod, place the “Shrouded” reminder in the Grimoire, and mark the Miasma with “No ability”. While the
+  “Shrouded” reminder is placed, all Townsfolk are poisoned, and additionally must receive false information if they get
+  any information.
+otherNightReminder: >-
+  Each night, wake the Miasma. They either shake their head no or nod yes. If they shake their head, put the Miasma to
+  sleep. If they nod, place the “Shrouded” reminder in the Grimoire, and mark the Miasma with “No ability”. While the
+  “Shrouded” reminder is placed, all Townsfolk are poisoned, and additionally must receive false information if they get
+  any information.
+ability: 每局游戏限一次，在夜晚时，你可以使所有镇民中毒并产生错误信息，直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4071
+    officialId: miasma_the_bootleggers_anthology
+    sourceHash: 1733686253eb55190057774e96df94f2cf6a7cdc
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - information
+    - townsfolk
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,118 @@
+id: r2258
+englishName: jianghu-jiutuntongzi
+name: 酒吞童子
+type: minion
+edition: custom
+image: https://www.helloimg.com/i/2024/10/31/672389a2ee17c.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 4点酒气
+  - 3点酒气
+  - 2点酒气
+  - 1点酒气
+  - 失去能力
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: 给酒吞童子等于邪恶玩家数量的酒。唤醒酒吞童子，询问是否发动能力。如果发动能力，让酒吞童子选择若干数量的玩家并消耗对应数量的酒，他们醉酒直到下个黄昏。酒用尽时，酒吞童子失去能力。
+otherNightReminder: 唤醒酒吞童子，询问是否发动能力。如果发动能力，让酒吞童子选择若干数量的玩家并消耗对应数量的酒，他们醉酒直到下个黄昏。酒用尽时，酒吞童子失去能力。
+ability: 在你的首个夜晚，你获得等于邪恶玩家数量的酒。每个夜晚，你可以选择若干数量的玩家，消耗对应数量的酒，他们醉酒直到下个黄昏。酒用尽时，你失去能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2258
+    officialId: jianghu_jiutuntongzi
+    sourceHash: a0e3cd657ce4ba89fc465bd359d544fc421edf68
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - evil
+    - minion
+  abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_number
+        numberKind: evil_count
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

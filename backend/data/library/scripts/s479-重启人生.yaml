@@ -1,0 +1,89 @@
+id: s479
+englishName: item
+name: 重启人生
+status: draft
+en: 重启人生
+author: 靶子
+logo: https://i.postimg.cc/mrYVdX1H/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/mrYVdX1H/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r024
+  - r025
+  - r031
+  - r029
+  - r026
+  - r278
+  - r823
+  - r232
+  - r088
+  - r530
+  - r481
+  - r484
+  - r036
+  - r363
+  - r037
+  - r111
+  - r041
+  - r610
+  - r040
+  - r042
+  - r046
+  - r080
+  - r612
+  - r642
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r024
+    - r040
+    - r041
+    - r610
+    - r111
+    - r023
+    - r642
+    - r481
+    - r530
+    - r025
+  other:
+    - r088
+    - r024
+    - r484
+    - r041
+    - r111
+    - r026
+    - r046
+    - r080
+    - r612
+    - r642
+    - r042
+    - r040
+    - r610
+    - r029
+    - r036
+    - r037
+    - r363
+    - r023
+    - r278
+    - r031
+    - r232
+    - r481
+    - r530
+    - r025

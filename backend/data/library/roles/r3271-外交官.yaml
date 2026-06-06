@@ -1,0 +1,84 @@
+id: r3271
+englishName: diplomat
+name: 外交官
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/sgN1Ct8K/image.png
+flavor: This can undoubtedly be settled without violence.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 外交
+remindersGlobal: []
+firstNightReminder: 唤醒外交官并向他指向所有爪牙玩家，随后为他们标记“外交”角色标记。
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知哪些玩家是爪牙。如果你得知的爪牙之一被处决，你的阵营落败，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3271
+    officialId: Diplomat
+    sourceHash: e2f1d68087c2d60c5b1c7d873c5dc4ecaed785c6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - night
+    - first-night
+    - execution
+    - death
+    - alignment
+    - townsfolk
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

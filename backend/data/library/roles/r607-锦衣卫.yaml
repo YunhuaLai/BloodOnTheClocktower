@@ -3,7 +3,7 @@ englishName: jinyiwei
 name: 锦衣卫
 type: townsfolk
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_5878087694761_691045fa.jpg
+image: https://clocktower-wiki.gstonegames.com/images/thumb/3/38/Jinyiwei.png/120px-Jinyiwei.png
 flavor: ''
 setup: false
 setupMeta:
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r607
-    officialId: jinyiwei
+    officialId: jinyiweii
     sourceHash: 3ee023bf845778b8a0e37274dd25cd3b5c49c186
     sourceHashFields:
       - ability
@@ -52,7 +52,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

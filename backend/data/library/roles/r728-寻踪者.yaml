@@ -35,7 +35,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r728
-    officialId: tracker
+    officialId: Tracker
     sourceHash: b6e20df1a052415481ca8ce536b601809225e17f
     sourceHashFields:
       - ability
@@ -62,7 +62,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

@@ -1,0 +1,89 @@
+id: r2408
+englishName: a4afef77-68c8-4a42-a14b-19df51c5f9e4
+name: 畸形秀女主角
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/15_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 美色醉酒
+  - 错误信息
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 有可能有人被你的美色吸引
+ability: 在你的首个夜晚，一名与你邻近的镇民中当晚可能会获得错误信息。如果你没有“疯狂”地证明自己是场上存在的一种镇民身份，当晚可能会有一名存活镇民醉酒，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2408
+    officialId: a4afef77-68c8-4a42-a14b-19df51c5f9e4
+    sourceHash: ebdec24866134dfe34ee5f6e12c673d79c8071b8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - information
+    - death
+    - alive
+    - townsfolk
+    - outsider
+    - madness
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

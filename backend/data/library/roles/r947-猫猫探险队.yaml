@@ -1,0 +1,100 @@
+id: r947
+englishName: 4-yitai
+name: 猫猫探险队
+type: townsfolk
+edition: custom
+image:
+  - >-
+    https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/5/55/hegup32ipc3yibzhq46uzg8zo9xu2le.png/1200px-%E9%95%87%E6%B0%91_%E7%8C%AB%E7%8C%AB%E6%8E%A2%E9%99%A9%E9%98%9F_%E5%A4%AA%E4%B8%80.png
+flavor: 午安喵，诸位。猫猫探险队应谜题之召而来，很荣幸能为贵镇分忧喵。我们需要一位熟悉本地情况的勇士为我们开路喵。在此之前，我有义务告知各位深入险境要承担极大的风险喵。好了，哪位勇士愿意加入荣耀的猫猫探险队喵？
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 探险
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒猫猫探险队，如果队员存活，告知一名对立阵营的玩家。
+ability: 每个白天限一次，没有“探险”过的存活玩家可以公开“探险”：在当晚，如果他存活，你会得知一名与他阵营不同的玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r947
+    officialId: maomaotanxiandui_taiyi
+    sourceHash: 76add83a594e1116d8f225d07d853501ae9d8696
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - information
+    - alive
+    - alignment
+    - townsfolk
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

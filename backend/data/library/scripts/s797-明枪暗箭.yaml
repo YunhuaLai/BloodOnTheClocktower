@@ -1,0 +1,64 @@
+id: s797
+englishName: item
+name: 明枪暗箭
+status: draft
+en: 明枪暗箭
+author: 早晚都得文字染
+logo: https://img.picui.cn/free/2025/03/24/67e0fe25c0ad4.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://img.picui.cn/free/2025/03/24/67e0fe25c0ad4.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r049
+  - r028
+  - r214
+  - r055
+  - r230
+  - r058
+  - r463
+  - r057
+  - r334
+  - r036
+  - r234
+  - r015
+  - r074
+  - r020
+  - r040
+  - r082
+  - r240
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r040
+    - r074
+    - r058
+    - r084
+    - r049
+  other:
+    - r028
+    - r214
+    - r074
+    - r020
+    - r082
+    - r240
+    - r040
+    - r463
+    - r036
+    - r055
+    - r058
+    - r230

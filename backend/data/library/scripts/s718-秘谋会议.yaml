@@ -1,0 +1,56 @@
+id: s718
+englishName: item
+name: 秘谋会议
+status: draft
+en: 秘谋会议
+author: ''
+logo: https://i.postimg.cc/4xFgm09m/copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/4xFgm09m/copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r011
+  - r052
+  - r142
+  - r049
+  - r025
+  - r014
+  - r070
+  - r020
+  - r043
+  - r141
+  - r099
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r141
+    - r052
+    - r023
+    - r049
+    - r142
+    - r025
+  other:
+    - r052
+    - r020
+    - r099
+    - r141
+    - r070
+    - r023
+    - r142
+    - r025

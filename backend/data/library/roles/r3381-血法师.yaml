@@ -1,0 +1,84 @@
+id: r3381
+englishName: bloodmagethewizardsmeetrework
+name: 血法师
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/twf07wfz/TheWizardsMeetRework/bloodmage_thewizardsmeetrework.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  If the Blood Mage submitted a Forbidden Spell and it was successfully cast, place the "Dead" token on them and
+  immediately kill them.
+ability: 你提交禁咒后可能不会死亡。在大于等于五名玩家存活时，如果有多于一条禁咒被成功释放或者没有禁咒被成功释放，你不会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3381
+    officialId: bloodmagethewizardsmeetrework
+    sourceHash: a9f79bc66bf1c8e835b3b8c3ba47a17636b45f3c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - alive
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r146
-    officialId: kazali-klutz-jinx
+    officialId: 105_meta
     sourceHash: 8762452dcce955c4bb483ec70cbe7bf768e07b92
     sourceHashFields:
       - ability
@@ -50,7 +50,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

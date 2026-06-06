@@ -1,0 +1,83 @@
+id: s467
+englishName: item
+name: 死得其所
+status: draft
+en: 死得其所
+author: Pakchoi
+logo: https://i.postimg.cc/KvyfZ0qL/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/KvyfZ0qL/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r097
+  - r101
+  - r1250
+  - r140
+  - r334
+  - r134
+  - r057
+  - r606
+  - r233
+  - r1251
+  - r058
+  - r091
+  - r820
+  - r070
+  - r324
+  - r067
+  - r135
+  - r075
+  - r093
+  - r042
+  - r609
+  - r612
+  - r635
+  - r080
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r1250
+    - r820
+    - r101
+    - r609
+    - r075
+    - r093
+    - r097
+    - r058
+    - r140
+    - r134
+    - r100
+  other:
+    - r324
+    - r101
+    - r609
+    - r075
+    - r093
+    - r080
+    - r612
+    - r635
+    - r820
+    - r042
+    - r070
+    - r1251
+    - r233
+    - r058
+    - r140
+    - r1250
+    - r134
+    - r606

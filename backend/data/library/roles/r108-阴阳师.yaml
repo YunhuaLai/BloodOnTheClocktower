@@ -4,7 +4,7 @@ type: townsfolk
 englishName: yin-yang-master
 ability: 在你的首个夜晚，你会得知两个善良角色和两个邪恶角色。其中有且只有两个角色在场。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_4630967694761_bd56d041.jpg
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/yinyangshi.png
 flavor: ''
 setup: false
 setupMeta:
@@ -23,15 +23,16 @@ reminders:
   - 在场
   - 不在场
 remindersGlobal: []
-firstNightReminder: 唤醒阴阳师，并对其展示两个善良角色，两个邪恶角色，共四个角色标记。其中正好只有两个角色在场。
+firstNightReminder: 唤醒阴阳师，对他展示两个善良角色和两个邪恶角色。
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r108
-    officialId: yin-yang-master
-    sourceHash: af4d372f35d49c08b387a054d055c12049fa86d8
+    officialId: yinyangshiqidong111
+    sourceHash: ab6cd776b82384393e3fde8fb44e4385d9f3472d
     sourceHashFields:
       - ability
       - type
@@ -40,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -54,8 +57,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

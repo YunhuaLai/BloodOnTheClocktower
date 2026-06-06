@@ -1,0 +1,89 @@
+id: r2605
+englishName: 5-xiudao111
+name: 魅影人
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/xiudao111/5_xiudao111.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 魅影人
+  - 被仿生
+  - 觉醒
+firstNightReminder: ''
+otherNightReminder: 如果魅影人被处决，唤醒那个镇民并展示他原本的角色。
+ability: '[你以为你是一个镇民角色，一名镇民以为自己是一个爪牙或外来者] 如果你被处决，那名镇民寻回自己的角色。即使你死了。'
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2605
+    officialId: 5_xiudao111
+    sourceHash: e76472fbcbe25cf02c30957d691cb49ed7a36897
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - execution
+    - death
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,100 @@
+id: r2345
+englishName: mofangzheyouxi-6
+name: 银行家
+type: townsfolk
+edition: custom
+image: https://s2.loli.net/2025/09/07/Dc9CWNwizeJKhdO.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 算作两票
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你可以选择除你以外的一名玩家：如果他是镇民，明天白天他的投票会被算作两票。
+otherNightReminder: 每个夜晚，你可以选择除你以外的一名玩家：如果他是镇民，明天白天他的投票会被算作两票。
+ability: 每个夜晚，你可以选择除你以外的一名玩家：如果他是镇民，明天白天他的投票会被算作两票。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2345
+    officialId: mofangzheyouxi_6
+    sourceHash: ad2b07323fc9d3979e9a510fce3aaacfd9ef612c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - vote
+    - townsfolk
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

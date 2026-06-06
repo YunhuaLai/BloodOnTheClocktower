@@ -1,9 +1,10 @@
 id: r150
 englishName: half-beast
 name: 半兽人
-type: townsfolk
+type: demon
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/lycanthrope.png
+image:
+  - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/Icon_lycanthrope_r.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,17 +23,17 @@ reminders:
   - 失足
   - 死亡
 remindersGlobal: []
-firstNightReminder: ''
-otherNightReminder: 唤醒半兽人，让他选择一名玩家。如果该玩家是善良玩家，该玩家死亡，且当晚恶魔不会造成死亡。
-ability: 每个夜晚*，你要选择一名存活玩家：如果他是善良的，他死亡，并且当晚恶魔不会造成死亡。会有一名善良玩家始终被当作邪恶阵营。
+firstNightReminder: '1'
+otherNightReminder: '1'
+ability: 每个夜晚*，你要选择一名玩家：他死亡。会有一名善良玩家被镇民当作邪恶的半兽人，你知道他是谁。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r150
-    officialId: half-beast
-    sourceHash: 8bc938a51c83f3e487f72ff9cea3c16d88b20a41
+    officialId: 23_fan
+    sourceHash: 0a20470e8689c43b397fc254b3c29881d1dc49c3
     sourceHashFields:
       - ability
       - type
@@ -41,16 +42,14 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
   termIds:
     - night
     - death
-    - alive
-    - alignment
     - good
     - evil
     - townsfolk
@@ -58,8 +57,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

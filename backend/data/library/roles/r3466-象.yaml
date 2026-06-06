@@ -1,0 +1,108 @@
+id: r3466
+englishName: xiang-123
+name: 象
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/2jFf0wNw/image.png
+flavor: ' '
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - '+1'
+  - 全体清醒健康
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 让象指向一名玩家，如果该玩家当晚在象之前因自身能力被唤醒，标记+1。
+otherNightReminder: 如果象点头，标记全体清醒健康，并标记死亡，在黎明时标记死亡帷幕。让象指向一名玩家，如果该玩家当晚在象之前因自身能力被唤醒，标记+1。
+ability: 每个夜晚，你要选择一名玩家：如果今晚他在你之前因自身能力而被唤醒，王得知的数字会+1。每局游戏限一次，在夜晚时*，你可以选择使用能力：当晚所有存活的善良玩家都清醒且健康，然后你会在黎明时死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3466
+    officialId: Xiang_ 123
+    sourceHash: 30e3e97fd9fcebf6faa39f24ac3d11e98df9842e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - good
+    - townsfolk
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

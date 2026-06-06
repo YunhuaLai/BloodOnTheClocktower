@@ -1,0 +1,79 @@
+id: s337
+englishName: item
+name: 天堂花园
+status: draft
+en: 天堂花园
+author: Tyler Nafe
+logo: https://i.postimg.cc/mDMRRWWq/8-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/mDMRRWWq/8-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r048
+  - r005
+  - r051
+  - r1250
+  - r006
+  - r025
+  - r056
+  - r028
+  - r027
+  - r022
+  - r059
+  - r1251
+  - r016
+  - r015
+  - r038
+  - r070
+  - r072
+  - r018
+  - r074
+  - r019
+  - r1613
+  - r121
+  - r081
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r1250
+    - r121
+    - r074
+    - r097
+    - r005
+    - r006
+    - r048
+    - r051
+    - r018
+    - r025
+    - r1613
+  other:
+    - r059
+    - r027
+    - r028
+    - r074
+    - r081
+    - r070
+    - r1251
+    - r005
+    - r006
+    - r051
+    - r056
+    - r1250
+    - r018
+    - r025

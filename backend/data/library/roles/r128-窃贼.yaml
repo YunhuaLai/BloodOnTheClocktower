@@ -3,7 +3,7 @@ englishName: thief
 name: 窃贼
 type: traveller
 edition: custom
-image: https://i.postimg.cc/tsSJyBrg/Thief.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/thief.png
 flavor: ''
 setup: false
 setupMeta:
@@ -18,11 +18,11 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
-remindersGlobal:
-  - 窃贼的碎钻
-firstNightReminder: ''
-otherNightReminder: ''
+reminders:
+  - 负票
+remindersGlobal: []
+firstNightReminder: 唤醒窃贼。让窃贼指向任意一名玩家。用窃贼的“负票”提示标记那名被选中的玩家。让窃贼入睡。
+otherNightReminder: 唤醒窃贼。让窃贼指向任意一名玩家。用窃贼的“负票”提示标记那名被选中的玩家。让窃贼入睡。
 ability: 每个夜晚，你要选择除你以外的一名玩家：明天白天他的投票会被算作负数。
 abilityData:
   schemaVersion: 2
@@ -30,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r128
-    officialId: thief
-    sourceHash: 746fa9dfa69ee30e8dcdef719efbf17aebb1aef0
+    officialId: qiezeizeizei111
+    sourceHash: f1994434bbf2c53f9c5631153043fc8ba15c0eca
     sourceHashFields:
       - ability
       - type
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

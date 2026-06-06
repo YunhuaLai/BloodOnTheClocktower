@@ -1,0 +1,92 @@
+id: s419
+englishName: item
+name: 余波未平
+status: draft
+en: 余波未平
+author: 荒北
+logo: https://s2.loli.net/2025/07/23/6tES2mXzwDHoY4B.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/23/6tES2mXzwDHoY4B.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r023
+  - r049
+  - r053
+  - r140
+  - r133
+  - r008
+  - r028
+  - r054
+  - r055
+  - r057
+  - r091
+  - r009
+  - r016
+  - r015
+  - r036
+  - r324
+  - r017
+  - r040
+  - r093
+  - r121
+  - r045
+  - r240
+  - r096
+  - r612
+travellerIds:
+  - r124
+  - r130
+  - r126
+  - r739
+  - r147
+fabledIds:
+  - r118
+  - r1793
+nightOrder:
+  first:
+    - r124
+    - r121
+    - r017
+    - r040
+    - r093
+    - r045
+    - r004
+    - r023
+    - r049
+    - r140
+    - r133
+    - r053
+  other:
+    - r124
+    - r324
+    - r017
+    - r028
+    - r008
+    - r093
+    - r045
+    - r096
+    - r612
+    - r240
+    - r040
+    - r036
+    - r023
+    - r009
+    - r054
+    - r055
+    - r140
+    - r133
+    - r053

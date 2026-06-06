@@ -4,7 +4,9 @@ name: 牧羊人
 type: minion
 edition: custom
 image: https://www.bloodstar.xyz//p//Deodar2//noone//24_noone.png
-flavor: ''
+flavor: >-
+  Look, I'm just used to taking care of my sheep and my dog. I don't know anythin' about these here demons! Get em away
+  from me I say, get em away from me!
 setup: false
 setupMeta:
   randomAssignable: true
@@ -56,7 +58,7 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

@@ -1,0 +1,90 @@
+id: r3377
+englishName: pyroclastthewizardsmeetrework
+name: 焰碎者
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/twf07wfz/TheWizardsMeetRework/pyroclast_thewizardsmeetrework.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 目标
+  - 死亡
+remindersGlobal: []
+firstNightReminder: >-
+  If any cast Spells targeted "the pyroclast", or a player of alignament of the Pyroclast player's, place the "Targeted"
+  token on the caster. You can kill any player who has the "Targeted" token. If so, replace said token with the "Dead"
+  token.
+otherNightReminder: >-
+  If any cast Spells targeted "the pyroclast", or a player of alignament of the Pyroclast player's, place the "Targeted"
+  token on the caster. You can kill any player who has the "Targeted" token. If so, replace said token with the "Dead"
+  token.
+ability: 当与你相同阵营的一名玩家成为一条咒语的目标时，施法者可能会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3377
+    officialId: pyroclastthewizardsmeetrework
+    sourceHash: 45e1a6038738680c015069712aee5ad874992a03
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - death
+    - alignment
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

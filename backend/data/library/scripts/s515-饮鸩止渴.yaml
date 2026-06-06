@@ -1,0 +1,79 @@
+id: s515
+englishName: item
+name: 饮鸩止渴
+status: draft
+en: 饮鸩止渴
+author: 燕归
+logo: https://free.picui.cn/free/2025/12/14/693ed8f08cb97.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/14/693ed8f08cb97.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r006
+  - r028
+  - r029
+  - r055
+  - r057
+  - r058
+  - r100
+  - r632
+  - r319
+  - r278
+  - r230
+  - r606
+  - r037
+  - r067
+  - r119
+  - r071
+  - r020
+  - r042
+  - r075
+  - r302
+  - r1259
+  - r045
+  - r096
+  - r635
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r071
+    - r302
+    - r075
+    - r045
+    - r003
+    - r006
+    - r058
+    - r100
+  other:
+    - r302
+    - r028
+    - r075
+    - r020
+    - r045
+    - r096
+    - r635
+    - r042
+    - r1259
+    - r606
+    - r029
+    - r037
+    - r278
+    - r006
+    - r055
+    - r058
+    - r230

@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r738
-    officialId: gunslinger
+    officialId: qiangshoushoushou111
     sourceHash: 44a3d91b88716c117eea244084fa3c47ccf8563b
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 主动选择
   termIds:
@@ -51,8 +51,8 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_day
       event: on_death
@@ -64,8 +64,6 @@ abilityData:
         count: 1
         source: target
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_death
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day

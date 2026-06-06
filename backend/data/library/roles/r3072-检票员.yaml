@@ -1,0 +1,121 @@
+id: r3072
+englishName: ticket-taker
+name: 检票员
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/BakedIce/The_Last_Cull__/conductor_the_last_cull__.png
+flavor: This is the last call, all passengers on board immediately!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 警报
+  - 警报
+  - 开车啦
+remindersGlobal: []
+firstNightReminder: >-
+  Each night, wake the Conductor. They choose up to 2 players -- Mark chosen evil players with the "Alerted" reminder.
+  For each Townsfolk or Outsider player chosen, which isn't the Conductor (or a player already chosen), move the "Train"
+  reminder one step clockwise. Put the Conductor to sleep. Wake all players with the "Alerted" reminder (separately).
+  Show them the "This player is" info token and show them the Conductor character token, and point to the Conductor.
+  Remove the "Alerted" reminder and put them to sleep.
+otherNightReminder: >-
+  Each night, wake the Conductor. They choose up to 2 players -- Mark chosen evil players with the "Alerted" reminder.
+  For each Townsfolk or Outsider player chosen, which isn't the Conductor (or a player already chosen), move the "Train"
+  reminder one step clockwise. Put the Conductor to sleep. Wake all players with the "Alerted" reminder (separately).
+  Show them the "This player is" info token and show them the Conductor character token, and point to the Conductor.
+  Remove the "Alerted" reminder and put them to sleep.
+ability: 每个夜晚，你要选择至多两名玩家：如果你选择的玩家是邪恶的，他们会得知你是谁。如果你已选择了所有的镇民和外来者，你的阵营获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3072
+    officialId: conductor_the_last_cull__
+    sourceHash: aee7385ba55434279062688706496fc9068acc2b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alignment
+    - evil
+    - townsfolk
+    - outsider
+  abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null

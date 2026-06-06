@@ -1,0 +1,103 @@
+id: r2613
+englishName: 25-a-bad-example
+name: 服务员
+type: townsfolk
+edition: custom
+image: >-
+  https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/4_bundagee_inn_massacre_bigyellowfish.png
+flavor: 需要盐和胡椒？好的，先生。夫人您需要吗？我由衷地觉得您们两位今晚看起来都非常动人。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: 服务员指向除自己的一名玩家，如果他两侧的玩家属于同一阵营，向服务员点头，否则摇头。如果那名玩家属于邪恶阵营，标记服务员“醉酒”。
+otherNightReminder: 服务员指向除自己的一名玩家，如果他两侧的玩家属于同一阵营，向服务员点头，否则摇头。如果那名玩家属于邪恶阵营，标记服务员“醉酒”。
+ability: 每个夜晚，你要选择除你以外的一名玩家：你会得知与他邻近的两名玩家是否为同一阵营。如果你选中了邪恶玩家，你醉酒直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2613
+    officialId: 4_bundagee_inn_massacre_bigyellowfish
+    sourceHash: 9ee4c5d547832b8e202d49cbc918949dc8dccd59
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - information
+    - alignment
+    - evil
+    - townsfolk
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

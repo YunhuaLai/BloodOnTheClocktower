@@ -1,0 +1,85 @@
+id: r2149
+englishName: fushengke
+name: 浮生客
+type: outsider
+edition: custom
+image: https://i.postimg.cc/x8cDZpgw/15.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 浮生何处
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果浮生客带有“浮生何处”标记，分别唤醒两名存活的善良玩家，对他展示「你是」信息标记和浮生客角色标记。
+ability: 在没有善良玩家提名你的当晚，会有两名存活善良玩家变为浮生客，即使你已死亡。如果所有存活善良玩家都是浮生客（旅行者不计算在内），善良阵营落败。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2149
+    officialId: FuShengKe
+    sourceHash: 9f7fa7ffe707fb22b31e1d4056b81fb5fccf1bae
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - nomination
+    - death
+    - alive
+    - alignment
+    - good
+    - outsider
+    - traveler
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

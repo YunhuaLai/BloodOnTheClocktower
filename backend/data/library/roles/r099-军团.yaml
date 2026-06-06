@@ -1,12 +1,13 @@
 id: r099
 name: 军团
-type: demon
+type: townsfolk
 englishName: legion
-ability: 每个夜晚*，可能有一名玩家死亡。如果一项提名只有邪恶玩家投票，投票无效。你也会被当作是爪牙。[半数以上玩家为军团]
+ability: 每个夜晚*，你会得知今天白天有多少邪恶玩家与你一同投票。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/legion.png
+image:
+  - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/Icon_legion_b.png
 flavor: ''
-setup: true
+setup: false
 setupMeta:
   randomAssignable: true
   tokenRequired: true
@@ -20,18 +21,18 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 即将被处决
-  - 死亡
+  - 投票
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 决定今晚谁会因为军团能力死亡。
+otherNightReminder: '1'
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r099
-    officialId: legion
-    sourceHash: a8032f0a00dfea02b168327dbdee3527b049ccb7
+    officialId: 6_fan
+    sourceHash: 586a03776d8f075e75f94a0d79c9d3c13049499e
     sourceHashFields:
       - ability
       - type
@@ -40,37 +41,34 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 特殊恶魔
     - 投票规则
   termIds:
+    - day
     - night
-    - nomination
     - vote
-    - death
     - evil
-    - minion
+    - townsfolk
     - demon
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: special
       event: null
       frequency: variable
     actor:
-      drivenBy: mixed
+      drivenBy: player
     operations:
-      - kind: setup_modifier
-        adjustments: []
       - kind: choose_player
         count: 1
         source: target
-      - kind: protect_player
-      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: special

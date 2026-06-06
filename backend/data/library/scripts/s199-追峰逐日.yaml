@@ -1,0 +1,81 @@
+id: s199
+englishName: item
+name: 追峰逐日
+status: draft
+en: 追峰逐日
+author: 贾卡jaques
+logo: https://i.postimg.cc/5NW7znBj/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/5NW7znBj/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r004
+  - r006
+  - r025
+  - r054
+  - r056
+  - r028
+  - r022
+  - r058
+  - r033
+  - r062
+  - r009
+  - r035
+  - r070
+  - r014
+  - r015
+  - r072
+  - r020
+  - r040
+  - r041
+  - r042
+  - r083
+  - r047
+  - r045
+  - r079
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r040
+    - r041
+    - r045
+    - r004
+    - r006
+    - r023
+    - r058
+    - r025
+  other:
+    - r028
+    - r041
+    - r020
+    - r045
+    - r047
+    - r079
+    - r083
+    - r042
+    - r040
+    - r070
+    - r009
+    - r023
+    - r006
+    - r054
+    - r056
+    - r058
+    - r062
+    - r025

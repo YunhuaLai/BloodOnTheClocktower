@@ -1,0 +1,115 @@
+id: r2157
+englishName: yizhenhuangliang
+name: 一枕黄粱
+type: demon
+edition: custom
+image: https://i.postimg.cc/SsxwXt0n/25.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 选择
+  - 死亡
+  - 提名过
+  - 限一次
+remindersGlobal: []
+firstNightReminder: 唤醒一枕黄粱，他可以摇头不使用能力，或选择两名玩家。为这些玩家放置“选择”标记。
+otherNightReminder: 唤醒一枕黄粱，他可以摇头不使用能力，或选择两名玩家。为这些玩家放置“选择”标记。如果这些玩家中有人带有“选择”标记，则为该玩家放置“死亡”标记。如果你以这种方式自杀，让一枕黄粱选择一名符合条件的玩家且让他入睡，然后通知那名玩家角色变化。
+ability: 每个夜晚，你可以选择两名玩家。当你选择了一名你选择过的玩家时，他死亡，如果你以这种方式自杀，你要选择一名你在白天提名过的玩家，他变为邪恶的一枕黄粱，但每局游戏仅能成功转化一次。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2157
+    officialId: YiZhenHuangLiang
+    sourceHash: 672ce3c36241108339626d4e7a34c35ac186c8bc
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - nomination
+    - death
+    - evil
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

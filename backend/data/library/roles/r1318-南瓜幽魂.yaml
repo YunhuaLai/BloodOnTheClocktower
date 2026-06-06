@@ -1,0 +1,87 @@
+id: r1318
+englishName: pumkinghtostbutton
+name: 南瓜幽魂
+type: fabled
+edition: custom
+image: https://i.postimg.cc/zDWyB18c/3.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+  - 错误信息
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 可选择加入游戏。在初始设置时，可能会额外增加一个外来者。因此能力增加的外来者醉酒，与他邻近的两名镇民之一的能力会产生错误信息。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1318
+    officialId: pumkinghtostbutton
+    sourceHash: 6921341fcb871b50d28183ecef189a03b6d516a5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+  termIds:
+    - setup
+    - drunk
+    - information
+    - townsfolk
+    - outsider
+    - fabled
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

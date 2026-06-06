@@ -1,0 +1,90 @@
+id: s852
+englishName: item
+name: 蛮熊搬家
+status: draft
+en: 蛮熊搬家
+author: 蓝铃兰
+logo: https://s2.loli.net/2025/06/05/pDzXHQguxsVchAv.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/05/pDzXHQguxsVchAv.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r307
+  - r227
+  - r005
+  - r006
+  - r024
+  - r140
+  - r595
+  - r597
+  - r055
+  - r059
+  - r115
+  - r057
+  - r015
+  - r016
+  - r135
+  - r098
+  - r641
+  - r302
+  - r610
+  - r018
+  - r121
+  - r079
+  - r141
+  - r103
+travellerIds:
+  - r583
+fabledIds:
+  - r158
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r115
+    - r098
+    - r121
+    - r024
+    - r103
+    - r141
+    - r302
+    - r610
+    - r595
+    - r004
+    - r005
+    - r006
+    - r140
+    - r597
+    - r227
+    - r018
+    - r307
+  other:
+    - r583
+    - r059
+    - r024
+    - r302
+    - r595
+    - r079
+    - r141
+    - r103
+    - r610
+    - r005
+    - r006
+    - r055
+    - r140
+    - r597
+    - r018

@@ -1,0 +1,89 @@
+id: s298
+englishName: item
+name: 鉴往知来
+status: draft
+en: 鉴往知来
+author: 钟楼剧本博物馆
+logo: https://www.helloimg.com/i/2025/01/01/6775438bddde4.png
+description: 鉴往知来
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 鉴往知来
+image: https://www.helloimg.com/i/2025/01/01/6775438bddde4.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 鉴往知来
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r005
+  - r025
+  - r086
+  - r087
+  - r026
+  - r150
+  - r030
+  - r134
+  - r010
+  - r334
+  - r033
+  - r233
+  - r092
+  - r068
+  - r234
+  - r069
+  - r041
+  - r042
+  - r113
+  - r336
+  - r302
+  - r079
+  - r136
+  - r683
+travellerIds:
+  - r741
+fabledIds:
+  - r104
+  - r344
+nightOrder:
+  first:
+    - r683
+    - r336
+    - r113
+    - r302
+    - r030
+    - r041
+    - r136
+    - r005
+    - r023
+    - r087
+    - r134
+    - r092
+    - r086
+    - r025
+  other:
+    - r302
+    - r030
+    - r041
+    - r113
+    - r026
+    - r150
+    - r079
+    - r683
+    - r136
+    - r042
+    - r023
+    - r068
+    - r233
+    - r005
+    - r087
+    - r134
+    - r086
+    - r025

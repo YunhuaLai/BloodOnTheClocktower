@@ -3,7 +3,7 @@ englishName: inspector
 name: 巡察
 type: townsfolk
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202404/c_7108682943171_ed7a0042.jpg
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/xuncha.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,7 +22,7 @@ reminders:
   - 不会死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 唤醒巡查，让其选择两个善良角色，如果这两个角色都在场，在对应玩家角色标记旁放置“不会死亡”标记。
+otherNightReminder: 唤醒巡查，让他选择两个善良角色（镇民或外来者）（和上个夜晚不同），如果他们都在场并存活（华白注：应该是需要在场的），他们两个今晚不会死亡。
 ability: 每个夜晚*，你要选择两个善良角色（与上个夜晚不同）：如果他们都存活，他们当晚不会死亡。
 abilityData:
   schemaVersion: 2
@@ -30,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r229
-    officialId: inspector
-    sourceHash: 51ead7a61996be916d23145fd4dcb84c1b7f32bf
+    officialId: xunchashaoihwronaklsndfkasnd
+    sourceHash: 0e05b45cef27f5813e0724105969cb009c8831d6
     sourceHashFields:
       - ability
       - type
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

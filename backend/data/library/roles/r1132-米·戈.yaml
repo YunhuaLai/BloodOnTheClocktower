@@ -1,0 +1,121 @@
+id: r1132
+englishName: migo1-daoluyimu
+name: 米·戈
+type: minion
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/4/42/nadbwv7mp4k0toza29zxdvq0m0c5gks.png
+flavor: |-
+  咔嗒—嗡嗡—嘶咿咿……咿啭·咿啭……
+  “Zzrrh-ka… thrii… n’kath.”
+  嗡——喀、喀——嗡——
+  “听见了吗？你们的静默像雪一样厚。开口，发声，交换讯息；不然我们会把你当作空壳，带走你最有价值的那一部分。”
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 沉默
+  - 中毒
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒米戈
+ability: 每个夜晚*，你要选择一名玩家并猜测他的角色：如果猜测正确。他中毒直到你下次行动；如果猜测错误且他是说书人认为上一个白天最沉默寡言的玩家：他死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1132
+    officialId: mige_serraevelyn
+    sourceHash: 6a2528cb63eb46bf0614aadc1d727f86dec35088
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - poisoned
+    - death
+    - minion
+    - storyteller
+  abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

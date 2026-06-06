@@ -1,0 +1,49 @@
+id: s712
+englishName: item
+name: 残阳高照
+status: draft
+en: 残阳高照
+author: 夜雀
+logo: https://www.helloimg.com/i/2024/11/11/6731f6dc3fe82.png
+description: 残阳高照
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 残阳高照
+image: https://www.helloimg.com/i/2024/11/11/6731f6dc3fe82.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 残阳高照
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r155
+  - r007
+  - r054
+  - r026
+  - r033
+  - r035
+  - r015
+  - r016
+  - r040
+  - r041
+  - r044
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r155
+    - r040
+    - r041
+  other:
+    - r041
+    - r026
+    - r044
+    - r040
+    - r007
+    - r054

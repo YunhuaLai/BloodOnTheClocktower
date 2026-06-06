@@ -1,0 +1,77 @@
+id: s343
+englishName: item
+name: 夜静更深
+status: draft
+en: 夜静更深
+author: The Good Couch
+logo: https://i.postimg.cc/B6tB3k5t/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/B6tB3k5t/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r049
+  - r097
+  - r005
+  - r007
+  - r027
+  - r008
+  - r029
+  - r057
+  - r060
+  - r012
+  - r011
+  - r090
+  - r016
+  - r036
+  - r014
+  - r015
+  - r017
+  - r113
+  - r018
+  - r042
+  - r083
+  - r021
+  - r082
+  - r045
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r113
+    - r017
+    - r045
+    - r097
+    - r002
+    - r005
+    - r049
+    - r018
+  other:
+    - r017
+    - r027
+    - r008
+    - r113
+    - r021
+    - r045
+    - r082
+    - r083
+    - r042
+    - r029
+    - r036
+    - r090
+    - r005
+    - r007
+    - r018

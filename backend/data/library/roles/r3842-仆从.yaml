@@ -1,0 +1,100 @@
+id: r3842
+englishName: servant-despair
+name: 仆从
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Chad_Pines/Despair/servant_despair.png
+flavor: Because I pleaded for my life, they allowed me to live...as their servant.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 获得能力
+remindersGlobal: []
+firstNightReminder: Show the Servant an out-of-play Minion token. Then, show the Demon the same token.
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知一个不在场的爪牙角色：恶魔会获得这个角色的能力。只有恶魔杀死了你，他才会失去这个能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3842
+    officialId: servant_despair
+    sourceHash: a84b96a57cfd49d7e05018338e6c2bc0d23d8c07
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - outsider
+    - minion
+    - demon
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: minion
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

@@ -1,0 +1,88 @@
+id: r2937
+englishName: jabberwocky-wonderland
+name: 贾巴沃克
+type: demon
+edition: custom
+image: https://i.postimg.cc/xT21C8ns/image.png
+flavor: ' '
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 全体善良中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 贾巴沃克指向一名玩家，他死亡。如果该玩家与魇魔邻近，标记全体善良中毒。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。如果你以这种方式杀死了一名与你邻近的玩家，所有善良玩家都会中毒直到下个黄昏。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2937
+    officialId: YanMo_ 123
+    sourceHash: 5f81f05f93300b02d9f759d42a6deb582ed53f9a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - poisoned
+    - death
+    - good
+    - outsider
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

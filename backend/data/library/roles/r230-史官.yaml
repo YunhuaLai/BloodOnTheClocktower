@@ -3,7 +3,7 @@ englishName: shiguanuwhaouhsoifhais
 name: 史官
 type: townsfolk
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/shiguan.png
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202404/c_7627472943171_a65c3206.jpg
 flavor: ''
 setup: false
 setupMeta:
@@ -22,16 +22,16 @@ reminders:
   - 死于今日
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 如果今天白天有玩家死于处决，唤醒史官，告知其在场存活镇民数量。
-ability: 每个夜晚*，如果今天白天有玩家死于处决，你会得知存活镇民的数量。
+otherNightReminder: 如果白天有玩家死于处决，唤醒史官。对他用手势比划存活的镇民玩家的数量。
+ability: 每个夜晚*，如果白天有玩家死于处决，你会得知存活镇民的数量。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r230
-    officialId: shiguanuwhaouhsoifhais
-    sourceHash: a1e03fd0900c4cfb452eb5fe9c1b1a2d02f493d3
+    officialId: shiguan_c
+    sourceHash: ce978c93ef8e85aeba88459036cc92acc155657c
     sourceHashFields:
       - ability
       - type
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

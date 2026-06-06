@@ -1,0 +1,106 @@
+id: r2778
+englishName: 20-duolinrenjian
+name: 蚀影
+type: minion
+edition: custom
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/6/6b/ox8846sgt7muues9o3gd01bx57xzlma.png/1200px-%E7%88%AA%E7%89%99_%E8%9A%80%E5%BD%B1_%E6%B4%9B%E7%94%9C%E8%95%BE.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 唤醒恶魔，让他选择一名玩家以寄生。
+otherNightReminder: 如果蚀影死于白天，唤醒蚀影并让他决定是否保留能力。如果蚀影死于夜晚，则在当前玩家行动结束后立即唤醒并询问他。
+ability: 在首个夜晚，恶魔要选择一名存活的玩家：他中毒，只有当他处于死亡状态时那个恶魔才会立即死亡。你可以选择在死亡后保留你的能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2778
+    officialId: 20_duolinrenjian
+    sourceHash: 7f5b0dd984abc965fd483147f02987f084ce101e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - death
+    - alive
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

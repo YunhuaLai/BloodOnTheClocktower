@@ -1,0 +1,77 @@
+id: s383
+englishName: item
+name: 张冠李戴
+status: draft
+en: 张冠李戴
+author: possibly Dave
+logo: https://i.postimg.cc/nhNz0n3J/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/nhNz0n3J/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r085
+  - r097
+  - r053
+  - r101
+  - r006
+  - r057
+  - r088
+  - r089
+  - r059
+  - r090
+  - r091
+  - r067
+  - r324
+  - r015
+  - r119
+  - r641
+  - r019
+  - r017
+  - r020
+  - r093
+  - r096
+  - r095
+  - r021
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r059
+    - r095
+    - r101
+    - r017
+    - r093
+    - r097
+    - r006
+    - r085
+    - r100
+    - r053
+  other:
+    - r088
+    - r059
+    - r324
+    - r101
+    - r017
+    - r093
+    - r020
+    - r021
+    - r096
+    - r095
+    - r090
+    - r006
+    - r053

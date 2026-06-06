@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r008
-    officialId: monk
+    officialId: weishenmesenglvjiaomoke111
     sourceHash: d0a19f721ce0785d71a2e2881bc475d0e0cd3d63
     sourceHashFields:
       - ability
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: choose_player_protection
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

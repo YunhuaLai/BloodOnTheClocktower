@@ -1,0 +1,49 @@
+id: s670
+englishName: item
+name: 谁是飞鼠
+status: draft
+en: 谁是飞鼠
+author: 作者：OvO飞鼠 美术设计：正义兔子
+logo: https://free.picui.cn/free/2025/09/21/68ced6167f9e5.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/09/21/68ced6167f9e5.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3867
+  - r3868
+  - r3869
+  - r3870
+  - r3871
+  - r3872
+  - r3873
+  - r3874
+  - r3875
+  - r3876
+  - r3877
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r3876
+    - r3875
+    - r3869
+    - r3867
+    - r3868
+    - r3870
+  other:
+    - r3877
+    - r3870
+    - r3869

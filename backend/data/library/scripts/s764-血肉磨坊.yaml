@@ -1,0 +1,76 @@
+id: s764
+englishName: item
+name: 血肉磨坊
+status: draft
+en: 血肉磨坊
+author: 钟楼剧本博物馆
+logo: https://free.picui.cn/free/2025/12/21/6947d6ddacf31.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/21/6947d6ddacf31.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r022
+  - r091
+  - r059
+  - r106
+  - r057
+  - r233
+  - r133
+  - r089
+  - r140
+  - r134
+  - r066
+  - r974
+  - r071
+  - r070
+  - r016
+  - r186
+  - r4034
+  - r077
+  - r840
+  - r4035
+  - r4036
+  - r1361
+  - r3981
+  - r081
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r974
+    - r1361
+    - r059
+    - r066
+    - r071
+    - r4035
+    - r097
+    - r4034
+    - r140
+    - r134
+    - r133
+  other:
+    - r1361
+    - r059
+    - r066
+    - r081
+    - r070
+    - r233
+    - r4034
+    - r140
+    - r134
+    - r133

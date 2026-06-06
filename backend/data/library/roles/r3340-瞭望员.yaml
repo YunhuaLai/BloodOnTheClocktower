@@ -1,0 +1,99 @@
+id: r3340
+englishName: 7-idesofbloodbra1nchinese
+name: 瞭望员
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/T2JLh4Xk/瞭望员.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 唤醒瞭望员，如果瞭望员顺时针方向最近的存活玩家是爪牙，点头，否则摇头。
+otherNightReminder: 唤醒瞭望员，如果瞭望员顺时针方向最近的存活玩家是爪牙，点头，否则摇头。
+ability: '每个夜晚，你会得知与你顺时针邻近的存活玩家是否是爪牙。 '
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3340
+    officialId: 7_idesofbloodbra1nchinese
+    sourceHash: 439ee66c306d8129ae28e8276119743552e12a08
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - alive
+    - townsfolk
+    - minion
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: direction
+          type: choice
+          label: 方向
+          required: true
+          optionsSource: custom
+          options:
+            - clockwise
+            - counterclockwise
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

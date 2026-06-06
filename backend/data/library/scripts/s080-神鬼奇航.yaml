@@ -1,0 +1,81 @@
+id: s080
+englishName: item
+name: 神鬼奇航
+status: draft
+en: 神鬼奇航
+author: 卡慕罗米
+logo: https://free.picui.cn/free/2025/10/23/68f90a2f3cb7b.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/10/23/68f90a2f3cb7b.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r097
+  - r442
+  - r006
+  - r140
+  - r822
+  - r008
+  - r089
+  - r029
+  - r319
+  - r232
+  - r278
+  - r891
+  - r067
+  - r069
+  - r186
+  - r111
+  - r075
+  - r093
+  - r840
+  - r892
+  - r040
+  - r083
+  - r559
+  - r893
+travellerIds: []
+fabledIds:
+  - r894
+nightOrder:
+  first:
+    - r822
+    - r840
+    - r040
+    - r075
+    - r093
+    - r097
+    - r006
+    - r111
+    - r048
+    - r442
+    - r140
+  other:
+    - r822
+    - r840
+    - r008
+    - r075
+    - r093
+    - r111
+    - r083
+    - r893
+    - r559
+    - r040
+    - r029
+    - r140
+    - r278
+    - r006
+    - r232

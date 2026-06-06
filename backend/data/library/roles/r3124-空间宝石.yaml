@@ -1,0 +1,94 @@
+id: r3124
+englishName: spacestone-avengers-v5
+name: 空间宝石
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/Avengers_v5/spacestone_avengers_v5.png
+flavor: Fabled to hold the power to rewrite the very laws of physics and unlock doors across the universe.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 空间宝石
+  - 安全
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: The holder of the Space Stone shows a 'No' or points to a player. Mark that player 'Safe'.
+ability: 每局游戏限一次，在夜晚时*，你可以选择一名玩家：邪恶玩家的负面能力对他无效直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3124
+    officialId: spacestone_avengers_v5
+    sourceHash: 2491dfa69d591c8b4c7c1ba1cba5c47445b5c32b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - evil
+    - fabled
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: protect_player
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

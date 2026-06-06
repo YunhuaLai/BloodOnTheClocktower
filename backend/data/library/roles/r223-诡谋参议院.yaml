@@ -33,7 +33,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r223
-    officialId: scheming-senate
+    officialId: 27_jinhulun
     sourceHash: da86d1cec9625870c456efa3f444c803665f07db
     sourceHashFields:
       - ability
@@ -55,7 +55,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

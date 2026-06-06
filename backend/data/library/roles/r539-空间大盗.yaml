@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r539
-    officialId: space-thief
+    officialId: 24_jtxx
     sourceHash: 89b7a03d904c9a1b738417d1e42234d9431a061b
     sourceHashFields:
       - ability
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

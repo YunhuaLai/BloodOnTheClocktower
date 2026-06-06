@@ -1,0 +1,90 @@
+id: r2359
+englishName: lingzhu
+name: 灵珠
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/NeZhaNaoHai/_nezhanaohai.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 灵珠
+remindersGlobal: []
+firstNightReminder: 在游戏准备时，给一名与邪恶玩家相邻的善良玩家标记灵珠。
+otherNightReminder: 如果持有魔灵珠玩家已死亡，将灵珠标记转移到逆时针最近的存活玩家上。
+ability: 持有灵珠的善良玩家免疫下一次死亡，造成此次死亡的玩家(含提名)立即获得灵珠。[一名与邪恶玩家相邻的善良玩家持有灵珠]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2359
+    officialId: lingzhu
+    sourceHash: a0cd5d03543888f6e143bcb32b7e297799e37f3d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - nomination
+    - death
+    - good
+    - evil
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

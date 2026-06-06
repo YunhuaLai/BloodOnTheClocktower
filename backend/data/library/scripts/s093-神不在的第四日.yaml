@@ -1,0 +1,89 @@
+id: s093
+englishName: item
+name: 神不在的第四日
+status: draft
+en: 神不在的第四日
+author: 木头
+logo: https://free.picui.cn/free/2025/12/09/69382f4084fa7.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/09/69382f4084fa7.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r1001
+  - r1002
+  - r1003
+  - r140
+  - r025
+  - r008
+  - r058
+  - r006
+  - r028
+  - r056
+  - r134
+  - r278
+  - r037
+  - r070
+  - r1004
+  - r1005
+  - r121
+  - r042
+  - r811
+  - r041
+  - r074
+  - r1006
+  - r1007
+  - r813
+travellerIds: []
+fabledIds:
+  - r1000
+nightOrder:
+  first:
+    - r1000
+    - r121
+    - r1005
+    - r041
+    - r074
+    - r006
+    - r058
+    - r049
+    - r1001
+    - r134
+    - r140
+    - r1002
+    - r025
+  other:
+    - r1003
+    - r1000
+    - r811
+    - r028
+    - r008
+    - r041
+    - r074
+    - r1005
+    - r813
+    - r1006
+    - r1007
+    - r070
+    - r042
+    - r037
+    - r278
+    - r006
+    - r056
+    - r058
+    - r134
+    - r140
+    - r025

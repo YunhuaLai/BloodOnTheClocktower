@@ -1,0 +1,110 @@
+id: r1797
+englishName: 25-sanweiyiti
+name: 三个愿望一次满足
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/SerraEvelyn/sanweiyiti/25_sanweiyiti.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 限一次
+  - 猜测正确
+  - 猜测错误
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  每名玩家厨师会以为自己时三个不同角色，但骑士他知识其中一个角色，邪恶玩家互不相认且恶魔没有伪装角色。每名玩家限一次，你可以私下拜访说书人猜测自己的角色：你会得知一名玩家。如果你猜测正确，该玩家与你的阵营相同。（你不会得知自己猜测正确与否）
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1797
+    officialId: 25_sanweiyiti
+    sourceHash: 7a64c0badb4c2db406b79620e39bd78b01610ebe
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 主动选择
+  termIds:
+    - alignment
+    - evil
+    - demon
+    - storyteller
+    - fabled
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_team
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

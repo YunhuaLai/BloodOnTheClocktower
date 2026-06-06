@@ -1,0 +1,112 @@
+id: r3438
+englishName: 30d
+name: 筹划者
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/Imzecorella/Day_By_Day/framer_day_by_day.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 初始的筹划者
+remindersGlobal: []
+firstNightReminder: 让筹划者选择一名玩家：如果你选择交换他们的角色，分别独自唤醒这两名玩家，展示“你是”信息标记和他们的新角色标记，你要在下个黎明宣布新的筹划者是谁。
+otherNightReminder: 让筹划者选择一名玩家：如果你选择交换他们的角色，分别独自唤醒这两名玩家，展示“你是”信息标记和他们的新角色标记，你要在下个黎明宣布新的筹划者是谁。
+ability: 每个夜晚，你要选择一名存活的玩家：你可能与他交换角色。初始的筹划者随时可以与你交换角色并离开游戏，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3438
+    officialId: 30d
+    sourceHash: a653b193ce5424b4ff077fc470478d25ada19d9b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - traveler
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

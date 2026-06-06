@@ -3,7 +3,7 @@ englishName: soul
 name: 穷奇
 type: demon
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/qiongqi.png
+image: https://img.picui.cn/free/2025/06/17/68514346c4413.png
 flavor: ''
 setup: true
 setupMeta:
@@ -25,13 +25,15 @@ setupMeta:
   setupNotes:
     - 配置调整：外来者数量 +1。
 reminders:
-  - 死于今日
+  - 当做邪恶
+  - 当做邪恶
+  - 当做邪恶
+  - 当做邪恶
   - 死亡
-  - 活尸
 remindersGlobal: []
-firstNightReminder: '0'
-otherNightReminder: 唤醒穷奇，让他攻击一名玩家。如果今天白天有外来者死亡，他攻击并杀死的玩家成为活尸，随后决定今晚谁会因为穷奇能力死亡。
-ability: 每个夜晚*，你要选择一名玩家：他死亡。如果今天白天有外来者死亡，当晚改为你要选择一名玩家：他死亡，但被当作仍然存活，随后会有一名其他玩家死亡。[+1外来者]
+firstNightReminder: ''
+otherNightReminder: 唤醒穷奇，让他攻击一名玩家。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。所有外来者都可能会被当作邪恶阵营，爪牙角色或恶魔角色。[+1外来者]
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
@@ -39,7 +41,7 @@ abilityData:
     source: role-file
     roleId: r568
     officialId: soul
-    sourceHash: c8da1fe818584f0d9f3ceec297c41b70dd9a77cc
+    sourceHash: 9030f8053661dac81a739038e62b137079e646dd
     sourceHashFields:
       - ability
       - type
@@ -55,17 +57,18 @@ abilityData:
     - 设置
     - 主动选择
   termIds:
-    - day
     - night
     - setup
     - death
-    - alive
+    - alignment
+    - evil
     - outsider
+    - minion
     - demon
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

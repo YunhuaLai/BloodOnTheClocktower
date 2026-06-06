@@ -1,0 +1,90 @@
+id: r3664
+englishName: secretsanta-averymerryclocktower
+name: 秘密圣诞老人
+type: outsider
+edition: custom
+image:
+  - https://chillclocktower.com/homebrew/merrryclocktower/secret-santa.png
+flavor: Is it secret? Is it safe?
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 已猜测
+  - 黄昏落败
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 提名开始后立即开始投票（无发言）。每局游戏限一次，任意爪牙可以公开猜测你是秘密圣诞老人，如果猜对，你的阵营在下个黄昏落败。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3664
+    officialId: secretsanta_averymerryclocktower
+    sourceHash: c41f558ea6beedfe593c122dc591823241166d7e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - nomination
+    - vote
+    - alignment
+    - outsider
+    - minion
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: once_per_game
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

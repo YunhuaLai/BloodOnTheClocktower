@@ -1,0 +1,104 @@
+id: r2274
+englishName: 20827-8703
+name: 无相幽闭
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1691596266_197011_837.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 继承
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果无相幽闭今天变成了新的恶魔，用“继承”标记他，对他展示新的恶魔标记。
+ability: 你可能会被当作善良阵营、恶魔角色、镇民角色或外来者角色。如果大于等于五名玩家存活时（旅行者不计算在内）恶魔死亡，你变成那个恶魔，所有人会得知这一信息。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2274
+    officialId: '20827_8703'
+    sourceHash: 21b40a044ca108997d1fb0f63499cb9805227f03
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - alive
+    - alignment
+    - good
+    - townsfolk
+    - outsider
+    - minion
+    - demon
+    - traveler
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

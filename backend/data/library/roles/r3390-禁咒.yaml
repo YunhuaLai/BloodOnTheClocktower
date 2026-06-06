@@ -1,0 +1,90 @@
+id: r3390
+englishName: forbiddenspellsthewizardsmeetrework
+name: 禁咒
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/twf07wfz/TheWizardsMeetRework/forbiddenspells_thewizardsmeetrework.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 死亡
+  - 死亡
+  - 死亡
+  - 死亡
+firstNightReminder: Kill any player that submitted a forbidden spell, unless their ability allows it.
+otherNightReminder: Kill any player that submitted a forbidden spell, unless their ability allows it.
+ability: 如果一名玩家提交以下任何咒语，他死亡。（1）改变阵营。（2）更改角色能力或使角色能力失效（醉酒和中毒除外）。（3）复活。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3390
+    officialId: forbiddenspellsthewizardsmeetrework
+    sourceHash: 75cd77d38971e30d3b0a0cfe49b723bea41f20b4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - drunk
+    - death
+    - alignment
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

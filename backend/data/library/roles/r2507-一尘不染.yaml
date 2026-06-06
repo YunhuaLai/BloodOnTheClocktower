@@ -1,0 +1,97 @@
+id: r2507
+englishName: 10-xqxa
+name: 一尘不染
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/beizi/xqxa/10_xqxa.png
+flavor: “我清清⽩⽩、⼀身正⽓，从不做鸡鸣狗盗之事！汝等⼏名背信弃义之徒，莫要凭空污我清⽩！”
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 莲绽
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 你不会转变阵营。每个夜晚*， 你会得知有多少玩家与自己初始阵营不同。
+ability: 你不会转变阵营。每个夜晚* ，你会得知有多少玩家与自己初始阵营不同。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2507
+    officialId: 10_xqxa
+    sourceHash: dde3c666dbc22672ea4dcd382597c5c9674d5c72
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - alignment
+    - townsfolk
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

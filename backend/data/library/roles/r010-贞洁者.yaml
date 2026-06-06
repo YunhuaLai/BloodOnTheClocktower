@@ -4,7 +4,7 @@ type: townsfolk
 englishName: virgin
 ability: 当你首次被提名时，如果提名你的玩家是镇民，他立刻被处决。
 edition: custom
-image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/15_inthegr_58.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/virgin.png
 flavor: ''
 setup: false
 setupMeta:
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r010
-    officialId: virgin
+    officialId: tiepigu111
     sourceHash: 81d33ac8b5ad70fa340cadbac5ddbaef6bd360e8
     sourceHashFields:
       - ability
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 提名触发
     - 一次性
@@ -51,8 +53,8 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_nomination

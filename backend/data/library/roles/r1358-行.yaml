@@ -1,0 +1,97 @@
+id: r1358
+englishName: 24-xing
+name: 行
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Guiltier/XING/24_xing.png
+flavor: 你听，这叮当作响的铃声，正预告着骤然将至的风暴。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 选择
+  - 不会死亡
+  - 今晚死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒行。让行选择一名玩家并选择攻击还是保护。如果他选择了被他选择过的玩家，让他重复上述步骤。
+ability: 每个夜晚*，你要选择一名玩家：他死亡，或他当晚不会死亡但会在下个夜晚结束时死亡。你选择了被你选择过的玩家后额外行动一次。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1358
+    officialId: 24_xing
+    sourceHash: a601e200ebd2bcb804d668eabc3db01d02757f34
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

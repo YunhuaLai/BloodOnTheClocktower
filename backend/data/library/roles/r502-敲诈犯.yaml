@@ -4,7 +4,7 @@ name: 敲诈犯
 type: minion
 edition: custom
 image: https://img.picui.cn/free/2025/06/15/684eaf282c897.png
-flavor: ''
+flavor: 你有两个选择。要么你忘掉曾经见过我们，要么你和詹金森先生的马的事情会以某种方式泄露出去。所以你帮我，我也会帮你，娈马者。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -65,7 +65,7 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

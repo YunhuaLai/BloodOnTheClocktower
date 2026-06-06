@@ -4,7 +4,7 @@ name: 天机阁
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/bluebell/jtxx/5_jtxx.png
-flavor: ''
+flavor: 稚子问翁新悟处，欲言直恐泄天机。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -20,6 +20,7 @@ setupMeta:
   setupNotes: []
 reminders:
   - 天机
+  - 天机
 remindersGlobal: []
 firstNightReminder: '1'
 otherNightReminder: '1'
@@ -30,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r526
-    officialId: heavenly-pavilion
-    sourceHash: b139603561d9a44232bd2fdfe3a014cd57f198e5
+    officialId: 5_jtxx
+    sourceHash: e66578387968323e269271a340dfe99b44f44232
     sourceHashFields:
       - ability
       - type
@@ -40,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -54,8 +55,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

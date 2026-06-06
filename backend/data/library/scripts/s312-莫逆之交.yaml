@@ -1,0 +1,84 @@
+id: s312
+englishName: item
+name: 莫逆之交
+status: draft
+en: 莫逆之交
+author: 板
+logo: https://i.postimg.cc/HxDJVdnH/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/HxDJVdnH/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r097
+  - r004
+  - r005
+  - r051
+  - r007
+  - r008
+  - r057
+  - r058
+  - r029
+  - r059
+  - r134
+  - r009
+  - r072
+  - r015
+  - r159
+  - r092
+  - r019
+  - r078
+  - r042
+  - r075
+  - r093
+  - r103
+  - r080
+  - r096
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r103
+    - r078
+    - r075
+    - r093
+    - r097
+    - r004
+    - r005
+    - r051
+    - r058
+    - r134
+    - r092
+    - r100
+  other:
+    - r059
+    - r008
+    - r075
+    - r093
+    - r080
+    - r096
+    - r103
+    - r042
+    - r029
+    - r009
+    - r159
+    - r005
+    - r007
+    - r051
+    - r058
+    - r134

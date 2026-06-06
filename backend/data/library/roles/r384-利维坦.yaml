@@ -3,7 +3,7 @@ englishName: leviathan
 name: 利维坦
 type: demon
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/leviathan.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/leviathan.png
 flavor: ''
 setup: false
 setupMeta:
@@ -26,8 +26,8 @@ reminders:
   - 第五天
   - 善良被处决
 remindersGlobal: []
-firstNightReminder: 如果利维坦在场，告知所有人利维坦在场，现在是第一个白天。
-otherNightReminder: 如果利维坦在场，告知所有人利维坦在场，现在是第几个白天。（如果玩家一致同意，则无需在已经知晓利维坦在场的前提下在其他夜晚执行此项操作。）
+firstNightReminder: 放置利维坦的第一天标记，告知所有玩家：利维坦在场，现在是第一天。
+otherNightReminder: 将利维坦的标记转换到下一天。
 ability: 如果多于一名善良玩家被处决，邪恶阵营获胜。所有玩家都知道利维坦在场。在第五个白天结束时，邪恶阵营获胜。
 abilityData:
   schemaVersion: 2
@@ -35,8 +35,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r384
-    officialId: leviathan
-    sourceHash: 99c5e272b63185010000df6037c4967cd873ba36
+    officialId: leviathan_c
+    sourceHash: d0232a33d196fb90da6e9d3b5e69b6db203e8b51
     sourceHashFields:
       - ability
       - type
@@ -62,7 +62,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

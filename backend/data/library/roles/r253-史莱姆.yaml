@@ -1,9 +1,9 @@
 id: r253
 englishName: slime
 name: 史莱姆
-type: minion
+type: outsider
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/20_newhero.png
+image: https://www.bloodstar.xyz/p/qazwsxedc/aCup/27_acup.png
 flavor: 史莱姆虽然很弱小，但史莱姆从来没有被战胜过。
 setup: true
 setupMeta:
@@ -25,18 +25,20 @@ setupMeta:
   setupNotes:
     - 配置调整：外来者数量 -1。
 reminders: []
-remindersGlobal: []
+remindersGlobal:
+  - 是史莱姆
+  - 醉酒
 firstNightReminder: ''
 otherNightReminder: ''
-ability: 如果大于等于五名玩家存活时(旅行者不计算在内)恶魔死亡，一名存活的爪牙变成那个恶魔，即使你已死亡。[-1外来者]
+ability: 你以为你是一个史莱姆以外的外来者，但其实你不是。当你死亡时，与你邻近的两名善良镇民之一醉酒。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r253
-    officialId: 20_newhero
-    sourceHash: 13e929cc4e6876556fba17cd372649b5d2ab4ba2
+    officialId: d0fc421d-6f44-4eec-99fc-90505973763e1
+    sourceHash: 6ee0deded040b9ebc30396b931d36d76f216ad03
     sourceHashFields:
       - ability
       - type
@@ -53,12 +55,11 @@ abilityData:
   termIds:
     - night
     - setup
+    - drunk
     - death
-    - alive
+    - good
+    - townsfolk
     - outsider
-    - minion
-    - demon
-    - traveler
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
@@ -72,7 +73,14 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: setup_modifier
-        adjustments: []
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input

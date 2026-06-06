@@ -4,7 +4,7 @@ name: 梼杌
 type: demon
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_9214108694761_4717f48f.jpg
-flavor: ''
+flavor: 有兽焉，其状如虎而大，毛长两尺，人面虎足，口牙，尾长一丈八尺，扰乱荒中，名梼杌。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -36,7 +36,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r689
-    officialId: taowu-fiend
+    officialId: taowuButton
     sourceHash: aa0983c62ca420730864261b4b13f917e12e4d82
     sourceHashFields:
       - ability
@@ -46,8 +46,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 设置
@@ -61,8 +61,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null
@@ -107,3 +107,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

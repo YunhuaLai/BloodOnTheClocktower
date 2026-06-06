@@ -4,8 +4,8 @@ type: demon
 englishName: po
 ability: 每个夜晚*，你可以选择一名玩家：他死亡。如果你上次选择时没有选择任何玩家，当晚你要选择三名玩家：他们死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/po.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/po.png
+flavor: Duck_Town
 setup: false
 setupMeta:
   randomAssignable: true
@@ -24,15 +24,15 @@ reminders:
   - 死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 珀可以选择一名玩家；或如果上一次他被唤醒时未做选择，让他选择三名玩家。标记这些玩家死亡。
+otherNightReminder: 唤醒珀，他可以攻击一名玩家或不进行攻击，如果他上一次选择了不进行攻击，则此次必须攻击三名玩家。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r047
-    officialId: po
-    sourceHash: a17714444437ed1a2e472c1ee5eee61c4352635b
+    officialId: opppppppppp1111
+    sourceHash: 87fa9afb15161510099c1c15fcf81ada206033b0
     sourceHashFields:
       - ability
       - type
@@ -41,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

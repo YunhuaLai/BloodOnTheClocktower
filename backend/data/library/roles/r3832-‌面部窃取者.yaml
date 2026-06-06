@@ -1,0 +1,80 @@
+id: r3832
+englishName: facestealer-the-last-cull
+name: ‌面部窃取者
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/BakedIce/The_Last_Cull__/facestealer_the_last_cull__.png
+flavor: Hey guys! Slow down, you got really far ahead of me. If there where anything out here, you guys could've lost me!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果你正“疯狂”地证明自己是在场的一个角色且你与他阵营相同，你会获得他的能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3832
+    officialId: facestealer_the_last_cull__
+    sourceHash: 837f7ea56499690e0ee8d15211532a5cf8b7b4d8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - alignment
+    - madness
+    - traveler
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

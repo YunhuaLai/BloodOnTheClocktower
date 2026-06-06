@@ -1,0 +1,83 @@
+id: s395
+englishName: item
+name: 鹰拿雁捉
+status: draft
+en: 鹰拿雁捉
+author: 黑白熊
+logo: https://www.helloimg.com/i/2024/11/11/673209f63dd97.png
+description: 鹰拿雁捉
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 鹰拿雁捉
+image: https://www.helloimg.com/i/2024/11/11/673209f63dd97.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 鹰拿雁捉
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r307
+  - r442
+  - r025
+  - r055
+  - r058
+  - r059
+  - r022
+  - r232
+  - r361
+  - r334
+  - r091
+  - r063
+  - r015
+  - r071
+  - r070
+  - r820
+  - r042
+  - r040
+  - r093
+  - r237
+  - r609
+  - r047
+  - r083
+  - r635
+travellerIds: []
+fabledIds:
+  - r1759
+nightOrder:
+  first:
+    - r059
+    - r071
+    - r820
+    - r609
+    - r040
+    - r093
+    - r004
+    - r058
+    - r442
+    - r307
+    - r025
+  other:
+    - r059
+    - r609
+    - r093
+    - r047
+    - r083
+    - r635
+    - r820
+    - r042
+    - r040
+    - r237
+    - r070
+    - r063
+    - r232
+    - r055
+    - r058
+    - r361
+    - r025

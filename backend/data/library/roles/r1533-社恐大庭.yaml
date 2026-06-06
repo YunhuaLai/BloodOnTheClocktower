@@ -1,0 +1,103 @@
+id: r1533
+englishName: 15-shanhaiqiwenlu
+name: 社恐大庭
+type: townsfolk
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/4/49/61ursdqsw5zvq6p3le3cxzwz1vw9wlh.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 第一天
+  - 第二天
+  - 第三天
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 在第三个白天，你可以拜访说书人得知场上存活玩家的具体种类数量。 【只在13人局以下加入游戏】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1533
+    officialId: 15_shanhaiqiwenlu
+    sourceHash: 1b7cdd64fc5af2c0b26786e83fb13a6ca04f8af8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 设置
+    - 信息型
+  termIds:
+    - day
+    - setup
+    - information
+    - alive
+    - townsfolk
+    - storyteller
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_number
+        numberKind: count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

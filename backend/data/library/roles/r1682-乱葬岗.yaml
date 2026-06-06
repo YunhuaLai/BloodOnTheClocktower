@@ -1,0 +1,79 @@
+id: r1682
+englishName: 9f7d3b43-2218-42a3-8a7d-1e96d36418d7
+name: 乱葬岗
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_8548062838171_b91fcf96.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 在乱葬岗
+  - 活尸
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 区域：氓山之脊，无名无姓者葬身之所，至阴至邪，秽物自生。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1682
+    officialId: 9f7d3b43-2218-42a3-8a7d-1e96d36418d7
+    sourceHash: 661b0ea584fa092e892d681cf010a42f4175f127
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

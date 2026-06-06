@@ -1,0 +1,51 @@
+id: s663
+englishName: la-aldea-pitufa
+name: La Aldea Pitufa
+status: draft
+en: La Aldea Pitufa
+author: Crowley
+logo: https://free.picui.cn/free/2025/12/15/693ee1b8845b9.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/15/693ee1b8845b9.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3740
+  - r3741
+  - r3742
+  - r3743
+  - r3744
+  - r3745
+  - r3746
+  - r3747
+  - r3748
+travellerIds: []
+fabledIds:
+  - r3749
+  - r3750
+  - r3751
+nightOrder:
+  first:
+    - r3740
+    - r3741
+    - r3750
+  other:
+    - r3745
+    - r3747
+    - r3748
+    - r3742
+    - r3740
+    - r3741
+    - r3750

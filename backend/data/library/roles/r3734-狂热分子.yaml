@@ -1,0 +1,91 @@
+id: r3734
+englishName: fanatic-halloween
+name: 狂热分子
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/SeaBound/Halloween/fanatic_halloween.png
+flavor: The greater good!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 使用能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 狂热分子可以选择使用他的能力，且狂热分子要选择一名玩家，他转变为恐慌状态。
+ability: 每个夜晚*，你要选择一名玩家：他转变为恐慌状态。每局游戏限一次，你可以选择一名玩家：他转变为恐慌状态，即使因为任何原因让他不能转变为恐慌状态。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3734
+    officialId: fanatic_halloween
+    sourceHash: 141014a76d226a53c71c057d19256756a2847fd5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - minion
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

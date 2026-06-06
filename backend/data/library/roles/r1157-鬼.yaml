@@ -1,0 +1,88 @@
+id: r1157
+englishName: e59c8c95-85e8-46eb-9fca-0cf764017ad2
+name: 鬼
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_2558185766861_62445b87.jpg
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 鬼上身
+firstNightReminder: 被邪恶玩家们选定的玩家会被鬼上身，变成邪恶的鬼，告知该玩家这件事，并将他的角色换成鬼、放置鬼上身标记。
+otherNightReminder: 被邪恶玩家们选定的玩家会被鬼上身，变成邪恶的鬼，告知该玩家这件事，并将他的角色换成鬼、放置鬼上身标记。
+ability: 每个夜晚，邪恶玩家们要秘密决定一名玩家变成邪恶的鬼直至下个黄昏。如果所有存活善良玩家都变成过鬼，邪恶阵营获胜。[+1善良角色]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1157
+    officialId: 252b3bb4-b8d9-4eb1-86bf-0799eaef018b
+    sourceHash: 918dad87cd7d3449463391b0693598a4a29f5982
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - alive
+    - alignment
+    - good
+    - evil
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,80 @@
+id: s380
+englishName: item
+name: 限定冒险
+status: draft
+en: 限定冒险
+author: Lyfey
+logo: https://www.helloimg.com/i/2025/01/08/677e4c2fc120b.png
+description: 限定冒险
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 限定冒险
+image: https://www.helloimg.com/i/2025/01/08/677e4c2fc120b.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 限定冒险
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r097
+  - r051
+  - r140
+  - r007
+  - r027
+  - r055
+  - r214
+  - r031
+  - r089
+  - r029
+  - r009
+  - r010
+  - r038
+  - r070
+  - r159
+  - r119
+  - r302
+  - r042
+  - r337
+  - r336
+  - r045
+  - r046
+  - r080
+  - r096
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r302
+    - r337
+    - r045
+    - r097
+    - r051
+    - r140
+    - r100
+  other:
+    - r302
+    - r027
+    - r214
+    - r337
+    - r045
+    - r046
+    - r080
+    - r096
+    - r042
+    - r029
+    - r070
+    - r009
+    - r159
+    - r031
+    - r007
+    - r051
+    - r055
+    - r140

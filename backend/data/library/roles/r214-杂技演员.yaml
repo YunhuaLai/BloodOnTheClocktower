@@ -1,10 +1,10 @@
 id: r214
 englishName: acrobat
 name: 杂技演员
-type: outsider
+type: townsfolk
 edition: custom
-image: https://clocktower-wiki.gstonegames.com/images/thumb/8/8f/Acrobat.png/300px-Acrobat.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/acrobat.png
+flavor: 列位看官，请扶好帽盔，我将逆天而行，踏空起舞！身如飞燕，胆若雷霆，只为博君一笑一惊！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -18,20 +18,21 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
-remindersGlobal:
+reminders:
+  - 被选择
   - 死亡
+remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: ''
-ability: 每个夜晚*，如果与你邻近的存活善良玩家之一醉酒或中毒，你死亡。
+otherNightReminder: ：唤醒杂技演员，让他选择一名玩家。如果当晚这名玩家醉酒或中毒，杂技演员死亡。
+ability: 每个夜晚*，你要选择一名玩家：如果当晚他醉酒或中毒，你死亡。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r214
-    officialId: acrobat
-    sourceHash: d684020c4c6b12400158992cdbe53eb32e68cdce
+    officialId: baziji9865765487le115555551
+    sourceHash: 378edc81d5eebd8c1a23271dd44065b74a4ede11
     sourceHashFields:
       - ability
       - type
@@ -49,13 +50,11 @@ abilityData:
     - poisoned
     - drunk
     - death
-    - alive
-    - good
-    - outsider
+    - townsfolk
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

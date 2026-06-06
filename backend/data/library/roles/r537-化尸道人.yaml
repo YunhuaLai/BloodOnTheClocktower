@@ -32,7 +32,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r537
-    officialId: corpse-taoist
+    officialId: 22_jtxx
     sourceHash: dcab45aec3309ba9130e8d7b1712999d7bb9191c
     sourceHashFields:
       - ability
@@ -55,7 +55,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

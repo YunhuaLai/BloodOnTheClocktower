@@ -4,7 +4,7 @@ name: 打更人
 type: townsfolk
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/dagengren.png
-flavor: ''
+flavor: 天干物燥，小心火烛！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r484
-    officialId: night-watchman
+    officialId: tiandanwuzaoxiaoxinhuozhu111
     sourceHash: efe0f2f84717b23c084332949271ed9c354ec1e9
     sourceHashFields:
       - ability
@@ -52,7 +52,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

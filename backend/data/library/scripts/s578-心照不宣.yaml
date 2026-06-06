@@ -1,0 +1,81 @@
+id: s578
+englishName: item
+name: 心照不宣
+status: draft
+en: 心照不宣
+author: 榴莲
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/xinzhoabuxuan/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/xinzhoabuxuan/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r106
+  - r006
+  - r007
+  - r008
+  - r024
+  - r028
+  - r033
+  - r057
+  - r060
+  - r049
+  - r090
+  - r140
+  - r097
+  - r067
+  - r119
+  - r071
+  - r135
+  - r075
+  - r076
+  - r121
+  - r093
+  - r302
+  - r021
+  - r095
+  - r141
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r095
+    - r071
+    - r121
+    - r024
+    - r141
+    - r302
+    - r075
+    - r093
+    - r097
+    - r006
+    - r049
+    - r140
+  other:
+    - r024
+    - r302
+    - r076
+    - r028
+    - r008
+    - r075
+    - r093
+    - r106
+    - r021
+    - r141
+    - r095
+    - r090
+    - r006
+    - r007
+    - r140

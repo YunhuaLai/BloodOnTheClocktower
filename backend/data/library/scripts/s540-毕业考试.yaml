@@ -1,0 +1,84 @@
+id: s540
+englishName: item
+name: 毕业考试
+status: draft
+en: 毕业考试
+author: SERRAEVELYN
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/Graduation_examination/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/Graduation_examination/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r025
+  - r052
+  - r053
+  - r008
+  - r027
+  - r150
+  - r059
+  - r029
+  - r057
+  - r088
+  - r066
+  - r091
+  - r070
+  - r324
+  - r1905
+  - r159
+  - r076
+  - r078
+  - r113
+  - r641
+  - r103
+  - r045
+  - r079
+  - r080
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r059
+    - r066
+    - r113
+    - r103
+    - r078
+    - r052
+    - r045
+    - r097
+    - r025
+    - r053
+  other:
+    - r088
+    - r059
+    - r324
+    - r066
+    - r076
+    - r027
+    - r052
+    - r008
+    - r113
+    - r150
+    - r045
+    - r079
+    - r080
+    - r103
+    - r029
+    - r070
+    - r159
+    - r025
+    - r053

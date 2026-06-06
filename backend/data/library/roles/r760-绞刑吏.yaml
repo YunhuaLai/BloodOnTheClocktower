@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r760
-    officialId: hangman
+    officialId: Hangman
     sourceHash: 6ede94f57a72bc43a8702b5dddfa81989c0435c3
     sourceHashFields:
       - ability
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 主动选择
   termIds:
@@ -52,8 +52,8 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_death
@@ -67,8 +67,6 @@ abilityData:
       - kind: choose_role
         source: target
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_death
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: null

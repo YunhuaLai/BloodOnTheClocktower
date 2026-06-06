@@ -1,0 +1,82 @@
+id: r1257
+englishName: wanlaiwusheng-xuyuanjian
+name: 许愿笺
+type: fabled
+edition: custom
+image: https://www.helloimg.com/i/2024/11/08/672da6416a09b.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 许愿邪恶
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 在游戏开始前，玩家可以向说书人许愿加入邪恶阵营。说书人会为所有玩家分配角色以尽量满足玩家的愿望。在游戏的第一个白天，说书人会公布许愿加入邪恶阵营的玩家人数。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1257
+    officialId: wanlaiwusheng_xuyuanjian
+    sourceHash: 5a0f9aed4274f497b5a0c34fe7c086f05c702a5c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - day
+    - alignment
+    - evil
+    - storyteller
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

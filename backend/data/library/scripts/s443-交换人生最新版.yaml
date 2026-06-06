@@ -1,0 +1,92 @@
+id: s443
+englishName: item
+name: 交换人生最新版
+status: draft
+en: 交换人生最新版
+author: 靶子
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1709644124_197011_8509.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1709644124_197011_8509.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r822
+  - r057
+  - r054
+  - r053
+  - r051
+  - r530
+  - r058
+  - r052
+  - r329
+  - r091
+  - r307
+  - r361
+  - r015
+  - r112
+  - r070
+  - r067
+  - r076
+  - r073
+  - r609
+  - r075
+  - r082
+  - r114
+  - r083
+  - r079
+travellerIds:
+  - r149
+  - r132
+  - r739
+  - r123
+  - r289
+fabledIds: []
+nightOrder:
+  first:
+    - r149
+    - r822
+    - r609
+    - r052
+    - r073
+    - r075
+    - r001
+    - r051
+    - r058
+    - r307
+    - r530
+    - r053
+  other:
+    - r149
+    - r132
+    - r123
+    - r822
+    - r076
+    - r609
+    - r052
+    - r329
+    - r075
+    - r112
+    - r079
+    - r082
+    - r114
+    - r083
+    - r070
+    - r051
+    - r058
+    - r361
+    - r054
+    - r530
+    - r053

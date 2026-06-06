@@ -1,11 +1,12 @@
 id: r044
 name: 僵怖
-type: demon
+type: townsfolk
 englishName: zombuul
-ability: 每个夜晚*，如果今天白天没有人死亡，你会被唤醒并要选择一名玩家：他死亡。当你首次死亡后，你仍存活，但会被当作死亡。
+ability: 当你首次死亡后，你仍存活，但会被当作死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/zombuul.png
-flavor: ''
+image:
+  - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/zombuul_b.png
+flavor: 我不。明白。你的。方式。人类。同类。向我。指引。泥土。那是。圣地。静卧。安睡。我也。必须。长眠。立刻。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -20,19 +21,18 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 死于今日
-  - 死亡
+  - 假死
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 如果白天无人死亡，唤醒僵怖，让他攻击一名玩家。
+otherNightReminder: ''
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r044
-    officialId: zombuul
-    sourceHash: bd343eb78691d2570b5c70ee3296b6336409ecf1
+    officialId: 12_fan
+    sourceHash: 67fd15a70aa5e44cf1be8460d55df58d294d3421
     sourceHashFields:
       - ability
       - type
@@ -41,21 +41,22 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 假死
     - 恶魔
   termIds:
-    - day
-    - night
     - death
     - alive
+    - townsfolk
     - demon
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

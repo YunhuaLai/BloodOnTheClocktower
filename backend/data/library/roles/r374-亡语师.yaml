@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r374
-    officialId: death-speaker
+    officialId: f12d8a97-e554-4e79-802f-8065cba11fa1
     sourceHash: 101a8fbb719b4b5714a70c8b3cfac460d5be82fc
     sourceHashFields:
       - ability
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 事件触发
   termIds:
@@ -51,8 +51,8 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_death

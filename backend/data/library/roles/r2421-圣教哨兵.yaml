@@ -1,0 +1,89 @@
+id: r2421
+englishName: a33f7de5-1edc-45a3-920d-6e94787bafea
+name: 圣教哨兵
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/465464/newcharacter1_465464.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - +1外来者
+remindersGlobal: []
+firstNightReminder: 非常感谢“云乡子”为暮色村庄的图标进行创作。
+otherNightReminder: 联系作者:QQ1275746740
+ability: 在初始设置时，可能会额外增加一个外来者。死亡的玩家不可以被提名。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2421
+    officialId: a33f7de5-1edc-45a3-920d-6e94787bafea
+    sourceHash: fa82c5b3fa8269655a25c825bf99e946bdd07bd1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - setup
+    - nomination
+    - death
+    - outsider
+    - fabled
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

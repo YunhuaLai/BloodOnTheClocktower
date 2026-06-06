@@ -1,0 +1,82 @@
+id: s200
+englishName: item
+name: 明争暗斗
+status: draft
+en: 明争暗斗
+author: 杭州小恶魔训练中心
+logo: https://free.picui.cn/free/2025/11/30/692b3764a3be4.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/11/30/692b3764a3be4.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r006
+  - r008
+  - r025
+  - r053
+  - r054
+  - r056
+  - r140
+  - r106
+  - r108
+  - r307
+  - r891
+  - r109
+  - r594
+  - r214
+  - r015
+  - r072
+  - r071
+  - r017
+  - r042
+  - r043
+  - r113
+  - r045
+  - r047
+  - r080
+  - r082
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r071
+    - r113
+    - r017
+    - r045
+    - r594
+    - r006
+    - r140
+    - r108
+    - r307
+    - r025
+    - r053
+  other:
+    - r017
+    - r008
+    - r113
+    - r109
+    - r045
+    - r047
+    - r082
+    - r080
+    - r042
+    - r214
+    - r006
+    - r054
+    - r056
+    - r140
+    - r594
+    - r025
+    - r053

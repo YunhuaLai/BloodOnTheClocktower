@@ -1,0 +1,141 @@
+id: r2486
+englishName: 3-sheshecup
+name: 吹笛手
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/TwinCity/15_twincity.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+  - 得知
+remindersGlobal: []
+firstNightReminder: 让他选择除他以外的三名玩家，如果他们角色类型都不一样，标记吹笛手失去能力，之后的夜晚无需再唤醒吹笛手。如果他们之中有两个角色类型相同，告诉另一名角色类型不同的玩家吹笛手在场。
+otherNightReminder: 让他选择除他以外的三名玩家，如果他们角色类型都不一样，标记吹笛手失去能力，之后的夜晚无需再唤醒吹笛手。如果他们之中有两个角色类型相同，告诉另一名角色类型不同的玩家吹笛手在场。
+ability: 每个夜晚，你可以选择除你以外的三名玩家：如果他们的类型都不相同，你失去能力；如果仅有两名玩家角色类型相同，另一名玩家得知吹笛手在场。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2486
+    officialId: 3_sheshecup
+    sourceHash: d4c8307ac9011a64af56fef032766a909baef0cb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - townsfolk
+  abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 3
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 目标号码3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

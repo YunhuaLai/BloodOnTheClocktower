@@ -1,0 +1,102 @@
+id: r3987
+englishName: shacklewight
+name: 夏柯怀特
+type: demon
+edition: custom
+image: https://img.picui.cn/free/2025/05/10/681ec8a286798.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: 1
+      source: '[-1或+1外来者]'
+      note: 配置调整：外来者数量 -1 到 +1。
+  setupNotes:
+    - 配置调整：外来者数量 -1 到 +1。
+reminders:
+  - 蚂蚱
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个夜晚，你要选择任意数量玩家：他们会一同被唤醒。如果明天白天他们之一被处决，其他被选择的玩家立即死亡。如果没有玩家死于处决，邪恶阵营获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3987
+    officialId: Shacklewight
+    sourceHash: b0a6860d1680312f37eef9cd696bf103e8a5a382
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - day
+    - night
+    - setup
+    - first-night
+    - execution
+    - death
+    - alignment
+    - evil
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: 1
+            source: '[-1或+1外来者]'
+            note: 配置调整：外来者数量 -1 到 +1。
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

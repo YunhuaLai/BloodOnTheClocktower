@@ -1,0 +1,107 @@
+id: r2502
+englishName: 5-xqxa
+name: 枯木逢春
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/beizi/xqxa/5_xqxa.png
+flavor: |-
+  “⻔⼝内棵树三⼗年没⻅过绿了，可真是怪事，今⼉居然发了新枝。听说昨⼩春下葬了，难不
+  成......”
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 新枝
+firstNightReminder: 每局游戏限一次，在夜晚时，你可以选择除你以外的两名玩家。当你在夜晚死亡时，他们中的善良玩家起死回生。
+otherNightReminder: 每局游戏限一次，在夜晚时，你可以选择除你以外的两名玩家。当你在夜晚死亡时，他们中的善良玩家起死回生。
+ability: 每局游戏限一次，在夜晚时，你可以选择除你以外的两名玩家。当你在夜晚死亡时，他们中的善良玩家起死回生。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2502
+    officialId: 5_xqxa
+    sourceHash: dce9a17e06cda5471dd6084aee1634133a42600c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - good
+    - townsfolk
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

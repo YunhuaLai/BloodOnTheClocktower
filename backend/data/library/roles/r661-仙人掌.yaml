@@ -32,7 +32,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r661
-    officialId: cactus
+    officialId: 16_guiyihuayuan
     sourceHash: a709958711df083c3293d8376bcc87a89474924e
     sourceHashFields:
       - ability
@@ -57,7 +57,7 @@ abilityData:
   abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

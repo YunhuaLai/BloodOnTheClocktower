@@ -1,0 +1,79 @@
+id: r966
+englishName: 8-buzhengjingjioayi
+name: 地下黑市
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/SerraEvelyn/buzhengjingjioayi/8_buzhengjingjioayi.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 达成任务条件当晚则在恶魔行动时根据投排点数获得任务奖励，重复获取，投掷所得奖励若已获取则重新投掷，于当晚限次使用
+otherNightReminder: 达成任务条件当晚则在恶魔行动时根据投排点数获得任务奖励，重复获取，投掷所得奖励若已获取则重新投掷，于当晚限次使用
+ability: 达成任务条件当晚则在恶魔行动时根据投排点数获得任务奖励，重复获取，投掷所得奖励若已获取则重新投掷，于当晚限次使用
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r966
+    officialId: 8_buzhengjingjioayi
+    sourceHash: 937a522a00de444fcc74652913a2e3926f9b6776
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - demon
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

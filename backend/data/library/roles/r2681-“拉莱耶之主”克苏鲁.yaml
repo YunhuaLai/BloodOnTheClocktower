@@ -1,0 +1,99 @@
+id: r2681
+englishName: cthulhu
+name: “拉莱耶之主”克苏鲁
+type: demon
+edition: mia
+image: https://free.picui.cn/free/2025/11/28/6928977965718.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal:
+  - 克苏鲁
+firstNightReminder: ''
+otherNightReminder: 让克苏鲁选择一名玩家。如果那名玩家是邪恶的或已丧失理智，标记他死亡；否则，他丧失理智。继续让克苏鲁选择玩家，直到放置了死亡标记或克苏鲁主动选择停止。
+ability: 每个夜晚*，你恢复理智，然后要选择一名玩家：如果他是邪恶的或已丧失理智，他死亡。否则，他丧失理智（即使他不能）。重复以上流程，直到有玩家死亡或你选择停止。[-1理智]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2681
+    officialId: cthulhu
+    sourceHash: 25858dc9f1655b0071baec454af5f646885b3b82
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - death
+    - evil
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

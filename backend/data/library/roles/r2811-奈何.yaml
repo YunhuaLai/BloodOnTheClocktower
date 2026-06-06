@@ -1,0 +1,114 @@
+id: r2811
+englishName: 21-weimuxuanxi
+name: 奈何
+type: demon
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/53/8qht24iy23kxre2p2i7mt88srdfrclq.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 每个夜晚*，你要选择一名玩家，他死亡。 首夜，你得知谁是失忆者，每局游戏限一次，你可以知晓当天失忆者提出的问题，并代替说书人给出答案。【+2失忆者】
+otherNightReminder: 每个夜晚*，你要选择一名玩家，他死亡。 首夜，你得知谁是失忆者，每局游戏限一次，你可以知晓当天失忆者提出的问题，并代替说书人给出答案。【+2失忆者】
+ability: 每个夜晚*，你要选择一名玩家，他死亡。 首夜，你得知谁是失忆者，每局游戏限一次，你可以知晓当天失忆者提出的问题，并代替说书人给出答案。【+2失忆者】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2811
+    officialId: 21_weimuxuanxi
+    sourceHash: 1e19b690841c38875a172f7e8f5dd91b56853c84
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - first-night
+    - death
+    - demon
+    - storyteller
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: natural_language
+    note: ''

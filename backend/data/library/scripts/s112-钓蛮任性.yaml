@@ -1,0 +1,84 @@
+id: s112
+englishName: item
+name: 钓蛮任性
+status: draft
+en: 钓蛮任性
+author: 驯鹿
+logo: https://i.postimg.cc/gJxSB5d7/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/gJxSB5d7/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1162
+  - r1163
+  - r100
+  - r060
+  - r057
+  - r058
+  - r052
+  - r055
+  - r054
+  - r059
+  - r091
+  - r009
+  - r090
+  - r015
+  - r070
+  - r159
+  - r324
+  - r093
+  - r075
+  - r018
+  - r121
+  - r083
+  - r082
+  - r103
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+  - r1164
+nightOrder:
+  first:
+    - r059
+    - r095
+    - r1162
+    - r121
+    - r103
+    - r052
+    - r075
+    - r093
+    - r058
+    - r100
+    - r1163
+    - r018
+  other:
+    - r059
+    - r324
+    - r052
+    - r075
+    - r093
+    - r082
+    - r083
+    - r095
+    - r103
+    - r070
+    - r009
+    - r090
+    - r054
+    - r055
+    - r058
+    - r018

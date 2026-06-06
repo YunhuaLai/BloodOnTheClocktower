@@ -1,0 +1,98 @@
+id: r3689
+englishName: gylfi-ragnarok09
+name: 古鲁菲
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/LemonSneeze/Ragnarok-09/gylfi_ragnarok09.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+  - 获胜
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 先唤醒古鲁菲并询问他出拳，之后让他入睡.然后唤醒恶魔并询问他出拳，之后让他入睡。如果出现平局，再次唤醒直到有人获胜. 如果古鲁菲失败, 一名玩家会中毒直到下个黄昏，你会得知他是谁。如果古鲁菲胜利，让他们继续入睡。
+ability: 每个夜晚*，你要与恶魔猜拳直到有人获胜。如果你输了，会有一名玩家中毒直到下个黄昏，随后你会得知他是谁。（你不会与恶魔在夜晚见面)
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3689
+    officialId: gylfi_ragnarok09
+    sourceHash: 8a97fe101b34e8a2b031c7eedf7fff338c4b1d71
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - poisoned
+    - information
+    - outsider
+    - demon
+  abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

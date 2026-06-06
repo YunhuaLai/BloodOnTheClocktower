@@ -1,0 +1,108 @@
+id: r3099
+englishName: vision-avengersv2
+name: 幻视
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/AvengersV2/vision_avengersv2.png
+flavor: Our very strength invites challenge. Challenge incites conflict. And conflict… breeds catastrophe.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 得知洛基
+  - 得知卡西利亚斯
+  - 得知灭霸
+  - 得知阿尼姆·佐拉
+  - 得知红骷髅
+  - 得知多玛姆
+  - 得知海拉
+  - 得知奥创
+remindersGlobal: []
+firstNightReminder: Show the character token of a not-in-play evil character.<br><br>Mark the Vision with the reminder for that character.
+otherNightReminder: >-
+  Show the character token of a not-in-play evil character whose reminder hasn't been placed on the Vision yet, if there
+  are any. Mark the Vision with the reminder for that character.
+ability: 每个夜晚，你会得知一个不在场的邪恶角色（与之前不同），直到所有不在场的邪恶角色你都得知过一次。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3099
+    officialId: vision_avengersv2
+    sourceHash: a890d3389e49f191ac2d5f64cda1e029eddd393c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - evil
+    - townsfolk
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

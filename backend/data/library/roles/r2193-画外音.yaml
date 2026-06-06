@@ -1,0 +1,83 @@
+id: r2193
+englishName: e472ec93-8dd3-48fc-aa09-8c64c8a39eb3
+name: 画外音
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_6931901625861_d30a61b1.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 一
+  - 二
+  - 三
+  - 四
+  - 登阶
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 当天道被孕育千万子孙的森之黑山羊侵染，修仙世界将会何去何从？
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2193
+    officialId: e472ec93-8dd3-48fc-aa09-8c64c8a39eb3
+    sourceHash: 4afbf127ce96d780ec701b7cda0c5ab5796c07cb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - fabled
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

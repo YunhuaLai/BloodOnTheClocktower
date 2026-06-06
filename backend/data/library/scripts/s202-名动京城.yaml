@@ -1,0 +1,87 @@
+id: s202
+englishName: item
+name: 名动京城
+status: draft
+en: 名动京城
+author: 北京赛事组
+logo: https://free.picui.cn/free/2025/12/15/693fe053b56ca.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/15/693fe053b56ca.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r006
+  - r008
+  - r025
+  - r028
+  - r058
+  - r059
+  - r049
+  - r134
+  - r214
+  - r108
+  - r278
+  - r109
+  - r232
+  - r037
+  - r070
+  - r186
+  - r112
+  - r017
+  - r020
+  - r040
+  - r113
+  - r021
+  - r082
+  - r114
+  - r240
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r059
+    - r113
+    - r017
+    - r040
+    - r006
+    - r058
+    - r049
+    - r108
+    - r134
+    - r025
+  other:
+    - r059
+    - r017
+    - r028
+    - r214
+    - r008
+    - r020
+    - r113
+    - r112
+    - r109
+    - r021
+    - r082
+    - r114
+    - r240
+    - r040
+    - r037
+    - r070
+    - r278
+    - r006
+    - r232
+    - r058
+    - r134
+    - r025

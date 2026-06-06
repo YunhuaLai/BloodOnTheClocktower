@@ -1,0 +1,118 @@
+id: r1515
+englishName: jinghaiguangbo-haiwu
+name: 惊骇广播
+type: demon
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/d6/gz7ln5bot8f8h8wowqlvfpuqse7h56f.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 限一次
+  - 死亡
+  - 全员中毒
+remindersGlobal: []
+firstNightReminder: 如果惊骇广播尚未使镇民得信息，可以让一名镇民得知一条不该存在的信息。
+otherNightReminder: 让惊骇广播杀死一名玩家，如果当天因惊骇广播得知信息的镇民被处决，则将“全员中毒”标记放置在魔典中央。如果惊骇广播尚未使镇民得信息，可以让一名镇民得知一条不该存在的信息。
+ability: 每个夜晚*，你要选择一名玩家，他死亡。每局游戏限一次，一名镇民得知一条虚假信息，如果他被处决，当晚所有镇民中毒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1515
+    officialId: jinghaiguangbo_haiwu
+    sourceHash: 7ba5ea376361bb6596d8f9d3059e397961c5a7c0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - information
+    - execution
+    - death
+    - townsfolk
+    - demon
+  abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

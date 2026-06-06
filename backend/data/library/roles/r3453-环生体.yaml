@@ -1,0 +1,85 @@
+id: r3453
+englishName: cyclox-beyondgoodandevilv3
+name: 环生体
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/WedgeMcCloud/BeyondGoodAndEvil-V3/cyclox_beyondgoodandevilv3.png
+flavor: >-
+  They try to learn, but see the storm. For answers, yearn, but wrong in form. The masses plea, seek wrong from right.
+  They try to flee, but day is night.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 信息出错
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果回环死亡，镇民玩家的能力可能在当晚和明天白天产生错误信息。
+ability: 当你死亡时，镇民玩家的能力可能在当晚和明天白天产生错误信息。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3453
+    officialId: cyclox_beyondgoodandevilv3
+    sourceHash: 15e7f5c1be2f091b0c029115dbea3090fc532fc7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - information
+    - death
+    - townsfolk
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

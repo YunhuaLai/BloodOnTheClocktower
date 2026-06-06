@@ -4,8 +4,8 @@ type: townsfolk
 englishName: noble
 ability: 在你的首个夜晚，你会得知三名玩家：其中有且只有一名玩家是邪恶的。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/noble.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/noble.png
+flavor: 讽刺的确是最不足挂齿的机智。尽管如此，先生，回应你的批评，就是一种机智。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -20,17 +20,18 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 得知
+  - 被得知
 remindersGlobal: []
-firstNightReminder: 以任意顺序指向三名玩家，其中一名邪恶。
+firstNightReminder: 唤醒贵族，对他指向三名玩家。这三名玩家中有且仅有一名是邪恶玩家。
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r049
-    officialId: noble
-    sourceHash: 2602b5654f6718904b5e4ece4e05d8c18c9395fa
+    officialId: jingcaisanxuanyi111
+    sourceHash: e7188d95bf99fa840f9b784b21d3cff002b31e69
     sourceHashFields:
       - ability
       - type
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -52,8 +55,8 @@ abilityData:
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

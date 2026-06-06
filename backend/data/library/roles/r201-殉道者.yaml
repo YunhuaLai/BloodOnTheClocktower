@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r201
-    officialId: martyr
+    officialId: c05lq1
     sourceHash: 94e9feb9d73c3580602e10a02c480dbf0fa49c82
     sourceHashFields:
       - ability
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

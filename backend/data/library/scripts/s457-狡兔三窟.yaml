@@ -1,0 +1,84 @@
+id: s457
+englishName: item
+name: 狡兔三窟
+status: draft
+en: 狡兔三窟
+author: 卷毛熊
+logo: https://i.postimg.cc/vmNZDGVP/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/vmNZDGVP/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r003
+  - r101
+  - r530
+  - r006
+  - r597
+  - r005
+  - r055
+  - r056
+  - r057
+  - r022
+  - r090
+  - r091
+  - r070
+  - r015
+  - r016
+  - r112
+  - r609
+  - r074
+  - r020
+  - r073
+  - r121
+  - r079
+  - r021
+  - r103
+travellerIds: []
+fabledIds:
+  - r1817
+  - r1818
+nightOrder:
+  first:
+    - r121
+    - r101
+    - r103
+    - r609
+    - r073
+    - r074
+    - r003
+    - r005
+    - r006
+    - r597
+    - r100
+    - r530
+  other:
+    - r101
+    - r609
+    - r074
+    - r020
+    - r112
+    - r021
+    - r079
+    - r103
+    - r070
+    - r090
+    - r005
+    - r006
+    - r055
+    - r056
+    - r597
+    - r530

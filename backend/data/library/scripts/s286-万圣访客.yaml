@@ -1,0 +1,82 @@
+id: s286
+englishName: item
+name: 万圣访客
+status: draft
+en: 万圣访客
+author: 熊猫能能&性感
+logo: https://i.postimg.cc/kXqnfGnJ/wan-sheng-fang-ke-LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/kXqnfGnJ/wan-sheng-fang-ke-LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r004
+  - r048
+  - r005
+  - r051
+  - r140
+  - r945
+  - r007
+  - r056
+  - r058
+  - r031
+  - r155
+  - r009
+  - r233
+  - r1715
+  - r1716
+  - r1717
+  - r042
+  - r017
+  - r021
+  - r082
+  - r1718
+travellerIds: []
+fabledIds:
+  - r104
+  - r1719
+nightOrder:
+  first:
+    - r155
+    - r1715
+    - r017
+    - r048
+    - r001
+    - r004
+    - r005
+    - r058
+    - r051
+    - r140
+  other:
+    - r017
+    - r042
+    - r1719
+    - r1716
+    - r1717
+    - r1715
+    - r1718
+    - r082
+    - r021
+    - r945
+    - r233
+    - r005
+    - r007
+    - r051
+    - r140
+    - r056
+    - r058
+    - r009
+    - r031

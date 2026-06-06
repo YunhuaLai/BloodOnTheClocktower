@@ -1,0 +1,93 @@
+id: r3313
+englishName: highpriest1-fall-of-rome
+name: 大祭司
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/AlexS/Fall_of_Rome/highpriest2_fall_of_rome.png
+flavor: 对于罪人来说最初的也是最深重的惩罚是他自己良心的谴责。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 被祝福
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果大祭司今天白天成功祝福玩家，你要决定这条信息是否正确
+ability: 每个白天，你可以公开选择一名之前未选择过的玩家：如果过半数玩家同意祝福他，第二天它可以得知一条信息。但当晚你要决定这条信息是否正确。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3313
+    officialId: highpriest2_fall_of_rome
+    sourceHash: 94a21b1f22ce932b5488bad36c92e4ac8e2d61f3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - information
+    - traveler
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

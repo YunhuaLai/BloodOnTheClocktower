@@ -1,0 +1,82 @@
+id: r4093
+englishName: nuokesizhinv
+name: 诺克斯之女
+type: minion
+edition: custom
+image: https://youke1.picui.cn/s1/2025/07/29/6887adb832356.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 记录
+  - 反转
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 善良玩家的信息对错翻转。每名玩家首次说出“诺克斯之女”时，如果他是善良的，你失去此能力；如果他是邪恶的，你重获能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4093
+    officialId: nuokesizhinv
+    sourceHash: f23454a72ca574f7a411e025fa4d784a56f0f446
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - information
+    - good
+    - evil
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

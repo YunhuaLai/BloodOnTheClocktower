@@ -4,7 +4,7 @@ type: minion
 englishName: witch
 ability: 每个夜晚，你要选择一名玩家：如果他明天白天发起提名，他死亡。如果只有三名存活的玩家，你失去此能力。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/witch.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/witch.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,16 +22,16 @@ setupMeta:
 reminders:
   - 被诅咒
 remindersGlobal: []
-firstNightReminder: 让女巫选择一名玩家。标记那名玩家被诅咒。
-otherNightReminder: 让女巫选择一名玩家。标记那名玩家被诅咒。
+firstNightReminder: 唤醒女巫，让她选择一名玩家，那名玩家被诅咒。
+otherNightReminder: 唤醒女巫，让她选择一名玩家，那名玩家被诅咒。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r074
-    officialId: witch
-    sourceHash: 64ee74f5132d3081692ddf27c864af3f5bc336ce
+    officialId: noita111
+    sourceHash: c46e16ac042fb4fc66a77cf9a3bcfb45a259c3f1
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -54,8 +56,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

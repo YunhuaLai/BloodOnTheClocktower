@@ -1,0 +1,77 @@
+id: s248
+englishName: item
+name: 我的后半生
+status: draft
+en: 我的后半生
+author: 闻人
+logo: https://img2.imgtp.com/2024/04/23/saN0VLkl.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://img2.imgtp.com/2024/04/23/saN0VLkl.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r056
+  - r003
+  - r091
+  - r005
+  - r057
+  - r101
+  - r059
+  - r054
+  - r089
+  - r607
+  - r134
+  - r028
+  - r016
+  - r014
+  - r037
+  - r015
+  - r159
+  - r075
+  - r076
+  - r020
+  - r040
+  - r121
+  - r114
+travellerIds: []
+fabledIds:
+  - r1592
+nightOrder:
+  first:
+    - r059
+    - r121
+    - r101
+    - r040
+    - r075
+    - r003
+    - r005
+    - r048
+    - r134
+  other:
+    - r059
+    - r101
+    - r028
+    - r607
+    - r075
+    - r076
+    - r020
+    - r114
+    - r040
+    - r037
+    - r005
+    - r054
+    - r056
+    - r134

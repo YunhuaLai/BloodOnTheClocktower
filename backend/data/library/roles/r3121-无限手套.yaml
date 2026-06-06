@@ -1,0 +1,107 @@
+id: r3121
+englishName: thegauntlet-avengers-v5
+name: 无限手套
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/Avengers_v5/thegauntlet_avengers_v5.png
+flavor: >-
+  At the dawn of the universe, there was nothing. Then... boom. The Big Bang sent six elemental crystals hurtling across
+  the virgin universe. These Infinity Stones each control an essential aspect of existence.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+  - 失去能力
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果灭霸在场，等同于爪牙数量的善良玩家初始会持有一颗无限宝石且他们会得知此事。无限宝石在其持有者存活时会提供不同的限次能力，该能力不受中毒和醉酒的影响。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3121
+    officialId: thegauntlet_avengers_v5
+    sourceHash: 0d8d4bc13eab10b3acecdd0b0f63f632f47183b5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - poisoned
+    - drunk
+    - information
+    - alive
+    - good
+    - minion
+    - fabled
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: count
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

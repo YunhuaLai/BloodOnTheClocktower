@@ -1,0 +1,83 @@
+id: s429
+englishName: item
+name: 避雷驱邪
+status: draft
+en: 避雷驱邪
+author: 斯派德米
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/8/80/d13kg0280fq56jf8dc9uxai8g2gyp79.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/8/80/d13kg0280fq56jf8dc9uxai8g2gyp79.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r006
+  - r009
+  - r029
+  - r035
+  - r051
+  - r049
+  - r1250
+  - r1251
+  - r085
+  - r087
+  - r106
+  - r442
+  - r110
+  - r016
+  - r014
+  - r070
+  - r135
+  - r017
+  - r120
+  - r336
+  - r237
+  - r021
+  - r079
+  - r096
+  - r241
+travellerIds:
+  - r739
+fabledIds:
+  - r1038
+  - r104
+  - r1806
+nightOrder:
+  first:
+    - r336
+    - r1250
+    - r017
+    - r110
+    - r006
+    - r051
+    - r085
+    - r049
+    - r442
+    - r087
+  other:
+    - r017
+    - r021
+    - r079
+    - r096
+    - r241
+    - r237
+    - r442
+    - r029
+    - r070
+    - r009
+    - r1251
+    - r006
+    - r051
+    - r087
+    - r1250

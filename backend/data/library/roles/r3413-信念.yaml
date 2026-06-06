@@ -1,0 +1,92 @@
+id: r3413
+englishName: faith-emotions
+name: 信念
+type: demon
+edition: custom
+image: https://i.postimg.cc/fT8PhKGc/image.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: demon
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+reminders: []
+remindersGlobal:
+  - 是信念
+  - 死亡
+firstNightReminder: ''
+otherNightReminder: 唤醒一名信念，指向另一名信念玩家并展示信念角色标记。说书人可以选择一名玩家死亡。
+ability: 你以为你是一个不在场的善良角色，但其实你不是。每个夜晚*，可能会有一名玩家死亡，然后会有一名信念知道另一名信念是谁。如果三名玩家存活时有信念被处决，所有信念都会被处决。[所有爪牙都是信念]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3413
+    officialId: faith_emotions
+    sourceHash: 71ecdaf09a0ac45646442fd3324a7711b1f9f90e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - execution
+    - death
+    - alive
+    - good
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

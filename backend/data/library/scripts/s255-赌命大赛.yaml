@@ -1,0 +1,67 @@
+id: s255
+englishName: item
+name: 赌命大赛
+status: draft
+en: 赌命大赛
+author: Navean
+logo: https://www.helloimg.com/i/2024/10/29/67207dc838e5f.png
+description: 赌命大赛
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 赌命大赛
+image: https://www.helloimg.com/i/2024/10/29/67207dc838e5f.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 赌命大赛
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r100
+  - r025
+  - r052
+  - r087
+  - r142
+  - r058
+  - r059
+  - r064
+  - r060
+  - r022
+  - r066
+  - r090
+  - r014
+  - r016
+  - r072
+  - r071
+  - r929
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r066
+    - r071
+    - r052
+    - r064
+    - r058
+    - r049
+    - r087
+    - r142
+    - r100
+    - r025
+  other:
+    - r059
+    - r066
+    - r052
+    - r090
+    - r064
+    - r058
+    - r087
+    - r142
+    - r025

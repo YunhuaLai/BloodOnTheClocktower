@@ -1,0 +1,87 @@
+id: r2779
+englishName: 24-duolinrenjian
+name: 莱薇
+type: demon
+edition: custom
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/8/85/3pelx1yx3slsnwhykxlbuehy3zdgoao.png/1200px-%E6%81%B6%E9%AD%94_%E8%8E%B1%E8%96%87_%E6%B4%9B%E7%94%9C%E8%95%BE.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 杀死一名在今天白天时被莱薇“疯狂”关注的存活玩家。该夜晚行动只是一个提示，死亡的造成时机可以是夜晚的任何时候。
+ability: 每个白天，被你“疯狂”关注的玩家之一会在当晚死亡。邪恶阵营的常规胜利条件从“只剩两名玩家存活”改为“三名”。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2779
+    officialId: 24_duolinrenjian
+    sourceHash: c1631949f415e1748cbf5ea907f129270a390347
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - death
+    - alive
+    - alignment
+    - evil
+    - demon
+    - madness
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

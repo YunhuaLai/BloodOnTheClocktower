@@ -1,0 +1,80 @@
+id: s776
+englishName: item
+name: 仇海溺行
+status: draft
+en: 仇海溺行
+author: Theo
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1703695124_197011_2232.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1703695124_197011_2232.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r003
+  - r005
+  - r140
+  - r051
+  - r052
+  - r055
+  - r022
+  - r058
+  - r057
+  - r030
+  - r088
+  - r115
+  - r065
+  - r039
+  - r067
+  - r135
+  - r071
+  - r075
+  - r641
+  - r019
+  - r076
+  - r121
+  - r384
+travellerIds: []
+fabledIds:
+  - r118
+  - r348
+nightOrder:
+  first:
+    - r088
+    - r071
+    - r039
+    - r121
+    - r030
+    - r052
+    - r075
+    - r002
+    - r003
+    - r005
+    - r051
+    - r058
+    - r140
+    - r384
+  other:
+    - r088
+    - r030
+    - r052
+    - r075
+    - r076
+    - r005
+    - r051
+    - r055
+    - r058
+    - r140
+    - r384

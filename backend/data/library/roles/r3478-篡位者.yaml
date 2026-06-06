@@ -1,0 +1,116 @@
+id: r3478
+englishName: cuanweizhe-123
+name: 篡位者
+type: minion
+edition: custom
+image: https://i.postimg.cc/6Qy9SGfQ/image.png
+flavor: ' '
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders: []
+remindersGlobal: []
+firstNightReminder: 向篡位者展示一个不在场的爪牙角色标记。
+otherNightReminder: 如果所有的王都已死亡，邪恶阵营获胜。如果莫甘娜在场，改为篡位者独自获胜。
+ability: 在你的首个夜晚，你会得知一个不在场的爪牙角色。在黎明时，如果所有的王都已死亡，邪恶阵营获胜。如果莫甘娜在场，且所有的王都已死亡，改为你独自获胜。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3478
+    officialId: CuanWeiZhe_ 123
+    sourceHash: 98ec3cb518ae85b93c96912a823d606d767b17f0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - death
+    - alignment
+    - evil
+    - outsider
+    - minion
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

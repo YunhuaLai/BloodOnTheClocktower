@@ -1,0 +1,84 @@
+id: r3787
+englishName: acerimmer
+name: 王牌瑞默
+type: townsfolk
+edition: custom
+image:
+  - https://www.bloodstar.xyz/p/Rowlf/Reddwarf/ace_reddwarf.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 处决救星
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  If Ace Rimmer died tonight, wake them and have them select a dead player. Place the 'What a Guy' reminder token next
+  to them. Remove the death shroud from their token and announce their resurrection in the morning.
+ability: 一名善良玩家不会死于处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3787
+    officialId: acerimmer
+    sourceHash: 0e219e630f9b705169315aae27262bb7eca796e1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - execution
+    - good
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

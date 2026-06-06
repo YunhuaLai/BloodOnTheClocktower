@@ -1,0 +1,87 @@
+id: s283
+englishName: item
+name: 一夜鱼龙舞
+status: draft
+en: 一夜鱼龙舞
+author: 驯鹿&痴愚
+logo: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_2930053946861_e94fce3e.jpg
+description: 凤箫声动,玉壶光转,一夜鱼龙舞。
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 凤箫声动,玉壶光转,一夜鱼龙舞。
+image: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_2930053946861_e94fce3e.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 凤箫声动,玉壶光转,一夜鱼龙舞。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r523
+  - r307
+  - r108
+  - r1470
+  - r530
+  - r109
+  - r209
+  - r1232
+  - r231
+  - r232
+  - r844
+  - r845
+  - r614
+  - r063
+  - r1154
+  - r1706
+  - r1707
+  - r068
+  - r1692
+  - r609
+  - r1708
+  - r1709
+  - r1466
+  - r975
+  - r849
+  - r1710
+travellerIds:
+  - r850
+fabledIds: []
+nightOrder:
+  first:
+    - r975
+    - r609
+    - r1692
+    - r1709
+    - r108
+    - r307
+    - r523
+    - r844
+    - r1470
+    - r530
+  other:
+    - r1706
+    - r1154
+    - r1708
+    - r609
+    - r1692
+    - r1709
+    - r109
+    - r975
+    - r1466
+    - r849
+    - r1710
+    - r068
+    - r1707
+    - r063
+    - r844
+    - r1470
+    - r1232
+    - r209
+    - r231
+    - r232
+    - r530

@@ -1,0 +1,88 @@
+id: r885
+englishName: diyrole2
+name: 养蜂人
+type: townsfolk
+edition: custom
+image: https://img.picui.cn/free/2025/04/17/6801106a8dc48.png
+flavor: Attack the queen bee and be stung by her workers.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 错误
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 一名邪恶玩家会被当作善良阵营、镇民或外来者角色。每局游戏限一次，你可以公开猜测那名邪恶玩家是谁。如果你猜对，你的阵营获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r885
+    officialId: Beekeeper
+    sourceHash: 2b5d527b6c187d25e0d023cefbd60ca06bc62ffe
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - outsider
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: null
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

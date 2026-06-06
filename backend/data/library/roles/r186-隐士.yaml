@@ -3,9 +3,9 @@ englishName: shenmijiabing
 name: 隐士
 type: outsider
 edition: custom
-image: https://www.bloodstar.xyz/p/Guiltier/seve/14_seve.png
-flavor: ''
-setup: false
+image: https://clocktower-wiki.gstonegames.com/images/1/1e/Hermit.png
+flavor: 于尘寰遗忘之境，有光静静亮着，不问归期。
+setup: true
 setupMeta:
   randomAssignable: true
   tokenRequired: true
@@ -24,11 +24,9 @@ setupMeta:
       note: 配置调整：外来者数量 0 到 +1。
   setupNotes:
     - 配置调整：外来者数量 0 到 +1。
-reminders:
-  - '1'
-  - '2'
-  - '3'
-remindersGlobal: []
+reminders: []
+remindersGlobal:
+  - 是隐士
 firstNightReminder: ''
 otherNightReminder: ''
 ability: 你拥有所有外来者能力。[-0~1外来者]
@@ -38,8 +36,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r186
-    officialId: shenmijiabing
-    sourceHash: e4ab90726aec0617ffffbc8b5b4e2fa3df7ec1e1
+    officialId: 16_xindalu
+    sourceHash: a09fefade988a157dd017900d1d3cbbab9d7a014
     sourceHashFields:
       - ability
       - type
@@ -58,7 +56,7 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: setup

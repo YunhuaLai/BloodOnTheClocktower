@@ -5,7 +5,7 @@ englishName: artist
 ability: 每局游戏限一次，在白天时，你可以私下询问说书人一个是非问题，你会得知该问题的答案。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/role_icon/artist.png
-flavor: ''
+flavor: 天啊！多么美妙的作品！我的作品……用你们的话怎么说来着……对，璀璨夺目！栩栩如生！没错！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r060
-    officialId: artist
+    officialId: artist_c
     sourceHash: 8b95a1c36a4b9ead4c8c987482d46483881ec1cb
     sourceHashFields:
       - ability
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 白天
     - 一次性
@@ -51,8 +53,8 @@ abilityData:
   abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: day
       event: null

@@ -1,0 +1,80 @@
+id: r3915
+englishName: 7c30180e-2881-4855-bf33-d8eb90571580
+name: 强权上帝
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/deusexfiasco.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 你说得对，但是
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 部分官方未明示的冲突规则以及较难处理的情形，当值说书人具有最终裁判权。如果说书人的意见和大多数玩家不一致，别问，问就是说书人最大！
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3915
+    officialId: 7c30180e-2881-4855-bf33-d8eb90571580
+    sourceHash: 69645c927fc58fe49182d0776152e7aa6d1247c4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - storyteller
+    - fabled
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

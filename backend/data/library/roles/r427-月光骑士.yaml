@@ -4,7 +4,7 @@ name: 月光骑士
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/humlet/JUEDOU/9_juedou.png
-flavor: ''
+flavor: 在没有血腥味的静谧晚上，小鹿跳过溪涧，月光透过纱窗，而我的枪尖穿过罪恶的胸膛。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r427
-    officialId: yueguangqishi
+    officialId: 9_juedou
     sourceHash: 0c631030f861bb07a5d384c446783cb72c394dad
     sourceHashFields:
       - ability
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

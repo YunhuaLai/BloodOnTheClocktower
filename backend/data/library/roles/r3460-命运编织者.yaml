@@ -1,0 +1,109 @@
+id: r3460
+englishName: fateweaver-beyondgoodandevilv3
+name: 命运编织者
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/WedgeMcCloud/BeyondGoodAndEvil-V3/fateweaver_beyondgoodandevilv3.png
+flavor: Few are gifted enough to see the red string of fate... Fewer still have the gift to stitch with it.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 注视
+  - 命中注定
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 让命运编织者指向两名除旅行者以外的存活玩家。标记第一名玩家“注视”，标记第二名玩家“命中注定”。下个白天，如果带有“注视”的玩家死于处决，带有“命中注定”的玩家死亡。
+otherNightReminder: 移除所有标记。如果还有大于等于五名玩家存活，让命运编织者指向两名除旅行者以外的存活玩家。标记第一名玩家“注视”，标记第二名玩家“命中注定”。下个白天，如果带有“注视”的玩家死于处决，带有“命中注定”的玩家死亡。
+ability: 每个夜晚，如果大于等于五名玩家存活，你要选择两名除旅行者以外的存活玩家：如果第一名玩家在下个白天死于处决，第二名玩家也会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3460
+    officialId: fateweaver_beyondgoodandevilv3
+    sourceHash: 752913c771fab08f40c5877a711b5e4b525fd313
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - execution
+    - death
+    - alive
+    - traveler
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

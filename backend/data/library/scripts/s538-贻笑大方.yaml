@@ -1,0 +1,80 @@
+id: s538
+englishName: item
+name: 贻笑大方
+status: draft
+en: 贻笑大方
+author: 斯派德米
+logo: https://free.picui.cn/free/2025/10/10/68e7ddd56ceae.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/10/10/68e7ddd56ceae.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r048
+  - r049
+  - r005
+  - r025
+  - r051
+  - r007
+  - r026
+  - r055
+  - r022
+  - r060
+  - r010
+  - r063
+  - r015
+  - r135
+  - r037
+  - r014
+  - r121
+  - r018
+  - r017
+  - r020
+  - r021
+  - r083
+  - r045
+  - r082
+travellerIds: []
+fabledIds:
+  - r1888
+nightOrder:
+  first:
+    - r121
+    - r017
+    - r045
+    - r002
+    - r005
+    - r048
+    - r051
+    - r049
+    - r018
+    - r025
+  other:
+    - r017
+    - r020
+    - r026
+    - r021
+    - r045
+    - r082
+    - r083
+    - r037
+    - r063
+    - r005
+    - r007
+    - r051
+    - r055
+    - r018
+    - r025

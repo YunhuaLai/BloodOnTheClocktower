@@ -1,0 +1,102 @@
+id: r3210
+englishName: poser-ravenswoodhigh
+name: 装逼人
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/marhepto/RavenswoodHigh/poser_ravenswoodhigh.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 提名
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果装逼人在白天提名了一名邪恶玩家或被邪恶玩家提名, 他被唤醒选择一名玩家死亡。
+ability: 每个夜晚*，如果今天白天你提名了一名邪恶玩家或你被邪恶玩家提名，你要选择一名玩家：他死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3210
+    officialId: poser_ravenswoodhigh
+    sourceHash: 13a74cf0aa505375624fb1fef3e708874c874ca6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - nomination
+    - death
+    - evil
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

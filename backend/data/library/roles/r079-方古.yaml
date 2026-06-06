@@ -37,7 +37,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r079
-    officialId: fang-gu
+    officialId: fangguuuuuuuuuuuuuu111
     sourceHash: 5ad096940f83ddcfa22f30524c872869a72bf863
     sourceHashFields:
       - ability
@@ -47,6 +47,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -60,7 +62,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

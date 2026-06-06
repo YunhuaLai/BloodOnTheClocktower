@@ -1,0 +1,84 @@
+id: s323
+englishName: item
+name: 翻云覆雨
+status: draft
+en: 翻云覆雨
+author: 清清Jungle
+logo: https://s2.loli.net/2025/06/13/KLmdEU69WbJtzVo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/13/KLmdEU69WbJtzVo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r006
+  - r025
+  - r052
+  - r051
+  - r058
+  - r059
+  - r031
+  - r027
+  - r028
+  - r026
+  - r115
+  - r091
+  - r065
+  - r186
+  - r016
+  - r015
+  - r039
+  - r036
+  - r020
+  - r074
+  - r077
+  - r076
+  - r080
+  - r046
+  - r079
+travellerIds:
+  - r583
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r115
+    - r039
+    - r052
+    - r074
+    - r006
+    - r051
+    - r058
+    - r025
+  other:
+    - r583
+    - r059
+    - r076
+    - r027
+    - r028
+    - r052
+    - r074
+    - r020
+    - r039
+    - r026
+    - r046
+    - r079
+    - r080
+    - r036
+    - r031
+    - r006
+    - r051
+    - r058
+    - r025

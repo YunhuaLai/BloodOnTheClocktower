@@ -1,0 +1,84 @@
+id: s788
+englishName: item
+name: 言简意赅
+status: draft
+en: 言简意赅
+author: Zets
+logo: https://s2.loli.net/2025/06/24/j6WAncGysVBDtIu.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/24/j6WAncGysVBDtIu.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r097
+  - r140
+  - r133
+  - r008
+  - r059
+  - r064
+  - r106
+  - r057
+  - r022
+  - r155
+  - r091
+  - r088
+  - r092
+  - r015
+  - r067
+  - r071
+  - r093
+  - r075
+  - r077
+  - r1613
+  - r045
+  - r096
+  - r080
+  - r095
+travellerIds:
+  - r583
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r059
+    - r155
+    - r095
+    - r071
+    - r075
+    - r093
+    - r045
+    - r097
+    - r064
+    - r084
+    - r140
+    - r092
+    - r133
+    - r1613
+  other:
+    - r583
+    - r088
+    - r059
+    - r008
+    - r075
+    - r093
+    - r045
+    - r080
+    - r096
+    - r095
+    - r064
+    - r140
+    - r133

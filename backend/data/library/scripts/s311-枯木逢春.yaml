@@ -1,0 +1,80 @@
+id: s311
+englishName: item
+name: 枯木逢春
+status: draft
+en: 枯木逢春
+author: Cody
+logo: https://i.postimg.cc/7Z0nYSpc/image.png
+description: 报丧女妖体验剧本
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 报丧女妖体验剧本
+image: https://i.postimg.cc/7Z0nYSpc/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 报丧女妖体验剧本
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r008
+  - r134
+  - r057
+  - r233
+  - r052
+  - r056
+  - r055
+  - r006
+  - r062
+  - r059
+  - r089
+  - r009
+  - r015
+  - r070
+  - r072
+  - r016
+  - r076
+  - r074
+  - r017
+  - r093
+  - r021
+  - r095
+  - r080
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r095
+    - r017
+    - r052
+    - r074
+    - r093
+    - r006
+    - r134
+    - r100
+  other:
+    - r059
+    - r076
+    - r017
+    - r052
+    - r008
+    - r074
+    - r093
+    - r021
+    - r080
+    - r095
+    - r070
+    - r009
+    - r233
+    - r006
+    - r055
+    - r056
+    - r062
+    - r134

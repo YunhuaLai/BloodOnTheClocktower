@@ -1,0 +1,78 @@
+id: r2419
+englishName: 7ec2483b-f3cc-400c-aa1a-d3ce0f6a97af
+name: 瘟疫的诅咒
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/27_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 瘟疫状态
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 蔓延在村庄上空的瘟疫，即使“瘟疫状态”的来源已经离场，状态依然存在。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2419
+    officialId: 7ec2483b-f3cc-400c-aa1a-d3ce0f6a97af
+    sourceHash: 295cc1dd2dac0c9196a8a540a2aab48882da2cb8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

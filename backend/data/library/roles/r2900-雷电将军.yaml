@@ -1,0 +1,83 @@
+id: r2900
+englishName: 2-the-favonius-mystery-de
+name: 雷电将军
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Jerry0906/The_favonius_Mystery_DE/2_the_favonius_mystery_de.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果雷电将军在白天使用了能力，请在他的角色旁边放置一个「失去能力」标记。
+ability: 你是尘世执政。每局游戏限一次，当你发起提名时，你可以公开声称你是雷电将军并说出「此刻，寂灭之时！」，随后，如果被你提名的玩家是邪恶的，他被处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2900
+    officialId: 2_the_favonius_mystery_de
+    sourceHash: fa99dad6a3e6b10c00af5f642ace6a90a9929793
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - nomination
+    - execution
+    - evil
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

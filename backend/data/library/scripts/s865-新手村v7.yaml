@@ -1,0 +1,84 @@
+id: s865
+englishName: v7
+name: 新手村v7
+status: draft
+en: 新手村v7
+author: 小烯C2H43g
+logo: https://s2.loli.net/2025/06/14/9G8NDBomJCLbZ2R.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/14/9G8NDBomJCLbZ2R.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r049
+  - r005
+  - r006
+  - r025
+  - r142
+  - r087
+  - r058
+  - r134
+  - r008
+  - r022
+  - r091
+  - r278
+  - r013
+  - r016
+  - r072
+  - r119
+  - r018
+  - r074
+  - r302
+  - r020
+  - r021
+  - r082
+travellerIds: []
+fabledIds:
+  - r4155
+  - r1274
+  - r118
+nightOrder:
+  first:
+    - r302
+    - r074
+    - r004
+    - r005
+    - r006
+    - r013
+    - r058
+    - r049
+    - r087
+    - r134
+    - r142
+    - r018
+    - r025
+  other:
+    - r302
+    - r008
+    - r074
+    - r020
+    - r021
+    - r082
+    - r278
+    - r005
+    - r006
+    - r013
+    - r058
+    - r087
+    - r134
+    - r142
+    - r018
+    - r025

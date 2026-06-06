@@ -1,0 +1,92 @@
+id: s858
+englishName: item
+name: 赎罪小镇
+status: draft
+en: 赎罪小镇
+author: 星火乐
+logo: https://www.helloimg.com/i/2024/11/19/673b7fce267e0.png
+description: 赎罪小镇
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 赎罪小镇
+image: https://www.helloimg.com/i/2024/11/19/673b7fce267e0.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 赎罪小镇
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r085
+  - r133
+  - r142
+  - r028
+  - r109
+  - r058
+  - r030
+  - r606
+  - r029
+  - r033
+  - r034
+  - r032
+  - r015
+  - r039
+  - r135
+  - r308
+  - r040
+  - r042
+  - r078
+  - r633
+  - r044
+  - r047
+  - r141
+  - r384
+travellerIds:
+  - r124
+  - r128
+  - r126
+  - r122
+  - r742
+fabledIds: []
+nightOrder:
+  first:
+    - r124
+    - r128
+    - r039
+    - r141
+    - r078
+    - r030
+    - r040
+    - r308
+    - r002
+    - r058
+    - r085
+    - r142
+    - r133
+    - r384
+  other:
+    - r124
+    - r128
+    - r742
+    - r030
+    - r028
+    - r039
+    - r109
+    - r044
+    - r047
+    - r141
+    - r042
+    - r040
+    - r606
+    - r308
+    - r029
+    - r058
+    - r142
+    - r133
+    - r384

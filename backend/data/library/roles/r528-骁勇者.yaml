@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r528
-    officialId: valiant
+    officialId: 9_jtxx
     sourceHash: 374b5aed995517201640297713d2ed195b54dc84
     sourceHashFields:
       - ability
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

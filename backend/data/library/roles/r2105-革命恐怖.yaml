@@ -1,0 +1,104 @@
+id: r2105
+englishName: 28-the-french-revolution-2024-rv
+name: 革命恐怖
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/Hadrian_Caesar/The_French_Revolution_2024_RV/28_the_french_revolution_2024_rv.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 一轮审判
+  - 二轮审判
+  - 三轮审判
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  革命恐怖一旦发生会在黎明被公开宣布。当天直接开始提名且需依次处决三名存活的玩家。最后一次处决之前的待定处决的存活的玩家会立刻被处决，且这几次处决之前使用的投票标记不会被收回。如果革命恐怖中被处决的玩家都是善良的，邪恶阵营获胜。“没有恐怖的美德是软弱的，没有美德的恐怖是邪恶的。”——罗伯斯庇尔
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2105
+    officialId: 28_the_french_revolution_2024_rv
+    sourceHash: 0002b84da4f139a3e68053b674c0135bdaadda34
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 信息型
+  termIds:
+    - information
+    - nomination
+    - vote
+    - execution
+    - alive
+    - alignment
+    - good
+    - evil
+    - fabled
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: evil_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

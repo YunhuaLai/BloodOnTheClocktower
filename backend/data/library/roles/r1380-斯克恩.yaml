@@ -1,0 +1,106 @@
+id: r1380
+englishName: skorn
+name: 斯克恩
+type: demon
+edition: custom
+image:
+  - https://i.postimg.cc/fTx4wGN4/skorn-brewulationandboilers.webp
+flavor: >-
+  They say the wicked will be punished, and yet all my execution did was make my job a whole lot easier. As you may
+  imagine, it's not easy for those suckers in the living world to survive an incorporeal killer they can't get rid of..
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  If a Skorn was executed yesterday with no vote token spent, replace 1 Alive Minion token with a spare Skorn token.
+  Wake the new Skorn. Show them the YOU ARE token, then the Skorn token. The Skorn then chooses a player.
+ability: 每个夜晚*，你要选择一名玩家，他死亡。若你死于处决且没有玩家使用投票标记，一名爪牙变成斯克恩。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1380
+    officialId: Skorn
+    sourceHash: 94c2df5362382035c9f3cc6df6f24c21b89cf973
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - vote
+    - execution
+    - death
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

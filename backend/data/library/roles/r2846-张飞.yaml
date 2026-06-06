@@ -1,0 +1,100 @@
+id: r2846
+englishName: xsg-zy2
+name: 张飞
+type: minion
+edition: custom
+image: https://free.picui.cn/free/2025/12/02/692f0c86673ee.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 如果张飞在场，跳过邪恶互认。
+otherNightReminder: ''
+ability: >-
+  所有玩家都知道你是张飞。爪牙与恶魔不会互相认识，你只能参加两人以上的私聊且不会死于处决。每个白天，你要选择除你以外的一名存活玩家：他死亡。当恶魔因此死亡而导致游戏结束时，再额外进行一个夜晚和一个白天，你选择的下一个玩家的阵营获胜。天意修正后，你一定处于死亡状态。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2846
+    officialId: xsg_zy2
+    sourceHash: c1609630edcc79aa146fcb842618645679be843e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - execution
+    - death
+    - alive
+    - alignment
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

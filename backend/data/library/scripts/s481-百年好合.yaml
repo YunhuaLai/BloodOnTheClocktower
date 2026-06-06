@@ -1,0 +1,78 @@
+id: s481
+englishName: item
+name: 百年好合
+status: draft
+en: 百年好合
+author: 重慧
+logo: https://postimg.cc/Y4vQR0fN
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://postimg.cc/Y4vQR0fN
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r059
+  - r006
+  - r140
+  - r053
+  - r028
+  - r027
+  - r214
+  - r029
+  - r334
+  - r057
+  - r033
+  - r110
+  - r823
+  - r112
+  - r363
+  - r015
+  - r135
+  - r017
+  - r633
+  - r076
+  - r237
+  - r079
+  - r047
+  - r612
+  - r642
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r017
+    - r006
+    - r140
+    - r642
+    - r053
+  other:
+    - r059
+    - r076
+    - r017
+    - r027
+    - r028
+    - r214
+    - r112
+    - r047
+    - r079
+    - r612
+    - r642
+    - r237
+    - r029
+    - r363
+    - r006
+    - r140
+    - r053

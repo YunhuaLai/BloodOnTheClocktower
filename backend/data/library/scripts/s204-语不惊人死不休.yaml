@@ -1,0 +1,80 @@
+id: s204
+englishName: item
+name: 语不惊人死不休
+status: draft
+en: 语不惊人死不休
+author: 墨兰花开
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/7/7f/qkgrvcqhzfjrsvy4quy6mf7qk5hix1e.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/7/7f/qkgrvcqhzfjrsvy4quy6mf7qk5hix1e.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r003
+  - r005
+  - r008
+  - r150
+  - r334
+  - r319
+  - r891
+  - r278
+  - r109
+  - r594
+  - r530
+  - r016
+  - r068
+  - r070
+  - r186
+  - r017
+  - r020
+  - r075
+  - r121
+  - r021
+  - r082
+  - r683
+  - r114
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r683
+    - r121
+    - r017
+    - r075
+    - r001
+    - r002
+    - r003
+    - r005
+    - r594
+    - r530
+  other:
+    - r017
+    - r008
+    - r075
+    - r020
+    - r109
+    - r150
+    - r021
+    - r082
+    - r683
+    - r114
+    - r070
+    - r068
+    - r278
+    - r005
+    - r594
+    - r530

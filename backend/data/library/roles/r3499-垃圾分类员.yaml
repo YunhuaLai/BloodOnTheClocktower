@@ -1,0 +1,122 @@
+id: r3499
+englishName: 26-bundagee-inn-massacre-bigyellowfish
+name: 垃圾分类员
+type: traveller
+edition: custom
+image: >-
+  https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/26_bundagee_inn_massacre_bigyellowfish.png
+flavor: 噢，垃圾桶上升，垃圾桶下降，一直走到街道尽头然后我转身！哈，这是一把刀吗？
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 垃圾分类
+remindersGlobal: []
+firstNightReminder: 垃圾分类员选择三名玩家，如果他们都是同一阵营，标记“垃圾分类”。
+otherNightReminder: 垃圾分类员选择三名玩家，如果他们都是同一阵营，标记“垃圾分类”。
+ability: 每个夜晚，你要选择三名玩家：如果他们都是同一阵营，下个白天，他们参与投票的处决会失败。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3499
+    officialId: 26_bundagee_inn_massacre_bigyellowfish
+    sourceHash: c2fc7e264b7220d6a88838b376ea6cf125300253
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - vote
+    - execution
+    - alignment
+    - traveler
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 3
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 目标号码3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

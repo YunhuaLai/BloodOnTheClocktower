@@ -1,0 +1,83 @@
+id: r2406
+englishName: 7db0122a-2e0f-4301-8047-a3f7c2b9ff93
+name: 酒馆女郎
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/13_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉生梦死
+remindersGlobal: []
+firstNightReminder: 首夜，场上随机一名村民因你而醉酒
+otherNightReminder: ''
+ability: 一名玩家醉酒，即使你已死亡。每个白天限一次，你可以猜测谁是那个醉酒的玩家，如果猜对了，则该玩家解除醉酒状态。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2406
+    officialId: 7db0122a-2e0f-4301-8047-a3f7c2b9ff93
+    sourceHash: 061e8b97588c53548538c90e091f0ffde1ed4d0a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - day
+    - drunk
+    - death
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

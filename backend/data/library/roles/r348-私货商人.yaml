@@ -3,7 +3,7 @@ englishName: smuggler
 name: 私货商人
 type: fabled
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202304/c_1310810162861_4da173fa.jpg
+image: https://www.bloodstar.xyz/p/C2H43g/chargement-day/40_chargementday.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,15 +22,15 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-ability: 说书人可能获得中毒玩家的能力。
+ability: 建议巫师的线索形式为始终有一名善良玩家得知较为具体的线索，以提高军团的不在场威慑力
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r348
-    officialId: smuggler
-    sourceHash: 9d468b5f7f0f3f53573c620237b496cd0e089e86
+    officialId: 40_chargementday
+    sourceHash: 4d600cf65599d47b633390725ed24e4067514d20
     sourceHashFields:
       - ability
       - type
@@ -39,19 +39,19 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
   termIds:
-    - poisoned
-    - storyteller
+    - information
+    - good
     - fabled
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null
@@ -59,8 +59,7 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: apply_status_effect
-        effect: poison_drunk_or_malfunction
+      - kind: passive_rule
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

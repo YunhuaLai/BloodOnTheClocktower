@@ -1,0 +1,142 @@
+id: r3306
+englishName: haruspex-fall-of-rome
+name: 脏卜师
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/AlexS/Fall_of_Rome/haruspex_fall_of_rome.png
+flavor: 现在我清晰地感受得到神的谕言降临……你将做出伟大的牺牲！
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 已预言
+  - 死亡
+  - 无法攻击
+remindersGlobal: []
+firstNightReminder: 脏卜师指向一名玩家。展示那名玩家的角色标记。放置"已预言"标记在那名玩家旁。
+otherNightReminder: 脏卜师指向一名玩家。展示那名玩家的角色标记。放置"已预言"标记在那名玩家旁：如果那名玩家已经拥有一个"已预言"标记。那名玩家死亡，放置"无法攻击"标记在脏卜师旁。
+ability: 每个夜晚，你要选择一名玩家：你得知他的角色。首个被你以此方式选择两次的玩家死亡。[+斯巴达克斯]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3306
+    officialId: haruspex_fall_of_rome
+    sourceHash: 208775d7d4ff7054836b73eed140aa96d7baa1da
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - first-night
+    - death
+    - minion
+  abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：目标身份信息
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

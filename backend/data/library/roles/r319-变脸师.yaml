@@ -19,7 +19,8 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders: []
-remindersGlobal: []
+remindersGlobal:
+  - 是变脸师
 firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个白天，如果你“疯狂”地证明自己是一个善良角色（与之前不同），你可能会在当晚获得那个角色的能力，直到下个黄昏。
@@ -29,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r319
-    officialId: bianlianshi-c
-    sourceHash: b7a9ebc45f600167ed00b67eb70ed1a8e8833ac2
+    officialId: 10_xindalu
+    sourceHash: 91dbd5406384b8f0e36e7040df043f436d65eab4
     sourceHashFields:
       - ability
       - type
@@ -51,7 +52,7 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

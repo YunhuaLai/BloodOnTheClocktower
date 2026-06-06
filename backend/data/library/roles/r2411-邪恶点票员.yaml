@@ -1,0 +1,103 @@
+id: r2411
+englishName: bb6fd745-3408-44ac-b9e1-27eacf65911e
+name: 邪恶点票员
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/19_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 开启控票
+  - 得知存在
+remindersGlobal: []
+firstNightReminder: 限定一次，夜晚你可以选择自己为行动目标，获得控票状态
+otherNightReminder: 限定一次，夜晚你可以选择自己为行动目标，获得控票状态
+ability: 在你的首个夜晚，可能会有善良玩家得知本局游戏中有邪恶的点票员。每局游戏限一次，在夜晚时秘密发动能力或在白天公开发动能力，下一次处决时存活玩家的投票反转，直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2411
+    officialId: bb6fd745-3408-44ac-b9e1-27eacf65911e
+    sourceHash: 12ab0f48673e4588a6e0e7e3083648ce437b3b44
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - vote
+    - execution
+    - alive
+    - good
+    - evil
+    - minion
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

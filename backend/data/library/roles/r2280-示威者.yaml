@@ -1,0 +1,84 @@
+id: r2280
+englishName: 20827-8710
+name: 示威者
+type: outsider
+edition: custom
+image: https://i.ibb.co/MMb3yXq/activist.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 每个夜晚*，如果今天白天没有存活的玩家“疯狂”地证明自己是示威者，可能会有一名玩家死亡，即使你已死亡。
+ability: 每个夜晚*，如果今天白天没有存活的玩家“疯狂”地证明自己是示威者，可能会有一名玩家死亡，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2280
+    officialId: activist
+    sourceHash: f56ac33d898d83367ebc0a440a3a15825acaa276
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - day
+    - night
+    - death
+    - alive
+    - outsider
+    - madness
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

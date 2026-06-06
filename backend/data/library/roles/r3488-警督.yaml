@@ -1,0 +1,120 @@
+id: r3488
+englishName: 7-bundagee-inn-massacre-bigyellowfish
+name: 警督
+type: townsfolk
+edition: custom
+image: >-
+  https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/7_bundagee_inn_massacre_bigyellowfish.png
+flavor: 打起精神，让我们从敌人手中拯救这座城市！甚至不惜生命的代价！
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 0
+      max: 1
+      source: '[+0或+1外来者]'
+      note: 配置调整：外来者数量 0 到 +1。
+  setupNotes:
+    - 配置调整：外来者数量 0 到 +1。
+reminders:
+  - 醉酒
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 警督指向一名玩家，如果那名玩家是爪牙，你选择一名外来者，标记“醉酒”并标记“死亡”。
+ability: 每个夜晚*，你要选择一名玩家：如果你选中了爪牙，会有一名外来者醉酒并死亡。[+0或+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3488
+    officialId: 7_bundagee_inn_massacre_bigyellowfish
+    sourceHash: f69a52474b035d4be6439949258754fbc3a1aa32
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - drunk
+    - death
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 0
+            max: 1
+            source: '[+0或+1外来者]'
+            note: 配置调整：外来者数量 0 到 +1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

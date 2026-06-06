@@ -1,0 +1,85 @@
+id: s536
+englishName: item
+name: 我赌你的枪里没有子弹
+status: draft
+en: 我赌你的枪里没有子弹
+author: 开心猴·祥东
+logo: https://s2.loli.net/2025/07/26/nbQrV2fHsY5kRwJ.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/26/nbQrV2fHsY5kRwJ.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r048
+  - r049
+  - r097
+  - r006
+  - r052
+  - r028
+  - r059
+  - r064
+  - r022
+  - r066
+  - r011
+  - r091
+  - r015
+  - r036
+  - r071
+  - r014
+  - r020
+  - r040
+  - r078
+  - r077
+  - r047
+  - r103
+  - r141
+  - r683
+travellerIds: []
+fabledIds:
+  - r1864
+  - r158
+  - r344
+nightOrder:
+  first:
+    - r683
+    - r059
+    - r066
+    - r071
+    - r103
+    - r141
+    - r078
+    - r052
+    - r040
+    - r097
+    - r064
+    - r002
+    - r006
+    - r048
+    - r049
+  other:
+    - r059
+    - r066
+    - r028
+    - r052
+    - r020
+    - r047
+    - r141
+    - r103
+    - r683
+    - r040
+    - r036
+    - r064
+    - r006

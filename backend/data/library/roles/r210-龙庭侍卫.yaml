@@ -36,7 +36,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r210
-    officialId: dragon-court-guard
+    officialId: 22_jinhulun
     sourceHash: d6fc46c8faf65740b9d204c0487352fa20dfae44
     sourceHashFields:
       - ability
@@ -62,7 +62,7 @@ abilityData:
   abilityPattern: target_number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

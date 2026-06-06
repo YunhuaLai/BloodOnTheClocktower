@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r220
-    officialId: demon-academy
+    officialId: 18_jinhulun
     sourceHash: 614401af71b551ee9091284014b8ec9506ac433f
     sourceHashFields:
       - ability
@@ -50,7 +50,7 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

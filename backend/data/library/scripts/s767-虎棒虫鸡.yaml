@@ -1,0 +1,82 @@
+id: s767
+englishName: item
+name: 虎棒虫鸡
+status: draft
+en: 虎棒虫鸡
+author: 际尘
+logo: https://free.picui.cn/free/2025/12/11/693ab107b03d2.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/11/693ab107b03d2.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r101
+  - r134
+  - r030
+  - r056
+  - r150
+  - r028
+  - r229
+  - r319
+  - r091
+  - r463
+  - r012
+  - r062
+  - r823
+  - r324
+  - r908
+  - r038
+  - r3493
+  - r076
+  - r075
+  - r042
+  - r4033
+  - r837
+  - r612
+  - r080
+  - r384
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r101
+    - r030
+    - r837
+    - r3493
+    - r075
+    - r049
+    - r134
+    - r384
+  other:
+    - r324
+    - r101
+    - r076
+    - r837
+    - r030
+    - r028
+    - r4033
+    - r075
+    - r150
+    - r229
+    - r080
+    - r384
+    - r612
+    - r042
+    - r463
+    - r056
+    - r062
+    - r134

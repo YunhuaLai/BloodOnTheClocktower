@@ -1,0 +1,94 @@
+id: r3591
+englishName: extinction
+name: 消亡
+type: traveller
+edition: custom
+image: https://i.ibb.co/NLkh4Jr/theextinction.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 铀
+  - 转变胜负
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  非旅行者玩家可以拜访说书人获得铀标记：拥有铀标记玩家的投票会记为3票且死亡不消耗投票标记。如果半数及以上玩家拥有铀标记，你死亡且所有铀标记失效。从现在起，如没有存活玩家拥有铀标记，游戏立即结束，所有无铀标记玩家获胜(善良阵营与邪恶阵营不会同时获胜)。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3591
+    officialId: extinction
+    sourceHash: da208007d8a492dbd6bbd01febd1175a0a1ec2c5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - vote
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - storyteller
+    - traveler
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

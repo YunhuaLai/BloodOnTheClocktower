@@ -1,0 +1,113 @@
+id: r2148
+englishName: fengyan-duck
+name: 烽烟
+type: outsider
+edition: custom
+image: https://i.postimg.cc/XYMS285P/17.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 得知过
+  - 未得知
+  - 定风波
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果烽烟带有“未得知”标记，唤醒恶魔，对他指向一名玩家，并展示该玩家的角色标记。如果烽烟死亡，为带有“得知过”标记的玩家会放置“定风波”标记。
+ability: 每个白天，你可以拜访说书人以得知一名善良玩家。在你没有得知信息的当晚，恶魔会被唤醒并得知一名玩家和他的角色，即使你已死亡。当你死亡时，你得知过的玩家都会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2148
+    officialId: FengYan_Duck
+    sourceHash: 133cab018ecc6167d4b555dba737affe98aaf755
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - information
+    - death
+    - good
+    - outsider
+    - demon
+    - storyteller
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: demon
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

@@ -1,0 +1,96 @@
+id: r4069
+englishName: amalgamate-pandorasbox
+name: 合并 ¶
+type: outsider
+edition: custom
+image:
+  - https://i.postimg.cc/ZnTntwKf/4Sk-PPi.png
+flavor: Hello,      ! Take care?      , huh. It's fantastic, isn't      ! Ha      Ha Ha.
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: 1
+      source: '[-1~+1外来者。所有外来者都是合并]'
+      note: 配置调整：外来者数量 -1 到 +1。
+  setupNotes:
+    - 配置调整：外来者数量 -1 到 +1。
+reminders: []
+remindersGlobal:
+  - 是合并
+  - 是合并
+  - 是合并
+  - 是合并
+  - 是合并
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 合并们以为他们是某个相同的不在场的角色。[-1~+1外来者。所有外来者都是合并]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4069
+    officialId: amalgamate_pandorasbox
+    sourceHash: c864dfe4da6c1d02a0e6a6610541a1947b04dd2d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+  termIds:
+    - setup
+    - outsider
+  abilityPattern: rule_modifier
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: system
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: 1
+            source: '[-1~+1外来者。所有外来者都是合并]'
+            note: 配置调整：外来者数量 -1 到 +1。
+  abilityMeta:
+    pageType: rule_modifier
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

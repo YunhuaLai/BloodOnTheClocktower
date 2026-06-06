@@ -1,0 +1,80 @@
+id: s232
+englishName: item
+name: 狂乱之宴
+status: draft
+en: 狂乱之宴
+author: Littleblack
+logo: https://oss.gstonegames.com/static/image/gstone_clocktower_mini_program/town/logo_customize.png
+description: 本该是秋收时节，此地却遭遇诡异的旱灾，各种生灵也开始躁动不安。客栈的店小二私下传递着坊间奇闻，有一名能人异士能操纵形同真人的木偶，而那异人的眼神中竟透露出几分媚色。或许，一场狂乱的盛宴即将到来……
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 本该是秋收时节，此地却遭遇诡异的旱灾，各种生灵也开始躁动不安。客栈的店小二私下传递着坊间奇闻，有一名能人异士能操纵形同真人的木偶，而那异人的眼神中竟透露出几分媚色。或许，一场狂乱的盛宴即将到来……
+image: https://oss.gstonegames.com/static/image/gstone_clocktower_mini_program/town/logo_customize.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 本该是秋收时节，此地却遭遇诡异的旱灾，各种生灵也开始躁动不安。客栈的店小二私下传递着坊间奇闻，有一名能人异士能操纵形同真人的木偶，而那异人的眼神中竟透露出几分媚色。或许，一场狂乱的盛宴即将到来……
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1176
+  - r1583
+  - r1584
+  - r820
+  - r632
+  - r109
+  - r227
+  - r013
+  - r011
+  - r007
+  - r043
+  - r083
+  - r079
+  - r076
+  - r072
+  - r070
+  - r058
+  - r056
+  - r055
+  - r054
+  - r155
+  - r049
+  - r101
+  - r121
+  - r099
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r155
+    - r121
+    - r101
+    - r1584
+    - r1176
+    - r013
+    - r227
+    - r058
+    - r049
+  other:
+    - r632
+    - r101
+    - r1584
+    - r076
+    - r1176
+    - r109
+    - r079
+    - r1583
+    - r083
+    - r099
+    - r070
+    - r013
+    - r007
+    - r054
+    - r055
+    - r056
+    - r058

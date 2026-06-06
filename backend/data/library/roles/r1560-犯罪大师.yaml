@@ -1,0 +1,88 @@
+id: r1560
+englishName: fanzuidashi-gen
+name: 犯罪大师
+type: minion
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/5a/cqzo6mbxvensbm5pbqx301elolyvx5i.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 持证
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 唤醒犯罪大师，给予他一个证据。
+otherNightReminder: 唤醒犯罪大师，给予他一个证据。
+ability: 每个夜晚，获得一名存活的善良玩家（与之前不同）的证据，恶魔在提名时你持有的证据也会失效。当存活的善良玩家不多于邪恶玩家时，你持有的证据失效。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1560
+    officialId: fanzuidashi_gen
+    sourceHash: 04e19181a5392cb17214c0db9dbc0b1de34b49b6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - nomination
+    - alive
+    - good
+    - evil
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

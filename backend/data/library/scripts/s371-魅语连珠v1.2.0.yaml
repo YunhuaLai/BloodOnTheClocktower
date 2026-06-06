@@ -1,0 +1,78 @@
+id: s371
+englishName: v1-2-0
+name: 魅语连珠v1.2.0
+status: draft
+en: 魅语连珠v1.2.0
+author: Luxray,Justin & sabenite
+logo: https://i.postimg.cc/HnDtqmwQ/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/HnDtqmwQ/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r086
+  - r002
+  - r049
+  - r004
+  - r097
+  - r051
+  - r005
+  - r056
+  - r008
+  - r057
+  - r060
+  - r062
+  - r091
+  - r016
+  - r015
+  - r067
+  - r072
+  - r018
+  - r075
+  - r121
+  - r107
+  - r083
+  - r099
+  - r080
+  - r082
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r075
+    - r107
+    - r097
+    - r002
+    - r004
+    - r005
+    - r051
+    - r049
+    - r086
+    - r018
+  other:
+    - r008
+    - r075
+    - r107
+    - r082
+    - r083
+    - r080
+    - r099
+    - r005
+    - r051
+    - r056
+    - r062
+    - r086
+    - r018

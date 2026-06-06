@@ -1,0 +1,87 @@
+id: s570
+englishName: item
+name: 三人成虎
+status: draft
+en: 三人成虎
+author: 猫棉
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/29/dv6z621cy743bx8r7lzj1qxnde57tz9.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/29/dv6z621cy743bx8r7lzj1qxnde57tz9.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r006
+  - r023
+  - r028
+  - r029
+  - r051
+  - r052
+  - r054
+  - r058
+  - r059
+  - r049
+  - r097
+  - r091
+  - r214
+  - r015
+  - r037
+  - r072
+  - r018
+  - r020
+  - r040
+  - r042
+  - r045
+  - r099
+  - r096
+  - r095
+travellerIds: []
+fabledIds:
+  - r305
+nightOrder:
+  first:
+    - r059
+    - r095
+    - r052
+    - r040
+    - r045
+    - r097
+    - r001
+    - r006
+    - r023
+    - r051
+    - r058
+    - r049
+    - r018
+  other:
+    - r059
+    - r028
+    - r020
+    - r052
+    - r045
+    - r096
+    - r095
+    - r099
+    - r042
+    - r040
+    - r214
+    - r029
+    - r037
+    - r023
+    - r006
+    - r051
+    - r054
+    - r058
+    - r018

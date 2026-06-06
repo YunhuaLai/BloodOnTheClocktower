@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r256
-    officialId: cloud-hermit
+    officialId: yanchufasui_11
     sourceHash: 490a6212298cbe253668edd2f4d3f8446dc1d34e
     sourceHashFields:
       - ability
@@ -50,7 +50,7 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: setup

@@ -1,0 +1,104 @@
+id: r1535
+englishName: 17-shanhaiqiwenlu
+name: 乱搞一二
+type: outsider
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/7/7c/anp8mof6ola8v9fgphpxo4l7yj6zluc.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 是乱搞一二
+  - 醉酒
+firstNightReminder: ''
+otherNightReminder: 你以为你是个不在场的镇民角色，其实你不是。当你死亡时，你得知自己是谁，然后邻近两名善良玩家醉酒。
+ability: 你以为你是个不在场的镇民角色，其实你不是。当你死亡时，你得知自己是谁，然后邻近两名善良玩家醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1535
+    officialId: 17_shanhaiqiwenlu
+    sourceHash: b44c8ae6574d28df1b8afb12af55a5b7b78d1dfe
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - drunk
+    - information
+    - death
+    - good
+    - townsfolk
+    - outsider
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: townsfolk
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

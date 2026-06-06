@@ -3,7 +3,7 @@ englishName: songstress
 name: 歌伶
 type: townsfolk
 edition: custom
-image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/31_inthegr_58.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/geling.png
 flavor: ''
 setup: false
 setupMeta:
@@ -23,7 +23,7 @@ reminders:
   - 死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 它可能死亡
+otherNightReminder: 如果歌伶今天白天使用了自己的能力且恶魔成为了观众，歌伶死亡。
 ability: 每局游戏限一次，在白天时，你可以提议所有玩家观看你的演出，并从同意参加的玩家中选择你的观众。如果恶魔成为了观众，你会在当晚死亡。
 abilityData:
   schemaVersion: 2
@@ -31,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r463
-    officialId: songstress
-    sourceHash: de7f0211add4929bf6eca71d2b2949810755b972
+    officialId: yiquganchangduan111
+    sourceHash: 8a34d5081d969d43dbc5ccd00d4042ac40fab513
     sourceHashFields:
       - ability
       - type
@@ -54,7 +54,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

@@ -1,0 +1,78 @@
+id: s243
+englishName: item
+name: 金风细雨
+status: draft
+en: 金风细雨
+author: 追命
+logo: https://i.postimg.cc/jdfRdYzh/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/jdfRdYzh/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r227
+  - r049
+  - r361
+  - r278
+  - r006
+  - r087
+  - r054
+  - r057
+  - r595
+  - r058
+  - r091
+  - r1191
+  - r135
+  - r068
+  - r347
+  - r015
+  - r075
+  - r1259
+  - r042
+  - r020
+  - r074
+  - r240
+  - r047
+  - r635
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r1191
+    - r074
+    - r075
+    - r595
+    - r006
+    - r058
+    - r049
+    - r227
+    - r087
+  other:
+    - r595
+    - r074
+    - r075
+    - r020
+    - r047
+    - r240
+    - r635
+    - r042
+    - r1259
+    - r068
+    - r278
+    - r006
+    - r054
+    - r058
+    - r361
+    - r087

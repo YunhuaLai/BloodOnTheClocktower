@@ -1,0 +1,101 @@
+id: r3127
+englishName: soulstone-avengers-v5
+name: 灵魂宝石
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/Avengers_v5/soulstone_avengers_v5.png
+flavor: Soul holds a special place among the Infinity Stones. You might say it has a certain wisdom.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 灵魂宝石
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: The holder of the Soul Stone shows a 'No' or points to a player. If that player is the Demon, mark them '醉酒'.
+ability: 每局游戏限一次，在夜晚时*，你可以选择一名玩家：如果你选中了恶魔，他醉酒直到下个黎明。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3127
+    officialId: soulstone_avengers_v5
+    sourceHash: 1f2577c53515b0b474efc7436706720c29b37ef5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - drunk
+    - demon
+    - fabled
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

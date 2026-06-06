@@ -1,0 +1,79 @@
+id: s136
+englishName: 2-1
+name: 三拜九叩2.1
+status: draft
+en: 三拜九叩2.1
+author: 痴愚
+logo: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_6031968932271_dd2308a4.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_6031968932271_dd2308a4.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1218
+  - r1219
+  - r1220
+  - r819
+  - r843
+  - r1221
+  - r1222
+  - r1223
+  - r1224
+  - r010
+  - r823
+  - r087
+  - r089
+  - r022
+  - r1225
+  - r1226
+  - r069
+  - r112
+  - r067
+  - r042
+  - r1227
+  - r020
+  - r610
+  - r1228
+travellerIds:
+  - r1150
+  - r1151
+  - r1161
+  - r1229
+fabledIds: []
+nightOrder:
+  first:
+    - r1225
+    - r1222
+    - r1227
+    - r610
+    - r1228
+    - r843
+    - r087
+    - r1218
+    - r1161
+  other:
+    - r1225
+    - r1222
+    - r1227
+    - r042
+    - r020
+    - r610
+    - r1228
+    - r112
+    - r819
+    - r1221
+    - r087
+    - r1218
+    - r1161

@@ -4,7 +4,7 @@ name: 麻醉师
 type: minion
 edition: custom
 image: https://www.bloodstar.xyz/p/humlet/JUEDOU/18_juedou.png
-flavor: ''
+flavor: 亲爱的，你喜欢利多卡因还是乙醚？噢...我什么都没带，要不今天用这个榔头凑合一下？我保证不会弄疼你。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r426
-    officialId: mazuishi
+    officialId: 18_juedou
     sourceHash: 9e77a9a8b2b65e24dc6ceecddbfdec4b0f180dce
     sourceHashFields:
       - ability
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

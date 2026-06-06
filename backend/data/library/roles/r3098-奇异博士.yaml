@@ -1,0 +1,107 @@
+id: r3098
+englishName: doctorstrange-avengersv2
+name: 奇异博士
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/AvengersV2/doctorstrange_avengersv2.png
+flavor: Destiny has dire plans for you, my friend.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  On their 2nd night, wake the Doctor Strange. They point to a player. If they are good, mark that player '醉酒'.
+  Otherwise, mark the Doctor Strange '醉酒'.
+ability: 在你的第二个夜晚，你要选择一名玩家：他醉酒。如果只有三名存活的玩家且他是其中之一，善良阵营获胜，即使你已死亡。如果你选中了一名邪恶玩家，你醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3098
+    officialId: doctorstrange_avengersv2
+    sourceHash: c724297961704f5a31a0bffd038971f50f27c7da
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - drunk
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

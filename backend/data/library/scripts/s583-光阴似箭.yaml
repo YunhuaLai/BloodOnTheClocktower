@@ -1,0 +1,78 @@
+id: s583
+englishName: item
+name: 光阴似箭
+status: draft
+en: 光阴似箭
+author: Delta
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/1/15/rfsch7cswrmejfrn906ia1ws76mpwkv.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/1/15/rfsch7cswrmejfrn906ia1ws76mpwkv.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r008
+  - r052
+  - r057
+  - r097
+  - r133
+  - r061
+  - r089
+  - r064
+  - r091
+  - r100
+  - r233
+  - r334
+  - r106
+  - r067
+  - r070
+  - r119
+  - r071
+  - r159
+  - r077
+  - r120
+  - r337
+  - r840
+  - r021
+  - r046
+  - r079
+travellerIds: []
+fabledIds:
+  - r127
+nightOrder:
+  first:
+    - r071
+    - r061
+    - r840
+    - r052
+    - r337
+    - r097
+    - r064
+    - r100
+    - r133
+  other:
+    - r061
+    - r840
+    - r052
+    - r008
+    - r337
+    - r106
+    - r021
+    - r046
+    - r079
+    - r070
+    - r159
+    - r233
+    - r064
+    - r133

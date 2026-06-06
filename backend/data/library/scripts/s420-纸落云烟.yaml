@@ -1,0 +1,90 @@
+id: s420
+englishName: item
+name: 纸落云烟
+status: draft
+en: 纸落云烟
+author: 弦舞
+logo: https://www.bloodstar.xyz/p/Kingle/123/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Kingle/123/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r307
+  - r097
+  - r059
+  - r597
+  - r025
+  - r053
+  - r054
+  - r109
+  - r229
+  - r209
+  - r278
+  - r823
+  - r908
+  - r016
+  - r820
+  - r067
+  - r186
+  - r611
+  - r610
+  - r075
+  - r073
+  - r241
+  - r096
+  - r080
+  - r095
+travellerIds:
+  - r583
+fabledIds:
+  - r118
+  - r1794
+  - r1795
+nightOrder:
+  first:
+    - r059
+    - r095
+    - r820
+    - r611
+    - r073
+    - r075
+    - r610
+    - r097
+    - r003
+    - r597
+    - r307
+    - r025
+    - r053
+  other:
+    - r583
+    - r059
+    - r611
+    - r075
+    - r109
+    - r229
+    - r080
+    - r096
+    - r095
+    - r241
+    - r820
+    - r610
+    - r278
+    - r054
+    - r597
+    - r209
+    - r025
+    - r053

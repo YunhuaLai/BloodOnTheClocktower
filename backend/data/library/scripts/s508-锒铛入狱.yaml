@@ -1,0 +1,82 @@
+id: s508
+englishName: item
+name: 锒铛入狱
+status: draft
+en: 锒铛入狱
+author: 小灰灰
+logo: https://free.picui.cn/free/2025/11/12/69140f60e23b6.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/11/12/69140f60e23b6.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r097
+  - r307
+  - r005
+  - r006
+  - r051
+  - r008
+  - r055
+  - r056
+  - r057
+  - r060
+  - r091
+  - r090
+  - r072
+  - r234
+  - r014
+  - r324
+  - r018
+  - r235
+  - r302
+  - r611
+  - r021
+  - r099
+  - r095
+  - r103
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r095
+    - r103
+    - r302
+    - r611
+    - r235
+    - r097
+    - r001
+    - r005
+    - r006
+    - r051
+    - r018
+    - r307
+  other:
+    - r324
+    - r302
+    - r611
+    - r008
+    - r235
+    - r021
+    - r099
+    - r103
+    - r095
+    - r090
+    - r005
+    - r006
+    - r051
+    - r055
+    - r056
+    - r018

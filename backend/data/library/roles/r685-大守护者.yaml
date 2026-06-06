@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r685
-    officialId: great-guardian
+    officialId: xunchashaoihwronaklsndfkasnd
     sourceHash: 198451264bf50e6115da757b9e86b3188e97b498
     sourceHashFields:
       - ability
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

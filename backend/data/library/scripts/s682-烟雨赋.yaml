@@ -1,0 +1,77 @@
+id: s682
+englishName: item
+name: 烟雨赋
+status: draft
+en: 烟雨赋
+author: 苏通染
+logo: https://i.postimg.cc/wvJWK6tz/LOGO.png
+description: 无
+townsfolkName: 村民
+additional: []
+level: 官方剧本
+mood: ''
+text: 无
+image: https://i.postimg.cc/wvJWK6tz/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 无
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r001
+  - r033
+  - r025
+  - r057
+  - r051
+  - r091
+  - r108
+  - r823
+  - r278
+  - r442
+  - r209
+  - r361
+  - r016
+  - r069
+  - r908
+  - r159
+  - r020
+  - r609
+  - r633
+  - r610
+  - r021
+  - r568
+  - r096
+  - r642
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r609
+    - r610
+    - r001
+    - r004
+    - r051
+    - r108
+    - r442
+    - r642
+    - r025
+  other:
+    - r609
+    - r020
+    - r021
+    - r096
+    - r568
+    - r642
+    - r610
+    - r159
+    - r278
+    - r051
+    - r361
+    - r209
+    - r025

@@ -1,0 +1,99 @@
+id: s575
+englishName: item
+name: 懿海迷漩
+status: draft
+en: 懿海迷漩
+author: fbb
+logo: https://s2.loli.net/2025/06/26/4qbdRhWuHzCYGSE.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/26/4qbdRhWuHzCYGSE.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r058
+  - r006
+  - r053
+  - r057
+  - r007
+  - r052
+  - r049
+  - r023
+  - r025
+  - r054
+  - r063
+  - r024
+  - r059
+  - r070
+  - r119
+  - r038
+  - r069
+  - r020
+  - r078
+  - r076
+  - r107
+  - r083
+  - r082
+  - r141
+  - r096
+travellerIds:
+  - r128
+  - r131
+  - r123
+  - r149
+  - r132
+fabledIds:
+  - r127
+  - r104
+  - r118
+nightOrder:
+  first:
+    - r128
+    - r149
+    - r059
+    - r024
+    - r141
+    - r078
+    - r052
+    - r107
+    - r006
+    - r023
+    - r058
+    - r049
+    - r025
+    - r053
+  other:
+    - r128
+    - r123
+    - r149
+    - r132
+    - r059
+    - r024
+    - r076
+    - r052
+    - r107
+    - r020
+    - r082
+    - r083
+    - r096
+    - r141
+    - r023
+    - r070
+    - r063
+    - r006
+    - r007
+    - r054
+    - r058
+    - r025
+    - r053

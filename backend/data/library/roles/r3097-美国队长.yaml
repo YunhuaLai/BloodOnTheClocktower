@@ -1,0 +1,101 @@
+id: r3097
+englishName: captainamerica-avengersv2
+name: 美国队长
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/AvengersV2/captainamerica_avengersv2.png
+flavor: I can do this all day.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 顺时针
+  - 逆时针
+  - 守护
+remindersGlobal: []
+firstNightReminder: >-
+  The Captain America points clockwise or anti-clockwise. Mark the Captain America with that direction.<br><br>Mark the
+  next living Townsfolk in the chosen direction 'Shielded'.
+otherNightReminder: Mark the next living Townsfolk in the chosen direction 'Shielded'.
+ability: 在你的首个夜晚，你要选择一个方向：每个白天，该方向上的下一名存活的镇民玩家不会死于处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3097
+    officialId: captainamerica_avengersv2
+    sourceHash: f61357fef9832ab322441ae8743a23b0f095a2d5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - execution
+    - alive
+    - townsfolk
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

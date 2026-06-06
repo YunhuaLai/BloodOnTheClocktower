@@ -1,0 +1,103 @@
+id: r2065
+englishName: duiyizhongyan-15
+name: 天羊
+type: townsfolk
+edition: custom
+image: https://free.picui.cn/free/2025/03/07/67cae9c8c6ec1.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 是天羊
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  天羊时刻！你不知道自己是天羊，你认为你是一个镇民，你被视为该镇民且拥有认知角色的能力。当你死亡时，你得知你是天羊、所有死去的天羊玩家和当前存活的恶魔类型。无论多少个善良天羊在场，胜负结果将会被调转一次，即使你已死亡。[所有善良玩家均为天羊]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2065
+    officialId: duiyizhongyan_15
+    sourceHash: beab1e85470d56e27759fa036434921aa4508274
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+    - 信息型
+  termIds:
+    - setup
+    - information
+    - death
+    - alive
+    - good
+    - townsfolk
+    - demon
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: setup
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

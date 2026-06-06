@@ -1,0 +1,74 @@
+id: s247
+englishName: item
+name: 首夜狂欢
+status: draft
+en: 首夜狂欢
+author: 稚宇
+logo: https://img2.imgtp.com/2024/04/23/y5EWsl0i.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://img2.imgtp.com/2024/04/23/y5EWsl0i.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r085
+  - r003
+  - r084
+  - r002
+  - r227
+  - r001
+  - r307
+  - r004
+  - r100
+  - r023
+  - r108
+  - r049
+  - r065
+  - r016
+  - r111
+  - r015
+  - r072
+  - r135
+  - r121
+  - r078
+  - r019
+  - r120
+  - r929
+  - r046
+travellerIds: []
+fabledIds:
+  - r1592
+nightOrder:
+  first:
+    - r121
+    - r078
+    - r001
+    - r002
+    - r003
+    - r004
+    - r111
+    - r023
+    - r048
+    - r085
+    - r084
+    - r100
+    - r108
+    - r049
+    - r227
+    - r307
+  other:
+    - r111
+    - r046
+    - r023

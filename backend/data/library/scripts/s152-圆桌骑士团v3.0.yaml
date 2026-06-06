@@ -1,0 +1,79 @@
+id: s152
+englishName: v3-0
+name: 圆桌骑士团v3.0
+status: draft
+en: 圆桌骑士团v3.0
+author: 太一
+logo: https://www.bloodstar.xyz/p/humlet/che/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/humlet/che/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r552
+  - r049
+  - r058
+  - r006
+  - r198
+  - r369
+  - r1287
+  - r029
+  - r033
+  - r427
+  - r553
+  - r035
+  - r370
+  - r1008
+  - r554
+  - r119
+  - r037
+  - r556
+  - r426
+  - r041
+  - r077
+  - r557
+  - r1063
+  - r559
+  - r560
+travellerIds: []
+fabledIds:
+  - r1288
+nightOrder:
+  first:
+    - r426
+    - r041
+    - r1008
+    - r049
+    - r058
+    - r006
+    - r198
+  other:
+    - r1008
+    - r426
+    - r041
+    - r427
+    - r553
+    - r560
+    - r557
+    - r1063
+    - r559
+    - r037
+    - r029
+    - r556
+    - r058
+    - r1287
+    - r198
+    - r006
+    - r370

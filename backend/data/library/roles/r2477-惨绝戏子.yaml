@@ -1,0 +1,105 @@
+id: r2477
+englishName: city-of-illusio
+name: 惨绝戏子
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/TwinCity/3_twincity.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 被处决
+  - 死亡
+remindersGlobal:
+  - 保留能力
+firstNightReminder: ''
+otherNightReminder: 让惨绝戏子选择一名玩家，给他标记“死亡”
+ability: 每个夜晚*，你要选择一名玩家：他死亡。你死于处决后保留能力且在结算游戏胜利条件时被当作存活。【+1外来者；邪恶阵营胜利条件改为处决所有初始爪牙和恶魔】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2477
+    officialId: _city_of_illusio
+    sourceHash: 1eeea56e7a88f0f85b7fbe3615cb68104bb256a3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - execution
+    - death
+    - alive
+    - alignment
+    - evil
+    - outsider
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

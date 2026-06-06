@@ -1,0 +1,52 @@
+id: s268
+englishName: item
+name: 灾厄敢死队
+status: draft
+en: 灾厄敢死队
+author: Piranha
+logo: https://i.postimg.cc/J0SwTZtt/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/J0SwTZtt/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r051
+  - r150
+  - r035
+  - r089
+  - r012
+  - r015
+  - r072
+  - r017
+  - r041
+  - r021
+travellerIds: []
+fabledIds:
+  - r127
+  - r1612
+nightOrder:
+  first:
+    - r017
+    - r041
+    - r051
+    - r084
+  other:
+    - r1612
+    - r017
+    - r041
+    - r150
+    - r021
+    - r051

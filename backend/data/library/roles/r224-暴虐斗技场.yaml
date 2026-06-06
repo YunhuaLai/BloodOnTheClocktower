@@ -33,7 +33,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r224
-    officialId: tyrant-arena
+    officialId: 29_jinhulun
     sourceHash: 99c6e98908ab43beea78ac18c02e61429a76ec63
     sourceHashFields:
       - ability
@@ -43,8 +43,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 主动选择
   termIds:
@@ -58,8 +58,8 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_nomination
@@ -73,8 +73,6 @@ abilityData:
       - kind: choose_role
         source: target
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_nomination
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: null

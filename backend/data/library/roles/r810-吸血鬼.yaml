@@ -1,9 +1,9 @@
 id: r810
 englishName: 9-newhero
 name: 吸血鬼
-type: minion
+type: outsider
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/9_newhero.png
+image: https://youke1.picui.cn/s1/2025/07/29/6887aa944ab7f.png
 flavor: 很多人都说我面目狰狞，但你看，其实我并没有那么恐怖，相反，我比任何人都要端庄和优雅。
 setup: false
 setupMeta:
@@ -18,22 +18,20 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders:
-  - 鲜血
-  - 中毒
-  - 死亡
-remindersGlobal: []
+reminders: []
+remindersGlobal:
+  - 眷族
 firstNightReminder: ''
-otherNightReminder: 当他有至少2个“鲜血”时唤醒他，他可以摇头不使用能力，或他每消耗2个鲜血，选择一名玩家：选择让那名玩家当晚和明天白天中毒或选择让那名玩家死亡。
-ability: 每个夜晚，你会获得1个“鲜血”。在夜晚时*，每消耗2个鲜血，可以选择一名玩家：选择让他当晚和明天白天中毒或选择让他死亡。
+otherNightReminder: ''
+ability: 你知道一些善良玩家和他们的角色。他们中毒并以为自己是爪牙，你是恶魔。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r810
-    officialId: 9_newhero
-    sourceHash: 6a74a9b7202e92074204be23f0063315e639a22a
+    officialId: xixuegui
+    sourceHash: 686a6d1a120fcec78a596e1623b1b8bb2f6a8654
     sourceHashFields:
       - ability
       - type
@@ -42,22 +40,23 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
   termIds:
-    - day
     - night
     - poisoned
-    - death
+    - good
+    - outsider
     - minion
-  abilityPattern: choose_player_death
+    - demon
+  abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null
@@ -70,7 +69,6 @@ abilityData:
         source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
-      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

@@ -1,0 +1,113 @@
+id: r2541
+englishName: wuming
+name: 无名
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202408/c_8570103653271_ff2383e2.jpg
+flavor: “我是谁？五十年前我已经记不得了！”
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 拥有能力
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 在首个夜晚，唤醒无名，让其选择一名玩家和一个善良角色，如果该角色不在场，在该玩家的角色标记旁放置“拥有能力”。唤醒放置：“拥有能力”标记的玩家，展示“该角色的能力对你生效”，“无名”角色标记和无名选择的善良角色的标记。
+otherNightReminder: 其他夜晚，唤醒无名，让其选择一名玩家，在其角色标记旁放置“死亡”。如果上个夜晚无名选择的角色在场，让无名重新选择一名玩家和一个善良角色，如果该角色不在场，在该玩家的角色标记旁放置“拥有能力”，让无名重新入睡。
+ability: 每个夜晚*，选择一名玩家：他死亡。在你的首个夜晚，你要选择一名玩家和一个善良角色，如果该角色不在场，他会拥有该角色的能力，否则你会在下个夜晚被唤醒再次进行选择。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2541
+    officialId: WuMing
+    sourceHash: c5f9226cbccba4b7eb6fb2c9dbd9aaabb54e7773
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - good
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

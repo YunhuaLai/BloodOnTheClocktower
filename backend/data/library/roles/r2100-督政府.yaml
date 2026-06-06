@@ -1,0 +1,117 @@
+id: r2100
+englishName: 23-the-french-revolution-2024-rv
+name: 督政府
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Hadrian_Caesar/The_French_Revolution_2024_RV/23_the_french_revolution_2024_rv.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 毒亡
+  - 中毒
+  - 已猜测
+  - 热月政变！
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让他选择两名玩家，其中一名被杀害并中毒，另一名可能中毒。
+ability: 每个夜晚*，你要选择两名玩家：其中一名中毒且死亡，另一名可能会中毒直到下个黄昏。每个白天限一次，爪牙可以公开选择一名存活的玩家：如果该玩家是罗伯斯庇尔，他会被处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2100
+    officialId: 23_the_french_revolution_2024_rv
+    sourceHash: 2c49c767ca1001d65b17b3dd3a25408fc7b31d8f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - poisoned
+    - execution
+    - death
+    - alive
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

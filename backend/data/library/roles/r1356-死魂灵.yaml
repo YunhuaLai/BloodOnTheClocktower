@@ -1,0 +1,84 @@
+id: r1356
+englishName: 18-xing
+name: 死魂灵
+type: minion
+edition: custom
+image: https://i.postimg.cc/RC1Xbpkv/4-dnd.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 当作存活
+  - 死魂灵
+remindersGlobal: []
+firstNightReminder: 给死魂灵当作存活标记。
+otherNightReminder: 如果白天有玩家获得死魂灵标记，给该玩家标记当作存活。
+ability: 在你的首个夜晚，你死亡，但依然被当做存活。如果你再次死亡，与你邻近的存活镇民之一获得你的能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1356
+    officialId: 10_sheshecup1
+    sourceHash: b32adb7691a571da0237871ebfc775cadcce598a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - townsfolk
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

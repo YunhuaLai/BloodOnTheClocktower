@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r144
-    officialId: ogre-recluse-jinx
+    officialId: 165_meta
     sourceHash: b6a4b2eddffccba12c280d2d36c948765776ccb8
     sourceHashFields:
       - ability
@@ -51,7 +51,7 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

@@ -1,0 +1,83 @@
+id: s108
+englishName: item
+name: “净化”
+status: draft
+en: “净化”
+author: 斯派德米
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/b/b6/9lfh9gu4i6tx5q8wtz1m0ovis3m3hvl.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/b/b6/9lfh9gu4i6tx5q8wtz1m0ovis3m3hvl.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r003
+  - r006
+  - r007
+  - r028
+  - r052
+  - r055
+  - r059
+  - r063
+  - r115
+  - r087
+  - r823
+  - r015
+  - r016
+  - r036
+  - r039
+  - r324
+  - r186
+  - r253
+  - r040
+  - r073
+  - r121
+  - r609
+  - r079
+travellerIds: []
+fabledIds:
+  - r1017
+  - r1141
+nightOrder:
+  first:
+    - r059
+    - r115
+    - r039
+    - r121
+    - r609
+    - r052
+    - r040
+    - r073
+    - r001
+    - r002
+    - r003
+    - r006
+    - r087
+  other:
+    - r059
+    - r324
+    - r609
+    - r028
+    - r052
+    - r039
+    - r079
+    - r040
+    - r036
+    - r063
+    - r006
+    - r007
+    - r055
+    - r087

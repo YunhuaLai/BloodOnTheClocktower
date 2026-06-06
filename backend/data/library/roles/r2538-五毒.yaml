@@ -1,0 +1,104 @@
+id: r2538
+englishName: wudu
+name: 五毒
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202408/c_5440882653271_cd540833.jpg
+flavor: 从此蝎心戏江湖，再无圣手为一人
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中蛊
+  - 中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果五毒提名了一个玩家，将在他的角色标记旁放置“中蛊”提示标记，如果他还死于处决，将“中蛊”标记放在他邻近的善良玩家边。在夜晚时，唤醒标记有“中蛊”的玩家，在其角色标记旁边放置“中毒”标记，并且给五毒展示他们的角色标记。
+ability: 每个夜晚*，你会得知被你提名玩家的角色，并且他中毒直到下个黄昏，如果他死于处决或者他是邪恶的，改为他顺时针方向上最近的善良玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2538
+    officialId: WuDu
+    sourceHash: 2ba56ba804d23565d36420ece7539535a243b6df
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - poisoned
+    - information
+    - nomination
+    - execution
+    - good
+    - evil
+    - minion
+  abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: direction
+          type: choice
+          label: 方向
+          required: true
+          optionsSource: custom
+          options:
+            - clockwise
+            - counterclockwise
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

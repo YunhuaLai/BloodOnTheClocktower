@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r662
-    officialId: fallen-leaf
+    officialId: 17_guiyihuayuan
     sourceHash: 15392bc67084d3c1736ff83602684a41af27f90b
     sourceHashFields:
       - ability
@@ -55,7 +55,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

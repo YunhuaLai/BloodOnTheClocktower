@@ -4,7 +4,7 @@ name: 大雪怪
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/bluebell/jtxx/13_jtxx.png
-flavor: ''
+flavor: Duck_Town
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r532
-    officialId: yeti
+    officialId: 13_jtxx
     sourceHash: 5e090e0ff67e25c68ad94f6b8d441c1114e791e4
     sourceHashFields:
       - ability
@@ -55,7 +55,7 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

@@ -4,7 +4,7 @@ type: minion
 englishName: pit-hag
 ability: 每个夜晚*，你要选择一名玩家和一个角色，如果该角色不在场，他变成该角色。如果因此创造了一个恶魔，当晚的死亡由说书人决定。
 edition: custom
-image: https://www.bloodstar.xyz/p/Tiger/Future-King/20_futureking.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/pit-hag.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,15 +22,15 @@ setupMeta:
 reminders: []
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: '3'
+otherNightReminder: 唤醒麻脸巫婆，让她选择一名玩家和角色列表上的一个角色。如果该角色不在场，则在麻脸巫婆入睡后通知该玩家角色变化。根据实际情况，可以将相关通知合并，例如玩家变成了恶魔，则在恶魔行动时一并唤醒，通知角色变化并让他执行相应行动。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r076
-    officialId: pit-hag
-    sourceHash: d1452b8c0f6d8caddf6bb8d14276c09b59f8d5cf
+    officialId: lllllllllllllllllllllll11111111
+    sourceHash: 6100a4fa8aa6fd4f6e2a05621318796d1ca123d6
     sourceHashFields:
       - ability
       - type
@@ -39,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -53,7 +55,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

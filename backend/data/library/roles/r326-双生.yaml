@@ -4,7 +4,9 @@ name: 双生
 type: fabled
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bootlegger.png
-flavor: ''
+flavor: >-
+  You would be surprised with just how much you can get away with by just walking into a place confidently, as if you
+  are supposed to be there.
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +33,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r326
-    officialId: dual-personality
+    officialId: dual_personality
     sourceHash: 0647836b1dd152d09eb1285ef87365069e261051
     sourceHashFields:
       - ability
@@ -55,7 +57,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

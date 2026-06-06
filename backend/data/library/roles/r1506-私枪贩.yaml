@@ -1,0 +1,90 @@
+id: r1506
+englishName: siqiangfan-haiwu
+name: 私枪贩
+type: outsider
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/7/7d/d1vhya534wd0vz4sunwk0850d6qgzat.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 私枪贩
+  - 死亡
+firstNightReminder: 将“私枪贩”标记放在一名镇民玩家的角色标记旁，唤醒他告诉他担当私枪贩。
+otherNightReminder: 将“私枪贩”标记放在一名镇民玩家的角色标记旁，唤醒他告诉他担当私枪贩。
+ability: 一名镇民玩家担当私枪贩。如果你对一名玩家激烈交锋且他当晚存活，他会担当私枪贩，否则当晚可能会有一名和你产生交流的玩家死亡。[+1镇民]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1506
+    officialId: siqiangfan_haiwu
+    sourceHash: ff4736b64ec4291c1f1bee293675901aa2b21726
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - death
+    - alive
+    - townsfolk
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

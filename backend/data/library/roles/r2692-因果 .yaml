@@ -1,0 +1,102 @@
+id: r2692
+englishName: 10-tendays
+name: '因果 '
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/LILZE/tendays/10_tendays.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: '1'
+otherNightReminder: '1'
+ability: >-
+  每当你发起提名时，你获得1颗道，每当你提名的玩家被标记处决，你获得1颗道；如果他当日被处决，你额外获得1颗道。
+  在你的首个夜晚你得知4名玩家。每个夜晚，你可以支付1颗道将今天被你提名的玩家相邻的两名存活玩家加入记录，或支付2颗道将他们移除记录。你得知你记录的玩家中的角色类型数量。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2692
+    officialId: 10_tendays
+    sourceHash: cd87495a166a67594a33d0a3cfc9190ea974fccb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - nomination
+    - execution
+    - alive
+    - townsfolk
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

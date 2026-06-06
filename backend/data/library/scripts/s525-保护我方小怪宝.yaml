@@ -1,0 +1,82 @@
+id: s525
+englishName: item
+name: 保护我方小怪宝
+status: draft
+en: 保护我方小怪宝
+author: 驯鹿
+logo: https://i.postimg.cc/YSHng32Y/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/YSHng32Y/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r060
+  - r058
+  - r057
+  - r155
+  - r052
+  - r150
+  - r051
+  - r054
+  - r090
+  - r012
+  - r088
+  - r100
+  - r015
+  - r068
+  - r070
+  - r159
+  - r017
+  - r093
+  - r076
+  - r077
+  - r103
+  - r141
+  - r083
+  - r079
+travellerIds: []
+fabledIds:
+  - r1851
+nightOrder:
+  first:
+    - r155
+    - r088
+    - r141
+    - r103
+    - r017
+    - r052
+    - r093
+    - r051
+    - r058
+    - r049
+    - r100
+  other:
+    - r088
+    - r076
+    - r017
+    - r052
+    - r093
+    - r150
+    - r079
+    - r083
+    - r141
+    - r103
+    - r070
+    - r068
+    - r090
+    - r051
+    - r054
+    - r058

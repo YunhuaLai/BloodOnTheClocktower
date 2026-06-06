@@ -1,0 +1,103 @@
+id: r3710
+englishName: crescendo-orchestralsuite
+name: 渐强
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/LumiousGaming/OrchestralSuite/crescendo_orchestralsuite.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 错误1次
+  - 终曲
+  - 拥有能力阿2
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: Text
+ability: 每个白天，你要拜访说书人并得知一个需要当晚回答的问题。如果你答错两次，你会得知此事并且邪恶阵营会在下个黄昏结束时获胜，即使你被处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3710
+    officialId: crescendo_orchestralsuite
+    sourceHash: a92d750ef20fed1fddfb34bc5e3fd9552ece000d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - information
+    - execution
+    - alignment
+    - evil
+    - outsider
+    - storyteller
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

@@ -4,7 +4,7 @@ name: 风向标
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/BeiFeng/YYLM/1_yylm.png
-flavor: ''
+flavor: 呼——————————————————
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r639
-    officialId: weather-vane
+    officialId: 1_yylm
     sourceHash: 96997afe1556d61f2eec1d872598b6f9360ebdaf
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

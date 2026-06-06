@@ -1,0 +1,85 @@
+id: s845
+englishName: knitrate
+name: 登车拔剑起-KNitrate
+status: draft
+en: 登车拔剑起-KNitrate
+author: KNitrate
+logo: https://img.picui.cn/free/2025/04/13/67fab269079b1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://img.picui.cn/free/2025/04/13/67fab269079b1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r227
+  - r481
+  - r051
+  - r026
+  - r230
+  - r229
+  - r029
+  - r057
+  - r606
+  - r022
+  - r1176
+  - r110
+  - r308
+  - r068
+  - r070
+  - r111
+  - r018
+  - r042
+  - r043
+  - r641
+  - r302
+  - r096
+  - r047
+  - r239
+  - r095
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r095
+    - r302
+    - r239
+    - r308
+    - r111
+    - r051
+    - r227
+    - r481
+    - r018
+    - r100
+  other:
+    - r302
+    - r111
+    - r026
+    - r229
+    - r047
+    - r096
+    - r095
+    - r239
+    - r042
+    - r606
+    - r308
+    - r029
+    - r070
+    - r068
+    - r1176
+    - r051
+    - r481
+    - r230
+    - r018

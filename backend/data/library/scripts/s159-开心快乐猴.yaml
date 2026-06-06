@@ -1,0 +1,74 @@
+id: s159
+englishName: item
+name: 开心快乐猴
+status: draft
+en: 开心快乐猴
+author: 开心猴·祥东&开心猴·小赤
+logo: https://free.picui.cn/free/2025/09/21/68d009247c692.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/09/21/68d009247c692.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r004
+  - r442
+  - r005
+  - r024
+  - r055
+  - r056
+  - r607
+  - r058
+  - r134
+  - r057
+  - r011
+  - r823
+  - r016
+  - r015
+  - r069
+  - r098
+  - r093
+  - r074
+  - r302
+  - r078
+  - r1325
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r098
+    - r024
+    - r302
+    - r078
+    - r074
+    - r093
+    - r003
+    - r004
+    - r005
+    - r058
+    - r442
+    - r134
+    - r1325
+  other:
+    - r024
+    - r302
+    - r607
+    - r074
+    - r093
+    - r005
+    - r055
+    - r056
+    - r058
+    - r134

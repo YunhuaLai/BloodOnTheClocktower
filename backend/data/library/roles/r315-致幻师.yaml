@@ -4,7 +4,7 @@ name: 致幻师
 type: minion
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/upload/202412/c_6172975594371_6f1d5e48.jpg
-flavor: ''
+flavor: 我看到了！他是恶魔！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r315
-    officialId: amaniti
+    officialId: Amaniti
     sourceHash: 56e9ca5d84c00e913036e63a0d4f8498b18d9cb7
     sourceHashFields:
       - ability
@@ -52,7 +52,7 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

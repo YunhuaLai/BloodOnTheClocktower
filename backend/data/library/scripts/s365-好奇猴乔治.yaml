@@ -1,0 +1,77 @@
+id: s365
+englishName: item
+name: 好奇猴乔治
+status: draft
+en: 好奇猴乔治
+author: Hallow
+logo: https://i.postimg.cc/XJZWDq4V/LOGO-copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/XJZWDq4V/LOGO-copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r088
+  - r001
+  - r049
+  - r054
+  - r133
+  - r029
+  - r009
+  - r008
+  - r089
+  - r058
+  - r057
+  - r060
+  - r065
+  - r014
+  - r070
+  - r037
+  - r015
+  - r337
+  - r076
+  - r017
+  - r040
+  - r043
+  - r083
+  - r080
+  - r079
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r017
+    - r040
+    - r001
+    - r058
+    - r049
+    - r133
+  other:
+    - r088
+    - r017
+    - r008
+    - r076
+    - r079
+    - r083
+    - r080
+    - r040
+    - r070
+    - r009
+    - r029
+    - r037
+    - r054
+    - r058
+    - r133

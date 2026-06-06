@@ -4,7 +4,7 @@ type: townsfolk
 englishName: huntsman
 ability: 每局游戏限一次，在夜晚时，你可以选择一名存活的玩家：如果你选中了落难少女，她会变成一个不在场的镇民角色。[+落难少女]
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/huntsman.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/huntsman.png
 flavor: ''
 setup: true
 setupMeta:
@@ -22,15 +22,16 @@ setupMeta:
 reminders:
   - 失去能力
 remindersGlobal: []
-firstNightReminder: 唤醒巡山人，他可以摇头不使用能力，或选择一名玩家。如果巡山人选中了落难少女，则在巡山人入睡后通知落难少女角色变化。
-otherNightReminder: 如果巡山人未曾使用能力，唤醒巡山人，他可以摇头不使用能力，或选择一名玩家。如果巡山人选中了落难少女，则在巡山人入睡后通知落难少女角色变化。
+firstNightReminder: 巡山人选择不使用能力，或指向一名玩家。如果他指向了落难少女，则为落难少女安排一个新的不在场镇民角色，将其唤醒并告知她新的角色。
+otherNightReminder: 巡山人选择不使用能力，或指向一名玩家。如果他指向了落难少女，则为落难少女安排一个新的不在场镇民角色，将其唤醒并告知她新的角色。
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r064
-    officialId: huntsman
-    sourceHash: b160232ad8b370bcffecb6621c252ca3215cf942
+    officialId: huntsman_c
+    sourceHash: 1c17d7e1a33b5f9890bc741eb504c244e11cfc6e
     sourceHashFields:
       - ability
       - type
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 一次性
     - 主动选玩家
@@ -50,8 +53,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: night
       event: null

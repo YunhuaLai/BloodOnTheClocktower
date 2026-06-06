@@ -1,0 +1,74 @@
+id: s558
+englishName: item
+name: 夜幕降临
+status: draft
+en: 夜幕降临
+author: 贾卡Jaques
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1703695657_197011_2796.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1703695657_197011_2796.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r155
+  - r001
+  - r004
+  - r006
+  - r008
+  - r028
+  - r055
+  - r058
+  - r089
+  - r022
+  - r007
+  - r009
+  - r011
+  - r014
+  - r067
+  - r072
+  - r037
+  - r042
+  - r020
+  - r041
+  - r040
+  - r077
+  - r021
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r155
+    - r040
+    - r041
+    - r001
+    - r004
+    - r006
+    - r058
+  other:
+    - r028
+    - r008
+    - r041
+    - r020
+    - r021
+    - r083
+    - r042
+    - r040
+    - r009
+    - r037
+    - r006
+    - r007
+    - r055
+    - r058

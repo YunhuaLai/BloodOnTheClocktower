@@ -34,7 +34,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r400
-    officialId: phantom-thief
+    officialId: 19_goldapple
     sourceHash: 7ef9beec2bd535ed59f7ecd209328ec7fa3b9296
     sourceHashFields:
       - ability
@@ -58,7 +58,7 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

@@ -1,0 +1,105 @@
+id: r3025
+englishName: maddoctor-the-delta-expedition
+name: 癫狂博士
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Essler/The_Delta_Expedition/maddoctor_the_delta_expedition.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 选择一名玩家：他明天白天需要“疯狂”地证明自己是恶魔，否则他可能会变成恶魔或中毒，亦或变成中毒的恶魔。
+otherNightReminder: 选择一名玩家：他明天白天需要“疯狂”地证明自己是恶魔，否则他可能会变成恶魔或中毒，亦或变成中毒的恶魔。
+ability: 每个夜晚，你要选择一名玩家：他明天白天需要“疯狂”地证明自己是恶魔，否则他可能会变成恶魔，或者中毒，或者变成中毒的恶魔。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3025
+    officialId: maddoctor_the_delta_expedition
+    sourceHash: 8a5ce6284756b02d5b054b01871a80ff627097d4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - poisoned
+    - minion
+    - demon
+    - madness
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

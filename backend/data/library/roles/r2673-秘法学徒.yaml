@@ -1,0 +1,84 @@
+id: r2673
+englishName: arcaneinitiate
+name: 秘法学徒
+type: townsfolk
+edition: mia
+image: https://free.picui.cn/free/2025/11/28/6928977f880e3.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失踪
+  - 法术施放
+remindersGlobal:
+  - 秘法学徒
+firstNightReminder: ''
+otherNightReminder: 秘法学徒可以让自己失踪。如果他这么做了，标记秘法学徒失踪。如果秘法学徒被邪恶玩家的能力杀死，标记法术施放。夜晚，如果有法术施放标记，移除该标记，所有爪牙丧失理智。
+ability: 每个夜晚*，你可以让自己失踪直到明天黄昏。如果你因邪恶玩家的能力死亡，所有爪牙会在当晚丧失理智。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2673
+    officialId: arcaneinitiate
+    sourceHash: 3020d502b0fb20371534724dc3c06b54d0bf36fe
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - evil
+    - townsfolk
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

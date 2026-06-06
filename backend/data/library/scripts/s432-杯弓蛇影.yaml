@@ -1,0 +1,77 @@
+id: s432
+englishName: item
+name: 杯弓蛇影
+status: draft
+en: 杯弓蛇影
+author: Aaron
+logo: https://i.postimg.cc/FFk05vNw/20230428193644.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/FFk05vNw/20230428193644.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r227
+  - r051
+  - r052
+  - r1470
+  - r007
+  - r607
+  - r057
+  - r032
+  - r232
+  - r823
+  - r463
+  - r1191
+  - r015
+  - r908
+  - r116
+  - r135
+  - r611
+  - r1186
+  - r641
+  - r043
+  - r079
+  - r568
+  - r612
+  - r239
+travellerIds:
+  - r289
+fabledIds:
+  - r305
+nightOrder:
+  first:
+    - r1191
+    - r611
+    - r052
+    - r239
+    - r004
+    - r051
+    - r1470
+    - r227
+  other:
+    - r823
+    - r611
+    - r052
+    - r607
+    - r568
+    - r612
+    - r079
+    - r239
+    - r007
+    - r051
+    - r463
+    - r1470
+    - r232

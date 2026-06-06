@@ -4,7 +4,7 @@ name: 亚瑟王
 type: demon
 edition: custom
 image: https://www.bloodstar.xyz/p/humlet/JUEDOU/21_juedou.png
-flavor: ''
+flavor: 背叛让我堕入这无尽的黑暗，我终会从我忠诚的追随者中降临，然后亲手刺穿每一名背叛者的心脏。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r557
-    officialId: king-arthur
+    officialId: 21_juedou
     sourceHash: 5ec9140cba57ad3cf462ffd7218821acbb8a0710
     sourceHashFields:
       - ability

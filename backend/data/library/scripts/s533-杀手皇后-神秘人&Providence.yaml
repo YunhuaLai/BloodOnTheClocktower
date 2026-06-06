@@ -1,0 +1,82 @@
+id: s533
+englishName: providence
+name: 杀手皇后-神秘人&Providence
+status: draft
+en: 杀手皇后-神秘人&Providence
+author: 神秘人&Providence
+logo: https://www.helloimg.com/i/2025/03/30/67e907e74fb1c.png
+description: 杀手皇后
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 杀手皇后
+image: https://www.helloimg.com/i/2025/03/30/67e907e74fb1c.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 杀手皇后
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r049
+  - r139
+  - r052
+  - r025
+  - r008
+  - r026
+  - r028
+  - r055
+  - r155
+  - r091
+  - r035
+  - r065
+  - r039
+  - r038
+  - r037
+  - r116
+  - r041
+  - r077
+  - r120
+  - r113
+  - r078
+  - r046
+  - r047
+  - r079
+  - r081
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r155
+    - r113
+    - r039
+    - r078
+    - r052
+    - r041
+    - r023
+    - r049
+    - r139
+    - r025
+  other:
+    - r028
+    - r052
+    - r008
+    - r041
+    - r113
+    - r039
+    - r026
+    - r046
+    - r047
+    - r079
+    - r081
+    - r037
+    - r023
+    - r055
+    - r139
+    - r025

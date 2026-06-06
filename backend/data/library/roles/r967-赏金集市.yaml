@@ -1,0 +1,78 @@
+id: r967
+englishName: 7-buzhengjingjioayi
+name: 赏金集市
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/SerraEvelyn/buzhengjingjioayi/7_buzhengjingjioayi.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 集市每天只会完成并产生一个任务奖励且每个任务只能被完成一次，不可重复获取，投掷所得奖励若已获取则重新投掷，当晚限次使用
+otherNightReminder: 集市每天只会完成并产生一个任务奖励且每个任务只能被完成一次，不可重复获取，投掷所得奖励若已获取则重新投掷，当晚限次使用
+ability: 集市每天只会完成并产生一个任务奖励且每个任务只能被完成一次，不可重复获取，投掷所得奖励若已获取则重新投掷，当晚限次使用
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r967
+    officialId: 7_buzhengjingjioayi
+    sourceHash: e4f91d15b673370db067441153f63effcfab3389
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

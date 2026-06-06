@@ -1,0 +1,109 @@
+id: r2401
+englishName: 0a6c1071-f48d-43f7-8592-e24be682dd0a
+name: 卖报小孩
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/8_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 卖报标记
+remindersGlobal: []
+firstNightReminder: 每个夜晚，选择一名其他存活玩家，你会得知：目标玩家今晚选择的行动目标。
+otherNightReminder: 每个夜晚，选择一名其他存活玩家，你会得知：目标玩家今晚选择的行动目标。
+ability: 每个夜晚，你要选择除你以外的两名存活的玩家，你会得知你所选择过的存活玩家之中，邪恶玩家的数量是否多于善良玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2401
+    officialId: 0a6c1071-f48d-43f7-8592-e24be682dd0a
+    sourceHash: 108e1e72b0e31ee40879f5e1f567d8953682527e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alive
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null

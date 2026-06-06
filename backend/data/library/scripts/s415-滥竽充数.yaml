@@ -1,0 +1,87 @@
+id: s415
+englishName: item
+name: 滥竽充数
+status: draft
+en: 滥竽充数
+author: 素履行人
+logo: https://www.bloodstar.xyz/p/morax/999/3322_999.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/morax/999/3322_999.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r108
+  - r597
+  - r025
+  - r026
+  - r140
+  - r091
+  - r029
+  - r028
+  - r059
+  - r606
+  - r053
+  - r229
+  - r308
+  - r015
+  - r820
+  - r038
+  - r336
+  - r609
+  - r040
+  - r121
+  - r045
+  - r635
+  - r241
+  - r096
+travellerIds: []
+fabledIds:
+  - r305
+nightOrder:
+  first:
+    - r336
+    - r059
+    - r121
+    - r820
+    - r609
+    - r040
+    - r045
+    - r308
+    - r108
+    - r597
+    - r307
+    - r140
+    - r025
+    - r053
+  other:
+    - r059
+    - r609
+    - r028
+    - r026
+    - r229
+    - r045
+    - r096
+    - r241
+    - r635
+    - r820
+    - r040
+    - r606
+    - r308
+    - r029
+    - r140
+    - r597
+    - r025
+    - r053

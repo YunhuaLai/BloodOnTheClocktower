@@ -4,7 +4,7 @@ name: 逍遥谷
 type: outsider
 edition: custom
 image: https://free.picui.cn/free/2025/12/17/6941ae6ad4967.png
-flavor: ''
+flavor: “朝菌不知晦朔，蟪蛄不知春秋，此........再来一壶.....”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r215
-    officialId: wandering-valley
+    officialId: 16_emoxueyuan
     sourceHash: e8a1878e0dd54c81cd50d31d5b306d262de4a3bf
     sourceHashFields:
       - ability

@@ -1,0 +1,84 @@
+id: s333
+englishName: item
+name: 全球惊悚
+status: draft
+en: 全球惊悚
+author: Ben Burns
+logo: https://i.postimg.cc/NLqRTSYN/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/NLqRTSYN/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r087
+  - r004
+  - r100
+  - r086
+  - r133
+  - r101
+  - r140
+  - r059
+  - r134
+  - r089
+  - r057
+  - r062
+  - r088
+  - r135
+  - r098
+  - r072
+  - r119
+  - r078
+  - r040
+  - r093
+  - r121
+  - r017
+  - r929
+  - r384
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r059
+    - r098
+    - r121
+    - r101
+    - r017
+    - r078
+    - r040
+    - r093
+    - r004
+    - r100
+    - r140
+    - r134
+    - r087
+    - r086
+    - r133
+    - r384
+  other:
+    - r088
+    - r059
+    - r101
+    - r017
+    - r093
+    - r040
+    - r062
+    - r140
+    - r134
+    - r087
+    - r086
+    - r133
+    - r384

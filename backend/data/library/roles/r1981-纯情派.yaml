@@ -1,0 +1,105 @@
+id: r1981
+englishName: 6-rainbow-party
+name: 纯情派
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/xiaofu/Rainbow_Party/6_rainbow_party.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 钟情
+  - 被伤害
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你选择一名玩家，如果他和你同一阵营，他死亡时改为你死亡，直到你下一次选择。如果他参加了没有你的约会，你醉酒，直到他再次参加有你的约会。
+otherNightReminder: 每个夜晚，你选择一名玩家，如果他和你同一阵营，他死亡时改为你死亡，直到你下一次选择。如果他参加了没有你的约会，你醉酒，直到他再次参加有你的约会。
+ability: 每个夜晚，你选择一名玩家，如果他和你同一阵营，他死亡时改为你死亡，直到你下一次选择。如果他参加了没有你的约会，你醉酒，直到他再次参加有你的约会。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1981
+    officialId: 6_rainbow_party
+    sourceHash: 0f034ccf1a4e72d732f428a5f8c2b67a0e4cded1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - death
+    - alignment
+    - townsfolk
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

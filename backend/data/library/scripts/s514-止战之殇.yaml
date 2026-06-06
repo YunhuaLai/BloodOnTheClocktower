@@ -1,0 +1,88 @@
+id: s514
+englishName: item
+name: 止战之殇
+status: draft
+en: 止战之殇
+author: 玉珂
+logo: https://free.picui.cn/free/2025/12/09/6937d50961416.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/09/6937d50961416.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r006
+  - r007
+  - r025
+  - r029
+  - r053
+  - r055
+  - r056
+  - r058
+  - r059
+  - r049
+  - r108
+  - r597
+  - r1176
+  - r015
+  - r016
+  - r037
+  - r070
+  - r040
+  - r336
+  - r302
+  - r609
+  - r021
+  - r080
+  - r082
+  - r241
+  - r1486
+  - r1549
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r059
+    - r302
+    - r609
+    - r040
+    - r006
+    - r058
+    - r049
+    - r108
+    - r597
+    - r025
+    - r053
+  other:
+    - r059
+    - r302
+    - r609
+    - r021
+    - r082
+    - r080
+    - r241
+    - r040
+    - r029
+    - r037
+    - r070
+    - r1176
+    - r006
+    - r007
+    - r055
+    - r056
+    - r058
+    - r597
+    - r025
+    - r053

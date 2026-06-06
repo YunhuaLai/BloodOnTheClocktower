@@ -1,0 +1,77 @@
+id: s194
+englishName: item
+name: 旧日熟识
+status: draft
+en: 旧日熟识
+author: 老许&王鑫
+logo: https://i.postimg.cc/cCZfQdjD/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/cCZfQdjD/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r002
+  - r003
+  - r023
+  - r005
+  - r056
+  - r054
+  - r008
+  - r028
+  - r022
+  - r058
+  - r011
+  - r009
+  - r015
+  - r070
+  - r072
+  - r016
+  - r017
+  - r040
+  - r020
+  - r042
+  - r021
+  - r083
+  - r079
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r017
+    - r040
+    - r002
+    - r003
+    - r004
+    - r005
+    - r023
+    - r058
+  other:
+    - r017
+    - r028
+    - r008
+    - r020
+    - r021
+    - r079
+    - r083
+    - r042
+    - r040
+    - r023
+    - r070
+    - r009
+    - r005
+    - r054
+    - r056
+    - r058

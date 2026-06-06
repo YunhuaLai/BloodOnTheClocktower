@@ -4,7 +4,7 @@ type: townsfolk
 englishName: washerwoman
 ability: 在你的首个夜晚，你会得知两名玩家和一个镇民角色：这两名玩家之一是该角色。
 edition: custom
-image: https://www.bloodstar.xyz/p/Tiger/Future-King/_futureking.png
+image: https://clocktower-wiki.gstonegames.com/images/thumb/4/45/Washerwoman.png/300px-Washerwoman.png
 flavor: ''
 setup: false
 setupMeta:
@@ -23,7 +23,7 @@ reminders:
   - 镇民
   - 错误
 remindersGlobal: []
-firstNightReminder: '6'
+firstNightReminder: 展示那个镇民角色标记。指向被你标记“镇民”和“错误”的两名玩家。
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
@@ -31,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r001
-    officialId: washerwoman
-    sourceHash: 1d70cf6e863e0044c516a37e5ff08847c79d4396
+    officialId: 18fd6e23-f488-4ceb-a0dc-7394dd8542b8
+    sourceHash: f64020867203a4129a9a459e5610e7c1ef919664
     sourceHashFields:
       - ability
       - type
@@ -41,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -53,8 +55,8 @@ abilityData:
   abilityPattern: role_in_group_hint
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

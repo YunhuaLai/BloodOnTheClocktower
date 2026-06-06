@@ -1,0 +1,99 @@
+id: r3131
+englishName: 1-th
+name: 小红帽
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/WbXv300H/ridinghood-fairy-tale.png
+flavor: 我的天啊，奶奶你的眼睛真大……
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 唤醒小红帽，他要么摇头，要么选择一个角色类型：如果与他邻近的存活的玩家属于该角色类型，点头，否则摇头。然后为他放置“失去能力”标记。
+otherNightReminder: 唤醒小红帽，他要么摇头，要么选择一个角色类型：如果与他邻近的存活的玩家属于该角色类型，点头，否则摇头。然后为他放置“失去能力”标记。
+ability: 每局游戏限一次，在夜晚时，你可以选择一个角色类型：你会得知与你邻近的存活玩家中是否存在该类型的角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3131
+    officialId: 7_fairy_tale_hugo
+    sourceHash: 659ffaa1da753c36e5b5e2b5d139a3144a6b5d59
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - alive
+    - townsfolk
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

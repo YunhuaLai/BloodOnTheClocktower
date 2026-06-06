@@ -1,0 +1,64 @@
+id: s799
+englishName: v2-0-0
+name: 嚣张跋扈 v2.0.0
+status: draft
+en: 嚣张跋扈 v2.0.0
+author: 刘中奇
+logo: https://www.helloimg.com/i/2025/02/27/67c067d20f91c.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2025/02/27/67c067d20f91c.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r155
+  - r097
+  - r024
+  - r006
+  - r086
+  - r052
+  - r057
+  - r089
+  - r033
+  - r091
+  - r116
+  - r071
+  - r234
+  - r041
+  - r077
+  - r120
+  - r021
+  - r141
+travellerIds: []
+fabledIds:
+  - r127
+nightOrder:
+  first:
+    - r155
+    - r071
+    - r024
+    - r141
+    - r052
+    - r041
+    - r097
+    - r006
+    - r086
+  other:
+    - r024
+    - r052
+    - r041
+    - r021
+    - r141
+    - r006
+    - r086

@@ -1,0 +1,85 @@
+id: r1329
+englishName: 13-wsf
+name: 毛毛虫
+type: outsider
+edition: custom
+image:
+  - https://i.postimg.cc/rFSGM6HH/2.png
+flavor: You'll get used to it in time” said the Caterpillar; and it put the hookah into its mouth and began smoking again.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: 'Place the *DRUNK* token on a living neighbour. :reminder:'
+otherNightReminder: 'Place the *DRUNK* token on a living neighbour different from the previous night. :reminder:'
+ability: 每个夜晚, 与你邻近的存活玩家之一醉酒 (与上个夜晚不同)。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1329
+    officialId: caterpillar_wonderland
+    sourceHash: 5c96b2a2410c300084d09f731ac9de9baacf6acc
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - alive
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

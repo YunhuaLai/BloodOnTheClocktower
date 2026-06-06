@@ -1,0 +1,61 @@
+id: s087
+englishName: v1
+name: 不正经交易V1
+status: draft
+en: 不正经交易V1
+author: Rocky
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/buzhengjingjioayi/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/buzhengjingjioayi/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r232
+  - r140
+  - r319
+  - r953
+  - r369
+  - r823
+  - r611
+  - r609
+travellerIds:
+  - r954
+  - r955
+  - r956
+  - r957
+  - r958
+  - r959
+  - r960
+  - r961
+  - r962
+  - r963
+  - r964
+  - r965
+fabledIds:
+  - r966
+  - r967
+nightOrder:
+  first:
+    - r609
+    - r611
+    - r140
+  other:
+    - r967
+    - r966
+    - r609
+    - r611
+    - r140
+    - r232
+    - r953

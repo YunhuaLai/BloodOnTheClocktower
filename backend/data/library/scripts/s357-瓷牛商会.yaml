@@ -1,0 +1,81 @@
+id: s357
+englishName: item
+name: 瓷牛商会
+status: draft
+en: 瓷牛商会
+author: autumn
+logo: https://i.postimg.cc/ZK28VT2G/da4320444903b0f85e2f44ccbe24c32a44902471-png-1192w.avif
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/ZK28VT2G/da4320444903b0f85e2f44ccbe24c32a44902471-png-1192w.avif
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r085
+  - r023
+  - r133
+  - r027
+  - r062
+  - r057
+  - r334
+  - r059
+  - r033
+  - r090
+  - r035
+  - r034
+  - r088
+  - r015
+  - r036
+  - r072
+  - r159
+  - r042
+  - r041
+  - r074
+  - r040
+  - r078
+  - r683
+  - r096
+  - r136
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r059
+    - r683
+    - r078
+    - r040
+    - r041
+    - r074
+    - r136
+    - r023
+    - r085
+    - r133
+  other:
+    - r088
+    - r059
+    - r027
+    - r041
+    - r074
+    - r096
+    - r136
+    - r683
+    - r042
+    - r040
+    - r036
+    - r023
+    - r159
+    - r090
+    - r062
+    - r133

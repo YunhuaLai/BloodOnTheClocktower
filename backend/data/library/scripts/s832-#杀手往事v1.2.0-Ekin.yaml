@@ -1,0 +1,80 @@
+id: s832
+englishName: v1-2-0-ekin
+name: '#杀手往事v1.2.0-Ekin'
+status: draft
+en: '#杀手往事v1.2.0-Ekin'
+author: Ekin
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/shashouwangshi/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/shashouwangshi/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r012
+  - r087
+  - r060
+  - r150
+  - r009
+  - r008
+  - r006
+  - r058
+  - r097
+  - r084
+  - r1250
+  - r1251
+  - r088
+  - r098
+  - r016
+  - r015
+  - r017
+  - r018
+  - r093
+  - r336
+  - r136
+  - r103
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r336
+    - r088
+    - r098
+    - r1250
+    - r103
+    - r017
+    - r093
+    - r136
+    - r097
+    - r006
+    - r058
+    - r084
+    - r087
+    - r018
+  other:
+    - r088
+    - r017
+    - r008
+    - r093
+    - r150
+    - r103
+    - r136
+    - r009
+    - r1251
+    - r006
+    - r058
+    - r087
+    - r1250
+    - r018

@@ -1,0 +1,100 @@
+id: r3330
+englishName: 21-yz-cn-ggg
+name: 吵闹鬼
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/papel/YZ_CN_GGG/21_yz_cn_ggg.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 爆吵
+  - 出错
+  - 爆杀
+remindersGlobal: []
+firstNightReminder: 吵闹鬼选择一名玩家，标记“爆吵”。他因自身角色能力获得错误信息。
+otherNightReminder: 吵闹鬼选择一名玩家，标记“爆吵”。他因自身角色能力获得错误信息。说书人标记一名玩家“爆杀”，那名玩家死亡。
+ability: 每个夜晚*，会有一名玩家死亡。每个夜晚，你要选择一名玩家：从此他获得错误信息，如果白天无人被处决，他会被处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3330
+    officialId: 21_yz_cn_ggg
+    sourceHash: 02a9ef79cc9181d37044ca7cbdad7fa6cf1f5f20
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - execution
+    - death
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

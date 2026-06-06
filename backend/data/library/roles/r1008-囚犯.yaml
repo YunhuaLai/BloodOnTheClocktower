@@ -1,0 +1,83 @@
+id: r1008
+englishName: prisoner
+name: 囚犯
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Airell_clocktower/Assets_of_Lei_Gallery/newcharacter20_assets_of_lei_gallery.png
+flavor: 喂，放我出去，我与上任典狱长结有私怨，他公报私仇把我关押在这里。对就这样，解开镣铐，你人真好。哈哈哈哈哈，让我想想该怎么感谢你，用我这把消防斧送你去天堂怎么样？
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 是囚犯
+remindersGlobal: []
+firstNightReminder: 唤醒囚犯并向他出示一个不在场的角色标记。
+otherNightReminder: 如果在白天时多数玩家表决同意将你释放，在夜晚唤醒囚犯提示角色的转变。如有必要，提示其阵营得转变。并在变化后的角色旁放置标记。
+ability: 你不能投票。在你的首个夜晚，你会得知一个不在场角色。如果多数玩家同意释放你，你会变成该角色和对应的阵营。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1008
+    officialId: Hermit
+    sourceHash: 727865e512d140102b8d8996cab01a7cb6a3c090
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - vote
+    - alignment
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

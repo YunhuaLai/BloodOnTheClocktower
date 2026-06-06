@@ -4,7 +4,7 @@ name: 火柴女孩
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/westwind/Goldapple/5_goldapple.png
-flavor: ''
+flavor: 最耀眼的火柴燃烧得最快。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r395
-    officialId: match-girl
+    officialId: 5_goldapple
     sourceHash: 10608afeeaf556755ab2e981a91c88c90ac237ee
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 信息型
   termIds:
@@ -52,8 +52,8 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_day
       event: null

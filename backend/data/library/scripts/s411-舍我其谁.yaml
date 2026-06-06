@@ -1,0 +1,75 @@
+id: s411
+englishName: item
+name: 舍我其谁
+status: draft
+en: 舍我其谁
+author: 阿璟
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/1/12/07h6x669fkxidvycucdlhxxe77qfwsa.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/1/12/07h6x669fkxidvycucdlhxxe77qfwsa.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r085
+  - r024
+  - r052
+  - r597
+  - r087
+  - r232
+  - r057
+  - r614
+  - r606
+  - r035
+  - r015
+  - r037
+  - r159
+  - r336
+  - r237
+  - r041
+  - r093
+  - r689
+  - r141
+travellerIds: []
+fabledIds:
+  - r1780
+  - r1175
+nightOrder:
+  first:
+    - r336
+    - r689
+    - r024
+    - r141
+    - r052
+    - r041
+    - r093
+    - r085
+    - r597
+    - r087
+    - r307
+  other:
+    - r024
+    - r052
+    - r041
+    - r093
+    - r141
+    - r689
+    - r237
+    - r606
+    - r037
+    - r159
+    - r232
+    - r597
+    - r087

@@ -1,0 +1,76 @@
+id: s783
+englishName: item
+name: 虔诚信仰
+status: draft
+en: 虔诚信仰
+author: Emerald
+logo: https://i.postimg.cc/zXSZd7nN/image.png
+description: 虔诚信仰
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 虔诚信仰
+image: https://i.postimg.cc/zXSZd7nN/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 虔诚信仰
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r004
+  - r097
+  - r053
+  - r086
+  - r054
+  - r057
+  - r088
+  - r062
+  - r089
+  - r090
+  - r115
+  - r091
+  - r119
+  - r069
+  - r072
+  - r098
+  - r121
+  - r078
+  - r641
+  - r077
+  - r079
+  - r141
+  - r095
+  - r099
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r095
+    - r115
+    - r098
+    - r121
+    - r141
+    - r078
+    - r097
+    - r004
+    - r049
+    - r086
+    - r053
+  other:
+    - r088
+    - r079
+    - r099
+    - r141
+    - r095
+    - r090
+    - r054
+    - r062
+    - r086
+    - r053

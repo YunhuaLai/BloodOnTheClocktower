@@ -1,0 +1,87 @@
+id: s142
+englishName: item
+name: 阴阳无间
+status: draft
+en: 阴阳无间
+author: 503&面哥
+logo: https://www.bloodstar.xyz//p//comm503//DeathBetween//deathbetween_deathbetween.png
+description: 清明时节雨纷纷，路上行人欲断魂。
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 清明时节雨纷纷，路上行人欲断魂。
+image: https://www.bloodstar.xyz//p//comm503//DeathBetween//deathbetween_deathbetween.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 清明时节雨纷纷，路上行人欲断魂。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1263
+  - r003
+  - r374
+  - r108
+  - r109
+  - r057
+  - r530
+  - r101
+  - r354
+  - r007
+  - r1264
+  - r1231
+  - r051
+  - r039
+  - r1265
+  - r487
+  - r014
+  - r1266
+  - r1267
+  - r537
+  - r461
+  - r114
+  - r1268
+  - r849
+travellerIds:
+  - r1269
+  - r1270
+  - r1271
+  - r248
+fabledIds: []
+nightOrder:
+  first:
+    - r1269
+    - r1265
+    - r114
+    - r039
+    - r1263
+    - r101
+    - r1267
+    - r1266
+    - r1268
+    - r108
+    - r003
+    - r051
+    - r530
+  other:
+    - r1269
+    - r1265
+    - r1231
+    - r1263
+    - r101
+    - r1267
+    - r1266
+    - r537
+    - r039
+    - r109
+    - r114
+    - r1268
+    - r849
+    - r1264
+    - r007
+    - r051
+    - r530

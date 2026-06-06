@@ -1,0 +1,85 @@
+id: r1537
+englishName: 19-shanhaiqiwenlu
+name: 恋爱小敏
+type: outsider
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/7/7c/stu0hc04skobf61o8zgtimbn6lxmtep.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 邪恶
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 当场上只存活你一个外来者时，你加入邪恶阵营。
+ability: 当场上只存活你一个外来者时，你加入邪恶阵营。 【+1外来者】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1537
+    officialId: 19_shanhaiqiwenlu
+    sourceHash: 96b45cc3c020e94c65f28ce431298fe5f0675614
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - alive
+    - alignment
+    - evil
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

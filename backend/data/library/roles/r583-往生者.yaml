@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r583
-    officialId: afterlife-seeker
+    officialId: wangshnegjiguzhe
     sourceHash: 4d05103144e2f70f6f6acf659909c42dbc2b57b3
     sourceHashFields:
       - ability
@@ -56,7 +56,7 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

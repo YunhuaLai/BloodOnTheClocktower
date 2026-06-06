@@ -1,0 +1,91 @@
+id: s115
+englishName: item
+name: 锦衣夜刑
+status: draft
+en: 锦衣夜刑
+author: 梁介
+logo: https://www.bloodstar.xyz/p/Airell_clocktower/Jinyiyexing/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Airell_clocktower/Jinyiyexing/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r1170
+  - r025
+  - r597
+  - r1171
+  - r1172
+  - r607
+  - r028
+  - r134
+  - r058
+  - r232
+  - r064
+  - r090
+  - r823
+  - r363
+  - r038
+  - r111
+  - r071
+  - r040
+  - r017
+  - r121
+  - r633
+  - r020
+  - r239
+  - r1173
+  - r1174
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r017
+    - r1170
+    - r040
+    - r064
+    - r071
+    - r239
+    - r001
+    - r597
+    - r111
+    - r058
+    - r134
+    - r1171
+    - r025
+  other:
+    - r823
+    - r111
+    - r017
+    - r1170
+    - r028
+    - r607
+    - r020
+    - r239
+    - r1173
+    - r1174
+    - r040
+    - r363
+    - r090
+    - r1172
+    - r064
+    - r071
+    - r232
+    - r597
+    - r058
+    - r134
+    - r1171
+    - r025

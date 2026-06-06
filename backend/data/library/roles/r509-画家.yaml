@@ -4,7 +4,7 @@ name: 画家
 type: townsfolk
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bounty_hunter.png
-flavor: ''
+flavor: 我的瞳孔能看到血肉下的构图线，当你们争吵时，我会用夜色勾勒出罪恶的轮廓，夜晚的混沌越浓烈，我的画卷就越接近《维特鲁威人》的完美比例。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r509
-    officialId: painter
+    officialId: huajia111
     sourceHash: ef9798abd5f195a762e890ee8a3a1fea19c2c9f8
     sourceHashFields:
       - ability
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -57,8 +57,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_day
       event: null

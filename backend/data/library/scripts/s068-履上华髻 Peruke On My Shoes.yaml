@@ -20,65 +20,10 @@ detail:
   playStyle: []
   storytellerNotes: []
   commonPitfalls: []
-roleIds:
-  - r084
-  - r085
-  - r023
-  - r139
-  - r087
-  - r051
-  - r054
-  - r055
-  - r056
-  - r007
-  - r011
-  - r088
-  - r063
-  - r015
-  - r016
-  - r070
-  - r135
-  - r018
-  - r093
-  - r074
-  - r302
-  - r095
-  - r080
-  - r099
+roleIds: []
 travellerIds: []
-fabledIds:
-  - r818
+fabledIds: []
 nightOrder:
-  first:
-    - r088
-    - r074
-    - r095
-    - r093
-    - r302
-    - r084
-    - r087
-    - r051
-    - r085
-    - r023
-    - r018
-    - r139
-  other:
-    - r088
-    - r302
-    - r093
-    - r074
-    - r099
-    - r080
-    - r007
-    - r095
-    - r070
-    - r023
-    - r056
-    - r063
-    - r051
-    - r055
-    - r018
-    - r087
-    - r054
-    - r139
+  first: []
+  other: []
 status: draft

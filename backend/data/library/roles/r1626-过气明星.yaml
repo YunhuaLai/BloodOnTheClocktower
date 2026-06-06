@@ -1,0 +1,84 @@
+id: r1626
+englishName: 33abe52f-fc07-4dbc-804b222222-b3e11032323233d35aff
+name: 过气明星
+type: townsfolk
+edition: custom
+image: https://www.helloimg.com/i/2024/09/14/66e466b6e89e1.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 免于处决
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 当存活人数小于等于4人时，你会听到恶魔和说书人的窃窃私语。【当你抱起黑猫，今天你不会被处决】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1626
+    officialId: 33abe52f-fc07-4dbc-804b222222-b3e11032323233d35aff
+    sourceHash: 6eff5cbec48d9ef3b9f9a7fa1d32b18317f667a0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - execution
+    - alive
+    - townsfolk
+    - demon
+    - storyteller
+  abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

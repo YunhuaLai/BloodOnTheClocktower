@@ -1,0 +1,82 @@
+id: s340
+englishName: item
+name: 无限恩赐
+status: draft
+en: 无限恩赐
+author: TPX
+logo: https://www.helloimg.com/i/2024/12/07/67533bb757c40.png
+description: 无限恩赐
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 无限恩赐
+image: https://www.helloimg.com/i/2024/12/07/67533bb757c40.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 无限恩赐
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r003
+  - r006
+  - r051
+  - r140
+  - r056
+  - r058
+  - r059
+  - r134
+  - r089
+  - r032
+  - r091
+  - r090
+  - r016
+  - r067
+  - r068
+  - r159
+  - r302
+  - r017
+  - r020
+  - r121
+  - r336
+  - r021
+  - r080
+  - r096
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r059
+    - r121
+    - r302
+    - r017
+    - r002
+    - r003
+    - r006
+    - r051
+    - r058
+    - r140
+    - r134
+  other:
+    - r059
+    - r302
+    - r017
+    - r020
+    - r021
+    - r080
+    - r096
+    - r068
+    - r159
+    - r090
+    - r006
+    - r051
+    - r056
+    - r058
+    - r140
+    - r134

@@ -1,0 +1,82 @@
+id: s169
+englishName: item
+name: 指鹿为马
+status: draft
+en: 指鹿为马
+author: 斯派德米
+logo: https://free.picui.cn/free/2025/11/29/6929db35f0587.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/11/29/6929db35f0587.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r005
+  - r010
+  - r048
+  - r051
+  - r053
+  - r057
+  - r100
+  - r334
+  - r632
+  - r891
+  - r823
+  - r481
+  - r209
+  - r016
+  - r067
+  - r135
+  - r186
+  - r074
+  - r076
+  - r302
+  - r609
+  - r045
+  - r080
+  - r683
+  - r635
+travellerIds: []
+fabledIds:
+  - r1017
+  - r104
+nightOrder:
+  first:
+    - r683
+    - r302
+    - r609
+    - r074
+    - r045
+    - r001
+    - r005
+    - r048
+    - r051
+    - r481
+    - r100
+    - r053
+  other:
+    - r076
+    - r302
+    - r609
+    - r074
+    - r045
+    - r080
+    - r683
+    - r635
+    - r005
+    - r051
+    - r209
+    - r481
+    - r053

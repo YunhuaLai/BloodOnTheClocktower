@@ -1,0 +1,75 @@
+id: s677
+englishName: item
+name: 满堂红
+status: draft
+en: 满堂红
+author: Sui染钟楼
+logo: https://i.postimg.cc/2jKkv56t/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/2jKkv56t/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r232
+  - r1176
+  - r614
+  - r054
+  - r055
+  - r057
+  - r091
+  - r029
+  - r049
+  - r022
+  - r028
+  - r089
+  - r004
+  - r112
+  - r016
+  - r015
+  - r067
+  - r611
+  - r040
+  - r076
+  - r042
+  - r1186
+  - r241
+  - r103
+  - r021
+travellerIds:
+  - r289
+fabledIds: []
+nightOrder:
+  first:
+    - r103
+    - r611
+    - r040
+    - r1186
+    - r004
+    - r049
+  other:
+    - r076
+    - r611
+    - r028
+    - r112
+    - r021
+    - r103
+    - r241
+    - r042
+    - r040
+    - r029
+    - r1176
+    - r232
+    - r054
+    - r055

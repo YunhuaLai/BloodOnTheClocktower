@@ -4,8 +4,8 @@ type: outsider
 englishName: goon
 ability: 每个夜晚，首个使用其自身能力选择了你的玩家会醉酒直到下个黄昏。你会转变为他的阵营。
 edition: custom
-image: https://www.bloodstar.xyz/p/Tiger/Future-King/16_futureking.png
-flavor: ''
+image: https://clocktower-wiki.gstonegames.com/images/thumb/c/cd/Goon.png/300px-Goon.png
+flavor: 是的，老大。我跟那个家伙好好解释过了。他不愿意再听我解释一遍。不不，老大，我不需要医生——只是刀伤而已。明天早上就好了。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r038
-    officialId: goon
+    officialId: 711e5e9d-3d45-48e4-b359-66725aa1a58c
     sourceHash: 2bafe989756d8965311e5466e1bee557d086446e
     sourceHashFields:
       - ability
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 阵营变化
@@ -52,7 +54,7 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

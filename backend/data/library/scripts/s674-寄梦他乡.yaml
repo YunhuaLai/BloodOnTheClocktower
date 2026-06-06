@@ -1,0 +1,86 @@
+id: s674
+englishName: item
+name: 寄梦他乡
+status: draft
+en: 寄梦他乡
+author: 鸭木布拉夫钟楼小镇
+logo: https://i.postimg.cc/xCnygdY2/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/xCnygdY2/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r227
+  - r108
+  - r087
+  - r005
+  - r051
+  - r530
+  - r026
+  - r007
+  - r029
+  - r463
+  - r891
+  - r614
+  - r111
+  - r214
+  - r159
+  - r070
+  - r609
+  - r042
+  - r075
+  - r633
+  - r241
+  - r114
+  - r239
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r095
+    - r609
+    - r075
+    - r239
+    - r005
+    - r111
+    - r051
+    - r108
+    - r227
+    - r087
+    - r307
+    - r530
+  other:
+    - r609
+    - r075
+    - r026
+    - r111
+    - r241
+    - r095
+    - r239
+    - r114
+    - r042
+    - r214
+    - r463
+    - r029
+    - r070
+    - r159
+    - r005
+    - r007
+    - r051
+    - r087
+    - r530

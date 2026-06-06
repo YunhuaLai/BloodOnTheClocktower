@@ -1,0 +1,110 @@
+id: r1501
+englishName: pisapeisongyuan-haiwu
+name: △披萨配送员
+type: townsfolk
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/0/0c/cdp83ip6b3rk76i9nmyk9m9pvzhqq02.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 外卖
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 让披萨配送员选择一名玩家，如果那名玩家是善良的，在他的角色标记旁边放置“外卖”标记。
+otherNightReminder: 让披萨配送员选择一名玩家，如果那名玩家是善良的，在他的角色标记旁边放置“外卖”标记，或者依次唤醒所有有“披萨”标记的玩家，告知他们披萨配送员在场。
+ability: 每个夜晚，你要选择一名玩家。每局游戏限一次，你可以改为令所有你选择过的善良玩家得知你在场。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1501
+    officialId: pisapeisongyuan_haiwu
+    sourceHash: 80abef1509cd443917468e640b12199cb03d7821
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - good
+    - townsfolk
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

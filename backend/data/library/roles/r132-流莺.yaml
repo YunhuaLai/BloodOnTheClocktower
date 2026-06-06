@@ -3,7 +3,7 @@ englishName: songbird
 name: 流莺
 type: traveller
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/harlot.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/harlot.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,7 +22,7 @@ reminders:
   - 死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 唤醒流莺。让流莺指向任意一名玩家。让流莺重新入睡。唤醒被选中的玩家，对该玩家展示“该角色的能力对你生效”提示标记和流莺角色标记。该玩家需要通过点头表示是，摇头表示否。然后让该玩家重新入睡。
+otherNightReminder: 流莺选择一名玩家，将其唤醒，那名玩家选择同意或拒绝。如果同意，将他的角色标记展示给流莺看。然后说书人可以决定两名玩家是否会一起死去。
 ability: 每个夜晚*，你要选择一名存活的玩家：如果他同意，你会得知他的角色，但是你们两个可能同时死亡。
 abilityData:
   schemaVersion: 2
@@ -30,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r132
-    officialId: songbird
-    sourceHash: fb1897e72f69ddf498d35f4db7f78cd7f041612c
+    officialId: '3_90'
+    sourceHash: b1918e313abff060b96bc69128a5cef756745413
     sourceHashFields:
       - ability
       - type
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

@@ -1,10 +1,11 @@
 id: r073
 name: 镜像双子
-type: minion
+type: outsider
 englishName: evil-twin
-ability: 你与一名对立阵营的玩家互相知道对方是什么角色。如果其中善良玩家被处决，邪恶阵营获胜。如果你们都存活，善良阵营无法获胜。
+ability: 你知道一个爪牙角色，如果他在场且你被处决，你的阵营落败。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/evil_twin.png
+image:
+  - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/evil_twin_b.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,7 +23,7 @@ setupMeta:
 reminders:
   - 对立双子
 remindersGlobal: []
-firstNightReminder: 分别独自唤醒镜像双子和对立双子，告知他们由于镜像双子能力而得知的信息。
+firstNightReminder: '1'
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
@@ -30,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r073
-    officialId: evil-twin
-    sourceHash: 8bb234ea167ce10a2b843c2987527475922268b3
+    officialId: 13_fan
+    sourceHash: 205cbcc6fdd050010b41294d2a98dac24f592898
     sourceHashFields:
       - ability
       - type
@@ -40,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 开局
     - 双生机制
@@ -47,15 +50,13 @@ abilityData:
   termIds:
     - first-night
     - execution
-    - alive
     - alignment
-    - good
-    - evil
+    - outsider
     - minion
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: setup

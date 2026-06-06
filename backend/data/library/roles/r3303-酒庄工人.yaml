@@ -1,0 +1,88 @@
+id: r3303
+englishName: winemaker-fall-of-rome
+name: 酒庄工人
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/AlexS/Fall_of_Rome/winemaker_fall_of_rome.png
+flavor: 酒后吐真言。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 奇数
+  - 偶数
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: 放置"奇数"或"偶数"标记。如果放置"奇数"标记，酒庄工人在首个夜晚和之后每隔一个夜晚醉酒。否则：酒庄工人在第二个夜晚和之后每隔一个夜晚醉酒。
+otherNightReminder: 检查已经放置的"奇数"或"偶数"标记。如果是奇数夜晚且放置了"奇数"标记，酒庄工人醉酒直到下个黄昏。如果是偶数夜晚且放置了"偶数"标记，酒庄工人醉酒直到下个黄昏。否则与他邻近的镇民醉酒直到下个黄昏。
+ability: 与你邻近的镇民醉酒，但每个奇数或偶数夜晚，你醉酒直到下个黄昏，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3303
+    officialId: winemaker_fall_of_rome
+    sourceHash: b1840ae12f9f730c981f28933d4ccbeea1fcae9d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - death
+    - townsfolk
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

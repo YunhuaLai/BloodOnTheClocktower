@@ -1,0 +1,81 @@
+id: s626
+englishName: item
+name: 爱丽丝幻境迷踪
+status: draft
+en: 爱丽丝幻境迷踪
+author: Tom Routh
+logo: https://s2.loli.net/2025/07/03/rCO2WhjRafkEAU3.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/03/rCO2WhjRafkEAU3.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r2917
+  - r2918
+  - r2482
+  - r2919
+  - r2920
+  - r2921
+  - r2922
+  - r2923
+  - r2924
+  - r2428
+  - r2925
+  - r2926
+  - r2927
+  - r2928
+  - r1329
+  - r2929
+  - r1481
+  - r2930
+  - r2931
+  - r2932
+  - r2933
+  - r2934
+  - r2935
+  - r2936
+  - r2937
+travellerIds:
+  - r566
+  - r2938
+fabledIds:
+  - r2915
+  - r2916
+nightOrder:
+  first:
+    - r2916
+    - r2931
+    - r1329
+    - r2917
+    - r2918
+    - r2928
+  other:
+    - r2916
+    - r1329
+    - r2932
+    - r2922
+    - r2919
+    - r2920
+    - r2482
+    - r2936
+    - r2935
+    - r2937
+    - r2934
+    - r2921
+    - r2923
+    - r2926
+    - r2918
+    - r2928
+    - r1481

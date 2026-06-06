@@ -1,0 +1,90 @@
+id: r3625
+englishName: diyrole9
+name: '"爪牙"'
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/librarypimp21/Pedagogic_Pits_And_Pendulums/minion_pedagogic_pits_and_pendulums.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 咒血附身
+  - 新手
+  - 在说谎
+  - 任意
+  - 在场
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果你被处决，一名镇民玩家获得一个不在场的爪牙能力并转变阵营。[-1爪牙]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3625
+    officialId: diyRole9
+    sourceHash: f3f05beddefaa02e1bbf7e546edaea8fe5275988
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - execution
+    - alignment
+    - townsfolk
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

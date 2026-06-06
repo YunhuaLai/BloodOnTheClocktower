@@ -1,0 +1,110 @@
+id: r2753
+englishName: 25-ontheland
+name: 无垠回荡克雷松
+type: minion
+edition: custom
+image:
+  - https://www.bloodstar.xyz/p/HydrogenXenon/Ontheland/25_ontheland.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 时空坍缩
+  - 免于坍缩
+remindersGlobal: []
+firstNightReminder: 在你的首个夜晚，你要选择一名善良玩家
+otherNightReminder: 你死亡时所有玩家都会得知此事并得知你曾经选择过谁。
+ability: 所有善良阵营玩家选择玩家作为能力目标时会选择其顺时针上满足条件的下一名玩家。在你的首个夜晚，你要选择一名善良玩家：他不受你的能力效果影响。你死亡时所有玩家都会得知此事并得知你曾经选择过谁。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2753
+    officialId: 25_ontheland
+    sourceHash: 470786d0a4858d2c45dd7e8595c7740525524b65
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - alignment
+    - good
+    - minion
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: direction
+          type: choice
+          label: 方向
+          required: true
+          optionsSource: custom
+          options:
+            - clockwise
+            - counterclockwise
+          min: null
+          max: null
+          placeholder: null

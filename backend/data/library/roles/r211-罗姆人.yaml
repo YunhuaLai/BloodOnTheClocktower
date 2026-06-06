@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r211
-    officialId: romani
+    officialId: 24_jinhulun
     sourceHash: 14dee0ae505eb65a2761374392cbb5fcc8a96e90
     sourceHashFields:
       - ability
@@ -51,7 +51,7 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

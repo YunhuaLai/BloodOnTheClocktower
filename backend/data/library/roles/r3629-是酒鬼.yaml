@@ -1,0 +1,94 @@
+id: r3629
+englishName: diyrole13
+name: 是酒鬼
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/librarypimp21/Pedagogic_Pits_And_Pendulums/aiyamdrunk_pedagogic_pits_and_pendulums.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: townsfolk
+    shownRoleTypes:
+      - townsfolk
+    note: 身份覆盖：不要把酒鬼标记直接加入随机直发池；玩家应拿到一个镇民标记，酒鬼本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把酒鬼标记直接加入随机直发池；玩家应拿到一个镇民标记，酒鬼本体由说书人记录。
+reminders:
+  - 花间吟游酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 所有玩家不会醉酒或中毒。如果你“疯狂”地证明你是“是酒鬼”，镇民玩家的能力会产生错误信息，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3629
+    officialId: diyRole13
+    sourceHash: 1c7603f9c49990cbcce00e642e9868a3e83e2813
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - poisoned
+    - drunk
+    - information
+    - death
+    - townsfolk
+    - madness
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

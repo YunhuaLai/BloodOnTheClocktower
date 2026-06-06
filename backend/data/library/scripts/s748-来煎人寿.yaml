@@ -1,0 +1,84 @@
+id: s748
+englishName: item
+name: 来煎人寿
+status: draft
+en: 来煎人寿
+author: Pakchoi
+logo: https://i.postimg.cc/mgjpMtMp/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/mgjpMtMp/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r087
+  - r879
+  - r726
+  - r246
+  - r1803
+  - r2642
+  - r3616
+  - r031
+  - r3833
+  - r393
+  - r761
+  - r462
+  - r334
+  - r312
+  - r820
+  - r357
+  - r037
+  - r1357
+  - r3993
+  - r235
+  - r3943
+  - r316
+  - r096
+  - r240
+  - r046
+travellerIds: []
+fabledIds:
+  - r104
+  - r127
+  - r792
+nightOrder:
+  first:
+    - r2642
+    - r820
+    - r3993
+    - r235
+    - r879
+    - r087
+    - r3616
+  other:
+    - r2642
+    - r3993
+    - r235
+    - r046
+    - r096
+    - r240
+    - r316
+    - r820
+    - r1357
+    - r3943
+    - r246
+    - r393
+    - r357
+    - r037
+    - r031
+    - r1803
+    - r879
+    - r087
+    - r726
+    - r3616

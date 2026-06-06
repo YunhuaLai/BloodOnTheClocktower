@@ -1,0 +1,126 @@
+id: r2260
+englishName: jianghu-bore
+name: 般若
+type: demon
+edition: custom
+image: https://www.helloimg.com/i/2024/10/31/672389c50965b.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 2
+      source: '[+1或+2外来者]'
+      note: 配置调整：外来者数量 +1 到 +2。
+  setupNotes:
+    - 配置调整：外来者数量 +1 到 +2。
+reminders:
+  - 死亡
+  - 死于今日
+remindersGlobal: []
+firstNightReminder: 唤醒般若，告诉他所有在场外来者角色，然后他要选择是否让所有外来者互认。并且询问般若是否与所有外来者一同互认。
+otherNightReminder: 唤醒般若，让他选择一名玩家，被选择的玩家死亡。如果白天有外来者死亡，般若额外选择一名玩家，被选择的玩家死亡。
+ability: 在你的首个夜晚，你会得知有哪些外来者角色在场，然后你要选择是否让所有外来者互相认识，你可以与外来者一同互认。每个夜晚*，你要选择一名玩家：他死亡。若白天有外来者死亡，你要额外选择一名玩家：他死亡。[+1或+2外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2260
+    officialId: jianghu_bore
+    sourceHash: 6267d348d68dad43efad16e4c07050a1d14e8715
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - setup
+    - first-night
+    - death
+    - outsider
+    - demon
+  abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 2
+            source: '[+1或+2外来者]'
+            note: 配置调整：外来者数量 +1 到 +2。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null

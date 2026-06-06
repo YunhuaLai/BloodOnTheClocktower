@@ -4,7 +4,7 @@ name: 海德拉
 type: demon
 edition: custom
 image: https://www.bloodstar.xyz//p//Deodar2//double//38_double.png
-flavor: ''
+flavor: 天上又现出异象来。有一条大红龙，七头十角，七头上戴着七个冠冕……
 setup: false
 setupMeta:
   randomAssignable: true
@@ -57,7 +57,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

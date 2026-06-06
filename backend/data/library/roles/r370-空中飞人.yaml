@@ -4,7 +4,7 @@ name: 空中飞人
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/humlet/JUEDOU/12_juedou.png
-flavor: ''
+flavor: 哈哈哈哈！你们闻到了吗？硫磺味的风在撕扯我的伞！听啊！胫骨断裂的节奏比死亡金属更带劲！等会被我的脑浆溅到衣服的观众当中，最难堪的那个就是恶魔！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r370
-    officialId: trapeze-artist
+    officialId: 12_juedou
     sourceHash: b2016bd6801cc3c6a2d8095a77a15bb7a44b1ce7
     sourceHashFields:
       - ability
@@ -57,7 +57,7 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

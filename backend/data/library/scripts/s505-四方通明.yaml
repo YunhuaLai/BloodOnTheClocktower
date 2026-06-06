@@ -1,0 +1,90 @@
+id: s505
+englishName: item
+name: 四方通明
+status: draft
+en: 四方通明
+author: 四方通明
+logo: https://s2.loli.net/2025/09/08/ieRKGIEkUS8nt96.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/09/08/ieRKGIEkUS8nt96.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r108
+  - r594
+  - r025
+  - r052
+  - r087
+  - r595
+  - r008
+  - r028
+  - r054
+  - r059
+  - r060
+  - r278
+  - r015
+  - r072
+  - r111
+  - r308
+  - r040
+  - r235
+  - r609
+  - r020
+  - r083
+  - r103
+  - r612
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r095
+    - r103
+    - r609
+    - r052
+    - r040
+    - r235
+    - r595
+    - r308
+    - r111
+    - r108
+    - r594
+    - r087
+    - r100
+    - r025
+  other:
+    - r059
+    - r609
+    - r028
+    - r052
+    - r008
+    - r595
+    - r235
+    - r111
+    - r020
+    - r083
+    - r103
+    - r095
+    - r612
+    - r040
+    - r308
+    - r278
+    - r054
+    - r087
+    - r594
+    - r025

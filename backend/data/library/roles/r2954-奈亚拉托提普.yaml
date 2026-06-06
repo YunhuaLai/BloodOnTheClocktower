@@ -1,0 +1,87 @@
+id: r2954
+englishName: nyarlathotep-redacted
+name: 奈亚拉托提普
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Dela/REDACTED/nyarlathotep_redacted.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 限一次
+  - 当日死亡
+  - 疯狂
+remindersGlobal: []
+firstNightReminder: 将不在场爪牙的能力放置在奈亚拉托提普上
+otherNightReminder: 说书人决定谁会死亡. 将死亡和不在场爪牙的能力放置在奈亚拉托提普上
+ability: 你拥有所有不在场和死亡爪牙角色的能力。每个夜晚*，由说书人决定当晚的死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2954
+    officialId: nyarlathotep_redacted
+    sourceHash: 4ff8154ca675959bf667ff1d8e632c93eda8c8de
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - death
+    - minion
+    - demon
+    - storyteller
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

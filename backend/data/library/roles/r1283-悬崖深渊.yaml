@@ -1,0 +1,111 @@
+id: r1283
+englishName: xuanyashenyuan
+name: 悬崖深渊
+type: demon
+edition: custom
+image: https://s21.ax1x.com/2025/03/20/pEwLGMF.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - '1'
+  - '2'
+  - '3'
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  悬崖深渊选择三名存活玩家。对所有人宣告第一名玩家，然后唤醒他并让他秘密决定后两名玩家是否一同被杀死，如果后两名玩家存活则对所有人宣告第二名玩家，然后唤醒他并让他秘密决定第三名玩家是否被杀死，如果第三名玩家存活则对所有人宣告第三名玩家，然后唤醒他并让他秘密决定自己是否被杀死。如果结算完所有玩家的决定后三名玩家都存活，他们都死去。
+ability: 每个夜晚*，你可以选择三名存活玩家（所有玩家都会得知谁仍然存活）：他们中的存活玩家分别秘密决定后续玩家（或自己）是否被你杀死，然后如果他们都存活则都死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1283
+    officialId: xuanyashenyuan
+    sourceHash: cd0756bef05e06fb1596aa4cd8210f7481a854ed
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - alive
+    - demon
+  abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null

@@ -5,7 +5,7 @@ englishName: chef
 ability: 在你的首个夜晚，你会得知场上邻座的邪恶玩家有多少对。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/chef.png
-flavor: ''
+flavor: 今晚的预约有些古怪。我从未见过梅威瑟太太此前跟那个哈德逊巷的流氓有过交情。  然而今晚，他们订了一张双人桌。真奇怪。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r004
-    officialId: chef
+    officialId: wocaishichushen111
     sourceHash: 11794d6beee41d03a67f78832756cef70fb80b5f
     sourceHashFields:
       - ability
@@ -39,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

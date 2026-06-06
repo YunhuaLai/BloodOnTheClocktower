@@ -1,0 +1,101 @@
+id: r3821
+englishName: gentleman1-the-last-cull
+name: 绅士
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/BakedIce/The_Last_Cull__/gentleman1_the_last_cull__.png
+flavor: If looks could kill, we’d both be dead. Let’s keep our beautiful eyes closed.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - Admirer
+  - No Ability
+  - Disobeyed
+remindersGlobal: []
+firstNightReminder: Point to the player marked 'Admirer'.
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知一名善良玩家。每局游戏限一次，你可以公开命令他，如果他不服从他可能被处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3821
+    officialId: gentleman1_the_last_cull__
+    sourceHash: 8a0dffb95792972bfe8991514de9582f4c6edc67
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - execution
+    - good
+    - minion
+  abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 1
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

@@ -1,0 +1,102 @@
+id: r2624
+englishName: 3-a-bad-example
+name: 振听雀士
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/ZhaoMarsh/A_Bad_Example/3_a_bad_example.png
+flavor: 振立！！
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 被得知
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果振听被善良玩家得知或疯狂，向恶魔展示振听雀士两个邻近的镇民角色。
+ability: '如果你“疯狂”地证明你是外来者，或其他善良玩家得知你是振听雀士，恶魔会得知与你邻近的两个镇民的角色，即使你已死亡。 '
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2624
+    officialId: 3_a_bad_example
+    sourceHash: b8c7ba79212ac91ce72134e55512ce182b69b4f7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - good
+    - townsfolk
+    - outsider
+    - demon
+    - madness
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: townsfolk
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

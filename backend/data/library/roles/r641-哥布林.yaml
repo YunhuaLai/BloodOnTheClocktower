@@ -3,8 +3,8 @@ englishName: goblin-c
 name: 哥布林
 type: minion
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/goblin.png
-flavor: ''
+image: https://clocktower-wiki.gstonegames.com/images/thumb/d/d2/Goblin.png/300px-Goblin.png
+flavor: 你不会想要侮辱哥布林的。你真的，真的不会。让我们换个话题……我能再吃一块蛋糕吗？
 setup: false
 setupMeta:
   randomAssignable: true
@@ -19,7 +19,7 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 已宣称
+  - 已公开声明
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
@@ -30,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r641
-    officialId: goblin-c
-    sourceHash: 356e1a542a2318019f99ab324e5a7095453590bb
+    officialId: 354a531c-7b89-4841-8396-243c3e167818
+    sourceHash: 0a61554dc86c930e5708e379ba95f2d0755add19
     sourceHashFields:
       - ability
       - type
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

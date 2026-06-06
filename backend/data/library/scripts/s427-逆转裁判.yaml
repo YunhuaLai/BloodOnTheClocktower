@@ -1,0 +1,82 @@
+id: s427
+englishName: item
+name: 逆转裁判
+status: draft
+en: 逆转裁判
+author: saki&言言希希希希
+logo: https://free.picui.cn/free/2025/12/16/69414a7db5af0.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/16/69414a7db5af0.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1803
+  - r246
+  - r462
+  - r004
+  - r005
+  - r033
+  - r051
+  - r058
+  - r049
+  - r091
+  - r087
+  - r481
+  - r530
+  - r015
+  - r037
+  - r098
+  - r069
+  - r315
+  - r042
+  - r076
+  - r633
+  - r103
+  - r683
+  - r635
+  - r642
+travellerIds: []
+fabledIds:
+  - r1804
+nightOrder:
+  first:
+    - r683
+    - r098
+    - r103
+    - r004
+    - r005
+    - r051
+    - r058
+    - r049
+    - r481
+    - r087
+    - r642
+    - r530
+  other:
+    - r076
+    - r103
+    - r683
+    - r642
+    - r635
+    - r042
+    - r246
+    - r037
+    - r005
+    - r051
+    - r058
+    - r481
+    - r087
+    - r1803
+    - r530

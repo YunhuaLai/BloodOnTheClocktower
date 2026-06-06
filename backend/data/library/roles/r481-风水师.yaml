@@ -3,7 +3,7 @@ englishName: feng-shui-master
 name: 风水师
 type: townsfolk
 edition: custom
-image: https://www.bloodstar.xyz/p/spdm/SpaceBound/5_spacebound.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/fengshuishi.png
 flavor: ''
 setup: false
 setupMeta:
@@ -19,10 +19,10 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 标记
+  - 得知
 remindersGlobal: []
-firstNightReminder: 在首个夜晚，唤醒风水师，告知他“标记”提示标记旁的玩家角色类型，并将标记顺时针移动一名玩家。
-otherNightReminder: 唤醒风水师，告知他“标记”提示标记旁的玩家角色类型，并将标记顺时针移动一名玩家。
+firstNightReminder: 唤醒风水师，告知他“得知”标记旁的玩家角色类型，并将标记顺时针移动一名玩家。
+otherNightReminder: 唤醒风水师，告知他“得知”标记旁的玩家角色类型，并将标记顺时针移动一名玩家。
 ability: 在你的首个夜晚，你会得知一名玩家的角色类型。每个夜晚*，你会从他的顺时针方向得知下一名非旅行者玩家的角色类型。
 abilityData:
   schemaVersion: 2
@@ -30,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r481
-    officialId: feng-shui-master
-    sourceHash: 4cc89e57c6fdbcb345576fbfe6ebf7a87f22ca8a
+    officialId: fengshuisfgsetgshf1sdf
+    sourceHash: 45c9fc40473d75352952b2de83e392cb372cfb14
     sourceHashFields:
       - ability
       - type
@@ -55,7 +55,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

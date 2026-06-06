@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r280
-    officialId: chariot
+    officialId: 30_lockedspace
     sourceHash: 187c2c864ac8296ce0012c9f74a621acf250fb4b
     sourceHashFields:
       - ability
@@ -56,7 +56,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

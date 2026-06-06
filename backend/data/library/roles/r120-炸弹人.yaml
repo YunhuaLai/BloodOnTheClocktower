@@ -3,7 +3,7 @@ englishName: boomdandy
 name: 炸弹人
 type: minion
 edition: custom
-image: https://clocktower-wiki.gstonegames.com/images/thumb/b/b0/Boomdandy.png/300px-Boomdandy.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/boomdandy.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,15 +22,15 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-ability: 如果你被处决，除三名玩家以外的其他所有玩家均会死亡。一分钟之后，被最多玩家手指指着的玩家死亡。
+ability: 如果你被处决，除三名玩家以外的其他所有玩家均会死亡。倒数十声后，被最多玩家手指指着的玩家死亡。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r120
-    officialId: boomdandy
-    sourceHash: b49eb360cd0756a5c7fbdcd43b2b599b1bc03942
+    officialId: zhadaobaozhala111
+    sourceHash: f526509c888b8deb15cfedcb5d5adfc523ea983a
     sourceHashFields:
       - ability
       - type
@@ -50,7 +50,7 @@ abilityData:
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

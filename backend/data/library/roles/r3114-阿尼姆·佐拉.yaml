@@ -1,0 +1,117 @@
+id: r3114
+englishName: arnimzola-avengersv2
+name: 阿尼姆·佐拉
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/AvengersV2/arnimzola_avengersv2.png
+flavor: Cut off one head, two more shall take its place.
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: 1
+      source: '[-1或+1外来者。有一对相同的善良角色在场，其中之一中毒]'
+      note: 配置调整：外来者数量 -1 到 +1。
+  setupNotes:
+    - 配置调整：外来者数量 -1 到 +1。
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: Point to the players in the pair. Show the <b>THIS PLAYER IS</b> card, then their character.
+otherNightReminder: ''
+ability: 有一对相同的善良角色在场，在你的首个夜晚，你会得知他们是谁以及他们的角色是什么。[-1或+1外来者。有一对相同的善良角色在场，其中之一中毒]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3114
+    officialId: arnimzola_avengersv2
+    sourceHash: 434877d90b2f259356b292f2275df8bed760de98
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - poisoned
+    - information
+    - good
+    - outsider
+    - minion
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: 1
+            source: '[-1或+1外来者。有一对相同的善良角色在场，其中之一中毒]'
+            note: 配置调整：外来者数量 -1 到 +1。
+      - kind: learn_role
+        roleType: outsider
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

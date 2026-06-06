@@ -4,7 +4,7 @@ name: 养蛊人
 type: minion
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/yangguren.png
-flavor: ''
+flavor: 把毒蛇、蝎子、蜈蚣、蟾蜍、蜘蛛放在一起……多！来！点！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r237
-    officialId: gu-keeper
+    officialId: yangaaaaaaaaaaaa111
     sourceHash: 7a2a1146a577e4aa8710a2e1ca514cb082a21068
     sourceHashFields:
       - ability
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
   termIds:
@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

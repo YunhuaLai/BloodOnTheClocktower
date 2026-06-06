@@ -1,0 +1,84 @@
+id: s435
+englishName: item
+name: 地精嘉年华
+status: draft
+en: 地精嘉年华
+author: 木宁
+logo: https://i.postimg.cc/sXMGG1zX/LOGO-copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/sXMGG1zX/LOGO-copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r155
+  - r052
+  - r051
+  - r006
+  - r005
+  - r101
+  - r057
+  - r028
+  - r064
+  - r022
+  - r031
+  - r059
+  - r015
+  - r072
+  - r071
+  - r014
+  - r641
+  - r077
+  - r017
+  - r040
+  - r021
+  - r079
+  - r568
+  - r612
+travellerIds: []
+fabledIds:
+  - r305
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r101
+    - r017
+    - r052
+    - r040
+    - r064
+    - r071
+    - r005
+    - r006
+    - r051
+    - r139
+  other:
+    - r059
+    - r101
+    - r017
+    - r028
+    - r052
+    - r021
+    - r612
+    - r079
+    - r568
+    - r040
+    - r031
+    - r064
+    - r071
+    - r005
+    - r006
+    - r051
+    - r139

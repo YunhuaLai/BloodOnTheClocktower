@@ -1,0 +1,80 @@
+id: r3356
+englishName: 25-idesofbloodbra1nchinese
+name: 命运指针
+type: fabled
+edition: custom
+image: https://i.postimg.cc/1Rw0BB16/4.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 命运指针
+  - 逆向命运指针
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 游戏开始时，命运指针正指向恶魔。每个黄昏，命运指针会顺时针指向下一名玩家。玩家不会被告知他正被命运指针指向。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3356
+    officialId: 25_idesofbloodbra1nchinese
+    sourceHash: b3f6bb0bab1b856b595ae07c24a1c17068e7cf4b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - demon
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

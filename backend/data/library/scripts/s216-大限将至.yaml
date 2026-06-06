@@ -1,0 +1,57 @@
+id: s216
+englishName: item
+name: 大限将至
+status: draft
+en: 大限将至
+author: 清清Jungle
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/20/bn13zqrovpry2z76uoicif505zbncci.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/20/bn13zqrovpry2z76uoicif505zbncci.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r023
+  - r052
+  - r150
+  - r057
+  - r134
+  - r091
+  - r015
+  - r119
+  - r302
+  - r336
+  - r384
+  - r929
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r302
+    - r052
+    - r001
+    - r002
+    - r023
+    - r134
+    - r384
+  other:
+    - r302
+    - r052
+    - r150
+    - r023
+    - r134
+    - r384

@@ -1,0 +1,97 @@
+id: r3228
+englishName: 19-archives-of-insanity
+name: 人皮启示录
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Sans/Archives_of_Insanity/19_archives_of_insanity.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者，至少一名外来者在场]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 死于今日
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果一名外来者死亡，唤醒人皮启示录，如果他点头，改变该外来者邻近的镇民的精神状态。
+ability: 如果一名外来者死亡，夜晚，你可以选择改变所有与他邻近的镇民的精神状态。 [+1外来者，至少一名外来者在场]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3228
+    officialId: 19_archives_of_insanity
+    sourceHash: ec9b65930930446ec9375f860f56477b8d08fa2c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - death
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者，至少一名外来者在场]'
+            note: 配置调整：外来者数量 +1。
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

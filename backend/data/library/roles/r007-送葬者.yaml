@@ -4,8 +4,8 @@ type: townsfolk
 englishName: undertaker
 ability: 每个夜晚*，你会得知今天白天死于处决的玩家的角色。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/undertaker.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/undertaker.png
+flavor: 嗯……看看我们发现了什么？左靴到足跟都有磨损，靴尖下还有些硝石屑。这是军人才会有的装束。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -23,15 +23,15 @@ reminders:
   - 死于今日
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 如果有玩家今天白天死于处决，唤醒送葬者并对他展示那名玩家的角色标记。
+otherNightReminder: 如果今天白天有玩家死于处决，唤醒送葬者，对他展示那名玩家的角色标记。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r007
-    officialId: undertaker
-    sourceHash: 59271dbcb4112136f58fcfb81a0745d220ff58bf
+    officialId: wanizufen111
+    sourceHash: 68b9a757f740ed00a23a8801dd0dcb3f551e816a
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚*
     - 信息型
@@ -54,8 +56,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

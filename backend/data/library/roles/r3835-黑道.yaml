@@ -1,0 +1,105 @@
+id: r3835
+englishName: yakuza-despair
+name: 黑道
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Chad_Pines/Despair/yakuza_despair.png
+flavor: Of course... I'll sacrifice the lives of everyone here if it guarantees my survival.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 目标
+  - 目标
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: Point to the Yakuza's targets.
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知两名存活且阵营对立的玩家：如果他们之中其中一名玩家被处决，一名与他同阵营的存活玩家醉酒直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3835
+    officialId: yakuza_despair
+    sourceHash: 7a0529b77448d8480970aa9a81a759030f1407d2
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - information
+    - execution
+    - alive
+    - alignment
+    - townsfolk
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

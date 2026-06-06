@@ -1,0 +1,112 @@
+id: r1155
+englishName: 68176f0c-b9ec-40da-9f5c-712120c0b97f
+name: 牵丝戏
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_7355110768961_eb922a7b.jpg
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 2
+      source: '[外来者都是同一种角色，+1或+2外来者]'
+      note: 配置调整：外来者数量 +1 到 +2。
+  setupNotes:
+    - 配置调整：外来者数量 +1 到 +2。
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知哪些玩家是外来者。[外来者都是同一种角色，+1或+2外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1155
+    officialId: 68176f0c-b9ec-40da-9f5c-712120c0b97f
+    sourceHash: 9914e60b9f92e62f08806f9c3da04cb5daffa8d1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - outsider
+    - minion
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 2
+            source: '[外来者都是同一种角色，+1或+2外来者]'
+            note: 配置调整：外来者数量 +1 到 +2。
+      - kind: learn_role
+        roleType: outsider
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

@@ -1,0 +1,90 @@
+id: r2744
+englishName: 13-ontheland
+name: “花匠”
+type: townsfolk
+edition: custom
+image:
+  - https://www.bloodstar.xyz/p/HydrogenXenon/Ontheland/13_ontheland.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 不会死亡
+  - 免于侵害
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果还有善良的外来者存活，你不会死亡。与你邻近的善良玩家之一免于爪牙的负面能力的影响。你不计入邪恶阵营的获胜条件之中。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2744
+    officialId: 13_ontheland
+    sourceHash: 0dd8668a43441b06f7e1e950ddbf738b9aff2da1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

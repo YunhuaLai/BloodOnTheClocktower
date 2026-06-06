@@ -1,0 +1,84 @@
+id: r2271
+englishName: 20827-8697
+name: 作曲家
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/LumiousGaming/OrchestralSuite/composer_orchestralsuite.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 变更
+  - 得知
+remindersGlobal: []
+firstNightReminder: Text
+otherNightReminder: Text
+ability: 每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你会得知一名玩家和他被变更后的能力。一名善良玩家知道关于他变更后的能力的提示。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2271
+    officialId: composer_orchestralsuite
+    sourceHash: 51fd3cc89397eaceef2c33502b74539e292ee584
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - death
+    - good
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

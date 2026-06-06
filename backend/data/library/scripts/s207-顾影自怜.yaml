@@ -1,0 +1,76 @@
+id: s207
+englishName: item
+name: 顾影自怜
+status: draft
+en: 顾影自怜
+author: 陆怜夭
+logo: https://free.picui.cn/free/2025/12/15/693f98281b7fd.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/15/693f98281b7fd.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r007
+  - r008
+  - r011
+  - r025
+  - r026
+  - r027
+  - r030
+  - r032
+  - r057
+  - r062
+  - r088
+  - r097
+  - r334
+  - r015
+  - r014
+  - r039
+  - r234
+  - r043
+  - r117
+  - r641
+  - r121
+  - r021
+  - r044
+  - r047
+  - r083
+travellerIds: []
+fabledIds:
+  - r1490
+nightOrder:
+  first:
+    - r088
+    - r039
+    - r121
+    - r030
+    - r117
+    - r097
+    - r025
+  other:
+    - r088
+    - r027
+    - r030
+    - r008
+    - r117
+    - r039
+    - r026
+    - r021
+    - r044
+    - r047
+    - r083
+    - r007
+    - r062
+    - r025

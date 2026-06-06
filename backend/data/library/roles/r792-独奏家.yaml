@@ -3,7 +3,7 @@ englishName: 29-fengqidamo
 name: 独奏家
 type: fabled
 edition: custom
-image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/0/02/2fdk8134asbob2fmwjfne6ln2w2cpsm.png
+image: https://i.postimg.cc/mD2DR7sv/image.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,15 +22,15 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-ability: 旅行者会被非旅行者的能力当作不在游戏中，但恶魔仍然可以选择杀死旅行者。
+ability: 旅行者会被非旅行者角色当作不在游戏中，但恶魔仍然可以选择杀死旅行者。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r792
-    officialId: 29_fengqidamo
-    sourceHash: 17e036ffc3d3e741d98d544ef6b10f9fd73a55fa
+    officialId: recitalist
+    sourceHash: e6c9abea704f20ca2d79b15006b69e85749aa2e8
     sourceHashFields:
       - ability
       - type
@@ -50,7 +50,7 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

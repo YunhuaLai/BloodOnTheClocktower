@@ -1,0 +1,91 @@
+id: s166
+englishName: item
+name: 自伐者无功
+status: draft
+en: 自伐者无功
+author: 一人山风
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r025
+  - r005
+  - r024
+  - r494
+  - r028
+  - r484
+  - r029
+  - r030
+  - r059
+  - r058
+  - r031
+  - r033
+  - r039
+  - r038
+  - r037
+  - r500
+  - r040
+  - r1356
+  - r1357
+  - r041
+  - r141
+  - r044
+  - r1358
+  - r1359
+travellerIds:
+  - r125
+  - r131
+  - r122
+  - r147
+fabledIds:
+  - r344
+nightOrder:
+  first:
+    - r059
+    - r039
+    - r024
+    - r141
+    - r030
+    - r1356
+    - r040
+    - r041
+    - r005
+    - r058
+    - r049
+    - r025
+  other:
+    - r059
+    - r024
+    - r030
+    - r484
+    - r028
+    - r041
+    - r039
+    - r1358
+    - r044
+    - r141
+    - r1359
+    - r1357
+    - r040
+    - r029
+    - r037
+    - r031
+    - r005
+    - r494
+    - r058
+    - r025

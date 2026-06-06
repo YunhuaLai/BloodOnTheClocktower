@@ -1,0 +1,86 @@
+id: s294
+englishName: item
+name: 唱筹量沙
+status: draft
+en: 唱筹量沙
+author: 钟楼剧本博物馆
+logo: https://i.postimg.cc/P5q4yggN/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/P5q4yggN/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r133
+  - r053
+  - r006
+  - r530
+  - r007
+  - r229
+  - r026
+  - r028
+  - r029
+  - r057
+  - r134
+  - r088
+  - r072
+  - r015
+  - r016
+  - r036
+  - r609
+  - r235
+  - r042
+  - r113
+  - r047
+  - r612
+  - r114
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r113
+    - r095
+    - r609
+    - r235
+    - r006
+    - r134
+    - r100
+    - r530
+    - r133
+    - r053
+  other:
+    - r088
+    - r609
+    - r028
+    - r229
+    - r235
+    - r113
+    - r026
+    - r047
+    - r095
+    - r114
+    - r612
+    - r042
+    - r029
+    - r036
+    - r006
+    - r007
+    - r134
+    - r530
+    - r133
+    - r053

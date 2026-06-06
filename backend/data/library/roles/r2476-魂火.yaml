@@ -1,0 +1,111 @@
+id: r2476
+englishName: 3-city-of-illusio
+name: 魂火
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/TwinCity/2_twincity.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 魂火碎片
+  - 死亡
+firstNightReminder: 给两名镇民玩家标记“魂火碎片”
+otherNightReminder: 唤醒所有爪牙，让他们选择一名玩家，给他标记“死亡”
+ability: 两名善良玩家是恶魔、中毒且必定产生错误信息，爪牙代替恶魔获取初始恶魔信息，并得知这两名玩家的角色。每个夜晚*，爪牙们商议决定让一名玩家死亡。所有玩家都知道魂火在场。【-1恶魔，+1镇民】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2476
+    officialId: 3_city_of_illusio
+    sourceHash: 8903850fa4a93b57ec359bcd9eb339922107c185
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - poisoned
+    - information
+    - death
+    - good
+    - townsfolk
+    - minion
+    - demon
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_role
+        roleType: townsfolk
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

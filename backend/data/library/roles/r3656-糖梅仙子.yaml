@@ -1,0 +1,120 @@
+id: r3656
+englishName: sugarplumfairy-averymerryclocktower
+name: 糖梅仙子
+type: townsfolk
+edition: custom
+image:
+  - https://chillclocktower.com/homebrew/merrryclocktower/fairy.png
+flavor: Hm-hm-hmm-hmm, hmm-hmm hm-hm-hmm, hm-hm-hmm hm-hm-hmm, hm-hm-hm-hm hmm...
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 对 1
+  - 对 1
+  - 对 2
+  - 对 2
+  - 对 3
+  - 对 3
+  - 对 4
+  - 对 4
+  - 对 5
+  - 对 5
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个白天，你可以私下拜访说书人并选择除你之外的两名玩家，然后你可以询问一个只与他们两人有关且两人都存在可能的是非问题。相似问题只能询问一次。相同一对玩家只能询问一次。〔+1外来者〕
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3656
+    officialId: sugarplumfairy_averymerryclocktower
+    sourceHash: 03bbd47d1dee11e4b066d07532be4e443d89fc15
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+    - 主动选择
+  termIds:
+    - day
+    - setup
+    - townsfolk
+    - outsider
+    - storyteller
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 2
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: natural_language
+    note: ''

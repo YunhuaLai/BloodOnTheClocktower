@@ -32,7 +32,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r225
-    officialId: everchanging-dome
+    officialId: 8_jinhulun
     sourceHash: ddb05db3023a53175daba6910a1526335ec98e4a
     sourceHashFields:
       - ability
@@ -42,8 +42,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 主动选择
   termIds:
@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_execution
@@ -70,8 +70,6 @@ abilityData:
       - kind: choose_role
         source: target
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_execution
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: null

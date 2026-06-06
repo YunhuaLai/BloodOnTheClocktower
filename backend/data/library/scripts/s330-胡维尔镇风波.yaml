@@ -1,0 +1,81 @@
+id: s330
+englishName: item
+name: 胡维尔镇风波
+status: draft
+en: 胡维尔镇风波
+author: Ekin
+logo: https://s2.loli.net/2025/06/14/vcljQSFPLMwyWiC.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/14/vcljQSFPLMwyWiC.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r004
+  - r005
+  - r006
+  - r140
+  - r133
+  - r056
+  - r055
+  - r150
+  - r060
+  - r091
+  - r090
+  - r012
+  - r186
+  - r016
+  - r067
+  - r324
+  - r641
+  - r020
+  - r017
+  - r075
+  - r021
+  - r082
+  - r079
+  - r096
+travellerIds:
+  - r583
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r017
+    - r075
+    - r002
+    - r004
+    - r005
+    - r006
+    - r140
+    - r133
+  other:
+    - r583
+    - r324
+    - r017
+    - r075
+    - r020
+    - r150
+    - r021
+    - r079
+    - r082
+    - r096
+    - r090
+    - r005
+    - r006
+    - r055
+    - r056
+    - r140
+    - r133

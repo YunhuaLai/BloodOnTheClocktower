@@ -21,6 +21,20 @@ setupMeta:
 reminders:
   - 主理人
   - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
+  - 已参与
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
@@ -32,7 +46,7 @@ abilityData:
     source: role-file
     roleId: r570
     officialId: baihaihui
-    sourceHash: 99cd3476afd26c7049ef116f7f6c28e19065ab44
+    sourceHash: ab69e58ad2c96536858f3663c6c0a29a97d65807
     sourceHashFields:
       - ability
       - type
@@ -54,7 +68,7 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

@@ -1,0 +1,79 @@
+id: s176
+englishName: item
+name: 沧海拾遗
+status: draft
+en: 沧海拾遗
+author: 昊.Saber
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f5/pbhghphfaxccwf40yh76o5p0cg6zrbr.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f5/pbhghphfaxccwf40yh76o5p0cg6zrbr.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1058
+  - r004
+  - r005
+  - r006
+  - r022
+  - r012
+  - r027
+  - r028
+  - r052
+  - r049
+  - r140
+  - r090
+  - r233
+  - r555
+  - r015
+  - r039
+  - r067
+  - r018
+  - r019
+  - r040
+  - r121
+  - r021
+  - r080
+  - r1392
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r121
+    - r052
+    - r040
+    - r004
+    - r005
+    - r006
+    - r049
+    - r140
+    - r018
+  other:
+    - r1058
+    - r027
+    - r028
+    - r052
+    - r555
+    - r039
+    - r021
+    - r080
+    - r1392
+    - r040
+    - r090
+    - r233
+    - r005
+    - r006
+    - r140
+    - r018

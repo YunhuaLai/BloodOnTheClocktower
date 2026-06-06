@@ -1,0 +1,108 @@
+id: r2482
+englishName: 9-city-of-illusio
+name: 睡鼠
+type: townsfolk
+edition: custom
+image:
+  - https://i.postimg.cc/8PDJd7yy/33333-11.png
+flavor: >-
+  You might just as well say, ” added the Dormouse, who seemed to be talking in his sleep, “that ‘I breathe when I
+  sleep’ is the same thing as ‘I sleep when I breathe’!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 拥有能力
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 'If the Dormouse did not nominate or vote today they choose a player they are drunk. :reminder:'
+ability: 每个夜晚*，如果你在今天白天没有发起提名和投票，你可以选择一名玩家：他醉酒直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2482
+    officialId: dormouse_wonderland
+    sourceHash: 99ebdd714e618bd4896acd910dac42d56b35bc34
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - drunk
+    - nomination
+    - vote
+    - townsfolk
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

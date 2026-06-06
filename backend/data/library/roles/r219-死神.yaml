@@ -4,7 +4,9 @@ name: 死神
 type: minion
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/assassin.png
-flavor: ''
+flavor: >-
+  Your time has come, mortal. Do not run, for you shall rip your neck open in the cacophony. Only those who face death
+  directly stand a chance against their end.  
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +33,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r219
-    officialId: reaper
+    officialId: sishen111
     sourceHash: 326bddf3c74a0ce81a59d8b97e7779b585bef734
     sourceHashFields:
       - ability
@@ -54,7 +56,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

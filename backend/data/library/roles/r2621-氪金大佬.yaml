@@ -1,0 +1,84 @@
+id: r2621
+englishName: 40-a-bad-example
+name: 氪金大佬
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/ZhaoMarsh/A_Bad_Example/40_a_bad_example.png
+flavor: 没有什么是一个六四八不能解决的，如果有，那就氪两个。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+  - 必须被恶魔杀害
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果氪金大佬首次被不属于同一阵营的玩家提名且未被处决，改变恶魔的选择目标。
+ability: 当你首次被提名时，如果提名你的玩家与你不属于同一阵营且你没有被处决，则恶魔当晚的选择会改为你。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2621
+    officialId: 40_a_bad_example
+    sourceHash: aab084d3aec0630b381f01622d2b3d412d1740f8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - nomination
+    - execution
+    - alignment
+    - townsfolk
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

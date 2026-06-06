@@ -1,0 +1,113 @@
+id: r3461
+englishName: commandant-beyondgoodandevilv3
+name: 指挥官
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/WedgeMcCloud/BeyondGoodAndEvil-V3/commandant_beyondgoodandevilv3.png
+flavor: No plan survives contact with the enemy.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 重获标记
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 向指挥官展示拇指向上手势表示善良优势，拇指向下手势表示邪恶优势，拇指横向表示均势。如果指挥官还没有让玩家重获投票标记：他要么摇头，要么指向一名死亡玩家。如果该玩家的阵营处于劣势，在黎明时，宣布该玩家重获投票标记。
+ability: 每个夜晚*，你会得知说书人认为哪个阵营当前更有优势（善良/邪恶/均势）。每局游戏限一次，你可以选择一名死亡玩家：如果他的阵营处于劣势，他重获投票标记。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3461
+    officialId: commandant_beyondgoodandevilv3
+    sourceHash: f6e957786db916b9e85f48df17e21bece3c3714c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - vote
+    - death
+    - alignment
+    - good
+    - evil
+    - storyteller
+    - traveler
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

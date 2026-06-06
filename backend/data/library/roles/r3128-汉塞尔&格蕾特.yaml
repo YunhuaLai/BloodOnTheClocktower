@@ -1,0 +1,117 @@
+id: r3128
+englishName: th
+name: 汉塞尔&格蕾特
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/T1vRVGPN/hanselgretel-fairy-tale.png
+flavor: 来呀，格蕾特，这居然有一座糖果做成的房子！”“汉塞尔，我不确定这是否安全……你确定你你知道我们要去哪吗？
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 0
+      max: 1
+      source: '[+0~1外来者]'
+      note: 配置调整：外来者数量 0 到 +1。
+  setupNotes:
+    - 配置调整：外来者数量 0 到 +1。
+reminders:
+  - 得知镇民
+  - 得知外来者
+  - 得知爪牙
+  - 得知恶魔
+remindersGlobal: []
+firstNightReminder: 唤醒汉塞尔&格蕾特，他选择一个角色类型，向他展示该角色类型中的两个角色，其中一个角色在场，然后唤醒爪牙，向他展示汉塞尔&格蕾特的角色标记。
+otherNightReminder: 唤醒汉塞尔&格蕾特，他选择一个与之前不同的角色类型，向他展示该角色类型中的两个角色，其中一个角色在场。
+ability: 每个夜晚，你要选择一个与之前不同的角色类型：你会得知该角色类型的两个角色。其中有且只有一个角色在场。爪牙知道你在场。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3128
+    officialId: 3_fairy_tale_hugo
+    sourceHash: 42528c0227504d2630e1bc8828f87ce65dd860ec
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - townsfolk
+    - minion
+  abilityPattern: boolean_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 0
+            max: 1
+            source: '[+0~1外来者]'
+            note: 配置调整：外来者数量 0 到 +1。
+      - kind: learn_boolean
+        question: boolean_check
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

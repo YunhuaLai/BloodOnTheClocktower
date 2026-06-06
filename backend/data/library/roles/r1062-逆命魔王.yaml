@@ -1,0 +1,138 @@
+id: r1062
+englishName: reversaldemon
+name: 逆命魔王
+type: demon
+edition: custom
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/9/9e/o8lm4jwc6gu1mvc9tty8b11xntxtm8l.png/1200px-%E6%81%B6%E9%AD%94_%E9%80%86%E5%91%BD%E9%AD%94%E7%8E%8B_Rocky.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 魔王觉醒
+remindersGlobal: []
+firstNightReminder: 唤醒逆命魔王，告知他三名的玩家角色，其中一名拥有魔王印记。
+otherNightReminder: 唤醒逆命魔王，让他击杀一名玩家。如果魔王印记在逆命魔王处，再次唤醒逆命魔王，并标记魔王觉醒。
+ability: 每个夜晚*,你要选择一名玩家，他死亡。在你的首个夜晚，你得知三个在场角色，其中一名角色拥有魔王印记。当你继承魔王印记后，夜晚你额外行动一次
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1062
+    officialId: ReversalDemon
+    sourceHash: 7f6da833f8a4d202099146118c1307ada5afcc7d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - demon
+  abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：目标身份信息
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

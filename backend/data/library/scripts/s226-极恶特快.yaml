@@ -1,0 +1,85 @@
+id: s226
+englishName: item
+name: 极恶特快
+status: draft
+en: 极恶特快
+author: Ben Burns
+logo: https://www.helloimg.com/i/2024/11/01/6724599a863e7.png
+description: 极恶特快
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 极恶特快
+image: https://www.helloimg.com/i/2024/11/01/6724599a863e7.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 极恶特快
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r155
+  - r084
+  - r085
+  - r100
+  - r051
+  - r140
+  - r142
+  - r007
+  - r054
+  - r055
+  - r134
+  - r011
+  - r233
+  - r234
+  - r098
+  - r159
+  - r324
+  - r040
+  - r075
+  - r117
+  - r077
+  - r337
+  - r045
+  - r082
+  - r096
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r155
+    - r098
+    - r337
+    - r040
+    - r075
+    - r117
+    - r045
+    - r051
+    - r084
+    - r085
+    - r140
+    - r134
+    - r142
+    - r100
+  other:
+    - r324
+    - r337
+    - r075
+    - r117
+    - r045
+    - r082
+    - r096
+    - r040
+    - r159
+    - r233
+    - r007
+    - r051
+    - r054
+    - r055
+    - r140
+    - r134
+    - r142

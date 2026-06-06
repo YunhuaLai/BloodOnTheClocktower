@@ -1,0 +1,86 @@
+id: s630
+englishName: item
+name: 德尔塔探险队
+status: draft
+en: 德尔塔探险队
+author: Essler
+logo: https://i.postimg.cc/fLmBxn2N/11.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/fLmBxn2N/11.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3006
+  - r3007
+  - r3008
+  - r3009
+  - r3010
+  - r3011
+  - r3012
+  - r3013
+  - r3014
+  - r3015
+  - r3016
+  - r3017
+  - r3018
+  - r3019
+  - r3020
+  - r3021
+  - r3022
+  - r3023
+  - r3024
+  - r3025
+  - r3026
+  - r3027
+  - r3028
+  - r3029
+  - r3030
+travellerIds:
+  - r3031
+  - r3032
+  - r3033
+  - r3034
+  - r3035
+fabledIds: []
+nightOrder:
+  first:
+    - r3033
+    - r3013
+    - r3019
+    - r3023
+    - r3025
+    - r3012
+    - r3007
+    - r3008
+    - r3006
+    - r3010
+    - r3009
+    - r3011
+  other:
+    - r3035
+    - r3033
+    - r3023
+    - r3013
+    - r3014
+    - r3012
+    - r3025
+    - r3028
+    - r3027
+    - r3029
+    - r3030
+    - r3026
+    - r3010
+    - r3009
+    - r3011

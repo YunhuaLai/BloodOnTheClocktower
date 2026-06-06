@@ -1,0 +1,55 @@
+id: s833
+englishName: v9-0-0-mphillycheeeeezist
+name: '#神灯交易v9.0.0-mphillyCHEEEEEZist'
+status: draft
+en: '#神灯交易v9.0.0-mphillyCHEEEEEZist'
+author: phillyCHEEEEEZ
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/shendengjiaoyi/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/shendengjiaoyi/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r003
+  - r004
+  - r006
+  - r051
+  - r026
+  - r089
+  - r009
+  - r015
+  - r074
+  - r042
+  - r082
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r074
+    - r002
+    - r003
+    - r004
+    - r006
+    - r051
+  other:
+    - r074
+    - r026
+    - r082
+    - r042
+    - r009
+    - r006
+    - r051

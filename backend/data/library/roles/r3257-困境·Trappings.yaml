@@ -1,0 +1,94 @@
+id: r3257
+englishName: trappings
+name: 困境·Trappings
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Svendetta/Purgatory/trappings_purgatory.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 受困
+  - 额外的罪
+remindersGlobal: []
+firstNightReminder: 唤醒困境，让他选择一名玩家（与上个夜晚不同），标记那名玩家“受困”。直到下个黄昏，不要唤醒“受困”的玩家使用能力或触发他的能力。
+otherNightReminder: 唤醒困境，让他选择一名玩家（与上个夜晚不同），标记那名玩家“受困”。直到下个黄昏，不要唤醒“受困”的玩家使用能力或触发他的能力。
+ability: 每个夜晚，你要选择一名玩家（与上个夜晚不同）：他的能力无法使用且不会生效，直到下个黄昏。游戏开始时，你获得额外的罪。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3257
+    officialId: Trappings
+    sourceHash: 4ee78fc595d2e68b713dd3d3f0a1300a90b8086d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - minion
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

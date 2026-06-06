@@ -1,0 +1,88 @@
+id: s685
+englishName: item
+name: 子规泣鸣
+status: draft
+en: 子规泣鸣
+author: 泽渡哥摧毁停车场
+logo: https://i.postimg.cc/yY7BqGQQ/9-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/yY7BqGQQ/9-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r108
+  - r594
+  - r442
+  - r025
+  - r006
+  - r005
+  - r229
+  - r007
+  - r361
+  - r606
+  - r232
+  - r278
+  - r308
+  - r016
+  - r015
+  - r159
+  - r093
+  - r040
+  - r609
+  - r121
+  - r239
+  - r635
+  - r642
+  - r103
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r103
+    - r609
+    - r040
+    - r093
+    - r239
+    - r308
+    - r004
+    - r005
+    - r006
+    - r108
+    - r594
+    - r442
+    - r642
+    - r025
+  other:
+    - r609
+    - r093
+    - r229
+    - r103
+    - r239
+    - r635
+    - r642
+    - r040
+    - r308
+    - r159
+    - r278
+    - r005
+    - r006
+    - r007
+    - r232
+    - r361
+    - r594
+    - r025
+    - r606

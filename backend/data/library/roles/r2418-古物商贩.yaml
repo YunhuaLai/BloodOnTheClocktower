@@ -1,0 +1,83 @@
+id: r2418
+englishName: bc9ed08e-0808-4906-8786-2806d6b0e2f1
+name: 古物商贩
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/26_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 获得信息
+  - 获得能力
+  - 潘多拉的代价
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 在夜晚，你不会被其他能力影响。每局游戏限一次，在白天时，你可以打开魔盒获得一条重要信息或能力，但是可能会发生不好的事情。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2418
+    officialId: bc9ed08e-0808-4906-8786-2806d6b0e2f1
+    sourceHash: 06b0c44b60f899352885436268120fe270e8514d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - day
+    - night
+    - information
+    - traveler
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

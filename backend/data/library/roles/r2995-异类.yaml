@@ -1,0 +1,108 @@
+id: r2995
+englishName: anomaly-charged-dinner
+name: 异类
+type: townsfolk
+edition: Charged Dinner
+image:
+  - https://i.postimg.cc/mgQJCXNk/image.png
+flavor: '#ERROR#: DATA NOT FOUND. ASSIGNING BACKUP VALUE.'
+setup: true
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: townsfolk
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+reminders: []
+remindersGlobal:
+  - 是异类
+  - 得知
+  - 错误
+firstNightReminder: 唤醒一名善良玩家且展示给他这名角色在场&异类标记. 指向两名玩家, 其中一名玩家是异类。
+otherNightReminder: ''
+ability: 你以为你是恶魔得知的伪装角色之一，但其实你不是。会有一名善良玩家得知你在两名玩家之中。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2995
+    officialId: anomaly_charged_dinner
+    sourceHash: efc9005a43b6ee02db2bfc2ea96aafd35920217c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - setup
+    - first-night
+    - information
+    - good
+    - townsfolk
+    - demon
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_role
+        roleType: demon
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

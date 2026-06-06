@@ -33,7 +33,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r521
-    officialId: town-quizzer
+    officialId: 1_jtxx
     sourceHash: b3a20d04f9938bbba57622f1abe60e725614de06
     sourceHashFields:
       - ability
@@ -55,7 +55,7 @@ abilityData:
   abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

@@ -1,0 +1,57 @@
+id: s671
+englishName: v1-1
+name: 誓约·巴别塔v1.1正式版
+status: draft
+en: 誓约·巴别塔v1.1正式版
+author: 泽度哥
+logo: https://www.helloimg.com/i/2024/11/27/674609a708803.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2024/11/27/674609a708803.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3341
+  - r2316
+  - r3380
+  - r186
+  - r3218
+  - r2027
+  - r3879
+  - r3880
+  - r3881
+  - r3882
+  - r3566
+  - r3883
+travellerIds: []
+fabledIds:
+  - r3878
+nightOrder:
+  first:
+    - r3566
+    - r3883
+    - r3882
+    - r3881
+    - r3880
+    - r2027
+    - r3218
+    - r3341
+  other:
+    - r3880
+    - r3380
+    - r2316
+    - r186
+    - r3218
+    - r3882
+    - r2027

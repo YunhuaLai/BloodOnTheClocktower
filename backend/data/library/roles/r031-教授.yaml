@@ -4,8 +4,10 @@ type: townsfolk
 englishName: professor
 ability: 每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：如果他是镇民，你会将他起死回生。
 edition: custom
-image: https://www.bloodstar.xyz/p/westwind/Goldapple/3_goldapple.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/professor.png
+flavor: |-
+  过程很简单。将液压植入器连接到改良型气矩阵放大器上，加入20CC的伪多拉芬，让他的参数Z保持在20%以上，你丈夫就会重新活蹦乱跳。
+  现在，我们需要的仅仅是一次雷击。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +33,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r031
-    officialId: professor
+    officialId: fulankensitan111
     sourceHash: 009041435d52dabd7b83187c10877f677f76c5b5
     sourceHashFields:
       - ability
@@ -41,6 +43,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 一次性
     - 主动选玩家
@@ -52,8 +56,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: night
       event: null

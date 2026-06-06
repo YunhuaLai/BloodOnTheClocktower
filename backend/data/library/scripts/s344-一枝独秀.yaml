@@ -1,0 +1,82 @@
+id: s344
+englishName: item
+name: 一枝独秀
+status: draft
+en: 一枝独秀
+author: Jams&Ben
+logo: https://i.postimg.cc/02dq7Dxy/5-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/02dq7Dxy/5-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r100
+  - r004
+  - r140
+  - r133
+  - r053
+  - r027
+  - r054
+  - r057
+  - r089
+  - r088
+  - r091
+  - r009
+  - r016
+  - r015
+  - r013
+  - r067
+  - r018
+  - r017
+  - r020
+  - r093
+  - r121
+  - r080
+  - r099
+  - r683
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r683
+    - r121
+    - r017
+    - r093
+    - r097
+    - r004
+    - r013
+    - r140
+    - r018
+    - r100
+    - r133
+    - r053
+  other:
+    - r088
+    - r017
+    - r027
+    - r093
+    - r020
+    - r099
+    - r080
+    - r683
+    - r009
+    - r013
+    - r054
+    - r140
+    - r018
+    - r133
+    - r053

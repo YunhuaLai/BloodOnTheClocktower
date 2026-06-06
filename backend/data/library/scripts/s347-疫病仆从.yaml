@@ -1,0 +1,82 @@
+id: s347
+englishName: item
+name: 疫病仆从
+status: draft
+en: 疫病仆从
+author: Ben Burns
+logo: https://i.postimg.cc/02MDD041/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/02MDD041/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r084
+  - r048
+  - r005
+  - r133
+  - r051
+  - r055
+  - r150
+  - r059
+  - r061
+  - r134
+  - r011
+  - r159
+  - r098
+  - r015
+  - r067
+  - r641
+  - r020
+  - r121
+  - r074
+  - r076
+  - r017
+  - r080
+  - r103
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r098
+    - r121
+    - r061
+    - r103
+    - r017
+    - r074
+    - r002
+    - r005
+    - r048
+    - r051
+    - r084
+    - r134
+    - r133
+  other:
+    - r059
+    - r061
+    - r017
+    - r074
+    - r076
+    - r020
+    - r150
+    - r080
+    - r103
+    - r005
+    - r051
+    - r055
+    - r134
+    - r133

@@ -1,0 +1,86 @@
+id: s745
+englishName: item
+name: 惊惧梦魇
+status: draft
+en: 惊惧梦魇
+author: lsaac
+logo: https://img.picui.cn/free/2025/04/15/67fe3c3801f1e.png
+description: 惊惧梦魇
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 惊惧梦魇
+image: https://img.picui.cn/free/2025/04/15/67fe3c3801f1e.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 惊惧梦魇
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r085
+  - r023
+  - r140
+  - r2399
+  - r3982
+  - r028
+  - r056
+  - r375
+  - r029
+  - r058
+  - r392
+  - r063
+  - r397
+  - r098
+  - r016
+  - r067
+  - r3983
+  - r078
+  - r093
+  - r042
+  - r401
+  - r079
+  - r045
+  - r082
+  - r3984
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r098
+    - r078
+    - r401
+    - r093
+    - r3984
+    - r045
+    - r023
+    - r058
+    - r392
+    - r085
+    - r140
+    - r3982
+    - r2399
+  other:
+    - r375
+    - r028
+    - r401
+    - r093
+    - r045
+    - r079
+    - r082
+    - r3984
+    - r042
+    - r397
+    - r029
+    - r023
+    - r063
+    - r056
+    - r058
+    - r392
+    - r140
+    - r3982
+    - r2399

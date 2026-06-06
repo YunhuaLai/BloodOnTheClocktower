@@ -4,7 +4,7 @@ name: 异教徒
 type: outsider
 edition: custom
 image: https://www.bloodstar.xyz/p/meiosis/clockparadox/23_clockparadox.png
-flavor: ''
+flavor: The ritual is too far gone to prevent it anymore. All I can do is warn those in it's wake.
 setup: false
 setupMeta:
   randomAssignable: true
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
   termIds:
@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

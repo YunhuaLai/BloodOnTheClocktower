@@ -1,0 +1,88 @@
+id: r1343
+englishName: xiaonvhai-duck
+name: 小女孩
+type: outsider
+edition: custom
+image: https://free.picui.cn/free/2025/12/10/693910bc6065b.png
+flavor: Duck_Town
+setup: false
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: townsfolk
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+reminders: []
+remindersGlobal: []
+firstNightReminder: 夜晚睁眼
+otherNightReminder: 夜晚睁眼
+ability: 每个夜晚，如果说书人允许，你可以在夜晚睁眼。 在夜晚被其他玩家发现睁眼你死亡，并且当晚恶魔不会造成死亡。 每局游戏限两次，你存活时复原了魔典，你独自获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1343
+    officialId: 13_yanbaojiancao
+    sourceHash: b05398fd9a1e6497bb5eb7194ef8697d7190373e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - death
+    - alive
+    - outsider
+    - demon
+    - storyteller
+    - grimoire
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -4,7 +4,7 @@ name: 蛇神使
 type: minion
 edition: custom
 image: https://www.bloodstar.xyz/p/jc3635/MatchOfLei/7_matchoflei.png
-flavor: ''
+flavor: 凡人难以知晓自己何时被神所背弃，因为他们所知道的唯一神并不存在……
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r732
-    officialId: serpent-apostle
+    officialId: sheshenshi
     sourceHash: 0fd5a95aaa5157229ced392c947e28606265106a
     sourceHashFields:
       - ability
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 事件触发
   termIds:
@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_nomination

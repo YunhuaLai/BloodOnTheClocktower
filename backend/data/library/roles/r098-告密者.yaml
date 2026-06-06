@@ -4,8 +4,8 @@ type: outsider
 englishName: snitch
 ability: 爪牙会在其首个夜晚得知三个伪装。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/snitch.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/snitch.png
+flavor: 是他干的。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -21,15 +21,16 @@ setupMeta:
   setupNotes: []
 reminders: []
 remindersGlobal: []
-firstNightReminder: '如果告密者在场，对爪牙展示三个不在场的善良角色标记。 '
+firstNightReminder: 如果告密者在场，对爪牙展示三个不在场的善良角色标记。
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r098
-    officialId: snitch
-    sourceHash: 5041ddf86c05bd73ffe5663d5db2c172daab0ec4
+    officialId: abaaba111
+    sourceHash: c95575590802964ea8c20224bb58efba0a493e35
     sourceHashFields:
       - ability
       - type
@@ -38,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 开局
     - 外来者
@@ -51,14 +54,14 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: setup
       event: null
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: passive_rule
   abilityMeta:

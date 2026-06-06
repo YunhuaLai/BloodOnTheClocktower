@@ -1,0 +1,79 @@
+id: s827
+englishName: ascraywizard
+name: 观冥鉴-Ascraywizard
+status: draft
+en: 观冥鉴-Ascraywizard
+author: Ascraywizard
+logo: https://img.picui.cn/free/2025/03/24/67e0e1aa2914f.png
+description: 观冥鉴
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 观冥鉴
+image: https://img.picui.cn/free/2025/03/24/67e0e1aa2914f.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 观冥鉴
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r011
+  - r063
+  - r233
+  - r005
+  - r006
+  - r025
+  - r052
+  - r051
+  - r056
+  - r031
+  - r059
+  - r030
+  - r034
+  - r067
+  - r016
+  - r068
+  - r071
+  - r017
+  - r041
+  - r019
+  - r043
+  - r021
+  - r079
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r059
+    - r071
+    - r017
+    - r030
+    - r052
+    - r041
+    - r005
+    - r006
+    - r051
+    - r025
+  other:
+    - r059
+    - r017
+    - r030
+    - r052
+    - r041
+    - r021
+    - r079
+    - r068
+    - r063
+    - r233
+    - r031
+    - r005
+    - r006
+    - r051
+    - r056
+    - r025

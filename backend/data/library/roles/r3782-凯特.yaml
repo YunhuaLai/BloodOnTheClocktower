@@ -1,0 +1,107 @@
+id: r3782
+englishName: cat
+name: 凯特
+type: townsfolk
+edition: custom
+image:
+  - https://www.bloodstar.xyz/p/Rowlf/Reddwarf/cat_reddwarf.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 保护
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  Wake up Cat and direct them to select one of their living neighbours. Place the 'Safe' token next to their token and
+  place the 'Drunk' token next to Cat's other living neighbour (if good). :reminder: :reminder:
+ability: 每个夜晚*，你要选择一名与你邻近的存活玩家：当晚邪恶玩家的能力对他无效。如果与你邻近的另一名存活玩家是善良的，他醉酒直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3782
+    officialId: cat
+    sourceHash: 3a488e6ef20d25fb8d704fdb81bbb70eaa024cc1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - drunk
+    - alive
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: protect_player
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

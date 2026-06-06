@@ -1,0 +1,83 @@
+id: s709
+englishName: item
+name: 玄狐阶梯
+status: draft
+en: 玄狐阶梯
+author: 叮当&蓝铃兰
+logo: https://free.picui.cn/free/2025/12/10/69390ce9b1333.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/10/69390ce9b1333.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r025
+  - r028
+  - r035
+  - r052
+  - r057
+  - r058
+  - r140
+  - r134
+  - r115
+  - r091
+  - r100
+  - r087
+  - r597
+  - r3932
+  - r014
+  - r039
+  - r119
+  - r135
+  - r042
+  - r074
+  - r077
+  - r093
+  - r336
+  - r081
+travellerIds: []
+fabledIds:
+  - r3933
+  - r1164
+  - r3935
+nightOrder:
+  first:
+    - r336
+    - r115
+    - r039
+    - r052
+    - r074
+    - r093
+    - r058
+    - r140
+    - r597
+    - r087
+    - r134
+    - r100
+    - r025
+  other:
+    - r3932
+    - r028
+    - r052
+    - r074
+    - r093
+    - r039
+    - r081
+    - r042
+    - r058
+    - r140
+    - r597
+    - r087
+    - r134
+    - r025

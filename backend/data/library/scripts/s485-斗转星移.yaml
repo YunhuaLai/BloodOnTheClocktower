@@ -1,0 +1,83 @@
+id: s485
+englishName: item
+name: 斗转星移
+status: draft
+en: 斗转星移
+author: 小虫
+logo: https://www.helloimg.com/i/2025/03/05/67c86a8749fd8.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2025/03/05/67c86a8749fd8.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r108
+  - r481
+  - r048
+  - r463
+  - r278
+  - r057
+  - r005
+  - r230
+  - r091
+  - r530
+  - r053
+  - r055
+  - r363
+  - r016
+  - r214
+  - r908
+  - r042
+  - r609
+  - r073
+  - r040
+  - r082
+  - r635
+  - r080
+  - r021
+travellerIds: []
+fabledIds:
+  - r305
+  - r118
+nightOrder:
+  first:
+    - r609
+    - r040
+    - r073
+    - r005
+    - r048
+    - r108
+    - r307
+    - r481
+    - r530
+    - r053
+  other:
+    - r609
+    - r635
+    - r021
+    - r082
+    - r080
+    - r042
+    - r040
+    - r214
+    - r463
+    - r363
+    - r278
+    - r005
+    - r055
+    - r481
+    - r230
+    - r530
+    - r053

@@ -1,0 +1,91 @@
+id: s757
+englishName: item
+name: 新世界
+status: draft
+en: 新世界
+author: 惊鸿&梦
+logo: https://free.picui.cn/free/2025/10/06/68e3309592963.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/10/06/68e3309592963.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r227
+  - r391
+  - r140
+  - r087
+  - r1250
+  - r133
+  - r275
+  - r134
+  - r481
+  - r066
+  - r1403
+  - r010
+  - r1251
+  - r896
+  - r039
+  - r1008
+  - r013
+  - r281
+  - r302
+  - r017
+  - r121
+  - r336
+  - r079
+  - r099
+  - r3954
+travellerIds:
+  - r583
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r066
+    - r039
+    - r1250
+    - r121
+    - r1403
+    - r302
+    - r017
+    - r3954
+    - r013
+    - r1008
+    - r227
+    - r481
+    - r087
+    - r134
+    - r391
+    - r140
+    - r133
+  other:
+    - r066
+    - r1403
+    - r302
+    - r017
+    - r1008
+    - r039
+    - r079
+    - r099
+    - r3954
+    - r140
+    - r1251
+    - r013
+    - r481
+    - r087
+    - r1250
+    - r134
+    - r275
+    - r133

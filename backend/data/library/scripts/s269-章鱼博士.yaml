@@ -1,0 +1,74 @@
+id: s269
+englishName: item
+name: 章鱼博士
+status: draft
+en: 章鱼博士
+author: Bambi and FMJason
+logo: https://www.helloimg.com/i/2024/12/04/674fec0a5b8d5.png
+description: 章鱼博士
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 章鱼博士
+image: https://www.helloimg.com/i/2024/12/04/674fec0a5b8d5.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 章鱼博士
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r084
+  - r005
+  - r006
+  - r008
+  - r025
+  - r053
+  - r056
+  - r059
+  - r062
+  - r057
+  - r091
+  - r009
+  - r015
+  - r016
+  - r038
+  - r067
+  - r020
+  - r040
+  - r075
+  - r121
+  - r082
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r121
+    - r040
+    - r075
+    - r002
+    - r005
+    - r006
+    - r084
+    - r025
+    - r053
+  other:
+    - r059
+    - r008
+    - r075
+    - r020
+    - r082
+    - r040
+    - r009
+    - r005
+    - r006
+    - r056
+    - r062
+    - r025
+    - r053

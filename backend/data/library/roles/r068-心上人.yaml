@@ -4,8 +4,8 @@ type: outsider
 englishName: sweetheart
 ability: 当你死亡时，会有一名玩家开始醉酒。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/sweetheart.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/sweetheart.png
+flavor: 我永远也忘不掉她……永远……
 setup: false
 setupMeta:
   randomAssignable: true
@@ -23,15 +23,15 @@ reminders:
   - 醉酒
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: ''
+otherNightReminder: 如果心上人死亡，一名玩家醉酒。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r068
-    officialId: sweetheart
-    sourceHash: fa42a46800ad00ce76d8957175519bfdcd0ee724
+    officialId: wuwusidehaocan111
+    sourceHash: 3f39d2a892d3007a0a08cd76b8f02521cec7c081
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 死亡触发
     - 中毒/醉酒
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_death

@@ -4,8 +4,8 @@ type: demon
 englishName: no-dashii
 ability: 每个夜晚*，你要选择一名玩家：他死亡。与你邻近的两名镇民中毒。
 edition: custom
-image: https://www.bloodstar.xyz/p/spdm/SpaceBound/24_spacebound.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/no_dashii.png
+flavor: 彼因汝之罪孽，吾已嗅汝之恶臭满溢全身。时日曷丧？予及汝皆亡。竖子命如草芥，以吾之力，使汝终末于深海，终于此良夜。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -22,17 +22,18 @@ setupMeta:
 reminders:
   - 死亡
   - 中毒
+  - 中毒
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 让诺-达鲺选择一名玩家。标记那名玩家死亡。
+otherNightReminder: 唤醒诺-达鲺，让他攻击一名玩家。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r082
-    officialId: no-dashii
-    sourceHash: e7a2dfaee63e576d023edd0f9cbeb898f3ce2c87
+    officialId: meiyoudashi11111
+    sourceHash: d5d1c94d464041e2da94ab552148375150159e18
     sourceHashFields:
       - ability
       - type
@@ -41,6 +42,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -54,7 +57,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

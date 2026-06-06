@@ -1,0 +1,80 @@
+id: s155
+englishName: v1-6-0
+name: 志异录v1.6.0
+status: draft
+en: 志异录v1.6.0
+author: 杨哥
+logo: https://www.helloimg.com/i/2025/03/04/67c683a5a1b6e.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2025/03/04/67c683a5a1b6e.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1297
+  - r1298
+  - r1299
+  - r1300
+  - r530
+  - r1301
+  - r769
+  - r109
+  - r230
+  - r1302
+  - r1303
+  - r1304
+  - r009
+  - r015
+  - r308
+  - r1305
+  - r425
+  - r237
+  - r1306
+  - r514
+  - r1307
+  - r880
+  - r1308
+  - r1309
+travellerIds: []
+fabledIds:
+  - r1295
+  - r1296
+nightOrder:
+  first:
+    - r514
+    - r1307
+    - r1297
+    - r1298
+    - r308
+    - r1299
+    - r1300
+    - r530
+  other:
+    - r109
+    - r514
+    - r1307
+    - r1308
+    - r880
+    - r1309
+    - r237
+    - r1302
+    - r308
+    - r425
+    - r1301
+    - r769
+    - r009
+    - r1299
+    - r1300
+    - r230
+    - r530

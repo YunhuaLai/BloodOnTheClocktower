@@ -1,0 +1,81 @@
+id: s117
+englishName: item
+name: 六宫粉黛
+status: draft
+en: 六宫粉黛
+author: 驯鹿
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1697468022_197011_8214.png
+description: 六宫粉黛 by 驯鹿
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 六宫粉黛 by 驯鹿
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1697468022_197011_8214.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 六宫粉黛 by 驯鹿
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r227
+  - r442
+  - r004
+  - r232
+  - r006
+  - r007
+  - r005
+  - r010
+  - r594
+  - r278
+  - r1176
+  - r614
+  - r015
+  - r016
+  - r1177
+  - r1154
+  - r017
+  - r018
+  - r235
+  - r020
+  - r021
+  - r975
+travellerIds:
+  - r1178
+  - r1179
+fabledIds:
+  - r344
+nightOrder:
+  first:
+    - r975
+    - r017
+    - r235
+    - r227
+    - r442
+    - r307
+    - r004
+    - r005
+    - r006
+    - r018
+    - r594
+  other:
+    - r1154
+    - r017
+    - r235
+    - r020
+    - r021
+    - r975
+    - r1177
+    - r1176
+    - r278
+    - r005
+    - r006
+    - r007
+    - r232
+    - r594
+    - r018

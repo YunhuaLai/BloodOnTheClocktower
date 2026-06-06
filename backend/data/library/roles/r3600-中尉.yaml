@@ -1,0 +1,83 @@
+id: r3600
+englishName: diyrole7
+name: 中尉
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Nightingale/Princesses_Requiem/lieutenant_princesses_requiem.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 不会死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果中尉存活，标记对你的阵营最有价值的玩家为“中坚力量”
+ability: 每个夜晚*，在与恶魔对立阵营中，(除你以外的)对你的阵营最有价值的玩家不会死亡，直到下个黎明。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3600
+    officialId: diyRole7
+    sourceHash: eeb2ef390d9f87132d82f68aebfb8aa8e51adbac
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - alignment
+    - townsfolk
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

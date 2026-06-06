@@ -1,0 +1,97 @@
+id: r3069
+englishName: crescendo
+name: 残响
+type: minion
+edition: custom
+image: https://i.postimg.cc/66GPfPYr/crescendo.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 休止符
+  - 今天处决
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  如果残响今天死于处决：唤醒残响，他要么点头表示“是”，要么摇头表示“否”。如果他点头，在魔典中央放置“休止符”标记。今晚所有死亡的玩家放置残响的“死亡”标记，不改变死亡状态。如果魔典中央有“休止符”标记，移除它，所有带有“死亡”标记的玩家死亡。说书人选择一名不带有“死亡”标记的玩家：他死亡。
+ability: 如果你死于处决，在当晚时，你可以选择让当晚死亡的玩家改为下个夜晚死亡，会有额外的一名玩家在下个夜晚死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3069
+    officialId: crescendo
+    sourceHash: b4a1680822004429a74e73584b8feccc42208c4a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - execution
+    - death
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 死亡玩家号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

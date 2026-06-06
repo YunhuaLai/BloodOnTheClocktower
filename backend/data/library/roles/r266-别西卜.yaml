@@ -36,7 +36,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r266
-    officialId: beelzebub
+    officialId: opppppklppppp1111
     sourceHash: cd1c3ecb09c286be8a0cb47567a9c11fc43bfc1b
     sourceHashFields:
       - ability
@@ -46,8 +46,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 设置
@@ -62,8 +62,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

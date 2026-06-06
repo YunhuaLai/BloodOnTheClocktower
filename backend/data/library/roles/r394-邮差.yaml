@@ -4,7 +4,7 @@ name: 邮差
 type: townsfolk
 edition: custom
 image: https://img.picui.cn/free/2025/06/14/684d361d9fd65.png
-flavor: ''
+flavor: M'lord, I was told to give you this.
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r394
-    officialId: postman
+    officialId: yc
     sourceHash: e6a414fd85938f5f9c9b378212b615a1a4095fb8
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null
@@ -102,3 +102,8 @@ abilityData:
           min: null
           max: null
           placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: natural_language
+    note: ''

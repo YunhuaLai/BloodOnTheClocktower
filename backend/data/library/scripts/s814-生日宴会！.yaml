@@ -1,0 +1,84 @@
+id: s814
+englishName: item
+name: 生日宴会！
+status: draft
+en: 生日宴会！
+author: ''
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689598861_197011_7183.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689598861_197011_7183.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r004
+  - r024
+  - r1250
+  - r056
+  - r027
+  - r028
+  - r062
+  - r030
+  - r035
+  - r115
+  - r1251
+  - r091
+  - r013
+  - r214
+  - r068
+  - r015
+  - r040
+  - r041
+  - r075
+  - r121
+  - r141
+  - r021
+  - r080
+  - r079
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r1250
+    - r024
+    - r121
+    - r141
+    - r030
+    - r040
+    - r041
+    - r075
+    - r004
+    - r013
+    - r049
+  other:
+    - r024
+    - r027
+    - r030
+    - r028
+    - r041
+    - r075
+    - r021
+    - r079
+    - r080
+    - r141
+    - r040
+    - r214
+    - r068
+    - r1251
+    - r013
+    - r056
+    - r062
+    - r1250

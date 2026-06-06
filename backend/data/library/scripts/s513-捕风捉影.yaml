@@ -1,0 +1,84 @@
+id: s513
+englishName: item
+name: 捕风捉影
+status: draft
+en: 捕风捉影
+author: momo
+logo: https://free.picui.cn/free/2025/12/09/6937e45da0a87.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/09/6937e45da0a87.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r006
+  - r007
+  - r008
+  - r010
+  - r025
+  - r028
+  - r029
+  - r055
+  - r059
+  - r063
+  - r100
+  - r108
+  - r597
+  - r015
+  - r037
+  - r067
+  - r820
+  - r020
+  - r040
+  - r336
+  - r609
+  - r079
+  - r082
+  - r083
+  - r114
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r114
+    - r336
+    - r059
+    - r820
+    - r609
+    - r040
+    - r006
+    - r108
+    - r597
+    - r100
+    - r025
+  other:
+    - r059
+    - r609
+    - r028
+    - r008
+    - r020
+    - r079
+    - r082
+    - r083
+    - r114
+    - r820
+    - r040
+    - r029
+    - r037
+    - r063
+    - r006
+    - r007
+    - r597
+    - r055
+    - r025

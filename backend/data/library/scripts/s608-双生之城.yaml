@@ -1,0 +1,92 @@
+id: s608
+englishName: item
+name: 双生之城
+status: draft
+en: 双生之城
+author: 际尘
+logo: https://www.bloodstar.xyz/p/jc3635/TwinCity/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/jc3635/TwinCity/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r2474
+  - r2475
+  - r2476
+  - r2477
+  - r1445
+  - r2478
+  - r2479
+  - r2480
+  - r2481
+  - r2482
+  - r2483
+  - r619
+  - r253
+  - r2484
+  - r2485
+  - r390
+  - r2486
+  - r446
+  - r1399
+  - r2487
+  - r2488
+  - r2489
+  - r2490
+  - r1394
+  - r2491
+travellerIds:
+  - r1032
+  - r2492
+fabledIds:
+  - r792
+  - r2493
+  - r2494
+nightOrder:
+  first:
+    - r2492
+    - r2474
+    - r2476
+    - r1445
+    - r2478
+    - r2475
+    - r619
+    - r2482
+    - r2485
+    - r1399
+    - r2484
+    - r390
+    - r253
+    - r2486
+    - r2488
+    - r2489
+  other:
+    - r2492
+    - r2474
+    - r2479
+    - r2478
+    - r2482
+    - r2480
+    - r2491
+    - r2485
+    - r2475
+    - r2476
+    - r2477
+    - r2481
+    - r2484
+    - r253
+    - r2486
+    - r2488
+    - r2489

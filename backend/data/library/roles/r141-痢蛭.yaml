@@ -3,8 +3,8 @@ englishName: lleech
 name: 痢蛭
 type: demon
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/lleech.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/lleech.png
+flavor: 美味，美味，美味，美味，美味，美味，美味，美味的脑——馅儿饼！是的。美味的老馅儿饼。我想说的就是这个。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -22,17 +22,17 @@ reminders:
   - 中毒
   - 死亡
 remindersGlobal: []
-firstNightReminder: 让痢蛭指向一名玩家。标记那名玩家中毒。
-otherNightReminder: 寄生蛭指向一名玩家。那名玩家死亡。
-ability: 每个夜晚*，你要选择一名玩家:他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒，只有当他处于死亡状态时你才会立即死亡。
+firstNightReminder: 唤醒痢蛭，让他选择一名玩家以寄生。
+otherNightReminder: 唤醒痢蛭，让他攻击一名玩家。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒，只有当他处于死亡状态时你才会立即死亡。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r141
-    officialId: lleech
-    sourceHash: 4531d17f9aac4895aa5ce1f05c6470b8e502653f
+    officialId: lizhiiiiii111111111
+    sourceHash: fce6eb42a482ed09a63aeecf91967e5f4934e703
     sourceHashFields:
       - ability
       - type
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -57,8 +57,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

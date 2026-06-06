@@ -1,0 +1,104 @@
+id: r901
+englishName: jijijiiiijijijijii
+name: 寂
+type: minion
+edition: custom
+image: https://s2.loli.net/2025/09/07/6bQsycoWLXKxePm.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 选择过
+  - 失去能力
+remindersGlobal:
+  - 禁言
+firstNightReminder: 每个夜晚，你可以选择一名玩家(每名玩家只能被选择一次)，他会被告知在明天白天被禁言，但可以做肢体语言，若他讲话，他可能会被处决。在小于等于四名存活玩家时，你失去此能力。。
+otherNightReminder: 每个夜晚，你可以选择一名玩家(每名玩家只能被选择一次)，他会被告知在明天白天被禁言，但可以做肢体语言，若他讲话，他可能会被处决。在小于等于四名存活玩家时，你失去此能力。
+ability: 每个夜晚，你可以选择一名玩家(每名玩家只能被选择一次)，他会被告知在明天白天被禁言，但可以做肢体语言，若他讲话，他可能会被处决。在小于等于四名存活玩家时，你失去此能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r901
+    officialId: jijijiiiijijijijii
+    sourceHash: 20b2d75d750562266597928372ef7fc5981d73d0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - execution
+    - alive
+    - minion
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

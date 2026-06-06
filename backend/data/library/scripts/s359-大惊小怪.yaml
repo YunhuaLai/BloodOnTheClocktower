@@ -1,0 +1,84 @@
+id: s359
+englishName: item
+name: 大惊小怪
+status: draft
+en: 大惊小怪
+author: Kinky Joe
+logo: https://i.postimg.cc/wM5mQmQp/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/wM5mQmQp/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r049
+  - r006
+  - r086
+  - r052
+  - r087
+  - r055
+  - r056
+  - r059
+  - r058
+  - r029
+  - r057
+  - r334
+  - r070
+  - r068
+  - r069
+  - r015
+  - r040
+  - r093
+  - r117
+  - r120
+  - r103
+  - r079
+  - r082
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r103
+    - r052
+    - r040
+    - r093
+    - r117
+    - r097
+    - r006
+    - r058
+    - r049
+    - r087
+    - r086
+  other:
+    - r059
+    - r052
+    - r093
+    - r117
+    - r079
+    - r082
+    - r083
+    - r103
+    - r040
+    - r070
+    - r068
+    - r029
+    - r006
+    - r055
+    - r056
+    - r058
+    - r087
+    - r086

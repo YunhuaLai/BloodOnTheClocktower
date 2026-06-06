@@ -1,0 +1,113 @@
+id: r2036
+englishName: 21-blackout
+name: 背叛者
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/bluebell/blackout/21_blackout.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒背叛者，告诉他所有在场身份。他可以在夜晚任何时候拜访，如果他猜测得足够正确，发生一些对邪恶方有利的事。（提示：互认是在背叛者行动顺位之前举行，因为无法更改所以只能在最下面。）
+otherNightReminder: 唤醒背叛者，让他选择一名玩家，随后为该玩家标记死亡。他可以在夜晚任何时候拜访你，如果他还原的足够正确，发生一些对邪恶方有利的事情。
+ability: 每个夜晚*，你要选择一名玩家，他死亡。说书人会给予你一份在场角色名单。每局游戏限一次，你可以向说书人出示你标记的魔典。如果你标对了，会发生一些好的事情。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2036
+    officialId: 21_blackout
+    sourceHash: 36c53a9dcfcab8b7672084e33ae8c219d956b4da
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - demon
+    - storyteller
+    - grimoire
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

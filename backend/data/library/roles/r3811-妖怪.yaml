@@ -1,0 +1,108 @@
+id: r3811
+englishName: yokai1-echoes-of-the-past
+name: 妖怪
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Wingidon/Echoes_Of_The_Past/yokai1_echoes_of_the_past.png
+flavor: '*you know the drill by now*'
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 使用限次能力
+  - '1'
+  - '2'
+  - '3'
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: The Yokai uses their ability.
+ability: 每个夜晚*，你要选择一名玩家：他死亡。每局游戏限一次，在夜晚时*，如果大于等于5名玩家存活，你可以修改你要选择的玩家的数量(1、2、3)：被你选择的玩家死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3811
+    officialId: yokai1_echoes_of_the_past
+    sourceHash: 6c064fbff1615d97869047f2453527e0c6ee0046
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - alive
+    - demon
+  abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null

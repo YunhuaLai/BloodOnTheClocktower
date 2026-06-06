@@ -1,0 +1,87 @@
+id: r2483
+englishName: 11-city-of-illusio
+name: 机关触发者
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/TwinCity/9_twincity.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 机关开启
+  - 以为存活
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你死亡后的某时刻会突然听见“咔嗒！”，最后举手的存活善良玩家死亡且被当作存活。如果你对外来者疯狂，当晚可能会有一名邪恶玩家行动两次，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2483
+    officialId: 11_city_of_illusio
+    sourceHash: 1e11369bf263daa68a7d482bc7709bac0146838f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - vote
+    - death
+    - alive
+    - good
+    - evil
+    - outsider
+    - madness
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

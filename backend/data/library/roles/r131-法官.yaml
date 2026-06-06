@@ -4,7 +4,7 @@ name: 法官
 type: traveller
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/judge.png
-flavor: ''
+flavor: 我认为被告人涉嫌谋杀罪、诈骗罪、放火罪、盗窃罪、招摇撞骗罪、非法行医罪、诽谤罪、弑君罪以及乱丢垃圾罪等罪行。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r131
-    officialId: judge
+    officialId: fafafafafafafafafafa111
     sourceHash: b2e2ceaa7561eee54d63352d556898d67ab9a6c8
     sourceHashFields:
       - ability
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 事件触发
   termIds:
@@ -52,8 +52,8 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: on_nomination

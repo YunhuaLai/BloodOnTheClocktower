@@ -1,0 +1,103 @@
+id: r3975
+englishName: shenmizhuyizhe
+name: 神秘主义者
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/Satellite/1_satellite.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 复活
+  - 死在夜晚
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果神秘主义者在夜晚死亡，放置死在夜晚标记。如果有死在夜晚标记，在最后一个夜晚唤醒神秘主义者并让他选择一个善良角色，将该角色标记替换之。
+ability: 如果你在夜晚死亡，在最后一个夜晚，你要选择一个善良角色：你变成该角色并复活，即使你已醉酒或中毒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3975
+    officialId: shenmizhuyizhe
+    sourceHash: 422a3cfe0541935c96167fcb1999be50b90e5142
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - poisoned
+    - drunk
+    - death
+    - good
+    - townsfolk
+  abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

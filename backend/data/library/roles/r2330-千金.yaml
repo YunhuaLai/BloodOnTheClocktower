@@ -1,0 +1,105 @@
+id: r2330
+englishName: 107b8efa-fe58-4884-aa75-bea9096434cc
+name: 千金
+type: outsider
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_3983859077861_20532f15.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 娇弱
+  - 限一次
+remindersGlobal: []
+firstNightReminder: 让千金选择一名玩家，标记该玩家“娇弱”。唤醒该玩家，向他展示“该角色能力对你生效”提示卡和千金角色标记。如果千金选择说书人，标记“限一次”。
+otherNightReminder: 让千金选择一名玩家，标记该玩家“娇弱”。唤醒该玩家，向他展示“该角色能力对你生效”提示卡和千金角色标记。如果千金选择说书人，标记“限一次”。
+ability: 饰反派。每个夜晚，你要选择一名玩家：该玩家中毒且发言只能是“小生/小女子身体不适，改日再聊”直到下个黄昏，否则他可能被处决。每局游戏限一次，你可以改为选择说书人。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2330
+    officialId: 107b8efa-fe58-4884-aa75-bea9096434cc
+    sourceHash: 96104b89d843ef46b866cf0977ad3c51a661b5fd
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - execution
+    - outsider
+    - storyteller
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

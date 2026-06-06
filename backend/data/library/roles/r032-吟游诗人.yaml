@@ -1,10 +1,11 @@
 id: r032
 name: 吟游诗人
-type: townsfolk
+type: demon
 englishName: minstrel
-ability: 当一名爪牙死于处决时，除了你和旅行者以外的所有其他玩家醉酒直到明天黄昏。
+ability: 当首次有爪牙死于处决时，除了你和旅行者以外的所有其他玩家醉酒直到明天黄昏。每个夜晚*，你要选择一名玩家：他死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/minstrel.png
+image:
+  - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/minstrel_r.png
 flavor: ''
 setup: false
 setupMeta:
@@ -20,18 +21,19 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 全员醉酒
+  - 死亡
+  - 醉酒
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: ''
+otherNightReminder: '1'
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r032
-    officialId: minstrel
-    sourceHash: bd3a80def0d3e24fcf52413963dd2e419dc4c955
+    officialId: 22_fan
+    sourceHash: 6bded3c9192cbd1e4005228d16c10b9425997d43
     sourceHashFields:
       - ability
       - type
@@ -40,20 +42,24 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 处决触发
     - 全局影响
     - 特殊机制
   termIds:
+    - night
     - drunk
     - execution
-    - townsfolk
+    - death
     - minion
+    - demon
     - traveler
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

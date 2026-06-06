@@ -1,0 +1,131 @@
+id: r3810
+englishName: poltergeist-echoes-of-the-past
+name: 喧闹鬼
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Wingidon/Echoes_Of_The_Past/poltergeist_echoes_of_the_past.png
+flavor: '*more ghost noises*'
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 死亡
+  - 中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  Wake the Poltergeist. They will choose a player - mark that player with the Poltergeist's DEAD reminder token: They
+  die. If they were poisoned, mark another poisoned player with the Poltergeist's DEAD reminder token: They die. If the
+  Poltergeist kills an Outsider, nod your head "yes" at them. Then, put the Poltergeist to sleep.
+ability: 每个夜晚*，你要选择一名玩家：他死亡。如果你杀死了一名中毒的玩家，会有额外一名玩家死亡。如果你杀死了一名外来者，与他邻近的一名镇民玩家中毒且你会得知他是谁。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3810
+    officialId: poltergeist_echoes_of_the_past
+    sourceHash: 08ef0869e49b2c2168ec4576af1e3c94844d3ced
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - poisoned
+    - death
+    - townsfolk
+    - outsider
+    - demon
+  abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

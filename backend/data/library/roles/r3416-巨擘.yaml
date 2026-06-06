@@ -1,0 +1,100 @@
+id: r3416
+englishName: 2d
+name: 巨擘
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Imzecorella/Day_By_Day/cimlaaq_day_by_day.png
+flavor: 风祛万物，愿尔驻足于知己之檐。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 得知
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 唤醒巨擘并让他指向三名玩家。
+otherNightReminder: 如果巨擘尚未失去能力，唤醒巨擘并让他指向三名玩家。
+ability: 每个夜晚，你会得知三个玩家。明天白天，你可以私下向说书人发表一个关于这三个玩家的声明。如果该声明错误，你失去能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3416
+    officialId: 2d
+    sourceHash: 7b18a541eaebf97108c18e21b72eb87a6fb75490
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - townsfolk
+    - storyteller
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

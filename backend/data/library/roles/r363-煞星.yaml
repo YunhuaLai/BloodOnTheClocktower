@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r363
-    officialId: bane-star
+    officialId: suaibi1111
     sourceHash: d348ead6a777d48dad1bcd1e0811f0c79e5f263d
     sourceHashFields:
       - ability
@@ -52,7 +52,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

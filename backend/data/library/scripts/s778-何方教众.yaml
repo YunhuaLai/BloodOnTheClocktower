@@ -1,0 +1,87 @@
+id: s778
+englishName: item
+name: 何方教众
+status: draft
+en: 何方教众
+author: Zets
+logo: https://www.bloodstar.xyz/p/ronchi/hefangjiaozhong/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/ronchi/hefangjiaozhong/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r097
+  - r006
+  - r140
+  - r1250
+  - r056
+  - r142
+  - r150
+  - r057
+  - r058
+  - r064
+  - r1251
+  - r091
+  - r071
+  - r067
+  - r016
+  - r119
+  - r074
+  - r075
+  - r117
+  - r641
+  - r079
+  - r103
+  - r082
+  - r083
+travellerIds: []
+fabledIds:
+  - r158
+  - r118
+nightOrder:
+  first:
+    - r158
+    - r071
+    - r1250
+    - r103
+    - r074
+    - r075
+    - r117
+    - r049
+    - r097
+    - r140
+    - r006
+    - r058
+    - r064
+    - r142
+  other:
+    - r074
+    - r075
+    - r117
+    - r150
+    - r079
+    - r082
+    - r083
+    - r103
+    - r1251
+    - r140
+    - r006
+    - r056
+    - r1250
+    - r058
+    - r064
+    - r071
+    - r142

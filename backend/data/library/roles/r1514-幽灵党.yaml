@@ -1,0 +1,106 @@
+id: r1514
+englishName: youlingdang-haiwu
+name: 幽灵党
+type: demon
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/2b/q1a4mjtnabrc1hgqymjm2o5p859mdul.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 是恶魔
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让幽灵党（即使他已经死亡）选择一名玩家，标记那名玩家死亡。如果今天白天幽灵党死于处决，则用“是恶魔”标记他今晚选择的玩家，同时在晚上由说书人决定杀死另一名邪恶玩家代替之。
+ability: 每个夜晚*，你要选择一名玩家，他死亡，即使你已经死亡。如果场上存活人数大于四人时你死于处决，你当晚选择的玩家醉酒且“是邪恶的恶魔”，另一名邪恶玩家代替他死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1514
+    officialId: youlingdang_haiwu
+    sourceHash: 80b7bfe29de2d48b5095230363a459b8a7e99684
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - drunk
+    - execution
+    - death
+    - alive
+    - evil
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

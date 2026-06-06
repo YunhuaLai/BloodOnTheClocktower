@@ -1,0 +1,87 @@
+id: s164
+englishName: item
+name: 以身入局
+status: draft
+en: 以身入局
+author: 邦德
+logo: https://s2.loli.net/2025/09/05/x4nkwbcp5K6ElPJ.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/09/05/x4nkwbcp5K6ElPJ.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r049
+  - r052
+  - r006
+  - r025
+  - r140
+  - r028
+  - r1350
+  - r059
+  - r022
+  - r029
+  - r057
+  - r278
+  - r071
+  - r037
+  - r119
+  - r038
+  - r020
+  - r017
+  - r042
+  - r1351
+  - r076
+  - r082
+  - r079
+  - r136
+travellerIds: []
+fabledIds:
+  - r104
+  - r1349
+nightOrder:
+  first:
+    - r059
+    - r071
+    - r1350
+    - r017
+    - r052
+    - r136
+    - r1351
+    - r006
+    - r023
+    - r049
+    - r140
+    - r025
+  other:
+    - r059
+    - r1350
+    - r076
+    - r017
+    - r028
+    - r052
+    - r020
+    - r079
+    - r082
+    - r136
+    - r042
+    - r1351
+    - r029
+    - r140
+    - r037
+    - r023
+    - r278
+    - r006
+    - r025

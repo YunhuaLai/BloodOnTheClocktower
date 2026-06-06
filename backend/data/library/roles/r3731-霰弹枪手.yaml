@@ -1,0 +1,91 @@
+id: r3731
+englishName: boomstick-halloween
+name: 霰弹枪手
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/SeaBound/Halloween/boomstick_halloween.png
+flavor: Good, bad, I'm the guy with a gun.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 提名
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果你提名了一名存活爪牙玩家，与被提名的存活爪牙玩家邻近的善良玩家解除恐慌状态，但如果你提名了一名善良玩家，他转变为恐慌状态。如果你首次提名的存活玩家不是恶魔，他死亡。丧尸会被你当作是爪牙。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3731
+    officialId: boomstick_halloween
+    sourceHash: 27af1057aa74b5075b530653fd1d4bf5325dc871
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - nomination
+    - death
+    - alive
+    - good
+    - townsfolk
+    - minion
+    - demon
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

@@ -2,10 +2,10 @@ id: r026
 name: 驱魔人
 type: townsfolk
 englishName: exorcist
-ability: 每个夜晚*，你要选择一名玩家（与上个夜晚不同）：如果你选中了恶魔，他会得知你是驱魔人，但他当晚不会因其自身能力而被唤醒。
+ability: 每个夜晚*，你要选择一名玩家（与上个夜晚不同）：如果你选中了恶魔，他会得知你的角色，但他当晚不会因其自身能力而被唤醒。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/exorcist.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/exorcist.png
+flavor: 每一个不洁之灵，每一份撒旦之力，每一次炼狱敌人的猛袭，每一个军团，每一个崇拜恶魔的组织和教派，以我主耶稣基督的名义和力量，将你们驱逐。我命令你们，远离上帝的教堂，远离上帝按祂的形貌所创造并受神圣羔羊的宝血所救赎的灵魂。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -23,15 +23,15 @@ reminders:
   - 被选择
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 让驱魔人选择一名玩家，不能是上一夜他选择过的玩家。让驱魔人重新入睡。如果驱魔人选中了恶魔：唤醒恶魔。展示“该角色的能力对你生效”信息标记和驱魔人角色标记。指向驱魔人玩家。
+otherNightReminder: 唤醒驱魔人，让他选择一名与上一晚不同的玩家。如果他选中了恶魔，则在驱魔人入睡后通知该恶魔谁是驱魔人。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r026
-    officialId: exorcist
-    sourceHash: 9814e6d5bf5881b4038fa02af4681303939afa26
+    officialId: gongwenbaozaren111
+    sourceHash: 7672df2f05d82265dcda9c79c3b3479c317e120d
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -51,8 +53,8 @@ abilityData:
   abilityPattern: target_demon_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

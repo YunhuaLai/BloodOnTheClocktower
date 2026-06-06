@@ -1,0 +1,85 @@
+id: r3928
+englishName: qijishangren
+name: 奇迹商人
+type: outsider
+edition: custom
+image: https://free.picui.cn/free/2025/12/08/6936337b77787.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 刺客的刀
+  - 村夫的糖
+  - 士兵的盾
+  - 已使用
+remindersGlobal: []
+firstNightReminder: 唤醒，给技能
+otherNightReminder: ''
+ability: 你拥有三个货物分别为：刺客的刀，村夫的糖，士兵的盾（每个只能被使用一次）。在你的首个夜晚，你要将三个货物分别赠予三名除你以外的玩家。如果他们各自满足"死亡"或“对奇迹商人在场疯狂”的条件，则你独自获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3928
+    officialId: 13_chengxinjianshang
+    sourceHash: 3f7caf52a7c19ace88577529cc0e0f7df06303e4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+  termIds:
+    - night
+    - first-night
+    - death
+    - outsider
+    - madness
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,81 @@
+id: r2035
+englishName: 19-blackout
+name: 死灵法师
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/Satellite/4_satellite.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+  - 以为存活
+remindersGlobal: []
+firstNightReminder: 如果死灵法师没有使用过能力，唤醒他并询问他是否发动能力，如果他选择发动，让他选择一名玩家，在该玩家旁放置以为存活标记。并给在死灵法师旁放置失去能力标记。
+otherNightReminder: 如果死灵法师没有使用过能力，唤醒他并询问他是否发动能力，如果他选择发动，让他选择一名玩家，在该玩家旁放置以为存活标记。并给在死灵法师旁放置失去能力标记。
+ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家：他会被当作存活且以为自己拥有能力，但其实没有。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2035
+    officialId: silingfashi
+    sourceHash: 37092bc0b7e18e9c86d1ec85dd218851a00e5e5f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - alive
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

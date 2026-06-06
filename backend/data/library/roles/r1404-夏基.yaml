@@ -1,0 +1,104 @@
+id: r1404
+englishName: 273d368a-fe5d-452f-8cf4-51a4dca4ad17
+name: 夏基
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/LemonSneeze/Ragnarok-09/thiazzi_ragnarok09.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 失去能力
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 唤醒并询问夏基是否使用他的能力，如使用，他选择一名玩家，那名玩家中毒且夏基获得那名玩家的能力，获得能力时按那个角色对应的首个夜晚开始计算，直到夏基死亡失去能力。夏基不会得知他选择的那名玩家的角色。
+otherNightReminder: >-
+  Wake and ask if Thiazzi if they would like to use their ability. If yes, they select a player. That player is
+  poisioned and Thiazzi gains their ability as if it was their first day. Thiazzi does not learn the character.
+ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家：他中毒且你获得他的能力。(你不会得知他的角色)
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1404
+    officialId: thiazzi_ragnarok09
+    sourceHash: b56cd212f2c711fb463aa5e7fd5ac906bf087bea
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - minion
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

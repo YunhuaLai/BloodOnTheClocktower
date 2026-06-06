@@ -1,0 +1,102 @@
+id: r1000
+englishName: god
+name: 神
+type: fabled
+edition: custom
+image: https://free.picui.cn/free/2025/10/19/68f43c8f4d1dd.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 殉道
+  - 飞升
+  - 先知
+  - 诅咒
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒恶魔并告知今晚即将临近什么神迹。每局限一次，如果恶魔摇头则取消
+otherNightReminder: 唤醒恶魔并告知今晚即将临近什么神迹。每局限一次，如果恶魔摇头则取消
+ability: 每个夜晚，神会降临并显现一个与之前不同的神迹，效果会一直持续直到第三个白天结束后，随后神隐匿。恶魔会知道即将降临的神迹是什么。每局游戏限一次，恶魔可以阻止当晚神迹的降临，当天不会有任何神迹降临。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1000
+    officialId: god
+    sourceHash: 7bd1bbed1bdea9e247d93e1ead025e7fdcd5c3bb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - demon
+    - fabled
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

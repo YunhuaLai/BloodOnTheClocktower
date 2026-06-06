@@ -31,19 +31,19 @@ detail:
     - 忽略珀上一夜未选择玩家后，下一夜必须选择三名玩家死亡的节奏变化。
 englishName: mei-yuan-cheng-zhen
 roleIds:
-  - r001
-  - r100
   - r105
-  - r025
-  - r101
-  - r050
-  - r031
-  - r106
+  - r001
+  - r008
   - r029
-  - r057
+  - r031
   - r033
   - r035
+  - r051
+  - r057
+  - r140
   - r066
+  - r100
+  - r106
   - r016
   - r036
   - r068
@@ -52,7 +52,47 @@ roleIds:
   - r040
   - r041
   - r107
-  - r047
   - r046
+  - r047
   - r080
   - r103
+status: published
+author: 海雾
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r066
+    - r098
+    - r103
+    - r017
+    - r040
+    - r041
+    - r107
+    - r001
+    - r051
+    - r140
+    - r105
+    - r100
+  other:
+    - r066
+    - r017
+    - r008
+    - r041
+    - r107
+    - r046
+    - r047
+    - r080
+    - r103
+    - r040
+    - r029
+    - r036
+    - r068
+    - r031
+    - r051
+    - r140
+    - r105

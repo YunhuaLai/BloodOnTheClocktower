@@ -1,0 +1,87 @@
+id: s464
+englishName: item
+name: 神明隐退
+status: draft
+en: 神明隐退
+author: 际尘
+logo: https://www.helloimg.com/i/2024/09/13/66e39196608d2.png
+description: 无
+townsfolkName: 村民
+additional: []
+level: 官方剧本
+mood: ''
+text: 无
+image: https://www.helloimg.com/i/2024/09/13/66e39196608d2.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 无
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r002
+  - r003
+  - r004
+  - r005
+  - r006
+  - r025
+  - r230
+  - r053
+  - r278
+  - r028
+  - r606
+  - r008
+  - r015
+  - r308
+  - r016
+  - r214
+  - r609
+  - r020
+  - r040
+  - r074
+  - r021
+  - r045
+  - r082
+  - r635
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r609
+    - r040
+    - r074
+    - r308
+    - r045
+    - r002
+    - r003
+    - r004
+    - r023
+    - r005
+    - r006
+    - r025
+    - r053
+  other:
+    - r609
+    - r028
+    - r008
+    - r074
+    - r020
+    - r021
+    - r045
+    - r082
+    - r635
+    - r040
+    - r023
+    - r606
+    - r308
+    - r214
+    - r278
+    - r005
+    - r006
+    - r230
+    - r025
+    - r053

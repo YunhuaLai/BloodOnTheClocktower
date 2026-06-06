@@ -4,7 +4,7 @@ name: 商人
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/Airell_clocktower/Assets_of_Lei_Gallery/newcharacter12_assets_of_lei_gallery.png
-flavor: ''
+flavor: 贪婪不过是嫉妒的人们强加给上进者的词语。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -51,7 +51,7 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null
@@ -80,3 +80,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

@@ -26,10 +26,11 @@ firstNightReminder: 唤醒事务官，对他指向一名善良玩家。
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r084
-    officialId: steward
+    officialId: meishenmeyongdejuese111
     sourceHash: 5bab543cd115804abc48a3ac11e8266e112e94d0
     sourceHashFields:
       - ability
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -52,8 +55,8 @@ abilityData:
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

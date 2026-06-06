@@ -1,0 +1,82 @@
+id: s620
+englishName: item
+name: 坠临世间
+status: draft
+en: 坠临世间
+author: 洛甜蕾
+logo: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/9/91/8g3crafxzeywnj1uqij8wi0qk4vqyz4.png/1200px-%E5%9D%A0%E4%B8%B4%E4%B8%96%E9%97%B4logo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/9/91/8g3crafxzeywnj1uqij8wi0qk4vqyz4.png/1200px-%E5%9D%A0%E4%B8%B4%E4%B8%96%E9%97%B4logo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r2767
+  - r005
+  - r051
+  - r025
+  - r2768
+  - r056
+  - r028
+  - r2769
+  - r057
+  - r2770
+  - r334
+  - r060
+  - r063
+  - r2771
+  - r2772
+  - r2773
+  - r2774
+  - r2775
+  - r2776
+  - r2777
+  - r2778
+  - r021
+  - r136
+  - r096
+  - r2779
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r2777
+    - r2771
+    - r2773
+    - r2778
+    - r136
+    - r2774
+    - r2767
+    - r005
+    - r051
+    - r2768
+    - r025
+  other:
+    - r2778
+    - r2773
+    - r2772
+    - r028
+    - r2779
+    - r021
+    - r096
+    - r136
+    - r063
+    - r2769
+    - r005
+    - r051
+    - r056
+    - r2768
+    - r025

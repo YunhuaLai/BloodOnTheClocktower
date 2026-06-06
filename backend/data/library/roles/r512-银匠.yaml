@@ -4,7 +4,7 @@ name: 银匠
 type: townsfolk
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/fool.png
-flavor: ''
+flavor: 让我好好瞧瞧，哪个脑袋敲起来更清脆
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r512
-    officialId: silversmith
+    officialId: yinjiang111
     sourceHash: 8dddee89a6f872a2a60358732e04e739029e6ced
     sourceHashFields:
       - ability
@@ -54,7 +54,7 @@ abilityData:
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null
@@ -64,8 +64,6 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_execution
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

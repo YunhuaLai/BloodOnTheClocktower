@@ -1,0 +1,95 @@
+id: r1990
+englishName: 14-rainbow-party
+name: 小三
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/xiaofu/Rainbow_Party/14_rainbow_party.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 加入你们
+  - 醉恋小三
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你要选择两名存活玩家，他们第二天的约会可能失败。如果你们三人约会，立即取消这个效果。
+otherNightReminder: 每个夜晚，你要选择两名存活玩家，他们第二天的约会可能失败。如果你们三人约会，立即取消这个效果。
+ability: 每个夜晚，你要选择两名存活玩家，他们第二天的约会可能失败。如果你们三人约会，立即取消这个效果。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1990
+    officialId: 14_rainbow_party
+    sourceHash: 4af06cbba7fd716bd784bf4549bbdbfa1ce03519
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alive
+    - outsider
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

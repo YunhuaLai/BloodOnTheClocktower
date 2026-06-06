@@ -1,0 +1,100 @@
+id: s537
+englishName: item
+name: 鸦木装配车间
+status: draft
+en: 鸦木装配车间
+author: 海雾
+logo: https://s2.loli.net/2025/09/16/4dWSDhAZlJoiTsk.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/09/16/4dWSDhAZlJoiTsk.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r004
+  - r006
+  - r055
+  - r056
+  - r134
+  - r106
+  - r012
+  - r1868
+  - r1087
+  - r1869
+  - r1870
+  - r1871
+  - r1872
+  - r1873
+  - r1874
+  - r1875
+  - r016
+  - r119
+  - r1876
+  - r1877
+  - r1878
+  - r1879
+  - r042
+  - r302
+  - r1880
+  - r1881
+  - r1882
+  - r1883
+  - r136
+  - r1758
+  - r1884
+  - r1885
+  - r1886
+travellerIds: []
+fabledIds:
+  - r1867
+nightOrder:
+  first:
+    - r1874
+    - r1880
+    - r1870
+    - r302
+    - r1882
+    - r1885
+    - r136
+    - r1868
+    - r004
+    - r006
+    - r084
+    - r134
+    - r1883
+    - r1879
+    - r1869
+    - r1087
+  other:
+    - r1876
+    - r1870
+    - r302
+    - r1871
+    - r1882
+    - r1758
+    - r1885
+    - r1884
+    - r1886
+    - r136
+    - r042
+    - r1869
+    - r1875
+    - r006
+    - r055
+    - r056
+    - r1872
+    - r134
+    - r1883
+    - r1087

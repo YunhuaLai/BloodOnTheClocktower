@@ -1,0 +1,99 @@
+id: r3048
+englishName: susceptible
+name: 敏感之人
+type: outsider
+edition: custom
+image: https://i.postimg.cc/mkgpK8Ts/Photo15.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 变成敏感
+  - 变成邪恶
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果敏感之人在夜晚时即将死亡，可以改为让他变成邪恶的爪牙，并向他告知德古拉是谁；如果敏感之人死亡，可以选择一名镇民变成敏感之人。
+ability: 当你死亡时，可能会有一名镇民变成敏感之人。如果你在夜晚时即将死亡，你可能会改为变成邪恶的爪牙且得知德古拉是谁。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3048
+    officialId: Susceptible
+    sourceHash: 3b5a7aed1db9b6f4d512a81d6e7f6a9abc1d87e9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - evil
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

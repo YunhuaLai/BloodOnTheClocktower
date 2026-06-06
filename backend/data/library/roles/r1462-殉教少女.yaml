@@ -1,0 +1,87 @@
+id: r1462
+englishName: 78-fry79
+name: 殉教少女
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/FRY7-9/78_fry79.png
+flavor: 我颈间的橄榄枝是阿波罗的枷锁，也是海雾中微弱的光。当我用匕首割破喉咙，谎言将随血雾溃散。请记住，我的死亡不是终点，而是你们直视真相的黎明。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 殉教
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果当天一名爪牙死于处决，且当晚殉教少女能够因为自身能力死亡，将“殉教”与“死亡”提示标记放置在殉教少女旁，代表所有邪恶角色醉酒直到明天黄昏。
+ability: 如果爪牙死于处决，当晚你会死亡，随后所有邪恶角色醉酒直到明天黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1462
+    officialId: 78_fry79
+    sourceHash: 1802bb1fd2cb7f9d73ddf8618938e9a5bf901564
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - drunk
+    - execution
+    - death
+    - evil
+    - townsfolk
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

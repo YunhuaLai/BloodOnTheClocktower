@@ -1,0 +1,69 @@
+id: s834
+englishName: v3-0-0-hystrex
+name: '#双生超新星v3.0.0-Hystrex'
+status: draft
+en: '#双生超新星v3.0.0-Hystrex'
+author: Hystrex
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/shuangshengchaoxinxing/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/shuangshengchaoxinxing/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r005
+  - r006
+  - r027
+  - r028
+  - r056
+  - r059
+  - r115
+  - r011
+  - r013
+  - r037
+  - r036
+  - r042
+  - r113
+  - r021
+  - r096
+  - r045
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r059
+    - r115
+    - r113
+    - r045
+    - r004
+    - r005
+    - r006
+    - r013
+  other:
+    - r059
+    - r027
+    - r028
+    - r113
+    - r021
+    - r045
+    - r096
+    - r042
+    - r036
+    - r037
+    - r005
+    - r006
+    - r013
+    - r056

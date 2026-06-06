@@ -1,0 +1,93 @@
+id: r2773
+englishName: 15-duolinrenjian
+name: 精灵鹿
+type: outsider
+edition: custom
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/7/7b/1oxxdkxoperth19igrrki7fp0hgi0ny.png/1200px-%E5%A4%96%E6%9D%A5%E8%80%85_%E7%B2%BE%E7%81%B5%E9%B9%BF_%E6%B4%9B%E7%94%9C%E8%95%BE.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 醉酒或中毒
+  - 互动干扰
+firstNightReminder: 唤醒所有爪牙选择由谁照看精灵鹿。随后，决定照看精灵鹿的玩家会遭受什么负面效果。
+otherNightReminder: 重新决定照看精灵鹿的玩家会遭受什么负面效果。
+ability: 在首个夜晚，所有爪牙要秘密决定由哪名玩家来照看精灵鹿并且“是外来者”。他要么醉酒或中毒，要么会被当作错误的阵营和角色。  [+1镇民]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2773
+    officialId: 15_duolinrenjian
+    sourceHash: e8f4d7d9561db5f8614620a30377eb83ec9b45f1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - poisoned
+    - drunk
+    - alignment
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

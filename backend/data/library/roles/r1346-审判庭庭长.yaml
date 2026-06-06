@@ -1,0 +1,113 @@
+id: r1346
+englishName: shenpantingtingzhang-duck
+name: 审判庭庭长
+type: minion
+edition: custom
+image: https://i.postimg.cc/hjG4tWBc/image.png
+flavor: Duck_Town
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 已选择
+  - 选择两次
+  - 选择三次
+  - 死亡
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: 让审判庭庭长选择两名玩家，为那些玩家放置“已选择”标记。
+otherNightReminder: >-
+  让审判庭庭长选择两名玩家，其中邪恶玩家则要与上一晚不同，如果其中有人已有“已选择”标记，依次为他们替换成更多次数多“选择”标记，然后期间有人被放置“选择三次”标记，该玩家死亡，审判庭庭长醉酒并停止行动。最后再为那些玩家放置“已选择”标记。
+ability: 每个夜晚，你要选择两名存活玩家：如果明天白天他们被处决，他们不会死亡。被你选择三次的玩家死亡，然后你醉酒到下个黄昏，如果你选择了上一晚选择的邪恶玩家，你醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1346
+    officialId: ShenPanTingTingZhang_Duck
+    sourceHash: 9e663b919f22ed852b7633318e44ea3a82a7c466
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - drunk
+    - execution
+    - death
+    - alive
+    - evil
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

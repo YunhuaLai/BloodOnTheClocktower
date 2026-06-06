@@ -1,0 +1,98 @@
+id: r1641
+englishName: cca7ca8722222-946d-4c9c-8d65-8cfcc1addcbe
+name: 吊死鬼珍珍
+type: demon
+edition: custom
+image: https://www.helloimg.com/i/2024/09/14/66e46c97c10a1.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 诅咒黑猫
+remindersGlobal:
+  - 诅咒
+firstNightReminder: 首夜你左右最近的善良玩家将受到一次诅咒。
+otherNightReminder: 你可以杀死一名玩家，如果你今天抱过黑猫，明天起碰过猫的人都中诅咒。
+ability: 在你的首个夜晚，与你临近的两名善良玩家受到诅咒。每个夜晚*，你要选择一名玩家：他死亡。【如果你抱起黑猫，明天起所有碰过猫的玩家都将被诅咒。】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1641
+    officialId: cca7ca8722222-946d-4c9c-8d65-8cfcc1addcbe
+    sourceHash: 523056d7c3853d046fe0d3d937ac2d9f54df1a85
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - good
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

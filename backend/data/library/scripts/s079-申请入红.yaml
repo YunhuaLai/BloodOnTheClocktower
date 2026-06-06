@@ -1,0 +1,85 @@
+id: s079
+englishName: item
+name: 申请入红
+status: draft
+en: 申请入红
+author: 溜溜
+logo: https://s2.loli.net/2025/09/05/x4IrdupsVzMTDfX.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/09/05/x4IrdupsVzMTDfX.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r006
+  - r134
+  - r058
+  - r139
+  - r059
+  - r442
+  - r091
+  - r052
+  - r056
+  - r142
+  - r057
+  - r022
+  - r111
+  - r112
+  - r119
+  - r069
+  - r235
+  - r020
+  - r113
+  - r302
+  - r887
+  - r136
+travellerIds:
+  - r583
+  - r888
+fabledIds:
+  - r890
+nightOrder:
+  first:
+    - r059
+    - r113
+    - r302
+    - r052
+    - r235
+    - r136
+    - r006
+    - r111
+    - r058
+    - r442
+    - r139
+    - r134
+    - r142
+    - r100
+  other:
+    - r888
+    - r059
+    - r302
+    - r052
+    - r235
+    - r111
+    - r020
+    - r113
+    - r112
+    - r136
+    - r006
+    - r056
+    - r058
+    - r139
+    - r134
+    - r142

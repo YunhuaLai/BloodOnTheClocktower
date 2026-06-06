@@ -4,8 +4,8 @@ type: outsider
 englishName: drunk
 ability: 你不知道你是酒鬼。你以为你是一个镇民角色，但其实你不是。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/drunk.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/drunk.png
+flavor: 我是个只在社交场合里~嗝儿~喝酒的人，亲爱的。  但无可否认，我是一个非常~嗝儿~擅长社交的人。
 setup: true
 setupMeta:
   randomAssignable: false
@@ -32,7 +32,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r015
-    officialId: drunk
+    officialId: woheduolema111
     sourceHash: 2a3f0bd908bebee88af5dda3c323eed3eee9e4bc
     sourceHashFields:
       - ability
@@ -42,6 +42,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 特殊机制
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

@@ -1,0 +1,87 @@
+id: s128
+englishName: item
+name: 苍蝶舞镜
+status: draft
+en: 苍蝶舞镜
+author: JC
+logo: https://i.postimg.cc/bNPG37bb/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/bNPG37bb/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r085
+  - r097
+  - r006
+  - r140
+  - r575
+  - r052
+  - r029
+  - r142
+  - r011
+  - r058
+  - r854
+  - r034
+  - r015
+  - r014
+  - r116
+  - r069
+  - r159
+  - r641
+  - r077
+  - r237
+  - r093
+  - r041
+  - r075
+  - r1200
+  - r080
+  - r136
+  - r103
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r103
+    - r575
+    - r052
+    - r041
+    - r075
+    - r093
+    - r136
+    - r097
+    - r006
+    - r058
+    - r085
+    - r140
+    - r142
+    - r100
+  other:
+    - r052
+    - r041
+    - r075
+    - r093
+    - r080
+    - r103
+    - r136
+    - r1200
+    - r237
+    - r029
+    - r159
+    - r006
+    - r058
+    - r140
+    - r142

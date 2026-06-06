@@ -1,0 +1,89 @@
+id: s791
+englishName: ver-1-0
+name: 意外人选 Ver.1.0
+status: draft
+en: 意外人选 Ver.1.0
+author: 【作者】Taylor & Viva La Sam
+logo: https://i.postimg.cc/0yW43BjT/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/0yW43BjT/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r097
+  - r100
+  - r006
+  - r055
+  - r008
+  - r026
+  - r029
+  - r058
+  - r059
+  - r064
+  - r060
+  - r011
+  - r015
+  - r016
+  - r071
+  - r068
+  - r040
+  - r113
+  - r042
+  - r641
+  - r136
+  - r082
+  - r096
+  - r047
+travellerIds:
+  - r132
+  - r149
+  - r122
+  - r130
+  - r129
+fabledIds: []
+nightOrder:
+  first:
+    - r149
+    - r059
+    - r071
+    - r113
+    - r040
+    - r136
+    - r097
+    - r064
+    - r006
+    - r058
+    - r084
+    - r100
+  other:
+    - r132
+    - r149
+    - r059
+    - r008
+    - r113
+    - r026
+    - r047
+    - r082
+    - r096
+    - r136
+    - r042
+    - r040
+    - r029
+    - r068
+    - r064
+    - r006
+    - r055
+    - r058

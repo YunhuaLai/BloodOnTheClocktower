@@ -1,0 +1,37 @@
+id: s701
+englishName: item
+name: 森罗万象
+status: draft
+en: 森罗万象
+author: '503'
+logo: https://www.bloodstar.xyz//p//comm503//DeathBetween//chaosarise_deathbetween.png
+description: ''
+townsfolkName: 村民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz//p//comm503//DeathBetween//chaosarise_deathbetween.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1231
+  - r015
+  - r069
+  - r3921
+  - r3922
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first: []
+  other:
+    - r3921
+    - r3922
+    - r1231

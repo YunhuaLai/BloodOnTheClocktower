@@ -1,0 +1,82 @@
+id: r1402
+englishName: b7dcc2fa-ff4f-4188-8529-e3fc099fcfcd
+name: 彼岸恋人
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/y6wGYh73/bi-an-lian-ren.webp
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 他
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 当你和他之间没有存活善良玩家时，你的阵营获胜。[距离你最远的一名善良玩家是“他”]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1402
+    officialId: b7dcc2fa-ff4f-4188-8529-e3fc099fcfcd
+    sourceHash: 480562b00347fd62f69c3b60615bc9ba4c4f3bc9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - alive
+    - alignment
+    - good
+    - townsfolk
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

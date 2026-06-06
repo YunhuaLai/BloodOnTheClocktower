@@ -1,0 +1,106 @@
+id: r2511
+englishName: 16-xqxa
+name: 指鹿为马
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/beizi/xqxa/16_xqxa.png
+flavor: “赵⾼欲为乱，......持⿅献于⼆世，⽈：“⻢也。”⼆世笑⽈：“丞相误邪？谓⿅为⻢。”
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 千里马
+remindersGlobal: []
+firstNightReminder: 首个夜晚，一名镇民变为失去能力的邪恶爪牙，但仍然以为自己是原本的镇民。当你死亡时，如果他存活，他会得知自己是爪牙并恢复能力。[-1爪牙]
+otherNightReminder: ''
+ability: 首个夜晚，一名镇民变为失去能力的邪恶爪牙，但仍然以为自己是原本的镇民。当你死亡时，如果他存活，他会得知自己是爪牙并恢复能力。[-1爪牙]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2511
+    officialId: 16_xqxa
+    sourceHash: 7c86e7d23b62d5494ba1c279df40f4cc51743087
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - death
+    - alive
+    - evil
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

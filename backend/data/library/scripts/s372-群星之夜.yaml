@@ -1,0 +1,80 @@
+id: s372
+englishName: item
+name: 群星之夜
+status: draft
+en: 群星之夜
+author: Hiti
+logo: https://i.postimg.cc/ZRTYcsTg/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/ZRTYcsTg/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r159
+  - r085
+  - r097
+  - r052
+  - r053
+  - r133
+  - r086
+  - r027
+  - r029
+  - r064
+  - r031
+  - r115
+  - r012
+  - r038
+  - r071
+  - r015
+  - r075
+  - r076
+  - r019
+  - r337
+  - r080
+  - r082
+  - r046
+  - r047
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r052
+    - r075
+    - r097
+    - r064
+    - r071
+    - r048
+    - r085
+    - r086
+    - r133
+    - r053
+  other:
+    - r027
+    - r052
+    - r075
+    - r076
+    - r046
+    - r047
+    - r082
+    - r080
+    - r031
+    - r029
+    - r064
+    - r071
+    - r086
+    - r133
+    - r053

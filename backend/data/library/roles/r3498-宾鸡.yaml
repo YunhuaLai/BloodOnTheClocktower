@@ -1,0 +1,103 @@
+id: r3498
+englishName: 25-bundagee-inn-massacre-bigyellowfish
+name: 宾鸡
+type: traveller
+edition: custom
+image: >-
+  https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/25_bundagee_inn_massacre_bigyellowfish.png
+flavor: 喂，给我个筹码，一个就够了。你手上这么多筹码，我只要一个。不要占着筹码不用。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 不被唤醒
+  - 没有投票
+  - 三票
+remindersGlobal: []
+firstNightReminder: 宾鸡选择一名玩家，他在当晚不会被唤醒，标记“不被唤醒”。
+otherNightReminder: 宾鸡选择一名玩家，当晚不会因其自身能力而被唤醒。如果有玩家带有“没有投票”标记，标记“三票”。
+ability: 每个夜晚，你要选择一名玩家：他当晚不会因其自身能力而被唤醒。如果他在下个白天没有投票，再下个白天他的投票算作三票。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3498
+    officialId: 25_bundagee_inn_massacre_bigyellowfish
+    sourceHash: 3d7577bb848d89541cf91dcbfbea3d54bf22ff96
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - vote
+    - traveler
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

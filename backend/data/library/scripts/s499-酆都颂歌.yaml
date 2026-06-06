@@ -1,0 +1,82 @@
+id: s499
+englishName: item
+name: 酆都颂歌
+status: draft
+en: 酆都颂歌
+author: 小宇
+logo: https://free.picui.cn/free/2025/10/24/68fb352ea320b.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/10/24/68fb352ea320b.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r108
+  - r307
+  - r025
+  - r595
+  - r597
+  - r007
+  - r058
+  - r022
+  - r033
+  - r035
+  - r278
+  - r544
+  - r038
+  - r111
+  - r112
+  - r067
+  - r235
+  - r633
+  - r610
+  - r1832
+  - r689
+  - r047
+  - r141
+  - r635
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r689
+    - r544
+    - r141
+    - r1832
+    - r235
+    - r610
+    - r595
+    - r003
+    - r111
+    - r058
+    - r108
+    - r597
+    - r307
+    - r025
+  other:
+    - r595
+    - r235
+    - r111
+    - r112
+    - r047
+    - r141
+    - r689
+    - r635
+    - r610
+    - r278
+    - r007
+    - r058
+    - r597
+    - r025

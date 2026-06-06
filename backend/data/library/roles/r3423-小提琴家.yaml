@@ -1,0 +1,83 @@
+id: r3423
+englishName: 13d
+name: 小提琴家
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Imzecorella/Day_By_Day/violinist_day_by_day.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 邪恶醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果邪恶玩家以任何方式杀死了小提琴手，放置“邪恶醉酒”提示标记到魔典中央以提示所有邪恶玩家醉酒。
+ability: 如果邪恶玩家杀死了你，所有邪恶玩家会醉酒到明天夜晚结束时。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3423
+    officialId: 13d
+    sourceHash: b23c648ad1646f983ae808d721434c905c0c55b8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - night
+    - drunk
+    - death
+    - evil
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

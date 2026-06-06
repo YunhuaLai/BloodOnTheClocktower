@@ -1,0 +1,84 @@
+id: s423
+englishName: item
+name: 尸占鸦巢
+status: draft
+en: 尸占鸦巢
+author: 斯派德米
+logo: https://free.picui.cn/free/2025/11/29/6929d3481bd11.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/11/29/6929d3481bd11.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r005
+  - r006
+  - r007
+  - r009
+  - r012
+  - r023
+  - r025
+  - r029
+  - r033
+  - r056
+  - r049
+  - r085
+  - r109
+  - r036
+  - r037
+  - r111
+  - r908
+  - r042
+  - r113
+  - r633
+  - r609
+  - r021
+  - r044
+  - r045
+  - r080
+travellerIds: []
+fabledIds:
+  - r1017
+nightOrder:
+  first:
+    - r113
+    - r609
+    - r045
+    - r005
+    - r006
+    - r111
+    - r023
+    - r085
+    - r049
+    - r025
+  other:
+    - r609
+    - r111
+    - r113
+    - r109
+    - r021
+    - r044
+    - r045
+    - r080
+    - r042
+    - r029
+    - r036
+    - r037
+    - r023
+    - r009
+    - r005
+    - r006
+    - r007
+    - r056
+    - r025

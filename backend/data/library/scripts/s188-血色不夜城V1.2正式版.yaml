@@ -1,0 +1,71 @@
+id: s188
+englishName: v1-2
+name: 血色不夜城V1.2正式版
+status: draft
+en: 血色不夜城V1.2正式版
+author: 卷饼
+logo: https://i.postimg.cc/PxLVs4ym/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/PxLVs4ym/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1471
+  - r155
+  - r142
+  - r562
+  - r1305
+  - r1472
+  - r116
+  - r1473
+  - r1474
+  - r107
+  - r1475
+  - r1476
+  - r811
+  - r266
+  - r1477
+travellerIds:
+  - r148
+  - r1480
+fabledIds:
+  - r1478
+  - r1479
+nightOrder:
+  first:
+    - r148
+    - r1480
+    - r155
+    - r1477
+    - r811
+    - r266
+    - r107
+    - r1471
+    - r142
+    - r1305
+  other:
+    - r1480
+    - r1473
+    - r562
+    - r1476
+    - r1475
+    - r107
+    - r811
+    - r266
+    - r1477
+    - r1472
+    - r1471
+    - r142
+    - r1305

@@ -1,0 +1,70 @@
+id: s838
+englishName: v1-0-2-crispy-duck
+name: '#寻巫奇旅v1.0.2-Crispy Duck'
+status: draft
+en: '#寻巫奇旅v1.0.2-Crispy Duck'
+author: Crispy Duck
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/xunwuqilv/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/xunwuqilv/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r049
+  - r086
+  - r134
+  - r057
+  - r060
+  - r088
+  - r091
+  - r009
+  - r090
+  - r067
+  - r068
+  - r324
+  - r135
+  - r302
+  - r020
+  - r120
+  - r021
+  - r095
+  - r045
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r088
+    - r095
+    - r302
+    - r045
+    - r002
+    - r049
+    - r134
+    - r086
+  other:
+    - r088
+    - r324
+    - r302
+    - r020
+    - r021
+    - r045
+    - r095
+    - r068
+    - r009
+    - r090
+    - r134
+    - r086

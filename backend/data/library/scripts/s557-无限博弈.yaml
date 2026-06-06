@@ -1,0 +1,106 @@
+id: s557
+englishName: item
+name: 无限博弈
+status: draft
+en: 无限博弈
+author: ''
+logo: https://i.postimg.cc/NF78QbZP/copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/NF78QbZP/copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r057
+  - r052
+  - r059
+  - r051
+  - r060
+  - r028
+  - r029
+  - r023
+  - r024
+  - r142
+  - r140
+  - r115
+  - r155
+  - r070
+  - r119
+  - r069
+  - r037
+  - r641
+  - r077
+  - r075
+  - r076
+  - r081
+  - r083
+  - r082
+  - r021
+travellerIds:
+  - r124
+  - r128
+  - r738
+  - r129
+  - r130
+  - r148
+  - r126
+  - r131
+  - r122
+  - r147
+  - r149
+  - r132
+  - r125
+  - r123
+  - r739
+  - r740
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r124
+    - r128
+    - r148
+    - r149
+    - r059
+    - r155
+    - r024
+    - r052
+    - r075
+    - r023
+    - r051
+    - r140
+    - r142
+  other:
+    - r124
+    - r128
+    - r149
+    - r132
+    - r123
+    - r059
+    - r024
+    - r028
+    - r052
+    - r075
+    - r076
+    - r021
+    - r082
+    - r083
+    - r081
+    - r070
+    - r029
+    - r037
+    - r023
+    - r051
+    - r140
+    - r142

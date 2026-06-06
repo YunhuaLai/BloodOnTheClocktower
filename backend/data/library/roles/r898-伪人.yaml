@@ -1,0 +1,114 @@
+id: r898
+englishName: diyrole8
+name: 伪人
+type: minion
+edition: custom
+image: https://s21.ax1x.com/2025/07/08/pVMLj6s.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: minion
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: -1
+      source: '[+1或-1外来者]'
+      note: 配置调整：外来者数量 +1 到 -1。
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+    - 配置调整：外来者数量 +1 到 -1。
+reminders:
+  - 伪人
+remindersGlobal:
+  - 伪人
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你以为你是一个善良镇民，但其实你不是。恶魔会知道你是伪人。[+1或-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r898
+    officialId: diyRole8
+    sourceHash: 58c71629667eb8518549a8311923e3634bf32c6d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 设置
+    - 信息型
+  termIds:
+    - setup
+    - information
+    - good
+    - townsfolk
+    - outsider
+    - minion
+    - demon
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: -1
+            source: '[+1或-1外来者]'
+            note: 配置调整：外来者数量 +1 到 -1。
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

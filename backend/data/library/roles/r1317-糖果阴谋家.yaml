@@ -1,0 +1,108 @@
+id: r1317
+englishName: candyschemerbutton
+name: 糖果阴谋家
+type: demon
+edition: custom
+image: https://i.postimg.cc/1Rcy2R9s/15.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 被选择
+  - 死亡
+  - 惊天阴谋
+remindersGlobal: []
+firstNightReminder: 让糖果阴谋家选择两名玩家。
+otherNightReminder: 让糖果阴谋家选择两名玩家。如果被选择的玩家带有“被选中”标记，他死亡。如果糖果阴谋家没有“惊天阴谋”标记，且不选择玩家，放置“惊天阴谋”标记。
+ability: 每个夜晚，你可以选择两名玩家：以这个方式被选择了两次的玩家死亡。每局游戏限一次，如果你没有选择任何玩家*，镇民玩家的能力都会产生错误信息直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1317
+    officialId: candyschemerbutton
+    sourceHash: e16160e7f3f9b6367c1070b13ecaff6bf6b4f3a6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - townsfolk
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

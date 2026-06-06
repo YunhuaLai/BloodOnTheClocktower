@@ -1,0 +1,50 @@
+id: s726
+englishName: item
+name: 要赢了吗？
+status: draft
+en: 要赢了吗？
+author: ''
+logo: https://oss.gstonegames.com/data_file/clocktower/web/editions/yylm.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/editions/yylm.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r090
+  - r009
+  - r022
+  - r060
+  - r052
+  - r091
+  - r116
+  - r119
+  - r039
+  - r068
+  - r121
+  - r079
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r121
+    - r052
+  other:
+    - r052
+    - r039
+    - r079
+    - r068
+    - r009
+    - r090

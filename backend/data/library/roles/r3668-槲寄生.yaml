@@ -1,0 +1,121 @@
+id: r3668
+englishName: mistletoe-averymerryclocktower
+name: 槲寄生
+type: minion
+edition: custom
+image:
+  - https://chillclocktower.com/homebrew/merrryclocktower/mistletoe.png
+flavor: Mistletoe. I surmount all obstacles.
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 交换
+  - 交换
+  - 失去能力
+  - 全员醉酒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: Choose two alive players. They swap characters.
+ability: 每个夜晚*，你可以选择两名存活玩家:他们交换角色。如你将任意一名玩家经交换换回游戏初始设置时的角色，你失去你的能力。每局游戏限一次，如你不进行交换，除你与旅行者外其他玩家醉酒直到下个黄昏（-1外来者）
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3668
+    officialId: mistletoe_averymerryclocktower
+    sourceHash: c5616b18a1c296cfe19fb51f1cfe4fb3cfb20120
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - drunk
+    - alive
+    - outsider
+    - minion
+    - traveler
+  abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

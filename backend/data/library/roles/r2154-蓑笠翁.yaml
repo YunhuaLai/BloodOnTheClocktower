@@ -1,0 +1,118 @@
+id: r2154
+englishName: suoliwengk
+name: 蓑笠翁
+type: minion
+edition: custom
+image: https://i.postimg.cc/cCK2hgLZ/22.png
+flavor: Duck
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 愿者上钩
+  - ？
+remindersGlobal: []
+firstNightReminder: 如果蓑笠翁在场，跳过他的爪牙信息环节。今晚的爪牙信息和恶魔信息环节，不为恶魔与爪牙指向蓑笠翁。
+otherNightReminder: 唤醒带有“愿者上钩”标记的玩家，对他展示「该角色的能力对你生效」信息标记和蓑笠翁角色标记，然后让他重新入睡。
+ability: 你初始与邪恶阵营互相不认识。在一名爪牙或恶魔首次提名你的当晚，他会得知此信息且当晚他的能力可以生效两次。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2154
+    officialId: SuoLiWengk
+    sourceHash: d9568c944060505d749b8010b5dac89c2bd2075f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - nomination
+    - alignment
+    - evil
+    - outsider
+    - minion
+    - demon
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: learn_team
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

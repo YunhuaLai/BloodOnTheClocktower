@@ -1,0 +1,104 @@
+id: r2690
+englishName: azathoth
+name: 阿撒托斯
+type: demon
+edition: mia
+image: https://www.bloodstar.xyz/p/Dela/REDACTED/azathoth_redacted.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 说书人选择谁会死亡。
+ability: 每个夜晚*，可能会有一名玩家死亡。你可能会被当作爪牙角色。当且仅当所有的阿撒托斯死亡，邪恶阵营获胜。灾变会对善良阵营有利。［多数玩家为阿撒托斯］
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2690
+    officialId: azathoth_redacted
+    sourceHash: d79db6453c036ab6c0c11b8ca5ed4f6f85efa08d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - information
+    - death
+    - alignment
+    - good
+    - evil
+    - minion
+    - demon
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

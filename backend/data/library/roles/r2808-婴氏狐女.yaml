@@ -1,0 +1,106 @@
+id: r2808
+englishName: 18-weimuxuanxi
+name: 婴氏狐女
+type: minion
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/4/43/3j6fvhiuinr481tako05kx4n2n5mpqg.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+  - 加入邪恶
+remindersGlobal: []
+firstNightReminder: 在你的首个夜晚，你要选择一个善良玩家，他醉酒并且你获得他的能力。 如果你死亡，他恢复健康并加入邪恶阵营。
+otherNightReminder: ''
+ability: 在你的首个夜晚，你要选择一个善良玩家，他醉酒并且你获得他的能力。 如果你死亡，他恢复健康并加入邪恶阵营。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2808
+    officialId: 18_weimuxuanxi
+    sourceHash: 839ee8b5c884f257f2832902a691a68e7f183f92
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - death
+    - alignment
+    - good
+    - evil
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

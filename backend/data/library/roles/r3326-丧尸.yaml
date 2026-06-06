@@ -1,0 +1,83 @@
+id: r3326
+englishName: 17-yz-cn-ggg
+name: 丧尸
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/SeaBound/Halloween/zombie_halloween.png
+flavor: When there's no more room in hell, the dead will walk the earth.
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 咬
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 丧尸单独被唤醒选择一名玩家, 如果超过半数的丧尸选择了相同的一名玩家且多数玩家是善良玩家，他会变成邪恶的丧尸。否则，所有被选择的玩家转变为恐慌状态。
+ability: 你不知道你的队友是谁，每个丧尸会得到两个伪装。每个夜晚*，所有丧尸会被单独唤醒并且要选择一名玩家：如果超过半数的丧尸选择了相同的一名玩家且多数玩家是善良玩家，他会变成邪恶的丧尸，否则，所有被选择的玩家转变为恐慌状态。[所有爪牙都是丧尸]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3326
+    officialId: zombie_halloween
+    sourceHash: a65eed670cb2d044b11cf764cadf3c0d8f66700c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - good
+    - evil
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

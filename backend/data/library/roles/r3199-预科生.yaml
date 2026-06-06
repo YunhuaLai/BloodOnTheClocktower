@@ -1,0 +1,100 @@
+id: r3199
+englishName: preppie-ravenswoodhigh
+name: 预科生
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/marhepto/RavenswoodHigh/preppie_ravenswoodhigh.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 提名
+  - 被处决
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  If the Preppie nominated the player who was executed today, show them the hand signal for the number of steps from
+  that player to their nearest Minion.
+ability: 如果你提名的玩家被处决，你会在当晚得知被处决的玩家离与他最近的爪牙的距离。如果你得知了0，你提名并处决的玩家是爪牙。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3199
+    officialId: preppie_ravenswoodhigh
+    sourceHash: 5a411192a0bae5cd4852dbd1a8d47279a63c2a1a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - nomination
+    - execution
+    - townsfolk
+    - minion
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

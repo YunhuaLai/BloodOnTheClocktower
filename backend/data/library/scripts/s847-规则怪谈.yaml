@@ -1,0 +1,83 @@
+id: s847
+englishName: item
+name: 规则怪谈
+status: draft
+en: 规则怪谈
+author: 星火乐
+logo: https://www.helloimg.com/i/2024/10/30/6721d68bb0995.png
+description: 规则怪谈
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 规则怪谈
+image: https://www.helloimg.com/i/2024/10/30/6721d68bb0995.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 规则怪谈
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r140
+  - r133
+  - r086
+  - r1250
+  - r031
+  - r089
+  - r060
+  - r057
+  - r091
+  - r066
+  - r115
+  - r065
+  - r098
+  - r119
+  - r116
+  - r159
+  - r017
+  - r121
+  - r641
+  - r107
+  - r081
+  - r103
+  - r099
+  - r136
+travellerIds: []
+fabledIds:
+  - r127
+  - r104
+  - r4133
+nightOrder:
+  first:
+    - r066
+    - r115
+    - r098
+    - r1250
+    - r121
+    - r103
+    - r017
+    - r107
+    - r136
+    - r049
+    - r140
+    - r086
+    - r133
+  other:
+    - r066
+    - r017
+    - r107
+    - r099
+    - r081
+    - r103
+    - r136
+    - r159
+    - r031
+    - r140
+    - r1250
+    - r086
+    - r133

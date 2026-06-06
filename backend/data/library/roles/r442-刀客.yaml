@@ -3,7 +3,7 @@ englishName: blade-master
 name: 刀客
 type: townsfolk
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202403/c_5751437760171_79dd1401.jpg
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/daoke.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,9 +22,7 @@ reminders:
   - 得知
   - 失去能力
 remindersGlobal: []
-firstNightReminder: |-
-  在为首个夜晚做准备时，将刀客的“追杀”标记放置在一个爪牙角色标记旁。
-  在首个夜晚，唤醒刀客。对他展示标记了“追杀”的爪牙角色标记。让刀客重新入睡。
+firstNightReminder: 在首个夜晚，唤醒刀客，对他展示标记了“得知”的爪牙角色标记。
 otherNightReminder: ''
 ability: 在你的首个夜晚，你会得知一个在场的爪牙角色。每局游戏限一次，你可以在白天公开选择一名玩家：如果他是你得知的角色，他死亡。
 abilityData:
@@ -33,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r442
-    officialId: blade-master
-    sourceHash: f93d51fcf659af9e4779707e7a8611bedad17fd0
+    officialId: daokeeeeeeekekekekekekeke12123123123
+    sourceHash: b372f5e0c8125effcc04b6dc045d38bea4b8b85e
     sourceHashFields:
       - ability
       - type
@@ -43,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 主动选择
@@ -58,8 +56,8 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

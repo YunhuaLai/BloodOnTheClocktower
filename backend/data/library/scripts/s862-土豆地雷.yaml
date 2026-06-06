@@ -1,0 +1,81 @@
+id: s862
+englishName: item
+name: 土豆地雷
+status: draft
+en: 土豆地雷
+author: 黄金船sama
+logo: https://www.helloimg.com/i/2024/12/12/6759ca1ae0487.png
+description: 土豆地雷
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 土豆地雷
+image: https://www.helloimg.com/i/2024/12/12/6759ca1ae0487.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 土豆地雷
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r133
+  - r1250
+  - r1251
+  - r029
+  - r031
+  - r155
+  - r891
+  - r009
+  - r090
+  - r233
+  - r278
+  - r1176
+  - r072
+  - r070
+  - r037
+  - r159
+  - r363
+  - r019
+  - r042
+  - r1259
+  - r237
+  - r046
+  - r081
+  - r612
+travellerIds: []
+fabledIds:
+  - r1481
+nightOrder:
+  first:
+    - r155
+    - r1250
+    - r139
+    - r133
+  other:
+    - r1481
+    - r046
+    - r081
+    - r612
+    - r042
+    - r237
+    - r1259
+    - r029
+    - r037
+    - r363
+    - r070
+    - r009
+    - r159
+    - r1251
+    - r090
+    - r278
+    - r233
+    - r1176
+    - r031
+    - r1250
+    - r139
+    - r133

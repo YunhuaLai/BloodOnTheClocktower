@@ -1,0 +1,117 @@
+id: r3848
+englishName: monokuma-despair
+name: 黑白熊
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Chad_Pines/Despair/monokuma_despair.png
+flavor: Every human has regrets, has things they'd like to go back and change. But I don't! 'cause I'm a bear.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 选择
+  - 邪恶
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: >-
+  The Monokuma either shows the "no" head signal, or points to a player. Wake that player. Show the "This character
+  selected you" token and the Monokuma token.
+otherNightReminder: >-
+  If the Monokuma has not yet used their ability: The Monokuma either shows the "no" head signal, or points to a player.
+  Wake that player. Show the "This character selected you" token and the Monokuma token.
+ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家：他会得知此事，如果他提名并处决了一名玩家，他立即转变为邪恶。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3848
+    officialId: monokuma_despair
+    sourceHash: f04413121c4f89488bfe4ab6115372035c52ac7d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - nomination
+    - execution
+    - evil
+    - minion
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

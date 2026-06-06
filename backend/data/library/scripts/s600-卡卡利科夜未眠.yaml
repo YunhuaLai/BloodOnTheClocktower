@@ -1,0 +1,83 @@
+id: s600
+englishName: item
+name: 卡卡利科夜未眠
+status: draft
+en: 卡卡利科夜未眠
+author: 海伦娜 & 纾
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/kakalikeyeweimian/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/kakalikeyeweimian/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r2294
+  - r2295
+  - r2296
+  - r2297
+  - r2298
+  - r2299
+  - r2300
+  - r2301
+  - r2302
+  - r2303
+  - r2304
+  - r2305
+  - r2306
+  - r015
+  - r234
+  - r2307
+  - r2308
+  - r2309
+  - r2310
+  - r2311
+  - r2312
+  - r021
+  - r079
+  - r2313
+  - r2314
+travellerIds: []
+fabledIds:
+  - r2290
+  - r2291
+  - r2292
+  - r2293
+nightOrder:
+  first:
+    - r2300
+    - r2294
+    - r2311
+    - r2310
+    - r2309
+    - r2296
+    - r2297
+  other:
+    - r2300
+    - r2298
+    - r2310
+    - r2309
+    - r021
+    - r079
+    - r2313
+    - r2314
+    - r2308
+    - r2299
+    - r2303
+    - r2305
+    - r2304
+    - r2312
+    - r2296
+    - r2295
+    - r2301
+    - r2297

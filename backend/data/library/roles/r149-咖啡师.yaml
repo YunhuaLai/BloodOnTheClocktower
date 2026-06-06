@@ -3,7 +3,7 @@ englishName: barista
 name: 咖啡师
 type: traveller
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/barista.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/barista.png
 flavor: ''
 setup: false
 setupMeta:
@@ -21,12 +21,9 @@ setupMeta:
 reminders:
   - 清醒且健康
   - 行动两次
-  - ？
 remindersGlobal: []
-firstNightReminder: >-
-  每个夜晚，移除先前的标记并在任一角色标记旁放置咖啡师的“清醒且健康”标记或“行动两次”提示。唤醒那个角色的玩家并向他展示“该角色的能力对你生效”信息标记，咖啡师标记和一根手指（代表他现在清醒且健康）或两根手指（代表他要行动两次）。让这名玩家入睡。
-otherNightReminder: >-
-  每个夜晚，移除先前的标记并在任一角色标记旁放置咖啡师的“清醒且健康”标记或“行动两次”提示。唤醒那个角色的玩家并向他展示“该角色的能力对你生效”信息标记，咖啡师标记和一根手指（代表他现在清醒且健康）或两根手指（代表他要行动两次）。让这名玩家入睡。
+firstNightReminder: 说书人选择一名玩家唤醒，并告诉他触发了咖啡师的什么效果。
+otherNightReminder: 说书人选择一名玩家唤醒，并告诉他触发了咖啡师的什么效果。
 ability: 每个夜晚，直至下个黄昏，由说书人二选一：1）一名玩家解除并免受醉酒和中毒影响，且会得知正确信息；2）一名玩家的能力可以生效两次。该玩家会得知是哪个效果。
 abilityData:
   schemaVersion: 2
@@ -34,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r149
-    officialId: barista
-    sourceHash: 46866d6806f7ce4a9297599a1d20928a2388bd9b
+    officialId: '3_81'
+    sourceHash: 1cc42b8be711d030383b373fda7e46c1e9f5940d
     sourceHashFields:
       - ability
       - type
@@ -44,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -61,8 +58,8 @@ abilityData:
   abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

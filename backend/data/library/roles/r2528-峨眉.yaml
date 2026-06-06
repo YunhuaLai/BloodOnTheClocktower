@@ -1,0 +1,101 @@
+id: r2528
+englishName: emei
+name: 峨眉
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1722264600_197011_4900.png
+flavor: 刀剑齐失人云亡，秘籍兵书此中藏
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 揭露
+remindersGlobal: []
+firstNightReminder: 唤醒峨眉，告知其一条信息作为残缺的秘密。
+otherNightReminder: 如果峨眉提名并处决了一名善良玩家，在峨眉的角色标记旁放置“揭露”标记。如果峨眉的角色标记旁有“揭露”标记，唤醒峨眉再告知其一条信息，并移除“揭露”标记。
+ability: 在你的首个夜晚，你得知一个残缺的秘密。每个夜晚*，如果你在白天提名并处决了存活善良玩家，这个秘密就会愈发完整。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2528
+    officialId: EMei
+    sourceHash: 8dd92369b2a20706c82e0d9056933520d886744e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - nomination
+    - execution
+    - alive
+    - good
+    - townsfolk
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

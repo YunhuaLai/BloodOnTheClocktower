@@ -1,0 +1,117 @@
+id: r3441
+englishName: contessa-beyondgoodandevilv3
+name: 女伯爵
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/WedgeMcCloud/BeyondGoodAndEvil-V3/contessa_beyondgoodandevilv3.png
+flavor: There are some very peculiar guests at this party... Are they on the invite list?
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: -1
+      source: '[+1或-1外来者]'
+      note: 配置调整：外来者数量 +1 到 -1。
+  setupNotes:
+    - 配置调整：外来者数量 +1 到 -1。
+reminders:
+  - 得知外来者
+  - 外来者死亡
+remindersGlobal: []
+firstNightReminder: 向女伯爵展示至少一个在场的外来者角色标记，或表示没有外来者。
+otherNightReminder: 如果有外来者死亡，向女伯爵展示存活的外来者玩家的数量的手势（1，2，3等）。
+ability: 在你的首个夜晚，你会得知至少一个在场的外来者角色（或者你会得知没有外来者在场）。如果有外来者死亡，你会在当晚得知还有多少名外来者存活。[+1或-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3441
+    officialId: contessa_beyondgoodandevilv3
+    sourceHash: b0a202cb4dfafd142f8da70b492760d8cd1b9f29
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - death
+    - alive
+    - townsfolk
+    - outsider
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: -1
+            source: '[+1或-1外来者]'
+            note: 配置调整：外来者数量 +1 到 -1。
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

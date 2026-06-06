@@ -1,0 +1,85 @@
+id: s091
+englishName: item
+name: 我要玩外来
+status: draft
+en: 我要玩外来
+author: dark star
+logo: https://free.picui.cn/free/2025/12/01/692d954fbee8f.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/01/692d954fbee8f.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r007
+  - r027
+  - r028
+  - r033
+  - r054
+  - r088
+  - r140
+  - r066
+  - r087
+  - r106
+  - r307
+  - r013
+  - r015
+  - r016
+  - r039
+  - r017
+  - r041
+  - r042
+  - r076
+  - r044
+  - r046
+  - r047
+  - r082
+travellerIds: []
+fabledIds:
+  - r127
+  - r986
+nightOrder:
+  first:
+    - r088
+    - r066
+    - r039
+    - r017
+    - r041
+    - r001
+    - r002
+    - r013
+    - r140
+    - r087
+    - r307
+  other:
+    - r088
+    - r066
+    - r017
+    - r027
+    - r028
+    - r041
+    - r076
+    - r039
+    - r044
+    - r046
+    - r047
+    - r082
+    - r042
+    - r013
+    - r007
+    - r054
+    - r140
+    - r087

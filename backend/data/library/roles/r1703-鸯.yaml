@@ -1,0 +1,114 @@
+id: r1703
+englishName: yuanyang22
+name: 鸯
+type: demon
+edition: custom
+image: https://www.helloimg.com/i/2025/02/14/67ae22662976d.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: demon
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+reminders: []
+remindersGlobal:
+  - 是鸯
+  - 死亡
+  - 限一次
+  - 变为邪恶
+firstNightReminder: 如果鸯在场，跳过鸯的恶魔信息环节，将鸯本应得知的信息告诉给爪牙。
+otherNightReminder: 说书人来决定当晚是否有一名善良玩家死亡。如果白天有人声称自己是爪牙并且猜测对了鸯是落难少女的话，让那个人加入邪恶阵营。
+ability: 你以为你是落难少女，但其实你不是，爪牙代替你得知恶魔信息且你会被当作落难少女。每个夜晚*，可能有一名善良玩家死亡。每名玩家限一次，首个在白天公开声称自己是爪牙并猜测你是落难少女的善良玩家会在当晚转变为邪恶阵营。[-落难少女]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1703
+    officialId: yuanyang22
+    sourceHash: 5fefcbd037c67c798959ba2455ab17e128d986b6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - day
+    - night
+    - setup
+    - first-night
+    - information
+    - death
+    - alignment
+    - good
+    - evil
+    - minion
+    - demon
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

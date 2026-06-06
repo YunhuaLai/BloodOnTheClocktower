@@ -1,0 +1,113 @@
+id: s077
+englishName: item
+name: 莫多克
+status: draft
+en: 莫多克
+author: 蓝铃兰
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r023
+  - r003
+  - r049
+  - r139
+  - r005
+  - r006
+  - r051
+  - r055
+  - r087
+  - r025
+  - r230
+  - r091
+  - r606
+  - r089
+  - r032
+  - r026
+  - r027
+  - r030
+  - r028
+  - r882
+  - r015
+  - r016
+  - r038
+  - r119
+  - r068
+  - r018
+  - r040
+  - r042
+  - r302
+  - r609
+  - r020
+  - r021
+  - r082
+  - r045
+  - r114
+  - r047
+  - r239
+travellerIds: []
+fabledIds:
+  - r883
+nightOrder:
+  first:
+    - r882
+    - r302
+    - r609
+    - r030
+    - r040
+    - r045
+    - r239
+    - r003
+    - r005
+    - r006
+    - r023
+    - r048
+    - r051
+    - r049
+    - r087
+    - r139
+    - r018
+    - r025
+  other:
+    - r302
+    - r609
+    - r027
+    - r030
+    - r028
+    - r020
+    - r026
+    - r021
+    - r045
+    - r047
+    - r082
+    - r114
+    - r239
+    - r042
+    - r040
+    - r606
+    - r023
+    - r068
+    - r005
+    - r006
+    - r051
+    - r055
+    - r087
+    - r230
+    - r139
+    - r018
+    - r025

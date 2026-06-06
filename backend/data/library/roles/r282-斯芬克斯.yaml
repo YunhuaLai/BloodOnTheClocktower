@@ -4,7 +4,7 @@ name: 斯芬克斯
 type: minion
 edition: custom
 image: https://free.picui.cn/free/2025/11/14/69171f861ffa4.png
-flavor: ''
+flavor: 凡人的视野总被谎言蒙蔽，而我的凝视能穿透一切伪装。当命运的诘问降临时，唯有洞察真理者方能幸存。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r282
-    officialId: sphinx
+    officialId: 23_sanshenmiti
     sourceHash: 1f82cc3abe5004567a0294842d810cafda9e381a
     sourceHashFields:
       - ability
@@ -56,7 +56,7 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

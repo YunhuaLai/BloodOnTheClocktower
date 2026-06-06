@@ -1,0 +1,64 @@
+id: s715
+englishName: item
+name: 货比三家
+status: draft
+en: 货比三家
+author: 摸鱼学徒；特别鸣谢：刘中奇
+logo: https://i.postimg.cc/76Tgn2nf/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/76Tgn2nf/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r597
+  - r058
+  - r025
+  - r822
+  - r026
+  - r891
+  - r059
+  - r015
+  - r347
+  - r039
+  - r609
+  - r121
+  - r045
+  - r080
+travellerIds: []
+fabledIds:
+  - r521
+  - r127
+nightOrder:
+  first:
+    - r059
+    - r039
+    - r121
+    - r822
+    - r609
+    - r045
+    - r597
+    - r058
+    - r025
+  other:
+    - r059
+    - r822
+    - r609
+    - r026
+    - r039
+    - r045
+    - r080
+    - r597
+    - r058
+    - r025

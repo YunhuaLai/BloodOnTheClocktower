@@ -1,0 +1,105 @@
+id: r3366
+englishName: archmagethewizardsmeetrework
+name: 大魔法师
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/twf07wfz/TheWizardsMeetRework/archmage_thewizardsmeetrework.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - +1 施法
+  - '-1 施法'
+remindersGlobal: []
+firstNightReminder: >-
+  Ask the Archmage if they'd like to raise or lower the maximum amount of Spells that can be cast tonight. If they
+  raise, add the "+1 Cast" token and you can cast an additional Spell. If they lower, add the "-1 Cast" token and you
+  can cast one less Spell. Otherwise, you can cast up to [ ⅓ # of players, rounded ] Spells.
+otherNightReminder: >-
+  Ask the Archmage if they'd like to raise or lower the maximum amount of Spells that can be cast tonight. If they
+  raise, add the "+1 Cast" token and you can cast an additional Spell. If they lower, add the "-1 Cast" token and you
+  can cast one less Spell. Otherwise, you can cast up to [ ⅓ # of players, rounded ] Spells.
+ability: 每个夜晚，你可以选择将施法上限的数量+1或-1。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3366
+    officialId: archmagethewizardsmeetrework
+    sourceHash: 3809b5d83aa2c43eab801189972a5fb5fa865932
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - townsfolk
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

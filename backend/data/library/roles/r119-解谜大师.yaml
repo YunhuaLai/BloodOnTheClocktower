@@ -4,7 +4,7 @@ name: 解谜大师
 type: outsider
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/puzzlemaster.png
-flavor: ''
+flavor: “当一个人开始认为某件事只不过是另一件事时，那么他通常都处在错误的边缘。耐心，耐心。不要把‘只不过’和‘应该’，‘是’和‘不是’混为一谈。”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r119
-    officialId: puzzle-master
+    officialId: wudidejiemidashi111
     sourceHash: d21189876186cba06fd91bbbb1925b9ab5fe2a62
     sourceHashFields:
       - ability
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 信息型
   termIds:
@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

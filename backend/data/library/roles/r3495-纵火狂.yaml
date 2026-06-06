@@ -1,0 +1,108 @@
+id: r3495
+englishName: 19-bundagee-inn-massacre-bigyellowfish
+name: 纵火狂
+type: minion
+edition: custom
+image: >-
+  https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/19_bundagee_inn_massacre_bigyellowfish.png
+flavor: 我爱这座城市，但我已经设定和倒数它的时间……我爱这座城市，爱到让我把它燃烧起来……
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 浇油！
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 纵火狂指向一名玩家，唤醒那名玩家，向他展示“这个角色选择了你”卡和纵火狂的角色标记，并标记“浇油！”。
+otherNightReminder: 纵火狂指向一名玩家，唤醒那名玩家，向他展示“这个角色选择了你”卡和纵火狂的角色标记，并标记“浇油！”。
+ability: 每个夜晚，你要选择一名玩家：他会得知自己被纵火狂选中。如果被你选择过的玩家“疯狂”地证明纵火狂在场，他可能被处决，且其他被你选择过的玩家也死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3495
+    officialId: 19_bundagee_inn_massacre_bigyellowfish
+    sourceHash: 2dc8cf4fd962261905e6ee2ee80497da3aa2c08b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - execution
+    - death
+    - minion
+    - madness
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

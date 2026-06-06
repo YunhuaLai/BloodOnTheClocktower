@@ -1,0 +1,98 @@
+id: s278
+englishName: item
+name: 水酿月光
+status: draft
+en: 水酿月光
+author: Morek
+logo: https://s3.bmp.ovh/imgs/2023/09/29/6f7c44e91f4ad4df.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s3.bmp.ovh/imgs/2023/09/29/6f7c44e91f4ad4df.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r1686
+  - r005
+  - r006
+  - r373
+  - r053
+  - r056
+  - r057
+  - r058
+  - r059
+  - r115
+  - r1687
+  - r010
+  - r015
+  - r214
+  - r820
+  - r070
+  - r121
+  - r1688
+  - r040
+  - r076
+  - r082
+  - r021
+  - r1689
+  - r080
+travellerIds:
+  - r149
+  - r132
+  - r123
+  - r739
+  - r125
+fabledIds:
+  - r1690
+  - r1691
+nightOrder:
+  first:
+    - r149
+    - r059
+    - r121
+    - r820
+    - r1688
+    - r040
+    - r1690
+    - r1691
+    - r005
+    - r006
+    - r373
+    - r058
+    - r1686
+    - r100
+    - r053
+  other:
+    - r149
+    - r132
+    - r123
+    - r1690
+    - r1691
+    - r059
+    - r076
+    - r021
+    - r1689
+    - r082
+    - r080
+    - r820
+    - r040
+    - r214
+    - r070
+    - r1687
+    - r005
+    - r006
+    - r373
+    - r056
+    - r058
+    - r053

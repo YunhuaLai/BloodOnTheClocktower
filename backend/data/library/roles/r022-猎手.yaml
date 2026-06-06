@@ -4,7 +4,7 @@ type: townsfolk
 englishName: slayer
 ability: 每局游戏限一次，你可以在白天时公开选择一名玩家：如果他是恶魔，他死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/slayer.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/slayer.png
 flavor: ''
 setup: false
 setupMeta:
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r022
-    officialId: slayer
+    officialId: biubiubiu111
     sourceHash: 132c42a477c66b19dc9af549d60748d228baee47
     sourceHashFields:
       - ability
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 白天
     - 一次性
@@ -53,8 +55,8 @@ abilityData:
   abilityPattern: target_demon_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: day
       event: null

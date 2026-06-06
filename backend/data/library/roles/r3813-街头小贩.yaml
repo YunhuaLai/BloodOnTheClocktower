@@ -1,0 +1,108 @@
+id: r3813
+englishName: costermonger-echoes-of-the-past
+name: 街头小贩
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/Wingidon/Echoes_Of_The_Past/costermonger_echoes_of_the_past.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 安全
+remindersGlobal: []
+firstNightReminder: >-
+  Wake the Costermonger. They will choose a player. Mark that player with the Costermonger's SAFE reminder. Then, put
+  the Costermonger to sleep.
+otherNightReminder: >-
+  Wake the Costermonger. They will choose a player. Mark that player with the Costermonger's SAFE reminder. Then, put
+  the Costermonger to sleep.
+ability: 每个夜晚，你要选择一名玩家：他当晚只会因自身能力中毒、醉酒、疯狂或获得错误信息。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3813
+    officialId: costermonger_echoes_of_the_past
+    sourceHash: b861fec78a3c5e91b02315e111938830f5546585
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - drunk
+    - information
+    - madness
+    - traveler
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

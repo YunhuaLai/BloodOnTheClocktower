@@ -4,8 +4,8 @@ type: townsfolk
 englishName: cannibal
 ability: 你拥有上个死于处决的玩家的能力。如果该玩家属于邪恶阵营，你中毒直到下个善良玩家死于处决。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/cannibal.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/cannibal.png
+flavor: “我讨厌小丑的味道。吃起来会让我想笑。”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -20,18 +20,19 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
+  - 午餐
   - 中毒
-  - 死于处决
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r091
-    officialId: cannibal
-    sourceHash: 6f8fdb2afa97718b1233b3c29da402471c361617
+    officialId: chichichichichichichi111
+    sourceHash: 447849ee0f87b1b6fea8ba76840450d72ba8f303
     sourceHashFields:
       - ability
       - type
@@ -40,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 能力继承
@@ -54,8 +57,8 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

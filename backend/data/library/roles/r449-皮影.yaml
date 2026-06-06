@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r449
-    officialId: shadow-puppet
+    officialId: 560b6d16-83e9-4513-b8cf-6b78d8c247c3
     sourceHash: cf963d067d09efb11c3fb4ea0965d699c0b828b3
     sourceHashFields:
       - ability
@@ -57,7 +57,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

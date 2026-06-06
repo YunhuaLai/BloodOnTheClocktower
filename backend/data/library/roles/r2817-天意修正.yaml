@@ -1,0 +1,87 @@
+id: r2817
+englishName: xsg-cq1
+name: 天意修正
+type: fabled
+edition: custom
+image: https://free.picui.cn/free/2025/12/03/692f0e854c1b8.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 编辑天意魔典。
+otherNightReminder: 到第n天黎明时宣布替换为天意魔典。
+ability: >-
+  首个夜晚，恶魔玩家准备一份备用魔典，决定每名玩家的生死状态及角色（魔典上存活玩家数不得小于4或大于8，且只能有一个恶魔）。该魔典会在第n天的黎明时（n为天意魔典死亡玩家数），由说书人宣布替换当前魔典。魔典修正不会更改玩家阵营。说书人可能会修改一处魔典并告知恶魔。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2817
+    officialId: xsg_cq1
+    sourceHash: 55f20a6374f789a055ed015e9cd0720fecd38f2f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - alignment
+    - demon
+    - storyteller
+    - grimoire
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,87 @@
+id: r1152
+englishName: 682f4695-0f41-494b-853f-a744815b1ab9
+name: 阴魂
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/papel/YZ_CN_GGG/22_yz_cn_ggg.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 暗影共生
+  - 暗杀
+  - 假死
+remindersGlobal: []
+firstNightReminder: 阴魂选择一名爪牙，标记“暗影共生”。
+otherNightReminder: 阴魂指向一名玩家，那名玩家死亡。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的爪牙。只有他死亡时你才会一同死亡。如果你以其他方式死亡，你仍存活，但会被当作死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1152
+    officialId: 22_yz_cn_ggg
+    sourceHash: 858bfb93e9a4fbf74e8deaff7d21ced0c178f359
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - minion
+    - demon
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

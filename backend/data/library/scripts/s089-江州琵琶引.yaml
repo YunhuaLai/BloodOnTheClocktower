@@ -1,0 +1,86 @@
+id: s089
+englishName: item
+name: 江州琵琶引
+status: draft
+en: 江州琵琶引
+author: L
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/jiangzhoupipayin/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/jiangzhoupipayin/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r005
+  - r009
+  - r027
+  - r028
+  - r029
+  - r030
+  - r054
+  - r233
+  - r227
+  - r607
+  - r597
+  - r209
+  - r037
+  - r038
+  - r820
+  - r908
+  - r280
+  - r040
+  - r074
+  - r075
+  - r121
+  - r612
+  - r240
+  - r241
+travellerIds: []
+fabledIds:
+  - r972
+nightOrder:
+  first:
+    - r121
+    - r820
+    - r280
+    - r030
+    - r040
+    - r074
+    - r075
+    - r004
+    - r005
+    - r597
+    - r227
+  other:
+    - r280
+    - r027
+    - r030
+    - r028
+    - r607
+    - r074
+    - r075
+    - r612
+    - r240
+    - r241
+    - r820
+    - r040
+    - r029
+    - r037
+    - r009
+    - r233
+    - r005
+    - r054
+    - r597
+    - r209

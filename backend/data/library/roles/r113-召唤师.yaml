@@ -28,10 +28,11 @@ firstNightReminder: 唤醒召唤师，对他展示三个不在场的善良角色
 otherNightReminder: 如果这是游戏中的第三个夜晚，唤醒召唤师，让他选择一名玩家和一个恶魔角色，那名玩家变成由他选择的邪恶恶魔。
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r113
-    officialId: summoner
+    officialId: 19_xindalu
     sourceHash: 0b6cc841cc39d9a569e608444b3bc6f8536fc12d
     sourceHashFields:
       - ability
@@ -41,6 +42,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 第三夜
@@ -55,8 +58,8 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: special
       event: null

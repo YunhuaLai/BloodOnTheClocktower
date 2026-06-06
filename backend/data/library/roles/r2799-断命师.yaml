@@ -1,0 +1,116 @@
+id: r2799
+englishName: 5-weimuxuanxi
+name: 断命师
+type: townsfolk
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/c/c5/omil776h1ki8919ru80ytinadrb6pu9.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 断命提名
+  - 限一次
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你可以选择一名玩家。 下个白天提名开始时，所有玩家得知断命师提名他，本次提名没有辩解环节直接投票（断命师提名并投票了xx）。 每局游戏限一次，在白天时，恶魔可以私下拜访说书人猜测谁是断命师，如果猜对，你当晚死亡。
+otherNightReminder: 每个夜晚，你可以选择一名玩家。 下个白天提名开始时，所有玩家得知断命师提名他，本次提名没有辩解环节直接投票（断命师提名并投票了xx）。 每局游戏限一次，在白天时，恶魔可以私下拜访说书人猜测谁是断命师，如果猜对，你当晚死亡。
+ability: 每个夜晚，你可以选择一名玩家。 下个白天提名开始时，所有玩家得知断命师提名他，本次提名没有辩解环节直接投票（断命师提名并投票了xx）。 每局游戏限一次，在白天时，恶魔可以私下拜访说书人猜测谁是断命师，如果猜对，你当晚死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2799
+    officialId: 5_weimuxuanxi
+    sourceHash: f55870fbe774d8a69fcee0c4b7281bf201e894ca
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - nomination
+    - vote
+    - death
+    - townsfolk
+    - demon
+    - storyteller
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

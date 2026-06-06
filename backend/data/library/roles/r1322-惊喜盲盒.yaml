@@ -1,0 +1,82 @@
+id: r1322
+englishName: surpriseboxbutton
+name: 惊喜盲盒
+type: fabled
+edition: custom
+image: https://i.postimg.cc/kXvDQFVN/1.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 镇民盲盒
+  - 外来者盲盒
+  - 爪牙盲盒
+  - 恶魔盲盒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 选择一名玩家变为同角色类型的另一角色，放置对应角色类型的标记。
+ability: 每个夜晚*，会有一名玩家变成同一角色类型的另一个角色，但每个角色类型仅能转化一次。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1322
+    officialId: surpriseboxbutton
+    sourceHash: 3f9475f6dbc87923fa98472072fc79eaaa22012b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

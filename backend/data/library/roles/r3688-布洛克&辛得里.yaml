@@ -1,0 +1,83 @@
+id: r3688
+englishName: brokksindri-ragnarok09
+name: 布洛克&辛得里
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/LemonSneeze/Ragnarok-09/brokksindri_ragnarok09.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 可能被唤醒并得到一个任务
+otherNightReminder: 可能被唤醒并得到一个任务。如果之前的任务未完成或公开暴露了任务内容，会有一名玩家中毒直到下个黄昏。
+ability: 每个夜晚，你可能会得到一个任务：如果你在得到新任务前泄露了任务内容或未能完成上一个任务，会有一名玩家中毒直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3688
+    officialId: brokksindri_ragnarok09
+    sourceHash: a36c636bdb647749ba3ffe03652088f0c45a763d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

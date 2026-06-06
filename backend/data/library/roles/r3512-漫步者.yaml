@@ -1,0 +1,86 @@
+id: r3512
+englishName: rambler
+name: 漫步者
+type: outsider
+edition: custom
+image: https://i.postimg.cc/jSfQk1cH/talk.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+  - 已疯狂
+remindersGlobal: []
+firstNightReminder: 说书人选择一名没有已疯狂标记的玩家。告诉他今天白天要“疯狂”地证明自己是漫步者。为他放置疯狂标记。
+otherNightReminder: 移除疯狂标记，并为那名玩家放置已疯狂标记。说书人选择一名没有已疯狂标记的玩家。告诉他今天白天要“疯狂”地证明自己是漫步者。为他放置疯狂标记。
+ability: 每个白天，会有一名与之前不同的玩家“疯狂”地证明自己是漫步者，否则他可能会被处决。如果你“疯狂”地证明自己是漫步者，你可能会被处决。你不可能是恶魔。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3512
+    officialId: rambler
+    sourceHash: 29577deba1dea03752337a4bc32a21e3e4514aab
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - day
+    - night
+    - first-night
+    - execution
+    - outsider
+    - demon
+    - madness
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

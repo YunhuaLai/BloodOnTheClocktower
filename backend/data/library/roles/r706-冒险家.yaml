@@ -4,7 +4,7 @@ name: 冒险家
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/meiosis/clockparadox/2_clockparadox.png
-flavor: ''
+flavor: “大成功！”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r706
-    officialId: adventurer
+    officialId: rshfna1
     sourceHash: 2993be0f2b2ad08beac57b3348d39e39067fed5a
     sourceHashFields:
       - ability
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -93,3 +93,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

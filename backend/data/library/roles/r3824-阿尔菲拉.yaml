@@ -1,0 +1,117 @@
+id: r3824
+englishName: alphera-the-last-cull
+name: 阿尔菲拉
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/BakedIce/The_Last_Cull__/alphera_the_last_cull__.png
+flavor: >-
+  <body><span id="cease"></span></body>
+
+  <script>
+
+  let phases = ["Let me show you how if feels to be your mirror image!", "let Me show you how it feels to be your mirror
+  image!", "let me Show you how it feels to be your mirror image!", "let me show You how it feels to be your mirror
+  image!", "let me show you How it feels to be your mirror image!", "let me show you how It feels to be your mirror
+  image!", "let me show you how it Feels to be your mirror image!", "let me show you how it feels To be your mirror
+  image!", "let me show you how it feels to Be your mirror image!", "let me show you how it feels to be Your mirror
+  image!", "let me show you how it feels to be your Mirror image!", "let me show you how it feels to be your mirror
+  Image!"];
+
+  let i = 0;
+
+
+  setInterval(() => {
+    document.getElementById("cease").innerHTML = phases[i];
+    i++;
+    if(i == phases.length) i = 0;
+  }, 500);
+
+  </script>
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 错误
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个白天，你可以公开猜测每名玩家的角色：如果你都猜对了，你的阵营获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3824
+    officialId: alphera_the_last_cull__
+    sourceHash: c750142ceed94123761e453f6e37f8d613744ec0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 主动选择
+  termIds:
+    - day
+    - alignment
+    - minion
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

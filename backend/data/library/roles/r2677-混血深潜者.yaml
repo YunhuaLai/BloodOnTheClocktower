@@ -1,0 +1,104 @@
+id: r2677
+englishName: hybriddeepone
+name: 混血深潜者
+type: minion
+edition: mia
+image: https://free.picui.cn/free/2025/11/28/692897790a058.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 混血深潜者
+firstNightReminder: 唤醒邪神，向他展示“这名玩家是”信息标记和混血深潜者玩家真正的角色标记，然后指向混血深潜者玩家。对与混血深潜者邻近的两名存活的善良玩家进行相同的流程。
+otherNightReminder: 唤醒邪神，向他展示“这名玩家是”信息标记和混血深潜者玩家真正的角色标记，然后指向混血深潜者玩家。对与混血深潜者邻近的两名存活的善良玩家进行相同的流程。
+ability: 游戏开始时，你丧失理智且以为自己是一个善良角色。每个夜晚，邪神会得知你和与你邻近的两名存活的善良玩家分别是什么角色。[-2理智]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2677
+    officialId: hybriddeepone
+    sourceHash: df8ce18bb047c371690195e47b689c2bd9eeeaf8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - alive
+    - good
+    - minion
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_role
+        roleType: null
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

@@ -2,9 +2,9 @@ id: r104
 name: 圣洁之魂
 type: fabled
 englishName: spirit-of-ivory
-ability: 游戏过程中邪恶玩家的总数最多能比初始设置多一名（旅行者不计算在内）。
+ability: 游戏过程中邪恶玩家的总数最多能比初始设置多一名。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/spirit_of_ivory.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/spirit_of_ivory.png
 flavor: ''
 setup: false
 setupMeta:
@@ -26,11 +26,12 @@ firstNightReminder: ''
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r104
-    officialId: spirit-of-ivory
-    sourceHash: 74d014269dc48915e6ad8c1483f0bd1b065b8be4
+    officialId: '20003_106'
+    sourceHash: f1da01f1222d40c00ae4f51467690ba76e22c541
     sourceHashFields:
       - ability
       - type
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 人数限制
@@ -46,13 +49,12 @@ abilityData:
   termIds:
     - setup
     - evil
-    - traveler
     - fabled
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

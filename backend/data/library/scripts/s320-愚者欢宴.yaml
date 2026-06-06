@@ -1,0 +1,78 @@
+id: s320
+englishName: item
+name: 愚者欢宴
+status: draft
+en: 愚者欢宴
+author: Richard Black
+logo: https://i.postimg.cc/0QyLJRx9/LOGO-copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/0QyLJRx9/LOGO-copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r060
+  - r006
+  - r052
+  - r010
+  - r055
+  - r005
+  - r049
+  - r097
+  - r140
+  - r007
+  - r139
+  - r066
+  - r015
+  - r116
+  - r014
+  - r069
+  - r070
+  - r337
+  - r117
+  - r019
+  - r641
+  - r021
+  - r083
+  - r080
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r066
+    - r052
+    - r117
+    - r097
+    - r005
+    - r006
+    - r048
+    - r049
+    - r140
+    - r139
+  other:
+    - r066
+    - r052
+    - r117
+    - r021
+    - r083
+    - r080
+    - r070
+    - r005
+    - r006
+    - r007
+    - r055
+    - r140
+    - r139

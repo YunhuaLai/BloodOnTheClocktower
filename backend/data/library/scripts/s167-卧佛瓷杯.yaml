@@ -1,0 +1,81 @@
+id: s167
+englishName: item
+name: 卧佛瓷杯
+status: draft
+en: 卧佛瓷杯
+author: Lei. & 际尘
+logo: https://s2.loli.net/2025/07/11/JTlFndt2rkY5U8R.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/11/JTlFndt2rkY5U8R.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r048
+  - r100
+  - r006
+  - r025
+  - r230
+  - r055
+  - r057
+  - r032
+  - r010
+  - r028
+  - r008
+  - r329
+  - r015
+  - r013
+  - r363
+  - r1360
+  - r040
+  - r074
+  - r1361
+  - r237
+  - r1259
+  - r083
+  - r080
+  - r096
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r1360
+    - r1361
+    - r040
+    - r074
+    - r001
+    - r006
+    - r013
+    - r048
+    - r100
+    - r025
+  other:
+    - r1361
+    - r028
+    - r008
+    - r329
+    - r074
+    - r083
+    - r080
+    - r096
+    - r040
+    - r237
+    - r1259
+    - r363
+    - r006
+    - r013
+    - r055
+    - r230
+    - r025

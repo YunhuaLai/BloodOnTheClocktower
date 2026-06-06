@@ -1,0 +1,84 @@
+id: s480
+englishName: item
+name: 百密一疏
+status: draft
+en: 百密一疏
+author: 兰斯洛特
+logo: https://postimg.cc/xXTvktX4
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://postimg.cc/xXTvktX4
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r085
+  - r1250
+  - r101
+  - r140
+  - r051
+  - r150
+  - r055
+  - r029
+  - r010
+  - r059
+  - r034
+  - r1251
+  - r015
+  - r159
+  - r069
+  - r016
+  - r043
+  - r018
+  - r017
+  - r042
+  - r096
+  - r079
+  - r103
+  - r689
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r689
+    - r1250
+    - r101
+    - r103
+    - r017
+    - r051
+    - r085
+    - r140
+    - r139
+    - r018
+  other:
+    - r059
+    - r101
+    - r017
+    - r150
+    - r079
+    - r096
+    - r103
+    - r689
+    - r042
+    - r029
+    - r159
+    - r1251
+    - r051
+    - r055
+    - r140
+    - r1250
+    - r139
+    - r018

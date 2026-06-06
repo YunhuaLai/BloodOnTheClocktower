@@ -1,0 +1,82 @@
+id: s368
+englishName: v2-0-0
+name: 结党营私v2.0.0
+status: draft
+en: 结党营私v2.0.0
+author: CaffeineBoost
+logo: https://s2.loli.net/2025/07/26/rxt1UeRyqn2fISm.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/26/rxt1UeRyqn2fISm.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r004
+  - r097
+  - r005
+  - r006
+  - r051
+  - r086
+  - r058
+  - r088
+  - r089
+  - r012
+  - r090
+  - r091
+  - r016
+  - r067
+  - r119
+  - r159
+  - r017
+  - r120
+  - r107
+  - r018
+  - r095
+  - r099
+  - r021
+  - r082
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r095
+    - r017
+    - r107
+    - r097
+    - r002
+    - r004
+    - r005
+    - r006
+    - r051
+    - r058
+    - r018
+    - r086
+  other:
+    - r088
+    - r017
+    - r107
+    - r021
+    - r082
+    - r099
+    - r095
+    - r159
+    - r090
+    - r005
+    - r006
+    - r051
+    - r058
+    - r018
+    - r086

@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r451
-    officialId: demon-cat
+    officialId: 1ba1ac5d-bb69-41f9-a05d-52eae97fd7c9
     sourceHash: d9b5a8aba3b545941f3a64f7c3fd3745e57220a2
     sourceHashFields:
       - ability
@@ -59,7 +59,7 @@ abilityData:
   abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

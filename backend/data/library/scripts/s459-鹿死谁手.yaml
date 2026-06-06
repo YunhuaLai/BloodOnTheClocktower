@@ -1,0 +1,84 @@
+id: s459
+englishName: item
+name: 鹿死谁手
+status: draft
+en: 鹿死谁手
+author: 驯鹿&鸦木布拉夫南昌分镇
+logo: https://i.postimg.cc/X7JwSBQW/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/X7JwSBQW/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r100
+  - r442
+  - r101
+  - r005
+  - r006
+  - r091
+  - r597
+  - r606
+  - r031
+  - r233
+  - r012
+  - r015
+  - r070
+  - r069
+  - r016
+  - r017
+  - r018
+  - r020
+  - r074
+  - r336
+  - r021
+  - r103
+  - r683
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r683
+    - r336
+    - r101
+    - r103
+    - r017
+    - r074
+    - r001
+    - r002
+    - r100
+    - r442
+    - r005
+    - r006
+    - r597
+    - r018
+  other:
+    - r101
+    - r017
+    - r074
+    - r020
+    - r021
+    - r683
+    - r103
+    - r070
+    - r606
+    - r233
+    - r031
+    - r005
+    - r006
+    - r597
+    - r018

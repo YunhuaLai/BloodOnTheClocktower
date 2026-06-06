@@ -1,0 +1,100 @@
+id: r3487
+englishName: 6-bundagee-inn-massacre-bigyellowfish
+name: 看守
+type: townsfolk
+edition: custom
+image: >-
+  https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/6_bundagee_inn_massacre_bigyellowfish.png
+flavor: 好吧，我在这个该死的监狱工作了很多年。你知道吗，在这种所有人都想弄死你的神弃之地，学东西会学得很快。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 看管
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 标记与恶魔相邻的死亡玩家“看管”。唤醒看守，向他竖起等同于恶魔两侧最近的死亡玩家数量的手指（0~2）。标记与恶魔相邻的死亡玩家“看管”。
+ability: 每个夜晚*，你会得知与恶魔邻近的死亡玩家中有多少名邪恶玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3487
+    officialId: 6_bundagee_inn_massacre_bigyellowfish
+    sourceHash: 0cf4562c1733c2a05c14fa5b3a478a34c4c6ba35
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - evil
+    - townsfolk
+    - demon
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

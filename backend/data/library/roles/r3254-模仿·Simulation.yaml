@@ -1,0 +1,91 @@
+id: r3254
+englishName: simulation
+name: 模仿·Simulation
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Svendetta/Purgatory/simulation_purgatory.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: false
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: true
+    shownToken: other_role
+    actualRoleType: outsider
+    shownRoleTypes:
+      - townsfolk
+      - outsider
+    note: 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+  configurationAdjustments: []
+  setupNotes:
+    - 身份覆盖：不要把提线木偶标记直接加入随机直发池；玩家应拿到一个善良角色标记，提线木偶本体由说书人记录。
+reminders: []
+remindersGlobal:
+  - 是模仿
+  - 已生效
+firstNightReminder: 在模仿以为的恶魔的行动轮次唤醒模仿，如同对待他以为的那个恶魔那样对待他。如果说书人决定让模仿的能力生效，在他的角色标记旁放置“已生效”提示标记。
+otherNightReminder: 在模仿以为的恶魔的行动轮次唤醒模仿，如同对待他以为的那个恶魔那样对待他。如果说书人决定让模仿的能力生效，在他的角色标记旁放置“已生效”提示标记。
+ability: 你以为你是一个不在场的恶魔，但其实你不是。每局游戏限一次，你认知的恶魔能力会生效，除非你在此之前死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3254
+    officialId: Simulation
+    sourceHash: d4a761f2ac203cc700e1ed42a0ea5a7a1a9e8014
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - death
+    - outsider
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

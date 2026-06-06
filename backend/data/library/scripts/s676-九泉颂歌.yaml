@@ -1,0 +1,78 @@
+id: s676
+englishName: item
+name: 九泉颂歌
+status: draft
+en: 九泉颂歌
+author: Cody
+logo: https://i.postimg.cc/VN7y5FVv/image.png
+description: 阎罗快速体验剧本
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 阎罗快速体验剧本
+image: https://i.postimg.cc/VN7y5FVv/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 阎罗快速体验剧本
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r209
+  - r329
+  - r110
+  - r278
+  - r642
+  - r463
+  - r108
+  - r232
+  - r484
+  - r530
+  - r032
+  - r027
+  - r088
+  - r007
+  - r067
+  - r135
+  - r363
+  - r070
+  - r609
+  - r040
+  - r892
+  - r121
+  - r612
+  - r096
+  - r047
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r121
+    - r609
+    - r040
+    - r892
+    - r108
+    - r530
+  other:
+    - r088
+    - r609
+    - r027
+    - r484
+    - r329
+    - r047
+    - r096
+    - r642
+    - r612
+    - r040
+    - r463
+    - r363
+    - r070
+    - r209
+    - r007
+    - r232
+    - r530

@@ -1,0 +1,100 @@
+id: r3649
+englishName: mrsclaus-averymerryclocktower
+name: 圣诞奶奶
+type: townsfolk
+edition: custom
+image:
+  - https://chillclocktower.com/homebrew/merrryclocktower/mrs-claus.png
+flavor: >-
+  Be safe, my love. Your wisdom lights our way like the brightest star on this frosty night. I'll keep the hearth warm
+  and the spirits high until your return, ensuring our Christmas magic stays aglow.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 得知
+  - 得知
+remindersGlobal: []
+firstNightReminder: Wake Mrs. Claus, point to the closest player(s) yet to wake due to their ability, excluding travelers.
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知除旅行者外离你最近的一名或两名没有因其自身能力而被唤醒的玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3649
+    officialId: mrsclaus_averymerryclocktower
+    sourceHash: 6a9621d1612e8b645b4fc5c19d35832a9ee60aaf
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - townsfolk
+    - traveler
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

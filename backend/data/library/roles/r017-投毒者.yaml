@@ -4,7 +4,7 @@ type: minion
 englishName: poisoner
 ability: 每个夜晚，你要选择一名玩家：他在当晚和明天白天中毒。
 edition: custom
-image: https://img.picui.cn/free/2025/06/17/6851433c6bfe9.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/poisoner.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,16 +22,16 @@ setupMeta:
 reminders:
   - 中毒
 remindersGlobal: []
-firstNightReminder: 唤醒投毒者。让投毒者指向任意一名玩家。被选择的玩家中毒。
-otherNightReminder: 唤醒投毒者。让投毒者指向任意一名玩家。被选择的玩家中毒。
+firstNightReminder: 让投毒者选择一名玩家。标记那名玩家中毒。
+otherNightReminder: 让投毒者选择一名玩家。标记那名玩家中毒。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r017
-    officialId: poisoner
-    sourceHash: ade9cc6d417c09f132c8c606793083049d0375ff
+    officialId: poisoner_c
+    sourceHash: 7cf90141cfa9f9ff50d8550305b0bd822b9b875d
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

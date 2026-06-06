@@ -1,0 +1,90 @@
+id: s098
+englishName: item
+name: 炼金术士的执着
+status: draft
+en: 炼金术士的执着
+author: 厚颜·自卑
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/3/33/hzgl9btsi6y5w77ycor2mprpputkhjo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/3/33/hzgl9btsi6y5w77ycor2mprpputkhjo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r003
+  - r006
+  - r022
+  - r026
+  - r048
+  - r055
+  - r057
+  - r058
+  - r059
+  - r060
+  - r101
+  - r155
+  - r065
+  - r233
+  - r109
+  - r361
+  - r017
+  - r018
+  - r073
+  - r074
+  - r117
+  - r121
+  - r1047
+  - r1048
+  - r1049
+travellerIds: []
+fabledIds:
+  - r158
+  - r1050
+  - r305
+  - r1051
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r121
+    - r101
+    - r1048
+    - r017
+    - r073
+    - r074
+    - r117
+    - r001
+    - r003
+    - r006
+    - r048
+    - r058
+    - r018
+  other:
+    - r059
+    - r101
+    - r1048
+    - r017
+    - r074
+    - r117
+    - r026
+    - r109
+    - r1049
+    - r1051
+    - r233
+    - r006
+    - r055
+    - r058
+    - r361
+    - r018

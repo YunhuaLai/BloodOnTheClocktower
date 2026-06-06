@@ -23,15 +23,15 @@ reminders:
 remindersGlobal: []
 firstNightReminder: 分别唤醒悲剧演员和一名邪恶玩家，告知他们需要疯狂证明的事。
 otherNightReminder: 分别唤醒悲剧演员和一名邪恶玩家，告知他们需要疯狂证明的事。
-ability: 每个白天，一名邪恶玩家要对某件事疯狂，否则他可能死亡。每个白天，你要对某件事疯狂，否则你可能死亡。
+ability: 每个白天，一名邪恶玩家和一名善良玩家要分别“疯狂”地证明某个事情，否则他们可能死亡。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r576
-    officialId: thespian
-    sourceHash: 1e6402b0c59c0127ff31360213647670237c68ef
+    officialId: Thespian
+    sourceHash: ad438792864235efc2791c883ac51a30ec431142
     sourceHashFields:
       - ability
       - type
@@ -50,13 +50,14 @@ abilityData:
     - night
     - first-night
     - death
+    - good
     - evil
     - townsfolk
     - madness
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

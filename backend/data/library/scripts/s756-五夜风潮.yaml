@@ -1,0 +1,77 @@
+id: s756
+englishName: item
+name: 五夜风潮
+status: draft
+en: 五夜风潮
+author: Elluna
+logo: https://www.helloimg.com/i/2025/01/10/6780d4f8dc6d2.png
+description: 五夜风潮
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 五夜风潮
+image: https://www.helloimg.com/i/2025/01/10/6780d4f8dc6d2.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 五夜风潮
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r100
+  - r006
+  - r052
+  - r133
+  - r087
+  - r055
+  - r058
+  - r064
+  - r089
+  - r177
+  - r3971
+  - r065
+  - r2989
+  - r014
+  - r098
+  - r119
+  - r071
+  - r4005
+  - r1446
+  - r3972
+  - r019
+  - r043
+  - r4008
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r098
+    - r071
+    - r3972
+    - r1446
+    - r4005
+    - r052
+    - r064
+    - r006
+    - r048
+    - r058
+    - r087
+    - r100
+    - r133
+  other:
+    - r3972
+    - r1446
+    - r4005
+    - r052
+    - r4008
+    - r064
+    - r006
+    - r055
+    - r058
+    - r087
+    - r133

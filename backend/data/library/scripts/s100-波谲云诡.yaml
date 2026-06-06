@@ -1,0 +1,82 @@
+id: s100
+englishName: item
+name: 波谲云诡
+status: draft
+en: 波谲云诡
+author: 栉风
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/e/ea/49arjm4qe3e87lfv2etfkxqbn8jtwc0.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/e/ea/49arjm4qe3e87lfv2etfkxqbn8jtwc0.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r100
+  - r481
+  - r006
+  - r025
+  - r053
+  - r101
+  - r007
+  - r028
+  - r229
+  - r275
+  - r276
+  - r278
+  - r346
+  - r015
+  - r159
+  - r067
+  - r282
+  - r315
+  - r358
+  - r075
+  - r518
+  - r045
+  - r1064
+  - r1065
+travellerIds: []
+fabledIds:
+  - r1066
+nightOrder:
+  first:
+    - r101
+    - r075
+    - r282
+    - r045
+    - r004
+    - r006
+    - r481
+    - r100
+    - r025
+    - r053
+  other:
+    - r101
+    - r229
+    - r028
+    - r075
+    - r282
+    - r045
+    - r1065
+    - r518
+    - r1064
+    - r159
+    - r278
+    - r006
+    - r007
+    - r481
+    - r275
+    - r025
+    - r053

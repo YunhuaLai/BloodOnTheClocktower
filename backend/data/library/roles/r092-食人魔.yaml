@@ -5,7 +5,7 @@ englishName: ogre
 ability: 在你的首个夜晚，你要选择除你以外的一名玩家：你转变为他的阵营，即使你已醉酒或中毒，但你不知道你转变后的阵营。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/ogre.png
-flavor: ''
+flavor: <咽口水><咧嘴笑><咽口水>
 setup: false
 setupMeta:
   randomAssignable: true
@@ -26,10 +26,11 @@ firstNightReminder: 唤醒食人魔，让他选择一名玩家。如果他选择
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r092
-    officialId: ogre
+    officialId: haochiaichi111
     sourceHash: e6a7e2f1e834442ec66ab85ae53ba469f7e28e0b
     sourceHashFields:
       - ability
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 主动选玩家
@@ -53,8 +56,8 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

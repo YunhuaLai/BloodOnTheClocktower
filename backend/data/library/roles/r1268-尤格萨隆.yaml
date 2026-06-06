@@ -1,0 +1,106 @@
+id: r1268
+englishName: f68fde63-af6a-4836-802d-d8ac4497e1bb
+name: 尤格萨隆
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz//p//comm503//DeathBetween//yoggsaron_deathbetween.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 低语
+  - 命运之轮
+remindersGlobal: []
+firstNightReminder: |-
+  我是清醒的梦境.
+  你们噩梦中的怪物。
+  千面的恶魔。
+  在我的真正形态下颤抖吧！
+  在死亡之神面前屈服吧！
+otherNightReminder: ''
+ability: 在你的首个夜晚，一名善良玩家会听到古神的低语。当首个尤格萨隆死亡时，如果该玩家存活且从未对低语的内容疯狂，他变成邪恶的尤格萨隆，此后对调胜负结果。每个夜晚*，你选择一名其他玩家，他死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1268
+    officialId: 4033d06d-61f9-459d-8f4b-bd7ad7f9d798
+    sourceHash: 99af3191069c3f79c402a65d44c8ef73528b33b9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - good
+    - evil
+    - demon
+    - madness
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

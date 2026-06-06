@@ -1,0 +1,125 @@
+id: r3010
+englishName: radiooperator-the-delta-expedition
+name: 无线电操作员
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Essler/The_Delta_Expedition/radiooperator_the_delta_expedition.png
+flavor: These readings don't make any sense. I'm getting some kind of interference. Buy me some time while I figure it out.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 选择两名玩家：你会得知恶魔是否在他们和他们之间较近一侧的玩家中。如果这两名玩家中有且仅有一名是邪恶的，你中毒直到下个黄昏。
+otherNightReminder: 选择两名玩家：你会得知恶魔是否在他们和他们之间较近一侧的玩家中。如果这两名玩家中有且仅有一名是邪恶的，你中毒直到下个黄昏。
+ability: 每个夜晚，你要选择两名玩家：你会得知恶魔是否在他们和他们之间较近一侧的玩家中。如果这两名玩家中有且仅有一名是邪恶的，你中毒直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3010
+    officialId: radiooperator_the_delta_expedition
+    sourceHash: 12a3cad490aa3ec763993c568b7ec63dc298e9ca
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - evil
+    - townsfolk
+    - demon
+  abilityPattern: target_demon_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: learn_boolean
+        question: demon_check
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

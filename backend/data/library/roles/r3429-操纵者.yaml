@@ -1,0 +1,84 @@
+id: r3429
+englishName: 19d
+name: 操纵者
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Imzecorella/Day_By_Day/manipulator_day_by_day.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+  - 去世
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 操纵者可以使自己死亡。如果他这么做，在操纵者角色标记旁放置“死亡”提示标记。
+ability: 如果你或一名善良玩家“疯狂”地公开证明自己是自己的角色（旅行者不计算在内），对调胜负结果直到下个黄昏。每个夜晚*，你可以让自己死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3429
+    officialId: 19d
+    sourceHash: 9fbe20de892a76c8b0ec149f4da2db45a14584ad
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - good
+    - minion
+    - madness
+    - traveler
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

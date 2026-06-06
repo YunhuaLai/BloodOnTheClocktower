@@ -1,0 +1,81 @@
+id: s122
+englishName: item
+name: 万境归一
+status: draft
+en: 万境归一
+author: 靶子
+logo: https://i.postimg.cc/RF1hRzv4/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/RF1hRzv4/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r057
+  - r109
+  - r006
+  - r276
+  - r133
+  - r002
+  - r025
+  - r051
+  - r053
+  - r058
+  - r063
+  - r007
+  - r324
+  - r016
+  - r135
+  - r039
+  - r078
+  - r077
+  - r120
+  - r017
+  - r021
+  - r095
+  - r096
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r095
+    - r039
+    - r017
+    - r078
+    - r002
+    - r100
+    - r006
+    - r051
+    - r058
+    - r133
+    - r025
+    - r053
+  other:
+    - r324
+    - r017
+    - r039
+    - r109
+    - r021
+    - r096
+    - r095
+    - r063
+    - r006
+    - r007
+    - r051
+    - r058
+    - r133
+    - r025
+    - r053

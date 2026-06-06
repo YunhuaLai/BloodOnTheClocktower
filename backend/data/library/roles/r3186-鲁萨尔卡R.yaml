@@ -1,0 +1,104 @@
+id: r3186
+englishName: rusalka
+name: 鲁萨尔卡R
+type: demon
+edition: HSoM
+image:
+  - https://i.postimg.cc/nMb91L9g/image.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+  - 死亡
+remindersGlobal: []
+firstNightReminder: >-
+  Show the Rusalka a hint about their ability. Prompt the Rusalka to choose, or show any information needed based on the
+  ability. Put the Rusalka to sleep. Wake 1 good player. Show the Rusalka character token. :reminder:
+otherNightReminder: >-
+  Show the Rusalka a hint about their ability. Prompt the Rusalka to choose, or show any information needed based on the
+  ability. :reminder:
+ability: 你不知道你的能力是什么，每个夜晚，你会得知关于你能力的提示。一名善良玩家知道你的能力是什么，如果他“疯狂”地证明鲁萨尔卡在场，你会得知你的能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3186
+    officialId: rusalka
+    sourceHash: f3eaf1abb871c70e7bdd2aa1547900aa7b3fa481
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - good
+    - demon
+    - madness
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

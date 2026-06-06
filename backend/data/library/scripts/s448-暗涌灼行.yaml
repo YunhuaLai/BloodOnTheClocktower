@@ -1,0 +1,82 @@
+id: s448
+englishName: item
+name: 暗涌灼行
+status: draft
+en: 暗涌灼行
+author: 钟楼剧本博物馆
+logo: https://www.helloimg.com/i/2024/11/11/6731f5b9489a5.png
+description: 暗涌灼行
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 暗涌灼行
+image: https://www.helloimg.com/i/2024/11/11/6731f5b9489a5.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 暗涌灼行
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r003
+  - r004
+  - r005
+  - r006
+  - r056
+  - r530
+  - r110
+  - r606
+  - r232
+  - r229
+  - r278
+  - r015
+  - r016
+  - r092
+  - r363
+  - r017
+  - r018
+  - r020
+  - r040
+  - r121
+  - r021
+  - r080
+  - r096
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r017
+    - r040
+    - r001
+    - r002
+    - r003
+    - r004
+    - r005
+    - r006
+    - r018
+    - r092
+    - r530
+  other:
+    - r017
+    - r020
+    - r229
+    - r021
+    - r080
+    - r096
+    - r040
+    - r606
+    - r363
+    - r278
+    - r005
+    - r006
+    - r232
+    - r056
+    - r018
+    - r530

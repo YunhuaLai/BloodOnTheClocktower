@@ -1,0 +1,80 @@
+id: r1231
+englishName: d34d7844-ca73-4a28-9c6c-5fbf063387e2
+name: 神像匠人
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz//p//comm503//DeathBetween//statuebuilder_deathbetween.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 神迹
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你可以在白天向说书人索要一个能力，如果说书人拒绝，你明天可以继续索要。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1231
+    officialId: 9730d888-6a69-4c60-84a9-b320e3f4a9ed
+    sourceHash: 24567515cbe05ae6ef2c7148d2bcab8772a7b070
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - day
+    - townsfolk
+    - storyteller
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

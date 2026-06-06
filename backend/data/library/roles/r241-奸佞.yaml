@@ -5,7 +5,7 @@ type: demon
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/jianning.png
 flavor: ''
-setup: true
+setup: false
 setupMeta:
   randomAssignable: true
   tokenRequired: true
@@ -26,19 +26,19 @@ setupMeta:
     - 配置调整：外来者数量 -1。
 reminders:
   - 死亡
-  - 行动
+  - 行动两次
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 唤醒奸佞，让他攻击一名玩家。如果有爪牙死亡，当晚之后唤醒那名爪牙，让他攻击一名玩家。
-ability: 每个夜晚*，你要选择一名玩家：他死亡。如果爪牙死亡，其要在当晚选择一名玩家：他死亡。[-1外来者]
+otherNightReminder: 唤醒奸佞，让他攻击一名玩家。如果他白天没投票，可以攻击两次。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。如果你今天白天没有投票，今晚你可以行动两次。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r241
-    officialId: sycophant
-    sourceHash: debe8a5ce705d68636557253dfe4cd778ed44353
+    officialId: jianiningasihdohwqr9-1q23rhnfipo1q23
+    sourceHash: 0cc3fbe5e53602cf9a63d2e1ac2c1c5faa5d1822
     sourceHashFields:
       - ability
       - type
@@ -47,24 +47,24 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 设置
     - 主动选择
   termIds:
+    - day
     - night
     - setup
+    - vote
     - death
-    - outsider
-    - minion
     - demon
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null
@@ -109,3 +109,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

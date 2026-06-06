@@ -34,7 +34,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r625
-    officialId: doll
+    officialId: 29_baobao
     sourceHash: cb26399d0b03854d15131985a5ab861c2309da86
     sourceHashFields:
       - ability
@@ -57,7 +57,7 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: setup

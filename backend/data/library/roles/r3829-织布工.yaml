@@ -1,0 +1,132 @@
+id: r3829
+englishName: loomweaver-the-last-cull
+name: 织布工
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/BakedIce/The_Last_Cull__/loomweaver_the_last_cull__.png
+flavor: Oh you didn't hear the news? Nono, it's nothing important...but-
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 交换
+  - 交换
+  - 限一次
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: >-
+  Each night, wake the Loom weaver. They will either shake their head, or point to 2 players. If they point to 2
+  players, mark the Loom Weaver with the "Once" reminder token. If they already have this reminder token, mark them with
+  the "No Ability" reminder token. If those 2 players are of the same alignments, swap their character tokens and mark
+  both with the "Swapped" reminder tokens. Put the Loom Weaver to sleep. If the Loom Weaver has the "No ability"
+  reminder token, remove their night token from the night sheet.
+otherNightReminder: >-
+  Each night, wake the Loom weaver. They will either shake their head, or point to 2 players. If they point to 2
+  players, mark the Loom Weaver with the "Once" reminder token. If they already have this reminder token, mark them with
+  the "No Ability" reminder token. If those 2 players are of the same alignments, swap their character tokens and mark
+  both with the "Swapped" reminder tokens. Put the Loom Weaver to sleep. If the Loom Weaver has the "No ability"
+  reminder token, remove their night token from the night sheet.
+ability: 每局游戏限两次，你可以选择两名玩家：如果他们阵营相同，他们交换角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3829
+    officialId: loomweaver_the_last_cull__
+    sourceHash: d3014341981d189b63fe4512a1ade47a9d54a8d3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alignment
+    - traveler
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: choose_role
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

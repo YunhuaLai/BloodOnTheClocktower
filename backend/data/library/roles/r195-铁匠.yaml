@@ -4,7 +4,9 @@ name: 铁匠
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/spdm/SpaceBound/29_spacebound.png
-flavor: ''
+flavor: >-
+  I made this for the <span style="color:#003FB2">Ranger</span>, but they died... Perhaps I ought to give it a try
+  myself.
 setup: true
 setupMeta:
   randomAssignable: true
@@ -36,7 +38,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r195
-    officialId: blacksmith
+    officialId: 29_spacebound
     sourceHash: 7122ff15f175d30892a590dd87abda4c89f9e4c7
     sourceHashFields:
       - ability
@@ -61,7 +63,7 @@ abilityData:
   abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: first_night

@@ -1,0 +1,75 @@
+id: s389
+englishName: item
+name: 恶贯满盈
+status: draft
+en: 恶贯满盈
+author: 夜雀
+logo: https://www.helloimg.com/i/2025/01/08/677e3a0c37ab2.png
+description: 恶贯满盈
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 恶贯满盈
+image: https://www.helloimg.com/i/2025/01/08/677e3a0c37ab2.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 恶贯满盈
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r108
+  - r481
+  - r024
+  - r607
+  - r230
+  - r089
+  - r361
+  - r066
+  - r033
+  - r034
+  - r035
+  - r233
+  - r119
+  - r071
+  - r234
+  - r111
+  - r1613
+  - r041
+  - r641
+  - r633
+  - r021
+  - r044
+  - r045
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r066
+    - r071
+    - r024
+    - r041
+    - r045
+    - r111
+    - r049
+    - r108
+    - r481
+    - r1613
+  other:
+    - r066
+    - r024
+    - r607
+    - r041
+    - r111
+    - r021
+    - r044
+    - r045
+    - r233
+    - r481
+    - r361
+    - r230

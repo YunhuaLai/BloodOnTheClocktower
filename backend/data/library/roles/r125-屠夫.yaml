@@ -3,7 +3,7 @@ englishName: butcher
 name: 屠夫
 type: traveller
 edition: custom
-image: https://i.postimg.cc/hGvbndjX/Butcher.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/butcher.png
 flavor: ''
 setup: false
 setupMeta:
@@ -19,8 +19,7 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders: []
-remindersGlobal:
-  - 屠夫的钝刀
+remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
 ability: 每个白天，首次处决后，你可以再次发起提名。
@@ -30,8 +29,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r125
-    officialId: butcher
-    sourceHash: 6f846b2b929f280e7c50c7271c45dee94dad9ccb
+    officialId: '3_86'
+    sourceHash: a356bd7d1a686ae2fffcebf0ec87093eb9265e1e
     sourceHashFields:
       - ability
       - type
@@ -40,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 事件触发
   termIds:
@@ -52,8 +51,8 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_day
       event: on_nomination

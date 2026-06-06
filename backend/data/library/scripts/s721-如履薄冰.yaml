@@ -1,0 +1,49 @@
+id: s721
+englishName: item
+name: 如履薄冰
+status: draft
+en: 如履薄冰
+author: ''
+logo: https://i.postimg.cc/kGVkKP03/copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/kGVkKP03/copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r031
+  - r022
+  - r010
+  - r060
+  - r058
+  - r059
+  - r072
+  - r037
+  - r073
+  - r043
+  - r045
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r073
+    - r045
+    - r058
+  other:
+    - r059
+    - r045
+    - r031
+    - r037
+    - r058

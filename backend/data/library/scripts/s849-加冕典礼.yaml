@@ -1,0 +1,83 @@
+id: s849
+englishName: item
+name: 加冕典礼
+status: draft
+en: 加冕典礼
+author: 我不知道
+logo: https://s2.loli.net/2025/07/09/9GnjiOvDyfEa4d5.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/09/9GnjiOvDyfEa4d5.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r084
+  - r085
+  - r006
+  - r1250
+  - r133
+  - r142
+  - r008
+  - r057
+  - r032
+  - r066
+  - r091
+  - r015
+  - r013
+  - r037
+  - r135
+  - r017
+  - r020
+  - r018
+  - r077
+  - r021
+  - r047
+  - r240
+travellerIds: []
+fabledIds:
+  - r158
+  - r160
+  - r118
+  - r4139
+  - r4140
+  - r4141
+nightOrder:
+  first:
+    - r066
+    - r1250
+    - r017
+    - r006
+    - r013
+    - r084
+    - r085
+    - r049
+    - r142
+    - r018
+    - r133
+  other:
+    - r066
+    - r017
+    - r008
+    - r020
+    - r021
+    - r047
+    - r240
+    - r037
+    - r006
+    - r013
+    - r1250
+    - r142
+    - r018
+    - r133

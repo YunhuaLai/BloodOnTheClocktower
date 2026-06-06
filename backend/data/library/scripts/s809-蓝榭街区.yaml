@@ -1,0 +1,92 @@
+id: s809
+englishName: item
+name: 蓝榭街区
+status: draft
+en: 蓝榭街区
+author: Noname
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689599032_197011_5398.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689599032_197011_5398.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r004
+  - r023
+  - r005
+  - r025
+  - r055
+  - r008
+  - r029
+  - r058
+  - r033
+  - r009
+  - r115
+  - r091
+  - r016
+  - r015
+  - r070
+  - r039
+  - r040
+  - r017
+  - r041
+  - r121
+  - r082
+  - r021
+  - r080
+  - r083
+travellerIds:
+  - r740
+  - r126
+  - r129
+  - r128
+  - r124
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r128
+    - r124
+    - r039
+    - r121
+    - r017
+    - r040
+    - r041
+    - r003
+    - r004
+    - r005
+    - r023
+    - r058
+    - r025
+  other:
+    - r128
+    - r124
+    - r017
+    - r008
+    - r041
+    - r039
+    - r021
+    - r082
+    - r083
+    - r080
+    - r040
+    - r070
+    - r009
+    - r029
+    - r023
+    - r005
+    - r055
+    - r058
+    - r025

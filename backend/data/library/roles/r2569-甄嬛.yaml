@@ -1,0 +1,84 @@
+id: r2569
+englishName: jianghu-xuzuozhinan15
+name: 甄嬛
+type: outsider
+edition: custom
+image: https://www.helloimg.com/i/2024/12/31/67740ebabbe2b.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+remindersGlobal:
+  - 是女皇
+firstNightReminder: ''
+otherNightReminder: 如果甄嬛即将被恶魔杀死，甄嬛不会死亡，反而这名恶魔死亡，甄嬛加入邪恶阵营且角色变成女皇。
+ability: 当你将要在夜晚被恶魔杀死时，你不会死亡，这名恶魔死亡，然后你变成邪恶的女皇。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2569
+    officialId: jianghu_xuzuozhinan15
+    sourceHash: 30b9ee3ce6f41e3dd4d5ef09a4ab4318f84297a1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - evil
+    - outsider
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

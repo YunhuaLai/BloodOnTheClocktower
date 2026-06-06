@@ -3,8 +3,8 @@ englishName: taotie
 name: 饕餮
 type: demon
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_5897997694761_fbe1f00c.jpg
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/taotie.png
+flavor: “有兽焉，其状如羊身人面，其目在腋下，虎齿人爪，其音如婴儿，名曰狍鸮，是食人。”
 setup: true
 setupMeta:
   randomAssignable: true
@@ -27,8 +27,8 @@ setupMeta:
 reminders:
   - 死亡
 remindersGlobal: []
-firstNightReminder: ''
-otherNightReminder: 唤醒饕餮，让其选择任意数量的玩家。如果这些玩家的角色类型均不相同，标记这些玩家死亡。
+firstNightReminder: '0'
+otherNightReminder: 唤醒饕餮，让他选择任意数量的非旅行者玩家或一名旅行者玩家。如果这些玩家角色类型不同，他们死亡。
 ability: 每个夜晚*，你要选择任意数量的非旅行者玩家或一名旅行者玩家：如果他们的角色类型均不相同，他们死亡。[+1外来者]
 abilityData:
   schemaVersion: 2
@@ -36,8 +36,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r612
-    officialId: taotie
-    sourceHash: 1d3dda1bd7a2c003a274575c39c0ebcb1667a2b4
+    officialId: taotieeeeeeeeeeee
+    sourceHash: c3f1cee58a123528cf4498835ce60c41fcf94ba4
     sourceHashFields:
       - ability
       - type
@@ -62,7 +62,7 @@ abilityData:
   abilityPattern: target_number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

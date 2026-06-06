@@ -3,8 +3,8 @@ englishName: tanuki
 name: 狸猫
 type: townsfolk
 edition: custom
-image: https://www.bloodstar.xyz/p/Tiger/Future-King/11_futureking.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/limao.png
+flavor: 爪子攥着魔法橡果，要换你口袋里的蜜糖，如何？
 setup: false
 setupMeta:
   randomAssignable: true
@@ -20,18 +20,19 @@ setupMeta:
   setupNotes: []
 reminders:
   - 太子
+  - 醉酒
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: '2'
-ability: 每个夜晚*，你要选择一名玩家：如果他是善良角色且当晚被邪恶角色杀死，你和他交换角色。
+otherNightReminder: 唤醒狸猫，让他选择一名玩家，将“太子”标记放在对应玩家角色标记旁。如果当晚恶魔杀死了“太子”，交换狸猫与“太子”的角色，并依次唤醒告知。在新的交换后的角色（原狸猫现太子）旁放置“醉酒”标记。
+ability: 每个夜晚*，你要选择一名除你及旅行者以外的玩家：如果恶魔在今晚杀死了他，你和他交换角色，然后你醉酒。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r329
-    officialId: tanuki
-    sourceHash: 37a30d292e520eec370e1bdb8e35b62e990ca3bb
+    officialId: linjsdfmeazhfdzgeatteagaeeggaeagae
+    sourceHash: bde97f70bd80c6dd95cbeedc62197c58babc299c
     sourceHashFields:
       - ability
       - type
@@ -47,13 +48,15 @@ abilityData:
     - 主动选择
   termIds:
     - night
-    - good
-    - evil
+    - drunk
+    - death
     - townsfolk
-  abilityPattern: choose_player_effect
+    - demon
+    - traveler
+  abilityPattern: choose_role_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -67,6 +70,8 @@ abilityData:
         source: target
       - kind: choose_role
         source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

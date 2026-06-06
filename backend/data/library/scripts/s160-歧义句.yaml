@@ -1,0 +1,86 @@
+id: s160
+englishName: item
+name: 歧义句
+status: draft
+en: 歧义句
+author: 佐久
+logo: https://s2.loli.net/2025/09/06/8YBaEwAT9fPi7Dx.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/09/06/8YBaEwAT9fPi7Dx.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r108
+  - r481
+  - r097
+  - r025
+  - r024
+  - r051
+  - r140
+  - r008
+  - r028
+  - r361
+  - r034
+  - r115
+  - r039
+  - r067
+  - r896
+  - r071
+  - r235
+  - r610
+  - r042
+  - r075
+  - r612
+  - r689
+  - r096
+  - r1183
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r115
+    - r071
+    - r039
+    - r689
+    - r024
+    - r075
+    - r235
+    - r610
+    - r097
+    - r051
+    - r108
+    - r481
+    - r100
+    - r140
+    - r025
+  other:
+    - r024
+    - r028
+    - r008
+    - r075
+    - r235
+    - r039
+    - r096
+    - r1183
+    - r612
+    - r689
+    - r042
+    - r610
+    - r140
+    - r051
+    - r361
+    - r481
+    - r025

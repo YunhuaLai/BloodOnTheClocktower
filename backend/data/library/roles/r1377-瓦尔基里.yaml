@@ -1,0 +1,89 @@
+id: r1377
+englishName: valkyrie
+name: 瓦尔基里
+type: townsfolk
+edition: custom
+image:
+  - https://i.postimg.cc/26wm8gvy/valkyrie-brewulationandboilers.webp
+flavor: “来吧，跟我去英灵殿！世界等待毁灭。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 保护
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  If the Valkyrie declared that they are rallying as the Valkyrie when nominating yesterday, any dead players that voted
+  are now alive.
+ability: 当你提名时，你可以公开宣称自己是瓦尔基里并使所有本次提名的投票玩家复活。如果有玩家复活了，你免受其他所有玩家负面能力影响，下一次提名处决时，被处决的存活玩家的阵营或善良阵营落败。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1377
+    officialId: Valkyrie
+    sourceHash: a05d80d7d962722b141b1e7145c04e8d6e63b43b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - nomination
+    - vote
+    - execution
+    - alive
+    - alignment
+    - good
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

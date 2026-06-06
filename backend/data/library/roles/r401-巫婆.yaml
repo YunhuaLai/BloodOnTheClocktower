@@ -32,7 +32,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r401
-    officialId: crone
+    officialId: 17_goldapple
     sourceHash: 9074d91dfc144165ca9ba11ee8b0340abc203486
     sourceHashFields:
       - ability
@@ -58,7 +58,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

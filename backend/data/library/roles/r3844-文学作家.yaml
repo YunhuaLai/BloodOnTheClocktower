@@ -1,0 +1,84 @@
+id: r3844
+englishName: writer-despair
+name: 文学作家
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Chad_Pines/Despair/writer_despair.png
+flavor: The world has a front and a back, a top inning and a bottom, a sea of truth and a web of lies!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 邪恶
+remindersGlobal: []
+firstNightReminder: Choose the starting alignment of the Writer.
+otherNightReminder: Change the Writer's alignment.
+ability: 每个夜晚*，你的阵营会发生转变。在初始设置时，你可能是邪恶的。每局游戏限一次，你会被当作是错误的阵营。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3844
+    officialId: writer_despair
+    sourceHash: c1ef7eb1a17e31d9b2140af92b64a5c7b40f1aee
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - setup
+    - first-night
+    - alignment
+    - evil
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

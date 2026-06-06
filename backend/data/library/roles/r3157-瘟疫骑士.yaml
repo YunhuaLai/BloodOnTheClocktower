@@ -1,0 +1,106 @@
+id: r3157
+englishName: 21-fairy-tale-hugo
+name: 瘟疫骑士
+type: demon
+edition: custom
+image: https://i.postimg.cc/B6H3QyCT/pestilence-fairy-tale.png
+flavor: 有权柄赐给他们，可以用刀剑、饥荒、瘟疫、野兽，杀害地上四分之一的人。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 与瘟疫骑士疫距离最远的存活的镇民中毒。唤醒天启之瘟疫，指向那名玩家。
+otherNightReminder: 唤醒瘟疫骑士，让他指向一名玩家，那名玩家死亡。如果中毒的玩家死亡，选择其他与他距离最远的镇民中毒，唤醒瘟疫骑士，指向那名玩家。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。与你距离最远的一名存活的镇民中毒，你知道他是谁。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3157
+    officialId: 21_fairy_tale_hugo
+    sourceHash: d99373bcd93ea14e1ab215dd6c002a9884d5a965
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - death
+    - alive
+    - townsfolk
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

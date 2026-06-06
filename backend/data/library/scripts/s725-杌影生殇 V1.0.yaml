@@ -1,0 +1,56 @@
+id: s725
+englishName: v1-0
+name: 杌影生殇 V1.0
+status: draft
+en: 杌影生殇 V1.0
+author: 清清Jungle
+logo: https://www.bloodstar.xyz/p/Jungle/TaoWu_Protect/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Jungle/TaoWu_Protect/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r024
+  - r027
+  - r607
+  - r033
+  - r034
+  - r035
+  - r155
+  - r015
+  - r039
+  - r037
+  - r041
+  - r077
+  - r633
+  - r689
+travellerIds: []
+fabledIds:
+  - r127
+nightOrder:
+  first:
+    - r689
+    - r155
+    - r039
+    - r041
+    - r024
+  other:
+    - r689
+    - r039
+    - r037
+    - r607
+    - r041
+    - r027
+    - r024

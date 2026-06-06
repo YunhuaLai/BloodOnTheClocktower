@@ -1,0 +1,81 @@
+id: s114
+englishName: item
+name: 黄粱一梦
+status: draft
+en: 黄粱一梦
+author: dd
+logo: https://www.bloodstar.xyz/p/dd/rumeng/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/dd/rumeng/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r108
+  - r023
+  - r597
+  - r006
+  - r051
+  - r822
+  - r027
+  - r056
+  - r028
+  - r319
+  - r009
+  - r091
+  - r823
+  - r015
+  - r038
+  - r069
+  - r072
+  - r076
+  - r611
+  - r075
+  - r121
+  - r081
+  - r047
+  - r079
+travellerIds: []
+fabledIds:
+  - r1169
+nightOrder:
+  first:
+    - r822
+    - r121
+    - r611
+    - r075
+    - r597
+    - r006
+    - r023
+    - r051
+    - r108
+    - r307
+  other:
+    - r823
+    - r822
+    - r027
+    - r611
+    - r028
+    - r075
+    - r076
+    - r047
+    - r079
+    - r081
+    - r009
+    - r023
+    - r006
+    - r051
+    - r056
+    - r597

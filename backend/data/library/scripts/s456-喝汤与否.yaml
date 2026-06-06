@@ -1,0 +1,81 @@
+id: s456
+englishName: item
+name: 喝汤与否
+status: draft
+en: 喝汤与否
+author: Biu
+logo: https://i.postimg.cc/6p7MpNCb/image.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/6p7MpNCb/image.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r085
+  - r023
+  - r024
+  - r006
+  - r055
+  - r056
+  - r229
+  - r029
+  - r057
+  - r090
+  - r110
+  - r115
+  - r012
+  - r071
+  - r091
+  - r039
+  - r037
+  - r017
+  - r237
+  - r1259
+  - r337
+  - r240
+  - r635
+  - r079
+  - r141
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r115
+    - r071
+    - r039
+    - r024
+    - r141
+    - r017
+    - r006
+    - r023
+    - r085
+    - r091
+  other:
+    - r024
+    - r017
+    - r039
+    - r229
+    - r079
+    - r141
+    - r240
+    - r635
+    - r237
+    - r1259
+    - r029
+    - r037
+    - r023
+    - r090
+    - r006
+    - r055
+    - r056

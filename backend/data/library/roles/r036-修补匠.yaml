@@ -4,7 +4,7 @@ type: outsider
 englishName: tinker
 ability: 你随时可能死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/tinker.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/tinker.png
 flavor: ''
 setup: false
 setupMeta:
@@ -23,15 +23,15 @@ reminders:
   - 死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 修补匠可能会死亡。如果说书人选择让修补匠死亡，放置死亡标记。
+otherNightReminder: 在夜晚的任意时机，你都可以决定杀死修补匠。这里只是一个提示以免遗忘修补匠。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r036
-    officialId: tinker
-    sourceHash: 5eb0fb0e00b88cf47473262459f9f52af7083fad
+    officialId: dabanshou111
+    sourceHash: 7a691b91fb332d97b579a9d6343c76ee4f70af9a
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 随机死亡
@@ -50,7 +52,7 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

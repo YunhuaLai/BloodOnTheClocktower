@@ -1,0 +1,86 @@
+id: s082
+englishName: item
+name: 无声恐惧
+status: draft
+en: 无声恐惧
+author: 肥啵
+logo: https://s2.loli.net/2025/09/07/aWpGRcDMkhZTfiu.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/09/07/aWpGRcDMkhZTfiu.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r049
+  - r100
+  - r594
+  - r006
+  - r140
+  - r058
+  - r059
+  - r060
+  - r115
+  - r900
+  - r009
+  - r090
+  - r016
+  - r067
+  - r116
+  - r068
+  - r075
+  - r337
+  - r120
+  - r077
+  - r901
+  - r021
+  - r079
+  - r045
+  - r081
+travellerIds: []
+fabledIds:
+  - r902
+  - r903
+nightOrder:
+  first:
+    - r059
+    - r115
+    - r337
+    - r075
+    - r045
+    - r002
+    - r006
+    - r058
+    - r049
+    - r140
+    - r594
+    - r100
+    - r901
+  other:
+    - r900
+    - r059
+    - r337
+    - r075
+    - r021
+    - r045
+    - r079
+    - r081
+    - r068
+    - r009
+    - r090
+    - r006
+    - r058
+    - r140
+    - r594
+    - r901

@@ -1,0 +1,145 @@
+id: r3652
+englishName: holidayelf-averymerryclocktower
+name: 圣诞精灵
+type: townsfolk
+edition: custom
+image:
+  - https://chillclocktower.com/homebrew/merrryclocktower/elf.png
+flavor: 'We elves try to stick to the four main food groups: candy, candy canes, candy corns and syrup.'
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 打开礼物
+  - 礼物
+  - 礼物
+  - 礼物
+  - 礼物
+  - 礼物
+  - 礼物
+  - 礼物
+  - 礼物
+  - 礼物
+  - 礼物
+remindersGlobal: []
+firstNightReminder: 选择一名玩家他收到一个礼物. 在那名玩家上标注礼物标记
+otherNightReminder: 选择一名玩家他收到一个礼物. 或选择你自己(限一次)以打开所有礼物.
+ability: 每个夜晚，你要选择一名玩家:每局游戏限一次，如果你选择自己，你会以不定顺序得知所有你曾选择的玩家当前的角色，以及一个不在场角色。在此之后，你不再因自身能力被唤醒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3652
+    officialId: holidayelf_averymerryclocktower
+    sourceHash: b5d5d748d682718aa915801b175b364f93219aa9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - townsfolk
+  abilityPattern: target_role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: learn_role_at_target
+        targetSource: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：目标身份信息
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

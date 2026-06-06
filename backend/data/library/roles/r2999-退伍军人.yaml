@@ -1,0 +1,107 @@
+id: r2999
+englishName: veteran-charged-dinner
+name: 退伍军人
+type: outsider
+edition: Charged Dinner
+image:
+  - https://i.postimg.cc/rpgr0TDJ/image.png
+flavor: >-
+  August 12, 1874. Thirteen hundred hours. We were surrounded on both sides by the Spanish and the French. My men had
+  already given up hope. We would have died then and there, were it not for my ingenious plan!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 观察
+  - 提名
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 退伍军人选择一名玩家
+otherNightReminder: 如果退伍军人选择过的玩家在白天发起过提名, 当晚，会有一名玩家死亡。
+ability: 在你的首个夜晚，你要选择一名除你以外的玩家，如果他在白天发起过提名，当晚，会有一名玩家死亡，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2999
+    officialId: veteran_charged_dinner
+    sourceHash: 6f4095156bd700daacd4e413d5c737522bddf340
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - nomination
+    - death
+    - outsider
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

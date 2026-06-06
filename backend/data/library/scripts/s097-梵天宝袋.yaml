@@ -1,0 +1,100 @@
+id: s097
+englishName: item
+name: 梵天宝袋
+status: draft
+en: 梵天宝袋
+author: 刘中奇
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/d4/oh45cp0wt2o1pe4efjumb3dz2xe7sku.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/d4/oh45cp0wt2o1pe4efjumb3dz2xe7sku.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r139
+  - r307
+  - r006
+  - r087
+  - r028
+  - r150
+  - r029
+  - r057
+  - r030
+  - r319
+  - r072
+  - r069
+  - r1036
+  - r078
+  - r075
+  - r1037
+  - r040
+  - r047
+  - r103
+  - r082
+  - r1041
+  - r214
+  - r1042
+  - r007
+  - r1043
+  - r500
+travellerIds:
+  - r1010
+  - r1032
+  - r1033
+  - r1034
+  - r1035
+  - r801
+fabledIds:
+  - r104
+  - r792
+  - r305
+  - r1038
+  - r1039
+  - r1040
+nightOrder:
+  first:
+    - r1010
+    - r1036
+    - r103
+    - r078
+    - r1037
+    - r030
+    - r040
+    - r075
+    - r1042
+    - r003
+    - r006
+    - r087
+    - r139
+    - r307
+  other:
+    - r1036
+    - r1037
+    - r030
+    - r028
+    - r075
+    - r1041
+    - r150
+    - r047
+    - r082
+    - r103
+    - r040
+    - r214
+    - r029
+    - r1042
+    - r006
+    - r007
+    - r087
+    - r139

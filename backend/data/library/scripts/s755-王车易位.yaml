@@ -1,0 +1,32 @@
+id: s755
+englishName: item
+name: 王车易位
+status: draft
+en: 王车易位
+author: 认出无害
+logo: https://i.postimg.cc/vZ60SP3m/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/vZ60SP3m/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1037
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r1037
+  other:
+    - r1037

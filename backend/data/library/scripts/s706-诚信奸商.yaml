@@ -1,0 +1,83 @@
+id: s706
+englishName: item
+name: 诚信奸商
+status: draft
+en: 诚信奸商
+author: 叮当&蓝铃兰
+logo: https://free.picui.cn/free/2025/12/08/69363387b5762.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/08/69363387b5762.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r011
+  - r025
+  - r026
+  - r028
+  - r030
+  - r032
+  - r033
+  - r056
+  - r057
+  - r059
+  - r062
+  - r139
+  - r087
+  - r3928
+  - r015
+  - r016
+  - r036
+  - r186
+  - r041
+  - r042
+  - r302
+  - r237
+  - r044
+  - r045
+  - r021
+travellerIds: []
+fabledIds:
+  - r3933
+  - r1164
+  - r3935
+nightOrder:
+  first:
+    - r3928
+    - r059
+    - r030
+    - r041
+    - r302
+    - r045
+    - r087
+    - r139
+    - r025
+  other:
+    - r059
+    - r302
+    - r030
+    - r028
+    - r041
+    - r026
+    - r021
+    - r044
+    - r045
+    - r042
+    - r237
+    - r036
+    - r056
+    - r062
+    - r087
+    - r139
+    - r025

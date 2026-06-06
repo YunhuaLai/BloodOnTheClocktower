@@ -1,0 +1,104 @@
+id: r4008
+englishName: wuye-emo
+name: 巫-隗
+type: demon
+edition: custom
+image: https://www.helloimg.com/i/2025/01/10/6780d9a0cb667.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 猜测正确
+  - 巫术爆发
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒巫-隗，让他猜测谁是爪牙，告诉他猜对了哪些。如果全部猜对，告知所有人他全对了。
+ability: 每个夜晚*，你要猜测谁是你的爪牙并得知猜对了哪些。如果全部猜对，所有善良玩家得知此事，并且从现在开始的白天，只要他们没有处决邪恶玩家就会落败。[邪恶玩家不知道彼此是谁]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4008
+    officialId: wuye_emo
+    sourceHash: 29960d756c3901b30bf5d22caf2ae1a0aca616fe
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - day
+    - night
+    - setup
+    - information
+    - execution
+    - good
+    - evil
+    - minion
+    - demon
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

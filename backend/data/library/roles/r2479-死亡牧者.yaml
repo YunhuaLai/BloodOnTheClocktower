@@ -1,0 +1,103 @@
+id: r2479
+englishName: 6-city-of-illusio
+name: 死亡牧者
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/TwinCity/26_twincity.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死于处决
+  - 献祭完成
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果有“死于处决标记”，让死亡牧者选择一名玩家，如果他是存活的给他标记“重获能力”，否则给他标记并展示“献祭开始”标记。
+ability: 你可能被当作恶魔角色，如果你首次死于处决，你存活但被当作死亡，且获得能力：如果恶魔死亡，你与该恶魔交换角色（不刷新能力），一名存活善良玩家得知“献祭完成”。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2479
+    officialId: 6_city_of_illusio
+    sourceHash: eb640fb7e7a536a2b390eb7902753dbd2b4c3d64
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - execution
+    - death
+    - alive
+    - good
+    - minion
+    - demon
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: demon
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

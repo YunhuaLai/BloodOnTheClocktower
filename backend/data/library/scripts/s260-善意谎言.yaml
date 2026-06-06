@@ -1,0 +1,80 @@
+id: s260
+englishName: item
+name: 善意谎言
+status: draft
+en: 善意谎言
+author: Rhydings
+logo: https://www.helloimg.com/i/2024/10/30/6721d2121cd8e.png
+description: 善意谎言
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 善意谎言
+image: https://www.helloimg.com/i/2024/10/30/6721d2121cd8e.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 善意谎言
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r049
+  - r023
+  - r006
+  - r140
+  - r028
+  - r056
+  - r029
+  - r155
+  - r088
+  - r091
+  - r035
+  - r090
+  - r015
+  - r016
+  - r159
+  - r068
+  - r017
+  - r040
+  - r073
+  - r020
+  - r641
+  - r021
+  - r079
+  - r096
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r155
+    - r017
+    - r040
+    - r073
+    - r001
+    - r006
+    - r023
+    - r049
+    - r140
+  other:
+    - r088
+    - r017
+    - r028
+    - r020
+    - r021
+    - r079
+    - r096
+    - r040
+    - r029
+    - r023
+    - r068
+    - r159
+    - r090
+    - r006
+    - r056
+    - r140

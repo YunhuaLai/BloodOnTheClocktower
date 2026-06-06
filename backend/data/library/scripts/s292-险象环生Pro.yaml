@@ -1,0 +1,81 @@
+id: s292
+englishName: pro
+name: 险象环生Pro
+status: draft
+en: 险象环生Pro
+author: Zets
+logo: https://i.postimg.cc/MTqkLnhQ/pro.png
+description: ''
+townsfolkName: 镇民
+additional:
+  - 剧本介绍: 险象环生，特别地险
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/MTqkLnhQ/pro.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 险象环生，特别地险
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r084
+  - r049
+  - r004
+  - r003
+  - r097
+  - r133
+  - r086
+  - r140
+  - r1250
+  - r056
+  - r057
+  - r060
+  - r058
+  - r155
+  - r115
+  - r1251
+  - r091
+  - r068
+  - r098
+  - r135
+  - r039
+  - r119
+  - r121
+  - r929
+travellerIds: []
+fabledIds:
+  - r127
+  - r118
+nightOrder:
+  first:
+    - r155
+    - r098
+    - r039
+    - r1250
+    - r121
+    - r097
+    - r003
+    - r004
+    - r084
+    - r058
+    - r049
+    - r140
+    - r139
+    - r086
+    - r133
+  other:
+    - r068
+    - r1251
+    - r056
+    - r058
+    - r140
+    - r1250
+    - r139
+    - r086
+    - r133

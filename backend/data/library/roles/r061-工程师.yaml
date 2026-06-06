@@ -4,7 +4,7 @@ type: townsfolk
 englishName: engineer
 ability: 每局游戏限一次，在夜晚时，你可以选择让恶魔变成你选择的恶魔角色，或让所有爪牙变成你选择的爪牙角色。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/engineer.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/engineer.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,15 +22,16 @@ setupMeta:
 reminders:
   - 失去能力
 remindersGlobal: []
-firstNightReminder: 工程师选择不使用能力，或在剧本列表中选择恶魔或爪牙角色。如果他选择爪牙角色，则需要选择对应数量的爪牙。然后将这些玩家依次唤醒，并告知他们变成了什么角色。
-otherNightReminder: 工程师选择不使用能力，或在剧本列表中选择恶魔或爪牙角色。如果他选择爪牙角色，则需要选择对应数量的爪牙。然后将这些玩家依次唤醒，并告知他们变成了什么角色。
+firstNightReminder: 唤醒工程师，他可以摇头不使用能力，或选择角色列表上的恶魔或爪牙角色，来执行同角色类型的这些玩家的角色变化。
+otherNightReminder: 如果工程师未曾使用能力，唤醒工程师，他可以摇头不使用能力，或选择角色列表上的恶魔或爪牙角色，来执行同角色类型的这些玩家的角色变化。
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r061
-    officialId: engineer
-    sourceHash: f075849af2d8eb2ce8e88a01f4dc074e2b60755a
+    officialId: banimamabianmeile111
+    sourceHash: f63f2183b50b4d968cefceec218afc1254479d0d
     sourceHashFields:
       - ability
       - type
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 一次性
     - 主动选角色
@@ -52,8 +55,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: night
       event: null

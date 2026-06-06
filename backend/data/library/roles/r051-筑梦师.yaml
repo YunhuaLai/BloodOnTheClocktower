@@ -4,8 +4,8 @@ type: townsfolk
 englishName: dreamer
 ability: 每个夜晚，你要选择除你及旅行者以外的一名玩家：你会得知一个善良角色和一个邪恶角色，该玩家是其中一个角色。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/dreamer.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/dreamer.png
+flavor: 我记得有钟表匠……天空是红色的，有不规则的三角形不断从天上坠落下来。有紫罗兰的气味……还有气泡咕嘟咕嘟的声音。一个眼睛发光、还有着乱糟糟的胡须的女人对着天空发出嘶嘶声。然后，我醒了……
 setup: false
 setupMeta:
   randomAssignable: true
@@ -21,16 +21,16 @@ setupMeta:
   setupNotes: []
 reminders: []
 remindersGlobal: []
-firstNightReminder: 让筑梦师指向一名玩家。对他展示善良和邪恶的角色标记各一个，其中一个是属于该玩家的角色。
-otherNightReminder: 让筑梦师指向一名玩家。对他展示善良和邪恶的角色标记各一个，其中一个是属于该玩家的角色。
+firstNightReminder: 唤醒筑梦师，让他选择一名除自己以外的非旅行者玩家。对他展示一善一恶两个角色标记。
+otherNightReminder: 唤醒筑梦师，让他选择一名除自己以外的非旅行者玩家。对他展示一善一恶两个角色标记。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r051
-    officialId: dreamer
-    sourceHash: fef1f506bccd0a60a6ca6e9bcc5b23d159ce7e62
+    officialId: rangwokangkang111
+    sourceHash: 57daaea75a99b93056e181643b9e32b7216b7aab
     sourceHashFields:
       - ability
       - type
@@ -39,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -52,7 +54,7 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

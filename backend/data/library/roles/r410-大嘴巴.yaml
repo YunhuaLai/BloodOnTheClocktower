@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r410
-    officialId: big-mouth
+    officialId: 9_jinhulun
     sourceHash: aaac44e36994a3860adfc230ff33043ae665939e
     sourceHashFields:
       - ability
@@ -57,7 +57,7 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: first_night

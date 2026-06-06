@@ -1,0 +1,87 @@
+id: r1468
+englishName: qedj3r8b
+name: 白马王子の邀约
+type: fabled
+edition: custom
+image: https://user-images.klutzbanana.com/o1qwvwxabmkpsi6fdm5699a6.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  游戏初始设置邪恶玩家的总数最多能比初始设置多一名。每个白天限一次，一名存活玩家可以公开邀请另一名存活玩家一同拜访说书人(与之前不同)，说书人会给他们一个需共同完成的任务：直到当天黄昏，如果两名玩家阵营相同且完成了该任务，当晚他们中的其中一名玩家会获得一条正确信息；如果两名玩家阵营不同且完成了该任务，当晚他们中的善良玩家会获得一条错误信息；如果该任务没有完成，则不会获得任何信息。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1468
+    officialId: qedj3r8b
+    sourceHash: 34a334176c4354d03a3990ecee5cc7124bb1e3e1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - setup
+    - information
+    - alive
+    - alignment
+    - good
+    - evil
+    - storyteller
+    - fabled
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,83 @@
+id: s703
+englishName: nicky
+name: 爪牙大乱斗-Nicky
+status: draft
+en: 爪牙大乱斗-Nicky
+author: Nicky
+logo: https://img.picui.cn/free/2025/04/08/67f3ffe220af9.png
+description: 爪牙大乱斗
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 爪牙大乱斗
+image: https://img.picui.cn/free/2025/04/08/67f3ffe220af9.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 爪牙大乱斗
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r070
+  - r072
+  - r092
+  - r234
+  - r159
+  - r040
+  - r107
+  - r017
+  - r041
+  - r093
+  - r074
+  - r075
+  - r117
+  - r076
+  - r077
+  - r042
+  - r073
+  - r641
+  - r120
+  - r043
+  - r337
+  - r019
+  - r020
+  - r1613
+  - r103
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r103
+    - r017
+    - r337
+    - r040
+    - r041
+    - r073
+    - r074
+    - r075
+    - r117
+    - r093
+    - r107
+    - r092
+    - r1613
+  other:
+    - r076
+    - r017
+    - r337
+    - r041
+    - r074
+    - r075
+    - r117
+    - r093
+    - r107
+    - r020
+    - r103
+    - r042
+    - r040
+    - r070
+    - r159

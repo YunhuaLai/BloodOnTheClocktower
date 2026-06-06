@@ -4,7 +4,7 @@ type: minion
 englishName: psychopath
 ability: 每个白天，在提名开始前，你可以公开选择一名玩家：他死亡。如果你被处决，提名你的玩家需要和你猜拳，只有你输了你才会死亡。
 edition: custom
-image: https://www.bloodstar.xyz/p/humlet/JUEDOU/20_juedou.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/psychopath.png
 flavor: ''
 setup: false
 setupMeta:
@@ -25,10 +25,11 @@ firstNightReminder: ''
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r077
-    officialId: psychopath
+    officialId: dafutoufeiguolaila111
     sourceHash: 4b36d4f42ce975db939023e937958e4664b50681
     sourceHashFields:
       - ability
@@ -38,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 白天
     - 公开击杀
@@ -51,14 +54,14 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: special
       event: null
       frequency: variable
     actor:
-      drivenBy: mixed
+      drivenBy: player
     operations:
       - kind: choose_player
         count: 1

@@ -4,7 +4,7 @@ name: 游魂
 type: outsider
 edition: custom
 image: https://www.bloodstar.xyz/p/meiosis/clockparadox/17_clockparadox.png
-flavor: ''
+flavor: My past life is no more and yet still remains. I am hollow... and alone.
 setup: false
 setupMeta:
   randomAssignable: true
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

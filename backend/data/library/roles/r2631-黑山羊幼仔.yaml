@@ -1,0 +1,120 @@
+id: r2631
+englishName: 6-a-bad-example
+name: 黑山羊幼仔
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/ZhaoMarsh/A_Bad_Example/6_a_bad_example.png
+flavor: >-
+  路上有一个黑色的东西。不是树，是一个又大又黑的东西，就那么蹲坐在那儿，好像在等待什么，绳子似的胳膊蠕动着，伸展着……它是我梦见的那个黑色的东西——那个在树林里出现的，黑色的、有好多绳子的、粘粘乎乎的、像树似的东西。它爬了上来，用它的蹄子和嘴和像蛇似的胳膊，在地上蠕动着爬了上来。
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 2
+      source: '[+1或2外来者]'
+      note: 配置调整：外来者数量 +1 到 +2。
+  setupNotes:
+    - 配置调整：外来者数量 +1 到 +2。
+reminders:
+  - 死亡
+  - 非镇民提名第一次
+  - 非镇民提名第二次
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 黑山羊幼仔选择一名玩家，他死亡。如果今天有非镇民玩家提名黑山羊幼仔，更新标记。
+ability: 每个夜晚*，你要选择一名玩家，他死亡。当第二次有非镇民玩家提名你时，你的阵营在黄昏时胜利。[+1或2外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2631
+    officialId: 6_a_bad_example
+    sourceHash: c07e7aaeb48d78ee653c8af378af77196423f602
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - nomination
+    - death
+    - alignment
+    - townsfolk
+    - outsider
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 2
+            source: '[+1或2外来者]'
+            note: 配置调整：外来者数量 +1 到 +2。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

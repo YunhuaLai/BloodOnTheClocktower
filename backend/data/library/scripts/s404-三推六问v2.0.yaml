@@ -1,0 +1,79 @@
+id: s404
+englishName: v2-0
+name: 三推六问v2.0
+status: draft
+en: 三推六问v2.0
+author: 讷之
+logo: https://i0.hdslb.com/bfs/new_dyn/6b6d18058b4436e0f05fe52ae233ad7944902471.png
+description: 三推六问
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 三推六问
+image: https://i0.hdslb.com/bfs/new_dyn/6b6d18058b4436e0f05fe52ae233ad7944902471.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 三推六问
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r004
+  - r307
+  - r087
+  - r005
+  - r530
+  - r053
+  - r230
+  - r329
+  - r334
+  - r134
+  - r232
+  - r010
+  - r908
+  - r016
+  - r072
+  - r068
+  - r020
+  - r018
+  - r078
+  - r302
+  - r021
+  - r082
+travellerIds: []
+fabledIds:
+  - r1768
+  - r1769
+nightOrder:
+  first:
+    - r302
+    - r078
+    - r001
+    - r004
+    - r005
+    - r087
+    - r134
+    - r018
+    - r307
+    - r530
+    - r053
+  other:
+    - r302
+    - r020
+    - r021
+    - r329
+    - r082
+    - r068
+    - r005
+    - r232
+    - r087
+    - r230
+    - r134
+    - r018
+    - r530
+    - r053

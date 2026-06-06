@@ -1,0 +1,99 @@
+id: r3547
+englishName: si
+name: 逻辑学家
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/3RXKwf7H/logician-shadowed-intentions.png
+flavor: 存在这样一种构造，依据我们的公理体系，必须遵循既定原则；该对象与我们当前的时空理论不存在任何矛盾，而且——等等，矩形已经不复存在了。算了，当我没说？
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 在场
+  - 不在场
+remindersGlobal: []
+firstNightReminder: Wake and show 3 Townsfolk and 1 Minion, exactly 2 of which are in play
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知三个镇民角色和一个爪牙角色，其中有且只有两个角色在场。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3547
+    officialId: _si
+    sourceHash: 68759c13b769f1fd3cb57ca4b587230bf382df4e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - townsfolk
+    - minion
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: townsfolk
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

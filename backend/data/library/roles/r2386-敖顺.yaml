@@ -1,0 +1,105 @@
+id: r2386
+englishName: aoshun
+name: 敖顺
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/NeZhaNaoHai/26_nezhanaohai.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 刺杀
+  - 善良中毒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒敖闰，他要选择一名玩家，给该玩家标记刺杀。如果该玩家受到某些保护效果，给敖顺善良中毒标记。
+ability: 每个夜晚*，你要选择一名玩家：他死亡；如果他依然存活，无视任何免死效果他死亡，随后所有善良玩家中毒，直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2386
+    officialId: aoshun
+    sourceHash: b57f100a5dbf4422f5b85c2105d5bbcb83c4a1e7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - poisoned
+    - death
+    - alive
+    - protected
+    - good
+    - demon
+  abilityPattern: choose_player_protection
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

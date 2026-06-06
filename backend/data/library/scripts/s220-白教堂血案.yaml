@@ -1,0 +1,90 @@
+id: s220
+englishName: item
+name: 白教堂血案
+status: draft
+en: 白教堂血案
+author: 根
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/a/a9/d92pic5wgfe5kf2d738a3mod3twgn7n.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/a/a9/d92pic5wgfe5kf2d738a3mod3twgn7n.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r049
+  - r139
+  - r005
+  - r087
+  - r026
+  - r027
+  - r055
+  - r056
+  - r015
+  - r036
+  - r069
+  - r186
+  - r042
+  - r040
+  - r683
+  - r136
+  - r237
+  - r1554
+  - r1555
+  - r1556
+  - r1557
+  - r1558
+  - r1559
+  - r1560
+  - r1561
+  - r1562
+  - r1563
+travellerIds: []
+fabledIds:
+  - r1564
+nightOrder:
+  first:
+    - r683
+    - r040
+    - r136
+    - r1560
+    - r004
+    - r005
+    - r049
+    - r087
+    - r139
+    - r1554
+    - r1557
+  other:
+    - r027
+    - r026
+    - r1556
+    - r683
+    - r136
+    - r042
+    - r040
+    - r237
+    - r1563
+    - r1562
+    - r1560
+    - r036
+    - r005
+    - r055
+    - r056
+    - r087
+    - r139
+    - r1558
+    - r1557
+    - r1555
+    - r1554

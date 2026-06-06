@@ -1,0 +1,86 @@
+id: r2121
+englishName: 11-bbb
+name: 小王子
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/BBB/11_bbb.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 小王子
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你以为你是一个外来者角色，但你不是。当你对“一件与你无关的事”疯狂时，今天说书人会宣布“小王子找到了他的玫瑰”；如果这件事是错误的则改为宣布“小王子失去了他的狐狸”，并且你变为你认为的那个外来者角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2121
+    officialId: 11_bbb
+    sourceHash: ebba53b1d9a8874cf8c14de617b738ee5da30595
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+    - 事件触发
+  termIds:
+    - setup
+    - townsfolk
+    - outsider
+    - storyteller
+    - madness
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: event_trigger
+        eventTiming: null
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: setup
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

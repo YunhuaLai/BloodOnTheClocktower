@@ -4,8 +4,8 @@ type: outsider
 englishName: recluse
 ability: 你可能会被当作邪恶阵营、爪牙角色或恶魔角色，即使你已死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/recluse.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/recluse.png
+flavor: 侬康康窝咦锅惹，咋锅就怼窝恁锅粗暴。介样叭行。麻绳添酒嘿料，泥滴燕绳恨舔没，窝这哈圆酿泥料！侬晓得伐！窝叭象载康岛泥鸟，辣过饿魔阔能揍载窝家边乱晃。呔！窝揍斯弄个以斯！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r016
-    officialId: recluse
+    officialId: 14_xindalu
     sourceHash: 438cd4aac58ec649178f3601d99bab3aa1694c68
     sourceHashFields:
       - ability
@@ -39,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 特殊机制
@@ -53,7 +55,7 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

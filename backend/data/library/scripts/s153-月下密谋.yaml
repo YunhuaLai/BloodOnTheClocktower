@@ -1,0 +1,83 @@
+id: s153
+englishName: item
+name: 月下密谋
+status: draft
+en: 月下密谋
+author: 释小年
+logo: https://i.postimg.cc/gJhCGsDS/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/gJhCGsDS/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1289
+  - r1290
+  - r227
+  - r048
+  - r006
+  - r026
+  - r1291
+  - r064
+  - r463
+  - r060
+  - r110
+  - r1292
+  - r009
+  - r015
+  - r119
+  - r071
+  - r037
+  - r107
+  - r042
+  - r040
+  - r017
+  - r1293
+  - r021
+  - r080
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r095
+    - r071
+    - r017
+    - r040
+    - r107
+    - r064
+    - r006
+    - r048
+    - r227
+    - r1289
+    - r1290
+  other:
+    - r017
+    - r107
+    - r026
+    - r021
+    - r080
+    - r095
+    - r1293
+    - r042
+    - r040
+    - r463
+    - r037
+    - r1289
+    - r009
+    - r1292
+    - r064
+    - r006
+    - r1291

@@ -4,7 +4,7 @@ name: 勘探者
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/spdm/SpaceBound/7_spacebound.png
-flavor: ''
+flavor: 你居然不知道？你把那五个花花绿绿的石头押出去，就是城里老爷看中的那五种，你就能在官署那领到证，有了那玩意你想挖多少就挖多少！什么？只押四个就够？在哪？在哪？
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r275
-    officialId: prospector
+    officialId: 7_spacebound
     sourceHash: 536ad5afb394616b07537b447f4fc0a53837c25d
     sourceHashFields:
       - ability
@@ -55,7 +55,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

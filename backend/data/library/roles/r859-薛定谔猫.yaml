@@ -1,0 +1,96 @@
+id: r859
+englishName: 9-pretend
+name: 薛定谔猫
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/fake/pretend/9_pretend.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -1
+      source: '[-1爪牙,-0-1外来者,+1薛定谔猫]'
+      note: 配置调整：外来者数量 -1。
+  setupNotes:
+    - 配置调整：外来者数量 -1。
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果另一名异或死亡，你变为一个邪恶的不在场爪牙。
+ability: 如果你是最后一个存活的薛定谔猫：你变为一个邪恶的不在场爪牙。[-1爪牙,-0-1外来者,+1薛定谔猫]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r859
+    officialId: 9_pretend
+    sourceHash: 6749cc22edf64d01459b6c304cdc2a9fa1a16090
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - alive
+    - evil
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1爪牙,-0-1外来者,+1薛定谔猫]'
+            note: 配置调整：外来者数量 -1。
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

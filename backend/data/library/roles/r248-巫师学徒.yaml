@@ -35,7 +35,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r248
-    officialId: wizard-apprentice
+    officialId: yinlureanrlfasrfiaojwrn2k31j95u09uasj
     sourceHash: 451831d35d9ad285455f1afa16ce59451ca5db65
     sourceHashFields:
       - ability
@@ -45,8 +45,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

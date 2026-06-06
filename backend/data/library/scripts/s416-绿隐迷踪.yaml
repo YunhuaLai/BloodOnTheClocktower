@@ -1,0 +1,92 @@
+id: s416
+englishName: item
+name: 绿隐迷踪
+status: draft
+en: 绿隐迷踪
+author: 荒北
+logo: https://s2.loli.net/2025/07/23/F2jsOEDWgHnxwVk.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/23/F2jsOEDWgHnxwVk.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r108
+  - r006
+  - r024
+  - r052
+  - r053
+  - r133
+  - r140
+  - r008
+  - r055
+  - r057
+  - r091
+  - r011
+  - r016
+  - r067
+  - r186
+  - r159
+  - r041
+  - r074
+  - r302
+  - r641
+  - r114
+  - r079
+  - r082
+  - r141
+travellerIds:
+  - r129
+  - r738
+  - r149
+  - r739
+  - r742
+fabledIds:
+  - r118
+  - r1786
+nightOrder:
+  first:
+    - r149
+    - r024
+    - r141
+    - r302
+    - r052
+    - r041
+    - r074
+    - r006
+    - r140
+    - r108
+    - r100
+    - r133
+    - r053
+  other:
+    - r149
+    - r742
+    - r024
+    - r302
+    - r052
+    - r008
+    - r041
+    - r074
+    - r079
+    - r082
+    - r141
+    - r114
+    - r159
+    - r006
+    - r055
+    - r140
+    - r133
+    - r053

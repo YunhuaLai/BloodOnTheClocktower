@@ -1,0 +1,119 @@
+id: r1718
+englishName: xuexingmali
+name: 血腥玛丽
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/SeaBound/Halloween/bloodymary_halloween.png
+flavor: Bloody Mary, Bloody Mary, Bloody Mary.
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 被提名
+  - Call
+  - 死亡
+remindersGlobal: []
+firstNightReminder: Bloody Mary chooses a player, they become scared.
+otherNightReminder: 血腥玛丽 要选择一名玩家：他转变为恐慌状态。随后，如果你上个白天没有被提名或一名善良玩家说过“血腥玛丽”，她要额外选择一名玩家：他死亡。
+ability: 每个夜晚，你要选择一名玩家：他转变为恐慌状态。随后，如果你上个白天没有被提名或一名善良玩家说过“血腥玛丽”，你要额外选择一名玩家：他死亡，但其他玩家当晚不会因处于恐慌状态而死亡。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1718
+    officialId: bloodymary_halloween
+    sourceHash: 5b4c87a45607ce4f5d0319403dd838618f959aa4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - setup
+    - nomination
+    - death
+    - good
+    - outsider
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

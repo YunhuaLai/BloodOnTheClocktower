@@ -1,0 +1,79 @@
+id: s396
+englishName: item
+name: 不精独乐·骨
+status: draft
+en: 不精独乐·骨
+author: 贾卡jaques
+logo: https://i.postimg.cc/ZqqFQw7p/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/ZqqFQw7p/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r002
+  - r004
+  - r087
+  - r007
+  - r008
+  - r022
+  - r134
+  - r029
+  - r057
+  - r058
+  - r233
+  - r823
+  - r308
+  - r092
+  - r015
+  - r072
+  - r040
+  - r020
+  - r121
+  - r017
+  - r021
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r095
+    - r121
+    - r017
+    - r040
+    - r308
+    - r002
+    - r004
+    - r023
+    - r058
+    - r087
+    - r134
+    - r092
+  other:
+    - r017
+    - r008
+    - r020
+    - r021
+    - r095
+    - r040
+    - r308
+    - r029
+    - r023
+    - r233
+    - r007
+    - r058
+    - r087
+    - r134

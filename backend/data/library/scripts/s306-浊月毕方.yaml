@@ -1,0 +1,81 @@
+id: s306
+englishName: item
+name: 浊月毕方
+status: draft
+en: 浊月毕方
+author: 刘中奇，Lei的剧本钟楼
+logo: https://i.postimg.cc/Kv6NB8mK/image.png
+description: 鹰身女妖、女祭司、黯月初升、华灯初上剧本
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 鹰身女妖、女祭司、黯月初升、华灯初上剧本
+image: https://i.postimg.cc/Kv6NB8mK/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 鹰身女妖、女祭司、黯月初升、华灯初上剧本
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r093
+  - r015
+  - r009
+  - r005
+  - r086
+  - r044
+  - r043
+  - r040
+  - r037
+  - r036
+  - r033
+  - r028
+  - r027
+  - r025
+  - r029
+  - r023
+  - r080
+  - r056
+  - r091
+  - r099
+  - r108
+  - r607
+  - r363
+  - r633
+  - r239
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r040
+    - r093
+    - r239
+    - r005
+    - r023
+    - r108
+    - r086
+    - r025
+  other:
+    - r027
+    - r028
+    - r607
+    - r093
+    - r044
+    - r080
+    - r239
+    - r099
+    - r040
+    - r363
+    - r009
+    - r029
+    - r036
+    - r037
+    - r023
+    - r005
+    - r056
+    - r086
+    - r025

@@ -1,0 +1,85 @@
+id: s766
+englishName: item
+name: 信马由缰
+status: draft
+en: 信马由缰
+author: MtyJ
+logo: https://i.postimg.cc/PfCFfSjs/1.png
+description: 三神谜题+身陷重围
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 三神谜题+身陷重围
+image: https://i.postimg.cc/PfCFfSjs/1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 三神谜题+身陷重围
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r108
+  - r391
+  - r310
+  - r879
+  - r005
+  - r025
+  - r053
+  - r054
+  - r055
+  - r329
+  - r230
+  - r058
+  - r728
+  - r313
+  - r1394
+  - r070
+  - r733
+  - r121
+  - r078
+  - r450
+  - r314
+  - r045
+  - r021
+  - r080
+travellerIds: []
+fabledIds:
+  - r4042
+nightOrder:
+  first:
+    - r728
+    - r314
+    - r121
+    - r078
+    - r450
+    - r045
+    - r005
+    - r058
+    - r049
+    - r108
+    - r391
+    - r879
+    - r025
+    - r053
+  other:
+    - r314
+    - r329
+    - r450
+    - r021
+    - r045
+    - r080
+    - r070
+    - r005
+    - r054
+    - r055
+    - r058
+    - r879
+    - r728
+    - r230
+    - r025
+    - r053

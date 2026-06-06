@@ -1,0 +1,84 @@
+id: r3363
+englishName: wellspringthewizardsmeetrework
+name: 涌咒者
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/twf07wfz/TheWizardsMeetRework/wellspring_thewizardsmeetrework.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 魔法之泉
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  If the Wellspring is dead, place the "Magic Spring" token on them and cast all their previously-submitted spells in
+  order of submission, ignoring the maximum Spell limit. (Remember, any of these spells can be vetoed as "Duds"!)
+ability: 当你存活时，你提交的咒语不会被抽中。如果你死亡，会按提交顺序释放所有之前提交过的咒语(提交过的咒语可能因被说书人否决而变成哑咒)。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3363
+    officialId: wellspringthewizardsmeetrework
+    sourceHash: d2e32edd2cd621a5456c459ce9a50b404dda5063
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - alive
+    - storyteller
+    - traveler
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

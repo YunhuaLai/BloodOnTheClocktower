@@ -1,0 +1,80 @@
+id: s182
+englishName: item
+name: 双蛇权杖
+status: draft
+en: 双蛇权杖
+author: 没有赞助杯·刘中奇
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/202602/c_2190194550771_841aaa13.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202602/c_2190194550771_841aaa13.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1425
+  - r1426
+  - r391
+  - r1427
+  - r1428
+  - r028
+  - r025
+  - r057
+  - r056
+  - r214
+  - r1429
+  - r090
+  - r008
+  - r015
+  - r1430
+  - r1431
+  - r1432
+  - r1433
+  - r1434
+  - r280
+  - r078
+  - r1435
+  - r1436
+  - r1437
+  - r082
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r1433
+    - r1434
+    - r078
+    - r280
+    - r1426
+    - r391
+    - r1428
+    - r1427
+    - r025
+  other:
+    - r1434
+    - r280
+    - r028
+    - r214
+    - r008
+    - r1429
+    - r082
+    - r1437
+    - r1436
+    - r1435
+    - r1432
+    - r1431
+    - r090
+    - r056
+    - r1428
+    - r1427
+    - r025

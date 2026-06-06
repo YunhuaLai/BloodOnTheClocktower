@@ -1,0 +1,61 @@
+id: s728
+englishName: item
+name: 幽灵茶会
+status: draft
+en: 幽灵茶会
+author: Zets
+logo: https://i.postimg.cc/J7PWdJj0/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/J7PWdJj0/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r005
+  - r097
+  - r060
+  - r025
+  - r091
+  - r039
+  - r072
+  - r020
+  - r117
+  - r078
+  - r103
+  - r083
+travellerIds: []
+fabledIds:
+  - r127
+  - r1481
+  - r118
+nightOrder:
+  first:
+    - r039
+    - r103
+    - r078
+    - r117
+    - r097
+    - r004
+    - r005
+    - r025
+  other:
+    - r1481
+    - r117
+    - r020
+    - r039
+    - r083
+    - r103
+    - r005
+    - r025

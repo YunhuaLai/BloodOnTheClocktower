@@ -1,0 +1,84 @@
+id: r3533
+englishName: 13-rhigh
+name: 浪漫主义者*
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/worryhours/rhigh/13_rhigh.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 恋人
+remindersGlobal: []
+firstNightReminder: 如果有多个玩家是浪漫主义者的对坐，选择其一并告知浪漫主义者。
+otherNightReminder: ' '
+ability: 魔典中与你对坐的玩家是你的恋人。 殊荣：如果你的恋人即将死亡，可能会有一名其他玩家代替他死亡。 目的：如果你邻近的存活玩家是你的恋人，你们获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3533
+    officialId: 13_rhigh
+    sourceHash: acc023c2458ab259097fa360c6c60d2c9560a47d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - outsider
+    - grimoire
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

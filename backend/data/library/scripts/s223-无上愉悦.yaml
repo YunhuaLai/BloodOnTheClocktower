@@ -1,0 +1,52 @@
+id: s223
+englishName: item
+name: 无上愉悦
+status: draft
+en: 无上愉悦
+author: The Pandemonium Institute
+logo: https://oss.gstonegames.com/static/image/team/202206/c_1054345915561_8466a4e3.jpg
+description: 《无上愉悦》是官方的第一个小型剧本，也是官方的第一个成型作品，作为一个巧妙运用简单角色进行游戏理念传达的小型剧本，《无上愉悦》设计得非常成功。
+townsfolkName: 镇民
+additional:
+  - 剧本介绍: >-
+      我把这个剧本推荐给刚刚接触本游戏的新人玩家，在推新的意义上来说，无上愉悦无疑是非常合适并且有趣的，并且玩家不会因为这样那样的原因在稀里糊涂中度过自己不知道自己在干什么的第一句游戏，相信我，这非常重要。事实上，在新人和老人一起游玩时，Steven更倾向于开一些暗流涌动之外的剧本。只是在纯粹新人的情况下，才使用暗流涌动。
+level: 官方剧本
+mood: ''
+text: 《无上愉悦》是官方的第一个小型剧本，也是官方的第一个成型作品，作为一个巧妙运用简单角色进行游戏理念传达的小型剧本，《无上愉悦》设计得非常成功。
+image: https://oss.gstonegames.com/static/image/team/202206/c_1054345915561_8466a4e3.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: >-
+    我把这个剧本推荐给刚刚接触本游戏的新人玩家，在推新的意义上来说，无上愉悦无疑是非常合适并且有趣的，并且玩家不会因为这样那样的原因在稀里糊涂中度过自己不知道自己在干什么的第一句游戏，相信我，这非常重要。事实上，在新人和老人一起游玩时，Steven更倾向于开一些暗流涌动之外的剧本。只是在纯粹新人的情况下，才使用暗流涌动。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r005
+  - r025
+  - r048
+  - r060
+  - r063
+  - r015
+  - r072
+  - r020
+  - r019
+  - r021
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r003
+    - r005
+    - r048
+    - r025
+  other:
+    - r020
+    - r021
+    - r063
+    - r005
+    - r025

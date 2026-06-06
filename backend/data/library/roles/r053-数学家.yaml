@@ -4,8 +4,8 @@ type: townsfolk
 englishName: mathematician
 ability: 每个夜晚，你会得知有多少名玩家的能力因为其他角色的能力而未正常生效。（从上个黎明到你被唤醒时）
 edition: custom
-image: https://img.picui.cn/free/2025/06/14/684d3617056fc.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/mathematician.png
+flavor: 任何连续的，且能进行定量初等运算的形式系统X，都具有不完全性。也就是说，在这个形式系统X内存在一些命题，这些命题既不能被证明为真，也不能被证明为否。所以，你喝醉了。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -22,16 +22,16 @@ setupMeta:
 reminders:
   - 未正常生效
 remindersGlobal: []
-firstNightReminder: 唤醒数学家。告知其有多少名玩家的能力因为其他角色的能力而未正常生效。
-otherNightReminder: 唤醒数学家。告知其有多少名玩家的能力因为其他角色的能力而未正常生效。
+firstNightReminder: 唤醒数学家，用手势比划数字来告诉他今天有多少玩家的能力未正常生效。
+otherNightReminder: 唤醒数学家，用手势比划数字来告诉他今天有多少玩家的能力未正常生效。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r053
-    officialId: mathematician
-    sourceHash: 54f97e2b90c1ad827d313908bbede85be849b1dc
+    officialId: 1_xindalu
+    sourceHash: f4eb90918c72f64f831a8af6dada236a2a9a92d9
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -51,8 +53,8 @@ abilityData:
   abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

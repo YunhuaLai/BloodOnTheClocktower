@@ -1,0 +1,90 @@
+id: s156
+englishName: item
+name: 热辣滚烫
+status: draft
+en: 热辣滚烫
+author: szssz&驯鹿
+logo: https://i.postimg.cc/3RH1Rbmv/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/3RH1Rbmv/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1217
+  - r100
+  - r1311
+  - r058
+  - r101
+  - r329
+  - r150
+  - r005
+  - r006
+  - r597
+  - r209
+  - r232
+  - r090
+  - r013
+  - r159
+  - r071
+  - r234
+  - r020
+  - r077
+  - r302
+  - r840
+  - r235
+  - r021
+  - r082
+  - r096
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r095
+    - r071
+    - r302
+    - r101
+    - r840
+    - r235
+    - r100
+    - r1311
+    - r005
+    - r006
+    - r597
+    - r013
+    - r058
+  other:
+    - r302
+    - r1217
+    - r101
+    - r840
+    - r235
+    - r329
+    - r150
+    - r020
+    - r021
+    - r082
+    - r096
+    - r095
+    - r159
+    - r090
+    - r005
+    - r006
+    - r209
+    - r597
+    - r232
+    - r013
+    - r058

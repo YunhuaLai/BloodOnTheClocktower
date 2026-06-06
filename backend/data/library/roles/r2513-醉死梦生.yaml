@@ -1,0 +1,84 @@
+id: r2513
+englishName: 13-xqxa
+name: 醉死梦生
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/beizi/xqxa/13_xqxa.png
+flavor: “虽⾼才明智，胶于⻅闻，醉⽣梦死，不⾃觉也。”
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 你的生死状态发生转变时，你可能转变阵营。每个夜晚* ，你可以决定自己的生死，即使你已死亡。[+0~1个醉死梦生]
+ability: 你的生死状态发生转变时，你可能转变阵营。每个夜晚* ，你可以决定自己的生死，即使你已死亡。[+0~1个醉死梦生]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2513
+    officialId: 13_xqxa
+    sourceHash: 17d9febeaee4948ffa6f194fcb744b08283d1df6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - death
+    - alignment
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

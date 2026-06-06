@@ -1,0 +1,93 @@
+id: r1633
+englishName: 641ac874-1012-2222222224206-88ce-eec1d86dc18b
+name: 失孤老人
+type: outsider
+edition: custom
+image: https://www.helloimg.com/i/2024/09/14/66e46a04e2c06.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 留下猫咪
+  - 老鼠1
+  - 老鼠2
+  - 老鼠3
+  - 老鼠4
+  - 老鼠5
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 若你收留黑猫，每个夜晚，黑猫会帮你抓一只老鼠，每只老鼠可以让你额外拥有一张投票标记，即使你已死亡。【黑猫访问你时，你会情不自禁地抱起黑猫，你可以选择收留他或放生它】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1633
+    officialId: 641ac874-1012-2222222224206-88ce-eec1d86dc18b
+    sourceHash: aeebfb680c04f3252690d9b84dfafa188249103d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - night
+    - vote
+    - death
+    - outsider
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: on_death
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: each_night
+    eventTiming: on_death
+    usagePattern: once_per_night
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

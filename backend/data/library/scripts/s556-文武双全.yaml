@@ -1,0 +1,84 @@
+id: s556
+englishName: item
+name: 文武双全
+status: draft
+en: 文武双全
+author: 晓辰
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1695172030_197011_9569.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1695172030_197011_9569.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r002
+  - r057
+  - r059
+  - r031
+  - r053
+  - r140
+  - r024
+  - r028
+  - r150
+  - r011
+  - r035
+  - r091
+  - r015
+  - r039
+  - r070
+  - r214
+  - r017
+  - r042
+  - r076
+  - r040
+  - r021
+  - r141
+  - r045
+  - r046
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r039
+    - r024
+    - r141
+    - r017
+    - r040
+    - r045
+    - r002
+    - r084
+    - r140
+    - r053
+  other:
+    - r059
+    - r024
+    - r017
+    - r028
+    - r076
+    - r039
+    - r150
+    - r021
+    - r045
+    - r046
+    - r141
+    - r042
+    - r040
+    - r214
+    - r070
+    - r031
+    - r140
+    - r053

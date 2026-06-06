@@ -1,0 +1,79 @@
+id: s085
+englishName: v1-1-1
+name: 异怪狂响v1.1.1
+status: draft
+en: 异怪狂响v1.1.1
+author: 惊鸿
+logo: https://free.picui.cn/free/2025/10/31/69045bbce158d.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/10/31/69045bbce158d.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r049
+  - r051
+  - r053
+  - r006
+  - r056
+  - r934
+  - r058
+  - r935
+  - r027
+  - r936
+  - r937
+  - r060
+  - r938
+  - r939
+  - r940
+  - r015
+  - r016
+  - r119
+  - r941
+  - r942
+  - r040
+  - r042
+  - r020
+  - r943
+travellerIds: []
+fabledIds:
+  - r933
+nightOrder:
+  first:
+    - r040
+    - r006
+    - r048
+    - r051
+    - r058
+    - r049
+    - r053
+    - r943
+  other:
+    - r027
+    - r942
+    - r020
+    - r934
+    - r941
+    - r042
+    - r040
+    - r938
+    - r939
+    - r006
+    - r051
+    - r056
+    - r058
+    - r053
+    - r943
+    - r935

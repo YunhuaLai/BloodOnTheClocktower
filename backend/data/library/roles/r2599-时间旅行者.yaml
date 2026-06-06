@@ -1,0 +1,108 @@
+id: r2599
+englishName: 20-xiudao111
+name: 时间旅行者
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/xiudao111/20_xiudao111.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 延缓
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 将延缓标记都改为死亡标记，非时间旅行者的死亡标记改为延缓标记。告知时间旅行者即将死亡的（延缓标记）玩家是谁。
+ability: 夜间即将死亡的其他玩家会额外存活到下个夜晚，你得知他们是谁。你不会获取错误信息。你可以在下个白天拜访说书人并选择代替其中一名玩家死亡。[说书人额外具有一个不在场爪牙的能力]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2599
+    officialId: 20_xiudao111
+    sourceHash: 7fbb602a4c60c8880d487d935ce0b82da884663a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - information
+    - death
+    - alive
+    - townsfolk
+    - minion
+    - storyteller
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

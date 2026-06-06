@@ -1,0 +1,132 @@
+id: r2608
+englishName: 2-xiudao111
+name: 最终恶魔
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/xiudao111/2_xiudao111.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 不会唤醒
+remindersGlobal:
+  - 狂信者
+firstNightReminder: 最终恶魔查看魔典
+otherNightReminder: 最终恶魔指向任意数量玩家，但不能大于存活玩家数量的一半，标记该玩家“死亡”。如果选择了三名或更多，放置“不会唤醒”。
+ability: >-
+  游戏结束前所有爪牙加入善良阵营。你与爪牙互相不认识，爪牙把一名狂信者当作恶魔。在游戏的首个夜晚，查看魔典。每个夜晚*，选择任意数量的玩家（至多为存活非旅行者玩家的一半）：他们死亡。如果你选择了至少三名玩家，下一晚你不会被唤醒。[至少存在一名狂信者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2608
+    officialId: 2_xiudao111
+    sourceHash: edfef99d39a1a999490bc6016b9e11b3d3913466
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - alignment
+    - good
+    - minion
+    - demon
+    - grimoire
+    - traveler
+  abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 3
+        source: target
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 目标号码3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null

@@ -4,7 +4,9 @@ name: 阴谋家
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz//p//Deodar2//noone//14_noone.png
-flavor: ''
+flavor: >-
+  Don't you see it? Just beyond the edge of our eyes? They're working together...everyone is working together...I'm so
+  glad you believe and trust me.
 setup: false
 setupMeta:
   randomAssignable: true
@@ -52,7 +54,7 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

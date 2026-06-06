@@ -1,0 +1,121 @@
+id: r1654
+englishName: jiuyuankezuo-zhongshengtang
+name: 众生堂
+type: demon
+edition: custom
+image: https://www.helloimg.com/i/2025/04/04/67ef533a53adb.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -1
+      source: '[-1外来者]'
+      note: 配置调整：外来者数量 -1。
+  setupNotes:
+    - 配置调整：外来者数量 -1。
+reminders:
+  - 加入邪恶
+  - 从此刻起
+remindersGlobal: []
+firstNightReminder: 在你的首个夜晚，会有三名善良玩家转变为邪恶阵营。
+otherNightReminder: ''
+ability: 在你的首个夜晚，会有三名善良玩家转变为邪恶阵营。在等同于邪恶镇民数量的那个白天及以后，被提名的玩家会立刻死亡，死亡玩家从此可以发起提名。[-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1654
+    officialId: jiuyuankezuo_zhongshengtang
+    sourceHash: 60cbf81f0935bfe83f1300d93d505e0c8034d6b4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - day
+    - night
+    - setup
+    - first-night
+    - information
+    - nomination
+    - death
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - outsider
+    - demon
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

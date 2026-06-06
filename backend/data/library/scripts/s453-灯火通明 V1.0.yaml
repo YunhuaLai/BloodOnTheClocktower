@@ -1,0 +1,86 @@
+id: s453
+englishName: v1-0
+name: 灯火通明 V1.0
+status: draft
+en: 灯火通明 V1.0
+author: 清清Jungle
+logo: https://www.bloodstar.xyz/p/Jungle/TricksOfLight/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Jungle/TricksOfLight/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r108
+  - r002
+  - r481
+  - r028
+  - r230
+  - r007
+  - r087
+  - r140
+  - r058
+  - r606
+  - r232
+  - r334
+  - r012
+  - r324
+  - r071
+  - r015
+  - r039
+  - r135
+  - r235
+  - r075
+  - r237
+  - r121
+  - r120
+  - r103
+  - r384
+travellerIds: []
+fabledIds:
+  - r1481
+  - r104
+nightOrder:
+  first:
+    - r071
+    - r039
+    - r121
+    - r103
+    - r075
+    - r235
+    - r002
+    - r058
+    - r140
+    - r087
+    - r384
+    - r108
+    - r481
+  other:
+    - r1481
+    - r324
+    - r028
+    - r075
+    - r235
+    - r039
+    - r103
+    - r237
+    - r007
+    - r232
+    - r058
+    - r140
+    - r087
+    - r230
+    - r384
+    - r606
+    - r481

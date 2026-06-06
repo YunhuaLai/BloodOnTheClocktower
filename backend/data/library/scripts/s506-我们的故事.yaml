@@ -1,0 +1,84 @@
+id: s506
+englishName: item
+name: 我们的故事
+status: draft
+en: 我们的故事
+author: 凤梨太黑了吧
+logo: https://free.picui.cn/free/2025/10/28/6900cbd8b5e00.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/10/28/6900cbd8b5e00.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r481
+  - r006
+  - r025
+  - r052
+  - r140
+  - r150
+  - r022
+  - r057
+  - r066
+  - r091
+  - r033
+  - r278
+  - r071
+  - r820
+  - r112
+  - r186
+  - r610
+  - r077
+  - r017
+  - r076
+  - r141
+  - r081
+  - r079
+  - r612
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r066
+    - r071
+    - r820
+    - r141
+    - r610
+    - r017
+    - r052
+    - r006
+    - r481
+    - r307
+    - r140
+    - r025
+  other:
+    - r066
+    - r076
+    - r017
+    - r052
+    - r112
+    - r150
+    - r079
+    - r081
+    - r141
+    - r612
+    - r820
+    - r610
+    - r140
+    - r278
+    - r006
+    - r481
+    - r025

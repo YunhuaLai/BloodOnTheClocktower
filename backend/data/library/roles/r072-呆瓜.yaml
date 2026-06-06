@@ -5,7 +5,7 @@ englishName: klutz
 ability: 当你得知你死亡时，你要公开选择一名存活的玩家：如果他是邪恶的，你的阵营落败。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/klutz.png
-flavor: ''
+flavor: 哎哟！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r072
-    officialId: klutz
+    officialId: daibi111
     sourceHash: 531c41b424bc9ed6a37f839ccbf37de5218063f3
     sourceHashFields:
       - ability

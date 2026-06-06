@@ -1,0 +1,103 @@
+id: r3203
+englishName: dramaqueen-ravenswoodhigh
+name: 抓马女王
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/marhepto/RavenswoodHigh/dramaqueen_ravenswoodhigh.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+  - 获得能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  When the Drama Queen dies tonight, show them the "YOU ARE" card and the in-play Townsfolk they were mad about being
+  today. Mark them with the "has ability" reminder token.
+ability: 如果你在夜晚死亡，且你在当天“疯狂”地证明自己是一个善良角色：你获得该角色的能力且能正常使用。然后你会得知该角色是谁(或得知该角色不在场)。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3203
+    officialId: dramaqueen_ravenswoodhigh
+    sourceHash: 9586d72fd717034e76df48f836e2977df6098702
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - good
+    - townsfolk
+    - madness
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

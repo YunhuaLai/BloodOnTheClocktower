@@ -1,0 +1,87 @@
+id: s440
+englishName: item
+name: 横尸遍野
+status: draft
+en: 横尸遍野
+author: 影
+logo: https://i.postimg.cc/x1bJKJJg/LOGO-copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/x1bJKJJg/LOGO-copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r003
+  - r052
+  - r025
+  - r632
+  - r109
+  - r028
+  - r027
+  - r059
+  - r463
+  - r232
+  - r155
+  - r091
+  - r038
+  - r112
+  - r820
+  - r039
+  - r015
+  - r040
+  - r042
+  - r609
+  - r077
+  - r237
+  - r239
+  - r612
+  - r047
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r632
+    - r820
+    - r039
+    - r609
+    - r052
+    - r040
+    - r239
+    - r003
+    - r023
+    - r025
+  other:
+    - r059
+    - r632
+    - r609
+    - r027
+    - r028
+    - r052
+    - r112
+    - r039
+    - r109
+    - r820
+    - r612
+    - r047
+    - r239
+    - r042
+    - r040
+    - r237
+    - r023
+    - r232
+    - r463
+    - r025

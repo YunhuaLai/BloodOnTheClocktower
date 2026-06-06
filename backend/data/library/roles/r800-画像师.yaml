@@ -3,7 +3,7 @@ englishName: 25-newhero
 name: 画像师
 type: townsfolk
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/25_newhero.png
+image: https://i.postimg.cc/Lstf7Q5V/image.png
 flavor: 色彩是我情感的载体，线条是我思想的轨迹，手中的画笔，是我与世界对话的方式。
 setup: false
 setupMeta:
@@ -18,19 +18,21 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
+reminders:
+  - 是
+  - 否
 remindersGlobal: []
-firstNightReminder: 让他选择除他以外的一名玩家，告知他选择的那名玩家阵营相同的另一名玩家。
-otherNightReminder: 让他选择除他以外的一名玩家，告知他选择的那名玩家阵营相同的另一名玩家。
-ability: 每个夜晚，你要选择除你以外的一名玩家，你会得知与他阵营相同的另一名玩家。
+firstNightReminder: ''
+otherNightReminder: 唤醒画像师，对他点头或摇头示意是否说的是真话
+ability: 每个白天，你可以公开选择选择一名玩家：当晚你会得知他今天白天是否“疯狂”地证明自己的角色和获得的信息。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r800
-    officialId: 25_newhero
-    sourceHash: ad25ebb4e7c7dc2465faf6ed55604d65446f46d4
+    officialId: huaxiangshi
+    sourceHash: 573dbd5df4603b38352f888fb5b84a55a7ef7505
     sourceHashFields:
       - ability
       - type
@@ -39,22 +41,24 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
     - 主动选择
   termIds:
+    - day
     - night
     - first-night
-    - alignment
+    - information
     - townsfolk
+    - madness
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

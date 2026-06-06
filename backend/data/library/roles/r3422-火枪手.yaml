@@ -1,0 +1,117 @@
+id: r3422
+englishName: 12d
+name: 火枪手
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Imzecorella/Day_By_Day/muskeeter_day_by_day.png
+flavor: 黑火药从小袋子里掉下来，流沙的声音伴随着精确的运动：“一无所有，一无所有……我们的世界真是个笑话。” 霎时间，我感觉步枪变得更轻了，而肩上的担子也更重了。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 驻守
+  - 错误
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 火枪手可以选择除火枪手以外的两名玩家：如果他这么做了，为第一名玩家放置“驻守”提示标记，标记第二名玩家错误。唤醒恶魔，以任意次序指向那两名玩家。如果恶魔杀死了标有“驻守”标记的玩家，再次唤醒火枪手，指向恶魔。
+ability: 每局游戏限一次，在夜晚时*，你可以选择除你以外的两名玩家：如果恶魔选择了首个被你选择的玩家，你会得知谁是恶魔。恶魔会以任意顺序得知你的选择。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3422
+    officialId: 12d
+    sourceHash: 4d22fd73a94b6d04044bf869aca490c27d7b96ee
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - townsfolk
+    - demon
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

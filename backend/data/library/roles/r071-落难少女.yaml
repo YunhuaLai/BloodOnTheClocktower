@@ -4,8 +4,8 @@ type: outsider
 englishName: damsel
 ability: 所有爪牙都知道落难少女在场。每局游戏限一次，任意爪牙可以公开猜测你是落难少女，如果猜对，你的阵营落败。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/damsel.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/damsel.png
+flavor: “别摸头发，亲爱的。”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -23,14 +23,15 @@ reminders:
   - 已被猜测
 remindersGlobal: []
 firstNightReminder: 如果落难少女在场，对爪牙展示落难少女角色标记。
-otherNightReminder: '0'
+otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r071
-    officialId: damsel
-    sourceHash: 379e87fa6ff1b17670623accfef6196142eb1761
+    officialId: damsel_c
+    sourceHash: 94221ad215b475f239b2a0f3cc32b42f4f529a56
     sourceHashFields:
       - ability
       - type
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 公开猜测
@@ -50,8 +53,8 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

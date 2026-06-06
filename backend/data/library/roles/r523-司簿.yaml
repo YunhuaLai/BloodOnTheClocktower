@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r523
-    officialId: bookkeeper
+    officialId: 3_jtxx
     sourceHash: 0cbb11b26d40087bbf492bfb748111b372f9bba1
     sourceHashFields:
       - ability
@@ -51,7 +51,7 @@ abilityData:
   abilityPattern: target_number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: first_night

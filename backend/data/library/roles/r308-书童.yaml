@@ -3,7 +3,7 @@ englishName: page
 name: 书童
 type: outsider
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202404/c_2027903943171_36d374a5.jpg
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/shutong.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,8 +22,8 @@ reminders:
   - 选择
   - 死亡
 remindersGlobal: []
-firstNightReminder: 唤醒书童，让其选择一名玩家，在其选择的玩家标记旁放置“选择”。
-otherNightReminder: 如果标记有“选择”的玩家被邪恶玩家的能力选择或影响时，在书童旁放置“死亡”标记。
+firstNightReminder: 唤醒书童，让他选择一名玩家。
+otherNightReminder: 如果被书童选择的玩家被邪恶玩家的能力选择或影响时，书童会在当晚死亡。
 ability: 在你的首个夜晚，你要选择除你以外的一名玩家：除首个夜晚以外，当他被邪恶玩家的能力选择或影响时，你会在当晚死亡。
 abilityData:
   schemaVersion: 2
@@ -31,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r308
-    officialId: page
-    sourceHash: 343209c3e6be486c3e1af4cb5b2a291dc5067812
+    officialId: zhshutongoashoiahokrtoaiwjsjfn8qh13rfbnoihc-9j
+    sourceHash: b716085528dfbc0952ecd9d29c5a01497ce63445
     sourceHashFields:
       - ability
       - type
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

@@ -1,0 +1,87 @@
+id: s504
+englishName: item
+name: 林方乱舞
+status: draft
+en: 林方乱舞
+author: fbb
+logo: https://s2.loli.net/2025/06/26/RbBFjrUn5K36hpq.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/26/RbBFjrUn5K36hpq.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r066
+  - r097
+  - r086
+  - r029
+  - r062
+  - r031
+  - r022
+  - r100
+  - r033
+  - r233
+  - r064
+  - r142
+  - r1191
+  - r067
+  - r116
+  - r071
+  - r135
+  - r075
+  - r073
+  - r077
+  - r120
+  - r103
+  - r095
+  - r081
+  - r099
+travellerIds:
+  - r130
+  - r738
+  - r147
+  - r739
+  - r741
+fabledIds:
+  - r1616
+  - r127
+  - r118
+nightOrder:
+  first:
+    - r066
+    - r095
+    - r071
+    - r103
+    - r1191
+    - r073
+    - r075
+    - r097
+    - r064
+    - r142
+    - r086
+    - r100
+  other:
+    - r066
+    - r075
+    - r099
+    - r081
+    - r103
+    - r095
+    - r029
+    - r233
+    - r031
+    - r064
+    - r062
+    - r142
+    - r086

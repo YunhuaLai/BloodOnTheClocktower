@@ -1,0 +1,85 @@
+id: s190
+englishName: item
+name: 大师之夜
+status: draft
+en: 大师之夜
+author: 旅店王老板
+logo: https://i.postimg.cc/Xq6sbY9Z/image.png
+description: 竞赛剧本
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 竞赛剧本
+image: https://i.postimg.cc/Xq6sbY9Z/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 竞赛剧本
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r001
+  - r008
+  - r005
+  - r006
+  - r028
+  - r056
+  - r009
+  - r052
+  - r139
+  - r155
+  - r101
+  - r115
+  - r039
+  - r070
+  - r072
+  - r119
+  - r077
+  - r040
+  - r117
+  - r121
+  - r141
+  - r079
+  - r103
+  - r021
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r155
+    - r039
+    - r121
+    - r101
+    - r141
+    - r103
+    - r052
+    - r040
+    - r117
+    - r001
+    - r004
+    - r005
+    - r006
+    - r139
+  other:
+    - r101
+    - r028
+    - r052
+    - r008
+    - r117
+    - r039
+    - r021
+    - r079
+    - r141
+    - r103
+    - r040
+    - r070
+    - r009
+    - r005
+    - r006
+    - r056
+    - r139

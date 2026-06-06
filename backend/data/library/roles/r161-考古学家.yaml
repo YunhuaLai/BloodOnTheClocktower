@@ -3,7 +3,7 @@ englishName: archaeologist
 name: 考古学家
 type: townsfolk
 edition: custom
-image: /assets/clock-tower-night.jpg
+image: https://i.postimg.cc/kMp1kx0N/image.png
 flavor: ''
 setup: false
 setupMeta:
@@ -19,18 +19,19 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 获得奖励
+  - 一名玩家死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: ''
-ability: 在房间里找到说书人留下的线索，即可获得奖励。
+otherNightReminder: 展示一个是非问题，让考古学家点头或摇头示意这个问题的答案，如果考古学家答错了，标记一名玩家死亡。
+ability: 每个夜晚*，说书人会问你一个是非问题：如果你答错，那么会有一名玩家死亡。
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r161
-    officialId: archaeologist
-    sourceHash: 4d415601bd18339773c7c77f6fb654e99240a39a
+    officialId: 4_the_organ_trail_zh
+    sourceHash: eb6ab6f8a143274c5d2378ab9acb7621204a1d74
     sourceHashFields:
       - ability
       - type
@@ -39,26 +40,30 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 白天
     - 事件触发
   termIds:
     - day
-    - information
+    - night
+    - death
     - townsfolk
     - storyteller
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: day
       event: null
       frequency: repeatable
     actor:
-      drivenBy: mixed
+      drivenBy: storyteller
     operations:
+      - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: null
   abilityMeta:
@@ -96,3 +101,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

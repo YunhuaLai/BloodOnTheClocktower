@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r555
-    officialId: demon-heir
+    officialId: 31_juedou
     sourceHash: c6dd7263ff1c4a24667fb512fd01d8f5737e797c
     sourceHashFields:
       - ability
@@ -56,7 +56,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

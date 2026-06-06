@@ -1,0 +1,60 @@
+id: s795
+englishName: item
+name: 给我闭嘴
+status: draft
+en: 给我闭嘴
+author: 刘中奇
+logo: https://i.postimg.cc/bvTPRTgN/2-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/bvTPRTgN/2-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r048
+  - r097
+  - r006
+  - r052
+  - r334
+  - r010
+  - r057
+  - r012
+  - r088
+  - r067
+  - r072
+  - r039
+  - r078
+  - r043
+  - r384
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r039
+    - r078
+    - r052
+    - r097
+    - r006
+    - r048
+    - r139
+    - r384
+  other:
+    - r088
+    - r052
+    - r039
+    - r006
+    - r139
+    - r384

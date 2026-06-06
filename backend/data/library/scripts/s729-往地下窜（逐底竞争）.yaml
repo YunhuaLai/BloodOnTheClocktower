@@ -1,0 +1,55 @@
+id: s729
+englishName: item
+name: 往地下窜（逐底竞争）
+status: draft
+en: 往地下窜（逐底竞争）
+author: Evin Donohoe
+logo: https://i.postimg.cc/J7vXb2Vn/copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/J7vXb2Vn/copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r030
+  - r048
+  - r051
+  - r012
+  - r022
+  - r005
+  - r039
+  - r072
+  - r020
+  - r018
+  - r083
+travellerIds: []
+fabledIds:
+  - r160
+  - r127
+nightOrder:
+  first:
+    - r039
+    - r030
+    - r005
+    - r048
+    - r051
+    - r018
+  other:
+    - r030
+    - r020
+    - r039
+    - r083
+    - r005
+    - r051
+    - r018

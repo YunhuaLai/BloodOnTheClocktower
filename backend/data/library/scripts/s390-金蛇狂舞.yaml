@@ -1,0 +1,71 @@
+id: s390
+englishName: item
+name: 金蛇狂舞
+status: draft
+en: 金蛇狂舞
+author: 阿水
+logo: https://www.helloimg.com/i/2025/01/08/677e4c32d5063.png
+description: 金蛇狂舞
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 金蛇狂舞
+image: https://www.helloimg.com/i/2025/01/08/677e4c32d5063.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 金蛇狂舞
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r052
+  - r097
+  - r006
+  - r087
+  - r028
+  - r109
+  - r059
+  - r062
+  - r319
+  - r115
+  - r091
+  - r098
+  - r135
+  - r324
+  - r112
+  - r077
+  - r641
+  - r302
+  - r235
+  - r021
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r059
+    - r115
+    - r098
+    - r302
+    - r052
+    - r235
+    - r097
+    - r006
+    - r087
+  other:
+    - r059
+    - r324
+    - r302
+    - r028
+    - r052
+    - r235
+    - r112
+    - r109
+    - r021
+    - r006
+    - r062
+    - r087

@@ -37,7 +37,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r284
-    officialId: dark-priest
+    officialId: fq7autn2
     sourceHash: d760d6a00aebb0f5a0d80b78a225dc2559144eb2
     sourceHashFields:
       - ability
@@ -47,8 +47,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -65,8 +65,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

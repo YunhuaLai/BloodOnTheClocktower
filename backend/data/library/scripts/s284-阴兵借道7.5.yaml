@@ -1,0 +1,56 @@
+id: s284
+englishName: 7-5
+name: 阴兵借道7.5
+status: draft
+en: 阴兵借道7.5
+author: 痴愚
+logo: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_7421652838171_2bd5ac6a.jpg
+description: 氓山，污秽与邪祟野性生长的疯狂之地，也是末法者最后的净土，为了生存，三教九流、魑魅魍魉汇聚于此。然而好景不长，氓山的灵气日益枯竭，长此以往净土终将湮灭，为了争夺仅有的生存空间，最后的疯狂与杀戮正在上演...
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 氓山，污秽与邪祟野性生长的疯狂之地，也是末法者最后的净土，为了生存，三教九流、魑魅魍魉汇聚于此。然而好景不长，氓山的灵气日益枯竭，长此以往净土终将湮灭，为了争夺仅有的生存空间，最后的疯狂与杀戮正在上演...
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_7421652838171_2bd5ac6a.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 氓山，污秽与邪祟野性生长的疯狂之地，也是末法者最后的净土，为了生存，三教九流、魑魅魍魉汇聚于此。然而好景不长，氓山的灵气日益枯竭，长此以往净土终将湮灭，为了争夺仅有的生存空间，最后的疯狂与杀戮正在上演...
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1661
+  - r1663
+  - r1666
+  - r1668
+  - r1670
+  - r1291
+  - r1651
+  - r1711
+  - r1674
+  - r1677
+  - r1712
+travellerIds: []
+fabledIds:
+  - r1680
+  - r1681
+  - r1682
+  - r1683
+nightOrder:
+  first:
+    - r1677
+    - r1666
+    - r1668
+    - r1661
+  other:
+    - r1677
+    - r1674
+    - r1712
+    - r1661
+    - r1666
+    - r1670
+    - r1663
+    - r1711

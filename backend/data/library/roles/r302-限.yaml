@@ -3,8 +3,8 @@ englishName: xaan
 name: 限
 type: minion
 edition: custom
-image: https://clocktower-wiki.gstonegames.com/images/b/b9/Xaan.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202411/c_7860002933371_9c39e151.jpg
+flavor: 他们接连倒下。一个，又一个。两个，三个，五个。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -31,8 +31,8 @@ reminders:
   - 第四晚
   - 大限将至
 remindersGlobal: []
-firstNightReminder: 如果夜晚天数等于初始外来者数量，所有镇民玩家中毒到下个黄昏。
-otherNightReminder: 如果夜晚天数等于初始外来者数量，所有镇民玩家中毒到下个黄昏。
+firstNightReminder: 如果初始外来者的数量等于1，则标记大限将至。
+otherNightReminder: 如果初始外来者的数量等于当前游戏的夜晚数，则标记大限将至。
 ability: 在等同于初始外来者数量的夜晚，所有镇民玩家中毒直到下个黄昏。[外来者数量任意]
 abilityData:
   schemaVersion: 2
@@ -40,8 +40,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r302
-    officialId: xaan
-    sourceHash: 1db56d1a58b8aa86d15f7505de1e52e7192c6442
+    officialId: xaan_c
+    sourceHash: 7ba4df6b3c4006d2c58109f163924aee86963073
     sourceHashFields:
       - ability
       - type
@@ -66,17 +66,17 @@ abilityData:
     - townsfolk
     - outsider
     - minion
-  abilityPattern: status_effect
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night
       event: null
       frequency: once_per_night
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments:

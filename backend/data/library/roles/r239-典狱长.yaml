@@ -20,8 +20,6 @@ setupMeta:
   setupNotes: []
 reminders:
   - 囚禁
-  - 囚禁
-  - 囚禁
   - 死亡
 remindersGlobal: []
 firstNightReminder: 唤醒典狱长，让他选择至多三名玩家。
@@ -33,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r239
-    officialId: warden
-    sourceHash: 491390e61e142578488052a548e8ab40ad707ea9
+    officialId: dianyuzhangaowhorahwpru903qu5rpiqhnrf
+    sourceHash: 8f4e560bb43c13258bf7c2312d0ef192b93f8f7a
     sourceHashFields:
       - ability
       - type
@@ -59,7 +57,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

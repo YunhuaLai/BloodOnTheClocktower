@@ -1,0 +1,74 @@
+id: s450
+englishName: item
+name: 初窥门径
+status: draft
+en: 初窥门径
+author: 追命丶
+logo: https://www.helloimg.com/i/2025/01/08/677e7b9e68841.png
+description: 初窥门径
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 初窥门径
+image: https://www.helloimg.com/i/2025/01/08/677e7b9e68841.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 初窥门径
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r004
+  - r049
+  - r005
+  - r006
+  - r007
+  - r155
+  - r233
+  - r334
+  - r009
+  - r010
+  - r022
+  - r012
+  - r015
+  - r016
+  - r014
+  - r135
+  - r017
+  - r020
+  - r040
+  - r336
+  - r021
+  - r095
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r155
+    - r095
+    - r017
+    - r040
+    - r001
+    - r002
+    - r004
+    - r005
+    - r006
+    - r049
+  other:
+    - r017
+    - r020
+    - r021
+    - r095
+    - r040
+    - r009
+    - r233
+    - r005
+    - r006
+    - r007

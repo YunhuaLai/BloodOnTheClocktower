@@ -1,0 +1,108 @@
+id: r3116
+englishName: dormammu-avengersv2
+name: 多玛姆
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/AvengersV2/dormammu_avengersv2.png
+flavor: You've come to die! Your world is now my world, like all worlds!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 额外刀
+  - 死亡
+  - 死亡
+  - 死亡
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  The Dormammu shows a 'no' head signal or points to a player, plus one if the Dormammu is marked 'Extra kill'. Those
+  players die.<br><br>If no players were chosen, mark the Dormammu 'Extra kill'.
+ability: 每个夜晚*，你可以选择一名玩家：他死亡。如果你首次在夜晚选择放弃攻击，在此之后的每个夜晚改为你可以选择两名玩家：他们死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3116
+    officialId: dormammu_avengersv2
+    sourceHash: 1b70e41616518a28812e16f4702f4212a85812e5
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

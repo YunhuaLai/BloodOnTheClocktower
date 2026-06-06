@@ -1,0 +1,113 @@
+id: r2485
+englishName: 14-city-of-illusio
+name: ' 末日预言官'
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/TwinCity/13_twincity.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 剩余一天
+  - 剩余二天
+  - 剩余三天
+  - 剩余四天
+  - 剩余五天
+  - 末日降临
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 展示对应天数的标记给末日预言官看，并让他选择一名玩家，如果他是邪恶的，将标记替换为少一天的标记。
+otherNightReminder: 如果到了标记剩余一天，给末日预言官标记“死亡”，并向一名善良玩家得知“末日降临”标记；否则让末日预言官选择一名玩家，如果他是邪恶的，将标记替换为少一天的标记。
+ability: 在你的首个夜晚，你得知你将在第几夜死亡，且当晚不会有其他玩家死亡。每个夜晚，你要选择一名玩家：如果他是邪恶的，你提前一天死亡。如果你死于自身能力，一名善良玩家得知“末日降临”。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2485
+    officialId: 14_city_of_illusio
+    sourceHash: 178ee25c62a509215d91d2ac9ee4855df16e6755
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: target_number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null

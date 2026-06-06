@@ -1,0 +1,87 @@
+id: s544
+englishName: item
+name: 罗生门
+status: draft
+en: 罗生门
+author: 时之砂
+logo: https://free.picui.cn/free/2025/12/07/693460a41d41b.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/07/693460a41d41b.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r003
+  - r007
+  - r008
+  - r055
+  - r058
+  - r059
+  - r088
+  - r140
+  - r134
+  - r090
+  - r066
+  - r100
+  - r015
+  - r016
+  - r070
+  - r186
+  - r076
+  - r336
+  - r302
+  - r840
+  - r045
+  - r080
+  - r096
+  - r683
+travellerIds: []
+fabledIds:
+  - r1913
+nightOrder:
+  first:
+    - r683
+    - r336
+    - r088
+    - r059
+    - r066
+    - r840
+    - r302
+    - r045
+    - r002
+    - r003
+    - r058
+    - r140
+    - r134
+    - r100
+  other:
+    - r088
+    - r059
+    - r066
+    - r840
+    - r008
+    - r076
+    - r302
+    - r045
+    - r080
+    - r096
+    - r683
+    - r070
+    - r090
+    - r007
+    - r055
+    - r058
+    - r140
+    - r134

@@ -1,0 +1,112 @@
+id: r2299
+englishName: 9-kakalikeyeweimian
+name: 军火商
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/SerraEvelyn/kakalikeyeweimian/9_kakalikeyeweimian.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 火药
+  - 限一次
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 你持有“火药”。每个夜晚*，你要选择除自己外的一名存活玩家（需与之前均不同）并放置“火药”。每局游戏限一次，在夜晚时*，你可以选择引燃“火药”，先前被你放置“火药”的非镇民玩家均会在当晚死亡。[+1外来者]
+ability: 你持有“火药”。每个夜晚*，你要选择除自己外的一名存活玩家（需与之前均不同）并放置“火药”。每局游戏限一次，在夜晚时*，你可以选择引燃“火药”，先前被你放置“火药”的非镇民玩家均会在当晚死亡。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2299
+    officialId: 9_kakalikeyeweimian
+    sourceHash: 2a2d29c4b0fda3abb6b91b81db283f3866feb944
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - death
+    - alive
+    - townsfolk
+    - outsider
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

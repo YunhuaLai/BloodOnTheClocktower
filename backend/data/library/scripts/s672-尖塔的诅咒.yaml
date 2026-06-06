@@ -1,0 +1,59 @@
+id: s672
+englishName: item
+name: 尖塔的诅咒
+status: draft
+en: 尖塔的诅咒
+author: 小烯C2H43g
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3886
+  - r3887
+  - r3888
+  - r3889
+  - r3890
+  - r3891
+  - r3892
+  - r3893
+  - r3894
+  - r3895
+  - r3896
+  - r3897
+travellerIds:
+  - r3898
+fabledIds:
+  - r3884
+  - r3885
+  - r3389
+  - r348
+nightOrder:
+  first:
+    - r3896
+    - r3884
+    - r3895
+    - r3890
+  other:
+    - r3898
+    - r3884
+    - r3886
+    - r3897
+    - r3895
+    - r3887
+    - r3888
+    - r3889
+    - r3890

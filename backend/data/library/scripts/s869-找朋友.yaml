@@ -1,0 +1,80 @@
+id: s869
+englishName: item
+name: 找朋友
+status: draft
+en: 找朋友
+author: 星火乐
+logo: https://www.helloimg.com/i/2025/01/08/677df82349a37.png
+description: 找朋友
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 找朋友
+image: https://www.helloimg.com/i/2025/01/08/677df82349a37.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 找朋友
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r049
+  - r005
+  - r051
+  - r140
+  - r101
+  - r150
+  - r030
+  - r031
+  - r060
+  - r057
+  - r034
+  - r090
+  - r014
+  - r119
+  - r069
+  - r234
+  - r073
+  - r076
+  - r078
+  - r1613
+  - r079
+  - r683
+  - r095
+  - r103
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r683
+    - r095
+    - r101
+    - r103
+    - r078
+    - r030
+    - r073
+    - r004
+    - r005
+    - r051
+    - r049
+    - r140
+    - r1613
+  other:
+    - r101
+    - r076
+    - r030
+    - r150
+    - r079
+    - r683
+    - r103
+    - r095
+    - r090
+    - r031
+    - r005
+    - r051
+    - r140

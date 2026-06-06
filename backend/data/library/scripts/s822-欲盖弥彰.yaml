@@ -1,0 +1,82 @@
+id: s822
+englishName: item
+name: 欲盖弥彰
+status: draft
+en: 欲盖弥彰
+author: Milk
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689598808_197011_9920.webp
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689598808_197011_9920.webp
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r049
+  - r097
+  - r140
+  - r025
+  - r006
+  - r133
+  - r024
+  - r057
+  - r058
+  - r059
+  - r089
+  - r009
+  - r070
+  - r015
+  - r067
+  - r068
+  - r073
+  - r641
+  - r078
+  - r117
+  - r103
+  - r079
+  - r141
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r024
+    - r141
+    - r103
+    - r078
+    - r073
+    - r117
+    - r097
+    - r002
+    - r006
+    - r058
+    - r049
+    - r140
+    - r133
+    - r025
+  other:
+    - r059
+    - r024
+    - r117
+    - r079
+    - r141
+    - r103
+    - r070
+    - r068
+    - r009
+    - r006
+    - r058
+    - r140
+    - r133
+    - r025

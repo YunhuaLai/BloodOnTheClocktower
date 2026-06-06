@@ -4,8 +4,8 @@ type: townsfolk
 englishName: fortune-teller
 ability: 每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。会有一名善良玩家始终被你的能力当作恶魔。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/fortune_teller.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/fortune_teller.png
+flavor: Clairvoyance is clairvoyance!! Don't put it in the same category as cattle mutilation!
 setup: false
 setupMeta:
   randomAssignable: true
@@ -22,16 +22,16 @@ setupMeta:
 reminders:
   - 干扰项
 remindersGlobal: []
-firstNightReminder: 让占卜师选择两名玩家。如果其中有恶魔或“干扰项”，点头示意，否则摇头。
-otherNightReminder: 让占卜师选择两名玩家。如果其中有恶魔或“干扰项”，点头示意，否则摇头。
+firstNightReminder: 唤醒占卜师，让他选择两名玩家。以点头或摇头告知他是否选中了恶魔。
+otherNightReminder: 唤醒占卜师，让他选择两名玩家。以点头或摇头告知他是否选中了恶魔。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r006
-    officialId: fortune-teller
-    sourceHash: bc18922186ad77cfe6d9ebb5595a61474dbe5cf4
+    officialId: mofashuijingqiu111
+    sourceHash: 5985b8db587f5df2dd4be0725588f0088e37fd5c
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -53,8 +55,8 @@ abilityData:
   abilityPattern: target_demon_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

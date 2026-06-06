@@ -1,0 +1,86 @@
+id: s120
+englishName: item
+name: 说书人之怒
+status: draft
+en: 说书人之怒
+author: Richard Black
+logo: https://i.postimg.cc/9QTWVNGL/copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/9QTWVNGL/copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r057
+  - r088
+  - r091
+  - r053
+  - r097
+  - r059
+  - r008
+  - r065
+  - r155
+  - r115
+  - r066
+  - r139
+  - r052
+  - r013
+  - r119
+  - r015
+  - r039
+  - r121
+  - r075
+  - r107
+  - r076
+  - r103
+  - r044
+  - r099
+  - r083
+  - r1184
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r066
+    - r039
+    - r121
+    - r088
+    - r103
+    - r052
+    - r075
+    - r107
+    - r097
+    - r013
+    - r139
+    - r053
+  other:
+    - r059
+    - r066
+    - r088
+    - r052
+    - r008
+    - r075
+    - r076
+    - r107
+    - r039
+    - r044
+    - r083
+    - r099
+    - r103
+    - r013
+    - r139
+    - r053

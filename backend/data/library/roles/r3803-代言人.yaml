@@ -1,0 +1,119 @@
+id: r3803
+englishName: advocate-echoes-of-the-past
+name: 代言人
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Wingidon/Echoes_Of_The_Past/advocate_echoes_of_the_past.png
+flavor: To play Devil's Advocate here though...
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 选择
+  - 当日处决
+remindersGlobal: []
+firstNightReminder: >-
+  Wake the Advocate. They will choose a player. Mark that player with the "Chosen" reminder token. Then, put the
+  Advocate to sleep.
+otherNightReminder: >-
+  Wake the Advocate. If a player has the "Executed Today" reminder token on them, point at a player of the same
+  alignment as them. Then, the Advocate will choose a player. Mark that player with the "Chosen" reminder token. Then,
+  put the Advocate to sleep.
+ability: 每个夜晚，你要选择一名存活玩家：如果他明天白天被处决，你会在当晚得知一名与他阵营相同的玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3803
+    officialId: advocate_echoes_of_the_past
+    sourceHash: 88581c90ebb7ed41f1f40f4a84301f0e727cfa8f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - execution
+    - alive
+    - alignment
+    - townsfolk
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

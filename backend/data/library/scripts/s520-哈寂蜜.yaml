@@ -1,0 +1,73 @@
+id: s520
+englishName: item
+name: 哈寂蜜
+status: draft
+en: 哈寂蜜
+author: 蓝铃兰
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/b/b6/rwg04ywkuqh5zm0vwt0dkrmqfvth1lu.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/b/b6/rwg04ywkuqh5zm0vwt0dkrmqfvth1lu.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r029
+  - r150
+  - r060
+  - r087
+  - r025
+  - r051
+  - r133
+  - r033
+  - r035
+  - r066
+  - r101
+  - r155
+  - r012
+  - r015
+  - r039
+  - r135
+  - r014
+  - r633
+  - r076
+  - r336
+  - r041
+  - r081
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r155
+    - r066
+    - r039
+    - r101
+    - r041
+    - r051
+    - r087
+    - r133
+    - r025
+  other:
+    - r066
+    - r101
+    - r076
+    - r041
+    - r039
+    - r150
+    - r081
+    - r029
+    - r051
+    - r087
+    - r133
+    - r025

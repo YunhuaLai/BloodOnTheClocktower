@@ -1,0 +1,88 @@
+id: s826
+englishName: trashwarlock
+name: 非吾华厦-TrashWarlock
+status: draft
+en: 非吾华厦-TrashWarlock
+author: TrashWarlock
+logo: https://www.helloimg.com/i/2025/03/22/67decfdb752e7.png
+description: 非吾华厦
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 非吾华厦
+image: https://www.helloimg.com/i/2025/03/22/67decfdb752e7.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 非吾华厦
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r100
+  - r005
+  - r024
+  - r053
+  - r140
+  - r008
+  - r028
+  - r026
+  - r055
+  - r029
+  - r034
+  - r009
+  - r088
+  - r016
+  - r119
+  - r036
+  - r041
+  - r040
+  - r017
+  - r121
+  - r021
+  - r080
+  - r045
+  - r136
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r088
+    - r121
+    - r024
+    - r017
+    - r040
+    - r041
+    - r045
+    - r136
+    - r005
+    - r023
+    - r140
+    - r100
+    - r053
+  other:
+    - r088
+    - r024
+    - r017
+    - r028
+    - r008
+    - r041
+    - r026
+    - r021
+    - r045
+    - r080
+    - r136
+    - r040
+    - r029
+    - r036
+    - r023
+    - r009
+    - r005
+    - r055
+    - r140
+    - r053

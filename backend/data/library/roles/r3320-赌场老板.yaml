@@ -1,0 +1,96 @@
+id: r3320
+englishName: 6-yz-cn-ggg
+name: 赌场老板
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/papel/YZ_CN_GGG/6_yz_cn_ggg.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 即将死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 赌场老板可以选择一个角色。如果该角色在场，该角色对应的玩家都变为他的角色类型内的一个其他角色。如果该角色不在场，标记“即将死亡”，恶魔的杀害目标会改为选择他。
+ability: 每个夜晚*，你可以猜测一个角色：如果该角色在场，该角色的所有玩家变成他的角色类型内的另一个角色。如果该角色不在场，当晚恶魔会改为杀死你。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3320
+    officialId: 6_yz_cn_ggg
+    sourceHash: c20cf51c0e55cb6c8f4188ba4042ab5a7da872a0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - townsfolk
+    - demon
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

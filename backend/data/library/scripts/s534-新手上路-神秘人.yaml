@@ -1,0 +1,81 @@
+id: s534
+englishName: item
+name: 新手上路-神秘人
+status: draft
+en: 新手上路-神秘人
+author: 神秘人
+logo: https://www.helloimg.com/i/2025/04/03/67ed703a6da90.png
+description: 新手上路
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 新手上路
+image: https://www.helloimg.com/i/2025/04/03/67ed703a6da90.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 新手上路
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r025
+  - r140
+  - r008
+  - r026
+  - r056
+  - r055
+  - r058
+  - r029
+  - r022
+  - r060
+  - r089
+  - r010
+  - r092
+  - r037
+  - r069
+  - r070
+  - r077
+  - r020
+  - r074
+  - r040
+  - r096
+  - r083
+  - r095
+  - r136
+travellerIds: []
+fabledIds:
+  - r1274
+nightOrder:
+  first:
+    - r095
+    - r040
+    - r074
+    - r136
+    - r004
+    - r058
+    - r140
+    - r092
+    - r025
+  other:
+    - r008
+    - r074
+    - r020
+    - r026
+    - r083
+    - r096
+    - r136
+    - r095
+    - r040
+    - r029
+    - r037
+    - r070
+    - r055
+    - r056
+    - r058
+    - r140
+    - r025

@@ -1,0 +1,77 @@
+id: s810
+englishName: v8
+name: 瞒天过海v8
+status: draft
+en: 瞒天过海v8
+author: Lau
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r097
+  - r140
+  - r006
+  - r056
+  - r053
+  - r057
+  - r058
+  - r064
+  - r089
+  - r022
+  - r009
+  - r091
+  - r067
+  - r071
+  - r072
+  - r015
+  - r069
+  - r075
+  - r020
+  - r019
+  - r121
+  - r079
+  - r021
+  - r082
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r075
+    - r097
+    - r064
+    - r071
+    - r006
+    - r058
+    - r049
+    - r140
+    - r053
+  other:
+    - r075
+    - r020
+    - r021
+    - r079
+    - r082
+    - r009
+    - r064
+    - r071
+    - r006
+    - r056
+    - r058
+    - r140
+    - r053

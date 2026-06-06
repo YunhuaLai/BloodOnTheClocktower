@@ -1,0 +1,54 @@
+id: s717
+englishName: v1-1
+name: 狂浪梼天 V1.1
+status: draft
+en: 狂浪梼天 V1.1
+author: 清清Jungle
+logo: https://www.bloodstar.xyz/p/Jungle/Taowu_Mad/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Jungle/Taowu_Mad/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r059
+  - r029
+  - r062
+  - r088
+  - r319
+  - r067
+  - r116
+  - r075
+  - r093
+  - r689
+travellerIds: []
+fabledIds:
+  - r1612
+nightOrder:
+  first:
+    - r059
+    - r689
+    - r088
+    - r075
+    - r093
+    - r097
+  other:
+    - r059
+    - r088
+    - r075
+    - r093
+    - r689
+    - r029
+    - r062

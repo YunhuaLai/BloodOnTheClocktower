@@ -4,7 +4,7 @@ type: townsfolk
 englishName: librarian
 ability: 在你的首个夜晚，你会得知两名玩家和一个外来者角色：这两名玩家之一是该角色（或者你会得知没有外来者在场）。
 edition: custom
-image: https://img.picui.cn/free/2025/06/17/6851433c835f6.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/librarian.png
 flavor: ''
 setup: false
 setupMeta:
@@ -21,9 +21,9 @@ setupMeta:
   setupNotes: []
 reminders:
   - 外来者
-  - 得知
+  - 错误
 remindersGlobal: []
-firstNightReminder: 唤醒图书管理员，告知其信息。
+firstNightReminder: 唤醒图书管理员，对他指向两名玩家，并展示一个外来者角色标记。这两名玩家其中之一是这个外来者。
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
@@ -31,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r002
-    officialId: librarian
-    sourceHash: 3b26be49f0bfa9b5e28b26c5696d2ceee25dfc1d
+    officialId: daerduotutu111
+    sourceHash: dd6cd433567bbe3491bdefcb6106b0b28e279463
     sourceHashFields:
       - ability
       - type
@@ -41,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -54,8 +56,8 @@ abilityData:
   abilityPattern: role_in_group_hint
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

@@ -1,0 +1,70 @@
+id: s692
+englishName: item
+name: 黑人抬棺
+status: draft
+en: 黑人抬棺
+author: 刘中奇
+logo: https://i.postimg.cc/NjFcHgxM/image.png
+description: 抽象入殓师整活剧本
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 抽象入殓师整活剧本
+image: https://i.postimg.cc/NjFcHgxM/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 抽象入殓师整活剧本
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r059
+  - r319
+  - r097
+  - r022
+  - r140
+  - r091
+  - r052
+  - r005
+  - r007
+  - r530
+  - r060
+  - r051
+  - r823
+  - r112
+  - r019
+  - r1613
+  - r020
+  - r121
+  - r141
+travellerIds: []
+fabledIds:
+  - r348
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r121
+    - r141
+    - r052
+    - r097
+    - r005
+    - r051
+    - r140
+    - r530
+    - r1613
+  other:
+    - r059
+    - r052
+    - r112
+    - r020
+    - r141
+    - r005
+    - r007
+    - r051
+    - r530
+    - r140

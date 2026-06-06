@@ -3,8 +3,8 @@ englishName: banshee
 name: 报丧女妖
 type: townsfolk
 edition: custom
-image: https://clocktower-wiki.gstonegames.com/images/d/d3/Banshee.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/banshee.png
+flavor: “红是你的发色，蓝是你的瞳色，死是你的褪色。”（爱尔兰盖尔语）
 setup: false
 setupMeta:
   randomAssignable: true
@@ -18,10 +18,11 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
+reminders:
+  - 具有能力
 remindersGlobal: []
-firstNightReminder: ''
-otherNightReminder: 如果恶魔杀死了报丧女妖，高声宣布“报丧女妖觉醒了！”或发出奇怪的声音，并使用“具有能力”标记报丧女妖。
+firstNightReminder: 如果恶魔杀死了报丧女妖，宣布“报丧女妖觉醒了”，并使用“具有能力”标记报丧女妖。
+otherNightReminder: ''
 ability: 如果恶魔杀死了你，所有玩家都会得知此事。从现在开始，你每天可以发起两次提名，每次投票时可以投两票。
 abilityData:
   schemaVersion: 2
@@ -29,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r233
-    officialId: banshee
-    sourceHash: 8813542f1d4d93b740e131a191b14dd4f2e4ae82
+    officialId: wofuhuolawoshijiangbu111
+    sourceHash: 26f6e974a5b3c3fa39fee3d226c219f7b8c4112d
     sourceHashFields:
       - ability
       - type
@@ -55,7 +56,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

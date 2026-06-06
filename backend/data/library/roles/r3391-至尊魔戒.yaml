@@ -1,0 +1,106 @@
+id: r3391
+englishName: theoneringringbearer
+name: 至尊魔戒
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/Bim/Ringbearer/theonering_ringbearer.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 至尊魔戒
+remindersGlobal: []
+firstNightReminder: Inform the Ringbearer that they bear the Ring.
+otherNightReminder: Ask the Ringbearer to pass the Ring. Inform the new Ringbearer.
+ability: >-
+  会有一名善良玩家无意中捡到魔戒。每个夜晚*，如果上个白天没有被传递魔戒，魔戒持有者可以选择一名其他存活玩家：魔戒传递给他。如果恶魔持有魔戒，或一名善良的魔戒持有者死亡，邪恶阵营获胜。如果一名邪恶的魔戒持有者死亡，魔戒会被传递给一名善良玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3391
+    officialId: theoneringringbearer
+    sourceHash: e7765dd69db626c66ecc4fa4be9ed1bfdf3557c6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - setup
+    - first-night
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - demon
+    - fabled
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

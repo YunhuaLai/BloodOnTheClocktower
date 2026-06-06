@@ -1,0 +1,83 @@
+id: s257
+englishName: item
+name: 克苏鲁风暴
+status: draft
+en: 克苏鲁风暴
+author: Angelo&Nick
+logo: https://www.helloimg.com/i/2024/12/10/6757e55d6e444.png
+description: 克苏鲁风暴
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 克苏鲁风暴
+image: https://www.helloimg.com/i/2024/12/10/6757e55d6e444.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 克苏鲁风暴
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r085
+  - r005
+  - r140
+  - r087
+  - r007
+  - r027
+  - r026
+  - r150
+  - r063
+  - r066
+  - r090
+  - r012
+  - r016
+  - r039
+  - r069
+  - r135
+  - r017
+  - r020
+  - r121
+  - r1613
+  - r045
+  - r080
+  - r082
+  - r096
+travellerIds: []
+fabledIds:
+  - r158
+nightOrder:
+  first:
+    - r066
+    - r039
+    - r121
+    - r017
+    - r045
+    - r005
+    - r085
+    - r049
+    - r140
+    - r087
+    - r1613
+  other:
+    - r066
+    - r017
+    - r027
+    - r020
+    - r039
+    - r026
+    - r150
+    - r045
+    - r082
+    - r080
+    - r096
+    - r063
+    - r090
+    - r005
+    - r007
+    - r140
+    - r087

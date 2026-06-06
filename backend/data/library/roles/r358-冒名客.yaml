@@ -4,7 +4,7 @@ name: 冒名客
 type: minion
 edition: custom
 image: https://www.bloodstar.xyz/p/YanIce/InTheGr_58/22_inthegr_58.png
-flavor: ''
+flavor: 对，没错，是我。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r358
-    officialId: impostor
+    officialId: 22_inthegr_58
     sourceHash: bbe2b878614739015bbd81240bcb5d5433f8be79
     sourceHashFields:
       - ability
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

@@ -1,0 +1,79 @@
+id: s841
+englishName: item
+name: 暗箭明锋
+status: draft
+en: 暗箭明锋
+author: 卷饼
+logo: https://s2.loli.net/2025/02/13/A6mrpfCqGWVPcbx.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/02/13/A6mrpfCqGWVPcbx.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r004
+  - r005
+  - r006
+  - r007
+  - r025
+  - r008
+  - r035
+  - r442
+  - r012
+  - r134
+  - r278
+  - r013
+  - r016
+  - r014
+  - r119
+  - r017
+  - r018
+  - r020
+  - r336
+  - r021
+  - r096
+  - r095
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r017
+    - r001
+    - r004
+    - r442
+    - r002
+    - r005
+    - r006
+    - r013
+    - r134
+    - r018
+    - r025
+  other:
+    - r017
+    - r008
+    - r020
+    - r021
+    - r096
+    - r095
+    - r278
+    - r005
+    - r006
+    - r013
+    - r134
+    - r018
+    - r025
+    - r007

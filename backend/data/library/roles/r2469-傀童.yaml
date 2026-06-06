@@ -1,0 +1,87 @@
+id: r2469
+englishName: f1e14577-dfc1-438e-896e-be2b5e717464
+name: 傀童
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_9724775766861_90589420.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 毒爆
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果傀童死亡，放置毒爆标记，所有善良玩家中毒一天一夜。
+ability: 如果存活恶魔在被提名时公开声明自己是傀童，他和傀童交换角色，下个黎明他中毒。如果你死亡，善良玩家中毒一天一夜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2469
+    officialId: f1e14577-dfc1-438e-896e-be2b5e717464
+    sourceHash: 9eb3d43b57f0184d47e0be447ba82320efa4c9e7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - poisoned
+    - nomination
+    - death
+    - alive
+    - good
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,82 @@
+id: s126
+englishName: v2
+name: 一出好戏v2
+status: draft
+en: 一出好戏v2
+author: 刘中奇
+logo: https://www.bloodstar.xyz/p/Zonas_Liu/yichuhaoxi/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Zonas_Liu/yichuhaoxi/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1162
+  - r319
+  - r307
+  - r227
+  - r108
+  - r140
+  - r597
+  - r087
+  - r057
+  - r232
+  - r091
+  - r594
+  - r065
+  - r1191
+  - r135
+  - r015
+  - r039
+  - r119
+  - r020
+  - r121
+  - r237
+  - r093
+  - r337
+  - r103
+  - r099
+  - r114
+travellerIds: []
+fabledIds:
+  - r118
+  - r305
+nightOrder:
+  first:
+    - r114
+    - r1162
+    - r039
+    - r121
+    - r1191
+    - r103
+    - r093
+    - r140
+    - r108
+    - r597
+    - r227
+    - r087
+    - r307
+  other:
+    - r093
+    - r020
+    - r039
+    - r114
+    - r099
+    - r103
+    - r237
+    - r232
+    - r140
+    - r597
+    - r087
+    - r594

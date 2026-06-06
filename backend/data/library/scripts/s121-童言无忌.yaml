@@ -1,0 +1,81 @@
+id: s121
+englishName: item
+name: 童言无忌
+status: draft
+en: 童言无忌
+author: Aaron
+logo: https://i.postimg.cc/c4R0LFRc/LOGO-copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/c4R0LFRc/LOGO-copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r087
+  - r097
+  - r023
+  - r006
+  - r062
+  - r597
+  - r595
+  - r607
+  - r1185
+  - r057
+  - r463
+  - r029
+  - r060
+  - r015
+  - r112
+  - r069
+  - r347
+  - r1061
+  - r1186
+  - r107
+  - r077
+  - r021
+  - r079
+  - r136
+  - r095
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r095
+    - r1061
+    - r595
+    - r1186
+    - r107
+    - r136
+    - r097
+    - r006
+    - r023
+    - r597
+    - r087
+  other:
+    - r607
+    - r595
+    - r107
+    - r112
+    - r021
+    - r079
+    - r095
+    - r136
+    - r463
+    - r029
+    - r023
+    - r006
+    - r062
+    - r597
+    - r087

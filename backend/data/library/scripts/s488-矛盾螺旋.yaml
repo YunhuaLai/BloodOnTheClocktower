@@ -1,0 +1,80 @@
+id: s488
+englishName: item
+name: 矛盾螺旋
+status: draft
+en: 矛盾螺旋
+author: 弦舞
+logo: https://www.bloodstar.xyz/p/Kingle/111/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Kingle/111/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r085
+  - r058
+  - r051
+  - r597
+  - r484
+  - r530
+  - r229
+  - r054
+  - r057
+  - r029
+  - r823
+  - r090
+  - r015
+  - r016
+  - r324
+  - r234
+  - r121
+  - r017
+  - r042
+  - r076
+  - r047
+  - r079
+  - r240
+  - r103
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r103
+    - r017
+    - r048
+    - r051
+    - r058
+    - r085
+    - r597
+    - r530
+  other:
+    - r324
+    - r076
+    - r017
+    - r484
+    - r229
+    - r047
+    - r079
+    - r103
+    - r240
+    - r042
+    - r029
+    - r090
+    - r051
+    - r054
+    - r058
+    - r597
+    - r530

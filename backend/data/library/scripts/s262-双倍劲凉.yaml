@@ -1,0 +1,86 @@
+id: s262
+englishName: item
+name: 双倍劲凉
+status: draft
+en: 双倍劲凉
+author: STBenC
+logo: https://www.helloimg.com/i/2024/12/07/675344846dc87.png
+description: 双倍劲凉
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 双倍劲凉
+image: https://www.helloimg.com/i/2024/12/07/675344846dc87.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 双倍劲凉
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r084
+  - r100
+  - r097
+  - r005
+  - r140
+  - r056
+  - r059
+  - r088
+  - r066
+  - r065
+  - r012
+  - r090
+  - r015
+  - r039
+  - r067
+  - r071
+  - r017
+  - r075
+  - r073
+  - r107
+  - r079
+  - r080
+  - r099
+  - r095
+travellerIds: []
+fabledIds:
+  - r127
+nightOrder:
+  first:
+    - r088
+    - r059
+    - r066
+    - r095
+    - r071
+    - r039
+    - r017
+    - r073
+    - r075
+    - r107
+    - r097
+    - r003
+    - r005
+    - r084
+    - r140
+    - r100
+  other:
+    - r088
+    - r059
+    - r066
+    - r017
+    - r075
+    - r107
+    - r039
+    - r079
+    - r099
+    - r080
+    - r095
+    - r090
+    - r005
+    - r056
+    - r140

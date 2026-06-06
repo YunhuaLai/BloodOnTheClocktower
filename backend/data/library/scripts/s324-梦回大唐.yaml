@@ -1,0 +1,100 @@
+id: s324
+englishName: item
+name: 梦回大唐
+status: draft
+en: 梦回大唐
+author: 清清Jungle
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/b/b1/lrftlufedkmrv1zxu6uck72dszvdc0z.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/b/b1/lrftlufedkmrv1zxu6uck72dszvdc0z.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r028
+  - r053
+  - r133
+  - r101
+  - r227
+  - r484
+  - r607
+  - r463
+  - r319
+  - r594
+  - r232
+  - r361
+  - r015
+  - r036
+  - r092
+  - r186
+  - r075
+  - r076
+  - r093
+  - r113
+  - r611
+  - r082
+  - r083
+  - r141
+  - r683
+travellerIds:
+  - r148
+  - r123
+  - r132
+  - r740
+  - r741
+fabledIds:
+  - r104
+  - r1735
+  - r1038
+nightOrder:
+  first:
+    - r148
+    - r683
+    - r113
+    - r101
+    - r141
+    - r075
+    - r093
+    - r611
+    - r003
+    - r227
+    - r092
+    - r133
+    - r594
+    - r053
+  other:
+    - r132
+    - r148
+    - r123
+    - r101
+    - r076
+    - r484
+    - r607
+    - r028
+    - r611
+    - r075
+    - r093
+    - r113
+    - r082
+    - r083
+    - r683
+    - r141
+    - r463
+    - r036
+    - r232
+    - r361
+    - r133
+    - r594
+    - r053

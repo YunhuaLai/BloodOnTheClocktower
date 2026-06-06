@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r518
-    officialId: blood-frenzy
+    officialId: kakakakkakakakakakaakakak111
     sourceHash: 6c8f249e144bf87c7b6cb4dca3982a94275b88aa
     sourceHashFields:
       - ability
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

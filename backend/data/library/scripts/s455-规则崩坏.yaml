@@ -1,0 +1,80 @@
+id: s455
+englishName: item
+name: 规则崩坏
+status: draft
+en: 规则崩坏
+author: 荒蜃
+logo: https://www.helloimg.com/i/2025/01/08/677e489f0ddcc.png
+description: 规则崩坏
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 规则崩坏
+image: https://www.helloimg.com/i/2025/01/08/677e489f0ddcc.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 规则崩坏
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r108
+  - r442
+  - r005
+  - r025
+  - r054
+  - r209
+  - r229
+  - r057
+  - r319
+  - r010
+  - r278
+  - r090
+  - r015
+  - r071
+  - r069
+  - r112
+  - r018
+  - r074
+  - r076
+  - r892
+  - r080
+  - r083
+  - r136
+  - r612
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r071
+    - r892
+    - r074
+    - r136
+    - r005
+    - r049
+    - r108
+    - r442
+    - r018
+    - r025
+  other:
+    - r076
+    - r074
+    - r112
+    - r229
+    - r083
+    - r080
+    - r136
+    - r612
+    - r090
+    - r278
+    - r005
+    - r054
+    - r209
+    - r018
+    - r025

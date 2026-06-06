@@ -1,0 +1,85 @@
+id: s424
+englishName: item
+name: 怙恶不悛
+status: draft
+en: 怙恶不悛
+author: 罗怜草
+logo: https://free.picui.cn/free/2025/12/14/693e7e5370610.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/14/693e7e5370610.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r005
+  - r009
+  - r034
+  - r051
+  - r054
+  - r055
+  - r056
+  - r062
+  - r090
+  - r334
+  - r278
+  - r036
+  - r037
+  - r067
+  - r820
+  - r040
+  - r042
+  - r075
+  - r840
+  - r080
+  - r082
+  - r141
+  - r689
+travellerIds: []
+fabledIds:
+  - r1739
+  - r1349
+  - r1799
+nightOrder:
+  first:
+    - r689
+    - r820
+    - r141
+    - r080
+    - r040
+    - r075
+    - r003
+    - r005
+    - r051
+  other:
+    - r840
+    - r075
+    - r082
+    - r080
+    - r141
+    - r689
+    - r820
+    - r042
+    - r040
+    - r036
+    - r037
+    - r009
+    - r090
+    - r278
+    - r005
+    - r051
+    - r054
+    - r055
+    - r056
+    - r062

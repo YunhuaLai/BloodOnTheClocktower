@@ -1,0 +1,103 @@
+id: r1312
+englishName: paperballetbutton
+name: 纸芭蕾
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/pT5pzw8y/8.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 能力1
+  - 能力2
+remindersGlobal: []
+firstNightReminder: 纸芭蕾选择能力1或能力2。
+otherNightReminder: 纸芭蕾选择能力1或能力2。如果纸芭蕾选择了能力2且在夜晚死亡，唤醒纸芭蕾，指向一名邪恶玩家。
+ability: 每个夜晚，由你二选一，该能力持续到下个黄昏：1）在白天时，你可以拜访说书人以得知两名玩家：其中只有一名玩家在上个夜晚因自身能力被唤醒；2）如果你在夜晚死亡，你会得知一名邪恶玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1312
+    officialId: paperballetbutton
+    sourceHash: 24e558e128706a26a907b44febf989e14bd36051
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - day
+    - night
+    - first-night
+    - information
+    - death
+    - evil
+    - townsfolk
+    - storyteller
+  abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_player
+        count: 1
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

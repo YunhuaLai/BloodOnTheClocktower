@@ -1,0 +1,39 @@
+id: s076
+englishName: item
+name: 林中狍
+status: draft
+en: 林中狍
+author: 狍子
+logo: https://t.tutu.to/img/72i6B
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://t.tutu.to/img/72i6B
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r803
+  - r879
+  - r880
+  - r881
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r881
+    - r879
+  other:
+    - r881
+    - r880
+    - r879
+    - r803

@@ -4,7 +4,7 @@ type: townsfolk
 englishName: terracotta-maker
 ability: 如果已死亡玩家中没有邪恶玩家，你只会死于处决。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202404/c_3275680943171_caaa933e.jpg
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/yongjiang.png
 flavor: ''
 setup: false
 setupMeta:
@@ -19,17 +19,19 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
+reminders:
+  - 只会死于处决
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r110
-    officialId: terracotta-maker
-    sourceHash: 246a7a899bce69eca90f46b337ef6b7c934f1e25
+    officialId: yongjiangsaohdawjroij4u901qhwrfi13048
+    sourceHash: b99ffddc8312f75f6f7ca18b22c50660e51ecdf6
     sourceHashFields:
       - ability
       - type
@@ -38,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 死亡保护
@@ -50,8 +54,8 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: on_death
@@ -59,10 +63,7 @@ abilityData:
     actor:
       drivenBy: system
     operations:
-      - kind: protect_player
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_death
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: passive

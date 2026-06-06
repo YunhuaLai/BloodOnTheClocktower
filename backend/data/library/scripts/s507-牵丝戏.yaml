@@ -1,0 +1,80 @@
+id: s507
+englishName: item
+name: 牵丝戏
+status: draft
+en: 牵丝戏
+author: 终身误
+logo: https://free.picui.cn/free/2025/11/13/6914bbf7408a9.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/11/13/6914bbf7408a9.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r003
+  - r025
+  - r056
+  - r140
+  - r109
+  - r229
+  - r058
+  - r057
+  - r334
+  - r319
+  - r278
+  - r544
+  - r015
+  - r039
+  - r067
+  - r111
+  - r121
+  - r020
+  - r610
+  - r633
+  - r080
+  - r141
+  - r568
+  - r635
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r121
+    - r544
+    - r141
+    - r610
+    - r002
+    - r003
+    - r111
+    - r058
+    - r140
+    - r025
+  other:
+    - r229
+    - r111
+    - r020
+    - r039
+    - r109
+    - r080
+    - r141
+    - r568
+    - r635
+    - r610
+    - r278
+    - r056
+    - r058
+    - r140
+    - r025

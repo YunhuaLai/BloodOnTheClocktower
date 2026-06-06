@@ -1,0 +1,88 @@
+id: r2878
+englishName: 18-nature
+name: 黑玫瑰
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Yez/nature/18_nature.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 枯萎
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 在所有恶魔角色旁边放置“枯萎”标记
+otherNightReminder: 由说书人决定，让哪一名玩家死亡。
+ability: 对调胜负结果，即使你已死亡。每个夜晚或下个白天，可能会有一名玩家死亡。你无法因恶魔的能力死亡。所有恶魔枯萎。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2878
+    officialId: 18_nature
+    sourceHash: a8de99135832ab6c7299fb40ba74f41997708da0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - day
+    - night
+    - setup
+    - first-night
+    - death
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

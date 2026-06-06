@@ -1,0 +1,89 @@
+id: s572
+englishName: item
+name: 楠山诡瘴
+status: draft
+en: 楠山诡瘴
+author: fbb
+logo: https://s2.loli.net/2025/06/26/91OmUul56T8afDx.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/26/91OmUul56T8afDx.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r005
+  - r051
+  - r060
+  - r009
+  - r035
+  - r002
+  - r056
+  - r026
+  - r027
+  - r091
+  - r065
+  - r015
+  - r039
+  - r016
+  - r068
+  - r017
+  - r041
+  - r040
+  - r121
+  - r021
+  - r045
+  - r047
+  - r079
+travellerIds:
+  - r124
+  - r129
+  - r148
+  - r125
+  - r740
+fabledIds:
+  - r1616
+  - r1483
+nightOrder:
+  first:
+    - r124
+    - r148
+    - r039
+    - r121
+    - r017
+    - r040
+    - r041
+    - r045
+    - r002
+    - r005
+    - r048
+    - r051
+  other:
+    - r124
+    - r148
+    - r017
+    - r027
+    - r041
+    - r039
+    - r026
+    - r021
+    - r045
+    - r047
+    - r079
+    - r040
+    - r068
+    - r009
+    - r005
+    - r051
+    - r056

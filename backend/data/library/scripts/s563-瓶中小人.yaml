@@ -1,0 +1,83 @@
+id: s563
+englishName: item
+name: 瓶中小人
+status: draft
+en: 瓶中小人
+author: 剧本钟楼博物馆
+logo: https://www.helloimg.com/i/2024/10/28/671f6835c72fb.png
+description: 瓶中小人
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 瓶中小人
+image: https://www.helloimg.com/i/2024/10/28/671f6835c72fb.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 瓶中小人
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r049
+  - r442
+  - r005
+  - r006
+  - r530
+  - r010
+  - r150
+  - r056
+  - r134
+  - r606
+  - r057
+  - r319
+  - r091
+  - r016
+  - r068
+  - r069
+  - r092
+  - r336
+  - r093
+  - r040
+  - r018
+  - r609
+  - r121
+  - r103
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r121
+    - r103
+    - r609
+    - r040
+    - r093
+    - r005
+    - r006
+    - r023
+    - r049
+    - r442
+    - r134
+    - r018
+    - r092
+    - r530
+  other:
+    - r609
+    - r093
+    - r150
+    - r103
+    - r040
+    - r606
+    - r023
+    - r068
+    - r005
+    - r006
+    - r056
+    - r134
+    - r018
+    - r530

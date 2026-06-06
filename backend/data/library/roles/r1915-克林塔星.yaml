@@ -1,0 +1,101 @@
+id: r1915
+englishName: hongshengti
+name: 克林塔星
+type: fabled
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/23/9fmohn9ldebl3ntosy95ho1wt1vmrng.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 继位
+  - 刺杀
+  - 八爪
+  - 专权
+  - 傀儡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  照看小怪宝的爪牙会有额外的能力，小怪宝在玩家间传递超过一次后会死亡，忽略最后一天只剩一名爪牙存活的限制。继位：因爪牙死亡而将小怪宝传递给你不计入传递次数，你拥有那名爪牙的额外能力。刺杀：由你来决定谁会被小怪宝杀死。八爪：与你临近的两名镇民中毒，即使你中毒。专权：外来者可能会被善良玩家当作邪恶的爪牙。傀儡：会有一名善良玩家把你当作善良阵营和善良角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1915
+    officialId: _hongshengti
+    sourceHash: 76ddb4b7a3f0b7a9d7070e55432f8504fb5e96fc
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - poisoned
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - outsider
+    - minion
+    - fabled
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

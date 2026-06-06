@@ -1,0 +1,93 @@
+id: r1306
+englishName: zhiyilu-21
+name: 诡面
+type: minion
+edition: custom
+image: https://img.remit.ee/api/file/BQACAgUAAyEGAASHRsPbAAERfkxpq3ESAAE1dl1lBqgj1trqA-4pSDgAAjcbAAIZNGFVfzjHlrB-cMc6BA.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 变换
+  - 中毒
+firstNightReminder: ''
+otherNightReminder: ''
+ability: |-
+  每个夜晚*，你可以选择一个角色，如果他在场：他中毒且你获得他的能力直到下个黄昏。
+  你在白天需要“疯狂”地证明你是你选择的角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1306
+    officialId: 6_diy
+    sourceHash: 17ccecfb7b971f53066f4733e9206dc8e6653607
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - day
+    - night
+    - poisoned
+    - minion
+    - madness
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

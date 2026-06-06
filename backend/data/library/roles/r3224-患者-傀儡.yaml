@@ -1,0 +1,85 @@
+id: r3224
+englishName: 14-archives-of-insanity
+name: 患者:傀儡
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Sans/Archives_of_Insanity/14_archives_of_insanity.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 融入邪恶
+remindersGlobal: []
+firstNightReminder: 如果患者:傀儡邻近的存活玩家都陷入癫狂或都未陷入癫狂，告知患者:傀儡他是善良的，否则，告知他是邪恶的。
+otherNightReminder: 如果患者:傀儡邻近的存活玩家都陷入癫狂或都未陷入癫狂，告知患者:傀儡他是善良的，否则，告知他是邪恶的。
+ability: 每个夜晚，如果你邻近的存活玩家都陷入癫狂或都未陷入癫狂，你转变为善良阵营。否则，你转变为邪恶阵营。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3224
+    officialId: 14_archives_of_insanity
+    sourceHash: 2d8ac5ac7a0a2496e9f129628d586675cb6c5df6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - alive
+    - alignment
+    - good
+    - evil
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,86 @@
+id: s422
+englishName: item
+name: '#反转银河-山口二大伯'
+status: draft
+en: '#反转银河-山口二大伯'
+author: 山口二大伯
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/fanzhuanyinhe/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/fanzhuanyinhe/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r319
+  - r307
+  - r823
+  - r595
+  - r108
+  - r111
+  - r278
+  - r530
+  - r908
+  - r609
+  - r611
+  - r004
+  - r005
+  - r051
+  - r058
+  - r140
+  - r091
+  - r234
+  - r092
+  - r020
+  - r075
+  - r121
+  - r021
+  - r079
+  - r683
+travellerIds: []
+fabledIds:
+  - r1798
+nightOrder:
+  first:
+    - r683
+    - r121
+    - r609
+    - r611
+    - r075
+    - r595
+    - r004
+    - r005
+    - r111
+    - r051
+    - r058
+    - r140
+    - r108
+    - r092
+    - r307
+    - r530
+  other:
+    - r609
+    - r611
+    - r595
+    - r075
+    - r111
+    - r020
+    - r021
+    - r079
+    - r683
+    - r278
+    - r005
+    - r051
+    - r058
+    - r140
+    - r530

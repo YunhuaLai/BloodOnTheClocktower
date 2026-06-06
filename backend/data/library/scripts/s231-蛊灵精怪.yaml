@@ -1,0 +1,83 @@
+id: s231
+englishName: item
+name: 蛊灵精怪
+status: draft
+en: 蛊灵精怪
+author: 喷泉
+logo: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_1769981928661_79575509.jpg
+description: 万物皆有灵 去伪存本真
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 万物皆有灵 去伪存本真
+image: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_1769981928661_79575509.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 万物皆有灵 去伪存本真
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1577
+  - r1578
+  - r1579
+  - r1580
+  - r1581
+  - r1582
+  - r1259
+  - r015
+  - r011
+  - r009
+  - r047
+  - r045
+  - r039
+  - r027
+  - r026
+  - r079
+  - r073
+  - r056
+  - r052
+  - r140
+  - r091
+  - r064
+  - r150
+  - r097
+  - r071
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r1579
+    - r052
+    - r073
+    - r045
+    - r097
+    - r064
+    - r071
+    - r1578
+    - r140
+  other:
+    - r1582
+    - r1581
+    - r027
+    - r052
+    - r039
+    - r026
+    - r150
+    - r045
+    - r1579
+    - r047
+    - r079
+    - r1259
+    - r009
+    - r1577
+    - r064
+    - r071
+    - r056
+    - r1578
+    - r140

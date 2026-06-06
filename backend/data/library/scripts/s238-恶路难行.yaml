@@ -1,0 +1,83 @@
+id: s238
+englishName: item
+name: 恶路难行
+status: draft
+en: 恶路难行
+author: Boxiao
+logo: https://img2.imgtp.com/2024/04/23/yHsvy5xt.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://img2.imgtp.com/2024/04/23/yHsvy5xt.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1191
+  - r005
+  - r002
+  - r052
+  - r004
+  - r056
+  - r049
+  - r133
+  - r084
+  - r055
+  - r227
+  - r058
+  - r097
+  - r319
+  - r135
+  - r111
+  - r014
+  - r072
+  - r015
+  - r042
+  - r075
+  - r237
+  - r641
+  - r074
+  - r103
+travellerIds: []
+fabledIds:
+  - r1592
+  - r118
+nightOrder:
+  first:
+    - r1191
+    - r103
+    - r052
+    - r074
+    - r075
+    - r097
+    - r002
+    - r004
+    - r005
+    - r111
+    - r084
+    - r058
+    - r049
+    - r227
+    - r133
+  other:
+    - r111
+    - r052
+    - r074
+    - r075
+    - r103
+    - r042
+    - r237
+    - r005
+    - r055
+    - r056
+    - r058
+    - r133

@@ -1,0 +1,85 @@
+id: s219
+englishName: item
+name: 江山易改
+status: draft
+en: 江山易改
+author: 深咖啡ing
+logo: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/c/ca/hov8313h9rbc4ru9twiy8rmb4i716qr.png/1599px-%E6%B1%9F%E5%B1%B1%E6%98%93%E6%94%B9logo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/c/ca/hov8313h9rbc4ru9twiy8rmb4i716qr.png/1599px-%E6%B1%9F%E5%B1%B1%E6%98%93%E6%94%B9logo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r028
+  - r051
+  - r052
+  - r059
+  - r097
+  - r061
+  - r090
+  - r091
+  - r108
+  - r597
+  - r319
+  - r823
+  - r329
+  - r070
+  - r069
+  - r324
+  - r112
+  - r020
+  - r075
+  - r076
+  - r336
+  - r021
+  - r079
+  - r095
+  - r635
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r336
+    - r059
+    - r095
+    - r061
+    - r052
+    - r075
+    - r097
+    - r051
+    - r108
+    - r597
+  other:
+    - r059
+    - r324
+    - r061
+    - r076
+    - r028
+    - r329
+    - r052
+    - r075
+    - r020
+    - r112
+    - r021
+    - r079
+    - r095
+    - r635
+    - r070
+    - r090
+    - r051
+    - r597

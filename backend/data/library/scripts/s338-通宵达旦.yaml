@@ -1,0 +1,82 @@
+id: s338
+englishName: item
+name: 通宵达旦
+status: draft
+en: 通宵达旦
+author: clocktower Con US
+logo: https://postimg.cc/PPBpHzbD
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://postimg.cc/PPBpHzbD
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r085
+  - r1250
+  - r051
+  - r006
+  - r053
+  - r008
+  - r060
+  - r022
+  - r058
+  - r063
+  - r091
+  - r115
+  - r013
+  - r068
+  - r016
+  - r039
+  - r019
+  - r020
+  - r078
+  - r121
+  - r021
+  - r082
+  - r099
+  - r083
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r115
+    - r039
+    - r1250
+    - r121
+    - r078
+    - r006
+    - r013
+    - r051
+    - r058
+    - r084
+    - r085
+    - r053
+  other:
+    - r008
+    - r020
+    - r039
+    - r021
+    - r082
+    - r083
+    - r099
+    - r068
+    - r063
+    - r006
+    - r013
+    - r051
+    - r058
+    - r1250
+    - r053

@@ -1,0 +1,85 @@
+id: s295
+englishName: item
+name: 疯帽之宴
+status: draft
+en: 疯帽之宴
+author: Sui染钟楼
+logo: https://z1.ax1x.com/2023/12/01/pisKLge.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://z1.ax1x.com/2023/12/01/pisKLge.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r155
+  - r324
+  - r049
+  - r004
+  - r140
+  - r027
+  - r054
+  - r062
+  - r030
+  - r058
+  - r059
+  - r091
+  - r090
+  - r066
+  - r068
+  - r015
+  - r037
+  - r067
+  - r093
+  - r040
+  - r042
+  - r641
+  - r096
+  - r141
+  - r083
+  - r079
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r066
+    - r141
+    - r030
+    - r040
+    - r093
+    - r004
+    - r058
+    - r049
+    - r140
+  other:
+    - r324
+    - r059
+    - r066
+    - r027
+    - r030
+    - r093
+    - r079
+    - r083
+    - r141
+    - r096
+    - r042
+    - r040
+    - r068
+    - r090
+    - r037
+    - r054
+    - r058
+    - r062
+    - r140

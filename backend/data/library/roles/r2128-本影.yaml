@@ -1,0 +1,104 @@
+id: r2128
+englishName: 26-bbb
+name: 本影
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/BBB/26_bbb.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -1
+      source: '[-1外来者]'
+      note: 配置调整：外来者数量 -1。
+  setupNotes:
+    - 配置调整：外来者数量 -1。
+reminders:
+  - 恐惧之印
+remindersGlobal: []
+firstNightReminder: 本影标记1名玩家。
+otherNightReminder: 本影标记1名玩家。
+ability: ①每个夜晚，标记一名玩家，被标记的玩家获取错误信息。②游戏的第五个白天，说书人会宣布“第五幕，魅影杀死了所有人”，然后邪恶阵营获胜（13+人局改为第六天）。③若你被处决，你的阵营落败。[-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2128
+    officialId: 26_bbb
+    sourceHash: 82ed85ad31cca6fad399bb6dd07ced4fe98ffe49
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - day
+    - night
+    - setup
+    - first-night
+    - information
+    - execution
+    - death
+    - alignment
+    - evil
+    - outsider
+    - demon
+    - storyteller
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

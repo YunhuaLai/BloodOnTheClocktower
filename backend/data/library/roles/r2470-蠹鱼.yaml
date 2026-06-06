@@ -1,0 +1,102 @@
+id: r2470
+englishName: c0707719-0c0a-4ce4-8b29-153feb7b1a61
+name: 蠹鱼
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_3423762020171_51c8272b.jpg
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 最早
+  - 最晚
+  - 白天
+  - 错误
+remindersGlobal: []
+firstNightReminder: 蠹鱼可以选择一个时段。如果他这么做了，该时段产生信息的镇民产生错误信息。之后的夜晚无需再唤醒蠹鱼。
+otherNightReminder: 蠹鱼可以选择一个时段。如果他这么做了，该时段产生信息的镇民产生错误信息。之后的夜晚无需再唤醒蠹鱼。
+ability: 每局游戏限一次，在夜晚时，你可以选择一个时段（最先/最后/白天）：该时段产生信息的镇民得产生误信息。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2470
+    officialId: c0707719-0c0a-4ce4-8b29-153feb7b1a61
+    sourceHash: 3f24e4c1a531a15f5ac002b0dc264859e5560d6d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - day
+    - night
+    - setup
+    - first-night
+    - information
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

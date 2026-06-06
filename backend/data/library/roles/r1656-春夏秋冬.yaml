@@ -1,0 +1,85 @@
+id: r1656
+englishName: jiuyuankezuo-chunxiaqiudong
+name: 春夏秋冬
+type: demon
+edition: custom
+image: https://www.helloimg.com/i/2025/04/04/67ef53396fd65.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 是春夏秋冬
+  - 获得镇民
+  - 获得外来者
+  - 获得爪牙
+  - 获得恶魔
+firstNightReminder: 每个夜晚，你获得一个不在场角色的能力（你知道那是什么），直到你获得了四次能力。你每次获取的能力角色类型均不同。
+otherNightReminder: 每个夜晚，你获得一个不在场角色的能力（你知道那是什么），直到你获得了四次能力。你每次获取的能力角色类型均不同。
+ability: 每个夜晚，你获得一个不在场角色的能力（你知道那是什么），直到你获得了四次能力。你每次获取的能力角色类型均不同。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1656
+    officialId: jiuyuankezuo_chunxiaqiudong
+    sourceHash: 190abfffb9f857689b1f264c7a0eee35ec8a300a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

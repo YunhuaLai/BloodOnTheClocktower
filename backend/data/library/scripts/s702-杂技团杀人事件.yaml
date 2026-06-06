@@ -1,0 +1,78 @@
+id: s702
+englishName: item
+name: 杂技团杀人事件
+status: draft
+en: 杂技团杀人事件
+author: 爱4宝宝
+logo: https://i.postimg.cc/J4Gr7hmm/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/J4Gr7hmm/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r108
+  - r087
+  - r055
+  - r028
+  - r008
+  - r278
+  - r062
+  - r029
+  - r059
+  - r057
+  - r091
+  - r823
+  - r214
+  - r093
+  - r609
+  - r040
+  - r042
+  - r080
+  - r045
+  - r635
+  - r612
+travellerIds: []
+fabledIds:
+  - r118
+  - r3923
+nightOrder:
+  first:
+    - r059
+    - r609
+    - r040
+    - r093
+    - r045
+    - r049
+    - r108
+    - r087
+  other:
+    - r059
+    - r609
+    - r028
+    - r008
+    - r093
+    - r045
+    - r080
+    - r612
+    - r635
+    - r042
+    - r040
+    - r214
+    - r029
+    - r278
+    - r055
+    - r062
+    - r087

@@ -1,0 +1,88 @@
+id: s147
+englishName: item
+name: 渐入佳境
+status: draft
+en: 渐入佳境
+author: 刘中奇
+logo: https://i.postimg.cc/7LL9T09n/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/7LL9T09n/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r307
+  - r530
+  - r025
+  - r087
+  - r051
+  - r229
+  - r109
+  - r230
+  - r329
+  - r010
+  - r232
+  - r606
+  - r015
+  - r308
+  - r214
+  - r363
+  - r1275
+  - r121
+  - r020
+  - r113
+  - r082
+  - r079
+  - r114
+  - r642
+travellerIds: []
+fabledIds:
+  - r118
+  - r792
+nightOrder:
+  first:
+    - r113
+    - r121
+    - r329
+    - r308
+    - r023
+    - r051
+    - r087
+    - r642
+    - r307
+    - r530
+    - r025
+  other:
+    - r329
+    - r020
+    - r113
+    - r229
+    - r109
+    - r079
+    - r082
+    - r114
+    - r642
+    - r1275
+    - r308
+    - r214
+    - r363
+    - r023
+    - r232
+    - r051
+    - r087
+    - r230
+    - r530
+    - r025
+    - r606

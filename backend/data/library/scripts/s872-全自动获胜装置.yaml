@@ -1,0 +1,77 @@
+id: s872
+englishName: item
+name: 全自动获胜装置
+status: draft
+en: 全自动获胜装置
+author: 卷饼
+logo: https://free.picui.cn/free/2025/11/25/69257964166da.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/11/25/69257964166da.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1250
+  - r140
+  - r055
+  - r230
+  - r064
+  - r059
+  - r060
+  - r057
+  - r012
+  - r115
+  - r063
+  - r091
+  - r823
+  - r071
+  - r015
+  - r039
+  - r116
+  - r234
+  - r107
+  - r017
+  - r302
+  - r043
+  - r121
+  - r384
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r115
+    - r071
+    - r039
+    - r1250
+    - r121
+    - r302
+    - r017
+    - r107
+    - r064
+    - r140
+    - r384
+  other:
+    - r059
+    - r302
+    - r017
+    - r107
+    - r039
+    - r140
+    - r063
+    - r064
+    - r055
+    - r1250
+    - r230
+    - r384

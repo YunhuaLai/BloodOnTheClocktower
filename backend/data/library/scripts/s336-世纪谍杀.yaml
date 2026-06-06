@@ -1,0 +1,82 @@
+id: s336
+englishName: item
+name: 世纪谍杀
+status: draft
+en: 世纪谍杀
+author: Capell1
+logo: https://www.helloimg.com/i/2025/01/07/677d2cc0768ec.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2025/01/07/677d2cc0768ec.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r097
+  - r048
+  - r051
+  - r006
+  - r053
+  - r056
+  - r055
+  - r057
+  - r060
+  - r090
+  - r115
+  - r091
+  - r098
+  - r068
+  - r070
+  - r039
+  - r074
+  - r076
+  - r018
+  - r337
+  - r079
+  - r103
+  - r082
+  - r083
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r098
+    - r039
+    - r103
+    - r074
+    - r097
+    - r006
+    - r048
+    - r051
+    - r049
+    - r018
+    - r053
+  other:
+    - r074
+    - r076
+    - r039
+    - r079
+    - r082
+    - r083
+    - r103
+    - r070
+    - r068
+    - r090
+    - r006
+    - r051
+    - r055
+    - r056
+    - r018
+    - r053

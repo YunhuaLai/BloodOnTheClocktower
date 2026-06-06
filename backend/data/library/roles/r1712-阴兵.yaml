@@ -1,0 +1,102 @@
+id: r1712
+englishName: 8b5a3416-b976-4718-b98d-f8b0cde7f383
+name: 阴兵
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_5767411838171_61f443a0.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 未死绝
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 先让阴兵选择一个区域，告诉阴兵哪些玩家处于该一区域。让他选择一名玩家，如果他和该玩家处于同一区域，该玩家死亡。
+ability: 每个夜晚*，你要选择一名玩家：若他和你处于同一区域，他死亡。如果导致你被处决的投票中没有投票标记，你依然存活，但会被当做死亡、不能更换所处区域。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1712
+    officialId: 8b5a3416-b976-4718-b98d-f8b0cde7f383
+    sourceHash: e217f5d8816eec7c8f010112f4cf0b286a00ff38
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - vote
+    - execution
+    - death
+    - alive
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

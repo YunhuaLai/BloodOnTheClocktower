@@ -1,0 +1,120 @@
+id: r3831
+englishName: horsehearer-the-last-cull
+name: 马语者
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/BakedIce/The_Last_Cull__/horsehearer_the_last_cull__.png
+flavor: I can hear them. You could too. Just listen a little harder...A little more...A little more...A little more...
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: >-
+  Wake the Horse Hearer. They point at a player -- Mark them with the "Drunk" reminder token, they are drunk. Put the
+  Horse Hearer to sleep. Wake the chosen player. Show them the "This character selected you" info token, and then the
+  Horse Hearer character token. They will either nod or shake their head. If they shake their head, they are no longer
+  drunk -- remove the "Drunk" reminder token. Put them to sleep. Wake the Horse Hearer. Show them what the chosen player
+  did (so if they shook their head, you then shake yours). Put the Horse Hearer to sleep.
+otherNightReminder: >-
+  Wake the Horse Hearer. They point at a player -- Mark them with the "Drunk" reminder token, they are drunk. Put the
+  Horse Hearer to sleep. Wake the chosen player. Show them the "This character selected you" info token, and then the
+  Horse Hearer character token. They will either nod or shake their head. If they shake their head, they are no longer
+  drunk -- remove the "Drunk" reminder token. Put them to sleep. Wake the Horse Hearer. Show them what the chosen player
+  did (so if they shook their head, you then shake yours). Put the Horse Hearer to sleep.
+ability: 每个夜晚，你要选择一名玩家：如果他同意，他醉酒直到下个黄昏且你会得知此事。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3831
+    officialId: horsehearer_the_last_cull__
+    sourceHash: 8df609a22afeb266fff03f797822747a2937d0e7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - traveler
+  abilityPattern: status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

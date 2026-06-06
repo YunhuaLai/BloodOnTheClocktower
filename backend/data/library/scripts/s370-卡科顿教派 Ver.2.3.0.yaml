@@ -1,0 +1,80 @@
+id: s370
+englishName: ver-2-3-0
+name: 卡科顿教派 Ver.2.3.0
+status: draft
+en: 卡科顿教派 Ver.2.3.0
+author: Khinoe
+logo: https://i.postimg.cc/3N8fxQs0/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/3N8fxQs0/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r085
+  - r084
+  - r100
+  - r1250
+  - r052
+  - r005
+  - r056
+  - r055
+  - r058
+  - r034
+  - r1251
+  - r090
+  - r091
+  - r015
+  - r016
+  - r067
+  - r014
+  - r041
+  - r018
+  - r075
+  - r641
+  - r083
+  - r079
+  - r141
+  - r099
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r1250
+    - r141
+    - r052
+    - r041
+    - r075
+    - r005
+    - r058
+    - r084
+    - r085
+    - r018
+    - r100
+  other:
+    - r052
+    - r041
+    - r075
+    - r099
+    - r079
+    - r083
+    - r141
+    - r1251
+    - r090
+    - r005
+    - r055
+    - r056
+    - r058
+    - r1250
+    - r018

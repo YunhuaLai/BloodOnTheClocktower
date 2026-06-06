@@ -1,0 +1,86 @@
+id: s071
+englishName: item
+name: 公堂之上-斯派德米
+status: draft
+en: 公堂之上-斯派德米
+author: 斯派德米
+logo: https://img.picui.cn/free/2025/04/04/67eecbd3834fe.png
+description: 公堂之上
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 公堂之上
+image: https://img.picui.cn/free/2025/04/04/67eecbd3834fe.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 公堂之上
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r829
+  - r830
+  - r831
+  - r108
+  - r307
+  - r832
+  - r833
+  - r053
+  - r052
+  - r028
+  - r834
+  - r409
+  - r232
+  - r010
+  - r159
+  - r070
+  - r835
+  - r836
+  - r041
+  - r078
+  - r235
+  - r837
+  - r838
+  - r239
+  - r095
+  - r839
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r095
+    - r833
+    - r837
+    - r078
+    - r052
+    - r041
+    - r235
+    - r239
+    - r831
+    - r832
+    - r108
+    - r307
+    - r829
+    - r830
+    - r053
+  other:
+    - r833
+    - r837
+    - r028
+    - r052
+    - r041
+    - r235
+    - r095
+    - r239
+    - r839
+    - r159
+    - r070
+    - r835
+    - r832
+    - r834
+    - r232
+    - r053

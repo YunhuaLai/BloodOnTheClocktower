@@ -1,0 +1,80 @@
+id: s250
+englishName: item
+name: 效死之徒
+status: draft
+en: 效死之徒
+author: 摸鱼
+logo: https://i.postimg.cc/6QM2ggYx/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/6QM2ggYx/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r278
+  - r319
+  - r057
+  - r227
+  - r054
+  - r025
+  - r005
+  - r007
+  - r595
+  - r003
+  - r048
+  - r065
+  - r060
+  - r324
+  - r071
+  - r015
+  - r016
+  - r020
+  - r078
+  - r075
+  - r235
+  - r095
+  - r114
+  - r099
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r095
+    - r071
+    - r078
+    - r005
+    - r048
+    - r075
+    - r235
+    - r595
+    - r003
+    - r227
+    - r025
+  other:
+    - r324
+    - r595
+    - r075
+    - r235
+    - r020
+    - r071
+    - r083
+    - r099
+    - r095
+    - r114
+    - r005
+    - r278
+    - r007
+    - r054
+    - r025

@@ -1,0 +1,77 @@
+id: s212
+englishName: item
+name: 似曾相识
+status: draft
+en: 似曾相识
+author: DIO
+logo: https://www.helloimg.com/i/2024/11/12/673378e3baf8c.png
+description: 似曾相识
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 似曾相识
+image: https://www.helloimg.com/i/2024/11/12/673378e3baf8c.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 似曾相识
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r002
+  - r003
+  - r004
+  - r005
+  - r054
+  - r028
+  - r008
+  - r056
+  - r058
+  - r009
+  - r022
+  - r011
+  - r015
+  - r016
+  - r070
+  - r072
+  - r017
+  - r020
+  - r040
+  - r042
+  - r021
+  - r079
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r017
+    - r040
+    - r002
+    - r003
+    - r004
+    - r005
+    - r023
+    - r058
+  other:
+    - r017
+    - r028
+    - r008
+    - r020
+    - r021
+    - r079
+    - r083
+    - r042
+    - r040
+    - r023
+    - r070
+    - r009
+    - r005
+    - r054
+    - r056
+    - r058

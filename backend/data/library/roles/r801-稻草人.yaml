@@ -1,10 +1,10 @@
 id: r801
 englishName: 16-newhero
 name: 稻草人
-type: townsfolk
+type: minion
 edition: custom
-image: https://www.bloodstar.xyz/p/ligohigh1991/NewHero/16_newhero.png
-flavor: 风总会从麦田的那边吹来，我的身体也会随之晃动，可我却感觉不到它的吹拂。
+image: https://i.postimg.cc/hvhk95DZ/image.png
+flavor: I haven't got a brain and soon neither will you.
 setup: false
 setupMeta:
   randomAssignable: true
@@ -18,19 +18,21 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
+reminders:
+  - 当作爪牙
+  - 当作恶魔
 remindersGlobal: []
-firstNightReminder: 让他选择一名存活的玩家：如果他选中了恶魔，他变成那名玩家的角色和阵营，那名玩家变成善良的醉汉。
-otherNightReminder: 让他选择一名存活的玩家：如果他选中了恶魔，他变成那名玩家的角色和阵营，那名玩家变成善良的醉汉。
-ability: 每个夜晚，你要选择一名存活的玩家：如果你选中了恶魔，你变成他的角色和阵营，然后他变成善良的醉汉。
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 善良玩家会把你当作恶魔，恶魔当作爪牙。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r801
-    officialId: 16_newhero
-    sourceHash: 9950c97afa7a7cf7708157243f5c0659fdd7c026
+    officialId: Scarecrow
+    sourceHash: aa3cbc327fc307d90065d86d9afe5c22e2fb297e
     sourceHashFields:
       - ability
       - type
@@ -48,15 +50,13 @@ abilityData:
   termIds:
     - night
     - first-night
-    - alive
-    - alignment
     - good
-    - townsfolk
+    - minion
     - demon
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

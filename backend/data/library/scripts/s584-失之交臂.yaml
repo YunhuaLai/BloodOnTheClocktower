@@ -1,0 +1,78 @@
+id: s584
+englishName: item
+name: 失之交臂
+status: draft
+en: 失之交臂
+author: 小巷
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/3/3f/6y8j91c1cwydogjgpcrtbtofortjoch.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/3/3f/6y8j91c1cwydogjgpcrtbtofortjoch.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r022
+  - r012
+  - r059
+  - r060
+  - r097
+  - r101
+  - r142
+  - r064
+  - r155
+  - r115
+  - r066
+  - r334
+  - r014
+  - r072
+  - r116
+  - r071
+  - r043
+  - r073
+  - r117
+  - r641
+  - r080
+  - r083
+  - r141
+  - r384
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r066
+    - r115
+    - r071
+    - r101
+    - r141
+    - r073
+    - r117
+    - r097
+    - r064
+    - r003
+    - r142
+    - r384
+  other:
+    - r059
+    - r066
+    - r101
+    - r117
+    - r083
+    - r080
+    - r141
+    - r064
+    - r142
+    - r384

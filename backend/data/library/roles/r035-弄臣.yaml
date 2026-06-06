@@ -4,8 +4,8 @@ type: townsfolk
 englishName: fool
 ability: 当你首次将要死亡时，你不会死亡。
 edition: custom
-image: https://www.bloodstar.xyz/p/humlet/JUEDOU/11_juedou.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/fool.png
+flavor: “……然后国王说道：‘什么？！我甚至从未有过一条橡胶马裤，更别提一门奶油大炮了！’嗬嗬！欢乐一日！”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r035
-    officialId: fool
+    officialId: hahaxiaochou111
     sourceHash: 494cb816645ecb372c1cc1f47820dfa787cb84ad
     sourceHashFields:
       - ability
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 免死
@@ -51,8 +53,8 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

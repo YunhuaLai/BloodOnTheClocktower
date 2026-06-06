@@ -2,10 +2,10 @@ id: r101
 name: 传教士
 type: townsfolk
 englishName: preacher
-ability: 每个夜晚，你要选择一名玩家：如果你选中了爪牙，他会得知被传教士选中。所有被你选中的爪牙失去能力。
+ability: 每个夜晚，你要选择一名玩家：如果选中了爪牙，他会得知被传教士选中。所有被你选中的爪牙失去能力。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/preacher.png
-flavor: ''
+flavor: 富有和健康总比贫穷和疾病要好。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -26,11 +26,12 @@ firstNightReminder: 唤醒传教士，让他选择一名玩家。如果他选中
 otherNightReminder: 唤醒传教士，让他选择一名玩家。如果他选中了爪牙，该爪牙失去能力。在传教士入睡后通知该爪牙被传教士选中。
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r101
-    officialId: preacher
-    sourceHash: 1a8a2a58ae84348be72f91c7bf5a362a6c84d7a6
+    officialId: paibusini111
+    sourceHash: 0387eabedb43108567e2455433ce3d5d98e4bbed
     sourceHashFields:
       - ability
       - type
@@ -39,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -50,8 +53,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

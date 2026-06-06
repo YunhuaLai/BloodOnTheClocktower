@@ -1,0 +1,84 @@
+id: r3233
+englishName: 28-archives-of-insanity
+name: 癫狂
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/Sans/Archives_of_Insanity/28_archives_of_insanity.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 癫狂
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 癫狂玩家的能力都会产生错误信息。除非癫狂玩家因为某个角色的能力而恢复理智，否则他一直保持癫狂，即癫狂不会因为效果来源的死亡/中毒/醉酒/离场而解除。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3233
+    officialId: 28_archives_of_insanity
+    sourceHash: ae34a63790c5f695b7d0a47ad3dd71aa6201c401
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - poisoned
+    - drunk
+    - information
+    - death
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

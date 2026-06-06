@@ -1,0 +1,86 @@
+id: s221
+englishName: item
+name: 乡巴佬
+status: draft
+en: 乡巴佬
+author: SE & Lei.
+logo: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/4/41/lzaqhn9pwttqhpv94qd966wwh6m3tsl.png/1598px-%E4%B9%A1%E5%B7%B4%E4%BD%AClogo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/4/41/lzaqhn9pwttqhpv94qd966wwh6m3tsl.png/1598px-%E4%B9%A1%E5%B7%B4%E4%BD%AClogo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r108
+  - r307
+  - r006
+  - r055
+  - r062
+  - r334
+  - r111
+  - r336
+  - r074
+  - r093
+  - r079
+  - r136
+  - r095
+  - r1428
+  - r945
+  - r1400
+  - r1565
+  - r276
+  - r947
+  - r1401
+  - r253
+  - r1566
+  - r808
+  - r896
+  - r1132
+  - r1437
+travellerIds: []
+fabledIds:
+  - r104
+  - r1567
+nightOrder:
+  first:
+    - r104
+    - r336
+    - r095
+    - r074
+    - r093
+    - r136
+    - r006
+    - r111
+    - r108
+    - r307
+    - r1428
+  other:
+    - r074
+    - r093
+    - r111
+    - r079
+    - r136
+    - r095
+    - r1437
+    - r1132
+    - r945
+    - r006
+    - r055
+    - r947
+    - r1428
+    - r062
+    - r1565
+    - r1400

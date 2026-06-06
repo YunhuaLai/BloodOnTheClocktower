@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r648
-    officialId: waterweed
+    officialId: 3_guiyihuayuan
     sourceHash: 51b3736c36508f5a35500ca9d6337e6a4bbc3f08
     sourceHashFields:
       - ability
@@ -52,7 +52,7 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

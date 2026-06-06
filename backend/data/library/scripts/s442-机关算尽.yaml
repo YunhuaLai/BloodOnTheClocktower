@@ -1,0 +1,83 @@
+id: s442
+englishName: item
+name: 机关算尽
+status: draft
+en: 机关算尽
+author: 诸神无限
+logo: https://i.postimg.cc/Hs7Ss8qH/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/Hs7Ss8qH/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r004
+  - r049
+  - r005
+  - r028
+  - r006
+  - r056
+  - r133
+  - r026
+  - r150
+  - r090
+  - r060
+  - r058
+  - r015
+  - r039
+  - r112
+  - r014
+  - r042
+  - r018
+  - r076
+  - r043
+  - r082
+  - r141
+  - r083
+  - r079
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r039
+    - r141
+    - r001
+    - r004
+    - r005
+    - r006
+    - r058
+    - r049
+    - r018
+    - r133
+  other:
+    - r028
+    - r076
+    - r112
+    - r039
+    - r026
+    - r150
+    - r079
+    - r082
+    - r083
+    - r141
+    - r042
+    - r090
+    - r005
+    - r006
+    - r056
+    - r058
+    - r018
+    - r133

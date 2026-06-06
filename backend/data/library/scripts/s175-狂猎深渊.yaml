@@ -1,0 +1,85 @@
+id: s175
+englishName: item
+name: 狂猎深渊
+status: draft
+en: 狂猎深渊
+author: 时域
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/50/b9ew3xt10suu7haa95x1mwmmmipkjqa.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/50/b9ew3xt10suu7haa95x1mwmmmipkjqa.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r097
+  - r006
+  - r025
+  - r053
+  - r101
+  - r028
+  - r059
+  - r057
+  - r060
+  - r155
+  - r009
+  - r091
+  - r015
+  - r016
+  - r037
+  - r070
+  - r040
+  - r609
+  - r1390
+  - r045
+  - r044
+  - r080
+  - r083
+  - r081
+  - r241
+travellerIds: []
+fabledIds:
+  - r305
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r101
+    - r1390
+    - r040
+    - r045
+    - r609
+    - r097
+    - r006
+    - r025
+    - r053
+  other:
+    - r059
+    - r101
+    - r609
+    - r028
+    - r1390
+    - r044
+    - r045
+    - r083
+    - r080
+    - r081
+    - r241
+    - r040
+    - r037
+    - r070
+    - r009
+    - r006
+    - r025
+    - r053

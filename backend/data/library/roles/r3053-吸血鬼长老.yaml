@@ -1,0 +1,106 @@
+id: r3053
+englishName: elder-vampire
+name: 吸血鬼长老
+type: minion
+edition: custom
+image: https://i.postimg.cc/SKbTmymV/Photo21.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 杀害
+  - 同化
+  - 下毒
+remindersGlobal:
+  - 是吸血鬼长老
+firstNightReminder: ''
+otherNightReminder: >-
+  吸血鬼长老指向一名玩家，并选择杀害或同化或下毒。唤醒德古拉时，告知吸血鬼长老选择的目标和行动。吸血鬼长老指向一名玩家，并选择杀害或同化或下毒。唤醒德古拉时，告知吸血鬼长老选择的目标和行动。如果吸血鬼长老选择变成德古拉，他变成德古拉原本的德古拉死亡。
+ability: 每个夜晚，你要选择一名玩家和一个行动(杀害/同化/下毒)：你的行动不会生效，且德古拉会得知你的目标和行动。每局游戏限一次，你可以选择变成德古拉，且原本的德古拉死亡，德古拉的同化次数不会重置。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3053
+    officialId: Elder vampire
+    sourceHash: f3825d054fa370833c8e6a5eaba06ec42b20906d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - minion
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

@@ -1,0 +1,94 @@
+id: r3152
+englishName: 28-fairy-tale-hugo
+name: 白马王子
+type: traveller
+edition: custom
+image: https://i.postimg.cc/66VKkkqw/princecharming-fairy-tale.png
+flavor: 我穿衬衫太性感了。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 迷恋
+remindersGlobal: []
+firstNightReminder: 唤醒白马王子，让他指向一名玩家（与上个夜晚不同），为那名放置迷恋标记。该玩家在今晚获取的信息必须包括白马王子，使用其自身能力选择的目标改为白马王子。
+otherNightReminder: 唤醒白马王子，让他指向一名玩家（与上个夜晚不同），为那名放置迷恋标记。该玩家在今晚获取的信息必须包括白马王子，使用其自身能力选择的目标改为白马王子。
+ability: 每个夜晚，你要选择一名玩家（与上个夜晚不同）：他获取信息的目标必须包括你在内，并且他的自身能力必须指向你，直至下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3152
+    officialId: 28_fairy_tale_hugo
+    sourceHash: cdbf5080e83c9077e01ab990d075917a25b2beb2
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - information
+    - traveler
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

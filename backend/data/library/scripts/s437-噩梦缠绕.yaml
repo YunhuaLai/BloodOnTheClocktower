@@ -1,0 +1,77 @@
+id: s437
+englishName: item
+name: 噩梦缠绕
+status: draft
+en: 噩梦缠绕
+author: 张顺风
+logo: https://i.postimg.cc/85YLjLqt/6-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/85YLjLqt/6-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r108
+  - r227
+  - r006
+  - r028
+  - r055
+  - r054
+  - r484
+  - r057
+  - r319
+  - r009
+  - r089
+  - r091
+  - r324
+  - r067
+  - r037
+  - r016
+  - r015
+  - r040
+  - r017
+  - r042
+  - r075
+  - r095
+  - r612
+  - r079
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r095
+    - r017
+    - r040
+    - r075
+    - r006
+    - r108
+    - r227
+    - r307
+  other:
+    - r324
+    - r017
+    - r028
+    - r484
+    - r075
+    - r079
+    - r095
+    - r612
+    - r042
+    - r040
+    - r037
+    - r009
+    - r006
+    - r054
+    - r055

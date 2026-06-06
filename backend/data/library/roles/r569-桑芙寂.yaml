@@ -21,6 +21,8 @@ setupMeta:
 reminders:
   - 死亡
   - 红月蔽目
+  - 红月蔽目
+  - 红月蔽目
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: 唤醒桑芙寂，让他攻击一名玩家。
@@ -32,7 +34,7 @@ abilityData:
     source: role-file
     roleId: r569
     officialId: qqmk
-    sourceHash: 97f94523646bbc2380f354462d9286788b42760d
+    sourceHash: d714cbf2a285e5255fc877950de55adff4fb1736
     sourceHashFields:
       - ability
       - type
@@ -57,7 +59,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

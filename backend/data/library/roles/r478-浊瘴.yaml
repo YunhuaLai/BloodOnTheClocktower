@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r478
-    officialId: miasma
+    officialId: Miasma0
     sourceHash: 0a9ed77b8e16516fe51e691110c4c13becedecf7
     sourceHashFields:
       - ability
@@ -56,7 +56,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

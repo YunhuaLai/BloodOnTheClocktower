@@ -1,0 +1,90 @@
+id: s335
+englishName: item
+name: 生生不息
+status: draft
+en: 生生不息
+author: Ekin
+logo: https://s2.loli.net/2025/06/22/Q5zZnWNG9FTh3Kt.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/22/Q5zZnWNG9FTh3Kt.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r024
+  - r025
+  - r053
+  - r133
+  - r142
+  - r028
+  - r064
+  - r031
+  - r029
+  - r057
+  - r088
+  - r091
+  - r038
+  - r098
+  - r071
+  - r135
+  - r040
+  - r042
+  - r041
+  - r076
+  - r045
+  - r046
+  - r141
+  - r929
+travellerIds:
+  - r583
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r098
+    - r071
+    - r024
+    - r141
+    - r040
+    - r041
+    - r045
+    - r064
+    - r023
+    - r142
+    - r133
+    - r025
+    - r053
+  other:
+    - r583
+    - r088
+    - r024
+    - r076
+    - r028
+    - r041
+    - r045
+    - r046
+    - r929
+    - r141
+    - r042
+    - r040
+    - r029
+    - r023
+    - r031
+    - r064
+    - r142
+    - r133
+    - r025
+    - r053

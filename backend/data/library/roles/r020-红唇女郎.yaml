@@ -1,11 +1,12 @@
 id: r020
 name: 红唇女郎
-type: minion
+type: townsfolk
 englishName: scarlet-woman
-ability: 如果大于等于五名玩家存活时（旅行者不计算在内）恶魔死亡，你变成那个恶魔。
+ability: 当一名玩家死亡时，你变成他的角色。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/scarlet_woman.png
-flavor: ''
+image:
+  - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/scarlet_woman_b.png
+flavor: 你曾向我展示了紫焰议会的秘密。我们也曾一起在烈火里拥抱，在欲望中交欢，在兽性的驱使下耳鬓厮磨，我将永生永世侍奉于你。但今晚，我亲爱的，我是你的主人。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -19,19 +20,19 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
-remindersGlobal:
-  - 是恶魔
+reminders:
+  - 是红唇
+remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 如果红唇女郎今天变成了小恶魔，对她展示“你是”信息标记，和小恶魔角色标记。
+otherNightReminder: ''
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r020
-    officialId: scarlet-woman
-    sourceHash: 3cc62736f821d163c8583b6cb17fe2c8b74f05ee
+    officialId: 11_fan
+    sourceHash: 07f1bbb5eb39d7e6ac7595873aca8f19968dfe65
     sourceHashFields:
       - ability
       - type
@@ -40,20 +41,20 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 恶魔接替
     - 规则修饰
   termIds:
     - death
-    - alive
-    - minion
+    - townsfolk
     - demon
-    - traveler
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

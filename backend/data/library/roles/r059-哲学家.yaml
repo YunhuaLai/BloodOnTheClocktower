@@ -5,7 +5,7 @@ englishName: philosopher
 ability: 每局游戏限一次，在夜晚时，你可以选择一个善良角色：你获得该角色的能力。如果这个角色在场，他醉酒。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/role_icon/philosopher.png
-flavor: ''
+flavor: 如果你要说什么事情是最真实的？我想是啤酒。痛快喝吧，说不定我们明天就要死了。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r059
-    officialId: philosopher
+    officialId: philosopher_c
     sourceHash: fcde1d6cd77fe45c27fefb474484d4f00cad3ff4
     sourceHashFields:
       - ability
@@ -41,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 一次性
     - 主动选角色
@@ -53,8 +55,8 @@ abilityData:
   abilityPattern: choose_role_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: night
       event: null

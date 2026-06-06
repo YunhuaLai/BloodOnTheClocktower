@@ -1,0 +1,99 @@
+id: s590
+englishName: item
+name: 灯火管制
+status: draft
+en: 灯火管制
+author: 星火乐
+logo: https://s2.loli.net/2025/05/10/2P9YajXHeGSgZrN.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/05/10/2P9YajXHeGSgZrN.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r011
+  - r497
+  - r2019
+  - r2020
+  - r2021
+  - r2022
+  - r2023
+  - r2024
+  - r2025
+  - r2026
+  - r2027
+  - r2028
+  - r2029
+  - r2030
+  - r2031
+  - r2032
+  - r2033
+  - r098
+  - r2034
+  - r2035
+  - r840
+  - r2036
+  - r2037
+  - r2038
+  - r2039
+travellerIds: []
+fabledIds:
+  - r2040
+  - r2041
+  - r2042
+  - r2043
+  - r2044
+  - r2045
+  - r2046
+nightOrder:
+  first:
+    - r2030
+    - r497
+    - r2036
+    - r2038
+    - r2039
+    - r098
+    - r840
+    - r2032
+    - r011
+    - r2019
+    - r2022
+    - r2021
+  other:
+    - r2032
+    - r2031
+    - r011
+    - r2035
+    - r2025
+    - r497
+    - r2023
+    - r2036
+    - r2037
+    - r2038
+    - r2039
+    - r2044
+    - r2029
+    - r2042
+    - r2033
+    - r2028
+    - r098
+    - r2024
+    - r2034
+    - r2026
+    - r2022
+    - r2027
+    - r2019
+    - r2020
+    - r2021
+    - r840

@@ -1,0 +1,87 @@
+id: s733
+englishName: item
+name: 彻底疯狂
+status: draft
+en: 彻底疯狂
+author: 寒水
+logo: https://i.postimg.cc/CKjxd9fS/Title2.webp
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/CKjxd9fS/Title2.webp
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r058
+  - r310
+  - r476
+  - r482
+  - r879
+  - r3942
+  - r576
+  - r1393
+  - r358
+  - r580
+  - r3955
+  - r3954
+  - r307
+  - r2316
+  - r087
+  - r140
+  - r319
+  - r015
+  - r067
+  - r3094
+  - r159
+  - r635
+  - r093
+  - r075
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r095
+    - r3954
+    - r3942
+    - r580
+    - r075
+    - r093
+    - r576
+    - r058
+    - r140
+    - r879
+    - r2316
+    - r087
+    - r307
+    - r482
+  other:
+    - r3942
+    - r580
+    - r075
+    - r093
+    - r3094
+    - r095
+    - r635
+    - r3955
+    - r3954
+    - r159
+    - r476
+    - r058
+    - r140
+    - r879
+    - r2316
+    - r087
+    - r482
+    - r1393

@@ -1,0 +1,79 @@
+id: s770
+englishName: item
+name: 欲擒故纵
+status: draft
+en: 欲擒故纵
+author: 提线政客
+logo: https://free.picui.cn/free/2025/12/14/693e7130ab1c7.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/14/693e7130ab1c7.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r207
+  - r051
+  - r482
+  - r3982
+  - r418
+  - r198
+  - r197
+  - r375
+  - r249
+  - r4055
+  - r462
+  - r1393
+  - r4056
+  - r039
+  - r016
+  - r067
+  - r068
+  - r363
+  - r076
+  - r315
+  - r4057
+  - r075
+  - r079
+  - r021
+  - r080
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r3982
+    - r075
+    - r4057
+    - r207
+    - r418
+    - r198
+    - r051
+    - r482
+  other:
+    - r3982
+    - r076
+    - r075
+    - r039
+    - r021
+    - r079
+    - r080
+    - r363
+    - r375
+    - r197
+    - r418
+    - r249
+    - r198
+    - r4055
+    - r051
+    - r482

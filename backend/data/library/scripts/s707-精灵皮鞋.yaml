@@ -1,0 +1,77 @@
+id: s707
+englishName: item
+name: 精灵皮鞋
+status: draft
+en: 精灵皮鞋
+author: 叮当&蓝铃兰
+logo: https://free.picui.cn/free/2025/12/08/6936518844a4a.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/08/6936518844a4a.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r006
+  - r008
+  - r010
+  - r025
+  - r028
+  - r033
+  - r034
+  - r097
+  - r140
+  - r100
+  - r214
+  - r319
+  - r3931
+  - r015
+  - r038
+  - r067
+  - r186
+  - r041
+  - r042
+  - r043
+  - r075
+  - r083
+  - r141
+travellerIds: []
+fabledIds:
+  - r3933
+  - r1164
+  - r3935
+  - r104
+nightOrder:
+  first:
+    - r141
+    - r041
+    - r075
+    - r097
+    - r003
+    - r006
+    - r140
+    - r100
+    - r025
+  other:
+    - r028
+    - r214
+    - r008
+    - r041
+    - r075
+    - r083
+    - r141
+    - r042
+    - r006
+    - r140
+    - r025

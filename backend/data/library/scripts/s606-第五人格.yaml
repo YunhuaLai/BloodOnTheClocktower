@@ -1,0 +1,110 @@
+id: s606
+englishName: item
+name: 第五人格
+status: draft
+en: 第五人格
+author: 自逍遥
+logo: https://i.postimg.cc/ry5NFnhn/image.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/ry5NFnhn/image.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r2423
+  - r2424
+  - r2425
+  - r2426
+  - r2427
+  - r2428
+  - r1725
+  - r2429
+  - r2430
+  - r2431
+  - r2432
+  - r2433
+  - r2434
+  - r2435
+  - r2436
+  - r2437
+  - r2438
+  - r2439
+  - r2440
+  - r2441
+  - r2442
+  - r2443
+  - r2444
+  - r2445
+  - r2431
+  - r2440
+  - r2446
+  - r2447
+  - r2448
+  - r2449
+  - r2450
+  - r2451
+travellerIds:
+  - r2452
+  - r2453
+  - r2454
+  - r2455
+  - r2456
+fabledIds:
+  - r1409
+  - r2422
+nightOrder:
+  first:
+    - r2452
+    - r2455
+    - r2456
+    - r2453
+    - r2423
+    - r2437
+    - r2445
+    - r2442
+    - r2426
+    - r2451
+    - r2425
+    - r2435
+    - r2434
+    - r1725
+    - r2429
+    - r2424
+  other:
+    - r2452
+    - r2455
+    - r2456
+    - r2453
+    - r2423
+    - r2437
+    - r2445
+    - r2442
+    - r2439
+    - r2426
+    - r2451
+    - r2428
+    - r2432
+    - r2434
+    - r2440
+    - r2446
+    - r2431
+    - r2443
+    - r2444
+    - r2450
+    - r2448
+    - r2447
+    - r2449
+    - r1725
+    - r2427
+    - r2424

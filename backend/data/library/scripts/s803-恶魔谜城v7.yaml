@@ -1,0 +1,85 @@
+id: s803
+englishName: v7
+name: 恶魔谜城v7
+status: draft
+en: 恶魔谜城v7
+author: Cosmo
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r004
+  - r097
+  - r025
+  - r1250
+  - r054
+  - r056
+  - r027
+  - r134
+  - r030
+  - r064
+  - r090
+  - r1251
+  - r038
+  - r067
+  - r071
+  - r015
+  - r040
+  - r078
+  - r075
+  - r076
+  - r045
+  - r021
+  - r080
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r1250
+    - r078
+    - r030
+    - r040
+    - r075
+    - r045
+    - r097
+    - r064
+    - r071
+    - r004
+    - r049
+    - r134
+    - r025
+  other:
+    - r027
+    - r030
+    - r075
+    - r076
+    - r021
+    - r045
+    - r083
+    - r080
+    - r040
+    - r1251
+    - r090
+    - r064
+    - r071
+    - r054
+    - r056
+    - r1250
+    - r134
+    - r025

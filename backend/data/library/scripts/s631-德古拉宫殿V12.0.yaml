@@ -1,0 +1,84 @@
+id: s631
+englishName: v12-0
+name: 德古拉宫殿V12.0
+status: draft
+en: 德古拉宫殿V12.0
+author: Nichael
+logo: https://i.postimg.cc/HLqBnjBK/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/HLqBnjBK/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3037
+  - r3038
+  - r3039
+  - r2686
+  - r2596
+  - r2028
+  - r3040
+  - r3041
+  - r3042
+  - r3043
+  - r3044
+  - r3045
+  - r3046
+  - r3047
+  - r3048
+  - r3049
+  - r3050
+  - r810
+  - r3051
+  - r3052
+  - r3053
+  - r3054
+  - r3055
+travellerIds: []
+fabledIds:
+  - r3056
+  - r3057
+  - r348
+nightOrder:
+  first:
+    - r3042
+    - r3039
+    - r2596
+    - r3050
+    - r3055
+    - r3056
+    - r3037
+    - r2686
+    - r3046
+  other:
+    - r3042
+    - r3039
+    - r2596
+    - r3053
+    - r810
+    - r3051
+    - r3052
+    - r3055
+    - r3056
+    - r3047
+    - r3048
+    - r3049
+    - r3050
+    - r3037
+    - r3038
+    - r2686
+    - r3041
+    - r3045
+    - r3043
+    - r3046

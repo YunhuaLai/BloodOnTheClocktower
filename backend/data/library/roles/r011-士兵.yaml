@@ -3,7 +3,7 @@ name: 士兵
 type: townsfolk
 englishName: soldier
 ability: 恶魔的负面能力对你无效。
-edition: tb
+edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/soldier.png
 flavor: ''
 setup: false
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r011
-    officialId: soldier
+    officialId: sb111
     sourceHash: 4155df07a8ca78244766cb170b4a8ddb4e918d4d
     sourceHashFields:
       - ability
@@ -39,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 保护型
@@ -50,8 +52,8 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

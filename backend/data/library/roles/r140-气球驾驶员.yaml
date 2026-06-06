@@ -4,7 +4,7 @@ name: 气球驾驶员
 type: townsfolk
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/upload/202410/c_7787277188271_9eba6446.jpg
-flavor: ''
+flavor: 再来点热量！高点！高点！再高点！啊~从这上面往下看，风景真美，你说呢？你能看见孩子们在河边柳树下钓鱼吗？你能看到马戏团帐篷杆上反射的阳光吗？这是什么？一位老人孤身一人在葡萄园里昏倒了？少来点热量！低点！低点！再低点！
 setup: true
 setupMeta:
   randomAssignable: true
@@ -40,7 +40,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r140
-    officialId: aeronaut
+    officialId: balloonist_c
     sourceHash: 872b44ee889df06a778745f543aa3b0e2088f6e8
     sourceHashFields:
       - ability
@@ -67,7 +67,7 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

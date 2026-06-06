@@ -1,0 +1,96 @@
+id: r2862
+englishName: 23-nature
+name: 荷花
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Yez/nature/23_nature.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 善良
+  - 止于今晚
+  - 第一天
+  - 第二天
+  - 第三天
+  - 第四天
+remindersGlobal: []
+firstNightReminder: 在荷花的角色标记旁放置“第一天”提示标记。
+otherNightReminder: 将荷花的标记替换到下一天。如果替换到“第四天”提示标记，在一名邪恶恶魔的角色标记旁放置“善良”角色标记。如果荷花在今天死亡，在荷花的角色标记旁放置“止于今晚”的标记，如果此时已有“止于今晚”的标记时，移除此标记。
+ability: 第四个夜晚，一名邪恶的恶魔会转变为善良阵营。恶魔无法获得恶魔信息。你死亡时，今晚因腐蚀即将变成恶魔的所有玩家都无法变成恶魔。[+1恶魔]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2862
+    officialId: 23_nature
+    sourceHash: 7302abd03d89b991553639cc13927afde8b2c6f4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - death
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,113 @@
+id: r2590
+englishName: 15-xiudao111
+name: 煤气灯工人
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/xiudao111/15_xiudao111.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 得知
+  - 镇民
+remindersGlobal: []
+firstNightReminder: 唤醒煤气灯工人然后指向两名玩家。
+otherNightReminder: 如果煤气灯工人得知的爪牙被处决，镇民会在今晚寻回自己的角色。
+ability: '[一位镇民玩家会以为自己是一个在场的爪牙角色] 在你的首个夜晚，你得知两名玩家：他们是那个镇民以及那个爪牙。如果其中的爪牙被处决，该镇民在当晚寻回自己的角色，即使你死了。'
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2590
+    officialId: 15_xiudao111
+    sourceHash: e38246ce9c6b5889a0aed0ae99ea4facb2f78cfa
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - execution
+    - death
+    - townsfolk
+    - minion
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_role
+        roleType: townsfolk
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: supported
+    source: inferred
+    templates:
+      - type: role_at_day_execution
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

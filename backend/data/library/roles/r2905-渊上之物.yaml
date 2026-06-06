@@ -1,0 +1,103 @@
+id: r2905
+englishName: 16-the-favonius-mystery-de
+name: 渊上之物
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Jerry0906/The_favonius_Mystery_DE/16_the_favonius_mystery_de.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: -1
+      source: '[-1外来者]'
+      note: 配置调整：外来者数量 -1。
+  setupNotes:
+    - 配置调整：外来者数量 -1。
+reminders:
+  - 限一次
+  - 是惡魔
+  - 提名邪惡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  如果恶魔第一次死於處決，且在恶魔死前有大于等于五名的存活玩家：说书人要选择一名有「提名邪恶」标记的善良镇民，在魔典中用闲置的恶魔标记替换他的角色标记并放置「是恶魔」标记，也意味着那名玩家的角色从原本的角色变成了该恶魔。然后在渊上之物的角色标记旁放置「限一次」标记。
+ability: 如果大于等于五名玩家存活时（旅行者不计算在内）恶魔首次死於處決，一名提名过邪恶玩家的镇民会变成那个邪恶的恶魔。[-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2905
+    officialId: 16_the_favonius_mystery_de
+    sourceHash: e4910e20509592ea6c248c3f49a365a2fae2a30d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - nomination
+    - alive
+    - evil
+    - townsfolk
+    - outsider
+    - minion
+    - demon
+    - traveler
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: -1
+            source: '[-1外来者]'
+            note: 配置调整：外来者数量 -1。
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

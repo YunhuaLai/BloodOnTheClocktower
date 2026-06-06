@@ -1,0 +1,84 @@
+id: r2671
+englishName: curator
+name: 博物馆长
+type: townsfolk
+edition: mia
+image: https://free.picui.cn/free/2025/11/28/6928977f15cf7.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 提名
+  - 失踪
+remindersGlobal:
+  - 博物馆长
+firstNightReminder: ''
+otherNightReminder: 白天，标记提名过博物馆长的玩家。夜晚，有提名标记的玩家如果是善良的且已丧失理智，他恢复理智。否则，标记那名玩家失踪。无论结果为何，移除提名标记。
+ability: 每个夜晚*，如果今天白天有其他玩家提名过你：如果他是善良的且已丧失理智，他恢复理智。否则，他失踪直到明天黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2671
+    officialId: curator
+    sourceHash: 46b3a345d9c6182deaf3835c3b7213329f724e05
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - nomination
+    - good
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r126
-    officialId: matron
+    officialId: nvnvnvnshejian111
     sourceHash: bfbdea7869e19d74c113ebd7c2788a5203ebc14a
     sourceHashFields:
       - ability
@@ -49,7 +49,7 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

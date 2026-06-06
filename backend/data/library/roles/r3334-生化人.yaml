@@ -1,0 +1,112 @@
+id: r3334
+englishName: 28-yz-cn-ggg
+name: 生化人
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/papel/YZ_CN_GGG/28_yz_cn_ggg.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 选择者
+  - 被选择
+remindersGlobal: []
+firstNightReminder: 生化人选择两名玩家。在第一名玩家的夜晚行动时告知他被生化人选中，并让他入睡。该玩家不会得知他以自身能力选择了谁。
+otherNightReminder: 生化人选择两名玩家。在第一名玩家的夜晚行动时告知他被生化人选中，并让他入睡。该玩家不会得知他以自身能力选择了谁。
+ability: 每个夜晚，你要选择两名玩家：今晚第一名玩家其自身能力的选择改为选择第二名玩家。第一名玩家会得知你选择了他。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3334
+    officialId: 28_yz_cn_ggg
+    sourceHash: d0f38558678f086fca0e915b0dca7e4c5c3b0aaf
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - traveler
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

@@ -1,0 +1,76 @@
+id: s789
+englishName: item
+name: 异星复仇
+status: draft
+en: 异星复仇
+author: Ropeperson
+logo: https://i.postimg.cc/6QqkpNF6/image.png
+description: 异星复仇
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 异星复仇
+image: https://i.postimg.cc/6QqkpNF6/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 异星复仇
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r097
+  - r057
+  - r133
+  - r052
+  - r005
+  - r140
+  - r026
+  - r027
+  - r089
+  - r030
+  - r012
+  - r091
+  - r015
+  - r135
+  - r014
+  - r067
+  - r116
+  - r017
+  - r043
+  - r073
+  - r020
+  - r021
+  - r045
+  - r079
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r017
+    - r030
+    - r052
+    - r073
+    - r045
+    - r097
+    - r002
+    - r005
+    - r140
+    - r133
+  other:
+    - r017
+    - r027
+    - r030
+    - r052
+    - r020
+    - r026
+    - r021
+    - r045
+    - r079
+    - r005
+    - r140
+    - r133

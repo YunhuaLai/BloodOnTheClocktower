@@ -1,0 +1,100 @@
+id: r1512
+englishName: dushichuanshuo-haiwu
+name: 都市传说
+type: minion
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/3/3f/f4femyaedzkgjiosekjh56zrt1wecqd.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 传闻
+remindersGlobal: []
+firstNightReminder: 依次唤醒都市传说和一名善良玩家告诉他们一件未发生的事。
+otherNightReminder: 如果当天都市传说或得知都市传说的玩家死亡，唤醒恶魔告知都市传说的内容并决定是否执行。
+ability: 你和一名善良玩家得知一件尚未发生的事，如果你们之一死亡，恶魔可以让这件事成真。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1512
+    officialId: dushichuanshuo_haiwu
+    sourceHash: 82de95b6a9ea0df0961ea7b573ee0504012b29d9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - death
+    - good
+    - minion
+    - demon
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

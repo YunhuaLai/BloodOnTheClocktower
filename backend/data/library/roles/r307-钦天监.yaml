@@ -4,7 +4,7 @@ name: 钦天监
 type: townsfolk
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/qintianjian.png
-flavor: ''
+flavor: 天降异象，荧惑守心。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r307
-    officialId: astronomer-royal
+    officialId: woshixiuxingzhe111
     sourceHash: f980cc8f7e9fe0ad8b492689f6b8a18f3bbcdd30
     sourceHashFields:
       - ability
@@ -54,7 +54,7 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: first_night

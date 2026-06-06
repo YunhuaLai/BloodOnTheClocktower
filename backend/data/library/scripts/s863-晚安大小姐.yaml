@@ -1,0 +1,87 @@
+id: s863
+englishName: item
+name: 晚安大小姐
+status: draft
+en: 晚安大小姐
+author: ⼩諧星ChinHoYiu
+logo: https://s2.loli.net/2025/06/19/E9nwViPkC5XO3fS.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/19/E9nwViPkC5XO3fS.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r097
+  - r049
+  - r006
+  - r140
+  - r087
+  - r027
+  - r026
+  - r056
+  - r057
+  - r012
+  - r233
+  - r091
+  - r324
+  - r071
+  - r119
+  - r067
+  - r107
+  - r093
+  - r042
+  - r040
+  - r337
+  - r045
+  - r095
+  - r136
+travellerIds:
+  - r583
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r095
+    - r071
+    - r337
+    - r040
+    - r093
+    - r107
+    - r045
+    - r136
+    - r097
+    - r004
+    - r006
+    - r049
+    - r140
+    - r087
+  other:
+    - r583
+    - r324
+    - r027
+    - r337
+    - r093
+    - r107
+    - r026
+    - r045
+    - r136
+    - r095
+    - r042
+    - r040
+    - r233
+    - r006
+    - r056
+    - r140
+    - r087

@@ -1,0 +1,87 @@
+id: s233
+englishName: item
+name: 厉鬼夜会
+status: draft
+en: 厉鬼夜会
+author: Nullt
+logo: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_6490885718661_5987db80.jpg
+description: 鬼市，除了代表夜市之外，也是各种妖魔鬼怪的聚集之处。夜半时分，熙熙攘攘，在这混杂着鬼怪的集市中，你是否能慧眼如炬，揪出暗中密会的厉鬼？
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 鬼市，除了代表夜市之外，也是各种妖魔鬼怪的聚集之处。夜半时分，熙熙攘攘，在这混杂着鬼怪的集市中，你是否能慧眼如炬，揪出暗中密会的厉鬼？
+image: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_6490885718661_5987db80.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 鬼市，除了代表夜市之外，也是各种妖魔鬼怪的聚集之处。夜半时分，熙熙攘攘，在这混杂着鬼怪的集市中，你是否能慧眼如炬，揪出暗中密会的厉鬼？
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1585
+  - r1586
+  - r1587
+  - r1588
+  - r1589
+  - r1590
+  - r1591
+  - r021
+  - r017
+  - r015
+  - r022
+  - r008
+  - r006
+  - r002
+  - r039
+  - r028
+  - r079
+  - r073
+  - r067
+  - r059
+  - r058
+  - r052
+  - r088
+  - r078
+  - r133
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r039
+    - r1588
+    - r088
+    - r017
+    - r078
+    - r052
+    - r1585
+    - r073
+    - r002
+    - r006
+    - r058
+    - r133
+    - r1586
+  other:
+    - r1591
+    - r059
+    - r088
+    - r017
+    - r028
+    - r052
+    - r008
+    - r039
+    - r1587
+    - r021
+    - r1585
+    - r079
+    - r1586
+    - r1589
+    - r1590
+    - r006
+    - r058
+    - r133
+    - r1588

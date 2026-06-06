@@ -1,0 +1,82 @@
+id: s695
+englishName: item
+name: 匡扶汉室
+status: draft
+en: 匡扶汉室
+author: ''
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r049
+  - r227
+  - r005
+  - r056
+  - r057
+  - r087
+  - r150
+  - r058
+  - r030
+  - r060
+  - r033
+  - r155
+  - r039
+  - r135
+  - r324
+  - r092
+  - r020
+  - r073
+  - r077
+  - r1613
+  - r336
+  - r079
+  - r083
+  - r141
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r336
+    - r155
+    - r039
+    - r141
+    - r030
+    - r073
+    - r005
+    - r023
+    - r058
+    - r049
+    - r227
+    - r087
+    - r092
+    - r1613
+  other:
+    - r324
+    - r030
+    - r020
+    - r039
+    - r150
+    - r079
+    - r083
+    - r141
+    - r023
+    - r005
+    - r056
+    - r058
+    - r087

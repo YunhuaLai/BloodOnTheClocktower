@@ -1,0 +1,101 @@
+id: r1591
+englishName: 20084-6099
+name: 灵媒
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Imzecorella/Day_By_Day/medium_day_by_day.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 今天死亡
+remindersGlobal: []
+firstNightReminder: 如果灵媒在场，不要让恶魔和爪牙互相认识。
+otherNightReminder: 交换灵媒和恶魔的角色标记和阵营提示标记。将这两名玩家分别独自唤醒。对他们展示“你是”信息标记和他们的新角色标记，并用拇指向上/向下代表他阵营变为善良/邪恶。
+ability: 每个夜晚*，你与恶魔交换角色和阵营。（但保留选择与状态）爪牙和恶魔互相不认识。如果你死亡，当晚他们会互相认识。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1591
+    officialId: 6d
+    sourceHash: 9012d34d5f7b4ba0f1eb14bd112ce41addd47bff
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - alignment
+    - townsfolk
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 死亡玩家号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

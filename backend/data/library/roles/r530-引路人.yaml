@@ -4,7 +4,7 @@ name: 引路人
 type: townsfolk
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/yinluren.png
-flavor: ''
+flavor: 船篙点波心，跟着这篷船，避过暗礁浅涡，往前面渡头走。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r530
-    officialId: guide
+    officialId: yinlureanrlfasrfiaojwrn2k31j95u09uasj
     sourceHash: 9d16ffc889e736d39db8a44bafc67751b34b1ef1
     sourceHashFields:
       - ability
@@ -54,7 +54,7 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

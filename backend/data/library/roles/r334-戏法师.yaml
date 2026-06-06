@@ -3,8 +3,8 @@ englishName: trickster
 name: 戏法师
 type: townsfolk
 edition: custom
-image: https://www.bloodstar.xyz/p/Guiltier/seve/11_seve.png
-flavor: ''
+image: https://clocktower-wiki.gstonegames.com/images/d/d6/Alsaahir.png
+flavor: 我在这里，因为你在这里；我在这里，所以你在这里。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -22,15 +22,15 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-ability: 每个白天，你可以公开进行一次谁是爪牙，谁是恶魔的猜测。如果你猜对，善良阵营获胜。
+ability: '''每个白天，你可以公开进行一次谁是爪牙，谁是恶魔的猜测。如果你猜对，善良阵营获胜。'
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r334
-    officialId: trickster
-    sourceHash: 85db0306fbbc79e857eefc33ed48d06aa99c8e31
+    officialId: xixifafashishishishishishishi
+    sourceHash: 860bde3a2629e50120a3c16b2f5bd348e2b36d05
     sourceHashFields:
       - ability
       - type
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_day

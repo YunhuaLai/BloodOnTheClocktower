@@ -1,0 +1,99 @@
+id: r3113
+englishName: redskull-avengersv2
+name: 红骷髅
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/AvengersV2/redskull_avengersv2.png
+flavor: Quite simply, gentlemen, I have harnessed the power of the gods.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+  - 中毒
+  - 中毒
+  - 中毒
+  - 中毒
+  - 误认
+  - 误认
+  - 误认
+  - 误认
+  - 误认
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你提名的玩家中毒。提名你的玩家被当作邪恶阵营和爪牙角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3113
+    officialId: redskull_avengersv2
+    sourceHash: bf1bb957d30119d1e47a76bcd619b3ac83aef959
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - poisoned
+    - nomination
+    - alignment
+    - evil
+    - minion
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

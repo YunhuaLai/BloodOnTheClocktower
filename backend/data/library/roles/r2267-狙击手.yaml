@@ -1,0 +1,97 @@
+id: r2267
+englishName: 20827-8692
+name: 狙击手
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1691596246_197011_8129.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 狙击目标
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 狙击手选择不使用能力，或者指向一名玩家，用“狙击目标”标记那名玩家，下个夜晚，如果被标记的玩家不是镇民且存活，标记“死亡”，当晚不会有其他玩家死亡。
+otherNightReminder: 狙击手选择不使用能力，或者指向一名玩家，用“狙击目标”标记那名玩家，下个夜晚，如果被标记的玩家不是镇民且存活，标记“死亡”，当晚不会有其他玩家死亡。
+ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家：下个夜晚，如果他不是镇民且存活，他死亡，当晚不会有其他玩家死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2267
+    officialId: '20827_8692'
+    sourceHash: f25bdc68fb2c42b7fed578df0713d7cf4e664e4c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - townsfolk
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

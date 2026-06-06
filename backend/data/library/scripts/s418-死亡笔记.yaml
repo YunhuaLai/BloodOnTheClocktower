@@ -1,0 +1,87 @@
+id: s418
+englishName: item
+name: 死亡笔记
+status: draft
+en: 死亡笔记
+author: PROVIDENCE
+logo: https://s2.loli.net/2025/06/25/i8mhkDKMuz7ltxJ.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/25/i8mhkDKMuz7ltxJ.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r004
+  - r097
+  - r051
+  - r140
+  - r008
+  - r056
+  - r059
+  - r058
+  - r142
+  - r022
+  - r155
+  - r091
+  - r015
+  - r037
+  - r068
+  - r069
+  - r093
+  - r020
+  - r074
+  - r1613
+  - r021
+  - r081
+  - r083
+  - r095
+travellerIds: []
+fabledIds:
+  - r1789
+  - r1612
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r095
+    - r074
+    - r093
+    - r097
+    - r003
+    - r004
+    - r051
+    - r058
+    - r140
+    - r142
+    - r1613
+  other:
+    - r1612
+    - r059
+    - r008
+    - r074
+    - r093
+    - r020
+    - r021
+    - r083
+    - r081
+    - r095
+    - r037
+    - r068
+    - r051
+    - r056
+    - r058
+    - r140
+    - r142

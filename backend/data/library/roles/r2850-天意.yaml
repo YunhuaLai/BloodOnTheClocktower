@@ -1,0 +1,115 @@
+id: r2850
+englishName: xsg-em1
+name: 天意
+type: demon
+edition: custom
+image: https://free.picui.cn/free/2025/12/02/692f0c8796878.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 天意侵蚀
+  - 被知晓
+  - 死亡
+firstNightReminder: 因天意入红的玩家互认，然后有个人得知本局被天意侵蚀。
+otherNightReminder: 杀人。
+ability: >-
+  ：说书人决定天意魔典（至多有半数玩家存活）且具有一名爪牙的能力。首个夜晚，等同于初始邪恶玩家数的善良玩家被天意侵蚀（加入邪恶）并互认，随后一名善良玩家得知本局被天意侵蚀。每个夜晚*，可能会有一名玩家死亡。当天意修正到来时，邪恶阵营获胜。只有处决说书人善良阵营才能获胜。[外来者数量任意，无恶魔爪牙在场]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2850
+    officialId: xsg_em1
+    sourceHash: 6728d21b9fbb097c15252754022572e2718cfc5a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - execution
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - outsider
+    - minion
+    - demon
+    - storyteller
+    - grimoire
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_number
+        numberKind: death_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

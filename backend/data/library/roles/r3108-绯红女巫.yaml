@@ -1,0 +1,109 @@
+id: r3108
+englishName: scarletwitch-avengersv2
+name: 绯红女巫
+type: outsider
+edition: custom
+image:
+  - https://www.bloodstar.xyz/p/omarmotta008/Avengers_v5/scarletwitch_avengers_v5.png
+flavor: >-
+  I used to think of myself one way. But, after this. I am something else. I'm still me, I think. But... that's not what
+  everyone else sees.
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 转变邪恶
+remindersGlobal: []
+firstNightReminder: Show the character token of 1 not-in-play Townsfolk.
+otherNightReminder: If the Vision died today or tonight, the Scarlet Witch is 唤醒n and informed of their new alignment.
+ability: 在你的首个夜晚，你会得知一个不在场的镇民角色。如果幻视死亡，当晚你转变为邪恶阵营。[+幻视]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3108
+    officialId: scarletwitch_avengersv2
+    sourceHash: b76a62e10ce8e7ec970ce9dcc9c3f3d8e18b87da
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - death
+    - alignment
+    - evil
+    - townsfolk
+    - outsider
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

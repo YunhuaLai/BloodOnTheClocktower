@@ -3,7 +3,7 @@ englishName: bone-collector
 name: 集骨者
 type: traveller
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bone_collector.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/bone_collector.png
 flavor: ''
 setup: false
 setupMeta:
@@ -23,7 +23,7 @@ reminders:
   - 失去能力
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 每个夜晚，唤醒集骨者。集骨者要么摇头表示不使用能力，或者是指向任何一名已死亡的玩家。让集骨者重新入睡。
+otherNightReminder: 集骨者选择不使用能力，或指向一名死亡玩家。放置恢复能力标记提示，并且该玩家当晚可能会因此醒来并使用能力。
 ability: 每局游戏限一次，在夜晚时*，你可以选择一名死亡的玩家：他重新获得能力直到下个黄昏。
 abilityData:
   schemaVersion: 2
@@ -31,8 +31,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r123
-    officialId: bone-collector
-    sourceHash: 32da21b6f3c365d09d6f1f12d126d34d7a837a37
+    officialId: '3_84'
+    sourceHash: e171a4ddcb5a5f1717d77fa1434f5e84e0eec9b8
     sourceHashFields:
       - ability
       - type
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选择
@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

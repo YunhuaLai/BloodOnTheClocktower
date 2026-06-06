@@ -1,0 +1,84 @@
+id: r1534
+englishName: 16-shanhaiqiwenlu
+name: 咆哮妹妹
+type: outsider
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/2d/iysenb5s0nnwtudxaw8patf5dzg6ehy.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 是善良
+  - 是邪恶
+  - 无法获胜
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 你会加入因你提名而被处决的玩家的阵营，如果你未提名处决过玩家，你无法获胜。
+ability: 你会加入因你提名而被处决的玩家的阵营，如果你未提名处决过玩家，你无法获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1534
+    officialId: 16_shanhaiqiwenlu
+    sourceHash: 2312fb3c2b3fe3db5d18990bf2f0d18bc8562200
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - nomination
+    - execution
+    - alignment
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

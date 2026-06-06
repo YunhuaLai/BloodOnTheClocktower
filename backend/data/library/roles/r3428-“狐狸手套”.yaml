@@ -1,0 +1,101 @@
+id: r3428
+englishName: 18d
+name: “狐狸手套”
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Imzecorella/Day_By_Day/foxglove_day_by_day.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 狐狸手套可以选择一个或两个角色：在这些玩家角色标记旁放置“中毒”提示标记，如果狐狸手套选择了两名玩家，在恶魔角色标记旁放置“中毒”提示标记。
+otherNightReminder: 移除所有中毒标记。狐狸手套可以选择一个或两个角色：在这些玩家角色标记旁放置“中毒”提示标记，如果狐狸手套选择了两名玩家，在这些恶魔标记旁放置“中毒”提示标记。
+ability: 每个夜晚，你要选择一或两名角色：他们中毒直到下个黄昏。如果你选择了两名角色，恶魔也会中毒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3428
+    officialId: 18d
+    sourceHash: 35090886f209366c96544dad376f13529ff9e59e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - minion
+    - demon
+  abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

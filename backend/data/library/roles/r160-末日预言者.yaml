@@ -3,7 +3,7 @@ englishName: doomsayer
 name: 末日预言者
 type: fabled
 edition: custom
-image: https://clocktower-wiki.gstonegames.com/images/thumb/6/6c/Doomsayer.png/600px-Doomsayer.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/doomsayer.png
 flavor: ''
 setup: false
 setupMeta:
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r160
-    officialId: doomsayer
+    officialId: doomsayerbutton
     sourceHash: be616592327bc91ed9e8ad61dc37838c89dfedb7
     sourceHashFields:
       - ability

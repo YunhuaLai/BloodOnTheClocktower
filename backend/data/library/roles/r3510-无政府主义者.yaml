@@ -1,0 +1,94 @@
+id: r3510
+englishName: anarchist
+name: 无政府主义者
+type: outsider
+edition: custom
+image: https://i.postimg.cc/J0h564Y0/spiked-bat-1.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 被选择
+remindersGlobal: []
+firstNightReminder: 唤醒无政府主义者，让他指向两名存活玩家。为他们放置被选择标记。他们之中任何一名玩家被其他玩家使用自身能力选择时，可能会改为选中另一名玩家。
+otherNightReminder: 唤醒无政府主义者，让他指向两名存活玩家。为他们放置被选择标记。他们之中任何一名玩家被其他玩家使用自身能力选择时，可能会改为选中另一名玩家。
+ability: 每个夜晚，你要选择两名存活的玩家：今晚任何玩家使用自身能力选择他们之一作为目标时，可能会改为选中另一名玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3510
+    officialId: anarchist
+    sourceHash: d5303f28996b1aebbc4161e1f5074fd5f05f6bc1
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alive
+    - outsider
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

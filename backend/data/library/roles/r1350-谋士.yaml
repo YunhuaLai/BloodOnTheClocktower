@@ -1,0 +1,106 @@
+id: r1350
+englishName: m1112oushishihsihsihsihsihsihsihsihsih
+name: 谋士
+type: townsfolk
+edition: custom
+image: https://s2.loli.net/2025/09/05/GYdD1IyE3rFHTxR.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 棋子
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你要选择一名除你以外的玩家成为“棋子”：该玩家不会得知自己成为“棋子”，且免疫夜间负面效果。若谋士在夜晚死亡，则“棋子”一并死亡。
+otherNightReminder: 每个夜晚，你要选择一名除你以外的玩家成为“棋子”：该玩家不会得知自己成为“棋子”，且免疫夜间负面效果。若谋士在夜晚死亡，则“棋子”一并死亡。
+ability: 每个夜晚，你要选择一名除你以外的玩家成为“棋子”：该玩家不会得知自己成为“棋子”，且免疫夜间负面效果。若谋士在夜晚死亡，则“棋子”一并死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1350
+    officialId: m1112oushishihsihsihsihsihsihsihsihsih
+    sourceHash: fa0455c0f1164a9455b8008341494dd2c6227774
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - townsfolk
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

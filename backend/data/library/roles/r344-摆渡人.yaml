@@ -3,7 +3,7 @@ englishName: ferryman
 name: 摆渡人
 type: fabled
 edition: custom
-image: https://www.bloodstar.xyz/p/Guiltier/seve/26_seve.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/ferryman.png
 flavor: ''
 setup: false
 setupMeta:
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r344
-    officialId: ferryman
+    officialId: baidurennnnnnnnnnnnnnn
     sourceHash: 4c99564495fafcd05e460faff2bbf4aaa7995325
     sourceHashFields:
       - ability
@@ -50,7 +50,7 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

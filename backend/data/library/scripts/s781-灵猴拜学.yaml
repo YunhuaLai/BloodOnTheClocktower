@@ -1,0 +1,82 @@
+id: s781
+englishName: item
+name: 灵猴拜学
+status: draft
+en: 灵猴拜学
+author: Jams,Josh,Kerry&zak
+logo: https://free.picui.cn/free/2025/10/28/6900b4ab937e9.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/10/28/6900b4ab937e9.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r024
+  - r053
+  - r087
+  - r027
+  - r026
+  - r150
+  - r214
+  - r030
+  - r031
+  - r029
+  - r155
+  - r033
+  - r012
+  - r037
+  - r036
+  - r038
+  - r234
+  - r042
+  - r017
+  - r041
+  - r337
+  - r040
+  - r045
+  - r046
+  - r044
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r155
+    - r024
+    - r017
+    - r030
+    - r040
+    - r041
+    - r045
+    - r087
+    - r053
+  other:
+    - r024
+    - r017
+    - r027
+    - r030
+    - r214
+    - r041
+    - r026
+    - r150
+    - r044
+    - r045
+    - r046
+    - r042
+    - r040
+    - r029
+    - r036
+    - r037
+    - r031
+    - r087
+    - r053

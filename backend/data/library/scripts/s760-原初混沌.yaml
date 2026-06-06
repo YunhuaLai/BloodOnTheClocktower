@@ -1,0 +1,83 @@
+id: s760
+englishName: item
+name: 原初混沌
+status: draft
+en: 原初混沌
+author: 星火乐
+logo: https://i.postimg.cc/kX0p75Kd/Title3.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/kX0p75Kd/Title3.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3948
+  - r3951
+  - r4016
+  - r333
+  - r3996
+  - r182
+  - r350
+  - r4017
+  - r4018
+  - r005
+  - r087
+  - r133
+  - r334
+  - r155
+  - r186
+  - r3094
+  - r729
+  - r1008
+  - r4019
+  - r840
+  - r235
+  - r641
+  - r4020
+  - r4021
+  - r4022
+  - r1454
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r333
+    - r155
+    - r4018
+    - r1454
+    - r235
+    - r005
+    - r1008
+    - r087
+    - r4016
+    - r3951
+    - r729
+    - r133
+  other:
+    - r333
+    - r3948
+    - r1454
+    - r3094
+    - r235
+    - r1008
+    - r4021
+    - r4022
+    - r005
+    - r087
+    - r4016
+    - r3951
+    - r729
+    - r133
+    - r4020

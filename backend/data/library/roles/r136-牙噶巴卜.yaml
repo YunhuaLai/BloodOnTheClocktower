@@ -4,7 +4,7 @@ name: 牙噶巴卜
 type: demon
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/yaggababble.png
-flavor: ''
+flavor: "“莫尔街的谋杀案？假的噶！\r\n巴斯克维尔的猎犬？假的噶！\r\n尼罗河上的惨案？假的噶！”"
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r136
-    officialId: yaggababble
+    officialId: waibibaboabbbb1111
     sourceHash: b2752fdd37f16c4cd80e84dd9cbe8b82358da72f
     sourceHashFields:
       - ability
@@ -56,7 +56,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

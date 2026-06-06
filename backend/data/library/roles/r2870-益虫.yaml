@@ -1,0 +1,104 @@
+id: r2870
+englishName: 16-nature
+name: 益虫
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/Yez/nature/16_nature.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - '+1'
+  - 益虫
+firstNightReminder: 在一名镇民的角色标记旁放置“益虫”提示标记和“+1”提示标记，然后唤醒该玩家，为他展示“他的能力对你生效”信息标记和益虫角色标记。
+otherNightReminder: 将不同于上一个有“益虫”提示标记放置的玩家的腐蚀标记移除，在一名玩家的角色标记旁放置“益虫”提示标记和“+1”提示标记，然后唤醒该玩家，为他展示“他的能力对你生效”信息标记和益虫角色标记。
+ability: 每个夜晚，一名存活玩家会得知自己获得益虫：他腐蚀+1，他“是外来者”即使他死亡。失去益虫的玩家腐蚀会变成0。[+1镇民且初始镇民持有益虫]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2870
+    officialId: 16_nature
+    sourceHash: a4d7d854c86d62d74b515436095835a8bdb98157
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - death
+    - alive
+    - townsfolk
+    - outsider
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

@@ -1,0 +1,89 @@
+id: s138
+englishName: item
+name: 圣光降临
+status: draft
+en: 圣光降临
+author: 清清Jungle
+logo: https://www.bloodstar.xyz/p/Jungle/The_Radiance_Descends/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Jungle/The_Radiance_Descends/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r227
+  - r007
+  - r052
+  - r1250
+  - r057
+  - r031
+  - r059
+  - r061
+  - r823
+  - r066
+  - r091
+  - r1251
+  - r015
+  - r016
+  - r069
+  - r072
+  - r159
+  - r107
+  - r076
+  - r117
+  - r077
+  - r019
+  - r136
+  - r081
+  - r046
+travellerIds:
+  - r132
+  - r738
+  - r125
+  - r740
+  - r741
+fabledIds:
+  - r1256
+nightOrder:
+  first:
+    - r059
+    - r066
+    - r1250
+    - r061
+    - r052
+    - r117
+    - r107
+    - r136
+    - r227
+    - r049
+    - r741
+  other:
+    - r1256
+    - r132
+    - r059
+    - r066
+    - r061
+    - r076
+    - r052
+    - r117
+    - r107
+    - r046
+    - r081
+    - r136
+    - r159
+    - r1251
+    - r031
+    - r007
+    - r1250

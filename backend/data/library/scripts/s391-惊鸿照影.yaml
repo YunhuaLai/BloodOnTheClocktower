@@ -1,0 +1,87 @@
+id: s391
+englishName: item
+name: 惊鸿照影
+status: draft
+en: 惊鸿照影
+author: 追命丶
+logo: https://i.postimg.cc/0jg5dZZD/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/0jg5dZZD/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r155
+  - r048
+  - r023
+  - r051
+  - r054
+  - r055
+  - r007
+  - r109
+  - r008
+  - r232
+  - r057
+  - r233
+  - r606
+  - r029
+  - r015
+  - r820
+  - r067
+  - r070
+  - r237
+  - r076
+  - r040
+  - r121
+  - r611
+  - r017
+  - r079
+  - r635
+  - r083
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r155
+    - r121
+    - r820
+    - r017
+    - r611
+    - r040
+    - r023
+    - r048
+    - r051
+  other:
+    - r076
+    - r017
+    - r611
+    - r008
+    - r109
+    - r079
+    - r083
+    - r635
+    - r820
+    - r040
+    - r237
+    - r029
+    - r023
+    - r070
+    - r233
+    - r007
+    - r232
+    - r051
+    - r054
+    - r055
+    - r606

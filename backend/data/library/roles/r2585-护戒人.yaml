@@ -1,0 +1,83 @@
+id: r2585
+englishName: 90007db7-a6e9-4f77-88d3-8c57d557da5e
+name: 护戒人
+type: outsider
+edition: custom
+image: https://img.picui.cn/free/2025/04/14/67fc84159109e.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 魔戒
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你拥有一枚魔戒。导致魔戒拥有者死亡的玩家将获得魔戒，持有魔戒的玩家可以消耗魔戒额外发动一次能力。如果魔戒拥有者是善良阵营，游戏结束时必定获胜。即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2585
+    officialId: 90007db7-a6e9-4f77-88d3-8c57d557da5e
+    sourceHash: 5da2040f7e3aa4bdec3ff4d889e7900dbd43db4b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - death
+    - alignment
+    - good
+    - outsider
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

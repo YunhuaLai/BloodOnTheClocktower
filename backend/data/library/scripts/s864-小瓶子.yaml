@@ -1,0 +1,87 @@
+id: s864
+englishName: item
+name: 小瓶子
+status: draft
+en: 小瓶子
+author: ⼩諧星ChinHoYiu
+logo: https://s2.loli.net/2025/06/06/h1XByEjoUeONJW2.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/06/h1XByEjoUeONJW2.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r048
+  - r005
+  - r053
+  - r140
+  - r087
+  - r007
+  - r027
+  - r134
+  - r334
+  - r010
+  - r066
+  - r233
+  - r069
+  - r098
+  - r234
+  - r119
+  - r015
+  - r093
+  - r040
+  - r074
+  - r336
+  - r079
+  - r683
+  - r136
+travellerIds:
+  - r583
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r683
+    - r336
+    - r066
+    - r098
+    - r040
+    - r074
+    - r093
+    - r136
+    - r003
+    - r005
+    - r048
+    - r140
+    - r087
+    - r134
+    - r053
+  other:
+    - r583
+    - r066
+    - r027
+    - r074
+    - r093
+    - r079
+    - r683
+    - r136
+    - r040
+    - r233
+    - r005
+    - r007
+    - r140
+    - r087
+    - r134
+    - r053

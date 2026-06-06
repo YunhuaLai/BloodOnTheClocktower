@@ -1,0 +1,85 @@
+id: s279
+englishName: item
+name: 岁岁年年
+status: draft
+en: 岁岁年年
+author: 蓝铃兰
+logo: https://www.helloimg.com/i/2024/12/27/676e6be93ce0c.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2024/12/27/676e6be93ce0c.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r843
+  - r227
+  - r108
+  - r307
+  - r1470
+  - r052
+  - r230
+  - r329
+  - r1232
+  - r481
+  - r361
+  - r1220
+  - r1191
+  - r1218
+  - r1219
+  - r111
+  - r039
+  - r908
+  - r098
+  - r1692
+  - r121
+  - r075
+  - r611
+  - r1693
+travellerIds:
+  - r1229
+fabledIds:
+  - r1349
+nightOrder:
+  first:
+    - r1693
+    - r098
+    - r039
+    - r121
+    - r1191
+    - r611
+    - r052
+    - r075
+    - r111
+    - r108
+    - r843
+    - r227
+    - r481
+    - r307
+    - r1218
+    - r1470
+  other:
+    - r611
+    - r1692
+    - r052
+    - r329
+    - r075
+    - r111
+    - r039
+    - r1693
+    - r481
+    - r1218
+    - r1470
+    - r1232
+    - r361
+    - r230

@@ -1,0 +1,47 @@
+id: s081
+englishName: item
+name: 孰能无过
+status: draft
+en: 孰能无过
+author: 狍子
+logo: https://t.tutu.to/img/76dlw
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://t.tutu.to/img/76dlw
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r371
+  - r895
+  - r794
+  - r354
+  - r879
+  - r896
+  - r897
+  - r898
+  - r899
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r794
+    - r371
+    - r879
+    - r895
+  other:
+    - r899
+    - r794
+    - r354
+    - r879
+    - r895

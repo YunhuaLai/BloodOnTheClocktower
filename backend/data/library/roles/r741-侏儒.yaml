@@ -4,7 +4,7 @@ name: 侏儒
 type: traveller
 edition: custom
 image: https://clocktower-wiki.gstonegames.com/images/7/78/Gnome.png
-flavor: ''
+flavor: 有备而来，有悲而来，无人搭台，自己开嗨！一场整人好戏，整得人惨兮兮，吱吱作响板板，又怕翻了盘盘。那些长篇大论顺着乔伊斯的溪流在流淌，不算最辉煌，也还够气场，却也挺像样——哈，响亮！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -52,7 +52,7 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null
@@ -62,8 +62,6 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: learn_team
-      - kind: event_trigger
-        eventTiming: on_nomination
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

@@ -1,0 +1,111 @@
+id: r3138
+englishName: 14-th
+name: 青蛙王子
+type: outsider
+edition: custom
+image: https://i.postimg.cc/4xWNrr8n/frogprince-fairy-tale.png
+flavor: 亲爱的，只需要一个美丽动人的公主的吻就能治好我这不幸的诅咒。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 提名&处决
+  - 额外行动
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果提名并处决青蛙王子的玩家是镇民，唤醒那名玩家并向他展示“你是”提示卡和青蛙王子的角色标记。如果是偶数夜晚，恶魔额外行动一次。
+ability: 提名并处决你的镇民玩家会在当晚变成青蛙王子。如果你疯狂证明你是青蛙王子，当晚恶魔可能会额外行动一次，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3138
+    officialId: 14_fairy_tale_hugo
+    sourceHash: 187b85ba03602c90fce26ba274014c1b966da148
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 主动选择
+  termIds:
+    - nomination
+    - execution
+    - death
+    - townsfolk
+    - outsider
+    - demon
+    - madness
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

@@ -1,0 +1,81 @@
+id: s375
+englishName: item
+name: 谈虎色变
+status: draft
+en: 谈虎色变
+author: Brockwell
+logo: https://i.postimg.cc/BbX35sNf/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/BbX35sNf/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r100
+  - r097
+  - r086
+  - r051
+  - r006
+  - r008
+  - r057
+  - r088
+  - r022
+  - r058
+  - r009
+  - r091
+  - r038
+  - r067
+  - r015
+  - r324
+  - r078
+  - r074
+  - r075
+  - r020
+  - r120
+  - r082
+  - r083
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r095
+    - r078
+    - r074
+    - r075
+    - r097
+    - r100
+    - r006
+    - r051
+    - r058
+    - r049
+    - r086
+  other:
+    - r088
+    - r324
+    - r008
+    - r074
+    - r075
+    - r020
+    - r082
+    - r083
+    - r095
+    - r009
+    - r006
+    - r051
+    - r058
+    - r086

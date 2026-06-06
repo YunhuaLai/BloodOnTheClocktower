@@ -1,0 +1,88 @@
+id: s782
+englishName: switchcraft
+name: 魔形帽影Switchcraft
+status: draft
+en: 魔形帽影Switchcraft
+author: AV
+logo: https://www.bloodstar.xyz/p/Kingle/90/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Kingle/90/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r049
+  - r100
+  - r006
+  - r101
+  - r055
+  - r007
+  - r008
+  - r057
+  - r061
+  - r009
+  - r011
+  - r186
+  - r072
+  - r324
+  - r068
+  - r017
+  - r018
+  - r641
+  - r020
+  - r021
+  - r096
+  - r079
+  - r082
+travellerIds:
+  - r128
+  - r129
+  - r124
+  - r130
+  - r738
+fabledIds: []
+nightOrder:
+  first:
+    - r128
+    - r124
+    - r061
+    - r101
+    - r017
+    - r001
+    - r002
+    - r006
+    - r049
+    - r018
+    - r100
+  other:
+    - r128
+    - r124
+    - r324
+    - r061
+    - r101
+    - r017
+    - r008
+    - r020
+    - r021
+    - r079
+    - r082
+    - r096
+    - r068
+    - r009
+    - r006
+    - r007
+    - r055
+    - r018

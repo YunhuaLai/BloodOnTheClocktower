@@ -1,0 +1,79 @@
+id: s552
+englishName: item
+name: 喃喃低语
+status: draft
+en: 喃喃低语
+author: 驯鹿
+logo: https://www.bloodstar.xyz/p/a770294561/nan_nan_di_yu/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/a770294561/nan_nan_di_yu/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r003
+  - r004
+  - r058
+  - r006
+  - r007
+  - r055
+  - r025
+  - r022
+  - r011
+  - r009
+  - r064
+  - r015
+  - r016
+  - r072
+  - r071
+  - r017
+  - r020
+  - r018
+  - r641
+  - r021
+  - r045
+  - r079
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r071
+    - r017
+    - r045
+    - r064
+    - r001
+    - r002
+    - r003
+    - r004
+    - r006
+    - r058
+    - r018
+    - r025
+  other:
+    - r017
+    - r020
+    - r021
+    - r045
+    - r079
+    - r009
+    - r064
+    - r006
+    - r007
+    - r055
+    - r058
+    - r018
+    - r025

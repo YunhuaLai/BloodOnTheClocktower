@@ -1,0 +1,81 @@
+id: s759
+englishName: item
+name: 渊墟之外
+status: draft
+en: 渊墟之外
+author: 弦舞
+logo: ''
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: /assets/clock-tower-night.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r227
+  - r442
+  - r2487
+  - r029
+  - r006
+  - r185
+  - r249
+  - r056
+  - r008
+  - r607
+  - r606
+  - r2250
+  - r1323
+  - r135
+  - r070
+  - r037
+  - r1395
+  - r302
+  - r042
+  - r4012
+  - r336
+  - r021
+  - r079
+  - r635
+  - r1423
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r1395
+    - r302
+    - r006
+    - r185
+    - r227
+    - r442
+  other:
+    - r302
+    - r607
+    - r008
+    - r021
+    - r079
+    - r635
+    - r1423
+    - r042
+    - r4012
+    - r606
+    - r029
+    - r037
+    - r1395
+    - r070
+    - r1323
+    - r006
+    - r185
+    - r2250
+    - r056
+    - r249

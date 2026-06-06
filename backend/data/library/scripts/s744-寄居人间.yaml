@@ -1,0 +1,77 @@
+id: s744
+englishName: item
+name: 寄居人间
+status: draft
+en: 寄居人间
+author: AT
+logo: https://i.postimg.cc/cLf60bNv/title-kao-bei-2.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/cLf60bNv/title-kao-bei-2.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r195
+  - r025
+  - r005
+  - r006
+  - r133
+  - r058
+  - r310
+  - r394
+  - r063
+  - r034
+  - r252
+  - r842
+  - r039
+  - r346
+  - r1453
+  - r071
+  - r042
+  - r043
+  - r077
+  - r3981
+  - r120
+  - r141
+  - r083
+  - r1007
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r071
+    - r039
+    - r141
+    - r005
+    - r006
+    - r195
+    - r058
+    - r049
+    - r133
+    - r025
+  other:
+    - r039
+    - r1007
+    - r141
+    - r083
+    - r042
+    - r346
+    - r063
+    - r005
+    - r006
+    - r058
+    - r133
+    - r025
+    - r394

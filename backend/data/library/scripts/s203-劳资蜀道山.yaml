@@ -1,0 +1,80 @@
+id: s203
+englishName: item
+name: 劳资蜀道山
+status: draft
+en: 劳资蜀道山
+author: 墨兰花开
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f2/0x3upr8p8o0taot0jp8qdcev1ilc9dc.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f2/0x3upr8p8o0taot0jp8qdcev1ilc9dc.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r005
+  - r006
+  - r008
+  - r009
+  - r012
+  - r025
+  - r032
+  - r055
+  - r056
+  - r058
+  - r085
+  - r084
+  - r015
+  - r016
+  - r119
+  - r234
+  - r074
+  - r078
+  - r641
+  - r302
+  - r045
+  - r079
+  - r083
+  - r103
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r103
+    - r302
+    - r078
+    - r074
+    - r045
+    - r004
+    - r005
+    - r006
+    - r058
+    - r084
+    - r085
+    - r025
+  other:
+    - r302
+    - r008
+    - r074
+    - r045
+    - r079
+    - r083
+    - r103
+    - r009
+    - r005
+    - r006
+    - r055
+    - r056
+    - r058
+    - r025

@@ -1,0 +1,86 @@
+id: s198
+englishName: item
+name: 争分夺秒
+status: draft
+en: 争分夺秒
+author: 老c
+logo: https://i.postimg.cc/h48t756q/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/h48t756q/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r1484
+  - r023
+  - r140
+  - r025
+  - r006
+  - r026
+  - r028
+  - r008
+  - r058
+  - r009
+  - r033
+  - r035
+  - r214
+  - r015
+  - r068
+  - r037
+  - r040
+  - r017
+  - r020
+  - r041
+  - r141
+  - r021
+  - r047
+  - r045
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r141
+    - r017
+    - r040
+    - r041
+    - r045
+    - r006
+    - r023
+    - r1484
+    - r058
+    - r049
+    - r140
+    - r025
+  other:
+    - r017
+    - r028
+    - r008
+    - r041
+    - r020
+    - r026
+    - r021
+    - r045
+    - r047
+    - r141
+    - r040
+    - r214
+    - r068
+    - r009
+    - r037
+    - r023
+    - r006
+    - r058
+    - r140
+    - r025

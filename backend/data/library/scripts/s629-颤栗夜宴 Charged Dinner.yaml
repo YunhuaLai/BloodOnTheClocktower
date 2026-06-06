@@ -1,0 +1,79 @@
+id: s629
+englishName: charged-dinner
+name: 颤栗夜宴 Charged Dinner
+status: draft
+en: 颤栗夜宴 Charged Dinner
+author: Malvora.
+logo: https://i.postimg.cc/yN5RSRZY/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/yN5RSRZY/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r2987
+  - r2988
+  - r394
+  - r2989
+  - r2990
+  - r2025
+  - r2020
+  - r2991
+  - r2992
+  - r2993
+  - r2994
+  - r2686
+  - r2995
+  - r2996
+  - r2997
+  - r2998
+  - r2999
+  - r2037
+  - r3000
+  - r3001
+  - r3002
+  - r2912
+  - r3003
+  - r3004
+  - r3005
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r3001
+    - r2995
+    - r2987
+    - r2988
+    - r394
+    - r2989
+    - r2020
+    - r2999
+  other:
+    - r3001
+    - r2025
+    - r2997
+    - r2991
+    - r2912
+    - r3003
+    - r3004
+    - r3005
+    - r2686
+    - r3000
+    - r2999
+    - r2996
+    - r3002
+    - r2989
+    - r2020
+    - r2992
+    - r2994

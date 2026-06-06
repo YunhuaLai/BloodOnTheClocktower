@@ -1,0 +1,101 @@
+id: r1060
+englishName: moerhaosi
+name: 摩尔豪斯
+type: outsider
+edition: custom
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/4/4d/3xcn9wj5mbvil5xnslvujqnmxk98lll.png/1200px-%E5%A4%96%E6%9D%A5%E8%80%85_%E6%91%A9%E5%B0%94%E8%B1%AA%E6%96%AF_Rocky.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 法力水晶
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果摩尔豪斯持有魔王印记，唤醒其得知此事。
+ability: 如果你持有魔王印记，你会得知此事。被你提名的玩家如果持有魔王印记，则你获得魔王印记。如果你持有魔王印记并存活两个夜晚，下个黄昏你单独获胜。你初始不会持有魔王印记。[距离你最远或最近的善良玩家持有初始魔王印记]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1060
+    officialId: moerhaosi
+    sourceHash: b843b4a104c01cfe49ace0aa69a5c444e953dc96
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - information
+    - nomination
+    - alive
+    - good
+    - outsider
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

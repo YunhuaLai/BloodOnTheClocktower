@@ -1,0 +1,83 @@
+id: r2471
+englishName: fad7d91e-f1a3-4923-a833-77c27a7da1c5
+name: 鬼话佬
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_1224875766861_68a4c086.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 遭殃
+remindersGlobal: []
+firstNightReminder: 给鬼话佬提供三则诡谈，让他选择一则，在下个黎明公布该志异。
+otherNightReminder: 给鬼话佬提供三则诡谈，让他选择一则，在下个黎明公布该志异（即使他已死亡）。
+ability: 每个夜晚，你要从说书人提供的志异中选择一则：该志异会在下个黎明公布且生效一天。你死亡后仍然会有志异公布，但不会生效。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2471
+    officialId: fad7d91e-f1a3-4923-a833-77c27a7da1c5
+    sourceHash: ce2b8d4472b7b9b58faad27e0ca6b9c79cf91614
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - death
+    - minion
+    - storyteller
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

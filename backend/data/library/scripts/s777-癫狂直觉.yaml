@@ -1,0 +1,85 @@
+id: s777
+englishName: item
+name: 癫狂直觉
+status: draft
+en: 癫狂直觉
+author: Sam
+logo: https://s2.loli.net/2025/08/07/GYuVqKxStcOrbf9.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/08/07/GYuVqKxStcOrbf9.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r085
+  - r097
+  - r100
+  - r006
+  - r101
+  - r086
+  - r133
+  - r055
+  - r056
+  - r088
+  - r009
+  - r066
+  - r012
+  - r039
+  - r067
+  - r119
+  - r159
+  - r093
+  - r017
+  - r075
+  - r120
+  - r021
+  - r080
+  - r082
+  - r079
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r088
+    - r066
+    - r039
+    - r101
+    - r017
+    - r075
+    - r093
+    - r097
+    - r006
+    - r085
+    - r086
+    - r100
+    - r133
+  other:
+    - r088
+    - r066
+    - r101
+    - r017
+    - r075
+    - r093
+    - r039
+    - r021
+    - r079
+    - r082
+    - r080
+    - r009
+    - r159
+    - r006
+    - r055
+    - r056
+    - r086
+    - r133

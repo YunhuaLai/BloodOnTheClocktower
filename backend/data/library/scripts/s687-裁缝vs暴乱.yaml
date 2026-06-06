@@ -1,0 +1,35 @@
+id: s687
+englishName: vs
+name: 裁缝vs暴乱
+status: draft
+en: 裁缝vs暴乱
+author: Sui染钟楼
+logo: https://i.postimg.cc/mkW8SPQC/copy.png
+description: 一个短平快的玩法
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 一个短平快的玩法
+image: https://i.postimg.cc/mkW8SPQC/copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 一个短平快的玩法
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r058
+  - r929
+travellerIds: []
+fabledIds:
+  - r348
+  - r1050
+nightOrder:
+  first:
+    - r058
+  other:
+    - r058

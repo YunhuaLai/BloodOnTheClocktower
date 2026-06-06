@@ -1,0 +1,77 @@
+id: s521
+englishName: item
+name: 涡流不开刀
+status: draft
+en: 涡流不开刀
+author: 际尘
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/20/9dh2q2lup40zaf7az904ba28j101c7s.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/20/9dh2q2lup40zaf7az904ba28j101c7s.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r004
+  - r442
+  - r058
+  - r005
+  - r025
+  - r054
+  - r055
+  - r056
+  - r028
+  - r109
+  - r008
+  - r134
+  - r015
+  - r036
+  - r363
+  - r038
+  - r017
+  - r040
+  - r1259
+  - r237
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r017
+    - r040
+    - r004
+    - r005
+    - r058
+    - r442
+    - r134
+    - r100
+    - r025
+  other:
+    - r017
+    - r028
+    - r008
+    - r109
+    - r083
+    - r040
+    - r1259
+    - r237
+    - r036
+    - r363
+    - r005
+    - r054
+    - r055
+    - r056
+    - r058
+    - r134
+    - r025

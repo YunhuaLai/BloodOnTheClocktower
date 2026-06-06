@@ -1,0 +1,79 @@
+id: s535
+englishName: item
+name: 阿兹卡班
+status: draft
+en: 阿兹卡班
+author: 络与玥儿
+logo: https://s2.loli.net/2025/09/16/UvEF7xNYjaOgMRT.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/09/16/UvEF7xNYjaOgMRT.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r134
+  - r054
+  - r056
+  - r150
+  - r060
+  - r089
+  - r155
+  - r029
+  - r057
+  - r088
+  - r010
+  - r033
+  - r015
+  - r324
+  - r159
+  - r135
+  - r074
+  - r076
+  - r840
+  - r336
+  - r021
+  - r103
+  - r136
+  - r044
+travellerIds: []
+fabledIds:
+  - r1863
+nightOrder:
+  first:
+    - r336
+    - r088
+    - r840
+    - r155
+    - r103
+    - r074
+    - r136
+    - r134
+    - r100
+  other:
+    - r088
+    - r840
+    - r324
+    - r076
+    - r074
+    - r150
+    - r021
+    - r044
+    - r103
+    - r136
+    - r029
+    - r159
+    - r054
+    - r056
+    - r134

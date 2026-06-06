@@ -3,7 +3,7 @@ englishName: humeiniang-c
 name: 狐媚娘
 type: minion
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202310/c_4772055308961_7bc92354.jpg
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/humeiniang.png
 flavor: ''
 setup: false
 setupMeta:
@@ -21,8 +21,8 @@ setupMeta:
 reminders:
   - 被魅惑
 remindersGlobal: []
-firstNightReminder: 唤醒狐媚娘，让她选择一名玩家。标记那名玩家“被魅惑”。随后唤醒那名玩家，对他展示“该角色的能力对你触发”和狐媚娘角色标记。
-otherNightReminder: 如果今日狐媚娘死于处决，且被魅惑的玩家为善良阵营，唤醒被魅惑的玩家，对他展示“你是”和朝下的大拇指。
+firstNightReminder: 唤醒狐媚娘，让她选择一名玩家。在狐媚娘入睡后通知那名玩家狐媚娘在场。
+otherNightReminder: 如果狐媚娘死于处决，唤醒她选择的玩家并通知他阵营变化。
 ability: 在你的首个夜晚，你要选择一名玩家：他会知道狐媚娘在场。如果你死于处决，当晚他转变为邪恶阵营。
 abilityData:
   schemaVersion: 2
@@ -30,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r235
-    officialId: humeiniang-c
-    sourceHash: ff73b626f0f729016d425c342c318cd5982f13f7
+    officialId: 20_xindalu
+    sourceHash: 35956f00a62a9e407e55c2bb46f201dcfd589e02
     sourceHashFields:
       - ability
       - type
@@ -56,7 +56,7 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

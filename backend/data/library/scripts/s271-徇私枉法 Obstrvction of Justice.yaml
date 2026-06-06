@@ -1,0 +1,85 @@
+id: s271
+englishName: obstrvction-of-justice
+name: 徇私枉法 Obstrvction of Justice
+status: draft
+en: 徇私枉法 Obstrvction of Justice
+author: Schnauzer
+logo: https://free.picui.cn/free/2025/12/07/69346acf2592b.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/07/69346acf2592b.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r012
+  - r053
+  - r055
+  - r057
+  - r088
+  - r140
+  - r089
+  - r155
+  - r1250
+  - r1251
+  - r084
+  - r086
+  - r087
+  - r067
+  - r068
+  - r119
+  - r159
+  - r451
+  - r073
+  - r337
+  - r093
+  - r079
+  - r080
+  - r082
+  - r095
+travellerIds: []
+fabledIds:
+  - r1620
+nightOrder:
+  first:
+    - r088
+    - r155
+    - r095
+    - r1250
+    - r337
+    - r073
+    - r093
+    - r451
+    - r084
+    - r140
+    - r087
+    - r086
+    - r053
+  other:
+    - r088
+    - r337
+    - r093
+    - r451
+    - r079
+    - r082
+    - r080
+    - r095
+    - r068
+    - r159
+    - r1251
+    - r055
+    - r140
+    - r087
+    - r1250
+    - r086
+    - r053

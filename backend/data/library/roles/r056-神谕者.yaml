@@ -5,7 +5,7 @@ englishName: oracle
 ability: 每个夜晚*，你会得知有多少名死亡的玩家是邪恶的。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/oracle.png
-flavor: ''
+flavor: “唯有受选者才能凝视面纱之外的光景。亡者躁动不安……他们的每一根僵硬的手指都指向了刺骨的北地。”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r056
-    officialId: oracle
+    officialId: zhengdanideyanjing111
     sourceHash: 7dd8cd8f9793130355a2b27de9974ab5cc196ef1
     sourceHashFields:
       - ability
@@ -39,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -52,8 +54,8 @@ abilityData:
   abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

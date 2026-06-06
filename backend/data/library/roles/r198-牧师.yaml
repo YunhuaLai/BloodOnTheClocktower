@@ -3,8 +3,8 @@ englishName: priest
 name: 牧师
 type: townsfolk
 edition: custom
-image: https://postimage.me/images/2024/08/01/3e2fb1db466c77b06c96f3187b949977.png
-flavor: ''
+image: https://www.bloodstar.xyz/p/humlet/JUEDOU/4_juedou.png
+flavor: 来吧孩子，这些圣餐饼不吃可就浪费了……啊，上帝啊，他正在和我说话！他正以极其神秘的方式在运作！千真万确！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -20,17 +20,17 @@ setupMeta:
   setupNotes: []
 reminders: []
 remindersGlobal: []
-firstNightReminder: 唤醒牧师，让他选择两名玩家，告诉他一种与这两名玩家都不同的角色类型。
-otherNightReminder: 唤醒牧师，让他选择两名玩家，告诉他一种与这两名玩家都不同的角色类型。
-ability: 每个夜晚，你要选择两名玩家，得知他们均不为哪种角色类型。
+firstNightReminder: 唤醒他并让他选择2名玩家，告知他选择的玩家皆不属于哪种角色类型。
+otherNightReminder: 唤醒他并让他选择2名玩家，告知他选择的玩家皆不属于哪种角色类型。
+ability: 每个夜晚，你要选择两名玩家:你会得知他们皆不属于哪种角色类型。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r198
-    officialId: priest
-    sourceHash: d49c15c9fcc9b4a094cc21b045519b37252f1ea9
+    officialId: 4_juedou
+    sourceHash: 7a00d659642639b6a317d21aa8fd57fdd57fead6
     sourceHashFields:
       - ability
       - type
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -52,8 +52,8 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

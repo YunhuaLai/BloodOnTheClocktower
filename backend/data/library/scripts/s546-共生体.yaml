@@ -1,0 +1,81 @@
+id: s546
+englishName: item
+name: 共生体
+status: draft
+en: 共生体
+author: 蓝铃兰
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/e/e1/1ojnshgxp6dewsk5ohlfa5awqneg0du.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/e/e1/1ojnshgxp6dewsk5ohlfa5awqneg0du.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r061
+  - r049
+  - r087
+  - r054
+  - r055
+  - r051
+  - r140
+  - r150
+  - r101
+  - r091
+  - r133
+  - r089
+  - r015
+  - r135
+  - r098
+  - r324
+  - r042
+  - r040
+  - r078
+  - r020
+  - r121
+  - r103
+travellerIds: []
+fabledIds:
+  - r1915
+nightOrder:
+  first:
+    - r098
+    - r121
+    - r061
+    - r101
+    - r103
+    - r078
+    - r040
+    - r023
+    - r051
+    - r049
+    - r087
+    - r140
+    - r133
+  other:
+    - r324
+    - r061
+    - r101
+    - r020
+    - r150
+    - r103
+    - r042
+    - r040
+    - r023
+    - r051
+    - r054
+    - r055
+    - r087
+    - r140
+    - r133

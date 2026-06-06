@@ -1,0 +1,117 @@
+id: r1621
+englishName: cc68c2ce-4326-44ba-81222222c8-c399b6f27ffe
+name: 快递小哥
+type: townsfolk
+edition: custom
+image: 'https://www.helloimg.com/i/2024/09/14/66e4626bb0bb6.png '
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 得知外来者
+  - 送猫
+  - 承认外来者
+  - 未承认外来者
+remindersGlobal: []
+firstNightReminder: 你的首个夜晚，你得知一名外来者是谁。注意保守秘密，同时让他把身份藏好。
+otherNightReminder: ''
+ability: >-
+  你的首个夜晚，你得知一名外来者玩家和他的角色。如果你和他，在他死之前都没有“疯狂”地证明他是外来者，你获得一条关于他的一位邻座玩家和说书人的窃窃私语。(本局无外来者时不会登场）【当你抱起黑猫，你可以在天亮前把黑猫送到你指定的玩家的阳台。】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1621
+    officialId: cc68c2ce-4326-44ba-81222222c8-c399b6f27ffe
+    sourceHash: 63c946faa0b41d4b6603bec39bffcf5bed919f29
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - townsfolk
+    - outsider
+    - storyteller
+    - madness
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: learn_role
+        roleType: outsider
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

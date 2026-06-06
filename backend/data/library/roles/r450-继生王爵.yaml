@@ -31,7 +31,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r450
-    officialId: heir-duke
+    officialId: 18_EquinoxFlowerg
     sourceHash: 2c6a1631980aa269cc68822ff2db7a3fa06c6d91
     sourceHashFields:
       - ability
@@ -55,7 +55,7 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: first_night

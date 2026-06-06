@@ -1,0 +1,81 @@
+id: s731
+englishName: item
+name: 不洁之地
+status: draft
+en: 不洁之地
+author: 刘中奇
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/202412/c_3473759105371_302f92b5.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/202412/c_3473759105371_302f92b5.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r391
+  - r394
+  - r1403
+  - r252
+  - r3948
+  - r3949
+  - r476
+  - r3950
+  - r475
+  - r3951
+  - r311
+  - r029
+  - r229
+  - r576
+  - r015
+  - r3952
+  - r1566
+  - r896
+  - r078
+  - r840
+  - r315
+  - r336
+  - r546
+  - r079
+  - r3953
+  - r3954
+  - r3955
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r336
+    - r1403
+    - r078
+    - r3954
+    - r576
+    - r3953
+    - r3951
+    - r391
+  other:
+    - r1403
+    - r576
+    - r475
+    - r229
+    - r3948
+    - r079
+    - r3953
+    - r3955
+    - r3954
+    - r546
+    - r029
+    - r476
+    - r3950
+    - r3951
+    - r311
+    - r394

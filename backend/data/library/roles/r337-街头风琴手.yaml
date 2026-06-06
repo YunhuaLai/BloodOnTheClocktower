@@ -3,7 +3,7 @@ englishName: organ-grinder
 name: 街头风琴手
 type: minion
 edition: custom
-image: https://www.bloodstar.xyz/p/Guiltier/seve/23_seve.png
+image: https://clocktower-wiki.gstonegames.com/images/f/ff/Organgrinder.png
 flavor: ''
 setup: false
 setupMeta:
@@ -19,7 +19,6 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 即将被处决
   - 醉酒
 remindersGlobal: []
 firstNightReminder: 让街头风琴手选择自己是否醉酒。如果他点头，标记街头风琴手醉酒。
@@ -31,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r337
-    officialId: organ-grinder
-    sourceHash: 6e45f551eefcdf79bbebc13373ecbb3a55591d5e
+    officialId: shabihouzi122211
+    sourceHash: 987ff21a2b2a673d802f9a87c487ff8569671383
     sourceHashFields:
       - ability
       - type
@@ -57,7 +56,7 @@ abilityData:
   abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

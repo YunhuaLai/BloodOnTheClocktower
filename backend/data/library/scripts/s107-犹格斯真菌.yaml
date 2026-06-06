@@ -1,0 +1,86 @@
+id: s107
+englishName: item
+name: 犹格斯真菌
+status: draft
+en: 犹格斯真菌
+author: SE
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/56/adtlo7w2jtotvhwbzk9mytzyyhcxga5.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/56/adtlo7w2jtotvhwbzk9mytzyyhcxga5.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r307
+  - r1001
+  - r006
+  - r025
+  - r055
+  - r530
+  - r274
+  - r028
+  - r947
+  - r008
+  - r012
+  - r370
+  - r037
+  - r135
+  - r1131
+  - r565
+  - r1132
+  - r093
+  - r040
+  - r451
+  - r1133
+  - r080
+  - r557
+  - r136
+travellerIds: []
+fabledIds:
+  - r1134
+  - r1135
+nightOrder:
+  first:
+    - r1133
+    - r040
+    - r093
+    - r451
+    - r136
+    - r565
+    - r006
+    - r049
+    - r307
+    - r1001
+    - r025
+    - r530
+  other:
+    - r1133
+    - r008
+    - r028
+    - r093
+    - r451
+    - r080
+    - r136
+    - r557
+    - r040
+    - r1132
+    - r037
+    - r370
+    - r006
+    - r055
+    - r274
+    - r947
+    - r025
+    - r530

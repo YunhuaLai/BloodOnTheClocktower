@@ -1,0 +1,81 @@
+id: s135
+englishName: item
+name: 热辣宗师
+status: draft
+en: 热辣宗师
+author: 驯鹿&鸦木布拉夫南昌分镇
+logo: https://i.postimg.cc/N086pD8R/title-2.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/N086pD8R/title-2.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1217
+  - r100
+  - r001
+  - r108
+  - r058
+  - r595
+  - r109
+  - r055
+  - r209
+  - r530
+  - r606
+  - r009
+  - r012
+  - r015
+  - r013
+  - r014
+  - r234
+  - r020
+  - r019
+  - r121
+  - r609
+  - r235
+  - r021
+  - r082
+  - r114
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r121
+    - r609
+    - r235
+    - r595
+    - r001
+    - r100
+    - r108
+    - r058
+    - r013
+    - r530
+  other:
+    - r1217
+    - r609
+    - r235
+    - r020
+    - r595
+    - r109
+    - r021
+    - r082
+    - r114
+    - r606
+    - r009
+    - r055
+    - r058
+    - r209
+    - r013
+    - r530

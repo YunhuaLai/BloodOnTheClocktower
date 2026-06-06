@@ -1,0 +1,79 @@
+id: s146
+englishName: item
+name: 不可思议
+status: draft
+en: 不可思议
+author: 风厌
+logo: https://free.picui.cn/free/2025/10/06/68e32ed86a68b.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/10/06/68e32ed86a68b.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r049
+  - r097
+  - r006
+  - r052
+  - r140
+  - r133
+  - r059
+  - r008
+  - r056
+  - r057
+  - r060
+  - r029
+  - r091
+  - r016
+  - r067
+  - r070
+  - r135
+  - r116
+  - r040
+  - r020
+  - r075
+  - r078
+  - r121
+  - r339
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r059
+    - r121
+    - r078
+    - r052
+    - r040
+    - r075
+    - r097
+    - r002
+    - r006
+    - r049
+    - r140
+    - r133
+  other:
+    - r059
+    - r052
+    - r008
+    - r075
+    - r020
+    - r339
+    - r040
+    - r029
+    - r070
+    - r006
+    - r056
+    - r140
+    - r133

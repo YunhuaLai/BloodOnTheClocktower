@@ -4,7 +4,9 @@ name: 通灵
 type: fabled
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/upload/202304/c_1310810162861_4da173fa.jpg
-flavor: ''
+flavor: >-
+  The images I see are like a tarot card. There are always two ways it might appear, and I can show you... but that will
+  come at a price. What are you willing to pay for a last chance at understanding?
 setup: false
 setupMeta:
   randomAssignable: true
@@ -21,6 +23,7 @@ setupMeta:
 reminders:
   - 巫师
   - '?'
+  - '?'
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
@@ -32,7 +35,7 @@ abilityData:
     source: role-file
     roleId: r571
     officialId: tongling
-    sourceHash: 88382d1017c09895c25c46ee52379c89ab9b3dad
+    sourceHash: 2cf8e1b0c448191cc58d2f3f80746ef8633e7ac8
     sourceHashFields:
       - ability
       - type
@@ -54,7 +57,7 @@ abilityData:
   abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

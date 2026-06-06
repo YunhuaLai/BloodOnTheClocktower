@@ -1,0 +1,101 @@
+id: r995
+englishName: jiejiene111
+name: 镜像双子（改）
+type: minion
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/evil_twin.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 对立双子
+remindersGlobal: []
+firstNightReminder: 唤醒镜像双子，告知他对立双子的玩家是谁；唤醒对立双子，告知他镜像双子在场。
+otherNightReminder: ''
+ability: 你始终得知一名距离你最近或最远的对立阵营玩家，他得知镜像双子在场。如果其中善良玩家被处决，邪恶阵营获胜。如果你们都存活，善良阵营无法获胜。在游戏的第五个黄昏，邪恶阵营获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r995
+    officialId: jiejiene111
+    sourceHash: 0c9e6b5ccc06888d7a7a4b1d1b79fc3044f39691
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - first-night
+    - information
+    - execution
+    - alive
+    - alignment
+    - good
+    - evil
+    - minion
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

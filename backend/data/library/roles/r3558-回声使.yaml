@@ -1,0 +1,107 @@
+id: r3558
+englishName: 19-si
+name: 回声使
+type: minion
+edition: custom
+image: https://i.postimg.cc/wT0jJrNq/echomancer-shadowed-intentions.png
+flavor: 观点？你在说什么？现实无非是看谁鬼话连篇！
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+  - 回声
+remindersGlobal: []
+firstNightReminder: 'The Echomancer chooses 2 players: they learn that the Echomancer chose them and who their echo is.'
+otherNightReminder: 'The Echomancer chooses 2 players: they learn that the Echomancer chose them and who their echo is.'
+ability: 每个夜晚，你要选择两名玩家（包括至少一名善良玩家）：明天第一名玩家要“疯狂”地证明第二名玩家的言论是正确的，不然他可能被处决。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3558
+    officialId: 19_si
+    sourceHash: df44bb5c4caea8f0981391716ebe0b8e48c2161b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - execution
+    - good
+    - minion
+    - madness
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

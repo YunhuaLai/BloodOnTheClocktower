@@ -4,7 +4,7 @@ name: 秉笔
 type: townsfolk
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bingbi.png
-flavor: ''
+flavor: 是非曲直，自在人心。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r278
-    officialId: scribe
+    officialId: bingbibibibibibibibiibibibibibibibibiiiiihbbibibib
     sourceHash: 3cead6c7eabb8bd219324158436829c79d054f03
     sourceHashFields:
       - ability
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

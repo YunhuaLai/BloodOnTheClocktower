@@ -1,0 +1,78 @@
+id: s177
+englishName: item
+name: 咦？有家店？！
+status: draft
+en: 咦？有家店？！
+author: 程十安
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/4/48/f34u8un3b8ko211rzswptns7lcrpudp.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/4/48/f34u8un3b8ko211rzswptns7lcrpudp.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r329
+  - r274
+  - r004
+  - r006
+  - r012
+  - r027
+  - r028
+  - r029
+  - r052
+  - r057
+  - r049
+  - r227
+  - r823
+  - r015
+  - r037
+  - r069
+  - r234
+  - r020
+  - r077
+  - r107
+  - r121
+  - r021
+  - r612
+  - r239
+  - r1187
+travellerIds: []
+fabledIds:
+  - r104
+  - r127
+nightOrder:
+  first:
+    - r121
+    - r052
+    - r107
+    - r239
+    - r004
+    - r006
+    - r049
+    - r227
+  other:
+    - r027
+    - r329
+    - r028
+    - r052
+    - r107
+    - r020
+    - r021
+    - r612
+    - r239
+    - r1187
+    - r029
+    - r037
+    - r006
+    - r274

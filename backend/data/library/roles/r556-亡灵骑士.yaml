@@ -4,7 +4,7 @@ name: 亡灵骑士
 type: minion
 edition: custom
 image: https://www.bloodstar.xyz/p/humlet/JUEDOU/17_juedou.png
-flavor: ''
+flavor: 生不过是一场骗局，亡灵。我会念出你的名字，削去你的留恋，然后带你一起品尝这生灵消亡的美妙滋味。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -37,7 +37,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r556
-    officialId: death-knight
+    officialId: 17_juedou
     sourceHash: b13f0792fe5bbba4c3f0383f971058e20d909d4d
     sourceHashFields:
       - ability

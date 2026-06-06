@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r357
-    officialId: rioter
+    officialId: 15_recovery
     sourceHash: 1bdacee6178fbd722ba85b3015accd613c35c2b1
     sourceHashFields:
       - ability
@@ -51,7 +51,7 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null

@@ -1,0 +1,90 @@
+id: s705
+englishName: item
+name: 见习爱神
+status: draft
+en: 见习爱神
+author: 叮当&蓝铃兰
+logo: https://free.picui.cn/free/2025/12/08/6936406ff319d.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/08/6936406ff319d.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r005
+  - r025
+  - r055
+  - r057
+  - r133
+  - r142
+  - r089
+  - r064
+  - r1250
+  - r066
+  - r086
+  - r087
+  - r823
+  - r3930
+  - r037
+  - r039
+  - r071
+  - r069
+  - r017
+  - r040
+  - r641
+  - r121
+  - r103
+  - r136
+travellerIds: []
+fabledIds:
+  - r3933
+  - r1164
+  - r3935
+nightOrder:
+  first:
+    - r066
+    - r3930
+    - r071
+    - r039
+    - r1250
+    - r121
+    - r103
+    - r017
+    - r040
+    - r136
+    - r064
+    - r005
+    - r087
+    - r142
+    - r086
+    - r133
+    - r025
+  other:
+    - r066
+    - r017
+    - r039
+    - r103
+    - r136
+    - r040
+    - r037
+    - r3930
+    - r064
+    - r005
+    - r055
+    - r087
+    - r1250
+    - r142
+    - r086
+    - r133
+    - r025

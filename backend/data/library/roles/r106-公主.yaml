@@ -17,11 +17,12 @@ setupMeta:
   setupNotes: []
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r106
-    officialId: princess
-    sourceHash: a4815cdb466edbb03d490b9c575f3c246747c397
+    officialId: gongzhu123321
+    sourceHash: c343ed939f2720c02cb9675c2a854f309b78bc31
     sourceHashFields:
       - ability
       - type
@@ -30,6 +31,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首个白天
     - 提名
@@ -46,21 +49,20 @@ abilityData:
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: day
       event: on_execution
       frequency: once
     actor:
-      drivenBy: mixed
+      drivenBy: storyteller
     operations:
       - kind: choose_player
         count: 1
         source: target
       - kind: learn_boolean
         question: demon_check
-      - kind: protect_player
       - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_execution
@@ -106,3 +108,12 @@ abilityData:
     source: inferred
     effectType: action_history
     note: ''
+edition: custom
+image: https://clocktower-wiki.gstonegames.com/images/f/f2/Princess.png
+flavor: ' '
+setup: false
+reminders:
+  - 不会死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''

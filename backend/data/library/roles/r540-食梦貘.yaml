@@ -36,7 +36,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r540
-    officialId: dream-eater
+    officialId: 25_jtxx
     sourceHash: 5d6da150b0fe752cce7d0738fb0cff13891b7eae
     sourceHashFields:
       - ability
@@ -61,7 +61,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -107,3 +107,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

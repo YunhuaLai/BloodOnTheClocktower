@@ -1,0 +1,82 @@
+id: r2059
+englishName: duiyizhongyan-14
+name: 化形
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/LILZE/tendays/18_tendays.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 被化形选择
+firstNightReminder: '1'
+otherNightReminder: 如果不息不在场，则非首夜不唤醒化形
+ability: ' 在你的首个夜晚，选择6-X位玩家：你分别得知他们的角色并获得x颗道。每当这些玩家死亡，你获得1颗道。恶魔死亡时，如果你有6颗道，则必须支付6颗道，你成为那个恶魔。'
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2059
+    officialId: 18_tendays
+    sourceHash: 5e8cc99a8a46e32d64ba7130433dbe6d1fb7795d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - death
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

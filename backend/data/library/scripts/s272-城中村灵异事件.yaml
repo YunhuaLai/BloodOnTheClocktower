@@ -1,0 +1,80 @@
+id: s272
+englishName: item
+name: 城中村灵异事件
+status: draft
+en: 城中村灵异事件
+author: 面哥
+logo: https://www.helloimg.com/i/2024/09/14/66e466024e617.png
+description: 老城区一个待拆迁的城中村发生了一些诡异的事，大胆的来看看发生了什么。
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 老城区一个待拆迁的城中村发生了一些诡异的事，大胆的来看看发生了什么。
+image: https://www.helloimg.com/i/2024/09/14/66e466024e617.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 老城区一个待拆迁的城中村发生了一些诡异的事，大胆的来看看发生了什么。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1621
+  - r688
+  - r1622
+  - r1623
+  - r1624
+  - r1625
+  - r1626
+  - r1627
+  - r1628
+  - r1629
+  - r1630
+  - r1631
+  - r1632
+  - r1633
+  - r1634
+  - r1635
+  - r1636
+  - r1637
+  - r1638
+  - r1639
+  - r1640
+  - r1641
+  - r1642
+  - r1643
+travellerIds:
+  - r1644
+  - r1645
+  - r1646
+  - r1647
+  - r1648
+fabledIds:
+  - r743
+nightOrder:
+  first:
+    - r1641
+    - r1636
+    - r1637
+    - r1621
+    - r688
+    - r1622
+    - r1627
+    - r743
+  other:
+    - r1623
+    - r1638
+    - r1637
+    - r1639
+    - r1641
+    - r1642
+    - r1643
+    - r688
+    - r1622
+    - r1627
+    - r1636
+    - r1632
+    - r743

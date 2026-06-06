@@ -1,0 +1,81 @@
+id: s475
+englishName: item
+name: 一忘皆空
+status: draft
+en: 一忘皆空
+author: 钢棍屑师傅
+logo: https://i.postimg.cc/CLZJb8sz/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/CLZJb8sz/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r004
+  - r097
+  - r594
+  - r597
+  - r053
+  - r025
+  - r230
+  - r054
+  - r055
+  - r058
+  - r010
+  - r011
+  - r014
+  - r015
+  - r119
+  - r067
+  - r611
+  - r075
+  - r1259
+  - r019
+  - r080
+  - r021
+  - r642
+  - r103
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r103
+    - r611
+    - r075
+    - r097
+    - r002
+    - r004
+    - r058
+    - r597
+    - r594
+    - r642
+    - r025
+    - r053
+  other:
+    - r611
+    - r075
+    - r021
+    - r080
+    - r103
+    - r642
+    - r1259
+    - r054
+    - r055
+    - r058
+    - r597
+    - r230
+    - r594
+    - r025
+    - r053

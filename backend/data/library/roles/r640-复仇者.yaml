@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r640
-    officialId: avenger
+    officialId: _yylm
     sourceHash: 24b2d9d468a77e036626cecd71d12b0af8d79bb1
     sourceHashFields:
       - ability
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null
@@ -66,8 +66,6 @@ abilityData:
         question: boolean_check
       - kind: protect_player
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_death
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

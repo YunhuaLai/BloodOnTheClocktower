@@ -1,0 +1,83 @@
+id: s300
+englishName: item
+name: 精绝古城
+status: draft
+en: 精绝古城
+author: 钟楼剧本博物馆
+logo: https://i.postimg.cc/RhzC2TSk/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/RhzC2TSk/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r108
+  - r004
+  - r155
+  - r086
+  - r052
+  - r006
+  - r632
+  - r140
+  - r058
+  - r319
+  - r057
+  - r091
+  - r066
+  - r119
+  - r039
+  - r111
+  - r016
+  - r017
+  - r073
+  - r019
+  - r121
+  - r096
+  - r021
+  - r080
+  - r103
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r155
+    - r066
+    - r039
+    - r121
+    - r103
+    - r017
+    - r052
+    - r073
+    - r004
+    - r006
+    - r111
+    - r058
+    - r140
+    - r108
+    - r086
+  other:
+    - r066
+    - r017
+    - r052
+    - r111
+    - r039
+    - r021
+    - r080
+    - r096
+    - r103
+    - r006
+    - r058
+    - r140
+    - r086

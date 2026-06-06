@@ -36,7 +36,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r461
-    officialId: duke-of-night
+    officialId: 14_inthegr_58
     sourceHash: df6e06cf1e8e1858aa183540ae3d5a30a6941dae
     sourceHashFields:
       - ability
@@ -46,8 +46,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 设置
@@ -63,8 +63,8 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null

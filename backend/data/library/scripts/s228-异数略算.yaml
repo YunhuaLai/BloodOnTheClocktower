@@ -1,0 +1,86 @@
+id: s228
+englishName: item
+name: 异数略算
+status: draft
+en: 异数略算
+author: TPI
+logo: https://www.helloimg.com/i/2024/11/01/6724599adcc46.png
+description: 异数略算
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 异数略算
+image: https://www.helloimg.com/i/2024/11/01/6724599adcc46.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 异数略算
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r023
+  - r139
+  - r024
+  - r087
+  - r006
+  - r025
+  - r053
+  - r026
+  - r029
+  - r022
+  - r033
+  - r066
+  - r015
+  - r014
+  - r070
+  - r068
+  - r019
+  - r041
+  - r113
+  - r042
+  - r021
+  - r082
+  - r083
+  - r141
+travellerIds:
+  - r147
+fabledIds: []
+nightOrder:
+  first:
+    - r066
+    - r113
+    - r024
+    - r141
+    - r041
+    - r001
+    - r006
+    - r023
+    - r087
+    - r139
+    - r025
+    - r053
+  other:
+    - r066
+    - r024
+    - r041
+    - r113
+    - r026
+    - r021
+    - r082
+    - r083
+    - r141
+    - r042
+    - r029
+    - r023
+    - r070
+    - r068
+    - r006
+    - r087
+    - r139
+    - r025
+    - r053

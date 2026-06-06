@@ -1,0 +1,105 @@
+id: r1354
+englishName: x-rose
+name: 代号X
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/ROSE/x_rose.png
+flavor: 指令已接收。对1号目标执行操作一次，预计目标立即失去知觉。对2号目标执行操作两次，预计目标全身细胞崩解。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+  - 死亡
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 唤醒他，他要摇头或选择任意名玩家x次（x相当于他的第几个夜晚），为被他选择1次的玩家标记中毒，为被他重复选择的玩家标记死亡。
+otherNightReminder: 唤醒他，他要摇头或选择任意名玩家x次（x相当于他的第几个夜晚），为被他选择1次的玩家标记中毒，为被他重复选择的玩家标记死亡。
+ability: 每局游戏限一次，在你的第X个夜晚，你可以选择任意玩家共X次：他们中毒直到下个黄昏。被重复选择的玩家改为死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1354
+    officialId: x_rose
+    sourceHash: ab05d74c3035517bd4126cb16d15963c9b78225f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - death
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

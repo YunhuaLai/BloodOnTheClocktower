@@ -1,0 +1,98 @@
+id: s529
+englishName: item
+name: 更衣人偶
+status: draft
+en: 更衣人偶
+author: 神秘人
+logo: https://s2.loli.net/2025/07/07/GxmkVDgnTSi8blK.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/07/07/GxmkVDgnTSi8blK.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r004
+  - r097
+  - r025
+  - r051
+  - r059
+  - r058
+  - r134
+  - r064
+  - r088
+  - r062
+  - r115
+  - r091
+  - r067
+  - r016
+  - r324
+  - r071
+  - r020
+  - r336
+  - r076
+  - r078
+  - r121
+  - r080
+  - r095
+  - r103
+travellerIds:
+  - r149
+  - r132
+  - r148
+  - r129
+  - r123
+fabledIds:
+  - r118
+  - r1856
+nightOrder:
+  first:
+    - r149
+    - r148
+    - r336
+    - r088
+    - r059
+    - r095
+    - r115
+    - r071
+    - r121
+    - r103
+    - r078
+    - r097
+    - r064
+    - r003
+    - r004
+    - r051
+    - r058
+    - r134
+    - r025
+  other:
+    - r149
+    - r132
+    - r148
+    - r123
+    - r088
+    - r059
+    - r324
+    - r076
+    - r020
+    - r080
+    - r103
+    - r095
+    - r064
+    - r051
+    - r058
+    - r062
+    - r134
+    - r025

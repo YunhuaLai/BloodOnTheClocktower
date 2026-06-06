@@ -1,0 +1,83 @@
+id: s403
+englishName: item
+name: 秘辛限索
+status: draft
+en: 秘辛限索
+author: 弦舞
+logo: https://www.bloodstar.xyz/p/Kingle/113/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/Kingle/113/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r442
+  - r059
+  - r057
+  - r361
+  - r006
+  - r597
+  - r053
+  - r008
+  - r026
+  - r091
+  - r032
+  - r009
+  - r119
+  - r347
+  - r016
+  - r039
+  - r302
+  - r040
+  - r075
+  - r1259
+  - r080
+  - r047
+  - r114
+  - r635
+travellerIds: []
+fabledIds:
+  - r1767
+  - r152
+nightOrder:
+  first:
+    - r059
+    - r039
+    - r302
+    - r040
+    - r075
+    - r006
+    - r049
+    - r597
+    - r442
+    - r053
+  other:
+    - r059
+    - r302
+    - r008
+    - r075
+    - r039
+    - r026
+    - r047
+    - r080
+    - r114
+    - r635
+    - r040
+    - r1259
+    - r009
+    - r006
+    - r597
+    - r361
+    - r053

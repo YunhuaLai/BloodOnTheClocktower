@@ -1,0 +1,82 @@
+id: s327
+englishName: item
+name: 逢魔而起
+status: draft
+en: 逢魔而起
+author: Zets
+logo: https://i.postimg.cc/NGNrkXP3/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/NGNrkXP3/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r084
+  - r086
+  - r008
+  - r007
+  - r054
+  - r055
+  - r062
+  - r058
+  - r022
+  - r010
+  - r090
+  - r088
+  - r067
+  - r135
+  - r119
+  - r070
+  - r017
+  - r018
+  - r337
+  - r093
+  - r121
+  - r080
+  - r103
+  - r095
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r088
+    - r095
+    - r121
+    - r103
+    - r017
+    - r093
+    - r058
+    - r084
+    - r018
+    - r086
+    - r100
+  other:
+    - r088
+    - r017
+    - r008
+    - r093
+    - r080
+    - r103
+    - r095
+    - r070
+    - r090
+    - r007
+    - r054
+    - r055
+    - r058
+    - r062
+    - r018
+    - r086

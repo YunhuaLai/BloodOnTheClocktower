@@ -1,0 +1,118 @@
+id: r3529
+englishName: 7-rhigh
+name: 运动员
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/worryhours/rhigh/7_rhigh.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: 1
+      source: '[+1外来者]'
+      note: 配置调整：外来者数量 +1。
+  setupNotes:
+    - 配置调整：外来者数量 +1。
+reminders:
+  - 被提名
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ' '
+ability: 每局游戏限一次，在夜晚时*，如果你上个白天发起过提名，你会得知距离最近的存活邪恶玩家位于你提名过的玩家的(顺时针/逆时针)方向。外来者被你的能力当作邪恶阵营。(邻座玩家距离为1) 殊荣：外来者被你的能力当作善良阵营。[+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3529
+    officialId: 7_rhigh
+    sourceHash: 6a9a766ae3b51ca80ceb623e6152a6a87f2f2ba9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - day
+    - night
+    - setup
+    - information
+    - nomination
+    - alive
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - outsider
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: 1
+            source: '[+1外来者]'
+            note: 配置调整：外来者数量 +1。
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: direction
+          type: choice
+          label: 方向
+          required: true
+          optionsSource: custom
+          options:
+            - clockwise
+            - counterclockwise
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

@@ -1,0 +1,88 @@
+id: r1263
+englishName: 4fbf1dfd-7999-42cf-a478-49b6e3c5b06c
+name: 破戒僧
+type: minion
+edition: custom
+image: https://i.postimg.cc/YqWTmWPz/21.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 不计入
+  - 提名过
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你与恶魔不计入邪恶阵营获胜所需的条件。当你死于处决时，提名过你的镇民开始不计入邪恶阵营获胜所需的条件。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1263
+    officialId: PoJieSeng
+    sourceHash: 004b4516c97d4efa078b396bd1ae1729faa68227
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - nomination
+    - execution
+    - alignment
+    - evil
+    - townsfolk
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

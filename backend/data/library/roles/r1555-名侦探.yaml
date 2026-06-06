@@ -1,0 +1,84 @@
+id: r1555
+englishName: mingzhentan-gen
+name: 名侦探
+type: townsfolk
+edition: custom
+image:
+  - https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/53/hbg04zdhjdq641aa8win2kuvek5cu6r.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 持证
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果白天有人死亡，唤醒名侦探，询问名侦探一个有关恶魔的问题，根据回答对错给予证据。
+ability: 每个夜晚*，说书人会询问你一个有关恶魔的是非问题，若你答对，你获得恶魔玩家的证据，如果你答错，你获得非恶魔玩家的证据。如果没有玩家在白天死亡，当晚你不会被唤醒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1555
+    officialId: mingzhentan_gen
+    sourceHash: ac8cb81b77bf98fbdc3e12f2be1bb663495724e9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - death
+    - townsfolk
+    - demon
+    - storyteller
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

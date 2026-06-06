@@ -1,0 +1,90 @@
+id: r3957
+englishName: palabra-de-dios
+name: 神言
+type: demon
+edition: custom
+image: https://img.picui.cn/free/2025/04/11/67f8a32557a20.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 奉献
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 宣布神迹降临。记录有多少名存活善良玩家举手，随后在神言的顺序杀死对应数量的玩家。
+ability: 每个夜晚*，每有一名存活的善良玩家在黄昏后举手，就会有一名玩家死亡。如果他们没有那么做，邪恶阵营获胜。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3957
+    officialId: Palabra de Dios
+    sourceHash: 52d464da658290ea6447c125ad08fc039ed6d3de
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - vote
+    - death
+    - alive
+    - alignment
+    - good
+    - evil
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

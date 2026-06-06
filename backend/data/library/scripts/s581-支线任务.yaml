@@ -1,0 +1,86 @@
+id: s581
+englishName: item
+name: 支线任务
+status: draft
+en: 支线任务
+author: 板
+logo: https://free.picui.cn/free/2025/12/01/692d8c0f8a021.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/01/692d8c0f8a021.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r006
+  - r007
+  - r031
+  - r033
+  - r055
+  - r062
+  - r088
+  - r049
+  - r140
+  - r066
+  - r087
+  - r233
+  - r334
+  - r039
+  - r071
+  - r159
+  - r324
+  - r073
+  - r077
+  - r337
+  - r336
+  - r302
+  - r079
+  - r141
+  - r081
+travellerIds: []
+fabledIds:
+  - r1739
+nightOrder:
+  first:
+    - r336
+    - r088
+    - r066
+    - r071
+    - r039
+    - r141
+    - r337
+    - r073
+    - r302
+    - r006
+    - r049
+    - r140
+    - r087
+  other:
+    - r088
+    - r324
+    - r066
+    - r337
+    - r302
+    - r039
+    - r079
+    - r081
+    - r141
+    - r159
+    - r233
+    - r031
+    - r006
+    - r007
+    - r055
+    - r062
+    - r140
+    - r087

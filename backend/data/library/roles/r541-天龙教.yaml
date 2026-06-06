@@ -4,7 +4,7 @@ name: 天龙教
 type: demon
 edition: custom
 image: https://www.bloodstar.xyz/p/bluebell/jtxx/26_jtxx.png
-flavor: ''
+flavor: 羽翼落尽之日，便是我天龙归来之时。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -32,7 +32,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r541
-    officialId: heavenly-dragon-cult
+    officialId: 26_jtxx
     sourceHash: 597c6d400a902549d55abb7c2e31502eba4c1dbf
     sourceHashFields:
       - ability
@@ -62,7 +62,7 @@ abilityData:
   abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

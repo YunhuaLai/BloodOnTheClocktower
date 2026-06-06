@@ -1,0 +1,100 @@
+id: r2988
+englishName: inquisitor-charged-dinner
+name: 审判官
+type: traveller
+edition: custom
+image: https://www.bloodstar.xyz/p/Nightingale/Princesses_Requiem/inquisitor_princesses_requiem.png
+flavor: >-
+  Rest easy, my wayward little lamb. Your sins may weigh heavy upon your conscience, but in His eyes, they are but flies
+  to be purged in the eternal flames of hell.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 疯狂
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒审判官，询问审判官是否使用能力，如使用，审判官要选择一名玩家：那名玩家变成他正在“疯狂”地证明自己是的那个角色。
+ability: 每局游戏限一次，在夜晚时*，你要选择一名玩家：他变成他正在“疯狂”地证明自己是的那个角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2988
+    officialId: diyRole29
+    sourceHash: f43981ff7064b5f115dd84ba5d0004a85209e6c0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - madness
+    - traveler
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

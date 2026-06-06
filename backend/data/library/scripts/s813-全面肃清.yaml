@@ -1,0 +1,86 @@
+id: s813
+englishName: item
+name: 全面肃清
+status: draft
+en: 全面肃清
+author: Soup
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689597974_197011_913.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689597974_197011_913.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r025
+  - r097
+  - r004
+  - r049
+  - r005
+  - r140
+  - r054
+  - r056
+  - r008
+  - r058
+  - r022
+  - r091
+  - r063
+  - r013
+  - r070
+  - r072
+  - r015
+  - r107
+  - r078
+  - r075
+  - r020
+  - r103
+  - r021
+  - r079
+  - r082
+travellerIds: []
+fabledIds:
+  - r118
+  - r104
+  - r158
+nightOrder:
+  first:
+    - r103
+    - r078
+    - r075
+    - r107
+    - r097
+    - r004
+    - r005
+    - r013
+    - r058
+    - r049
+    - r140
+    - r025
+  other:
+    - r008
+    - r075
+    - r107
+    - r020
+    - r021
+    - r079
+    - r082
+    - r103
+    - r070
+    - r063
+    - r005
+    - r013
+    - r054
+    - r056
+    - r058
+    - r140
+    - r025

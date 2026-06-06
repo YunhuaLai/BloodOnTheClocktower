@@ -1,0 +1,95 @@
+id: r2337
+englishName: 5a1f8a89-a379-47d9-8963-44e48ca18330
+name: 剧目：霸王别姬
+type: fabled
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_3674984341071_19e74b1e.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 虞美人
+  - 楚霸王
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 一名旦角饰演虞美人，一名反派饰演楚霸王。【虞美人：饰主演。楚霸王知道你是虞美人】【楚霸王：饰反派。每个剧目限一次，在白天时，你可以重复公开选择玩家猜拳，直到你输了，输了的玩家都死亡。即使你已死亡。】——共品项羽与虞姬的末路情歌。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2337
+    officialId: 5a1f8a89-a379-47d9-8963-44e48ca18330
+    sourceHash: 167fb21cd268eaa666d2dbc8b5c659d91b7c3592
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - death
+    - fabled
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

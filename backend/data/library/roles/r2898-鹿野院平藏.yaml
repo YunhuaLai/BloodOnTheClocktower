@@ -1,0 +1,112 @@
+id: r2898
+englishName: 22-the-favonius-mystery-de
+name: 鹿野院平藏
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Jerry0906/The_favonius_Mystery_DE/22_the_favonius_mystery_de.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 得知
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  唤醒鹿野院平藏，让他指向除他以外的一名玩家，将鹿野院平藏的「得知」标记放在他选择的玩家角色的标记旁边。让鹿野院平藏入睡。如果被鹿野院平藏选择的玩家或與他鄰近的玩家死於惡魔的能力，唤醒鹿野院平藏並告訴他那些死亡玩家和鄰近的存活玩家之中是否有執行官，让鹿野院平藏重新入睡。如果鹿野院平藏使用了能力，请在他的角色旁边放置一个「失去能力」标记且之後無須為了發動能力而喚醒他。
+ability: 每局游戏限一次，在夜晚時*，你可以选择一名玩家。如果他或与他邻近的存活玩家被惡魔殺死，你會得知該玩家与他邻近的存活玩家之中是否有執行官。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2898
+    officialId: 22_the_favonius_mystery_de
+    sourceHash: a0272b4340efc7bf366ee1e2f2526acbfa4805e0
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - alive
+    - townsfolk
+  abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

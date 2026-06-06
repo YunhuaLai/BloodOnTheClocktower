@@ -1,0 +1,81 @@
+id: r1123
+englishName: 27-ys
+name: 达摩剑
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/C2H43g/YS/27_ys.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 悬挂
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让悬挂着达摩剑的玩家丢一次d6，如果结果≤当前天数，标记拥有达摩剑的玩家死亡。
+ability: 你的能力每天都可以生效两次（限次 能力改为额外发动一次）。每个夜晚，你要丢一次d6:结果≤当前天数，你死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1123
+    officialId: 27_ys
+    sourceHash: ce12ca08ca95e63d1415712a7b26d5aa9813ad4f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

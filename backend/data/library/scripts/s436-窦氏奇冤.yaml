@@ -1,0 +1,87 @@
+id: s436
+englishName: item
+name: 窦氏奇冤
+status: draft
+en: 窦氏奇冤
+author: 周六有染小队
+logo: https://i.postimg.cc/sxXY9Hyh/LOGO-copy.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/sxXY9Hyh/LOGO-copy.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r025
+  - r086
+  - r232
+  - r008
+  - r614
+  - r1250
+  - r1251
+  - r033
+  - r028
+  - r150
+  - r140
+  - r115
+  - r039
+  - r119
+  - r111
+  - r067
+  - r633
+  - r609
+  - r235
+  - r076
+  - r079
+  - r239
+  - r047
+  - r689
+travellerIds:
+  - r289
+fabledIds:
+  - r118
+  - r1816
+  - r305
+  - r348
+nightOrder:
+  first:
+    - r039
+    - r1250
+    - r609
+    - r235
+    - r239
+    - r307
+    - r111
+    - r140
+    - r086
+    - r025
+  other:
+    - r111
+    - r235
+    - r609
+    - r028
+    - r008
+    - r076
+    - r039
+    - r150
+    - r047
+    - r079
+    - r689
+    - r239
+    - r1251
+    - r232
+    - r140
+    - r1250
+    - r086
+    - r025

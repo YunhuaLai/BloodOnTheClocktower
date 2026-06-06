@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r240
-    officialId: tyrant
+    officialId: baojunuiuaowjoedijapwu4e90e2aj4rpia
     sourceHash: b9dfb059c2668ebe319de7c58bd06dd28e16fd6d
     sourceHashFields:
       - ability
@@ -52,7 +52,7 @@ abilityData:
   abilityPattern: target_number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

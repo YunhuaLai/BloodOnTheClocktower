@@ -2,11 +2,11 @@ id: r080
 name: 亡骨魔
 type: demon
 englishName: vigormortis
-ability: 每个夜晚*，你要选择一名玩家：他死亡。  被你杀死的爪牙保留他的能力，且与他邻近的两名镇民之一中毒。[-1外来者]
+ability: 每个夜晚*，你要选择一名玩家：他死亡。被你杀死的爪牙保留他的能力，且与他邻近的两名镇民之一中毒。[-1外来者]
 edition: custom
-image: https://www.bloodstar.xyz/p/Tiger/Future-King/22_futureking.png
-flavor: ''
-setup: false
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/vigormortis.png
+flavor: 世间万扉集为一体，世间万匙铸为一身。世间万盅将与我共饮，但凡饮下我所赐圣水者，必将永不干渴，化作万孔泉眼涌作永生。
+setup: true
 setupMeta:
   randomAssignable: true
   tokenRequired: true
@@ -31,15 +31,15 @@ reminders:
   - 中毒
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: '8'
+otherNightReminder: 唤醒亡骨魔，让他攻击一名玩家。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r080
-    officialId: vigormortis
-    sourceHash: fd8bcf24d9e680126af9285367cb0e98c142daff
+    officialId: wangguuuuuuuu111111
+    sourceHash: d9a3eac1a7a8ee8aa450a3426b12fa2ea0627e1a
     sourceHashFields:
       - ability
       - type
@@ -48,6 +48,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -63,7 +65,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

@@ -1,0 +1,134 @@
+id: r3164
+englishName: navigator
+name: 领航员RI
+type: townsfolk
+edition: HSoM
+image:
+  - https://i.postimg.cc/SRzz89jp/image.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: -1
+      max: 1
+      source: '[-1或+1外来者]'
+      note: 配置调整：外来者数量 -1 到 +1。
+  setupNotes:
+    - 配置调整：外来者数量 -1 到 +1。
+reminders:
+  - 得知
+  - 得知
+  - 得知
+remindersGlobal: []
+firstNightReminder: Point to 1 Townsfolk, 1 Outsider, and 1 Minion. (Order is arbitrary.)
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知三名玩家：其中有一名镇民、一名外来者和一名爪牙。[-1或+1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3164
+    officialId: navigator
+    sourceHash: 05af03de4f7fc49e76cb99f8e27ed36f1d110af2
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - townsfolk
+    - outsider
+    - minion
+  abilityPattern: player_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: -1
+            max: 1
+            source: '[-1或+1外来者]'
+            note: 配置调整：外来者数量 -1 到 +1。
+      - kind: learn_player
+        count: 3
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 号码3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

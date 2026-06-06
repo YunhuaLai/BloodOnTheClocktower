@@ -1,0 +1,78 @@
+id: s270
+englishName: item
+name: 苦尽甘来
+status: draft
+en: 苦尽甘来
+author: Moll
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/3/37/esax4e7hklqleck289qq4d3fnn1bj1k.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/3/37/esax4e7hklqleck289qq4d3fnn1bj1k.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r005
+  - r008
+  - r025
+  - r055
+  - r058
+  - r049
+  - r097
+  - r140
+  - r089
+  - r064
+  - r100
+  - r334
+  - r015
+  - r016
+  - r067
+  - r071
+  - r018
+  - r020
+  - r019
+  - r075
+  - r021
+  - r082
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r075
+    - r097
+    - r064
+    - r071
+    - r004
+    - r005
+    - r058
+    - r049
+    - r140
+    - r100
+    - r018
+    - r025
+  other:
+    - r008
+    - r075
+    - r020
+    - r021
+    - r082
+    - r083
+    - r064
+    - r005
+    - r055
+    - r058
+    - r140
+    - r018
+    - r025

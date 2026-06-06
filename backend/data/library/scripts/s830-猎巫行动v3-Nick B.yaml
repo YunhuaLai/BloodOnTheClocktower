@@ -1,0 +1,74 @@
+id: s830
+englishName: v3-nick-b
+name: 猎巫行动v3-Nick B
+status: draft
+en: 猎巫行动v3-Nick B
+author: Nick B
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/jiewuxingdong/_meta.png
+description: 猎巫行动v3
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 猎巫行动v3
+image: https://www.bloodstar.xyz/p/SerraEvelyn/jiewuxingdong/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 猎巫行动v3
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r084
+  - r049
+  - r100
+  - r006
+  - r140
+  - r133
+  - r087
+  - r055
+  - r150
+  - r058
+  - r064
+  - r334
+  - r015
+  - r016
+  - r071
+  - r098
+  - r074
+  - r103
+travellerIds: []
+fabledIds:
+  - r348
+  - r1050
+nightOrder:
+  first:
+    - r098
+    - r071
+    - r103
+    - r074
+    - r064
+    - r002
+    - r006
+    - r058
+    - r084
+    - r049
+    - r140
+    - r087
+    - r100
+    - r133
+  other:
+    - r074
+    - r150
+    - r103
+    - r064
+    - r006
+    - r055
+    - r058
+    - r140
+    - r087
+    - r133

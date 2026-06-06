@@ -26,7 +26,6 @@ setupMeta:
     - 配置调整：外来者数量 -1。
 reminders:
   - 活尸
-  - 活尸
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
@@ -37,8 +36,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r633
-    officialId: corpse-driver
-    sourceHash: 158773b9e4f02c85d45e874d8ce2ec61887e5e79
+    officialId: huoshiduizuo111
+    sourceHash: c5740997345bd9c9592c245a24e955a637ad6239
     sourceHashFields:
       - ability
       - type
@@ -62,14 +61,14 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: setup
       event: on_death
       frequency: passive
     actor:
-      drivenBy: system
+      drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments:

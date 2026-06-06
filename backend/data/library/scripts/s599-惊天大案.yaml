@@ -1,0 +1,104 @@
+id: s599
+englishName: item
+name: 惊天大案
+status: draft
+en: 惊天大案
+author: Sui染钟楼
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1691596232_197011_7621.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1691596232_197011_7621.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r499
+  - r2262
+  - r2263
+  - r2264
+  - r1556
+  - r834
+  - r2265
+  - r2266
+  - r2267
+  - r2268
+  - r830
+  - r2269
+  - r2270
+  - r2271
+  - r2272
+  - r497
+  - r835
+  - r378
+  - r2273
+  - r2274
+  - r2275
+  - r2276
+  - r539
+  - r2277
+  - r2278
+  - r2279
+travellerIds:
+  - r2280
+  - r2281
+  - r268
+  - r2282
+  - r2283
+fabledIds:
+  - r2284
+  - r2285
+  - r2286
+  - r2287
+  - r2288
+  - r2289
+nightOrder:
+  first:
+    - r2282
+    - r2276
+    - r378
+    - r2275
+    - r2264
+    - r2267
+    - r2263
+    - r499
+    - r2262
+    - r2265
+    - r830
+    - r2273
+    - r2284
+  other:
+    - r268
+    - r2282
+    - r2274
+    - r2276
+    - r378
+    - r2275
+    - r2269
+    - r2264
+    - r2267
+    - r539
+    - r2277
+    - r2278
+    - r2279
+    - r2263
+    - r835
+    - r499
+    - r2262
+    - r1556
+    - r834
+    - r2265
+    - r2266
+    - r2268
+    - r2273
+    - r2271
+    - r2284

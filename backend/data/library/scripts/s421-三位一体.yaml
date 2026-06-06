@@ -1,0 +1,80 @@
+id: s421
+englishName: item
+name: 三位一体
+status: draft
+en: 三位一体
+author: 逆水
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/sanweiyiti/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/sanweiyiti/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1796
+  - r007
+  - r009
+  - r025
+  - r027
+  - r028
+  - r029
+  - r048
+  - r051
+  - r058
+  - r060
+  - r063
+  - r049
+  - r016
+  - r036
+  - r234
+  - r071
+  - r017
+  - r042
+  - r073
+  - r237
+  - r336
+  - r021
+  - r080
+  - r635
+travellerIds: []
+fabledIds:
+  - r1797
+nightOrder:
+  first:
+    - r336
+    - r071
+    - r017
+    - r073
+    - r048
+    - r051
+    - r058
+    - r049
+    - r025
+  other:
+    - r017
+    - r027
+    - r028
+    - r021
+    - r080
+    - r635
+    - r042
+    - r237
+    - r029
+    - r036
+    - r009
+    - r063
+    - r007
+    - r051
+    - r058
+    - r025

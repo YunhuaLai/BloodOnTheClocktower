@@ -4,8 +4,10 @@ type: townsfolk
 englishName: empath
 ability: 每个夜晚，你会得知与你邻近的两名存活的玩家中邪恶玩家的数量。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/empath.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/empath.png
+flavor: |-
+  我的皮肤有些刺痛。
+  这有些不太对劲。我能感觉得到。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -21,16 +23,16 @@ setupMeta:
   setupNotes: []
 reminders: []
 remindersGlobal: []
-firstNightReminder: 给他展示数字手势来告诉他与他邻近的存活玩家有几人是邪恶的。
-otherNightReminder: 给他展示数字手势来告诉他与他邻近的存活玩家有几人是邪恶的。
+firstNightReminder: 唤醒共情者，对他用手势比划数字来告知他与他邻近的存活玩家中有几人是邪恶玩家。
+otherNightReminder: 唤醒共情者，对他用手势比划数字来告知他与他邻近的存活玩家中有几人是邪恶玩家。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r005
-    officialId: empath
-    sourceHash: 4d21cb3b98bfb8737b98667dad4c4fa54d1d975e
+    officialId: ainiii11111
+    sourceHash: 16e1a3f9a0e0928b6616344eb56de75a64a57a76
     sourceHashFields:
       - ability
       - type
@@ -39,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -52,7 +56,7 @@ abilityData:
   abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

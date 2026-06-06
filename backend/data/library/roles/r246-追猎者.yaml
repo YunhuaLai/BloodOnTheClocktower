@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r246
-    officialId: stalker
+    officialId: zhenaosheajwiejp214ui90-japtu90q23j5t
     sourceHash: 5545da2664c7bbc5a7b450a23a27ffe81281cc00
     sourceHashFields:
       - ability
@@ -54,7 +54,7 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

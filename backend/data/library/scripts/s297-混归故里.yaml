@@ -1,0 +1,86 @@
+id: s297
+englishName: item
+name: 混归故里
+status: draft
+en: 混归故里
+author: 提线政客
+logo: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/200px-Bootlegger.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r024
+  - r025
+  - r597
+  - r822
+  - r027
+  - r026
+  - r028
+  - r031
+  - r106
+  - r463
+  - r033
+  - r823
+  - r038
+  - r308
+  - r013
+  - r186
+  - r042
+  - r041
+  - r302
+  - r1361
+  - r840
+  - r635
+  - r612
+  - r045
+travellerIds:
+  - r583
+fabledIds:
+  - r1720
+nightOrder:
+  first:
+    - r840
+    - r024
+    - r822
+    - r302
+    - r041
+    - r045
+    - r308
+    - r013
+    - r023
+    - r597
+    - r025
+  other:
+    - r840
+    - r024
+    - r822
+    - r302
+    - r027
+    - r028
+    - r041
+    - r026
+    - r045
+    - r612
+    - r635
+    - r042
+    - r308
+    - r463
+    - r023
+    - r031
+    - r013
+    - r597
+    - r025

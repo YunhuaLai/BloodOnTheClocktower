@@ -3,7 +3,7 @@ englishName: bureaucrat
 name: 官员
 type: traveller
 edition: custom
-image: https://i.postimg.cc/CnqknWQJ/Bureaucrat.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/bureaucrat.png
 flavor: ''
 setup: false
 setupMeta:
@@ -18,11 +18,11 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
-remindersGlobal:
-  - 官员的残卷
-firstNightReminder: ''
-otherNightReminder: ''
+reminders:
+  - 3票
+remindersGlobal: []
+firstNightReminder: 唤醒官员。让官员指向任意一名玩家。用官员的“3票”提示标记那名被选中的玩家。让官员入睡。
+otherNightReminder: 唤醒官员。让官员指向任意一名玩家。用官员的“3票”提示标记那名被选中的玩家。让官员入睡。
 ability: 每个夜晚，你要选择除你以外的一名玩家：明天白天，他的投票算作三票。
 abilityData:
   schemaVersion: 2
@@ -30,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r124
-    officialId: bureaucrat
-    sourceHash: 86ff5b364c61f514735ea88cdae68b0921482836
+    officialId: guanyuanyuanyuanyuan111
+    sourceHash: 8fc6071c2c7805be35dee92711f6b6b91cf3ed19
     sourceHashFields:
       - ability
       - type
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

@@ -1,0 +1,118 @@
+id: r1351
+englishName: yizhezhi22yihsiheniashoeiyis22ae
+name: 弈者
+type: minion
+edition: custom
+image: https://s2.loli.net/2025/09/05/AEwTmBzG2uQgaRK.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 先选
+  - 后选
+  - 死于处决
+  - 死亡
+  - 失去能力
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你要先后选择两名玩家：第一名玩家如果在当天白天时死于处决，第二名玩家当天便“可能”会在这之后死亡。（当在场存活人数小于等于本局参与游戏总人数一半时失去能力，向下取整）
+otherNightReminder: 每个夜晚，你要先后选择两名玩家：第一名玩家如果在当天白天时死于处决，第二名玩家当天便“可能”会在这之后死亡。（当在场存活人数小于等于本局参与游戏总人数一半时失去能力，向下取整）
+ability: 每个夜晚，你要先后选择两名玩家：第一名玩家如果在当天白天时死于处决，第二名玩家当天便“可能”会在这之后死亡。（当在场存活人数小于等于本局参与游戏总人数一半时失去能力，向下取整）
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1351
+    officialId: yizhezhi22yihsiheniashoeiyis22ae
+    sourceHash: 8c4692f133c8c127123f4eeb5982b6630eebb76d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - execution
+    - death
+    - alive
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

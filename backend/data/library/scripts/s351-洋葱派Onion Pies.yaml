@@ -1,0 +1,74 @@
+id: s351
+englishName: onion-pies
+name: 洋葱派Onion Pies
+status: draft
+en: 洋葱派Onion Pies
+author: Tej
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/4/46/cy67p47gqnmdmigv5gmg0mmx2m5w93l.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/4/46/cy67p47gqnmdmigv5gmg0mmx2m5w93l.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r004
+  - r005
+  - r006
+  - r008
+  - r009
+  - r010
+  - r022
+  - r011
+  - r012
+  - r049
+  - r097
+  - r091
+  - r015
+  - r016
+  - r014
+  - r092
+  - r017
+  - r018
+  - r020
+  - r019
+  - r121
+  - r021
+travellerIds:
+  - r888
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r017
+    - r097
+    - r001
+    - r002
+    - r004
+    - r005
+    - r006
+    - r049
+    - r018
+    - r092
+  other:
+    - r888
+    - r017
+    - r008
+    - r020
+    - r021
+    - r009
+    - r005
+    - r006
+    - r018

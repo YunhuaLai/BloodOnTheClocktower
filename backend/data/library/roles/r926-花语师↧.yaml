@@ -1,0 +1,97 @@
+id: r926
+englishName: 17-antutaoshan
+name: 花语师↧
+type: outsider
+edition: custom
+image: https://free.picui.cn/free/2025/12/22/694865de1f1a2.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你要选择除你以外的一名存活玩家（与之前不同）：如果你选择过邪恶玩家，你随时可能死亡。 如果你死于处决，你选择过的一名玩家随时可能死亡，即使你已死亡。
+otherNightReminder: 每个夜晚，你要选择除你以外的一名存活玩家（与之前不同）：如果你选择过邪恶玩家，你随时可能死亡。 如果你死于处决，你选择过的一名玩家随时可能死亡，即使你已死亡。
+ability: 每个夜晚，你要选择除你以外的一名存活玩家（与之前不同）：如果你选择过邪恶玩家，你随时可能死亡。 如果你死于处决，你选择过的一名玩家随时可能死亡，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r926
+    officialId: 17_antutaoshan
+    sourceHash: 9bfafffc71c4b284dd80ed8b09a4c6baf805a9c9
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - execution
+    - death
+    - alive
+    - evil
+    - outsider
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

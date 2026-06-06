@@ -1,0 +1,87 @@
+id: s545
+englishName: item
+name: 黯流春升
+status: draft
+en: 黯流春升
+author: 斯派德米
+logo: https://free.picui.cn/free/2025/12/08/6935aec44e7d4.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/08/6935aec44e7d4.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r003
+  - r004
+  - r005
+  - r006
+  - r012
+  - r023
+  - r028
+  - r034
+  - r051
+  - r053
+  - r056
+  - r062
+  - r015
+  - r016
+  - r036
+  - r039
+  - r018
+  - r040
+  - r043
+  - r074
+  - r045
+  - r047
+  - r079
+  - r080
+travellerIds: []
+fabledIds:
+  - r158
+  - r1017
+  - r1914
+nightOrder:
+  first:
+    - r039
+    - r040
+    - r074
+    - r045
+    - r002
+    - r003
+    - r004
+    - r005
+    - r006
+    - r023
+    - r051
+    - r018
+    - r053
+  other:
+    - r028
+    - r074
+    - r039
+    - r045
+    - r047
+    - r079
+    - r080
+    - r040
+    - r036
+    - r023
+    - r005
+    - r006
+    - r051
+    - r056
+    - r062
+    - r018
+    - r053

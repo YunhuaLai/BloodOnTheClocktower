@@ -1,0 +1,77 @@
+id: s171
+englishName: item
+name: 穷途末路
+status: draft
+en: 穷途末路
+author: 斯派德米
+logo: https://free.picui.cn/free/2025/12/17/6942a7ab02dc5.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/17/6942a7ab02dc5.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r006
+  - r022
+  - r012
+  - r032
+  - r051
+  - r057
+  - r049
+  - r150
+  - r091
+  - r084
+  - r233
+  - r108
+  - r230
+  - r036
+  - r037
+  - r069
+  - r908
+  - r017
+  - r020
+  - r121
+  - r337
+  - r047
+  - r079
+  - r082
+  - r568
+travellerIds: []
+fabledIds:
+  - r1017
+nightOrder:
+  first:
+    - r121
+    - r017
+    - r337
+    - r006
+    - r051
+    - r084
+    - r049
+    - r108
+  other:
+    - r017
+    - r337
+    - r020
+    - r150
+    - r047
+    - r079
+    - r082
+    - r568
+    - r036
+    - r037
+    - r233
+    - r006
+    - r051
+    - r230

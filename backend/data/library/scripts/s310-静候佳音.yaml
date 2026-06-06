@@ -1,0 +1,81 @@
+id: s310
+englishName: item
+name: 静候佳音
+status: draft
+en: 静候佳音
+author: 花曲&Richard Black
+logo: https://i.postimg.cc/fWjfMcdb/3-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/fWjfMcdb/3-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r097
+  - r140
+  - r006
+  - r008
+  - r056
+  - r091
+  - r334
+  - r060
+  - r064
+  - r058
+  - r134
+  - r011
+  - r015
+  - r324
+  - r159
+  - r071
+  - r017
+  - r043
+  - r075
+  - r076
+  - r021
+  - r082
+  - r045
+  - r099
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r071
+    - r017
+    - r075
+    - r045
+    - r097
+    - r064
+    - r006
+    - r058
+    - r140
+    - r134
+    - r100
+  other:
+    - r324
+    - r076
+    - r017
+    - r008
+    - r075
+    - r021
+    - r045
+    - r082
+    - r099
+    - r159
+    - r064
+    - r006
+    - r056
+    - r058
+    - r140
+    - r134

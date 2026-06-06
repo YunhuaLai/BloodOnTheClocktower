@@ -1,0 +1,85 @@
+id: s516
+englishName: item
+name: 天作之合
+status: draft
+en: 天作之合
+author: ''
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/25/2552dshw88q59k8u2a656dyeg3swxih.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/2/25/2552dshw88q59k8u2a656dyeg3swxih.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r134
+  - r058
+  - r597
+  - r090
+  - r028
+  - r329
+  - r010
+  - r057
+  - r064
+  - r606
+  - r091
+  - r614
+  - r015
+  - r037
+  - r071
+  - r068
+  - r113
+  - r093
+  - r235
+  - r042
+  - r336
+  - r021
+  - r047
+  - r095
+travellerIds: []
+fabledIds:
+  - r104
+  - r118
+nightOrder:
+  first:
+    - r095
+    - r336
+    - r071
+    - r113
+    - r093
+    - r235
+    - r064
+    - r023
+    - r058
+    - r597
+    - r134
+  other:
+    - r028
+    - r093
+    - r235
+    - r113
+    - r329
+    - r021
+    - r047
+    - r095
+    - r042
+    - r606
+    - r037
+    - r023
+    - r068
+    - r090
+    - r064
+    - r058
+    - r597
+    - r134

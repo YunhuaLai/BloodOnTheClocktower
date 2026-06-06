@@ -1,0 +1,88 @@
+id: r1133
+englishName: 45-daoluyimu
+name: 双头巨人
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/ROSE/59_rose.png
+flavor: （庄严）巨人永不为奴…（插嘴）除非包吃包住！（突然亢奋）俺们杀人超厉害！（捂嘴）闭嘴！要说"执行正义"！
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 共生体
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒双头巨人，让他选择一名玩家，将他选择的玩家变为邪恶的双头巨人，并让2名双头巨人互认。如果双头巨人选中一名爪牙或者恶魔，你可以让他重新选择。
+otherNightReminder: 如果一名双头巨人已经死亡，标记所有其他双头巨人死亡。
+ability: 你死亡后其他双头巨人会在当晚死亡。只有所有双头巨人一起投票，他们的投票才有效。[+1双头巨人（你决定谁是）]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1133
+    officialId: 59_rose
+    sourceHash: a587f4668bbbda4231d46f1af7bfa2c42ef89970
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - first-night
+    - vote
+    - death
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

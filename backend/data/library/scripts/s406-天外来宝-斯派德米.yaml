@@ -1,0 +1,85 @@
+id: s406
+englishName: item
+name: 天外来宝-斯派德米
+status: draft
+en: 天外来宝-斯派德米
+author: 斯派德米
+logo: https://img.picui.cn/free/2025/04/10/67f746696f88d.png
+description: 天外来宝
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 天外来宝
+image: https://img.picui.cn/free/2025/04/10/67f746696f88d.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 天外来宝
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r108
+  - r307
+  - r005
+  - r006
+  - r052
+  - r027
+  - r055
+  - r214
+  - r029
+  - r059
+  - r010
+  - r155
+  - r090
+  - r039
+  - r070
+  - r069
+  - r908
+  - r235
+  - r337
+  - r302
+  - r077
+  - r103
+  - r240
+  - r082
+  - r080
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r039
+    - r103
+    - r302
+    - r337
+    - r052
+    - r235
+    - r005
+    - r006
+    - r108
+    - r307
+  other:
+    - r059
+    - r302
+    - r027
+    - r214
+    - r052
+    - r337
+    - r235
+    - r039
+    - r082
+    - r080
+    - r103
+    - r240
+    - r029
+    - r070
+    - r090
+    - r005
+    - r006
+    - r055

@@ -1,0 +1,89 @@
+id: s363
+englishName: item
+name: 疯狂科研
+status: draft
+en: 疯狂科研
+author: Foxx
+logo: https://postimg.cc/hht71GPX
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://postimg.cc/hht71GPX
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r023
+  - r024
+  - r101
+  - r086
+  - r028
+  - r027
+  - r054
+  - r031
+  - r089
+  - r029
+  - r155
+  - r034
+  - r038
+  - r036
+  - r068
+  - r072
+  - r020
+  - r093
+  - r040
+  - r041
+  - r021
+  - r045
+  - r046
+travellerIds:
+  - r148
+  - r122
+  - r131
+  - r123
+  - r130
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r148
+    - r155
+    - r024
+    - r101
+    - r040
+    - r041
+    - r093
+    - r045
+    - r002
+    - r023
+    - r086
+  other:
+    - r123
+    - r024
+    - r101
+    - r027
+    - r028
+    - r041
+    - r093
+    - r020
+    - r021
+    - r045
+    - r046
+    - r040
+    - r029
+    - r036
+    - r023
+    - r068
+    - r031
+    - r054
+    - r086

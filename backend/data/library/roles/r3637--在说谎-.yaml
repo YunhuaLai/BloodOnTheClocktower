@@ -1,0 +1,100 @@
+id: r3637
+englishName: diyrole19
+name: '"在说谎"'
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/librarypimp21/Pedagogic_Pits_And_Pendulums/lying_pedagogic_pits_and_pendulums.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: danger
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments:
+    - type: outsider_count
+      min: 1
+      max: -1
+      source: '[+1或-1外来者]'
+      note: 配置调整：外来者数量 +1 到 -1。
+  setupNotes:
+    - 配置调整：外来者数量 +1 到 -1。
+reminders:
+  - 哪来的皮？
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: “疯狂”地证明自己是除了自己真正角色之外的角色的玩家可能会被处决。你会被当作善良阵营。[+1或-1外来者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3637
+    officialId: diyRole19
+    sourceHash: eec2e9543987a7d2df7cccdc7d63a55e3d2ee56d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 设置
+    - 事件触发
+  termIds:
+    - setup
+    - execution
+    - alignment
+    - good
+    - outsider
+    - minion
+    - madness
+  abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: setup
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments:
+          - type: outsider_count
+            min: 1
+            max: -1
+            source: '[+1或-1外来者]'
+            note: 配置调整：外来者数量 +1 到 -1。
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: setup
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: system
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

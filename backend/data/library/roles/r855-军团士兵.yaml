@@ -1,0 +1,102 @@
+id: r855
+englishName: legionary-fall-of-rome
+name: 军团士兵
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/AlexS/Fall_of_Rome/legionary_fall_of_rome.png
+flavor: 我们认为，罗马征服世界的原因无非就是持之以恒的军事训练，在外作战军纪严明，以及孜孜不倦地培养战争艺术。
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: 展示军团士兵与顺时针方向另一名军团士兵（不包括军团士兵）之间存活的邪恶玩家数量的手势（0，1，2等）。
+otherNightReminder: 展示军团士兵与顺时针方向另一名军团士兵（不包括军团士兵）之间存活的邪恶玩家数量的手势（0，1，2等）。
+ability: 每个夜晚，你会得知在顺时针方向上，你与一名存活的军团士兵之间有多少名存活的邪恶玩家。[+0,+1或+2军团士兵]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r855
+    officialId: legionary_fall_of_rome
+    sourceHash: d3424539de6b6776e36b1ddc72da44cc719ba2f8
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 信息型
+  termIds:
+    - night
+    - setup
+    - first-night
+    - information
+    - alive
+    - evil
+    - townsfolk
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: direction
+          type: choice
+          label: 方向
+          required: true
+          optionsSource: custom
+          options:
+            - clockwise
+            - counterclockwise
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

@@ -1,0 +1,86 @@
+id: s151
+englishName: item
+name: 霜冻迷宫
+status: draft
+en: 霜冻迷宫
+author: 夕&逐鹿剧本社
+logo: https://www.helloimg.com/i/2024/12/02/674d589095518.png
+description: 霜冻迷宫
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 霜冻迷宫
+image: https://www.helloimg.com/i/2024/12/02/674d589095518.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 霜冻迷宫
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r002
+  - r048
+  - r052
+  - r024
+  - r005
+  - r006
+  - r056
+  - r007
+  - r008
+  - r058
+  - r059
+  - r232
+  - r038
+  - r015
+  - r016
+  - r070
+  - r043
+  - r017
+  - r042
+  - r077
+  - r121
+  - r1285
+  - r683
+  - r095
+  - r079
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r683
+    - r059
+    - r095
+    - r121
+    - r1285
+    - r024
+    - r017
+    - r052
+    - r002
+    - r005
+    - r006
+    - r048
+    - r058
+    - r084
+  other:
+    - r059
+    - r024
+    - r017
+    - r052
+    - r008
+    - r079
+    - r683
+    - r095
+    - r1285
+    - r042
+    - r070
+    - r005
+    - r006
+    - r007
+    - r232
+    - r056
+    - r058

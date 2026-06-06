@@ -1,0 +1,78 @@
+id: s431
+englishName: item
+name: 风起云涌
+status: draft
+en: 风起云涌
+author: ''
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/57/6psetxy89kutb2blks51vwakihgb8gm.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/5/57/6psetxy89kutb2blks51vwakihgb8gm.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r004
+  - r307
+  - r005
+  - r008
+  - r062
+  - r025
+  - r530
+  - r054
+  - r109
+  - r028
+  - r442
+  - r334
+  - r015
+  - r070
+  - r038
+  - r036
+  - r234
+  - r020
+  - r019
+  - r113
+  - r633
+  - r042
+  - r083
+travellerIds: []
+fabledIds:
+  - r348
+  - r1812
+  - r1813
+nightOrder:
+  first:
+    - r113
+    - r004
+    - r005
+    - r049
+    - r307
+    - r442
+    - r025
+    - r530
+  other:
+    - r109
+    - r028
+    - r008
+    - r113
+    - r020
+    - r083
+    - r042
+    - r036
+    - r070
+    - r005
+    - r054
+    - r062
+    - r025
+    - r530

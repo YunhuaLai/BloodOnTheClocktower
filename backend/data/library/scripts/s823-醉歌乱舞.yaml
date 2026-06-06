@@ -1,0 +1,86 @@
+id: s823
+englishName: item
+name: 醉歌乱舞
+status: draft
+en: 醉歌乱舞
+author: ''
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689599193_197011_9926.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689599193_197011_9926.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r048
+  - r139
+  - r097
+  - r025
+  - r051
+  - r053
+  - r027
+  - r057
+  - r088
+  - r059
+  - r064
+  - r032
+  - r038
+  - r067
+  - r071
+  - r015
+  - r068
+  - r017
+  - r075
+  - r076
+  - r040
+  - r082
+  - r080
+  - r079
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r088
+    - r017
+    - r040
+    - r075
+    - r097
+    - r064
+    - r071
+    - r048
+    - r051
+    - r049
+    - r139
+    - r025
+    - r053
+  other:
+    - r059
+    - r088
+    - r017
+    - r027
+    - r075
+    - r076
+    - r079
+    - r082
+    - r080
+    - r040
+    - r068
+    - r064
+    - r071
+    - r051
+    - r139
+    - r025
+    - r053

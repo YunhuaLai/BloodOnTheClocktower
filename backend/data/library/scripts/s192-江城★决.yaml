@@ -1,0 +1,80 @@
+id: s192
+englishName: item
+name: 江城★决
+status: draft
+en: 江城★决
+author: 际尘
+logo: https://i.postimg.cc/VL9YC6Zg/3.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/VL9YC6Zg/3.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r004
+  - r003
+  - r058
+  - r005
+  - r006
+  - r056
+  - r051
+  - r008
+  - r028
+  - r060
+  - r010
+  - r319
+  - r015
+  - r016
+  - r037
+  - r067
+  - r020
+  - r040
+  - r075
+  - r078
+  - r021
+  - r080
+  - r082
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r078
+    - r040
+    - r075
+    - r003
+    - r004
+    - r005
+    - r006
+    - r023
+    - r051
+    - r058
+  other:
+    - r028
+    - r008
+    - r075
+    - r020
+    - r021
+    - r082
+    - r083
+    - r080
+    - r040
+    - r037
+    - r023
+    - r005
+    - r006
+    - r051
+    - r056
+    - r058

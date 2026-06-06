@@ -1,0 +1,83 @@
+id: s501
+englishName: item
+name: 孤军统帅
+status: draft
+en: 孤军统帅
+author: Kole寂殇
+logo: https://s2.loli.net/2025/06/15/7lhWcmDVfg5zF4i.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/15/7lhWcmDVfg5zF4i.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r060
+  - r058
+  - r1250
+  - r054
+  - r005
+  - r230
+  - r052
+  - r133
+  - r150
+  - r031
+  - r029
+  - r606
+  - r119
+  - r037
+  - r068
+  - r070
+  - r336
+  - r302
+  - r020
+  - r074
+  - r046
+  - r083
+  - r136
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r336
+    - r1250
+    - r302
+    - r052
+    - r074
+    - r136
+    - r005
+    - r058
+    - r049
+    - r133
+  other:
+    - r302
+    - r052
+    - r074
+    - r020
+    - r150
+    - r046
+    - r083
+    - r136
+    - r606
+    - r029
+    - r037
+    - r070
+    - r068
+    - r031
+    - r005
+    - r054
+    - r058
+    - r1250
+    - r230
+    - r133

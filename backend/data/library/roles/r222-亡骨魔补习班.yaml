@@ -33,7 +33,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r222
-    officialId: zombuul-cram-school
+    officialId: 28_jinhulun
     sourceHash: 2024208782560ddd29406713e7bccefc4ba21d64
     sourceHashFields:
       - ability
@@ -58,7 +58,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

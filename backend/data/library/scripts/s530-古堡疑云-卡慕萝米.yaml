@@ -1,0 +1,84 @@
+id: s530
+englishName: item
+name: 古堡疑云-卡慕萝米
+status: draft
+en: 古堡疑云-卡慕萝米
+author: 卡慕萝米
+logo: https://img.picui.cn/free/2025/04/14/67fcc33eb5f20.png
+description: 古堡疑云
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 古堡疑云
+image: https://img.picui.cn/free/2025/04/14/67fcc33eb5f20.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 古堡疑云
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r049
+  - r085
+  - r139
+  - r051
+  - r140
+  - r088
+  - r066
+  - r155
+  - r091
+  - r090
+  - r115
+  - r065
+  - r067
+  - r015
+  - r159
+  - r116
+  - r113
+  - r337
+  - r121
+  - r019
+  - r683
+  - r103
+  - r095
+  - r096
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r683
+    - r088
+    - r155
+    - r066
+    - r095
+    - r115
+    - r113
+    - r121
+    - r103
+    - r337
+    - r003
+    - r051
+    - r085
+    - r049
+    - r140
+    - r139
+  other:
+    - r088
+    - r066
+    - r337
+    - r113
+    - r683
+    - r096
+    - r103
+    - r095
+    - r159
+    - r090
+    - r051
+    - r140
+    - r139

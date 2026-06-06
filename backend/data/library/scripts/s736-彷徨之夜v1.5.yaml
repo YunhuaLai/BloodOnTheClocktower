@@ -1,0 +1,80 @@
+id: s736
+englishName: v1-5
+name: 彷徨之夜v1.5
+status: draft
+en: 彷徨之夜v1.5
+author: Zets
+logo: https://i.postimg.cc/SQfTmLRn/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/SQfTmLRn/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r085
+  - r100
+  - r003
+  - r097
+  - r1250
+  - r026
+  - r056
+  - r054
+  - r064
+  - r134
+  - r090
+  - r1251
+  - r091
+  - r013
+  - r071
+  - r015
+  - r014
+  - r107
+  - r075
+  - r019
+  - r078
+  - r121
+  - r3966
+travellerIds: []
+fabledIds:
+  - r118
+  - r348
+nightOrder:
+  first:
+    - r1250
+    - r121
+    - r078
+    - r075
+    - r107
+    - r097
+    - r064
+    - r071
+    - r003
+    - r100
+    - r013
+    - r085
+    - r134
+  other:
+    - r075
+    - r107
+    - r026
+    - r3966
+    - r1251
+    - r090
+    - r064
+    - r071
+    - r013
+    - r054
+    - r056
+    - r1250
+    - r134

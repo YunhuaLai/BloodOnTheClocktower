@@ -1,0 +1,86 @@
+id: r3263
+englishName: wiretap
+name: 窃听者
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Wingidon/Echoes_Of_The_Past/eavesdropper_echoes_of_the_past.png
+flavor: 'Very interesting... '
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 说出秘密短语
+remindersGlobal: []
+firstNightReminder: Wake the Eavesdropper and notify them what their phrase is. Then, put the Eavesdropper to sleep.
+otherNightReminder: >-
+  If a player has the Eavesdropper's SAID PHRASE reminder token on them, they die. Mark them with the Eavesdropper's
+  DEAD reminder token. Then, wake the Eavesdropper & point at the player they killed. Put the Eavesdropper to sleep.
+ability: 在你的首个夜晚，你会得知一段秘密短语。每局游戏至多两次，在白天时，说出这个短语的善良玩家会在当晚死亡，且你会得知他是谁。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3263
+    officialId: eavesdropper_echoes_of_the_past
+    sourceHash: ee0fc75d9425e68251ad282f7887deaadaca9163
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+  termIds:
+    - day
+    - night
+    - first-night
+    - death
+    - good
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,115 @@
+id: r2679
+englishName: coloroutofspace
+name: 星之彩
+type: minion
+edition: mia
+image: https://free.picui.cn/free/2025/11/28/692897792f5be.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 星之彩
+firstNightReminder: >-
+  让星之彩选择除自己以外的一名玩家和一个角色。如果星之彩选择了那名玩家真正的角色，或他当前以为的角色，则本能力不产生任何效果。否则，那名玩家丧失理智。然后如果那名玩家已丧失理智，唤醒他。向那名玩家展示“你是”信息标记和星之彩所选角色的角色标记。
+otherNightReminder: >-
+  让星之彩选择除自己以外的一名玩家和一个角色。如果星之彩选择了那名玩家真正的角色，或他当前以为的角色，则本能力不产生任何效果。否则，那名玩家丧失理智。然后如果那名玩家已丧失理智，唤醒他。向那名玩家展示“你是”信息标记和星之彩所选角色的角色标记。
+ability: 每个夜晚，你要选择除你以外的一名玩家和一个角色：他丧失理智，然后以为自己是该角色。（如果你所选的是他真正的角色，或他以为自己是，则没有任何效果）[-1理智]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2679
+    officialId: coloroutofspace
+    sourceHash: 7b9b7da0c8f2420a1e7b246ffa6f1272893321a7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 设置
+    - 主动选择
+  termIds:
+    - night
+    - setup
+    - first-night
+    - minion
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

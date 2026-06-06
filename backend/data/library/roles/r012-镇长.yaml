@@ -2,9 +2,9 @@ id: r012
 name: 镇长
 type: townsfolk
 englishName: mayor
-ability: 如果只有三名玩家存活且白天没有人被处决，你的阵营获胜。如果你在夜晚死亡，可能会有一名其他玩家代替你死亡。
+ability: 如果只有三名玩家存活且白天没有人被处决，你的阵营获胜。如果你在夜晚即将死亡，可能会有一名其他玩家代替你死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/mayor.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/mayor.png
 flavor: ''
 setup: false
 setupMeta:
@@ -29,8 +29,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r012
-    officialId: mayor
-    sourceHash: 77dc246ff62d4b2fa83f0458e6dd7d535536a8c6
+    officialId: mayor_c
+    sourceHash: e23ffa4d00fd8fac4e153993e7d44fc7bf60e94f
     sourceHashFields:
       - ability
       - type
@@ -39,6 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 残局
@@ -54,7 +56,7 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

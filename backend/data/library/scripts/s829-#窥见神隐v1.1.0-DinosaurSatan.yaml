@@ -1,0 +1,74 @@
+id: s829
+englishName: v1-1-0-dinosaursatan
+name: '#窥见神隐v1.1.0-DinosaurSatan'
+status: draft
+en: '#窥见神隐v1.1.0-DinosaurSatan'
+author: DinosaurSatan
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/kuijianshenyin/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/kuijianshenyin/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r003
+  - r004
+  - r007
+  - r027
+  - r028
+  - r029
+  - r031
+  - r134
+  - r011
+  - r009
+  - r012
+  - r015
+  - r016
+  - r037
+  - r068
+  - r018
+  - r040
+  - r017
+  - r076
+  - r081
+  - r046
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r017
+    - r040
+    - r002
+    - r003
+    - r004
+    - r134
+    - r018
+  other:
+    - r076
+    - r017
+    - r027
+    - r028
+    - r046
+    - r081
+    - r040
+    - r029
+    - r037
+    - r068
+    - r009
+    - r031
+    - r007
+    - r134
+    - r018

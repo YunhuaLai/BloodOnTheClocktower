@@ -1,0 +1,81 @@
+id: s747
+englishName: item
+name: 空山鸟语
+status: draft
+en: 空山鸟语
+author: Jarsh
+logo: https://img.picui.cn/free/2025/03/05/67c8523e41c1f.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://img.picui.cn/free/2025/03/05/67c8523e41c1f.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r055
+  - r023
+  - r1292
+  - r230
+  - r057
+  - r056
+  - r108
+  - r006
+  - r005
+  - r058
+  - r053
+  - r139
+  - r319
+  - r037
+  - r016
+  - r363
+  - r068
+  - r067
+  - r302
+  - r042
+  - r040
+  - r075
+  - r315
+  - r635
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r302
+    - r040
+    - r075
+    - r005
+    - r006
+    - r023
+    - r058
+    - r108
+    - r139
+    - r053
+  other:
+    - r302
+    - r075
+    - r635
+    - r040
+    - r042
+    - r363
+    - r023
+    - r068
+    - r1292
+    - r037
+    - r005
+    - r006
+    - r055
+    - r056
+    - r058
+    - r230
+    - r139
+    - r053

@@ -1,0 +1,87 @@
+id: r2879
+englishName: nature
+name: 腐蚀
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/Yez/nature/_nature.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 枯萎
+remindersGlobal: []
+firstNightReminder: >-
+  检查所有玩家的腐蚀标记替换成对应的腐蚀程度。如果有人的腐蚀程度大于3，将他的角色标记替换成一个不在场的恶魔角色标记，唤醒该玩家，为他展示“你是”信息标记和该恶魔角色标记，并放置邪恶标记。如果没有可以替换的恶魔角色标记，标记该玩家死亡。说书人整理腐蚀标记。
+otherNightReminder: >-
+  检查所有玩家的腐蚀标记替换成对应的腐蚀程度。如果有人的腐蚀程度大于3，将他的角色标记替换成一个不在场的恶魔角色标记，唤醒该玩家，为他展示“你是”信息标记和该恶魔角色标记，并放置邪恶标记。如果没有可以替换的恶魔角色标记，标记该玩家死亡。说书人整理腐蚀标记。
+ability: 所有玩家的腐蚀初始为0，最低为0。腐蚀大于3的玩家会在夜晚变成不在场的邪恶恶魔，没能成功变成恶魔的玩家会枯萎。死亡玩家、恶魔和旅行者腐蚀始终为0
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2879
+    officialId: _nature
+    sourceHash: 5f262fdcef387ee26f8234313ae6d352db684f54
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - death
+    - evil
+    - demon
+    - traveler
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

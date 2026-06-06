@@ -1,0 +1,85 @@
+id: r2927
+englishName: kingofhearts-wonderland
+name: 红心国王
+type: townsfolk
+edition: custom
+image:
+  - https://i.postimg.cc/rpvzDs0N/33333-17.png
+flavor: 'I don’t like the look of it at all,” said the King: “however, it may kiss my hand, if it likes.'
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 顺时针漫游
+  - 逆时针漫游
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 你的“漫游”标记所在的玩家不会死于处决，即使你已死亡。如果只有三名存活玩家，你失去此能力。 [Wandering]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2927
+    officialId: kingofhearts_wonderland
+    sourceHash: 3ba4632efd460a1989bf6748609d8ff192dab70a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - execution
+    - death
+    - alive
+    - townsfolk
+  abilityPattern: execution_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_execution
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

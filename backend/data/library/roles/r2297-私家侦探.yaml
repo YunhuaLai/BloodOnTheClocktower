@@ -1,0 +1,110 @@
+id: r2297
+englishName: 7-kakalikeyeweimian
+name: 私家侦探
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/SerraEvelyn/kakalikeyeweimian/7_kakalikeyeweimian.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 限一次
+  - 死亡
+  - 选择
+remindersGlobal: []
+firstNightReminder: 每个夜晚，你要选择一名存活玩家，你会得知他今晚选择了哪些目标。恶魔得知私家侦探在场。每局游戏限一次，如果恶魔在白天拜访说书人并猜中你是私家侦探，你死亡。
+otherNightReminder: 每个夜晚，你要选择一名存活玩家，你会得知他今晚选择了哪些目标。恶魔得知私家侦探在场。每局游戏限一次，如果恶魔在白天拜访说书人并猜中你是私家侦探，你死亡。
+ability: 每个夜晚，你要选择一名存活玩家，你会得知他今晚选择了哪些目标。恶魔得知私家侦探在场。每局游戏限一次，如果恶魔在白天拜访说书人并猜中你是私家侦探，你死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2297
+    officialId: 7_kakalikeyeweimian
+    sourceHash: 4dd3d25588dd3a2a4845121c325dde1e53f0405a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - death
+    - alive
+    - townsfolk
+    - demon
+    - storyteller
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

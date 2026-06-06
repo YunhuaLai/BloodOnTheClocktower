@@ -1,0 +1,98 @@
+id: r2993
+englishName: chaperone-charged-dinner
+name: 监护人
+type: townsfolk
+edition: Charged Dinner
+image:
+  - https://i.postimg.cc/7L1Cvk14/image.png
+flavor: >-
+  Miss, it is imperative you stay close to me at all times. Do not stray, do not stare, and most importantly, do not
+  speak unless spoken to.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 守护
+  - 守护
+  - 守护
+  - 守护
+  - 守护
+  - 守护
+  - 守护
+  - 守护
+  - 守护
+  - 守护
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 除你以外的发起提名的镇民会保持清醒且健康，并获得正确信息直到下个黄昏。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2993
+    officialId: chaperone_charged_dinner
+    sourceHash: 4c2fac9f4f64081d3c3685c0c997f10fcf5f8dd3
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - information
+    - nomination
+    - townsfolk
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

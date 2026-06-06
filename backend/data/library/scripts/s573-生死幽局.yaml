@@ -1,0 +1,89 @@
+id: s573
+englishName: item
+name: 生死幽局
+status: draft
+en: 生死幽局
+author: fbb
+logo: https://s2.loli.net/2025/06/26/qpOHmBx6EXFA7oj.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/26/qpOHmBx6EXFA7oj.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r028
+  - r090
+  - r035
+  - r024
+  - r155
+  - r023
+  - r029
+  - r010
+  - r031
+  - r008
+  - r034
+  - r033
+  - r015
+  - r037
+  - r036
+  - r159
+  - r017
+  - r041
+  - r042
+  - r074
+  - r080
+  - r141
+  - r044
+  - r046
+travellerIds:
+  - r738
+  - r129
+  - r147
+  - r123
+  - r132
+fabledIds:
+  - r127
+  - r344
+nightOrder:
+  first:
+    - r155
+    - r024
+    - r141
+    - r017
+    - r041
+    - r074
+    - r004
+    - r023
+  other:
+    - r123
+    - r132
+    - r024
+    - r017
+    - r028
+    - r008
+    - r041
+    - r074
+    - r044
+    - r046
+    - r080
+    - r141
+    - r042
+    - r029
+    - r036
+    - r037
+    - r023
+    - r159
+    - r090
+    - r031

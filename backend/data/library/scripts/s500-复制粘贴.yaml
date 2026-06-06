@@ -1,0 +1,80 @@
+id: s500
+englishName: item
+name: 复制粘贴
+status: draft
+en: 复制粘贴
+author: 诺七七
+logo: https://s2.loli.net/2025/06/15/R7Ys8CKAfMq5Td9.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/06/15/R7Ys8CKAfMq5Td9.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r108
+  - r442
+  - r005
+  - r006
+  - r008
+  - r055
+  - r059
+  - r058
+  - r057
+  - r091
+  - r012
+  - r233
+  - r015
+  - r072
+  - r067
+  - r070
+  - r075
+  - r840
+  - r121
+  - r020
+  - r083
+  - r114
+  - r079
+  - r082
+travellerIds:
+  - r583
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r121
+    - r075
+    - r005
+    - r006
+    - r058
+    - r049
+    - r108
+    - r442
+  other:
+    - r583
+    - r059
+    - r008
+    - r075
+    - r020
+    - r079
+    - r082
+    - r083
+    - r114
+    - r070
+    - r233
+    - r005
+    - r006
+    - r055
+    - r058

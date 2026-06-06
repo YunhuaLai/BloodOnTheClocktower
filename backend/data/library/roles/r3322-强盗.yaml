@@ -1,0 +1,114 @@
+id: r3322
+englishName: 5-yz-cn-ggg
+name: 强盗
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/papel/YZ_CN_GGG/5_yz_cn_ggg.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 醉酒
+remindersGlobal:
+  - 是强盗
+firstNightReminder: 唤醒强盗。如果他摇头，让他入睡。如果他选择一名玩家，并且那名玩家是善良的，他变为那名玩家的角色，标记“是强盗”，标记那名玩家“醉酒”。否则，强盗醉酒。
+otherNightReminder: 唤醒强盗。如果他摇头，让他入睡。如果他选择一名玩家，并且那名玩家是善良的，他变为那名玩家的角色，标记“是强盗”，标记那名玩家“醉酒”。否则，强盗醉酒。
+ability: 每局游戏限一次，在夜晚时，你可以选择一名玩家：如果他是善良的，你变成他的角色且他醉酒。否则你醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3322
+    officialId: 5_yz_cn_ggg
+    sourceHash: aed9b3995ea5426082da10e3aaad50fc70f3f4f6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - good
+    - townsfolk
+  abilityPattern: choose_role_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

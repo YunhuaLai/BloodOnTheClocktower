@@ -4,8 +4,8 @@ type: townsfolk
 englishName: innkeeper
 ability: 每个夜晚*，你要选择两名玩家：他们当晚不会死亡，但其中一人会醉酒到下个黄昏。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/innkeeper.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/innkeeper.png
+flavor: “到里头来，美丽的旅者，放松筋骨，好好歇息。尽管饮酒作乐，黑暗之物今夜无法伤你分毫。”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -24,15 +24,15 @@ reminders:
   - 醉酒
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 让旅店老板选择两名玩家。标记这两名玩家不会死亡，并标记其中一人醉酒。
+otherNightReminder: 唤醒旅店老板，让他选择两名玩家。这两名玩家今晚不死，同时需要决定他俩其中谁因为旅店老板能力醉酒。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r027
-    officialId: innkeeper
-    sourceHash: cd69950f591b062425efae92223f8528bf071f89
+    officialId: lushichuanshuodelaoban111
+    sourceHash: 3f368d25317d39f2681860a7898a45f00c25d5d2
     sourceHashFields:
       - ability
       - type
@@ -41,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -54,8 +56,8 @@ abilityData:
   abilityPattern: choose_player_protection
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

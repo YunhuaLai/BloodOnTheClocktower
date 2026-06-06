@@ -1,0 +1,81 @@
+id: r1443
+englishName: 42-jishi
+name: 猫猫合唱团
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/JI-SHI/42_jishi.png
+flavor: 警报！警报！猫猫合唱团正式接管今夜喵！重复，猫猫合唱团正式接管今夜喵！我们的任务是：带领大家狂欢到天亮喵！清醒点喵！跟着拍子，一起跺脚！一、二、三、四！喵！喵！喵！喵！
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 喝大了！
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 一名玩家醉酒。在夜晚时*，如果玩家们开始合唱，因你醉酒的玩家会恢复清醒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1443
+    officialId: 42_jishi
+    sourceHash: 225853f501ff519cc9e49de1e5640ce9e5b807dc
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - night
+    - drunk
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

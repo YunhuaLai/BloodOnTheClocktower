@@ -1,0 +1,72 @@
+id: s800
+englishName: item
+name: 焚膏继晷
+status: draft
+en: 焚膏继晷
+author: 纾
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/fengaojixu/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/fengaojixu/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r4111
+  - r4112
+  - r1672
+  - r004
+  - r007
+  - r026
+  - r052
+  - r086
+  - r097
+  - r066
+  - r3300
+  - r015
+  - r016
+  - r039
+  - r121
+  - r4113
+  - r4114
+  - r079
+  - r096
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r066
+    - r039
+    - r121
+    - r052
+    - r4114
+    - r4113
+    - r097
+    - r004
+    - r4112
+    - r1672
+    - r086
+    - r4111
+  other:
+    - r066
+    - r052
+    - r026
+    - r039
+    - r079
+    - r096
+    - r4114
+    - r007
+    - r4112
+    - r1672
+    - r086
+    - r4111

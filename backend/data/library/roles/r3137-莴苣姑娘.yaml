@@ -1,0 +1,100 @@
+id: r3137
+englishName: 4-th
+name: 莴苣姑娘
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/TYRxft5b/rapunzel-fairy-tale.png
+flavor: 然后他试图爬上我的头发……我的头发！像绳索一样！
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 免疫镇民
+  - 免疫外来者
+  - 免疫爪牙
+  - 免疫恶魔
+  - 免疫旅行者
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒莴苣姑娘，让他指向除他以外的一名玩家，并选择一个角色类型，为该玩家放置对应的免疫标记。如果该玩家属于该角色类型，莴苣姑娘可能死亡。
+ability: 每个夜晚*，你要选择除你以外的一名玩家和一个角色类型：他免受该角色类型玩家的侵害，直至下个黄昏。如果他就是该角色类型，你可能会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3137
+    officialId: 6_fairy_tale_hugo
+    sourceHash: d3c43748312563dcf45f989e7c0fcc0f5e1fa05d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 信息型
+  termIds:
+    - night
+    - information
+    - death
+    - townsfolk
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

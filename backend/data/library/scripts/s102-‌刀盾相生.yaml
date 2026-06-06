@@ -1,0 +1,43 @@
+id: s102
+englishName: item
+name: ‌刀盾相生
+status: draft
+en: ‌刀盾相生
+author: 际尘
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/d6/4o21b0cng25i7c0m820z8tpoj4z53eo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/d6/4o21b0cng25i7c0m820z8tpoj4z53eo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r442
+  - r1082
+  - r015
+  - r069
+  - r315
+  - r610
+  - r689
+travellerIds: []
+fabledIds:
+  - r277
+  - r1083
+nightOrder:
+  first:
+    - r689
+    - r610
+    - r442
+  other:
+    - r689
+    - r610

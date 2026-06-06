@@ -1,0 +1,96 @@
+id: r3311
+englishName: caesar-fall-of-rome
+name: 凯撒
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/AlexS/Fall_of_Rome/caesar_fall_of_rome.png
+flavor: 我来，我见，我征服。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死于今日
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果有邪恶玩家今天白天被处决，凯撒指向两名玩家。否则：凯撒指向一名玩家。被选中的玩家死亡。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。首个邪恶玩家死于处决的当晚，你要额外选择一名玩家：他死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3311
+    officialId: caesar_fall_of_rome
+    sourceHash: f02fc0f8ac4b1d9b4688c1b8646e537478f31b83
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - execution
+    - death
+    - evil
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

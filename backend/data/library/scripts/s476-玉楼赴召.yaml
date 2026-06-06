@@ -1,0 +1,88 @@
+id: s476
+englishName: item
+name: 玉楼赴召
+status: draft
+en: 玉楼赴召
+author: 今夕何夕推理馆
+logo: https://i.postimg.cc/6q4Cfh4C/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/6q4Cfh4C/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r100
+  - r004
+  - r054
+  - r006
+  - r530
+  - r025
+  - r008
+  - r028
+  - r058
+  - r209
+  - r319
+  - r278
+  - r233
+  - r067
+  - r308
+  - r071
+  - r068
+  - r017
+  - r040
+  - r113
+  - r075
+  - r047
+  - r612
+  - r083
+  - r099
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r071
+    - r113
+    - r017
+    - r040
+    - r075
+    - r308
+    - r004
+    - r006
+    - r058
+    - r100
+    - r530
+    - r025
+  other:
+    - r017
+    - r028
+    - r008
+    - r075
+    - r113
+    - r071
+    - r047
+    - r083
+    - r099
+    - r612
+    - r040
+    - r308
+    - r068
+    - r278
+    - r233
+    - r006
+    - r054
+    - r058
+    - r209
+    - r530
+    - r025

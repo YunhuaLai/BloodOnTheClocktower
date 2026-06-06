@@ -3,7 +3,7 @@ englishName: kaka
 name: 怪咖
 type: traveller
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/deviant.png
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/deviant.png
 flavor: ''
 setup: false
 setupMeta:
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r739
-    officialId: kaka
+    officialId: '3_87'
     sourceHash: da3a957618eabd02ed3a1e69404ec1353d0af7ec
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 事件触发
   termIds:
@@ -48,8 +48,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: null
       event: null

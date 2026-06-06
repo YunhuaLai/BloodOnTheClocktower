@@ -1,0 +1,68 @@
+id: s836
+englishName: v4-zets
+name: '#兔子洞v4-Zets'
+status: draft
+en: '#兔子洞v4-Zets'
+author: Zets
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/tuzidong/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/tuzidong/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r100
+  - r006
+  - r140
+  - r007
+  - r055
+  - r062
+  - r057
+  - r088
+  - r060
+  - r009
+  - r012
+  - r119
+  - r014
+  - r075
+  - r078
+  - r042
+  - r082
+  - r095
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r088
+    - r095
+    - r078
+    - r075
+    - r097
+    - r006
+    - r140
+    - r100
+  other:
+    - r088
+    - r075
+    - r082
+    - r095
+    - r042
+    - r009
+    - r006
+    - r007
+    - r055
+    - r062
+    - r140

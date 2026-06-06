@@ -1,0 +1,104 @@
+id: r2639
+englishName: 4-goosegooseduck
+name: 模仿者
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/7PNRK5hH/balaclava-1.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 是模仿者
+  - 醉酒
+remindersGlobal: []
+firstNightReminder: >-
+  唤醒模仿者，让他指向一名玩家。如果那名玩家属于善良阵营，向模仿者展示“你是”提示卡，并展示那名玩家的角色标记。将模仿者的角色标记替换为那名玩家的角色标记，并为他放置是模仿者标记。否则：向模仿者展示“你是”提示卡，并展示任意角色标记，并为他放置是醉酒标记。
+otherNightReminder: ''
+ability: 在你的首个夜晚，你要选择一名玩家：如果他是善良玩家，你变为他的角色。如果他是邪恶玩家，你醉酒。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2639
+    officialId: copycat
+    sourceHash: d3b74218b5a1ffe60c69d18ddb2c24b9bd023508
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - drunk
+    - information
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: role_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_role
+        roleType: null
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 身份
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

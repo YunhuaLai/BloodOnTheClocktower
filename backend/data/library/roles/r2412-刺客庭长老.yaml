@@ -1,0 +1,95 @@
+id: r2412
+englishName: af69274d-ca70-4e07-9e61-db8fdbe8f165
+name: 刺客庭长老
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/20_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 标记状态
+  - 上限+1
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 夜晚*，可以选择一名玩家获得标记状态，当该玩家发动技能时，生效前将其击杀。
+ability: 每局游戏限一次，夜晚*，你可以选择一名玩家：在他发动能力前，他死亡。如果白天没有任何玩家死亡，增加一次使用机会。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2412
+    officialId: af69274d-ca70-4e07-9e61-db8fdbe8f165
+    sourceHash: b708556d16182b9e743bea06285b7830acd5e38b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - death
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,119 @@
+id: r1804
+englishName: 25-nizhuancaipan
+name: 甘苦交响乐
+type: fabled
+edition: custom
+image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/180px-Bootlegger.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 是厨师
+  - 是贵族
+  - 是风水师
+  - 是共情者
+  - 是筑梦师
+  - 是村夫
+  - 是引路人
+  - 是香料商
+  - 是追猎者
+  - 是车夫
+  - 是女裁缝
+  - 是茶艺师
+  - 是食人族
+  - 是告密者
+  - 是魔像
+  - 是月之子
+  - 是酒鬼
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  游戏开始前说书人会公开宣布，本局游戏是否采用该规则。[玩家不会抽到邪恶角色]由说书人决定哪几名玩家是对应初始配置数目的邪恶角色，这几位玩家会被其他玩家当作对应的邪恶角色及其阵营，全程由说书人代替这几名邪恶玩家进行操作，所有玩家的获胜条件为所有“是恶魔”的玩家死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1804
+    officialId: 25_nizhuancaipan
+    sourceHash: f51c98ed4f94d4705dbb44e6dd85d6751033b936
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 信息型
+  termIds:
+    - setup
+    - information
+    - death
+    - alignment
+    - evil
+    - demon
+    - storyteller
+    - fabled
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_death
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_boolean
+        question: demon_check
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

@@ -33,7 +33,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r378
-    officialId: lurker
+    officialId: '20827_8701'
     sourceHash: d2cf2cd0220089956bef98b07ffa272861baeb02
     sourceHashFields:
       - ability
@@ -57,7 +57,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

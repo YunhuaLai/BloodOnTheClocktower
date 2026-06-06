@@ -1,0 +1,86 @@
+id: s349
+englishName: item
+name: 达摩计划
+status: draft
+en: 达摩计划
+author: Ben & Jams
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f2/jvk27mtymke8wf2lgff54d6ft051aqr.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f2/jvk27mtymke8wf2lgff54d6ft051aqr.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r004
+  - r009
+  - r010
+  - r011
+  - r029
+  - r059
+  - r049
+  - r133
+  - r140
+  - r142
+  - r091
+  - r214
+  - r016
+  - r037
+  - r070
+  - r159
+  - r017
+  - r019
+  - r077
+  - r121
+  - r046
+  - r047
+  - r099
+  - r136
+travellerIds:
+  - r129
+  - r126
+  - r122
+  - r739
+  - r123
+fabledIds:
+  - r1038
+nightOrder:
+  first:
+    - r059
+    - r121
+    - r017
+    - r136
+    - r001
+    - r004
+    - r049
+    - r140
+    - r142
+    - r133
+  other:
+    - r123
+    - r059
+    - r017
+    - r214
+    - r099
+    - r046
+    - r047
+    - r136
+    - r029
+    - r037
+    - r070
+    - r009
+    - r159
+    - r140
+    - r142
+    - r133

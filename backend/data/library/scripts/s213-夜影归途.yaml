@@ -1,0 +1,81 @@
+id: s213
+englishName: item
+name: 夜影归途
+status: draft
+en: 夜影归途
+author: 圣光喜
+logo: https://free.picui.cn/free/2025/12/15/693faa0da6c26.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/15/693faa0da6c26.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r048
+  - r442
+  - r054
+  - r209
+  - r057
+  - r597
+  - r028
+  - r029
+  - r229
+  - r091
+  - r278
+  - r214
+  - r015
+  - r036
+  - r908
+  - r186
+  - r040
+  - r020
+  - r074
+  - r042
+  - r021
+  - r079
+  - r082
+  - r045
+travellerIds:
+  - r583
+fabledIds:
+  - r1547
+nightOrder:
+  first:
+    - r040
+    - r074
+    - r045
+    - r023
+    - r048
+    - r597
+    - r442
+  other:
+    - r028
+    - r214
+    - r074
+    - r020
+    - r229
+    - r021
+    - r045
+    - r079
+    - r082
+    - r042
+    - r040
+    - r029
+    - r036
+    - r023
+    - r278
+    - r054
+    - r597
+    - r209

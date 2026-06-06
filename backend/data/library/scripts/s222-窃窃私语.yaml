@@ -1,0 +1,52 @@
+id: s222
+englishName: item
+name: 窃窃私语
+status: draft
+en: 窃窃私语
+author: The Pandemonium Institute
+logo: https://oss.gstonegames.com/static/image/team/202206/c_8013445915561_50d8c906.jpg
+description: >-
+  来自于官方第四个大型剧本《游园惊梦》的利维坦虽然早就被设计了出来，但是却因为后续剧本的长期测试而难以在测试人员之外的玩家群体中带来乐趣。因此在一个闲暇的午后，几位设计师闲聊时决定要为利维坦这个有趣的恶魔设计一个专门的小型剧本，经过一段时间的测试和修改，这个逻辑缜密，受人喜爱的小型剧本就诞生了。<br><br>一开始此剧本的难度被定为5级，不过随着《凶宅魅影》的逐渐完善，Steven直言没有一个剧本能比我的《凶宅》难，于是《窃窃私语》的难度便下调为了4级。
+townsfolkName: 镇民
+additional:
+  - 剧本介绍: 我把这个剧本推荐给擅长逻辑，喜欢和平，积极探索可能性的玩家，值得一提的是，此剧本对于说书人的要求极高，由于渔夫，学者，追忆者这样高自由度的角色能力，平衡性的把控非常考验说书人的水平！
+level: 官方剧本
+mood: ''
+text: >-
+  来自于官方第四个大型剧本《游园惊梦》的利维坦虽然早就被设计了出来，但是却因为后续剧本的长期测试而难以在测试人员之外的玩家群体中带来乐趣。因此在一个闲暇的午后，几位设计师闲聊时决定要为利维坦这个有趣的恶魔设计一个专门的小型剧本，经过一段时间的
+image: https://oss.gstonegames.com/static/image/team/202206/c_8013445915561_50d8c906.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 我把这个剧本推荐给擅长逻辑，喜欢和平，积极探索可能性的玩家，值得一提的是，此剧本对于说书人的要求极高，由于渔夫，学者，追忆者这样高自由度的角色能力，平衡性的把控非常考验说书人的水平！
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r057
+  - r060
+  - r140
+  - r088
+  - r089
+  - r091
+  - r039
+  - r067
+  - r078
+  - r641
+  - r384
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r039
+    - r088
+    - r078
+    - r140
+    - r384
+  other:
+    - r088
+    - r039
+    - r140
+    - r384

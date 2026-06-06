@@ -1,0 +1,88 @@
+id: r2383
+englishName: shijiniangniang
+name: 石矶娘娘
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/jc3635/NeZhaNaoHai/22_nezhanaohai.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 是石矶娘娘
+  - 能量1
+  - 能量2
+  - 能量3
+  - 能量4
+firstNightReminder: 根据石矶娘娘的能量数值，告知石矶娘娘获得了对应的角色能力。
+otherNightReminder: 根据石矶娘娘的能量数值，告知石矶娘娘获得了对应的角色能力。
+ability: 当你的能量是1/2/3/4时，分别获得一个不在场的镇民/外来者/爪牙/恶魔能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2383
+    officialId: shijiniangniang
+    sourceHash: 8fdbb849eadf4a8623481bd0ac3b42b8dca8055d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - townsfolk
+    - outsider
+    - minion
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

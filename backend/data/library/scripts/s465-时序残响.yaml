@@ -1,0 +1,87 @@
+id: s465
+englishName: item
+name: 时序残响
+status: draft
+en: 时序残响
+author: 张顺风
+logo: https://i.postimg.cc/MHrz0C7h/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/MHrz0C7h/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r108
+  - r048
+  - r049
+  - r101
+  - r005
+  - r597
+  - r087
+  - r054
+  - r056
+  - r229
+  - r057
+  - r134
+  - r091
+  - r015
+  - r111
+  - r214
+  - r016
+  - r042
+  - r018
+  - r609
+  - r113
+  - r047
+  - r114
+  - r103
+  - r045
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r113
+    - r101
+    - r103
+    - r609
+    - r045
+    - r005
+    - r111
+    - r048
+    - r049
+    - r108
+    - r597
+    - r087
+    - r134
+    - r018
+  other:
+    - r101
+    - r609
+    - r111
+    - r113
+    - r229
+    - r045
+    - r047
+    - r103
+    - r114
+    - r042
+    - r214
+    - r005
+    - r054
+    - r056
+    - r597
+    - r087
+    - r134
+    - r018

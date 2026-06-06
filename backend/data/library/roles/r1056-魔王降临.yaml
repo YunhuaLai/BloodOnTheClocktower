@@ -1,0 +1,93 @@
+id: r1056
+englishName: 24manbaout
+name: 魔王降临
+type: fabled
+edition: custom
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/6/64/crfgdfhtg3y6ao8vcbbg9q4t87857pe.png/1200px-%E4%BC%A0%E5%A5%87%E8%A7%92%E8%89%B2_%E9%AD%94%E7%8E%8B%E9%99%8D%E4%B8%B4_Rocky.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 魔王印记
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 一名善良玩家初始持有魔王印记，印记持有者可能会被视为邪恶阵营、爪牙角色或恶魔角色。杀死或提名并处决该玩家会夺取魔王印记。当恶魔持有魔王印记时，他会额外获得一个爪牙能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1056
+    officialId: 24manbaout
+    sourceHash: a9597bb2d529af2aac07d59248868cfdf6ce7305
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 事件触发
+  termIds:
+    - nomination
+    - execution
+    - alignment
+    - good
+    - evil
+    - minion
+    - demon
+    - fabled
+  abilityPattern: nomination_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: on_nomination
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_nomination
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

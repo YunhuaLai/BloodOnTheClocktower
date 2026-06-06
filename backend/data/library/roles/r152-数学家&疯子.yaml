@@ -3,7 +3,7 @@ englishName: mathematician-lunatic-jinx
 name: 数学家&疯子
 type: a jinxed
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/mathematician.png
+image: https://clocktower-wiki.gstonegames.com/images/thumb/0/06/Mathematician.png/300px-Mathematician.png
 flavor: ''
 setup: false
 setupMeta:
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r152
-    officialId: mathematician-lunatic-jinx
+    officialId: 0.12_meta
     sourceHash: 233525cbcd84f809051e3e67f9e6e998b9c6fefb
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 信息型
   termIds:
@@ -50,8 +50,8 @@ abilityData:
   abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: passive
       event: null

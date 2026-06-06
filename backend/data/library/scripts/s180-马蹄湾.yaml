@@ -1,0 +1,92 @@
+id: s180
+englishName: item
+name: 马蹄湾
+status: draft
+en: 马蹄湾
+author: Leon
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f1/h90djzzep89kun437h3sppc26hiryne.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/f/f1/h90djzzep89kun437h3sppc26hiryne.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1407
+  - r1388
+  - r1408
+  - r190
+  - r275
+  - r1409
+  - r462
+  - r1410
+  - r1411
+  - r052
+  - r054
+  - r049
+  - r334
+  - r070
+  - r1412
+  - r1413
+  - r564
+  - r107
+  - r074
+  - r641
+  - r121
+  - r1414
+  - r801
+  - r096
+  - r1415
+  - r1416
+  - r1417
+travellerIds:
+  - r1418
+  - r128
+  - r132
+  - r740
+fabledIds:
+  - r104
+  - r348
+nightOrder:
+  first:
+    - r128
+    - r121
+    - r052
+    - r074
+    - r107
+    - r1415
+    - r1388
+    - r1407
+    - r049
+  other:
+    - r1412
+    - r1414
+    - r052
+    - r074
+    - r107
+    - r1413
+    - r096
+    - r1416
+    - r1417
+    - r1415
+    - r1410
+    - r070
+    - r1407
+    - r1388
+    - r054
+    - r190
+    - r275
+    - r1408
+    - r1411
+    - r132
+    - r128

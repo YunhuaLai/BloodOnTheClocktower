@@ -1,0 +1,85 @@
+id: s127
+englishName: v2
+name: 醉梦龙庭v2
+status: draft
+en: 醉梦龙庭v2
+author: 泽度哥摧毁停车场
+logo: https://www.bloodstar.xyz/p/westwind/ZMLT/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/westwind/ZMLT/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r048
+  - r1193
+  - r049
+  - r1194
+  - r025
+  - r053
+  - r052
+  - r008
+  - r056
+  - r210
+  - r060
+  - r1195
+  - r1196
+  - r067
+  - r015
+  - r070
+  - r072
+  - r1197
+  - r076
+  - r075
+  - r020
+  - r1198
+  - r082
+  - r083
+  - r1199
+travellerIds: []
+fabledIds:
+  - r1192
+  - r118
+nightOrder:
+  first:
+    - r052
+    - r075
+    - r1197
+    - r1193
+    - r049
+    - r048
+    - r210
+    - r1194
+    - r025
+    - r053
+  other:
+    - r1196
+    - r052
+    - r008
+    - r075
+    - r076
+    - r1197
+    - r020
+    - r1198
+    - r1199
+    - r082
+    - r083
+    - r070
+    - r1195
+    - r210
+    - r1193
+    - r056
+    - r1194
+    - r025
+    - r053

@@ -1,0 +1,100 @@
+id: r2395
+englishName: 3b3004a9-8cb8-4933-9ed6-7812796661b6
+name: 钟楼管理员
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/poi4399/7759/_7759.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 发现目标
+  - 拜访灯塔
+remindersGlobal: []
+firstNightReminder: 在你的首个夜晚，你会得知你与距你最近的爪牙之间的玩家数量
+otherNightReminder: 每个夜晚*，你会得知当晚有多少名玩家将你选为能力目标。
+ability: 在你的首个夜晚，你会得知你与爪牙之间最近的距离。之后的每个夜晚*，你会得知当晚有多少名玩家选择过你。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2395
+    officialId: 3b3004a9-8cb8-4933-9ed6-7812796661b6
+    sourceHash: e505c6c1306d30bd936e5083f12adcd71571b43b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - townsfolk
+    - minion
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: distance
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

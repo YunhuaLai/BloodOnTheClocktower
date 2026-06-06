@@ -3,9 +3,9 @@ englishName: sxg
 name: 石像鬼
 type: outsider
 edition: custom
-image: https://www.bloodstar.xyz/p/hatsukisakana/drg/6_drg.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/drunk.png
 flavor: ''
-setup: false
+setup: true
 setupMeta:
   randomAssignable: false
   tokenRequired: true
@@ -24,18 +24,17 @@ setupMeta:
 reminders: []
 remindersGlobal:
   - 是石像鬼
-  - 邪恶
 firstNightReminder: ''
-otherNightReminder: 如果目标死亡，唤醒石像鬼以告知他转为邪恶阵营。
-ability: 你以为你是一个在场的镇民角色，但其实你不是。如果该镇民死亡，你在当晚转变为对立阵营。
+otherNightReminder: ''
+ability: 你不知道你是酒鬼。你以为你是一个镇民角色，但其实你不是。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r763
-    officialId: sxg
-    sourceHash: 36fd04b5afcf2d4ef89d9c5503a910c2e70329ce
+    officialId: woheduolema111
+    sourceHash: 95904dc4495f344b915ffaf64fa5558767114b86
     sourceHashFields:
       - ability
       - type
@@ -50,14 +49,12 @@ abilityData:
     - 每晚
   termIds:
     - night
-    - death
-    - alignment
     - townsfolk
     - outsider
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night
@@ -66,7 +63,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: death_or_execution_effect
+      - kind: setup_modifier
+        adjustments: []
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

@@ -1,0 +1,48 @@
+id: s867
+englishName: item
+name: 荧惑守心-素履行人
+status: draft
+en: 荧惑守心-素履行人
+author: 素履行人
+logo: https://www.helloimg.com/i/2025/03/20/67db10040767a.png
+description: 荧惑守心
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 荧惑守心
+image: https://www.helloimg.com/i/2025/03/20/67db10040767a.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 荧惑守心
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r039
+  - r016
+  - r071
+  - r135
+  - r018
+  - r019
+  - r121
+  - r078
+  - r929
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r071
+    - r039
+    - r121
+    - r078
+    - r018
+    - r307
+  other:
+    - r039
+    - r929
+    - r018

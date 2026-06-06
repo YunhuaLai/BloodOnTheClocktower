@@ -1,0 +1,84 @@
+id: r2030
+englishName: 13-blackout
+name: 雪人
+type: outsider
+edition: custom
+image: https://www.bloodstar.xyz/p/humlet/FRY7-9/_fry79.png
+flavor: 我本融于人群，如雪落无声。若恶魔识破这雪白身躯，我愿替他承受灼烧般的处决。只是…若白昼不见审判，我们终将在永恒的寒冬中一同消逝。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 已被猜测
+  - 被猜中
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每局游戏限一次，恶魔可以公开猜测你是雪人，如果猜中，当天他被处决时你会代替他被处决。如果白天没人被处决，你的阵营落败。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2030
+    officialId: _fry79
+    sourceHash: b66ea1b45688b8b8cf90923cb62b09166d70c4b7
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+  termIds:
+    - day
+    - first-night
+    - execution
+    - alignment
+    - outsider
+    - demon
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

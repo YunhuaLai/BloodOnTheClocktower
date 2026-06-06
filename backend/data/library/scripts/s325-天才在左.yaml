@@ -1,0 +1,89 @@
+id: s325
+englishName: item
+name: 天才在左
+status: draft
+en: 天才在左
+author: 清清Jungle
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/a/ac/m1jpn0kpw58y6i5e9wj50nbltp9xac5.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/a/ac/m1jpn0kpw58y6i5e9wj50nbltp9xac5.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r024
+  - r025
+  - r028
+  - r029
+  - r031
+  - r033
+  - r097
+  - r150
+  - r064
+  - r106
+  - r108
+  - r307
+  - r319
+  - r014
+  - r071
+  - r186
+  - r111
+  - r041
+  - r093
+  - r113
+  - r237
+  - r046
+  - r047
+  - r096
+travellerIds:
+  - r129
+  - r131
+  - r123
+  - r132
+  - r740
+fabledIds:
+  - r1738
+  - r1038
+  - r1739
+nightOrder:
+  first:
+    - r071
+    - r113
+    - r024
+    - r041
+    - r093
+    - r097
+    - r064
+    - r111
+    - r108
+    - r307
+    - r025
+  other:
+    - r132
+    - r123
+    - r024
+    - r028
+    - r041
+    - r093
+    - r111
+    - r113
+    - r150
+    - r046
+    - r047
+    - r096
+    - r237
+    - r029
+    - r031
+    - r064
+    - r025

@@ -1,0 +1,78 @@
+id: s585
+englishName: item
+name: 只若初见
+status: draft
+en: 只若初见
+author: 海雾和他最棒的玩家们
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/93/ntit068wyrpfdoc2up812h83fw4w0ff.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/9/93/ntit068wyrpfdoc2up812h83fw4w0ff.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r006
+  - r008
+  - r023
+  - r024
+  - r025
+  - r028
+  - r033
+  - r058
+  - r089
+  - r090
+  - r334
+  - r106
+  - r016
+  - r037
+  - r119
+  - r092
+  - r041
+  - r042
+  - r077
+  - r121
+  - r302
+  - r021
+  - r141
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r024
+    - r141
+    - r302
+    - r041
+    - r003
+    - r006
+    - r023
+    - r058
+    - r092
+    - r025
+  other:
+    - r024
+    - r302
+    - r028
+    - r008
+    - r041
+    - r021
+    - r141
+    - r042
+    - r037
+    - r023
+    - r090
+    - r006
+    - r058
+    - r025

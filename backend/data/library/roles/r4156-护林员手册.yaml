@@ -1,0 +1,84 @@
+id: r4156
+englishName: i47nfiph
+name: 护林员手册
+type: fabled
+edition: custom
+image: https://s2.loli.net/2025/05/29/mRFsT3nalwXMQNp.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  每个夜晚半兽人的能力只会生效一次，相同能力玩家的行动顺序会由说书人决定。如果场上存在多个拥有半兽人能力的玩家，只会有一名玩家被视为邪恶阵营。如果有玩家通过半兽人的能力成功杀死了痢蛭的宿主，那名玩家会成为新的宿主。暴风捕手必定在场，只会宣布保护半兽人或赏金猎人，并会在游戏最后一天离场。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4156
+    officialId: i47nfiph
+    sourceHash: 2b8b85a5fce531670adc7ad9db661cc620d5f216
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 被动
+  termIds:
+    - night
+    - death
+    - protected
+    - alignment
+    - evil
+    - storyteller
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

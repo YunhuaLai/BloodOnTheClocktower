@@ -1,0 +1,100 @@
+id: r1689
+englishName: shabalothbutton
+name: 广寒灵
+type: demon
+edition: custom
+image: https://i.postimg.cc/VN2mccsr/6.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 错误信息
+  - 累计处决
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 让广寒灵选择一名玩家，他死亡。拥有月桂与折桂能力的玩家会获得错误信息。
+ability: '每个夜晚*，你要选择一名玩家：他死亡。拥有月宫和折桂能力的善良玩家的能力会产生错误信息，如果多于两名拥有月宫或者折桂能力的玩家被处决，邪恶阵营获胜。 '
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1689
+    officialId: shabalothbutton
+    sourceHash: babd60bcb051811e34c216d804885894fa0b4bfb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - information
+    - execution
+    - death
+    - alignment
+    - good
+    - evil
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

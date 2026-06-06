@@ -1,0 +1,107 @@
+id: r3737
+englishName: babysitter-halloween
+name: 辣手保姆
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/SeaBound/Halloween/babysitter_halloween.png
+flavor: No TV after eight!
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 保护
+  - 使用能力
+remindersGlobal: []
+firstNightReminder: 辣手保姆选择一名玩家。那名玩家中毒但不会死亡。
+otherNightReminder: 辣手保姆可以选择一名玩家。那名玩家中毒但不会死亡。之前选择的玩家恢复健康但会死亡。
+ability: 在你的首个夜晚，你要选择一名善良玩家：他中毒但不会死亡。每局游戏限一次，在夜晚时，你可以选择一名与之前不同的善良玩家：他中毒但不会死亡，但你之前选择的玩家恢复健康但会死亡。如果小于等于五名玩家存活，你失去此能力。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3737
+    officialId: babysitter_halloween
+    sourceHash: 44197a2a98c897c7f50d9496bac14d2a1a20132a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - death
+    - alive
+    - good
+    - minion
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

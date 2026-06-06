@@ -1,0 +1,89 @@
+id: s866
+englishName: item
+name: 熊出没
+status: draft
+en: 熊出没
+author: 双齐
+logo: https://s2.loli.net/2025/05/29/RZAloOBCs8Nqgrv.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://s2.loli.net/2025/05/29/RZAloOBCs8Nqgrv.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r097
+  - r049
+  - r139
+  - r005
+  - r025
+  - r150
+  - r059
+  - r029
+  - r319
+  - r060
+  - r155
+  - r090
+  - r091
+  - r069
+  - r068
+  - r036
+  - r119
+  - r074
+  - r041
+  - r017
+  - r040
+  - r077
+  - r083
+  - r141
+  - r136
+travellerIds:
+  - r583
+fabledIds:
+  - r158
+  - r104
+  - r118
+  - r4156
+nightOrder:
+  first:
+    - r059
+    - r155
+    - r141
+    - r017
+    - r040
+    - r041
+    - r074
+    - r136
+    - r097
+    - r005
+    - r049
+    - r139
+    - r025
+  other:
+    - r583
+    - r059
+    - r017
+    - r041
+    - r074
+    - r150
+    - r083
+    - r141
+    - r136
+    - r040
+    - r029
+    - r036
+    - r068
+    - r090
+    - r005
+    - r139
+    - r025

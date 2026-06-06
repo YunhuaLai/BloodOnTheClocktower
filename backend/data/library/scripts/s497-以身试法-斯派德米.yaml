@@ -1,0 +1,82 @@
+id: s497
+englishName: item
+name: 以身试法-斯派德米
+status: draft
+en: 以身试法-斯派德米
+author: 斯派德米
+logo: https://img.picui.cn/free/2025/03/28/67e647a926b39.png
+description: 以身试法
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 以身试法
+image: https://img.picui.cn/free/2025/03/28/67e647a926b39.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 以身试法
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r307
+  - r005
+  - r053
+  - r054
+  - r109
+  - r230
+  - r059
+  - r232
+  - r029
+  - r091
+  - r033
+  - r110
+  - r015
+  - r016
+  - r036
+  - r098
+  - r017
+  - r040
+  - r041
+  - r074
+  - r079
+  - r635
+  - r083
+  - r241
+travellerIds: []
+fabledIds:
+  - r348
+nightOrder:
+  first:
+    - r059
+    - r098
+    - r017
+    - r040
+    - r041
+    - r074
+    - r001
+    - r005
+    - r307
+    - r053
+  other:
+    - r059
+    - r017
+    - r041
+    - r074
+    - r109
+    - r079
+    - r083
+    - r635
+    - r241
+    - r040
+    - r029
+    - r036
+    - r005
+    - r232
+    - r054
+    - r230
+    - r053

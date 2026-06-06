@@ -1,0 +1,84 @@
+id: s708
+englishName: item
+name: 如临大敌
+status: draft
+en: 如临大敌
+author: 叮当&蓝铃兰
+logo: https://free.picui.cn/free/2025/12/10/6939093001c7f.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/10/6939093001c7f.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r006
+  - r025
+  - r027
+  - r028
+  - r055
+  - r057
+  - r060
+  - r140
+  - r150
+  - r134
+  - r087
+  - r597
+  - r3929
+  - r013
+  - r015
+  - r038
+  - r347
+  - r040
+  - r020
+  - r076
+  - r120
+  - r082
+  - r099
+  - r114
+travellerIds: []
+fabledIds:
+  - r3933
+  - r3935
+  - r104
+nightOrder:
+  first:
+    - r040
+    - r003
+    - r006
+    - r013
+    - r140
+    - r597
+    - r087
+    - r134
+    - r025
+  other:
+    - r076
+    - r027
+    - r028
+    - r020
+    - r150
+    - r082
+    - r099
+    - r114
+    - r040
+    - r3929
+    - r006
+    - r013
+    - r055
+    - r140
+    - r597
+    - r087
+    - r134
+    - r025

@@ -4,8 +4,8 @@ type: townsfolk
 englishName: flowergirl
 ability: 每个夜晚*，你会得知在今天白天时是否有恶魔投过票。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/flowergirl.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/flowergirl.png
+flavor: “昨天，我的紫罗兰凋谢了。今天，我的罂粟花盛开了。”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -24,15 +24,15 @@ reminders:
   - 恶魔已投票
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 对她点头或摇头来示意今天白天是否有恶魔投过票。
+otherNightReminder: 唤醒卖花女孩，以点头或摇头告知她今天白天是否有恶魔参与投票。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r054
-    officialId: flowergirl
-    sourceHash: 47e538dfa06a8ca38ba04e37696769225277d46c
+    officialId: 2_xindalu
+    sourceHash: 6cdde6c2d7008298fa5787ed93ee14cc9890b5bd
     sourceHashFields:
       - ability
       - type
@@ -41,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 信息型
@@ -55,8 +57,8 @@ abilityData:
   abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

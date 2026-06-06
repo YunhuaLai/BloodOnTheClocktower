@@ -4,7 +4,7 @@ name: 幽灵
 type: minion
 edition: custom
 image: https://www.bloodstar.xyz/p/spdm/SpaceBound/19_spacebound.png
-flavor: ''
+flavor: 这些愚蠢的人类，试图与死者联系，打开通往帷幕之后那个地方的传送门……他们应该知道，当你打开这些大门时，你不知道谁—或者什么东西—会冲出来……
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r490
-    officialId: ghost
+    officialId: 19_spacebound
     sourceHash: 9c69fe0630a01799b22b1008d4e498a507f51b78
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

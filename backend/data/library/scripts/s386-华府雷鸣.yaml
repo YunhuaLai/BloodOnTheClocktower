@@ -1,0 +1,94 @@
+id: s386
+englishName: item
+name: 华府雷鸣
+status: draft
+en: 华府雷鸣
+author: 寒水
+logo: https://oss.gstonegames.com/data_file/clocktower/upload/1689787160_197011_6283.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://oss.gstonegames.com/data_file/clocktower/upload/1689787160_197011_6283.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r822
+  - r028
+  - r090
+  - r003
+  - r006
+  - r057
+  - r051
+  - r1470
+  - r005
+  - r059
+  - r091
+  - r115
+  - r039
+  - r015
+  - r069
+  - r070
+  - r609
+  - r040
+  - r078
+  - r121
+  - r076
+  - r079
+  - r080
+  - r568
+travellerIds:
+  - r1148
+  - r740
+  - r123
+  - r289
+  - r132
+fabledIds:
+  - r118
+  - r348
+  - r305
+nightOrder:
+  first:
+    - r059
+    - r822
+    - r039
+    - r121
+    - r609
+    - r078
+    - r040
+    - r003
+    - r005
+    - r006
+    - r023
+    - r1470
+    - r051
+  other:
+    - r123
+    - r132
+    - r822
+    - r059
+    - r609
+    - r028
+    - r076
+    - r039
+    - r079
+    - r568
+    - r080
+    - r040
+    - r070
+    - r090
+    - r023
+    - r005
+    - r006
+    - r051
+    - r1470

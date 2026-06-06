@@ -1,0 +1,79 @@
+id: s249
+englishName: item
+name: 侠客风云决
+status: draft
+en: 侠客风云决
+author: 泽渡
+logo: https://img2.imgtp.com/2024/04/23/5SGJQehL.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://img2.imgtp.com/2024/04/23/5SGJQehL.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r227
+  - r028
+  - r100
+  - r056
+  - r097
+  - r027
+  - r006
+  - r057
+  - r025
+  - r595
+  - r059
+  - r133
+  - r091
+  - r069
+  - r067
+  - r015
+  - r016
+  - r076
+  - r633
+  - r020
+  - r078
+  - r568
+  - r080
+  - r1610
+  - r045
+travellerIds: []
+fabledIds:
+  - r1592
+nightOrder:
+  first:
+    - r059
+    - r595
+    - r078
+    - r045
+    - r097
+    - r006
+    - r100
+    - r227
+    - r133
+    - r025
+  other:
+    - r059
+    - r595
+    - r027
+    - r028
+    - r076
+    - r020
+    - r045
+    - r1610
+    - r568
+    - r080
+    - r006
+    - r056
+    - r133
+    - r025

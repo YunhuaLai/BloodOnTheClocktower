@@ -1,0 +1,83 @@
+id: s179
+englishName: item
+name: 光与影
+status: draft
+en: 光与影
+author: 际尘
+logo: https://i.postimg.cc/4xwMyqs5/guang-yu-ying-LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/4xwMyqs5/guang-yu-ying-LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r1399
+  - r164
+  - r176
+  - r006
+  - r230
+  - r1400
+  - r055
+  - r028
+  - r057
+  - r1401
+  - r1402
+  - r155
+  - r1403
+  - r576
+  - r324
+  - r896
+  - r070
+  - r294
+  - r040
+  - r073
+  - r950
+  - r1404
+  - r1405
+  - r840
+  - r239
+  - r241
+travellerIds: []
+fabledIds:
+  - r1406
+nightOrder:
+  first:
+    - r155
+    - r1404
+    - r840
+    - r040
+    - r073
+    - r239
+    - r006
+    - r176
+    - r1403
+    - r164
+    - r1399
+  other:
+    - r324
+    - r950
+    - r1404
+    - r840
+    - r028
+    - r239
+    - r241
+    - r040
+    - r1401
+    - r070
+    - r1403
+    - r1400
+    - r006
+    - r164
+    - r055
+    - r230

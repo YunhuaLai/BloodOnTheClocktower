@@ -4,7 +4,7 @@ name: 宇航员
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz/p/spdm/SpaceBound/4_spacebound.png
-flavor: ''
+flavor: As long as you stay alive, anything's possible. You can even go to the stars...
 setup: false
 setupMeta:
   randomAssignable: true
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r483
-    officialId: cosmonaut
+    officialId: 4_spacebound
     sourceHash: cb8855d871b3a10a2a3833ee5913d5913cf75d3e
     sourceHashFields:
       - ability
@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 信息型
   termIds:
@@ -51,8 +51,8 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_day
       event: null

@@ -1,0 +1,84 @@
+id: s105
+englishName: item
+name: 宾朋满座
+status: draft
+en: 宾朋满座
+author: 天津7221染钟楼谜团俱乐部
+logo: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/e/e6/s064eivvbo48rmlynqvvjgd94q8bb06.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/e/e6/s064eivvbo48rmlynqvvjgd94q8bb06.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r195
+  - r1109
+  - r947
+  - r004
+  - r008
+  - r032
+  - r034
+  - r035
+  - r051
+  - r063
+  - r150
+  - r091
+  - r087
+  - r822
+  - r1110
+  - r016
+  - r159
+  - r186
+  - r1111
+  - r020
+  - r336
+  - r633
+  - r610
+  - r951
+  - r079
+  - r083
+  - r568
+travellerIds: []
+fabledIds:
+  - r1112
+  - r1113
+  - r1114
+nightOrder:
+  first:
+    - r336
+    - r822
+    - r610
+    - r195
+    - r004
+    - r087
+    - r051
+    - r1113
+  other:
+    - r1110
+    - r822
+    - r1109
+    - r008
+    - r020
+    - r150
+    - r951
+    - r083
+    - r079
+    - r568
+    - r610
+    - r063
+    - r159
+    - r051
+    - r087
+    - r947
+    - r1113

@@ -1,10 +1,11 @@
 id: r096
 name: 奥赫
-type: demon
+type: townsfolk
 englishName: ojo
-ability: 每个夜晚*，你要选择一个角色：他死亡。如果该角色不在场，则由说书人来决定谁会被你杀死。
+ability: 每个夜晚，你要选择一个角色：你会得知有多少个你选择过的角色死亡。
 edition: custom
-image: https://www.bloodstar.xyz/p/spdm/SpaceBound/25_spacebound.png
+image:
+  - https://i.postimg.cc/691sR26W/Icon-ojo-b.png
 flavor: ''
 setup: false
 setupMeta:
@@ -20,17 +21,18 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 死亡
+  - 失去能力
 remindersGlobal: []
-firstNightReminder: ''
-otherNightReminder: 唤醒奥赫，让他选择角色列表上的一个角色。该角色对应的玩家死亡，如果该角色不在场，替奥赫决定今晚谁会因为奥赫能力死亡。
+firstNightReminder: '1'
+otherNightReminder: '1'
 abilityData:
   schemaVersion: 2
+  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r096
-    officialId: ojo
-    sourceHash: ab69ffa97ce379ac8847936e6fce575fea35cf95
+    officialId: 5_fan
+    sourceHash: b5958533767e2736b29f4fa65fa63def032d9fdc
     sourceHashFields:
       - ability
       - type
@@ -39,6 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选角色
@@ -46,13 +50,12 @@ abilityData:
   termIds:
     - night
     - death
-    - demon
-    - storyteller
+    - townsfolk
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null

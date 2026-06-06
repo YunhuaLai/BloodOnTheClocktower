@@ -33,26 +33,71 @@ detail:
 englishName: midnight-oasis
 roleIds:
   - r049
-  - r061
-  - r064
-  - r065
-  - r066
-  - r069
-  - r071
-  - r077
-  - r081
-  - r050
+  - r140
   - r052
   - r057
+  - r088
+  - r061
+  - r064
   - r031
   - r089
-  - r091
-  - r088
   - r090
+  - r066
+  - r091
+  - r065
+  - r071
   - r015
+  - r069
   - r070
-  - r094
+  - r107
   - r017
   - r076
+  - r077
+  - r081
   - r080
+status: published
+author: Zets
+logo: https://www.helloimg.com/i/2024/10/30/6721d7f7957da.png
+description: ''
+townsfolkName: 镇民
+additional: []
+travellerIds:
+  - r739
+  - r131
+  - r132
+  - r124
+fabledIds:
+  - r127
   - r104
+  - r118
+nightOrder:
+  first:
+    - r124
+    - r066
+    - r088
+    - r061
+    - r017
+    - r052
+    - r107
+    - r064
+    - r071
+    - r049
+    - r140
+  other:
+    - r132
+    - r124
+    - r066
+    - r088
+    - r061
+    - r017
+    - r052
+    - r076
+    - r107
+    - r080
+    - r081
+    - r070
+    - r031
+    - r090
+    - r064
+    - r071
+    - r140

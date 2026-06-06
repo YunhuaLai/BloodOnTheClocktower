@@ -1,0 +1,81 @@
+id: s252
+englishName: item
+name: 转世重生
+status: draft
+en: 转世重生
+author: 努力努力
+logo: https://i.postimg.cc/4dd2Jfwr/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/4dd2Jfwr/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r227
+  - r005
+  - r006
+  - r052
+  - r056
+  - r027
+  - r028
+  - r029
+  - r090
+  - r115
+  - r065
+  - r823
+  - r091
+  - r015
+  - r039
+  - r214
+  - r347
+  - r119
+  - r020
+  - r235
+  - r121
+  - r040
+  - r042
+  - r079
+travellerIds: []
+fabledIds:
+  - r118
+  - r104
+nightOrder:
+  first:
+    - r115
+    - r039
+    - r121
+    - r052
+    - r040
+    - r235
+    - r002
+    - r005
+    - r006
+    - r227
+  other:
+    - r027
+    - r028
+    - r052
+    - r235
+    - r020
+    - r039
+    - r079
+    - r042
+    - r040
+    - r214
+    - r029
+    - r090
+    - r005
+    - r006
+    - r056

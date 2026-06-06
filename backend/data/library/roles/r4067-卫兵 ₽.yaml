@@ -1,0 +1,101 @@
+id: r4067
+englishName: guardian-bollockscharacters
+name: 卫兵 ₽
+type: outsider
+edition: custom
+image:
+  - https://www.bloodstar.xyz/p/0rig0nal/BollocksCharacters/guardian_bollockscharacters.png
+flavor: 不要哭泣，你此刻已很安全。只要有我的地方，任何东西都伤不了你。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 护卫
+remindersGlobal: []
+firstNightReminder: Wake the Guardian and point to a player. Mark that player with the "Guarding" reminder.
+otherNightReminder: ''
+ability: 在你的首个夜晚，你会得知一名玩家：如果他被处决，他的阵营落败，即使你已死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4067
+    officialId: guardian_bollockscharacters
+    sourceHash: 68a6a5bfe77b1652c2ec087eae8387e30b720f05
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - execution
+    - death
+    - alignment
+    - outsider
+  abilityPattern: team_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_team
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: team
+          type: team
+          label: 阵营
+          required: true
+          optionsSource: teams
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：阵营信息
+    templates: []

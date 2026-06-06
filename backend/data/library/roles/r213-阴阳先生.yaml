@@ -33,7 +33,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r213
-    officialId: yin-yang-sage
+    officialId: 4fd5eca9-b393-4ebd-83ec-dbc54976c2f5
     sourceHash: 2ff5964fd0070952f153281259804d20b8e630c0
     sourceHashFields:
       - ability
@@ -58,14 +58,14 @@ abilityData:
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: setup
       event: on_execution
       frequency: passive
     actor:
-      drivenBy: system
+      drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments: []

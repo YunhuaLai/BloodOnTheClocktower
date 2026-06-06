@@ -1,0 +1,100 @@
+id: r2857
+englishName: 4-nature
+name: 杂草
+type: townsfolk
+edition: custom
+image: https://www.bloodstar.xyz/p/Yez/nature/4_nature.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 复活
+  - 失去能力
+  - '+2'
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 唤醒杂草。杂草要么摇头表示不使用能力，要么指向一名已死亡的玩家。如果该玩家是镇民，将该玩家的角色标记替换成杂草，且在角色标记旁放置“复活”提示标记。如果该玩家不是镇民，在杂草的角色标记旁放置“+2”提示标记。
+ability: 每局游戏限一次，在夜晚时*，你可以选择一名死亡玩家：如果他是镇民，他复活并变成杂草；否则你会腐蚀+2。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2857
+    officialId: 4_nature
+    sourceHash: cf3e52281a446f2eaf2f291ce1f2a232972d670f
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - death
+    - townsfolk
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

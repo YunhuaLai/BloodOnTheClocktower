@@ -1,0 +1,102 @@
+id: r1635
+englishName: 73e3dfb9-8f22222222222222e-4405-9a62-13007e2e2a4d
+name: 破产商人
+type: outsider
+edition: custom
+image: https://www.helloimg.com/i/2024/09/14/66e46a04ef480.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 是破产商人
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 如果你“疯狂”地证明自己是某个镇民，那么当存活玩家小于等于5时，你可能会和恶魔交换阵营和角色，然后他失去能力，并仍然以为自己是邪恶的恶魔。【当你抱起黑猫，你白天可以秘密猜测谁是恶魔，如果你猜测正确，你和他交换阵营和角色。】
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1635
+    officialId: 73e3dfb9-8f22222222222222e-4405-9a62-13007e2e2a4d
+    sourceHash: 72913b1424adde66b622b36d8365b564152e6a67
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 主动选择
+  termIds:
+    - day
+    - alive
+    - alignment
+    - evil
+    - townsfolk
+    - outsider
+    - demon
+    - madness
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

@@ -4,7 +4,7 @@ name: 清洁工
 type: minion
 edition: custom
 image: https://i.postimg.cc/Px2BsbhL/image.png
-flavor: ''
+flavor: 清理血迹……清理内脏……清理血迹……清理内脏……清理血迹……清理内脏……
 setup: false
 setupMeta:
   randomAssignable: true
@@ -56,7 +56,7 @@ abilityData:
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: null
@@ -67,8 +67,6 @@ abilityData:
     operations:
       - kind: learn_team
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_execution
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null

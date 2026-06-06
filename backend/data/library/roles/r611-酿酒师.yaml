@@ -3,9 +3,9 @@ englishName: brewer
 name: 酿酒师
 type: minion
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_3356597694761_0a4b67e6.jpg
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/niangjiushi.png
 flavor: ''
-setup: true
+setup: false
 setupMeta:
   randomAssignable: true
   tokenRequired: true
@@ -21,8 +21,8 @@ setupMeta:
 reminders:
   - 微醺
 remindersGlobal: []
-firstNightReminder: 唤醒酿酒师，让其选择一个角色并给出该角色对应的信息形式。如果该角色在场，在对应的角色标记旁放置“微醺”提示标记。如有必要，记录下该信息形式作为备忘，但不要将这一信息展示给任何能查看魔典的玩家。
-otherNightReminder: 唤醒酿酒师，让其选择一个角色并给出该角色对应的信息形式。如果该角色在场，在对应的角色标记旁放置“微醺”提示标记。如有必要，记录下该信息形式作为备忘，但不要将这一信息展示给任何能查看魔典的玩家。
+firstNightReminder: 唤醒酿酒师，让其选择一个镇民角色并给出一个符合该角色信息格式的信息，当他下一次通过自身能力获取信息时，改为得知酿酒师给出的信息。
+otherNightReminder: 唤醒酿酒师，让其选择一个镇民角色并给出一个符合该角色信息格式的信息，当他下一次通过自身能力获取信息时，改为得知酿酒师给出的信息。
 ability: 每个夜晚，你要选择一个镇民角色：当他下一次通过自身能力获取信息时，改为得知你给出的信息。
 abilityData:
   schemaVersion: 2
@@ -30,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r611
-    officialId: brewer
-    sourceHash: b596bfbc2876e7b6c7c9c376b9598882032a1134
+    officialId: zniangiajisudaiohwiodhisoahdioashdk2h143on211
+    sourceHash: 245b9d30e403ae4f6add2166fd40c7ad10ac6070
     sourceHashFields:
       - ability
       - type
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -57,8 +57,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null
@@ -66,8 +66,6 @@ abilityData:
     actor:
       drivenBy: player
     operations:
-      - kind: setup_modifier
-        adjustments: []
       - kind: choose_role
         source: target
       - kind: learn_role

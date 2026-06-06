@@ -1,0 +1,80 @@
+id: s109
+englishName: item
+name: 无毒有偶
+status: draft
+en: 无毒有偶
+author: 际尘&SE
+logo: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/4/46/8x3edn50hwo2qrquu70b74f2s3riaxx.png/1598px-%E6%97%A0%E6%AF%92%E6%9C%89%E5%81%B6logo.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: >-
+  https://patchwiki.biligame.com/images/jbzlbwgwjcygf/thumb/4/46/8x3edn50hwo2qrquu70b74f2s3riaxx.png/1598px-%E6%97%A0%E6%AF%92%E6%9C%89%E5%81%B6logo.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r005
+  - r006
+  - r008
+  - r028
+  - r055
+  - r056
+  - r058
+  - r140
+  - r100
+  - r334
+  - r278
+  - r213
+  - r015
+  - r070
+  - r324
+  - r363
+  - r018
+  - r042
+  - r121
+  - r1146
+  - r021
+  - r083
+travellerIds: []
+fabledIds:
+  - r1145
+nightOrder:
+  first:
+    - r121
+    - r018
+    - r002
+    - r005
+    - r006
+    - r058
+    - r140
+    - r100
+  other:
+    - r324
+    - r1146
+    - r028
+    - r008
+    - r021
+    - r083
+    - r042
+    - r018
+    - r363
+    - r070
+    - r278
+    - r005
+    - r006
+    - r055
+    - r056
+    - r058
+    - r140

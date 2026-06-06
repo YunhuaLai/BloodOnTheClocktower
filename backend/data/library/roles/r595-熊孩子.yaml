@@ -3,7 +3,7 @@ englishName: brat
 name: 熊孩子
 type: townsfolk
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_6984587694761_17384eb3.jpg
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/xionghaizi.png
 flavor: ''
 setup: false
 setupMeta:
@@ -21,17 +21,17 @@ setupMeta:
 reminders:
   - 捣蛋
 remindersGlobal: []
-firstNightReminder: 唤醒熊孩子，让其选择一个镇民角色。如果该角色在场，在对应角色标记旁放置“捣蛋”提示标记。
-otherNightReminder: 移除上个夜晚放置的“捣蛋”提示标记。唤醒熊孩子，让其选择一个镇民角色。如果该角色在场，在对应角色标记旁放置“捣蛋”提示标记。
-ability: 每个夜晚，你要选择一个镇民角色：他的能力会产生错误信息，直到下个黄昏。
+firstNightReminder: 唤醒熊孩子，让他选择角色列表上的一个镇民角色，该角色会产生错误信息。
+otherNightReminder: 唤醒熊孩子，让他选择角色列表上的一个镇民角色，该角色会产生错误信息。
+ability: 每个夜晚，你要选择一个镇民角色：他们的能力会产生错误信息，直到下个黄昏。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r595
-    officialId: brat
-    sourceHash: a794f206d336307359863e220d74f3bb333c9778
+    officialId: yigechunshabidexiaoxuesheng111
+    sourceHash: 089dae6f8d74be070c39226abb82391fec31e94d
     sourceHashFields:
       - ability
       - type
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

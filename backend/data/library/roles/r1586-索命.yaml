@@ -1,0 +1,108 @@
+id: r1586
+englishName: 20084-6105
+name: 索命
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_4018687718661_4ddc539d.jpg
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 第二夜
+  - 第三夜
+  - 第四夜
+  - 第五夜
+  - 第六夜
+  - 第七夜
+remindersGlobal: []
+firstNightReminder: 唤醒该玩家，让他依次为后续夜晚选择目标玩家
+otherNightReminder: 唤醒该玩家，让他选择击杀或者自杀。如果他选择自杀，让他闭眼，说书人选择让谁变为新的邪恶索命，并唤醒目标玩家，告知身份阵营发生改变。
+ability: 首个夜晚，你为之后的每个夜晚选择两名不同且不重复的玩家。每个夜晚*，你可以选择：1.击杀当夜对应的玩家；2.全场游戏限一次，杀死自己使当夜对应的玩家之一变成新的邪恶索命，若你如此做，当夜对应的另一名玩家会得知有新的邪恶索命。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1586
+    officialId: '20084_6105'
+    sourceHash: 000b143e888db00b85e7f11f6d65d62eea7c909d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - evil
+    - demon
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

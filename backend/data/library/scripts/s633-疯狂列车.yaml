@@ -1,0 +1,87 @@
+id: s633
+englishName: item
+name: 疯狂列车
+status: draft
+en: 疯狂列车
+author: Arctem
+logo: https://i.postimg.cc/8k23CcB4/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/8k23CcB4/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r3070
+  - r3071
+  - r3072
+  - r3073
+  - r3074
+  - r3075
+  - r3076
+  - r3077
+  - r2645
+  - r3078
+  - r2642
+  - r3079
+  - r3080
+  - r3081
+  - r3082
+  - r3083
+  - r3084
+  - r3085
+  - r3086
+  - r3087
+  - r3088
+  - r3089
+  - r3090
+  - r3091
+  - r3092
+travellerIds:
+  - r311
+  - r3093
+  - r3094
+fabledIds: []
+nightOrder:
+  first:
+    - r311
+    - r3091
+    - r3087
+    - r3070
+    - r3071
+    - r3072
+    - r3074
+    - r3084
+    - r3073
+  other:
+    - r311
+    - r3093
+    - r3077
+    - r3080
+    - r3078
+    - r2645
+    - r2642
+    - r3079
+    - r3089
+    - r3090
+    - r3091
+    - r3092
+    - r3087
+    - r3072
+    - r3075
+    - r3076
+    - r3074
+    - r3084
+    - r3073
+    - r3083
+    - r3085

@@ -1,0 +1,83 @@
+id: r2515
+englishName: 18-xqxa
+name: 笑处藏刀
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/beizi/xqxa/18_xqxa.png
+flavor: “威权震主，势焰薰⼈，笑处藏⼑，毒性有如蜂虿。”
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 假活
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个夜晚第二个死亡的玩家被当作仍然存活。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2515
+    officialId: 18_xqxa
+    sourceHash: d5979ac418570d837f0c958d689244194ebada5b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 事件触发
+  termIds:
+    - night
+    - death
+    - alive
+    - minion
+  abilityPattern: death_trigger
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: on_death
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
+  abilityMeta:
+    pageType: event_triggered
+    phaseTiming: each_night
+    eventTiming: on_death
+    usagePattern: once_per_night
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

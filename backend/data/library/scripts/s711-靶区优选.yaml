@@ -1,0 +1,50 @@
+id: s711
+englishName: item
+name: 靶区优选
+status: draft
+en: 靶区优选
+author: Shadowqua
+logo: https://i.postimg.cc/6pD72FQk/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/6pD72FQk/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r057
+  - r054
+  - r008
+  - r058
+  - r035
+  - r011
+  - r070
+  - r072
+  - r017
+  - r075
+  - r047
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r017
+    - r075
+    - r058
+  other:
+    - r017
+    - r008
+    - r075
+    - r047
+    - r070
+    - r054
+    - r058

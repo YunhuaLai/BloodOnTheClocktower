@@ -5,7 +5,7 @@ englishName: snake-charmer
 ability: 每个夜晚，你要选择一名存活的玩家：如果你选中了恶魔，你和他交换角色和阵营，然后他中毒。
 edition: custom
 image: https://oss.gstonegames.com/data_file/clocktower/web/icons/snake_charmer.png
-flavor: ''
+flavor: 这位老爷……虽然我的烟斗是金色的，虽然我只要一首曲子就能驯服最狂野的灯神，但我只是一个卑贱的舞蛇人罢了，哎……听天由命吧。俗话说，人心不足蛇吞象。但不是我，这位老爷……真的不是我。
 setup: false
 setupMeta:
   randomAssignable: true
@@ -21,20 +21,17 @@ setupMeta:
   setupNotes: []
 reminders:
   - 中毒
-remindersGlobal:
-  - 舞蛇人
-firstNightReminder: >-
-  让舞蛇人选择一名玩家。如果舞蛇人选中了恶魔：展示“你是”信息标记和恶魔角色标记。用拇指向下代表他阵营变为邪恶。在魔典中交换舞蛇人和恶魔的角色标记。让原来的舞蛇人重新入睡。唤醒原来的恶魔。对老恶魔展示“你是”信息标记和舞蛇人角色标记，并用拇指向上代表他阵营变为善良。
-otherNightReminder: >-
-  让舞蛇人选择一名玩家。如果舞蛇人选中了恶魔：展示“你是”信息标记和恶魔角色标记。用拇指向下代表他阵营变为邪恶。在魔典中交换舞蛇人和恶魔的角色标记。让原来的舞蛇人重新入睡。唤醒原来的恶魔。对老恶魔展示“你是”信息标记和舞蛇人角色标记，并用拇指向上代表他阵营变为善良。
+remindersGlobal: []
+firstNightReminder: 唤醒舞蛇人，让他选择一名存活玩家。如果选中恶魔则执行角色和阵营的交换，并在舞蛇人入睡后通知旧恶魔角色变化。
+otherNightReminder: 唤醒舞蛇人，让他选择一名存活玩家。如果选中恶魔则执行角色和阵营的交换，并在舞蛇人入睡后通知旧恶魔角色变化。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r052
-    officialId: snake-charmer
-    sourceHash: dc0305fb379d2b1cc4ff0996294750ba40d51787
+    officialId: wocaishiemo12233223231232323
+    sourceHash: 0e8b829f81187008a6e2997db56c1705e20a99bc
     sourceHashFields:
       - ability
       - type
@@ -43,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -57,7 +56,7 @@ abilityData:
   abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night

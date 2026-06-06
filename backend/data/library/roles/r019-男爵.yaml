@@ -4,8 +4,8 @@ type: minion
 englishName: baron
 ability: 会有额外的外来者在场。[+2 外来者]
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/baron.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/baron.png
+flavor: Duck_Town
 setup: true
 setupMeta:
   randomAssignable: true
@@ -35,7 +35,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r019
-    officialId: baron
+    officialId: nanjueeeee111
     sourceHash: aa6c89c3a5d6ebc56c05f76356c30cd4af342967
     sourceHashFields:
       - ability

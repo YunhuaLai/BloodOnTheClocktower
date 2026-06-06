@@ -1,0 +1,98 @@
+id: r1372
+englishName: juhunguan
+name: 拘魂官
+type: demon
+edition: custom
+image: https://i.postimg.cc/WpSYGwWb/image.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 活尸
+remindersGlobal: []
+firstNightReminder: 唤醒拘魂官，让他选择一名玩家，该玩家死亡但被当作存活。
+otherNightReminder: 唤醒拘魂官，让他攻击一名玩家。如果有爪牙死亡，随后让他选择一名玩家，该玩家死亡但被当作存活。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名玩家，他死亡但被当作存活。如果有爪牙死亡，当晚你要选择一名玩家，他死亡但被当作存活。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1372
+    officialId: juhunguan
+    sourceHash: 141e0c7917527b24b60b5e9f54264fe30ae5f788
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - death
+    - alive
+    - minion
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -1,0 +1,98 @@
+id: r3126
+englishName: realitystone-avengers-v5
+name: 现实宝石
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/omarmotta008/Avengers_v5/realitystone_avengers_v5.png
+flavor: Reality is often disappointing. That is, it was. Now, reality can be whatever I want.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 现实宝石
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  The holder of the Reality Stone shows a 'No' or points to a character. If that character is not in play, the holder
+  becomes that character.
+ability: 每局游戏限一次，在夜晚时*，你可以选择一个镇民角色：如果这个角色不在场，你变成这个角色。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3126
+    officialId: realitystone_avengers_v5
+    sourceHash: 8c1c686ab3fa38def5391e3f8dba6b618c65cd77
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - townsfolk
+    - fabled
+  abilityPattern: manual_record
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_role
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

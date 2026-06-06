@@ -1,0 +1,92 @@
+id: s689
+englishName: item
+name: 地狱二重奏
+status: draft
+en: 地狱二重奏
+author: 钟楼剧本博物馆
+logo: https://i.postimg.cc/YSTBJdvP/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/YSTBJdvP/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r085
+  - r140
+  - r006
+  - r052
+  - r1250
+  - r026
+  - r057
+  - r060
+  - r030
+  - r022
+  - r063
+  - r1251
+  - r066
+  - r069
+  - r324
+  - r015
+  - r039
+  - r119
+  - r045
+  - r082
+  - r136
+  - r096
+  - r083
+  - r079
+travellerIds: []
+fabledIds:
+  - r127
+  - r118
+  - r3901
+  - r3902
+  - r3903
+  - r3904
+  - r3905
+  - r3906
+  - r3907
+nightOrder:
+  first:
+    - r066
+    - r039
+    - r1250
+    - r030
+    - r052
+    - r045
+    - r136
+    - r006
+    - r085
+    - r140
+    - r139
+  other:
+    - r324
+    - r066
+    - r030
+    - r052
+    - r039
+    - r026
+    - r045
+    - r079
+    - r082
+    - r083
+    - r096
+    - r136
+    - r063
+    - r1251
+    - r006
+    - r140
+    - r1250
+    - r139

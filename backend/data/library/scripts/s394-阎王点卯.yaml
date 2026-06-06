@@ -1,0 +1,86 @@
+id: s394
+englishName: item
+name: 阎王点卯
+status: draft
+en: 阎王点卯
+author: 钟楼剧本博物馆
+logo: https://i.postimg.cc/4NBprk3z/1-1.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/4NBprk3z/1-1.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r139
+  - r023
+  - r087
+  - r329
+  - r229
+  - r110
+  - r278
+  - r1292
+  - r1176
+  - r090
+  - r009
+  - r063
+  - r233
+  - r037
+  - r111
+  - r159
+  - r363
+  - r237
+  - r609
+  - r042
+  - r093
+  - r078
+  - r642
+  - r096
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r078
+    - r609
+    - r093
+    - r329
+    - r111
+    - r023
+    - r087
+    - r139
+    - r642
+  other:
+    - r609
+    - r329
+    - r093
+    - r111
+    - r229
+    - r083
+    - r096
+    - r642
+    - r042
+    - r237
+    - r037
+    - r363
+    - r023
+    - r009
+    - r063
+    - r159
+    - r278
+    - r090
+    - r233
+    - r1176
+    - r1292
+    - r087
+    - r139

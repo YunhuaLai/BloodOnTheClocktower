@@ -1,0 +1,98 @@
+id: s704
+englishName: v3
+name: 旁观者清v3
+status: draft
+en: 旁观者清v3
+author: 际尘&Lei
+logo: https://free.picui.cn/free/2025/12/10/693914882de34.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/10/693914882de34.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r023
+  - r002
+  - r003
+  - r005
+  - r025
+  - r140
+  - r056
+  - r026
+  - r028
+  - r008
+  - r057
+  - r089
+  - r319
+  - r015
+  - r013
+  - r067
+  - r014
+  - r040
+  - r042
+  - r075
+  - r840
+  - r021
+  - r045
+  - r080
+  - r082
+  - r3928
+  - r3929
+  - r1343
+  - r3930
+  - r3931
+  - r3932
+travellerIds:
+  - r1032
+fabledIds:
+  - r3933
+  - r3934
+nightOrder:
+  first:
+    - r1343
+    - r3928
+    - r3930
+    - r840
+    - r040
+    - r075
+    - r045
+    - r002
+    - r003
+    - r005
+    - r013
+    - r023
+    - r140
+    - r025
+  other:
+    - r3932
+    - r1343
+    - r840
+    - r028
+    - r008
+    - r075
+    - r026
+    - r021
+    - r045
+    - r082
+    - r080
+    - r042
+    - r040
+    - r3930
+    - r3929
+    - r023
+    - r005
+    - r013
+    - r056
+    - r140
+    - r025

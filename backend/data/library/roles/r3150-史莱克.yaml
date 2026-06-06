@@ -1,0 +1,113 @@
+id: r3150
+englishName: 25-fairy-tale-hugo
+name: 史莱克
+type: traveller
+edition: custom
+image: https://i.postimg.cc/KYgSJVw6/shrek-fairy-tale.png
+flavor: 有人曾经告诉我，世界将要转动。
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: traveller
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 我是史莱克
+  - 我是唐基
+remindersGlobal: []
+firstNightReminder: 如果史莱克没有打破疯狂，唤醒他，并让他选择一名玩家。该玩家在明天白天要“疯狂”地证明他是唐基。
+otherNightReminder: 如果史莱克没有打破疯狂，唤醒他，并让他选择一名玩家。该玩家在明天白天要“疯狂”地证明他是唐基。
+ability: 每个夜晚，如果你在游戏中“疯狂”地证明自己是史莱克（指电影角色），你要选择一名玩家：他在下个白天要“疯狂”地证明他是唐基（指电影角色），否则他不能投票。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3150
+    officialId: 25_fairy_tale_hugo
+    sourceHash: 2e0114142371816bafd7bb0b42818254e24a8eab
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - day
+    - night
+    - first-night
+    - vote
+    - madness
+    - traveler
+  abilityPattern: choose_player_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: choose_role
+        source: target
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 选择角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

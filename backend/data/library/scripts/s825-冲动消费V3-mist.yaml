@@ -1,0 +1,88 @@
+id: s825
+englishName: v3-mist
+name: 冲动消费V3-mist
+status: draft
+en: 冲动消费V3-mist
+author: mist
+logo: https://www.helloimg.com/i/2025/03/18/67d92fa358c6d.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.helloimg.com/i/2025/03/18/67d92fa358c6d.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r049
+  - r097
+  - r025
+  - r052
+  - r140
+  - r086
+  - r007
+  - r055
+  - r058
+  - r089
+  - r009
+  - r115
+  - r016
+  - r135
+  - r119
+  - r070
+  - r302
+  - r018
+  - r117
+  - r093
+  - r021
+  - r082
+  - r141
+travellerIds:
+  - r583
+fabledIds:
+  - r348
+  - r118
+  - r4120
+nightOrder:
+  first:
+    - r115
+    - r141
+    - r302
+    - r052
+    - r117
+    - r093
+    - r097
+    - r002
+    - r058
+    - r049
+    - r140
+    - r018
+    - r086
+    - r025
+  other:
+    - r583
+    - r302
+    - r052
+    - r117
+    - r093
+    - r021
+    - r082
+    - r141
+    - r070
+    - r009
+    - r007
+    - r055
+    - r058
+    - r140
+    - r018
+    - r086
+    - r025

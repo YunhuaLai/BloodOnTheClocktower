@@ -1,0 +1,85 @@
+id: r2906
+englishName: 17-the-favonius-mystery-de
+name: 雷萤术士
+type: minion
+edition: custom
+image: https://www.bloodstar.xyz/p/Jerry0906/The_favonius_Mystery_DE/17_the_favonius_mystery_de.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: minion
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+remindersGlobal: []
+firstNightReminder: 在一名非尘世执政玩家的角色标记旁放置「中毒」标记。如果带有「中毒」标记的玩家发起对善良玩家的提名或被善良玩家提名时，请将「中毒」标记移动到被提名的玩家角色标记旁边。
+otherNightReminder: 如果带有「中毒」标记的玩家发起对善良玩家的提名或被善良玩家提名时，请将「中毒」标记移动到被提名的玩家角色标记旁边。
+ability: 在你的首个夜晚，一名非尘世执政玩家中毒。当他提名善良玩家或被善良玩家提名时，该善良玩家中毒且上一位玩家恢复健康。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2906
+    officialId: 17_the_favonius_mystery_de
+    sourceHash: 97c578890bee692d1036c1b01a9777392ec34b69
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - nomination
+    - good
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

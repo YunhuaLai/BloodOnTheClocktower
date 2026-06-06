@@ -1,0 +1,85 @@
+id: r1706
+englishName: cc52d4f6-0693-46bb-89f5-bc33eab7428a
+name: 天子
+type: townsfolk
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/role_icon/custom/d_5828879077861_f168b5ad.jpg
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 驾崩
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  如果天子死亡，标记“驾崩”，让天子选择一名存活玩家，如果该玩家不是主演，向天子展示“你是”提示卡和那名玩家的角色标记，拇指向上代表他的阵营变为善良。交换他们的角色标记。唤醒新的天子，展示“你是”提示卡和天子角色标记，拇指向下代表他的阵营变为邪恶。
+ability: 饰反派。如果你死亡，当晚你要选择一名存活的玩家：如果他不是主演，你和他交换角色和阵营。[无搭档]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1706
+    officialId: 5a49ac51-6c8a-4aa7-881d-97434bf88f97
+    sourceHash: 4ade280a5f65f6c4d2e997dd7191b0d7bac1f7bb
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - alive
+    - alignment
+    - townsfolk
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: source_changed
+    confidence: 0.45
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

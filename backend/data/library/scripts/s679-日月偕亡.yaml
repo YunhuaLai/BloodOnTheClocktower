@@ -1,0 +1,82 @@
+id: s679
+englishName: item
+name: 日月偕亡
+status: draft
+en: 日月偕亡
+author: 闻人
+logo: https://i.postimg.cc/7h9FFDfM/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/7h9FFDfM/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r003
+  - r005
+  - r006
+  - r025
+  - r029
+  - r058
+  - r057
+  - r1292
+  - r229
+  - r530
+  - r307
+  - r209
+  - r015
+  - r308
+  - r016
+  - r072
+  - r020
+  - r042
+  - r121
+  - r611
+  - r096
+  - r240
+  - r082
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r121
+    - r611
+    - r308
+    - r003
+    - r004
+    - r005
+    - r006
+    - r058
+    - r307
+    - r530
+    - r025
+  other:
+    - r611
+    - r020
+    - r229
+    - r082
+    - r083
+    - r096
+    - r240
+    - r042
+    - r308
+    - r029
+    - r1292
+    - r005
+    - r006
+    - r058
+    - r209
+    - r530
+    - r025

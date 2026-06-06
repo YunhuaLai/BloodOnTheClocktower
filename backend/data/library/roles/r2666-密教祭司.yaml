@@ -1,0 +1,83 @@
+id: r2666
+englishName: cultpriest
+name: 密教祭司
+type: townsfolk
+edition: mia
+image: https://free.picui.cn/free/2025/11/28/69289784a8a72.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 密教祭司
+firstNightReminder: 让密教祭司与除混血深潜者外的其他爪牙互相认识，并得知邪神是谁。唤醒邪神，向他展示“这名玩家是”信息标记和密教祭司角色标记，然后指向密教祭司玩家。
+otherNightReminder: ''
+ability: 游戏开始时，你丧失理智且以为自己是一名爪牙。邪神知道你是什么角色。[+混血深潜者]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2666
+    officialId: cultpriest
+    sourceHash: 47eda91328869c31a4f46bd072f413a106b54e9e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 设置
+  termIds:
+    - setup
+    - first-night
+    - townsfolk
+    - minion
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: first_night
+      event: null
+      frequency: once
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

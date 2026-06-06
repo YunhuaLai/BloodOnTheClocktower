@@ -1,0 +1,82 @@
+id: r3348
+englishName: 16-idesofbloodbra1nchinese
+name: 兽王
+type: outsider
+edition: custom
+image: https://i.postimg.cc/ncnmktkb/兽王.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: outsider
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 野兽出逃
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果大于等于六名玩家存活时兽王死亡，一名玩家死亡，或者三名玩家负伤。
+ability: 如果大于等于六名玩家存活时你死亡，在当晚会有一名玩家死亡，或有三名玩家负伤。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3348
+    officialId: 16_idesofbloodbra1nchinese
+    sourceHash: 218b9144cba44a1afc77c026b7b5ff155a8ef192
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+  termIds:
+    - night
+    - death
+    - alive
+    - outsider
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

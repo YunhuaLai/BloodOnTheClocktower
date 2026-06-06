@@ -1,0 +1,88 @@
+id: s157
+englishName: item
+name: 尘封故事书
+status: draft
+en: 尘封故事书
+author: Morek
+logo: https://i.postimg.cc/y85KckTX/17.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/y85KckTX/17.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r049
+  - r097
+  - r422
+  - r743
+  - r895
+  - r1312
+  - r1313
+  - r054
+  - r057
+  - r058
+  - r115
+  - r1314
+  - r1315
+  - r763
+  - r072
+  - r070
+  - r1316
+  - r040
+  - r093
+  - r258
+  - r043
+  - r1317
+  - r045
+  - r021
+  - r096
+travellerIds: []
+fabledIds:
+  - r1318
+  - r1319
+  - r1320
+  - r1321
+  - r1322
+  - r1050
+nightOrder:
+  first:
+    - r1312
+    - r040
+    - r093
+    - r045
+    - r1317
+    - r097
+    - r895
+    - r058
+    - r049
+    - r422
+    - r743
+  other:
+    - r1322
+    - r1312
+    - r1313
+    - r093
+    - r258
+    - r021
+    - r045
+    - r096
+    - r1317
+    - r040
+    - r070
+    - r1314
+    - r763
+    - r1316
+    - r895
+    - r054
+    - r058

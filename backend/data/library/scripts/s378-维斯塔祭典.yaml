@@ -1,0 +1,77 @@
+id: s378
+englishName: item
+name: 维斯塔祭典
+status: draft
+en: 维斯塔祭典
+author: LJ
+logo: https://i.postimg.cc/02KNXPLM/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/02KNXPLM/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r139
+  - r086
+  - r006
+  - r053
+  - r055
+  - r029
+  - r022
+  - r058
+  - r011
+  - r090
+  - r115
+  - r010
+  - r214
+  - r016
+  - r015
+  - r037
+  - r017
+  - r018
+  - r042
+  - r019
+  - r045
+  - r021
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r017
+    - r045
+    - r006
+    - r084
+    - r058
+    - r139
+    - r086
+    - r018
+    - r053
+  other:
+    - r017
+    - r021
+    - r045
+    - r042
+    - r214
+    - r090
+    - r029
+    - r037
+    - r006
+    - r055
+    - r058
+    - r139
+    - r086
+    - r018
+    - r053

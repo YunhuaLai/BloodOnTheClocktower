@@ -1,0 +1,81 @@
+id: s579
+englishName: item
+name: 天有眼
+status: draft
+en: 天有眼
+author: 惊鸿&喷泉
+logo: https://free.picui.cn/free/2025/11/26/6926cf013e078.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/11/26/6926cf013e078.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r001
+  - r002
+  - r097
+  - r049
+  - r005
+  - r140
+  - r053
+  - r086
+  - r008
+  - r007
+  - r058
+  - r010
+  - r009
+  - r015
+  - r234
+  - r068
+  - r016
+  - r017
+  - r121
+  - r073
+  - r336
+  - r079
+  - r082
+  - r021
+travellerIds: []
+fabledIds:
+  - r1620
+  - r1921
+nightOrder:
+  first:
+    - r336
+    - r121
+    - r017
+    - r073
+    - r097
+    - r001
+    - r002
+    - r005
+    - r058
+    - r049
+    - r086
+    - r140
+    - r053
+  other:
+    - r017
+    - r008
+    - r021
+    - r079
+    - r082
+    - r140
+    - r068
+    - r009
+    - r005
+    - r007
+    - r058
+    - r086
+    - r053

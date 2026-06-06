@@ -1,0 +1,85 @@
+id: s730
+englishName: item
+name: 暗潮之下
+status: draft
+en: 暗潮之下
+author: 摸鱼学徒
+logo: https://i.postimg.cc/mgjcZZD4/LOGO.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/mgjcZZD4/LOGO.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r195
+  - r140
+  - r3942
+  - r246
+  - r174
+  - r393
+  - r029
+  - r311
+  - r091
+  - r276
+  - r726
+  - r051
+  - r036
+  - r2642
+  - r016
+  - r2688
+  - r1008
+  - r3943
+  - r040
+  - r3944
+  - r336
+  - r1037
+  - r045
+  - r3945
+  - r1007
+travellerIds: []
+fabledIds:
+  - r118
+  - r104
+  - r792
+nightOrder:
+  first:
+    - r336
+    - r2642
+    - r3942
+    - r1037
+    - r040
+    - r045
+    - r195
+    - r051
+    - r140
+    - r1008
+    - r174
+  other:
+    - r1008
+    - r2642
+    - r3942
+    - r1037
+    - r1007
+    - r045
+    - r3945
+    - r040
+    - r3943
+    - r246
+    - r393
+    - r029
+    - r036
+    - r051
+    - r140
+    - r726
+    - r311

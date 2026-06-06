@@ -1,0 +1,84 @@
+id: s110
+englishName: 2-3
+name: 酬神纳吉2.3
+status: draft
+en: 酬神纳吉2.3
+author: 痴愚
+logo: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_8305508468961_256c6656.jpg
+description: 佳肴珍馐，奠酒上香，敬慰告拜，源远流长，厚礼洁诚，伏维尚飨。
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: 佳肴珍馐，奠酒上香，敬慰告拜，源远流长，厚礼洁诚，伏维尚飨。
+image: https://oss.gstonegames.com/data_file/clocktower/edition_icon/custom/d_8305508468961_256c6656.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 佳肴珍馐，奠酒上香，敬慰告拜，源远流长，厚礼洁诚，伏维尚飨。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r010
+  - r006
+  - r155
+  - r088
+  - r035
+  - r001
+  - r034
+  - r097
+  - r057
+  - r086
+  - r022
+  - r059
+  - r029
+  - r031
+  - r069
+  - r067
+  - r015
+  - r070
+  - r1148
+  - r017
+  - r075
+  - r076
+  - r042
+  - r093
+  - r1149
+travellerIds:
+  - r1150
+  - r1151
+  - r1152
+fabledIds:
+  - r1153
+nightOrder:
+  first:
+    - r1149
+    - r059
+    - r155
+    - r088
+    - r017
+    - r075
+    - r093
+    - r1148
+    - r097
+    - r001
+    - r006
+    - r086
+  other:
+    - r1148
+    - r1149
+    - r059
+    - r088
+    - r017
+    - r075
+    - r076
+    - r093
+    - r042
+    - r070
+    - r031
+    - r029
+    - r006
+    - r086

@@ -4,7 +4,7 @@ type: outsider
 englishName: saint
 ability: 如果你死于处决，你的阵营落败。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/saint.png
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/saint.png
 flavor: ''
 setup: false
 setupMeta:
@@ -29,7 +29,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r014
-    officialId: saint
+    officialId: shuiganshawo111
     sourceHash: add4f207d9949d3c5fb8b65df0b5dfc955374702
     sourceHashFields:
       - ability

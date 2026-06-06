@@ -1,0 +1,99 @@
+id: r1449
+englishName: uv6d022fft222sa3131123123
+name: 谁枪击了乔尼？
+type: fabled
+edition: custom
+image:
+  - https://i.postimg.cc/9fP6mgN4/qiao-ni.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 错误
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 存活恶魔与其最近的爪牙之间较短侧的玩家（以及恶魔和该爪牙）与较长侧的其他玩家会互相把对方当作错误的角色和阵营。若恶魔与其最近爪牙之间两侧其他玩家数量相同，则取恶魔的顺时针方向为短侧。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1449
+    officialId: uv6d022fft222sa3131123123
+    sourceHash: c70b2c3db089dddd6d35b2cae3ede39d145057ed
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 信息型
+  termIds:
+    - information
+    - alive
+    - alignment
+    - minion
+    - demon
+    - fabled
+  abilityPattern: record_result_only
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: null
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: manual_record
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: null
+    eventTiming: null
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: direction
+          type: choice
+          label: 方向
+          required: true
+          optionsSource: custom
+          options:
+            - clockwise
+            - counterclockwise
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

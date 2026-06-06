@@ -1,10 +1,11 @@
 id: r155
 englishName: alchemist
 name: 炼金术士
-type: outsider
+type: minion
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/alchemist.png
-flavor: ''
+image:
+  - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/Icon_alchemist_r.png
+flavor: 探寻地球本质。加以矫正，你将寻得秘石。黄金之上皆是红色。那是真理之冠。
 setup: true
 setupMeta:
   randomAssignable: true
@@ -21,17 +22,17 @@ setupMeta:
 reminders: []
 remindersGlobal:
   - 是炼金术士
-firstNightReminder: 唤醒炼金术士，对他展示他获得的能力所对应的爪牙角色标记。
+firstNightReminder: ''
 otherNightReminder: ''
-ability: 你拥有一个爪牙角色的能力，即使你已死亡。当你使用能力时，说书人可能会要求你更换选择。
+ability: 你拥有一个不在场的恶魔角色的能力，但你不能杀死玩家。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r155
-    officialId: alchemist
-    sourceHash: 8d9a90b8f04a88e7ee2e43d2a80ee594f40f3e6c
+    officialId: 20_fan
+    sourceHash: 11ad0b58fd1f7520037e77dea5ca74c495f5b072
     sourceHashFields:
       - ability
       - type
@@ -40,21 +41,19 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
   termIds:
     - first-night
-    - death
-    - outsider
     - minion
-    - storyteller
+    - demon
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: first_night
       event: null
@@ -64,7 +63,6 @@ abilityData:
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: first_night

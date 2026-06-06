@@ -1,0 +1,86 @@
+id: s742
+englishName: item
+name: 鹤唳风声
+status: draft
+en: 鹤唳风声
+author: Edward1412
+logo: https://i.postimg.cc/KvTNZB0c/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/KvTNZB0c/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r002
+  - r003
+  - r005
+  - r052
+  - r463
+  - r059
+  - r056
+  - r027
+  - r029
+  - r026
+  - r334
+  - r745
+  - r3616
+  - r324
+  - r015
+  - r037
+  - r036
+  - r074
+  - r113
+  - r042
+  - r107
+  - r045
+  - r079
+  - r096
+  - r083
+travellerIds: []
+fabledIds:
+  - r104
+nightOrder:
+  first:
+    - r059
+    - r113
+    - r052
+    - r074
+    - r107
+    - r045
+    - r002
+    - r003
+    - r005
+    - r3616
+  other:
+    - r059
+    - r324
+    - r027
+    - r052
+    - r026
+    - r074
+    - r107
+    - r113
+    - r045
+    - r079
+    - r083
+    - r096
+    - r042
+    - r463
+    - r029
+    - r036
+    - r037
+    - r005
+    - r056
+    - r745
+    - r3616

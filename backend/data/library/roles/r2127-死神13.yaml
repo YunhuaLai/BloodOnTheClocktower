@@ -1,0 +1,91 @@
+id: r2127
+englishName: 131-bbb
+name: 死神13
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/BBB/131_bbb.png
+flavor: ''
+setup: true
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死神之印
+  - 噩梦开启
+  - 死亡
+  - 重获能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 死神13标记1~2名玩家，并且移动1个标记或放弃。
+ability: >-
+  ①每个夜晚*，标记一名玩家。当你标记的玩家座位号通过加/减法可以组合成13时，那些玩家失去标记并被你杀害。②整局限一次，拜访说书人开启噩梦，说书人当天会宣布“死神带来了噩梦”。该剧幕被公布的当晚你额外行动一次。③整局限一次，你可以移动一枚标记。④第一个死亡的非教皇爪牙重获能力。（+1外来者）
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2127
+    officialId: 131_bbb
+    sourceHash: db2f9dc16353df15e4646cbc7a306a6fe4a3fdd6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 设置
+  termIds:
+    - night
+    - setup
+    - death
+    - outsider
+    - minion
+    - demon
+    - storyteller
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

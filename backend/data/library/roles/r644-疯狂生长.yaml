@@ -1,7 +1,7 @@
 id: r644
 englishName: mad-growth
 name: 疯狂生长
-type: fabled
+type: '111'
 edition: custom
 image: https://www.bloodstar.xyz/p/kuikuisama/guiyihuayuan/_guiyihuayuan.png
 flavor: ''
@@ -29,8 +29,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r644
-    officialId: mad-growth
-    sourceHash: fa338e269be70b868ef60aae127d293b0ec41cb5
+    officialId: _guiyihuayuan
+    sourceHash: 00fef1d268fc0158a7041113690b0eedfe5b54c1
     sourceHashFields:
       - ability
       - type
@@ -51,11 +51,10 @@ abilityData:
     - evil
     - outsider
     - madness
-    - fabled
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive

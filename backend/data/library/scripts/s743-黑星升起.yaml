@@ -1,0 +1,83 @@
+id: s743
+englishName: item
+name: 黑星升起
+status: draft
+en: 黑星升起
+author: 驯鹿
+logo: https://i.postimg.cc/SsrXJMXP/Title-1.webp
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/SsrXJMXP/Title-1.webp
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r307
+  - r3980
+  - r391
+  - r058
+  - r2316
+  - r476
+  - r007
+  - r3950
+  - r761
+  - r022
+  - r311
+  - r543
+  - r3395
+  - r1566
+  - r068
+  - r2688
+  - r1008
+  - r235
+  - r611
+  - r078
+  - r281
+  - r840
+  - r114
+  - r568
+  - r095
+  - r3955
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r095
+    - r840
+    - r078
+    - r611
+    - r235
+    - r058
+    - r1008
+    - r2316
+    - r3980
+    - r391
+    - r307
+  other:
+    - r1008
+    - r840
+    - r611
+    - r235
+    - r095
+    - r114
+    - r568
+    - r3955
+    - r068
+    - r3395
+    - r007
+    - r476
+    - r3950
+    - r058
+    - r2316
+    - r311

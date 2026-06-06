@@ -1,0 +1,92 @@
+id: r2916
+englishName: wandering-wonderland
+name: 闲情漫步
+type: fabled
+edition: custom
+image:
+  - https://i.postimg.cc/fbgmBM3V/5461.png
+flavor: >-
+  Would you tell me please which way I ought to walk from here?” said Alice “That depends a good deal on where you want
+  to go,” said the Cat.
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 'Move all *WANDERING* tokens. :reminder:'
+ability: >-
+  在游戏开始时，说书人要决定每个“漫游”标记的移动方向（顺/逆时针，每名角色一个)。善良角色的“漫游”标记初始不会在对应角色上，而邪恶角色的“漫游”标记初始在自己身上。每个夜晚*，“漫游”标记会沿设置好的方向移动1格（除非另有说明)。镇民角色和邪恶角色的“漫游”标记会在移动时跳过死亡玩家与邪恶玩家。外来者角色和旅行者的“漫游”标记在移动时只会跳过死亡玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2916
+    officialId: wandering_wonderland
+    sourceHash: 74732d50e3f49544d4841f10256527601ac85e2a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - setup
+    - first-night
+    - death
+    - good
+    - evil
+    - townsfolk
+    - outsider
+    - storyteller
+    - traveler
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

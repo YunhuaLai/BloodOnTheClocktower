@@ -1,0 +1,92 @@
+id: r2880
+englishName: 13-nature
+name: 护林员
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/Yez/nature/13_nature.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 第一天
+  - 第二天
+  - 第三天
+  - 第四天
+  - 第五天
+  - 第六天
+remindersGlobal: []
+firstNightReminder: 在魔典中央放置“第一天”提示标记。
+otherNightReminder: 将护林员的标记替换到下一天。如果替换到“第六天”提示标记，且没有恶魔在场，向所有玩家公开声明说书人获胜。如果恶魔在场，移除天数标记。
+ability: 在初始设置时不会有恶魔。爪牙会获得恶魔伪装。如果没有恶魔在场：1）善良玩家无法胜利；2）第五天结束时，说书人单独获胜。[+1镇民]
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2880
+    officialId: 13_nature
+    sourceHash: 38c74ec2516c3bb91024295e18369f39c4a3383c
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - night
+    - setup
+    - first-night
+    - good
+    - townsfolk
+    - minion
+    - demon
+    - storyteller
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

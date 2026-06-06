@@ -4,7 +4,7 @@ name: 殡葬师
 type: townsfolk
 edition: custom
 image: https://www.bloodstar.xyz//p//Deodar2//double//13_double.png
-flavor: ''
+flavor: 让我送你安眠……我的挚友……
 setup: false
 setupMeta:
   randomAssignable: true
@@ -58,7 +58,7 @@ abilityData:
   abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: each_night_star

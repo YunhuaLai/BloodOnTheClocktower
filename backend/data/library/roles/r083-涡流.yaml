@@ -1,11 +1,12 @@
 id: r083
 name: 涡流
-type: demon
+type: townsfolk
 englishName: vortox
-ability: 每个夜晚*，你要选择一名玩家：他死亡。镇民玩家的能力都会产生错误信息。如果白天没人被处决，邪恶阵营获胜。
+ability: 每个白天，你可以拜访说书人得知一条错误信息。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/web/icons/vortox.png
-flavor: ''
+image:
+  - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/vortox_b.png
+flavor: “黑白颠倒，对错不再，左右变换，长短无猜。万物紊乱无可寻，短视死亡把命栽，何处寻答？随我来。”
 setup: false
 setupMeta:
   randomAssignable: true
@@ -19,19 +20,18 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders:
-  - 死亡
+reminders: []
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: 唤醒涡流，让他攻击一名玩家。
+otherNightReminder: ''
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r083
-    officialId: vortox
-    sourceHash: 1f2d93025b07f43b24bea8703e1a977276411d1e
+    officialId: 7_fan
+    sourceHash: d77f09b4747c27b7e7926f97bdefea1c2f4eeb4d
     sourceHashFields:
       - ability
       - type
@@ -40,24 +40,21 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 错误信息
     - 规则修饰
   termIds:
     - day
-    - night
     - information
-    - execution
-    - death
-    - alignment
-    - evil
     - townsfolk
-    - demon
+    - storyteller
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
+    reviewStatus: source_changed
     confidence: 0.45
     timing:
       phase: passive
@@ -66,7 +63,7 @@ abilityData:
     actor:
       drivenBy: system
     operations:
-      - kind: death_or_execution_effect
+      - kind: passive_rule
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: passive

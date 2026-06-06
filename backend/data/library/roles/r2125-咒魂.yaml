@@ -1,0 +1,102 @@
+id: r2125
+englishName: 25-bbb
+name: 咒魂
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/westwind/BBB/25_bbb.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 诅咒之印
+  - 全毒
+  - 死亡
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 咒魂标记1名玩家并杀害1名玩家；或选择2名玩家将他们标记。或咒魂杀害所有被标记的玩家并移除所有标记，或者使全体镇民中毒到下个黄昏。
+ability: 每个夜晚*：标记一名玩家并杀害一名玩家；或选择2名玩家将他们标记；或移除标记并杀害所有被标记的玩家；或使全体镇民中毒直到下个黄昏。（至多存在4枚标记）
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2125
+    officialId: 25_bbb
+    sourceHash: 9c0c1177cd8224d91721a05080dc284e5a86b598
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - poisoned
+    - townsfolk
+    - demon
+  abilityPattern: choose_player_status_effect
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

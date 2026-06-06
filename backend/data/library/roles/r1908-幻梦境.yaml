@@ -1,0 +1,132 @@
+id: r1908
+englishName: 44-elysuim
+name: 幻梦境
+type: fabled
+edition: custom
+image: https://free.picui.cn/free/2025/12/01/692d980b16fc7.png
+flavor: “不知周之梦为胡蝶与，胡蝶之梦为周与？”
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 是洗衣妇
+  - 是厨师
+  - 是祖母
+  - 是钟表匠
+  - 是骑士
+  - 是国王
+  - 是贤者
+  - 是舞蛇人
+  - 是占卜师
+  - 是气球驾驶员
+  - 是卖花女孩
+  - 是神谕者
+  - 是将军
+  - 是造谣者
+  - 是赌徒
+  - 是杂技演员
+  - 是艺术家
+  - 是女裁缝
+  - 是驱魔人
+  - 是僧侣
+  - 是旅店老板
+  - 是贞洁者
+  - 是报丧女妖
+  - 是农夫
+  - 是哲学家
+  - 是食人族
+  - 是士兵
+  - 是酒鬼
+  - 是理发师
+  - 是解谜大师
+  - 是告密者
+  - 是帽匠
+  - 是瘟疫医生
+  - 是投毒者
+  - 是麻脸巫婆
+  - 是主谋
+  - 是炸弹人
+  - 是灵言师
+  - 是刺客
+  - 是限
+  - 是珀
+  - 是方古
+  - 是痢蛭
+  - 是诺-达鲺
+  - 是奥赫
+firstNightReminder: 在夜晚存活玩家们要秘密的票选今晚以及下个白天游戏进行的城镇，其中镇民1票，外来者0.5票，爪牙1.5票，恶魔2票。在计票结束后说书人会宣布进行游戏的城镇。
+otherNightReminder: 在夜晚存活玩家们要秘密的票选今晚以及下个白天游戏进行的城镇，其中镇民1票，外来者0.5票，爪牙1.5票，恶魔2票。在计票结束后说书人会宣布进行游戏的城镇。
+ability: 本游戏设有两个独立的城镇广场，每个夜晚说书人通过投票会宣布下个夜晚和下个白天进行游戏的城镇。玩家在两个城镇广场的阵营和生死是互通的且只能在对应的城镇发动对应的技能。当场上存活三名及以下的玩家且恶魔存活时邪恶阵营胜利。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1908
+    officialId: 44_elysuim
+    sourceHash: d74ec119b50f13a2b913483ad2111fa5179a04d6
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+  termIds:
+    - day
+    - night
+    - first-night
+    - vote
+    - alive
+    - alignment
+    - evil
+    - demon
+    - storyteller
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

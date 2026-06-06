@@ -4,8 +4,8 @@ type: townsfolk
 englishName: sailor
 ability: 每个夜晚，你要选择一名存活的玩家：你或他之一会醉酒直到下个黄昏。你不会死亡。
 edition: custom
-image: https://oss.gstonegames.com/data_file/clocktower/role_icon/sailor.png
-flavor: ''
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/sailor.png
+flavor: 你们随便谁来我都能把他喝到桌子底下去！说你呢！那个话痨！敢来和我喝一杯么？不来？那你呢，老太婆？你以前喝过老麦基利的加香料朗姆酒吗？保证能让你喝成个真男人！上船咯，噢耶！
 setup: false
 setupMeta:
   randomAssignable: true
@@ -22,16 +22,16 @@ setupMeta:
 reminders:
   - 醉酒
 remindersGlobal: []
-firstNightReminder: 让水手选择一名存活玩家。标记那名玩家或水手醉酒。
-otherNightReminder: 让水手选择一名存活玩家。标记那名玩家或水手醉酒。
+firstNightReminder: 唤醒水手，让他选择一名玩家。决定他俩其中谁因为水手能力醉酒。
+otherNightReminder: 唤醒水手，让他选择一名玩家。决定他俩其中谁因为水手能力醉酒。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r024
-    officialId: sailor
-    sourceHash: 283808a80ba978462314c9026e69cd932f1efc6f
+    officialId: tashuofengyuzhongzhediantongsuanshenme111
+    sourceHash: 6b2367150bedc7177d553650c9ab7dba90f852a9
     sourceHashFields:
       - ability
       - type
@@ -40,6 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -53,8 +55,8 @@ abilityData:
   abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

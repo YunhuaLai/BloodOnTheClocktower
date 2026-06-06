@@ -1,0 +1,105 @@
+id: r1902
+englishName: xiaoweibaxiliuxiliu111
+name: 普卡（改）
+type: demon
+edition: custom
+image: https://oss.gstonegames.com/data_file/clocktower/web/icons/pukka.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 中毒
+  - 死亡
+remindersGlobal: []
+firstNightReminder: 唤醒普卡，让他决定是否改成顺时针的下个存活玩家死亡，然后让他选择一名玩家，那名玩家中毒。
+otherNightReminder: 唤醒普卡，让他选择一名玩家，该玩家中毒。上一个被普卡中毒的（玩家顺时针方向的下个存活）玩家死亡。
+ability: 每个夜晚，你要选择一名玩家：他中毒。上个夜晚被你选择的玩家会死亡并恢复健康。在你的首个夜晚，你可以将死亡玩家改为顺时针方向的下个存活玩家。你不会受到自身负面能力的影响
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r1902
+    officialId: xiaoweibaxiliuxiliu111
+    sourceHash: 7bf0d6940e59d6e9d623509ec0078306122f561e
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - poisoned
+    - death
+    - alive
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: poison_drunk
+    note: ''

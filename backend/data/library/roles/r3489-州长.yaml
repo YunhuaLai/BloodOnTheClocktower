@@ -1,0 +1,86 @@
+id: r3489
+englishName: 9-bundagee-inn-massacre-bigyellowfish
+name: 州长
+type: townsfolk
+edition: custom
+image: >-
+  https://www.bloodstar.xyz/p/bigyellowfish/Bundagee_Inn_Massacre_Bigyellowfish/9_bundagee_inn_massacre_bigyellowfish.png
+flavor: 如果你选我，我保证我们的城市将再次远离毁灭的威胁！跟我来！选我，选我！
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 不会死亡
+  - 已疯狂
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: 如果在上个白天有玩家在与你的私聊中触发了州长的能力，标记州长“不会死亡”。标记那名玩家“已疯狂”。
+ability: 每个白天，如果至少有一名除你以外的玩家（与之前都不同）私下对说书人“疯狂”地证明你是州长，你在当晚不会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3489
+    officialId: 9_bundagee_inn_massacre_bigyellowfish
+    sourceHash: 2b40a05074a2f6a12935ee4a154536868eb6023d
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  tags:
+    - 每晚
+  termIds:
+    - day
+    - night
+    - death
+    - townsfolk
+    - storyteller
+    - madness
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: needs_review
+    confidence: 0.45
+    timing:
+      phase: each_day
+      event: null
+      frequency: once_per_day
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: protect_player
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

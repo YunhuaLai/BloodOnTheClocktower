@@ -1,0 +1,72 @@
+id: s710
+englishName: item
+name: 眼保健操
+status: draft
+en: 眼保健操
+author: 叮当&蓝铃兰
+logo: https://free.picui.cn/free/2025/12/10/693910be1f5e2.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://free.picui.cn/free/2025/12/10/693910be1f5e2.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r003
+  - r006
+  - r023
+  - r029
+  - r032
+  - r033
+  - r035
+  - r056
+  - r057
+  - r139
+  - r091
+  - r334
+  - r823
+  - r1343
+  - r037
+  - r068
+  - r119
+  - r363
+  - r1361
+  - r041
+  - r043
+  - r633
+  - r047
+travellerIds: []
+fabledIds:
+  - r3933
+  - r1164
+  - r3935
+nightOrder:
+  first:
+    - r1343
+    - r041
+    - r003
+    - r006
+    - r023
+    - r139
+  other:
+    - r1343
+    - r041
+    - r047
+    - r029
+    - r037
+    - r363
+    - r023
+    - r068
+    - r006
+    - r056
+    - r139

@@ -1,0 +1,83 @@
+id: s541
+englishName: item
+name: 数学的盛宴
+status: draft
+en: 数学的盛宴
+author: ''
+logo: https://www.bloodstar.xyz/p/SerraEvelyn/shuxuedeshengyan/_meta.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://www.bloodstar.xyz/p/SerraEvelyn/shuxuedeshengyan/_meta.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r214
+  - r003
+  - r006
+  - r007
+  - r025
+  - r027
+  - r032
+  - r053
+  - r057
+  - r059
+  - r060
+  - r091
+  - r100
+  - r016
+  - r038
+  - r039
+  - r119
+  - r017
+  - r336
+  - r840
+  - r302
+  - r045
+  - r080
+  - r082
+  - r141
+travellerIds: []
+fabledIds:
+  - r1906
+nightOrder:
+  first:
+    - r336
+    - r059
+    - r039
+    - r141
+    - r017
+    - r840
+    - r302
+    - r045
+    - r003
+    - r006
+    - r100
+    - r025
+    - r053
+  other:
+    - r059
+    - r017
+    - r027
+    - r840
+    - r214
+    - r302
+    - r039
+    - r045
+    - r082
+    - r080
+    - r141
+    - r006
+    - r007
+    - r025
+    - r053

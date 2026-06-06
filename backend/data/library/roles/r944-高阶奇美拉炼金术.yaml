@@ -1,0 +1,100 @@
+id: r944
+englishName: 12-yitai
+name: 高阶奇美拉炼金术
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz/p/worryhours/yitai/13_yitai.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal:
+  - 线索
+firstNightReminder: ''
+otherNightReminder: ''
+ability: >-
+  该剧本登场的恶魔固定为奇美拉，奇美拉不再调整外来者数量。在奇美拉的首个夜晚，他要从“嵌合体的囚笼”中选择3个恶魔作为本局即将使用的能力，随后说书人会乱序公布他的选择。新入场的奇美拉不用再更换选中。如果在第4个夜晚之后，奇美拉可以选择除初始选择的3个恶魔之外的恶魔，如果他这么做了，说书人会公布他留下痕迹。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r944
+    officialId: 12_yitai
+    sourceHash: 986901f748a53121d00ac2d9484261dee71a832b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 信息型
+  termIds:
+    - night
+    - first-night
+    - information
+    - outsider
+    - demon
+    - storyteller
+    - fabled
+  abilityPattern: number_info
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: learn_number
+        numberKind: evil_count
+  abilityMeta:
+    pageType: record_result_only
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：数字信息
+    templates: []

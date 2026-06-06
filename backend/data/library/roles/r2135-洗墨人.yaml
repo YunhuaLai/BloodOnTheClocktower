@@ -1,0 +1,118 @@
+id: r2135
+englishName: ximoren-duck
+name: 洗墨人
+type: townsfolk
+edition: custom
+image: https://i.postimg.cc/pXmRcr6m/6.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: townsfolk
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 泼墨酣畅
+remindersGlobal: []
+firstNightReminder: 唤醒洗墨人，让他选择除自己以外的两名玩家，为这些玩家放置“泼墨酣畅”标记，然后确认带有“泼墨酣畅”标记的存活的玩家，用大拇指向上以表示数量相同，或用大拇指向下以表示数量不同。
+otherNightReminder: 唤醒洗墨人，让他选择除自己以外的两名玩家，为这些玩家放置“泼墨酣畅”标记，然后确认带有“泼墨酣畅”标记的存活的玩家，用大拇指向上以表示数量相同，或用大拇指向下以表示数量不同。
+ability: 每个夜晚，你要选择除你以外的两名玩家（要与之前的选择都不同）：你会得知被你选择过的存活玩家中，邪恶玩家的数量与善良玩家的数量是否相等。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2135
+    officialId: XiMoRen_Duck
+    sourceHash: 91e1bc21780572b4a76d4c4579c0fc3ed071fa04
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 首夜
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - first-night
+    - alive
+    - good
+    - evil
+    - townsfolk
+  abilityPattern: target_boolean_check
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night
+      event: null
+      frequency: once_per_night
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 2
+        source: target
+      - kind: learn_boolean
+        question: boolean_check
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat1
+          type: seat
+          label: 目标号码1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 目标号码2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: answer
+          type: boolean
+          label: 是否
+          required: true
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null

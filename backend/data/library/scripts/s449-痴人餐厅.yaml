@@ -1,0 +1,77 @@
+id: s449
+englishName: item
+name: 痴人餐厅
+status: draft
+en: 痴人餐厅
+author: 苏通染
+logo: https://i.postimg.cc/FRhr33Q7/image.jpg
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/FRhr33Q7/image.jpg
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r155
+  - r084
+  - r004
+  - r087
+  - r005
+  - r142
+  - r056
+  - r062
+  - r058
+  - r010
+  - r233
+  - r091
+  - r065
+  - r015
+  - r016
+  - r092
+  - r308
+  - r078
+  - r073
+  - r641
+  - r077
+  - r121
+  - r021
+  - r099
+  - r083
+travellerIds: []
+fabledIds: []
+nightOrder:
+  first:
+    - r155
+    - r121
+    - r078
+    - r073
+    - r308
+    - r004
+    - r005
+    - r058
+    - r084
+    - r087
+    - r142
+    - r092
+  other:
+    - r021
+    - r083
+    - r099
+    - r308
+    - r233
+    - r005
+    - r056
+    - r058
+    - r062
+    - r087
+    - r142

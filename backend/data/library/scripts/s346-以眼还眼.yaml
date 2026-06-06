@@ -1,0 +1,82 @@
+id: s346
+englishName: item
+name: 以眼还眼
+status: draft
+en: 以眼还眼
+author: The Good Couch
+logo: https://i.postimg.cc/q7VkNLnz/image.png
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/q7VkNLnz/image.png
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r084
+  - r023
+  - r005
+  - r086
+  - r101
+  - r006
+  - r056
+  - r057
+  - r022
+  - r059
+  - r090
+  - r066
+  - r012
+  - r038
+  - r014
+  - r016
+  - r015
+  - r017
+  - r018
+  - r042
+  - r121
+  - r082
+  - r080
+  - r099
+  - r096
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r059
+    - r066
+    - r121
+    - r101
+    - r017
+    - r005
+    - r006
+    - r023
+    - r084
+    - r086
+    - r018
+  other:
+    - r059
+    - r066
+    - r101
+    - r017
+    - r082
+    - r080
+    - r099
+    - r096
+    - r042
+    - r090
+    - r023
+    - r005
+    - r006
+    - r056
+    - r086
+    - r018

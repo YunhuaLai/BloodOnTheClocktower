@@ -1,0 +1,105 @@
+id: r3809
+englishName: myling-echoes-of-the-past
+name: 鬼婴
+type: demon
+edition: custom
+image: https://www.bloodstar.xyz/p/Wingidon/Echoes_Of_The_Past/myling_echoes_of_the_past.png
+flavor: '*ghost noises*'
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: demon
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders:
+  - 死亡
+  - 提名邪恶
+  - 使用限次能力
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: >-
+  Wake the Myling. They will choose a player. That player dies - mark them with the Myling's DEAD reminder token. If
+  they have nominated evil this game, notify the Myling: They will nod their head "yes" or shake their head "no" for
+  whether or not other evil nominators die. Then, put the Myling to sleep.
+ability: 每个夜晚*，你要选择一名玩家：他死亡。每局游戏限一次，如果他提名过邪恶玩家：你可以选择杀死除他以外的提名过邪恶玩家的玩家。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r3809
+    officialId: myling_echoes_of_the_past
+    sourceHash: df3a2f4f37d8c9936902d393ed184128a0d6f25b
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 每晚
+    - 主动选择
+  termIds:
+    - night
+    - nomination
+    - death
+    - evil
+    - demon
+  abilityPattern: choose_player_death
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: each_night_star
+      event: null
+      frequency: once_per_game
+    actor:
+      drivenBy: player
+    operations:
+      - kind: choose_player
+        count: 1
+        source: target
+      - kind: death_or_execution_effect
+  abilityMeta:
+    pageType: pick_and_record
+    phaseTiming: each_night_star
+    eventTiming: null
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
+    recordable: true
+  interactionSchema:
+    target:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 目标号码
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

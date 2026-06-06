@@ -2,7 +2,7 @@ id: r525
 englishName: archivist
 name: 档案管理员
 type: townsfolk
-edition: custom
+edition: mia
 image: https://www.bloodstar.xyz/p/bluebell/jtxx/4_jtxx.png
 flavor: ''
 setup: false
@@ -30,7 +30,7 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r525
-    officialId: archivist
+    officialId: 4_jtxx
     sourceHash: 165fa7fb88aca53514e6a7f7eaa761cb51589cfe
     sourceHashFields:
       - ability
@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 每晚
@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: source_changed
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

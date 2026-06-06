@@ -1,0 +1,76 @@
+id: s358
+englishName: item
+name: 刺杀金牛座
+status: draft
+en: 刺杀金牛座
+author: Etreides
+logo: https://i.postimg.cc/hPf8LJy8/d9b6ea94a1e85abb215e6761642d781e44902471-png-1192w.avif
+description: ''
+townsfolkName: 镇民
+additional: []
+level: 官方剧本
+mood: ''
+text: ''
+image: https://i.postimg.cc/hPf8LJy8/d9b6ea94a1e85abb215e6761642d781e44902471-png-1192w.avif
+tags:
+  - 官方剧本
+sourceUrl: ''
+detail:
+  overview: 这里填写剧本介绍。
+  bestFor: []
+  playStyle: []
+  storytellerNotes: []
+  commonPitfalls: []
+roleIds:
+  - r004
+  - r002
+  - r097
+  - r005
+  - r054
+  - r055
+  - r008
+  - r057
+  - r334
+  - r089
+  - r011
+  - r091
+  - r012
+  - r015
+  - r016
+  - r067
+  - r159
+  - r017
+  - r042
+  - r018
+  - r020
+  - r113
+  - r683
+  - r083
+  - r080
+travellerIds: []
+fabledIds:
+  - r118
+nightOrder:
+  first:
+    - r113
+    - r683
+    - r017
+    - r097
+    - r002
+    - r004
+    - r005
+    - r018
+  other:
+    - r017
+    - r008
+    - r020
+    - r113
+    - r083
+    - r080
+    - r683
+    - r042
+    - r159
+    - r005
+    - r054
+    - r055
+    - r018
