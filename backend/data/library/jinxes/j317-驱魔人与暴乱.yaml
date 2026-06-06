@@ -1,10 +1,13 @@
 id: j317
 kind: jinx
 name: 驱魔人与暴乱
-roleIds: []
-roleNames: []
-unresolvedRoleNames:
-  - 驱魔人与暴乱
+roleIds:
+  - r026
+  - r929
+roleNames:
+  - 驱魔人
+  - 暴乱
+unresolvedRoleNames: []
 rule: 如果驱魔人通过自身能力选择了暴乱，第三个白天爪牙不会变成暴乱
 audience: both
 sourceScriptIds: []

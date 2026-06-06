@@ -110,6 +110,8 @@ function summarizeJinx(jinx) {
     roleIds: jinx.roleIds,
     roleNames: jinx.roleNames,
     unresolvedRoleNames: jinx.unresolvedRoleNames,
+    ruleTags: jinx.ruleTags,
+    appliesWhen: jinx.appliesWhen,
     rule: jinx.rule,
     audience: jinx.audience,
     sourceScriptIds: jinx.sourceScriptIds,

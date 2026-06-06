@@ -1,13 +1,14 @@
 id: j305
 kind: jinx
-name: 利维坦&巡查
+name: 利维坦&巡察
 roleIds:
   - r384
+  - r229
 roleNames:
   - 利维坦
-unresolvedRoleNames:
-  - 巡查
-rule: 如果利维坦在场，被巡查选择的两个善良角色都存活，他们都免疫免疫所有邪恶阵营的负面效果，直到下个黄昏。
+  - 巡察
+  
+rule: 如果利维坦在场，被巡察选择的两个善良角色都存活，他们都免疫免疫所有邪恶阵营的负面效果，直到下个黄昏。
 audience: both
 sourceScriptIds: []
 source:

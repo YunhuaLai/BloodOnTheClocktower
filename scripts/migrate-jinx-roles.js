@@ -11,6 +11,7 @@ const {
 const {
   isJinxTeam,
   makeRoleLookup,
+  normalizeJinxResolution,
   resolveJinxRoleNames,
   splitJinxRoleNames,
 } = require("./lib/jinx-utils");
@@ -109,7 +110,10 @@ function findExistingJinx(jinxes, role) {
 }
 
 function makeJinxData(role, existingJinx, roleLookup, sourceScriptIds) {
-  const resolved = resolveJinxRoleNames(splitJinxRoleNames(role.name), roleLookup);
+  const resolved = normalizeJinxResolution(
+    resolveJinxRoleNames(splitJinxRoleNames(role.name), roleLookup),
+    existingJinx,
+  );
 
   return {
     ...(existingJinx || {}),
@@ -119,6 +123,8 @@ function makeJinxData(role, existingJinx, roleLookup, sourceScriptIds) {
     roleIds: resolved.roleIds,
     roleNames: resolved.roleNames,
     unresolvedRoleNames: resolved.unresolvedRoleNames,
+    ...(resolved.ruleTags.length ? { ruleTags: resolved.ruleTags } : {}),
+    ...(resolved.appliesWhen ? { appliesWhen: resolved.appliesWhen } : {}),
     rule: role.ability || existingJinx?.rule || "",
     audience: existingJinx?.audience || "both",
     sourceScriptIds: uniqueValues([

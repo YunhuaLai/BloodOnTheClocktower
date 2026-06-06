@@ -5,8 +5,7 @@ roleIds:
   - r1091
 roleNames:
   - 尸煞
-unresolvedRoleNames:
-  - 能力修改
+unresolvedRoleNames: []
 rule: 如果玩家人数少于10人，尸煞能力中的'中毒'改为'死于天条的镇民始终中毒，即使他复活'。
 audience: both
 sourceScriptIds: []
@@ -17,3 +16,6 @@ source:
   officialTeam: A jinxed
   edition: custom
   image: https://www.freeimg.cn/uploads/535/691708e9539fb.png
+ruleTags:
+  - 能力修改
+appliesWhen: script

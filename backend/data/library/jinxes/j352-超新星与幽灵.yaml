@@ -1,10 +1,13 @@
 id: j352
 kind: jinx
 name: 超新星与幽灵
-roleIds: []
-roleNames: []
-unresolvedRoleNames:
-  - 超新星与幽灵
+roleIds:
+  - r491
+  - r490
+roleNames:
+  - 超新星
+  - 幽灵
+unresolvedRoleNames: []
 rule: 幽灵不会和超新星同时被唤醒
 audience: both
 sourceScriptIds: []

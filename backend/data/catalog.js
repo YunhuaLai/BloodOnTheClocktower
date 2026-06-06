@@ -216,6 +216,10 @@ function normalizeJinx(jinx, context) {
     unresolvedRoleNames: Array.isArray(corrected.unresolvedRoleNames)
       ? corrected.unresolvedRoleNames.filter(Boolean)
       : [],
+    ruleTags: Array.isArray(corrected.ruleTags)
+      ? corrected.ruleTags.filter(Boolean)
+      : [],
+    appliesWhen: corrected.appliesWhen || "",
     rule: corrected.rule || corrected.ability || "",
     audience: corrected.audience || "both",
     sourceScriptIds: uniqueValues(corrected.sourceScriptIds || []),

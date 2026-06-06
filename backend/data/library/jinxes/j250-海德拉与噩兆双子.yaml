@@ -1,10 +1,13 @@
 id: j250
 kind: jinx
 name: 海德拉与噩兆双子
-roleIds: []
-roleNames: []
-unresolvedRoleNames:
-  - 海德拉与噩兆双子
+roleIds:
+  - r431
+  - r2629
+roleNames:
+  - 海德拉
+  - 噩兆双子
+unresolvedRoleNames: []
 rule: 海德拉对噩兆双子生效时，两名双子均是邪恶双子。
 audience: both
 sourceScriptIds: []

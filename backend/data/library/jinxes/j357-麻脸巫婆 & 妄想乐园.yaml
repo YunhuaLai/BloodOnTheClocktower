@@ -1,12 +1,12 @@
 id: j357
 kind: jinx
-name: 麻将巫婆 & 妄想乐园
+name: 麻脸巫婆 & 妄想乐园
 roleIds:
+  - r076
   - r547
 roleNames:
+  - 麻脸巫婆
   - 妄想乐园
-unresolvedRoleNames:
-  - 麻将巫婆
 rule: 麻脸巫婆无法创造妄想乐园。
 audience: both
 sourceScriptIds: []
@@ -17,3 +17,4 @@ source:
   officialTeam: a jinxed
   edition: custom
   image: ''
+unresolvedRoleNames: []

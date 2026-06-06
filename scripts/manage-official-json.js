@@ -5,7 +5,9 @@ const { applyAbilityTermMetadata } = require("./lib/ability-term-metadata");
 const { inferDeductionData } = require("./lib/deduction-profile-inference");
 const {
   isJinxTeam,
+  jinxAppliesToRoleSet,
   makeRoleLookup,
+  normalizeJinxResolution,
   resolveJinxRoleNames,
   splitJinxRoleNames,
 } = require("./lib/jinx-utils");
@@ -134,7 +136,10 @@ function findJinxEntry(jinxes, officialRole) {
 
 function makeJinxData(existingJinx, officialRole, roleLookup, scriptId) {
   const rawNames = splitJinxRoleNames(officialRole.name);
-  const resolved = resolveJinxRoleNames(rawNames, roleLookup);
+  const resolved = normalizeJinxResolution(
+    resolveJinxRoleNames(rawNames, roleLookup),
+    existingJinx,
+  );
   const sourceScriptIds = [
     ...new Set([
       ...(Array.isArray(existingJinx?.sourceScriptIds) ? existingJinx.sourceScriptIds : []),
@@ -150,6 +155,8 @@ function makeJinxData(existingJinx, officialRole, roleLookup, scriptId) {
     roleIds: resolved.roleIds,
     roleNames: resolved.roleNames,
     unresolvedRoleNames: resolved.unresolvedRoleNames,
+    ...(resolved.ruleTags.length ? { ruleTags: resolved.ruleTags } : {}),
+    ...(resolved.appliesWhen ? { appliesWhen: resolved.appliesWhen } : {}),
     rule: officialRole.ability || existingJinx?.rule || "",
     audience: existingJinx?.audience || "both",
     sourceScriptIds,
@@ -1185,13 +1192,7 @@ function exportOfficialJson(scriptId, outputPath) {
       firstNight: firstNightOrder.get(role.id) || 0,
     }));
   const officialJinxes = jinxes
-    .filter((jinx) => {
-      const jinxRoleIds = (jinx.roleIds || []).filter(Boolean);
-      return (
-        (jinxRoleIds.length >= 2 && jinxRoleIds.every((roleId) => scriptRoleIdSet.has(roleId))) ||
-        (jinx.sourceScriptIds || []).includes(script.id)
-      );
-    })
+    .filter((jinx) => jinxAppliesToRoleSet(jinx, scriptRoleIdSet, { sourceScriptId: script.id }))
     .map((jinx) => ({
       ability: jinx.rule || "",
       image: jinx.source?.image || "",

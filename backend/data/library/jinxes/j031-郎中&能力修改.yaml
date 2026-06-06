@@ -5,8 +5,7 @@ roleIds:
   - r597
 roleNames:
   - 郎中
-unresolvedRoleNames:
-  - 能力修改
+unresolvedRoleNames: []
 rule: 除首个夜晚外，郎中可以选择说书人以得知天条相关的词语。
 audience: both
 sourceScriptIds: []
@@ -17,3 +16,6 @@ source:
   officialTeam: A jinxed
   edition: custom
   image: https://oss.gstonegames.com/data_file/clocktower/upload/202301/c_9255777694761_7594675d.jpg
+ruleTags:
+  - 能力修改
+appliesWhen: script

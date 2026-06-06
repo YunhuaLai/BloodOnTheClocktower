@@ -3,10 +3,11 @@ kind: jinx
 name: 半吸血鬼&赏金猎人
 roleIds:
   - r139
+  - r4070
 roleNames:
   - 赏金猎人
-unresolvedRoleNames:
-  - 半吸血鬼
+  - 半吸血鬼 ¶
+
 rule: 如果两个角色同时在场，且他们的[设置调整]都会使一名玩家转变为邪恶，改为只有半吸血鬼的[设置调整]能力生效。
 audience: both
 sourceScriptIds: []

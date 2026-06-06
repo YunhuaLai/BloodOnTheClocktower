@@ -174,8 +174,30 @@ export function sortScriptRoles(script, roles) {
 export function getJinxRoleLabel(jinx) {
   return [
     ...((jinx?.roleNames || []).filter(Boolean)),
+    ...((jinx?.ruleTags || []).filter(Boolean)),
     ...((jinx?.unresolvedRoleNames || []).filter(Boolean)),
   ].join(" & ");
+}
+
+export function getJinxRequiredRoleIds(jinx) {
+  return (jinx?.roleIds || []).filter(Boolean);
+}
+
+function isScriptScopedJinx(jinx) {
+  return String(jinx?.appliesWhen || jinx?.scope || "").toLowerCase() === "script";
+}
+
+export function isJinxObservedForRoleIds(jinx, roleIds) {
+  const roleIdSet = roleIds instanceof Set
+    ? roleIds
+    : new Set((Array.isArray(roleIds) ? roleIds : []).filter(Boolean));
+  const jinxRoleIds = getJinxRequiredRoleIds(jinx);
+  const minimumRoleCount = isScriptScopedJinx(jinx) ? 1 : 2;
+
+  return (
+    jinxRoleIds.length >= minimumRoleCount &&
+    jinxRoleIds.every((roleId) => roleIdSet.has(roleId))
+  );
 }
 
 export function getJinxesForRoleIds(roleIds, { sourceScriptId = "" } = {}) {
@@ -183,13 +205,17 @@ export function getJinxesForRoleIds(roleIds, { sourceScriptId = "" } = {}) {
   const scriptId = String(sourceScriptId || "").trim();
 
   return (state.jinxes || []).filter((jinx) => {
-    const jinxRoleIds = (jinx.roleIds || []).filter(Boolean);
+    const jinxRoleIds = getJinxRequiredRoleIds(jinx);
     const hasResolvedMatch =
       jinxRoleIds.length >= 2 && jinxRoleIds.every((roleId) => roleIdSet.has(roleId));
+    const hasScriptScopeMatch =
+      isScriptScopedJinx(jinx) &&
+      jinxRoleIds.length >= 1 &&
+      jinxRoleIds.every((roleId) => roleIdSet.has(roleId));
     const hasSourceMatch =
       scriptId && (jinx.sourceScriptIds || []).includes(scriptId);
 
-    return hasResolvedMatch || hasSourceMatch;
+    return hasResolvedMatch || hasScriptScopeMatch || hasSourceMatch;
   });
 }
 

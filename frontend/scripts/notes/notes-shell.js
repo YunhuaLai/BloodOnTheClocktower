@@ -1,6 +1,6 @@
 import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getGameScript, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
 import { createDefaultSetupDraft, ensureNotesState, getActiveGame, getDraftOrPlayer } from "../notes-state.js";
-import { getJinxesForRoleIds, getJinxRoleLabel } from "../catalog-helpers.js";
+import { getJinxesForRoleIds, getJinxRoleLabel, isJinxObservedForRoleIds } from "../catalog-helpers.js";
 import { app, noteModeOptions, noteTabOptions, roleTypeOrder, scriptModeOptions, state, typeLabels } from "../state.js";
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
 import { formatPhaseLabel, getAliveCount, getStandardSetup, getTotalPlayerCount, getTravellerPlayers } from "./notes-core.js";
@@ -90,9 +90,7 @@ function renderScriptSheetJinxRules(jinxes, observedRoleIds) {
       <div class="notes-script-sheet-jinx-list">
         ${jinxes
           .map((jinx) => {
-            const roleIds = (jinx.roleIds || []).filter(Boolean);
-            const isObserved =
-              roleIds.length >= 2 && roleIds.every((roleId) => observedRoleIds.has(roleId));
+            const isObserved = isJinxObservedForRoleIds(jinx, observedRoleIds);
             const roleLabel = getJinxRoleLabel(jinx) || jinx.name;
             return `
               <article class="notes-script-sheet-jinx${isObserved ? " is-observed" : ""}">

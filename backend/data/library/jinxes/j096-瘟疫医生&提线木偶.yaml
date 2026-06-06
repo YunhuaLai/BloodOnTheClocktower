@@ -1,10 +1,13 @@
 id: j096
 kind: jinx
 name: 暴乱与召唤师
-roleIds: []
-roleNames: []
-unresolvedRoleNames:
-  - 暴乱与召唤师
+roleIds:
+  - r929
+  - r113
+roleNames:
+  - 暴乱
+  - 召唤师
+unresolvedRoleNames: []
 rule: 如果召唤师创造了暴乱，被选择的玩家和所有邪恶玩家都变成邪恶的暴乱。被选择的玩家必须是与召唤师邻近的存活善良玩家。
 audience: both
 sourceScriptIds: []

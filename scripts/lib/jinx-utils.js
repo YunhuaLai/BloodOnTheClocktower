@@ -1,4 +1,5 @@
 const JINX_TEAM_PATTERN = /jinx/i;
+const SCRIPT_RULE_TAGS = new Set(["能力修改"]);
 
 function isJinxTeam(team) {
   return JINX_TEAM_PATTERN.test(String(team || ""));
@@ -26,11 +27,15 @@ function stripRoleNameHint(value) {
 function splitJinxRoleNames(name) {
   return uniqueValues(
     String(name || "")
-      .split(/\s*(?:&|\uFF06)\s*/)
+      .split(/\s*(?:&|\uFF06|与)\s*/)
       .flatMap((part) => stripRoleNameHint(part).split(/\s*(?:\/|\uFF0F)\s*/))
       .map((part) => stripRoleNameHint(part))
       .filter(Boolean),
   );
+}
+
+function isScriptRuleTag(name) {
+  return SCRIPT_RULE_TAGS.has(stripRoleNameHint(name));
 }
 
 function makeRoleLookup(roles) {
@@ -82,9 +87,52 @@ function resolveJinxRoleNames(names, roleLookup) {
   };
 }
 
+function normalizeJinxResolution(resolved, existingJinx = {}) {
+  const unresolvedRoleNames = Array.isArray(resolved?.unresolvedRoleNames)
+    ? resolved.unresolvedRoleNames
+    : [];
+  const ruleTags = uniqueValues([
+    ...(Array.isArray(existingJinx.ruleTags) ? existingJinx.ruleTags : []),
+    ...unresolvedRoleNames.filter(isScriptRuleTag),
+  ]);
+  const appliesWhen =
+    existingJinx.appliesWhen ||
+    (ruleTags.length && (resolved?.roleIds || []).length ? "script" : "");
+
+  return {
+    roleIds: resolved?.roleIds || [],
+    roleNames: resolved?.roleNames || [],
+    unresolvedRoleNames: unresolvedRoleNames.filter((name) => !isScriptRuleTag(name)),
+    ruleTags,
+    appliesWhen,
+  };
+}
+
+function isScriptScopedJinx(jinx) {
+  return String(jinx?.appliesWhen || jinx?.scope || "").toLowerCase() === "script";
+}
+
+function jinxAppliesToRoleSet(jinx, roleIdSet, { sourceScriptId = "" } = {}) {
+  const jinxRoleIds = (jinx?.roleIds || []).filter(Boolean);
+  const scriptId = String(sourceScriptId || "").trim();
+  const hasResolvedMatch =
+    jinxRoleIds.length >= 2 && jinxRoleIds.every((roleId) => roleIdSet.has(roleId));
+  const hasScriptScopeMatch =
+    isScriptScopedJinx(jinx) &&
+    jinxRoleIds.length >= 1 &&
+    jinxRoleIds.every((roleId) => roleIdSet.has(roleId));
+  const hasSourceMatch =
+    scriptId && (jinx?.sourceScriptIds || []).includes(scriptId);
+
+  return hasResolvedMatch || hasScriptScopeMatch || hasSourceMatch;
+}
+
 module.exports = {
   isJinxTeam,
+  isScriptScopedJinx,
+  jinxAppliesToRoleSet,
   makeRoleLookup,
+  normalizeJinxResolution,
   resolveJinxRoleNames,
   splitJinxRoleNames,
 };

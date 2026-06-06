@@ -1,10 +1,13 @@
 id: j318
 kind: jinx
 name: 驱魔人与军团
-roleIds: []
-roleNames: []
-unresolvedRoleNames:
-  - 驱魔人与军团
+roleIds:
+  - r026
+  - r099
+roleNames:
+  - 驱魔人
+  - 军团
+unresolvedRoleNames: []
 rule: 驱魔人可能会得知自己通过自身能力选择了军团
 audience: both
 sourceScriptIds: []
