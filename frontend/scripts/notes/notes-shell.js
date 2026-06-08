@@ -1,4 +1,4 @@
-import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getGameScript, getSetupFabledRoleOptions, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
+import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getRoomTokenRoleOptions, getGameScript, getSetupFabledRoleOptions, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
 import { createDefaultSetupDraft, ensureNotesState, getActiveGame, getDraftOrPlayer } from "../notes-state.js";
 import { getJinxesForRoleIds, getJinxRoleLabel, isJinxObservedForRoleIds } from "../catalog-helpers.js";
 import { app, noteModeOptions, noteTabOptions, roleTypeOrder, scriptModeOptions, state, typeLabels } from "../state.js";
@@ -188,6 +188,7 @@ function renderRoomRoleChip(role, extra = "") {
 
 function renderRoomRoleTools(game) {
   const fabledRoles = getRoomFabledRoleOptions(game);
+  const tokenRoles = getRoomTokenRoleOptions(game);
   const travellerPlayers = getTravellerPlayers(game);
   const travellerOptions = getAvailableTravellerOptions(game);
   const emptyFabledText = isCustomRoleGame(game) ? "可在创建时添加。" : "当前剧本无传奇。";
@@ -205,6 +206,19 @@ function renderRoomRoleTools(game) {
             : `<p class="notes-room-role-empty">${emptyFabledText}</p>`
         }
       </div>
+      ${
+        tokenRoles.length
+          ? `
+            <div class="notes-room-role-section">
+              <div class="notes-room-role-header">
+                <strong>\u6807\u8bb0</strong>
+                <span>${tokenRoles.length} \u4e2a\u5267\u672c\u6807\u8bb0</span>
+              </div>
+              <div class="notes-room-role-list">${tokenRoles.map((role) => renderRoomRoleChip(role)).join("")}</div>
+            </div>
+          `
+          : ""
+      }
       <div class="notes-room-role-section">
         <div class="notes-room-role-header">
           <strong>旅行者</strong>

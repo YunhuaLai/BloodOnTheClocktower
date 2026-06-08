@@ -22,7 +22,7 @@
 - 文件夹批量导入：`npm run official:import -- "C:\path\官方剧本文件夹"`，会递归导入所有子文件夹中的 `.json`
 - 导出官方格式：`npm run official:export -- s001 ".\dist\暗流涌动.json"`
 - `roleIds` 只维护常规剧本角色：`townsfolk`、`outsider`、`minion`、`demon`
-- 旅行者维护在 `travellerIds` 中；传奇角色维护在 `fabledIds` 中
+- 旅行者维护在 `travellerIds` 中；传奇角色维护在 `fabledIds` 中；只属于特定剧本的标记或信息片维护在 `tokenIds` 中
 - 后端会从 `roleIds` 反向派生普通角色的 `scriptIds`、`scriptNames`、`script` 和 `scriptId`
 - `scripts` 中的 `author`、`logo`、`description`、`townsfolkName`、`additional` 对应官方 JSON 的 `_meta`
 - `scripts.nightOrder.first` 和 `scripts.nightOrder.other` 使用角色 id 的有序数组；导出官方 JSON 时由它们生成角色的 `firstNight` / `otherNight` 数字
@@ -32,7 +32,7 @@
 - `setupMeta.identityOverlay` 用于身份覆盖类角色：实际身份由说书人记录，玩家拿到另一个角色标记
 - `setupMeta.configurationAdjustments` 用于配置调整类角色，例如 `[-1或+1外来者]`；`setupAlertLevel: danger` 可在说书人模式中标红提示
 - 导出官方 JSON 时，角色对象的 `id` 可以直接使用本站角色 id；不需要单独维护官方 `sourceId`
-- 官方 JSON 中的旅行者会导入到 `travellerIds`，传奇角色会导入到 `fabledIds`
+- 官方 JSON 中的旅行者会导入到 `travellerIds`，传奇角色会导入到 `fabledIds`，`team: token` 会导入到 `tokenIds`
 - 导出官方 JSON 时顺序为 `_meta`、旅行者、常规剧本角色、传奇角色
 - 自动生成 `roles.abilityData` 时会优先生成结构化字段，如目标号码、选择角色、数字结果、是否结果、身份结果、阵营结果；复杂角色会标记 `needsReview: true`
 - `roles.abilityData` 是本站笔记页交互结构。官方 JSON 只能半自动生成初稿，复杂角色应标记 `needsReview: true`

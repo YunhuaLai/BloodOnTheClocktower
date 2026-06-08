@@ -12,6 +12,7 @@ const KNOWN_ROLE_TYPES = new Set([
   "fabled",
   "traveller",
   "traveller2",
+  "token",
 ]);
 
 const KNOWN_DEDUCTION_STATUSES = new Set([
@@ -202,10 +203,21 @@ function validateScripts(scripts, roleIds) {
       return;
     }
 
-    script.roleIds.forEach((roleId) => {
-      if (!roleIds.has(roleId)) {
-        addError(`script ${label(script)} references missing role "${roleId}"`);
+    ["roleIds", "travellerIds", "travelerIds", "fabledIds", "tokenIds"].forEach((field) => {
+      if (script[field] === undefined) {
+        return;
       }
+
+      if (!Array.isArray(script[field])) {
+        addError(`script ${label(script)} ${field} must be an array`);
+        return;
+      }
+
+      script[field].forEach((roleId) => {
+        if (!roleIds.has(roleId)) {
+          addError(`script ${label(script)} ${field} references missing role "${roleId}"`);
+        }
+      });
     });
 
     ["first", "other"].forEach((nightKey) => {

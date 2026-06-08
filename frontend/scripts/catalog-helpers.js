@@ -121,6 +121,7 @@ export function getScriptRoleIds(script) {
     ...(script?.roleIds || []),
     ...(script?.travellerIds || script?.travelerIds || []),
     ...(script?.fabledIds || []),
+    ...(script?.tokenIds || []),
   ].filter(Boolean);
 }
 

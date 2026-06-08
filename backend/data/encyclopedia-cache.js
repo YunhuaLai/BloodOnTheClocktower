@@ -80,6 +80,7 @@ function summarizeScript(script) {
     roleIds: script.roleIds,
     travellerIds: script.travellerIds,
     fabledIds: script.fabledIds,
+    tokenIds: script.tokenIds,
     nightOrder: script.nightOrder,
   };
 }

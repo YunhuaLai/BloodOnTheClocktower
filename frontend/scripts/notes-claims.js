@@ -35,6 +35,10 @@ export function isTravellerRole(role) {
   return travellerRoleTypes.has(role?.type);
 }
 
+export function isTokenRole(role) {
+  return role?.type === "token";
+}
+
 function uniqueRoles(roles) {
   const seen = new Set();
   return roles.filter((role) => {
@@ -212,6 +216,22 @@ export function getRoomFabledRoleOptions(game) {
   );
 }
 
+export function getRoomTokenRoleOptions(game) {
+  if (isCustomRoleGame(game)) {
+    return [];
+  }
+
+  const script = getGameScript(game);
+  if (!script?.tokenIds?.length) {
+    return [];
+  }
+
+  return sortScriptRoles(
+    script,
+    getScriptRolesFromField(script, "tokenIds", isTokenRole),
+  );
+}
+
 export function getActiveTravellerRoleOptions(game) {
   const configuredRoles = getCustomRoleOptionsFromIds(game?.travellerRoleIds, isTravellerRole);
   const claimedTravellerRoles = (game?.players || [])
@@ -258,7 +278,11 @@ export function getClaimRoleOptions(game) {
 
 export function getRoomRoleOptions(game) {
   return sortCatalogRoles(
-    uniqueRoles([...getClaimRoleOptions(game), ...getRoomFabledRoleOptions(game)]),
+    uniqueRoles([
+      ...getClaimRoleOptions(game),
+      ...getRoomFabledRoleOptions(game),
+      ...getRoomTokenRoleOptions(game),
+    ]),
   );
 }
 

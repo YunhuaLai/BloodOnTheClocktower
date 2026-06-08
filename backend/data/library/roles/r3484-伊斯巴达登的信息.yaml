@@ -1,7 +1,9 @@
 id: r3484
 englishName: jurendexinxi-123
 name: 伊斯巴达登的信息
-type: DDDemon_JuRenDeXinXi
+type: token
+tokenKind: information
+tokenPlacement: storyteller
 edition: custom
 image: https://i.postimg.cc/MTfpcjnL/image.png
 flavor: ' '
@@ -13,7 +15,7 @@ setupMeta:
   identityOverlay:
     enabled: false
     shownToken: self
-    actualRoleType: DDDemon_JuRenDeXinXi
+    actualRoleType: token
     shownRoleTypes: []
     note: ''
   configurationAdjustments: []

@@ -30,6 +30,7 @@ const TEAM_TO_TYPE = {
   traveler: "traveller",
   traveller: "traveller",
   fabled: "fabled",
+  token: "token",
 };
 
 const TYPE_TO_TEAM = {
@@ -40,6 +41,7 @@ const TYPE_TO_TEAM = {
   traveller: "traveler",
   traveler: "traveler",
   fabled: "fabled",
+  token: "token",
 };
 
 const MERGED_FABLED_JINX_NAMES = new Set([
@@ -1350,6 +1352,10 @@ function importOfficialJson(inputPath) {
     .concat(mergedFabledJinxRoleIds)
     .filter(Boolean)
     .filter((roleId, index, roleIds) => roleIds.indexOf(roleId) === index);
+  const tokenIds = officialRoles
+    .filter((role) => TEAM_TO_TYPE[role.team] === "token")
+    .map((role) => roleIdByOfficialRole.get(role))
+    .filter(Boolean);
   const scriptData = {
     ...(existingScript?.data || {}),
     id: scriptId,
@@ -1372,6 +1378,7 @@ function importOfficialJson(inputPath) {
     roleIds,
     travellerIds,
     fabledIds,
+    tokenIds,
     nightOrder: {
       first: orderRoleIds(officialRoles, roleIdByOfficialName, "firstNight"),
       other: orderRoleIds(officialRoles, roleIdByOfficialName, "otherNight"),
@@ -1456,6 +1463,7 @@ function exportOfficialJson(scriptId, outputPath) {
     ...(script.travellerIds || []),
     ...(script.roleIds || []),
     ...(script.fabledIds || []),
+    ...(script.tokenIds || []),
   ];
   const scriptRoleIdSet = new Set(orderedScriptRoleIds);
   const officialRoles = orderedScriptRoleIds

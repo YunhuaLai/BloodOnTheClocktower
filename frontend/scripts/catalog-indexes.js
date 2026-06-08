@@ -213,6 +213,7 @@ function getScriptRoleCount(script) {
     ...(script.roleIds || []),
     ...(script.travellerIds || []),
     ...(script.fabledIds || []),
+    ...(script.tokenIds || []),
   ].length;
 }
 

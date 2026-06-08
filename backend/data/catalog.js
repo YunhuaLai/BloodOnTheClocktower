@@ -8,6 +8,7 @@ const ROLE_TYPES = {
   traveller: "旅行者",
   traveler: "旅行者",
   fabled: "传奇角色",
+  token: "\u6807\u8bb0",
 };
 
 function uniqueValues(values) {
@@ -187,6 +188,9 @@ function normalizeScript(script, roleIds, termReplacements, roleIdByEnglishName 
   const fabledIds = uniqueValues(corrected.fabledIds || [])
     .map((roleReference) => mapRoleReference(roleReference, roleIdByEnglishName, roleIds))
     .filter((roleId) => roleIds.has(roleId));
+  const tokenIds = uniqueValues(corrected.tokenIds || [])
+    .map((roleReference) => mapRoleReference(roleReference, roleIdByEnglishName, roleIds))
+    .filter((roleId) => roleIds.has(roleId));
 
   return withResolvedImage({
     ...corrected,
@@ -197,6 +201,7 @@ function normalizeScript(script, roleIds, termReplacements, roleIdByEnglishName 
       .filter((roleId) => roleIds.has(roleId)),
     travellerIds,
     fabledIds,
+    tokenIds,
   }, "scripts");
 }
 
@@ -264,7 +269,12 @@ function augmentEncyclopedia(data) {
   const roleScriptIdsById = new Map(rawRoles.map((role) => [role.id, []]));
 
   scripts.forEach((script) => {
-    [...(script.roleIds || []), ...(script.travellerIds || []), ...(script.fabledIds || [])].forEach((roleId) => {
+    [
+      ...(script.roleIds || []),
+      ...(script.travellerIds || []),
+      ...(script.fabledIds || []),
+      ...(script.tokenIds || []),
+    ].forEach((roleId) => {
       const scriptIds = roleScriptIdsById.get(roleId);
 
       if (scriptIds) {

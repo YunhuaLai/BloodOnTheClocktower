@@ -2,7 +2,7 @@ import { abilityBlock, compactListLinks, detailBlock, getJinxesForScript, getJin
 import { app, roleTypeOrder, state, typeDescriptions, typeLabels } from "./state.js";
 import { escapeHtml } from "./utils.js";
 
-const scriptRoleGroupTypes = ["townsfolk", "outsider", "minion", "demon", "traveller", "fabled"];
+const scriptRoleGroupTypes = ["townsfolk", "outsider", "minion", "demon", "traveller", "fabled", "token"];
 
 function cleanText(value) {
   if (value === undefined || value === null) {
@@ -82,6 +82,7 @@ function isSpecialRole(role) {
   const ability = cleanText(role.ability || role.summary);
   return (
     role.type === "fabled" ||
+    role.type === "token" ||
     role.type === "traveller" ||
     role.type === "traveler" ||
     /\[[^\]]+\]/.test(ability) ||
@@ -96,9 +97,11 @@ function uniqueValues(values) {
 function getSpecialSummary(script, roles) {
   const fabledRoles = roles.filter((role) => role.type === "fabled");
   const travellerRoles = roles.filter((role) => role.type === "traveller" || role.type === "traveler");
+  const tokenRoles = roles.filter((role) => role.type === "token");
   const specialRoles = uniqueValues([
     ...fabledRoles.map((role) => role.name),
     ...travellerRoles.map((role) => role.name),
+    ...tokenRoles.map((role) => role.name),
     ...roles.filter(isSpecialRole).map((role) => role.name),
   ]).slice(0, 7);
   const lines = [];

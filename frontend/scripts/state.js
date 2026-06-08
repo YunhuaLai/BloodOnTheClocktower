@@ -8,6 +8,7 @@ export const typeLabels = {
   traveller: "旅行者",
   traveler: "旅行者",
   fabled: "传奇角色",
+  token: "\u6807\u8bb0",
 };
 
 export const typeDescriptions = {
@@ -18,6 +19,7 @@ export const typeDescriptions = {
   traveller: "游戏开始后可加入的特殊玩家角色，由玩家控制",
   traveler: "游戏开始后可加入的特殊玩家角色，由玩家控制",
   fabled: "由说书人使用的特殊规则或配置工具",
+  token: "\u53ea\u5728\u7279\u5b9a\u5267\u672c\u4e2d\u4f7f\u7528\u7684\u73a9\u5bb6\u6807\u8bb0\u6216\u4fe1\u606f\u7247",
 };
 
 export const notesStorageKey = "botc-game-notes-v1";
@@ -113,7 +115,7 @@ export const oneInOneOutRoleOrder = [
   "spirit-of-ivory",
 ];
 
-export const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "traveller", "fabled"];
+export const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "traveller", "fabled", "token"];
 
 export const state = {
   activeFilter: "all",
