@@ -16,6 +16,30 @@ function uniqueValues(values) {
   return Array.from(new Set(values.filter(Boolean)));
 }
 
+function normalizeJinxRuleText(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/[，。,.；;：:"“”'‘’（）()[\]【】]/g, "");
+}
+
+function getJinxConflictRoleIds(jinx) {
+  return uniqueValues((jinx?.roleIds || []).map((roleId) => String(roleId || "").trim()))
+    .sort((left, right) => left.localeCompare(right, "en"));
+}
+
+function makeJinxConflictKey(jinx) {
+  const roleIds = getJinxConflictRoleIds(jinx);
+  const rule = normalizeJinxRuleText(jinx?.rule || jinx?.ability || "");
+
+  if (!roleIds.length || !rule) {
+    return "";
+  }
+
+  return `${roleIds.join("&")}|${rule}`;
+}
+
 function stripRoleNameHint(value) {
   return String(value || "")
     .trim()
@@ -139,11 +163,14 @@ function jinxAppliesToRoleSet(jinx, roleIdSet, { sourceScriptId = "" } = {}) {
 }
 
 module.exports = {
+  getJinxConflictRoleIds,
   isJinxTeam,
   isScriptScopedJinx,
   jinxAppliesToRoleSet,
+  makeJinxConflictKey,
   makeRoleLookup,
   normalizeJinxResolution,
+  normalizeJinxRuleText,
   resolveJinxRoleNames,
   splitJinxRoleNames,
 };

@@ -1,5 +1,6 @@
 const { augmentEncyclopedia } = require("../backend/data/catalog");
 const { loadLibraryData } = require("../backend/data/library");
+const { makeJinxConflictKey } = require("./lib/jinx-utils");
 
 const KNOWN_SCRIPT_STATUSES = new Set(["draft", "review", "published", "archived"]);
 
@@ -263,6 +264,8 @@ function validateTerms(terms) {
 
 function validateJinxes(jinxes, roleIds, scriptIds) {
   const unresolved = [];
+  const conflictKeyOwners = new Map();
+  const duplicateConflictKeys = [];
 
   jinxes.forEach((jinx) => {
     requireString(jinx, "id", "jinx");
@@ -295,6 +298,15 @@ function validateJinxes(jinxes, roleIds, scriptIds) {
     if ((jinx?.unresolvedRoleNames || []).length) {
       unresolved.push(label(jinx));
     }
+
+    const conflictKey = makeJinxConflictKey(jinx);
+    if (conflictKey) {
+      if (conflictKeyOwners.has(conflictKey)) {
+        duplicateConflictKeys.push(`${label(conflictKeyOwners.get(conflictKey))} / ${label(jinx)}`);
+      } else {
+        conflictKeyOwners.set(conflictKey, jinx);
+      }
+    }
   });
 
   if (unresolved.length) {
@@ -302,6 +314,14 @@ function validateJinxes(jinxes, roleIds, scriptIds) {
       `${unresolved.length} jinxes have unresolved role names: ${unresolved
         .slice(0, 12)
         .join(", ")}${unresolved.length > 12 ? ", ..." : ""}`,
+    );
+  }
+
+  if (duplicateConflictKeys.length) {
+    addWarning(
+      `${duplicateConflictKeys.length} duplicate jinx conflict rules by roleIds+rule: ${duplicateConflictKeys
+        .slice(0, 12)
+        .join(", ")}${duplicateConflictKeys.length > 12 ? ", ..." : ""}`,
     );
   }
 }

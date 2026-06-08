@@ -10,7 +10,8 @@ roleNames:
 unresolvedRoleNames: []
 rule: 如果恶魔拥有酒鬼的能力，改为由科学怪人选择一名玩家：如果他是镇民，他醉酒。
 audience: both
-sourceScriptIds: []
+sourceScriptIds:
+  - s514
 source:
   roleId: r1338
   englishName: a629dc2a-ad96-4375-ae1f-7ed1ab2d630e

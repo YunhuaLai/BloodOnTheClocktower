@@ -6,6 +6,7 @@ const { inferDeductionData } = require("./lib/deduction-profile-inference");
 const {
   isJinxTeam,
   jinxAppliesToRoleSet,
+  makeJinxConflictKey,
   makeRoleLookup,
   normalizeJinxResolution,
   resolveJinxRoleNames,
@@ -272,10 +273,28 @@ function makeJinxId(existingJinxes, jinxName) {
   return existing?.data?.id || nextId;
 }
 
-function findJinxEntry(jinxes, officialRole) {
+function makeOfficialJinxConflictDraft(officialRole, roleLookup) {
+  const resolved = normalizeJinxResolution(
+    resolveJinxRoleNames(splitJinxRoleNames(officialRole.name), roleLookup),
+  );
+
+  return {
+    roleIds: resolved.roleIds,
+    rule: officialRole.ability || "",
+  };
+}
+
+function findJinxEntry(jinxes, officialRole, roleLookup) {
+  const conflictKey = makeJinxConflictKey(
+    makeOfficialJinxConflictDraft(officialRole, roleLookup),
+  );
+
   return (
     (officialRole.id
       ? jinxes.find((entry) => entry.data?.source?.officialId === officialRole.id)
+      : null) ||
+    (conflictKey
+      ? jinxes.find((entry) => makeJinxConflictKey(entry.data) === conflictKey)
       : null) ||
     jinxes.find((entry) => entry.data?.name === officialRole.name) ||
     null
@@ -1269,7 +1288,7 @@ function importOfficialJson(inputPath) {
       }
     }
 
-    const existingJinx = findJinxEntry(jinxes, officialRole);
+    const existingJinx = findJinxEntry(jinxes, officialRole, roleLookup);
     const jinxId = existingJinx?.data?.id || makeJinxId(jinxes, officialRole.name);
     const jinxData = makeJinxData(
       existingJinx?.data ? { ...existingJinx.data, id: jinxId } : { id: jinxId },

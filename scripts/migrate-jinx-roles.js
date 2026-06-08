@@ -10,6 +10,7 @@ const {
 } = require("./lib/library-io");
 const {
   isJinxTeam,
+  makeJinxConflictKey,
   makeRoleLookup,
   normalizeJinxResolution,
   resolveJinxRoleNames,
@@ -97,12 +98,28 @@ function removeJinxRoleReferences(scripts, jinxRoleIds) {
   return changedScripts;
 }
 
-function findExistingJinx(jinxes, role) {
+function makeRoleJinxConflictDraft(role, roleLookup) {
+  const resolved = normalizeJinxResolution(
+    resolveJinxRoleNames(splitJinxRoleNames(role.name), roleLookup),
+  );
+
+  return {
+    roleIds: resolved.roleIds,
+    rule: role.ability || "",
+  };
+}
+
+function findExistingJinx(jinxes, role, roleLookup) {
   const officialId = role.abilityData?.sourceAbility?.officialId;
+  const conflictKey = makeJinxConflictKey(makeRoleJinxConflictDraft(role, roleLookup));
+
   return (
     jinxes.find((entry) => entry.data?.source?.roleId === role.id) ||
     (officialId
       ? jinxes.find((entry) => entry.data?.source?.officialId === officialId)
+      : null) ||
+    (conflictKey
+      ? jinxes.find((entry) => makeJinxConflictKey(entry.data) === conflictKey)
       : null) ||
     jinxes.find((entry) => entry.data?.name === role.name) ||
     null
@@ -165,7 +182,7 @@ function migrate({ write = false } = {}) {
 
   jinxRoleEntries.forEach((entry) => {
     const role = entry.data;
-    const existingJinx = findExistingJinx(touchedJinxes, role);
+    const existingJinx = findExistingJinx(touchedJinxes, role, roleLookup);
     const jinxId = existingJinx?.data?.id || nextNumericId(touchedJinxes, "j");
     const jinxData = makeJinxData(
       { ...role, id: role.id },
