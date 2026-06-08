@@ -24,6 +24,14 @@ function stripRoleNameHint(value) {
     .trim();
 }
 
+function stripPrivateJinxHint(value) {
+  return String(value || "")
+    .trim()
+    .replace(/^私货相克[·.・:：\s]*/, "")
+    .replace(/^私货(?=\S)/, "")
+    .trim();
+}
+
 function splitJinxRoleNames(name) {
   return uniqueValues(
     String(name || "")
@@ -63,10 +71,13 @@ function resolveJinxRoleNames(names, roleLookup) {
   const unresolvedRoleNames = [];
 
   names.forEach((name) => {
+    const strippedName = stripRoleNameHint(name);
     const candidates = uniqueValues([
       name,
-      stripRoleNameHint(name),
-      stripRoleNameHint(name).replace(/^红唇$/, "红唇女郎"),
+      strippedName,
+      stripPrivateJinxHint(name),
+      stripPrivateJinxHint(strippedName),
+      strippedName.replace(/^红唇$/, "红唇女郎"),
     ]);
     const role = candidates
       .map((candidate) => roleLookup.get(normalizeLookupText(candidate)))

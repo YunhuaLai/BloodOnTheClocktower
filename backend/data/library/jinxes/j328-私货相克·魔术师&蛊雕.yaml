@@ -2,11 +2,12 @@ id: j328
 kind: jinx
 name: 私货相克·魔术师&蛊雕
 roleIds:
+  - r115
   - r609
 roleNames:
+  - 魔术师
   - 蛊雕
-unresolvedRoleNames:
-  - 私货相克·魔术师
+unresolvedRoleNames: []
 rule: 蛊雕在飞行时会越过魔术师
 audience: both
 sourceScriptIds: []

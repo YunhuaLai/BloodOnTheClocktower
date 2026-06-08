@@ -2,11 +2,12 @@ id: j326
 kind: jinx
 name: 私货哈迪寂亚&主谋
 roleIds:
+  - r081
   - r043
 roleNames:
+  - 哈迪寂亚
   - 主谋
-unresolvedRoleNames:
-  - 私货哈迪寂亚
+unresolvedRoleNames: []
 rule: 如果哈迪寂亚死于处决，且主谋存活，当晚哈迪寂亚要选择三名善良玩家：如果他们的选择一致，善良阵营落败。否则，善良阵营获胜。
 audience: both
 sourceScriptIds: []

@@ -41,6 +41,20 @@ const TYPE_TO_TEAM = {
   fabled: "fabled",
 };
 
+const MERGED_FABLED_JINX_NAMES = new Set([
+  "遗忘之门",
+  "活跃",
+  "受伤",
+  "隐伤",
+  "倒地",
+  "濒死",
+]);
+
+const ROLE_ABILITY_REUSE_THRESHOLD = 0.92;
+const SHORT_ROLE_ABILITY_REUSE_THRESHOLD = 0.96;
+const ROLE_ABILITY_REVIEW_THRESHOLD = 0.75;
+const SHORT_ROLE_ABILITY_LENGTH = 20;
+
 function slugify(value) {
   return String(value || "item")
     .trim()
@@ -66,8 +80,142 @@ function findEntryById(entries, id) {
   return entries.find((entry) => entry.data?.id === id) || null;
 }
 
+function normalizeRoleType(type) {
+  return TEAM_TO_TYPE[type] || type || "townsfolk";
+}
+
+function getOfficialRoleType(officialRole) {
+  return normalizeRoleType(officialRole.team);
+}
+
+function normalizeAbilityForComparison(value) {
+  return stripHtml(String(value || ""))
+    .normalize("NFKC")
+    .toLowerCase()
+    .replace(/[“”]/g, "\"")
+    .replace(/[‘’]/g, "'")
+    .replace(/[\p{P}\p{S}\s]+/gu, "");
+}
+
+function getAbilityReuseThreshold(leftAbility, rightAbility) {
+  const shortestLength = Math.min(
+    normalizeAbilityForComparison(leftAbility).length,
+    normalizeAbilityForComparison(rightAbility).length,
+  );
+
+  return shortestLength > 0 && shortestLength < SHORT_ROLE_ABILITY_LENGTH
+    ? SHORT_ROLE_ABILITY_REUSE_THRESHOLD
+    : ROLE_ABILITY_REUSE_THRESHOLD;
+}
+
+function levenshteinDistance(left, right) {
+  if (left === right) {
+    return 0;
+  }
+
+  if (!left.length) {
+    return right.length;
+  }
+
+  if (!right.length) {
+    return left.length;
+  }
+
+  let previous = Array.from({ length: right.length + 1 }, (_, index) => index);
+  let current = new Array(right.length + 1);
+
+  for (let leftIndex = 0; leftIndex < left.length; leftIndex += 1) {
+    current[0] = leftIndex + 1;
+
+    for (let rightIndex = 0; rightIndex < right.length; rightIndex += 1) {
+      const substitutionCost = left[leftIndex] === right[rightIndex] ? 0 : 1;
+      current[rightIndex + 1] = Math.min(
+        current[rightIndex] + 1,
+        previous[rightIndex + 1] + 1,
+        previous[rightIndex] + substitutionCost,
+      );
+    }
+
+    [previous, current] = [current, previous];
+  }
+
+  return previous[right.length];
+}
+
+function getAbilitySimilarity(leftAbility, rightAbility) {
+  const left = normalizeAbilityForComparison(leftAbility);
+  const right = normalizeAbilityForComparison(rightAbility);
+
+  if (!left && !right) {
+    return 1;
+  }
+
+  if (!left || !right) {
+    return 0;
+  }
+
+  return 1 - (levenshteinDistance(left, right) / Math.max(left.length, right.length));
+}
+
+function summarizeRoleMatchCandidate(candidate) {
+  if (!candidate?.entry?.data) {
+    return null;
+  }
+
+  return {
+    id: candidate.entry.data.id,
+    name: candidate.entry.data.name,
+    type: candidate.entry.data.type,
+    similarity: candidate.similarity,
+  };
+}
+
 function findRoleEntry(roles, officialRole) {
-  return roles.find((entry) => entry.data?.name === officialRole.name) || null;
+  const type = getOfficialRoleType(officialRole);
+  const sameNameRoles = roles.filter((entry) => entry.data?.name === officialRole.name);
+  const sameNameSameTypeRoles = sameNameRoles.filter((entry) => normalizeRoleType(entry.data?.type) === type);
+  const sameNameDifferentTypeRoles = sameNameRoles.filter((entry) => normalizeRoleType(entry.data?.type) !== type);
+
+  if (!sameNameSameTypeRoles.length) {
+    return {
+      entry: null,
+      reason: sameNameDifferentTypeRoles.length ? "same_name_different_type" : "new_role",
+      candidate: null,
+      candidates: sameNameDifferentTypeRoles.map((entry) => ({
+        id: entry.data.id,
+        name: entry.data.name,
+        type: entry.data.type,
+      })),
+    };
+  }
+
+  const scoredCandidates = sameNameSameTypeRoles
+    .map((entry) => ({
+      entry,
+      similarity: getAbilitySimilarity(entry.data?.ability, officialRole.ability),
+      reuseThreshold: getAbilityReuseThreshold(entry.data?.ability, officialRole.ability),
+    }))
+    .sort((left, right) => right.similarity - left.similarity);
+  const bestCandidate = scoredCandidates[0];
+
+  if (bestCandidate.similarity >= bestCandidate.reuseThreshold) {
+    return {
+      entry: bestCandidate.entry,
+      reason: "matched_name_type_ability",
+      candidate: summarizeRoleMatchCandidate(bestCandidate),
+      candidates: [],
+    };
+  }
+
+  return {
+    entry: null,
+    reason:
+      bestCandidate.similarity >= ROLE_ABILITY_REVIEW_THRESHOLD
+        ? "same_name_type_similar_ability"
+        : "same_name_type_different_ability",
+    candidate: summarizeRoleMatchCandidate(bestCandidate),
+    candidates: scoredCandidates.map(summarizeRoleMatchCandidate).filter(Boolean),
+  };
 }
 
 function normalizeOfficialInput(filePath) {
@@ -168,6 +316,38 @@ function makeJinxData(existingJinx, officialRole, roleLookup, scriptId) {
       image: officialRole.image || existingJinx?.source?.image || "",
     },
   };
+}
+
+function shouldMergeJinxIntoFabled(officialRole) {
+  return MERGED_FABLED_JINX_NAMES.has(officialRole.name);
+}
+
+function mergeJinxAbilityIntoFabledRole(roles, officialRole) {
+  const entry = roles.find(
+    (roleEntry) =>
+      roleEntry.data?.name === officialRole.name &&
+      roleEntry.data?.type === "fabled",
+  );
+
+  if (!entry?.data) {
+    return null;
+  }
+
+  const roleData = entry.data;
+  const jinxAbility = String(officialRole.ability || "").trim();
+  if (!jinxAbility || String(roleData.ability || "").includes(jinxAbility)) {
+    return entry;
+  }
+
+  roleData.ability = `${String(roleData.ability || "").trim()}${jinxAbility ? jinxAbility : ""}`;
+  roleData.abilityData = stripEmbeddedAbilityFields(makeRoleAbilityData(roleData, {
+    ...officialRole,
+    id: roleData.abilityData?.sourceAbility?.officialId || roleData.englishName || roleData.id,
+    team: TYPE_TO_TEAM[roleData.type] || roleData.type,
+    ability: roleData.ability,
+  }));
+  writeYamlFile(entry.filePath, roleData);
+  return entry;
 }
 
 function makeRoleData(existingRole, officialRole) {
@@ -949,12 +1129,41 @@ function textField(key, label, placeholder) {
   };
 }
 
-function orderRoleIds(officialRoles, roleIdByOfficialName, fieldName) {
+function orderRoleIds(officialRoles, roleIdByOfficialRole, fieldName) {
   return officialRoles
     .filter((role) => Number(role[fieldName]) > 0)
     .sort((left, right) => Number(left[fieldName]) - Number(right[fieldName]))
-    .map((role) => roleIdByOfficialName.get(role.name))
+    .map((role) => roleIdByOfficialRole.get(role))
     .filter(Boolean);
+}
+
+function formatSimilarity(value) {
+  return Number.isFinite(value) ? value.toFixed(2) : "未知";
+}
+
+function makeRoleMatchReviewReason(roleMatch) {
+  if (roleMatch.reason === "same_name_different_type") {
+    const types = roleMatch.candidates.map((candidate) => `${candidate.id}(${candidate.type})`).join("、");
+    return `导入检测到同名但类型不同的已有角色：${types}。已创建独立角色，请人工确认阵营/类型是否正确。`;
+  }
+
+  if (roleMatch.reason === "same_name_type_similar_ability") {
+    return `导入检测到同名同类型角色，但能力相似度 ${formatSimilarity(roleMatch.candidate?.similarity)} 低于自动复用阈值。已创建独立角色，请人工确认是否应合并。`;
+  }
+
+  if (roleMatch.reason === "same_name_type_different_ability") {
+    return `导入检测到同名同类型角色，但能力相似度 ${formatSimilarity(roleMatch.candidate?.similarity)} 较低。已创建独立角色，请人工确认是否为新变体。`;
+  }
+
+  return "";
+}
+
+function appendReviewReason(existingReason, nextReason) {
+  if (!nextReason) {
+    return existingReason || "";
+  }
+
+  return existingReason ? `${existingReason} ${nextReason}` : nextReason;
 }
 
 function importOfficialJson(inputPath) {
@@ -966,25 +1175,39 @@ function importOfficialJson(inputPath) {
   const jinxes = readYamlCollection(JINXES_DIR);
   const scriptId = makeScriptId(scripts, meta.name);
   const existingScript = findEntryById(scripts, scriptId);
-  const roleIdByOfficialName = new Map();
+  const roleIdByOfficialRole = new Map();
   const changed = [];
   const createdRoles = [];
   const reusedRoles = [];
   const createdJinxes = [];
   const reusedJinxes = [];
   const unresolvedJinxes = [];
+  const mergedFabledJinxRoleIds = [];
   const createdRoleAbilities = [];
   const reviewRoles = [];
+  const roleMatchReviews = [];
 
   officialRoles.forEach((officialRole) => {
-    const existingRole = findRoleEntry(roles, officialRole);
+    const roleMatch = findRoleEntry(roles, officialRole);
+    const existingRole = roleMatch.entry;
     const roleId = existingRole?.data?.id || nextNumericId(roles, "r");
     const roleData = makeRoleData(existingRole?.data ? { ...existingRole.data, id: roleId } : { id: roleId }, officialRole);
     const filePath = existingRole?.filePath || path.join(ROLES_DIR, `${roleId}-${safeFileName(officialRole.name)}.yaml`);
+    const importReviewReason = existingRole ? "" : makeRoleMatchReviewReason(roleMatch);
 
     if (!existingRole) {
       roles.push({ fileName: path.basename(filePath), filePath, data: roleData });
       createdRoles.push({ id: roleId, name: officialRole.name });
+      if (importReviewReason) {
+        roleMatchReviews.push({
+          id: roleId,
+          name: officialRole.name,
+          type: roleData.type,
+          reason: roleMatch.reason,
+          candidate: roleMatch.candidate,
+          candidates: roleMatch.candidates,
+        });
+      }
     } else {
       reusedRoles.push({ id: roleId, name: officialRole.name });
     }
@@ -1003,9 +1226,20 @@ function importOfficialJson(inputPath) {
       }
     }
 
+    if (importReviewReason) {
+      abilityData.needsReview = true;
+      abilityData.reviewReason = appendReviewReason(abilityData.reviewReason, importReviewReason);
+      if (abilityData.abilitySemantics) {
+        abilityData.abilitySemantics.reviewStatus =
+          abilityData.abilitySemantics.reviewStatus === "auto"
+            ? "import_review"
+            : abilityData.abilitySemantics.reviewStatus || "import_review";
+      }
+    }
+
     roleData.abilityData = stripEmbeddedAbilityFields(abilityData);
     writeYamlFile(filePath, roleData);
-    roleIdByOfficialName.set(officialRole.name, roleId);
+    roleIdByOfficialRole.set(officialRole, roleId);
     changed.push(relativeToRoot(filePath));
 
     if (!existingAbility) {
@@ -1024,6 +1258,17 @@ function importOfficialJson(inputPath) {
   }
 
   officialJinxes.forEach((officialRole) => {
+    if (shouldMergeJinxIntoFabled(officialRole)) {
+      const mergedEntry = mergeJinxAbilityIntoFabledRole(roles, officialRole);
+      if (mergedEntry?.filePath) {
+        changed.push(relativeToRoot(mergedEntry.filePath));
+        if (mergedEntry.data?.id) {
+          mergedFabledJinxRoleIds.push(mergedEntry.data.id);
+        }
+        return;
+      }
+    }
+
     const existingJinx = findJinxEntry(jinxes, officialRole);
     const jinxId = existingJinx?.data?.id || makeJinxId(jinxes, officialRole.name);
     const jinxData = makeJinxData(
@@ -1055,16 +1300,18 @@ function importOfficialJson(inputPath) {
 
   const roleIds = officialRoles
     .filter((role) => isCoreScriptRole(TEAM_TO_TYPE[role.team]))
-    .map((role) => roleIdByOfficialName.get(role.name))
+    .map((role) => roleIdByOfficialRole.get(role))
     .filter(Boolean);
   const travellerIds = officialRoles
     .filter((role) => TEAM_TO_TYPE[role.team] === "traveller")
-    .map((role) => roleIdByOfficialName.get(role.name))
+    .map((role) => roleIdByOfficialRole.get(role))
     .filter(Boolean);
   const fabledIds = officialRoles
     .filter((role) => TEAM_TO_TYPE[role.team] === "fabled")
-    .map((role) => roleIdByOfficialName.get(role.name))
-    .filter(Boolean);
+    .map((role) => roleIdByOfficialRole.get(role))
+    .concat(mergedFabledJinxRoleIds)
+    .filter(Boolean)
+    .filter((roleId, index, roleIds) => roleIds.indexOf(roleId) === index);
   const scriptData = {
     ...(existingScript?.data || {}),
     id: scriptId,
@@ -1108,6 +1355,7 @@ function importOfficialJson(inputPath) {
     unresolvedJinxes,
     createdRoleAbilities,
     reviewRoles,
+    roleMatchReviews,
   };
 }
 
@@ -1230,6 +1478,30 @@ function formatRoleList(items, limit = 8) {
   return `${names.join("、")}${items.length > limit ? ` 等 ${items.length} 个` : ""}`;
 }
 
+function formatRoleMatchReason(reason) {
+  const labels = {
+    same_name_different_type: "同名不同类型",
+    same_name_type_similar_ability: "同名同类型能力相近",
+    same_name_type_different_ability: "同名同类型能力不同",
+  };
+
+  return labels[reason] || reason || "待检查";
+}
+
+function formatRoleMatchReviewList(items, limit = 6) {
+  if (!items.length) {
+    return "无";
+  }
+
+  const names = items.slice(0, limit).map((item) => {
+    const candidate = item.candidate
+      ? `；候选 ${item.candidate.id} ${formatSimilarity(item.candidate.similarity)}`
+      : "";
+    return `${item.id} ${item.name}（${formatRoleMatchReason(item.reason)}${candidate}）`;
+  });
+  return `${names.join("、")}${items.length > limit ? ` 等 ${items.length} 个` : ""}`;
+}
+
 function printUsage() {
   console.log(`用法:
   node scripts/manage-official-json.js import <official.json|folder>
@@ -1256,9 +1528,12 @@ function main() {
     console.log(`导入成功：${result.imported.length}`);
     result.imported.forEach((item) => {
       console.log(`- ${item.scriptId} [${item.status}]: ${relativeToRoot(item.filePath)}`);
-      console.log(`  新角色：${item.createdRoles.length}；复用角色：${item.reusedRoles.length}；新建笔记结构：${item.createdRoleAbilities.length}；待复查：${item.reviewRoles.length}`);
+      console.log(`  新角色：${item.createdRoles.length}；复用角色：${item.reusedRoles.length}；新建笔记结构：${item.createdRoleAbilities.length}；待复查：${item.reviewRoles.length}；同名检查：${item.roleMatchReviews.length}`);
       if (item.reviewRoles.length) {
         console.log(`  待复查角色：${formatRoleList(item.reviewRoles)}`);
+      }
+      if (item.roleMatchReviews.length) {
+        console.log(`  同名角色检查：${formatRoleMatchReviewList(item.roleMatchReviews)}`);
       }
     });
 

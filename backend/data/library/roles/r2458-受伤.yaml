@@ -1,9 +1,9 @@
-id: r1039
-englishName: qiankunbaodai
-name: 乾坤宝袋
+id: r2458
+englishName: rule2
+name: 受伤
 type: fabled
 edition: custom
-image: https://img.picui.cn/free/2025/05/10/681ed5b3ae62b.png
+image: https://i.postimg.cc/TPY483vL/image.png
 flavor: ''
 setup: false
 setupMeta:
@@ -22,15 +22,15 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-ability: 乾为天，坤为地。
+ability: 异常状态，本身无任何效果（除非有特殊说明）
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
-    roleId: r1039
-    officialId: qiankunbaodai
-    sourceHash: f90b37114c63d482c1b10f81d5a6d0e2f55044e9
+    roleId: r2458
+    officialId: rule2
+    sourceHash: 20585fa3b06cdb0160e6bc1ac86006c42127c7e8
     sourceHashFields:
       - ability
       - type

@@ -3,10 +3,11 @@ kind: jinx
 name: 限&遗忘之门
 roleIds:
   - r302
+  - r976
 roleNames:
   - 限
-unresolvedRoleNames:
   - 遗忘之门
+unresolvedRoleNames: []
 rule: 限将同时得知能力发动当晚有多少名玩家的能力因为你的能力而未正常生效。
 audience: both
 sourceScriptIds: []

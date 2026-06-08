@@ -1,13 +1,12 @@
 id: j302
 kind: jinx
-name: 合并&船长&库克夸
+name: 船长&库克夸
 roleIds:
   - r533
+  - r4074
 roleNames:
   - 船长
-unresolvedRoleNames:
-  - 合并
-  - 库克夸
+  - 库克夸 ¶
 rule: 在初始设置中被库克夸能力加入的船长不会被合并的[设置调整]移除。
 audience: both
 sourceScriptIds: []

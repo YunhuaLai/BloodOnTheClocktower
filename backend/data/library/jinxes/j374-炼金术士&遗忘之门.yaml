@@ -3,10 +3,11 @@ kind: jinx
 name: 炼金术士&遗忘之门
 roleIds:
   - r155
+  - r976
 roleNames:
   - 炼金术士
-unresolvedRoleNames:
   - 遗忘之门
+unresolvedRoleNames: []
 rule: 炼金术士不会得知自己获得了什么爪牙能力。
 audience: both
 sourceScriptIds: []

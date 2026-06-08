@@ -3,10 +3,11 @@ kind: jinx
 name: 食人族&遗忘之门
 roleIds:
   - r091
+  - r976
 roleNames:
   - 食人族
-unresolvedRoleNames:
   - 遗忘之门
+unresolvedRoleNames: []
 rule: 食人族获得悟道者或者疯子的能力当晚会被通知角色变化，直到悟道者能力生效或者下一位玩家死于处决。
 audience: both
 sourceScriptIds: []

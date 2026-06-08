@@ -2,11 +2,12 @@ id: j012
 kind: jinx
 name: 乾坤如意袋&印度教教徒
 roleIds:
+  - r1039
   - r1038
 roleNames:
-  - 印度教教徒
-unresolvedRoleNames:
   - 乾坤如意袋
+  - 印度教教徒
+unresolvedRoleNames: []
 rule: 被印度教教徒复活的非恶魔玩家会把他原本的角色放入宝袋之中。
 audience: both
 sourceScriptIds: []

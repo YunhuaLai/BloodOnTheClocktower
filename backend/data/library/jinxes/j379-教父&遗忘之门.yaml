@@ -3,10 +3,11 @@ kind: jinx
 name: 教父&遗忘之门
 roleIds:
   - r040
+  - r976
 roleNames:
   - 教父
-unresolvedRoleNames:
   - 遗忘之门
+unresolvedRoleNames: []
 rule: 教父首夜不会得知外来者角色，改为得知在场外来者数量。
 audience: both
 sourceScriptIds: []
