@@ -1,0 +1,77 @@
+id: r435
+englishName: wushirens
+name: 舞狮人＆恶魔伪装
+type: fabled
+edition: custom
+image: https://www.bloodstar.xyz//p//Deodar2//double//17_double.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 恶魔的身份伪装会被替换为除恶魔外收到的另一个身份。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r435
+    officialId: wushirens
+    sourceHash: bd24ae8bcd0bc02f7cf9d2c413ede0bfd6c453bf
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

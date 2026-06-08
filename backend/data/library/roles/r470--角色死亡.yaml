@@ -1,0 +1,77 @@
+id: r470
+englishName: role-dies
+name: '*角色死亡'
+type: fabled
+edition: custom
+image: ''
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 死亡触发类技能在确认死亡(可以被宣告、挂帷幕的那种)时才会触发。比如赏金猎人。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r470
+    officialId: 47_inthegr_58
+    sourceHash: bcbd87d5d7dbbb4f3d6a558031990cf791ebf982
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

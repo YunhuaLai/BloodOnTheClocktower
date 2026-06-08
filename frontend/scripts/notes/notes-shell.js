@@ -1,4 +1,4 @@
-import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getGameScript, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
+import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getGameScript, getSetupFabledRoleOptions, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
 import { createDefaultSetupDraft, ensureNotesState, getActiveGame, getDraftOrPlayer } from "../notes-state.js";
 import { getJinxesForRoleIds, getJinxRoleLabel, isJinxObservedForRoleIds } from "../catalog-helpers.js";
 import { app, noteModeOptions, noteTabOptions, roleTypeOrder, scriptModeOptions, state, typeLabels } from "../state.js";
@@ -190,6 +190,7 @@ function renderRoomRoleTools(game) {
   const fabledRoles = getRoomFabledRoleOptions(game);
   const travellerPlayers = getTravellerPlayers(game);
   const travellerOptions = getAvailableTravellerOptions(game);
+  const emptyFabledText = isCustomRoleGame(game) ? "可在创建时添加。" : "当前剧本无传奇。";
 
   return `
     <section class="notes-room-role-tools">
@@ -201,7 +202,7 @@ function renderRoomRoleTools(game) {
         ${
           fabledRoles.length
             ? `<div class="notes-room-role-list">${fabledRoles.map((role) => renderRoomRoleChip(role)).join("")}</div>`
-            : `<p class="notes-room-role-empty">可在创建时添加。</p>`
+            : `<p class="notes-room-role-empty">${emptyFabledText}</p>`
         }
       </div>
       <div class="notes-room-role-section">
@@ -372,7 +373,10 @@ function renderCustomRoleBuilder(draft) {
 }
 
 function renderFabledRoleGroups(draft) {
-  const selectedRoles = getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole);
+  const canEditFabled = isCustomRoleGame(draft);
+  const selectedRoles = canEditFabled
+    ? getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole)
+    : getSetupFabledRoleOptions(draft);
   if (!selectedRoles.length) {
     return `<div class="notes-custom-role-empty">未启用传奇。</div>`;
   }
@@ -384,19 +388,27 @@ function renderFabledRoleGroups(draft) {
         <div class="notes-custom-role-chips">
           ${selectedRoles
             .map(
-              (role) => `
-                <button
-                  type="button"
-                  class="notes-custom-role-chip notes-custom-role-chip--${escapeHtml(role.type || "unknown")}"
-                  data-notes-action="remove-fabled-role"
-                  data-role-id="${escapeHtml(role.id)}"
-                  aria-label="${escapeHtml(`移除${role.name}`)}"
-                >
-                  <span>${escapeHtml(role.name)}</span>
-                  <small>${escapeHtml(typeLabels[role.type] || role.type || "角色")}</small>
-                  <strong aria-hidden="true">×</strong>
-                </button>
-              `,
+              (role) =>
+                canEditFabled
+                  ? `
+                    <button
+                      type="button"
+                      class="notes-custom-role-chip notes-custom-role-chip--${escapeHtml(role.type || "unknown")}"
+                      data-notes-action="remove-fabled-role"
+                      data-role-id="${escapeHtml(role.id)}"
+                      aria-label="${escapeHtml(`移除${role.name}`)}"
+                    >
+                      <span>${escapeHtml(role.name)}</span>
+                      <small>${escapeHtml(typeLabels[role.type] || role.type || "角色")}</small>
+                      <strong aria-hidden="true">×</strong>
+                    </button>
+                  `
+                  : `
+                    <span class="notes-custom-role-chip notes-custom-role-chip--${escapeHtml(role.type || "unknown")}">
+                      <span>${escapeHtml(role.name)}</span>
+                      <small>${escapeHtml(typeLabels[role.type] || role.type || "角色")}</small>
+                    </span>
+                  `,
             )
             .join("")}
         </div>
@@ -406,34 +418,45 @@ function renderFabledRoleGroups(draft) {
 }
 
 function renderFabledRoleBuilder(draft) {
-  const selectedCount = getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole).length;
+  const canEditFabled = isCustomRoleGame(draft);
+  const availableRoles = getSetupFabledRoleOptions(draft);
+  const selectedCount = canEditFabled
+    ? getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole).length
+    : availableRoles.length;
+  const totalCount = canEditFabled ? getFabledRoleOptions().length : availableRoles.length;
 
   return `
     <section class="notes-custom-roles notes-fabled-roles">
       <div class="notes-custom-role-header">
         <div>
           <strong>传奇角色</strong>
-          <span>${selectedCount} / ${getFabledRoleOptions().length}</span>
+          <span>${selectedCount} / ${totalCount}</span>
         </div>
       </div>
-      <div class="notes-custom-role-control">
-        <label class="note-field">
-          <span>添加传奇角色</span>
-          <input
-            id="fabledRoleInput"
-            name="fabledRoleQuery"
-            data-setup-field="fabledRoleQuery"
-            value="${escapeHtml(draft.fabledRoleQuery || "")}"
-            list="fabledRoleNameList"
-            autocomplete="off"
-            autocapitalize="off"
-            spellcheck="false"
-            placeholder="输入传奇角色名"
-          />
-        </label>
-        <button type="button" class="note-icon-button" data-notes-action="add-fabled-role">添加</button>
-      </div>
-      ${renderFabledRoleNameDatalist()}
+      ${
+        canEditFabled
+          ? `
+            <div class="notes-custom-role-control">
+              <label class="note-field">
+                <span>添加传奇角色</span>
+                <input
+                  id="fabledRoleInput"
+                  name="fabledRoleQuery"
+                  data-setup-field="fabledRoleQuery"
+                  value="${escapeHtml(draft.fabledRoleQuery || "")}"
+                  list="fabledRoleNameList"
+                  autocomplete="off"
+                  autocapitalize="off"
+                  spellcheck="false"
+                  placeholder="输入传奇角色名"
+                />
+              </label>
+              <button type="button" class="note-icon-button" data-notes-action="add-fabled-role">添加</button>
+            </div>
+            ${renderFabledRoleNameDatalist(availableRoles)}
+          `
+          : ""
+      }
       ${renderFabledRoleGroups(draft)}
     </section>
   `;

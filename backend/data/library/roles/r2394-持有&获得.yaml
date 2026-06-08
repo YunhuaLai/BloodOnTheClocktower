@@ -1,0 +1,77 @@
+id: r2394
+englishName: 2-meta
+name: 持有&获得
+type: fabled
+edition: custom
+image: https://clocktower-wiki.gstonegames.com/images/thumb/9/97/Bootlegger.png/300px-Bootlegger.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 持有：表示拥有混元珠的玩家的一种持续状态。获得：表示玩家从没有某颗混元珠到持有的过程。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r2394
+    officialId: 2_meta
+    sourceHash: 47589103260b5592fcc4e76dcca865dd5ec25bd4
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

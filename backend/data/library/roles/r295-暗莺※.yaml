@@ -1,0 +1,77 @@
+id: r295
+englishName: dark-nightingale
+name: 暗莺※
+type: fabled
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/7/7e/mawtfrfguajylerjbt2ta627hl5ovv8.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个夜晚*，你得知所有负伤的玩家。每局游戏限一次，你可以选择一名玩家：若他是负伤镇民，他死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r295
+    officialId: 11_zhiminghuaerzi
+    sourceHash: 7ddbcfb9d3050ab0b5f467fd7d8a7b461f3ad62a
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

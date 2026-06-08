@@ -1,5 +1,5 @@
 import { clampNumber, cloneSuspectedRoles, createDefaultPlayer, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, saveNotesState } from "../notes-state.js";
-import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getFabledRoleOptions, isFabledRole, isTravellerRole } from "../notes-claims.js";
+import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getSetupFabledRoleOptions, isFabledRole, isTravellerRole } from "../notes-claims.js";
 import { createNominationRecord, getDayRecord, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
 import { phaseTypeOptions, state } from "../state.js";
 import { createId } from "../utils.js";
@@ -98,7 +98,10 @@ export function removeSetupCustomRole(roleId) {
 
 export function addSetupFabledRole(value) {
   const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
-  const role = findCatalogRole(value || draft.fabledRoleQuery, getFabledRoleOptions());
+  const candidates = getSetupFabledRoleOptions(draft);
+  const role = candidates.length
+    ? findCatalogRole(value || draft.fabledRoleQuery, candidates)
+    : null;
 
   if (!role || !isFabledRole(role)) {
     window.alert("传奇角色不存在。");
@@ -618,7 +621,10 @@ export function handleCreateGame() {
     setup.scriptMode === "custom"
       ? [...(state.notes.ui.setupDraft?.customRoleIds || [])]
       : [];
-  setup.fabledRoleIds = [...(state.notes.ui.setupDraft?.fabledRoleIds || [])];
+  setup.fabledRoleIds =
+    setup.scriptMode === "custom"
+      ? [...(state.notes.ui.setupDraft?.fabledRoleIds || [])]
+      : [];
   if (setup.scriptMode === "custom" && !setup.customRoleIds.length) {
     window.alert("自定义池为空。");
     return;

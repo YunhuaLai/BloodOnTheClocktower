@@ -45,6 +45,8 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
     );
     if (shouldRerender) {
       renderNotesPage();
+    } else if (refreshInterface && setupField.dataset.setupField === "scriptName") {
+      renderNotesPage();
     }
     return;
   }

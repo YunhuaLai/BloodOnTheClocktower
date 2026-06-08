@@ -1,0 +1,77 @@
+id: r4124
+englishName: 7-zhiminghuaerzi
+name: 精神病患者※
+type: fabled
+edition: custom
+image: https://patchwiki.biligame.com/images/jbzlbwgwjcygf/d/d7/msb759ew0f2hudkvxhsz15jnxsqqpy9.png
+flavor: ''
+setup: false
+setupMeta:
+  randomAssignable: true
+  tokenRequired: true
+  setupAlertLevel: none
+  identityOverlay:
+    enabled: false
+    shownToken: self
+    actualRoleType: fabled
+    shownRoleTypes: []
+    note: ''
+  configurationAdjustments: []
+  setupNotes: []
+reminders: []
+remindersGlobal: []
+firstNightReminder: ''
+otherNightReminder: ''
+ability: 每个白天，在提名开始前，你可以公开选择一名玩家：他死亡。如果你被处决，提名你的玩家需要和你猜拳，只有你输了你才会死亡。
+abilityData:
+  schemaVersion: 2
+  generatedFromOfficial: true
+  sourceAbility:
+    source: role-file
+    roleId: r4124
+    officialId: 7_zhiminghuaerzi
+    sourceHash: 102a2b1ad11c044914256a2e366f64e1e43dbfba
+    sourceHashFields:
+      - ability
+      - type
+      - setup
+      - reminders
+      - remindersGlobal
+      - firstNightReminder
+      - otherNightReminder
+  needsReview: false
+  reviewReason: ''
+  tags:
+    - 被动
+  termIds:
+    - fabled
+  abilityPattern: no_input
+  abilitySemantics:
+    schemaVersion: 1
+    reviewStatus: auto
+    confidence: 0.75
+    timing:
+      phase: passive
+      event: null
+      frequency: passive
+    actor:
+      drivenBy: storyteller
+    operations:
+      - kind: passive_rule
+  abilityMeta:
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
+  interactionSchema:
+    target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

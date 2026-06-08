@@ -180,8 +180,36 @@ function getScriptBaseRoles(game) {
   );
 }
 
+export function getSetupFabledRoleOptions(setup) {
+  if (isCustomRoleGame(setup)) {
+    return getFabledRoleOptions();
+  }
+
+  const script = getGameScript(setup);
+  if (!script?.fabledIds?.length) {
+    return [];
+  }
+
+  return sortScriptRoles(
+    script,
+    getScriptRolesFromField(script, "fabledIds", isFabledRole),
+  );
+}
+
 export function getRoomFabledRoleOptions(game) {
-  return getCustomRoleOptionsFromIds(game?.fabledRoleIds, isFabledRole);
+  if (isCustomRoleGame(game)) {
+    return getCustomRoleOptionsFromIds(game?.fabledRoleIds, isFabledRole);
+  }
+
+  const script = getGameScript(game);
+  if (!script?.fabledIds?.length) {
+    return [];
+  }
+
+  return sortScriptRoles(
+    script,
+    getScriptRolesFromField(script, "fabledIds", isFabledRole),
+  );
 }
 
 export function getActiveTravellerRoleOptions(game) {
@@ -276,10 +304,10 @@ export function renderAllRoleNameDatalist() {
   `;
 }
 
-export function renderFabledRoleNameDatalist() {
+export function renderFabledRoleNameDatalist(roles = getFabledRoleOptions()) {
   return `
     <datalist id="fabledRoleNameList">
-      ${getFabledRoleOptions()
+      ${roles
         .map(
           (role) =>
             `<option value="${escapeHtml(role.name)}" label="${escapeHtml(typeLabels[role.type] || role.type)}"></option>`,
