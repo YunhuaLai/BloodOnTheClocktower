@@ -1,8 +1,8 @@
 id: r081
 name: 哈迪寂亚
-type: townsfolk
+type: demon
 englishName: al-hadikhia
-ability: 每个夜晚，你要选择三名玩家：你会得知其中两名阵营彼此相同的玩家。
+ability: 每个夜晚*，你可以选择三名玩家（所有玩家会得知你选了谁）：他们分别秘密决定自己的生死，然后如果他们都存活则都死亡。
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/Icon_alhadikhia_b.png
@@ -20,18 +20,22 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
+reminders:
+  - '1'
+  - '2'
+  - '3'
+  - 选择生
+  - 选择死
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: '1'
+otherNightReminder: 唤醒哈迪寂亚，让他选择三名玩家。执行哈迪寂亚的能力流程（参考哈迪寂亚的百科页面）。
 abilityData:
   schemaVersion: 2
-  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r081
-    officialId: 3_fan
-    sourceHash: 8f258b0f8bdac98780b7564296a46bc4e5272ab8
+    officialId: al-hadikhia
+    sourceHash: 016590f87c1bee2f56c7b6d67c8042eb8c5079ea
     sourceHashFields:
       - ability
       - type
@@ -40,21 +44,20 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
     - 多杀型
   termIds:
     - night
-    - alignment
-    - townsfolk
+    - death
+    - alive
+    - demon
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.7
     timing:
       phase: each_night_star
       event: null
@@ -65,6 +68,7 @@ abilityData:
       - kind: choose_player
         count: 3
         source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star

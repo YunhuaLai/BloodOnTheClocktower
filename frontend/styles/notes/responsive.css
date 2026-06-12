@@ -209,6 +209,114 @@
       translateY(calc(var(--seat-radius) * -1))
       rotate(calc(var(--seat-angle) * -1));
   }
+
+  .player-roundtable-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .player-roundtable-board {
+    width: min(100%, 760px);
+  }
+}
+
+@media (max-width: 720px) {
+  .player-roundtable-panel {
+    overflow: hidden;
+  }
+
+  .player-roundtable-board {
+    --player-seat-size: clamp(46px, 14vw, 56px);
+    --seat-radius: clamp(88px, 32vw, 132px);
+
+    place-self: center;
+    width: min(100%, 340px);
+    aspect-ratio: 1;
+    min-height: 0;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background:
+      radial-gradient(circle at center, rgba(255, 255, 255, 0.96) 0 23%, transparent 23.5%),
+      radial-gradient(circle at center, rgba(31, 34, 39, 0.05) 0 60%, transparent 60.5%),
+      #f7f8f4;
+  }
+
+  .player-roundtable-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    gap: 2px;
+    justify-items: center;
+    width: 88px;
+    min-height: 66px;
+    padding: 12px 8px;
+    transform: translate(-50%, -50%);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    text-align: center;
+  }
+
+  .player-roundtable-center span,
+  .player-roundtable-center small {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1.05;
+  }
+
+  .player-roundtable-center strong {
+    font-size: 18px;
+    line-height: 1;
+  }
+
+  .player-roundtable-seat {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    align-content: center;
+    grid-template-columns: 1fr;
+    gap: 3px;
+    justify-items: center;
+    width: var(--player-seat-size);
+    height: var(--player-seat-size);
+    min-height: var(--player-seat-size);
+    padding: 4px;
+    overflow: hidden;
+    border-left-width: 2px;
+    text-align: center;
+    transform:
+      translate(-50%, -50%)
+      rotate(var(--seat-angle))
+      translateY(calc(var(--seat-radius) * -1))
+      rotate(calc(var(--seat-angle) * -1));
+  }
+
+  .player-roundtable-seat .story-seat-number {
+    grid-row: auto;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+
+  .player-roundtable-seat .story-seat-name,
+  .player-roundtable-seat .story-seat-alignment,
+  .player-roundtable-seat .story-seat-markers {
+    display: none;
+  }
+
+  .player-roundtable-seat strong {
+    display: -webkit-box;
+    width: 100%;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 1.05;
+    white-space: normal;
+    word-break: break-word;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
 }
 
 .notes-seat-tabs {

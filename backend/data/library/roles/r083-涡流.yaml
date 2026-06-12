@@ -1,8 +1,8 @@
 id: r083
 name: 涡流
-type: townsfolk
+type: demon
 englishName: vortox
-ability: 每个白天，你可以拜访说书人得知一条错误信息。
+ability: 每个夜晚*，你要选择一名玩家：他死亡。镇民玩家的能力都会产生错误信息。如果白天没人被处决，邪恶阵营获胜。
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/vortox_b.png
@@ -20,18 +20,19 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
+reminders:
+  - 死亡
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: ''
+otherNightReminder: 唤醒涡流，让他攻击一名玩家。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r083
-    officialId: 7_fan
-    sourceHash: d77f09b4747c27b7e7926f97bdefea1c2f4eeb4d
+    officialId: vortox
+    sourceHash: 1f2d93025b07f43b24bea8703e1a977276411d1e
     sourceHashFields:
       - ability
       - type
@@ -40,21 +41,24 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 错误信息
     - 规则修饰
   termIds:
     - day
+    - night
     - information
+    - execution
+    - death
+    - alignment
+    - evil
     - townsfolk
-    - storyteller
+    - demon
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: passive
@@ -63,7 +67,7 @@ abilityData:
     actor:
       drivenBy: system
     operations:
-      - kind: passive_rule
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: passive

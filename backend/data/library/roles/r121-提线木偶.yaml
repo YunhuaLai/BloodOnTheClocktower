@@ -1,7 +1,7 @@
 id: r121
 englishName: marionette
 name: 提线木偶
-type: outsider
+type: minion
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/Icon_marionette_b.png
@@ -25,17 +25,17 @@ setupMeta:
 reminders: []
 remindersGlobal:
   - 是提线木偶
-firstNightReminder: '1'
+firstNightReminder: 如果提线木偶在场，对恶魔展示提线木偶角色标记并指向提线木偶玩家。
 otherNightReminder: ''
-ability: 你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。
+ability: 你以为你是一个善良角色，但其实你不是。恶魔会知道你是提线木偶。[提线木偶会与恶魔邻座]
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r121
-    officialId: 16_faan
-    sourceHash: 3495b9151b57fd283fd37ff45c09dee2b95dafa4
+    officialId: marionette
+    sourceHash: 6e7cb2a1081a2dc7cae74d09f346ed4fc360bb95
     sourceHashFields:
       - ability
       - type
@@ -44,8 +44,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
     - 设置
@@ -55,13 +55,13 @@ abilityData:
     - first-night
     - information
     - good
-    - outsider
+    - minion
     - demon
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.7
     timing:
       phase: first_night
       event: null

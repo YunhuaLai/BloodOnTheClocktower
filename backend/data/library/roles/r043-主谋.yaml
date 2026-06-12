@@ -1,8 +1,8 @@
 id: r043
 name: 主谋
-type: outsider
+type: minion
 englishName: mastermind
-ability: 如果在你死亡后的下个白天有善良玩家被处决，他的阵营落败。
+ability: 如果恶魔因为死于处决而因此导致游戏结束时，再额外进行一个夜晚和一个白天。在那个白天如果有玩家被处决，他的阵营落败。
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/mastermind_b.png
@@ -20,8 +20,7 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders:
-  - 幕后黑手
+reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
@@ -31,8 +30,8 @@ abilityData:
   sourceAbility:
     source: role-file
     roleId: r043
-    officialId: 14_fan
-    sourceHash: c62a3adb658e157fdf7bc41484ada889e486c957
+    officialId: mastermind
+    sourceHash: c7c9035749991f975a783ad97c715a59be58b87a
     sourceHashFields:
       - ability
       - type
@@ -41,23 +40,21 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 被动
     - 残局
     - 规则修饰
   termIds:
     - day
+    - night
     - execution
-    - death
     - alignment
-    - good
-    - outsider
+    - minion
+    - demon
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: passive

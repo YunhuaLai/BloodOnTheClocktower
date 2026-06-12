@@ -1,13 +1,13 @@
 id: r040
 name: 教父
-type: townsfolk
+type: minion
 englishName: godfather
-ability: 在你的首个夜晚，你会得知有哪些爪牙角色在场。
+ability: 在你的首个夜晚，你会得知有哪些外来者角色在场。如果有外来者在白天死亡，你会在当晚被唤醒并且你要选择一名玩家：他死亡。[-1或+1外来者]
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/godfather_b.png
 flavor: “通常来说，这只是件小事。但在你侮辱我女儿时，你就侮辱了我。你侮辱我，就侮辱了我的家族。你真的应该更小心些——要是你不幸发生意外事故，那就太遗憾了。”
-setup: false
+setup: true
 setupMeta:
   randomAssignable: true
   tokenRequired: true
@@ -26,18 +26,20 @@ setupMeta:
       note: 配置调整：外来者数量 -1 到 +1。
   setupNotes:
     - 配置调整：外来者数量 -1 到 +1。
-reminders: []
+reminders:
+  - 死于今日
+  - 死亡
 remindersGlobal: []
-firstNightReminder: '1'
-otherNightReminder: ''
+firstNightReminder: 对他展示所有在场的外来者标记。
+otherNightReminder: 如果有外来者在今天白天死亡，让教父选择一名玩家。标记那名玩家死亡。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r040
-    officialId: _fan
-    sourceHash: 2785733c004936cb43a4e55b71cbbe53b9662f0f
+    officialId: godfather
+    sourceHash: 2b894c9062d3159164bbcd95d96547eb3767e709
     sourceHashFields:
       - ability
       - type
@@ -46,23 +48,23 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 特殊机制
     - 开局信息
     - 击杀型
   termIds:
+    - day
     - night
     - first-night
     - information
-    - townsfolk
+    - death
+    - outsider
     - minion
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: special
       event: null
@@ -80,6 +82,7 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: special

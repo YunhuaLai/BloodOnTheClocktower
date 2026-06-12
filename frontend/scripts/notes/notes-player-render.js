@@ -1,8 +1,9 @@
 import { getClaimPickerHint, getGameScript, isCustomRoleGame } from "../notes-claims.js";
 import { getDraftOrPlayer, getPlayerDraft } from "../notes-state.js";
-import { noteAlignmentOptions, noteTagOptions, state } from "../state.js";
-import { escapeHtml, renderSelectOptions } from "../utils.js";
-import { getSeatLabel, isTravellerPlayer } from "./notes-core.js";
+import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, noteTagOptions, state, typeLabels } from "../state.js";
+import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
+import { formatPhaseLabel, getAliveCount, getSeatLabel, getTotalPlayerCount, isTravellerPlayer } from "./notes-core.js";
+import { getClaimedRole } from "./notes-role-info.js";
 import { renderRoleInfoInputs } from "./notes-role-info-panel.js";
 
 function renderNoteTagButtons(player) {
@@ -82,16 +83,10 @@ export function renderPlayersTab(game) {
   const selectedPlayer = getSelectedPlayer(game);
 
   return `
-    <section class="notes-panel">
-      <div class="notes-panel-header">
-        <div>
-          <p class="eyebrow">玩家页</p>
-          <h2>点座位，改信息</h2>
-        </div>
-      </div>
-      ${renderSeatTabs(game, selectedPlayer)}
+    <div class="player-page">
+      ${renderPlayerRoundtable(game, selectedPlayer)}
       ${renderPlayerDetail(selectedPlayer, game)}
-    </section>
+    </div>
   `;
 }
 
@@ -194,30 +189,99 @@ function getJudgementSummary(player) {
   return `${alignmentShort[player.alignment] || "?"}/${conditionShort[conditionValue] || "?"}`;
 }
 
-function renderSeatTabs(game, selectedPlayer) {
+function getPlayerTableMarkerTokens(player) {
+  const tokens = [];
+
+  if (player.status !== "alive") {
+    tokens.push(getOptionLabel(noteStatusOptions, player.status));
+  }
+
+  if (player.alignment !== "unknown") {
+    tokens.push(getOptionLabel(noteAlignmentOptions, player.alignment));
+  }
+
+  const condition = player.condition === "drunk" ? "poisoned" : player.condition;
+  if (condition !== "unknown") {
+    tokens.push(getOptionLabel(noteConditionOptions, condition));
+  }
+
+  (player.tags || [])
+    .map((tag) => getOptionLabel(noteTagOptions, tag))
+    .filter(Boolean)
+    .slice(0, 2)
+    .forEach((tag) => tokens.push(tag));
+
+  if (player.extraInfo) {
+    tokens.push(String(player.extraInfo).trim().replace(/\s+/g, " "));
+  }
+
+  return tokens.slice(0, 5);
+}
+
+function renderPlayerRoundtableSeat(player, game, index, selectedPlayer) {
+  const draft = getDraftOrPlayer(player);
+  const role = getClaimedRole(draft, game);
+  const angle = (360 / Math.max(game.players.length, 1)) * index - 90;
+  const isSelected = player.id === selectedPlayer?.id;
+  const isSelf = player.seat === game.selfSeat;
+  const isTraveller = isTravellerPlayer(player);
+  const markerTokens = getPlayerTableMarkerTokens(draft);
+  const seatLabel = draft.name || (isTraveller ? "旅行者" : isSelf ? "自己" : "未命名");
+  const claimLabel = draft.claim || "未声明身份";
+  const roleType = role?.type || (isTraveller ? "traveller" : "unknown");
+
   return `
-    <div class="notes-seat-tabs" role="tablist" aria-label="选择玩家">
-      ${game.players
-        .map((player) => {
-          const active = player.id === selectedPlayer?.id;
-          const isSelf = player.seat === game.selfSeat;
-          const isTraveller = isTravellerPlayer(player);
-          return `
-            <button
-              type="button"
-              class="notes-seat-tab${active ? " active" : ""}${isSelf ? " is-self" : ""}${isTraveller ? " is-traveller" : ""}"
-              data-notes-action="select-player"
-              data-player-id="${escapeHtml(player.id)}"
-              aria-pressed="${active ? "true" : "false"}"
-              aria-label="${escapeHtml(`${player.seat}号位${isSelf ? "（自己）" : ""}`)}"
-            >
-              <span>${player.seat}</span>
-              ${isTraveller ? `<small>旅行者</small>` : ""}
-            </button>
-          `;
-        })
-        .join("")}
-    </div>
+    <button
+      type="button"
+      class="story-grimoire-seat player-roundtable-seat story-grimoire-seat--${escapeHtml(roleType)} player-roundtable-seat--judgement-${escapeHtml(draft.alignment || "unknown")}${draft.status === "alive" ? "" : " is-dead"}${isSelected ? " is-selected" : ""}${isSelf ? " is-self" : ""}${isTraveller ? " is-traveller" : ""}"
+      style="--seat-angle: ${angle}deg;"
+      data-notes-action="select-player"
+      data-player-id="${escapeHtml(player.id)}"
+      aria-pressed="${isSelected ? "true" : "false"}"
+      aria-label="${escapeHtml(`${player.seat}号位 ${seatLabel}`)}"
+    >
+      <span class="story-seat-number">${player.seat}${isSelf ? "*" : ""}</span>
+      <span class="story-seat-name">${escapeHtml(seatLabel)}</span>
+      <strong>${escapeHtml(claimLabel)}</strong>
+      <span class="story-seat-alignment">${escapeHtml(role ? typeLabels[role.type] : getJudgementSummary(draft))}</span>
+      <span class="story-seat-markers">
+        ${
+          markerTokens.length
+            ? markerTokens
+                .map((token) => `<small>${escapeHtml(token)}</small>`)
+                .join("")
+            : `<small>暂无笔记</small>`
+        }
+      </span>
+    </button>
+  `;
+}
+
+function renderPlayerRoundtable(game, selectedPlayer) {
+  return `
+    <section class="story-grimoire-panel player-roundtable-panel">
+      <div class="story-grimoire-header">
+        <div>
+          <p class="eyebrow">玩家圆桌</p>
+          <h2>桌面局势</h2>
+        </div>
+      </div>
+
+      <div class="story-grimoire-layout player-roundtable-layout">
+        <div class="story-grimoire-board player-roundtable-board" aria-label="玩家圆桌座位盘">
+          <div class="story-grimoire-center player-roundtable-center">
+            <span>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))}</span>
+            <strong>${getAliveCount(game)} / ${getTotalPlayerCount(game)}</strong>
+            <small>${escapeHtml(game.scriptName || "未选剧本")}</small>
+          </div>
+          ${game.players
+            .map((player, index) =>
+              renderPlayerRoundtableSeat(player, game, index, selectedPlayer),
+            )
+            .join("")}
+        </div>
+      </div>
+    </section>
   `;
 }
 

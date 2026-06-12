@@ -1,8 +1,8 @@
 id: r107
 name: 灵言师
-type: townsfolk
+type: minion
 englishName: spirit-tongue
-ability: 在你的首个夜晚，你会得知一个关键词和两名与该关键词有联系的玩家。
+ability: 在你的首个夜晚，你会得知一个关键词。首个说出该关键词的善良玩家会在当晚转变为邪恶阵营。
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/Icon_mezepheles_b.png
@@ -20,18 +20,19 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
+reminders:
+  - 转为邪恶
+  - 失去能力
 remindersGlobal: []
-firstNightReminder: '1'
-otherNightReminder: ''
+firstNightReminder: '唤醒灵言师，对他展示他的关键词。 '
+otherNightReminder: 唤醒第一个说出灵言师词语的玩家并告知他已经变成邪恶阵营。
 abilityData:
   schemaVersion: 2
-  generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r107
-    officialId: 1_fan
-    sourceHash: f1ab91b0ac7ad8ab6de5e6fa5a360d201bb67f7e
+    officialId: spirit-tongue
+    sourceHash: debf2df8620385a7315148a71387f838b8461f59
     sourceHashFields:
       - ability
       - type
@@ -40,8 +41,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 关键词
@@ -51,19 +50,20 @@ abilityData:
     - night
     - first-night
     - alignment
-    - townsfolk
+    - good
+    - evil
     - minion
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.7
     timing:
       phase: first_night
       event: null
       frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: mixed
     operations:
       - kind: learn_player
         count: 1

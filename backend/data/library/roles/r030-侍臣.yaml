@@ -1,8 +1,8 @@
 id: r030
 name: 侍臣
-type: minion
+type: townsfolk
 englishName: courtier
-ability: 每局游戏限一次，在夜晚时，你可以选择一个角色：如果该角色在场，该角色之一从当晚开始醉酒三天三夜。
+ability: 每局游戏限一次，在夜晚时，你可以选择一个角色：如果该角色在场，一个该角色从当晚开始醉酒三天三夜。
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/courtier_r.png
@@ -26,16 +26,16 @@ reminders:
   - 醉酒3
   - 失去能力
 remindersGlobal: []
-firstNightReminder: '1'
-otherNightReminder: '1'
+firstNightReminder: 唤醒侍臣，他可以摇头不使用能力，或选择角色列表上的一个任意角色，该角色对应的玩家之一醉酒。
+otherNightReminder: 如果侍臣未曾使用能力，唤醒侍臣，他可以摇头不使用能力，或选择角色列表上的一个任意角色，该角色对应的玩家之一醉酒。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r030
-    officialId: 18_fan
-    sourceHash: a582816f78747c0713f1bb533f6bdd1353d01bc8
+    officialId: courtier
+    sourceHash: f6ea9cd58a4080a018aa0a13574f1d5ad08dead5
     sourceHashFields:
       - ability
       - type
@@ -44,8 +44,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 一次性
     - 主动选角色
@@ -54,12 +52,12 @@ abilityData:
     - night
     - poisoned
     - drunk
-    - minion
+    - townsfolk
   abilityPattern: choose_role_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: night
       event: null

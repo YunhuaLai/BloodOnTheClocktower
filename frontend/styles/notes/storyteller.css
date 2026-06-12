@@ -5,6 +5,11 @@
   gap: 12px;
 }
 
+.player-page {
+  display: grid;
+  gap: 12px;
+}
+
 .story-grimoire-panel,
 .story-console-panel {
   display: grid;
@@ -188,6 +193,55 @@
 .story-grimoire-seat.is-selected {
   border-color: var(--ink);
   box-shadow: 0 0 0 3px rgba(31, 34, 39, 0.12);
+}
+
+.player-roundtable-layout {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.player-roundtable-seat {
+  border-left-color: var(--blue);
+}
+
+.player-roundtable-seat.story-grimoire-seat--outsider {
+  border-left-color: var(--green);
+}
+
+.player-roundtable-seat.story-grimoire-seat--minion {
+  border-left-color: var(--red);
+}
+
+.player-roundtable-seat.story-grimoire-seat--demon {
+  border-left-color: var(--gold);
+}
+
+.player-roundtable-seat.story-grimoire-seat--traveller,
+.player-roundtable-seat.story-grimoire-seat--traveler {
+  border-left-color: var(--teal);
+}
+
+.player-roundtable-seat.story-grimoire-seat--unknown {
+  border-left-color: var(--outsider);
+}
+
+.player-roundtable-seat.is-self .story-seat-number {
+  background: var(--blue);
+}
+
+.player-roundtable-seat.is-selected .story-seat-number {
+  background: var(--red);
+}
+
+.player-roundtable-seat--judgement-evil .story-seat-alignment {
+  color: var(--red);
+}
+
+.player-roundtable-seat--judgement-good .story-seat-alignment {
+  color: var(--blue);
+}
+
+.player-roundtable-seat--judgement-suspect .story-seat-alignment {
+  color: var(--gold);
 }
 
 .story-seat-number {

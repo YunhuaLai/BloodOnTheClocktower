@@ -1,8 +1,8 @@
 id: r070
 name: 理发师
-type: demon
+type: outsider
 englishName: barber
-ability: 每个夜晚*，你要选择一名玩家：他死亡。在夜晚时*，你可以选择交换两名玩家的角色，但每局游戏仅能交换一次。
+ability: 如果你死亡，在当晚恶魔可以选择两名玩家（不能选择其他恶魔）交换角色。
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/barber_r.png
@@ -21,19 +21,18 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 理发
-  - 死亡
+  - 今晚理发
 remindersGlobal: []
 firstNightReminder: ''
-otherNightReminder: '1'
+otherNightReminder: 如果理发师今天死亡了，唤醒恶魔并展示“该角色的效果对你生效”信息标记和理发师角色标记。如果恶魔选择了两名玩家，将这两名玩家分别独自唤醒。对他们展示“你是”信息标记和他们的新角色标记。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r070
-    officialId: 21_fan
-    sourceHash: 1208d544d12e11be4d6611d63ca38a17893a4428
+    officialId: barber
+    sourceHash: 01d49c3fd2eba2af128c97dff44f52284376c148
     sourceHashFields:
       - ability
       - type
@@ -42,21 +41,18 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 死亡触发
     - 换身份
     - 外来者
   termIds:
-    - night
     - death
     - outsider
     - demon
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: null

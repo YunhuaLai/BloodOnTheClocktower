@@ -1,7 +1,7 @@
 id: r117
 englishName: fearmonger
 name: 恐惧之灵
-type: townsfolk
+type: minion
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/Icon_fearmonger_b.png
@@ -20,19 +20,19 @@ setupMeta:
   configurationAdjustments: []
   setupNotes: []
 reminders:
-  - 恐惧
+  - 恐惧蔓延
 remindersGlobal: []
-firstNightReminder: '1'
-otherNightReminder: '1'
-ability: 每个夜晚，你要选择一名玩家：你会得知一条对他的阵营落败有帮助的建议。
+firstNightReminder: 恐惧之灵指向一名玩家，放置恐惧标记。宣布恐惧之灵选中或改变了目标。
+otherNightReminder: 恐惧之灵指向一名玩家。如果与之前选择的不同，则更换恐惧标记并宣布恐惧之灵选中或改变了目标。
+ability: 每个夜晚，你要选择一名玩家：如果你提名他且他被处决，他的阵营落败。当你首次选择或更换目标时，所有玩家都会得知你选择了新的玩家。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r117
-    officialId: 10_fan
-    sourceHash: 9e6a887d12b430c458365e455d30fdd0178be954
+    officialId: fearmonger
+    sourceHash: f59b4ed48b26b047954d105ceaed645bc8dc7e29
     sourceHashFields:
       - ability
       - type
@@ -50,12 +50,14 @@ abilityData:
   termIds:
     - night
     - first-night
+    - nomination
+    - execution
     - alignment
-    - townsfolk
+    - minion
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night
@@ -67,6 +69,7 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night

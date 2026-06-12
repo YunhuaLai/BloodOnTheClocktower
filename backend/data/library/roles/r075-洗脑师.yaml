@@ -1,8 +1,8 @@
 id: r075
 name: 洗脑师
-type: townsfolk
+type: minion
 englishName: cerenovus
-ability: 每个夜晚*，你要选择一名玩家，你会得知他是否在今天白天“疯狂”地证明自己是自身角色。
+ability: 每个夜晚，你要选择一名玩家和一个善良角色。他明天白天和夜晚需要“疯狂”地证明自己是这个角色，不然他可能被处决。
 edition: custom
 image:
   - https://picbed-1362790562.cos.ap-shanghai.myqcloud.com/cerenovus_b.png
@@ -20,18 +20,19 @@ setupMeta:
     note: ''
   configurationAdjustments: []
   setupNotes: []
-reminders: []
+reminders:
+  - 疯狂
 remindersGlobal: []
-firstNightReminder: ''
-otherNightReminder: '1'
+firstNightReminder: 让洗脑师选择一名玩家和一个善良角色。标记那名玩家疯狂。让洗脑师重新入睡。唤醒洗脑师的目标。对这名玩家展示该玩家需要疯狂证明的事。
+otherNightReminder: 让洗脑师选择一名玩家和一个善良角色。标记那名玩家疯狂。让洗脑师重新入睡。唤醒洗脑师的目标。对这名玩家展示该玩家需要疯狂证明的事。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
   sourceAbility:
     source: role-file
     roleId: r075
-    officialId: 17_fan
-    sourceHash: 6dae243f6cfb2e685fef311632c5a35e224b3e5e
+    officialId: cerenovus
+    sourceHash: bbf010cdb1d24fdd7bf2ec7d95363fdc1ee85709
     sourceHashFields:
       - ability
       - type
@@ -40,8 +41,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -50,12 +49,14 @@ abilityData:
   termIds:
     - day
     - night
-    - townsfolk
+    - execution
+    - good
+    - minion
     - madness
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night
@@ -69,6 +70,7 @@ abilityData:
         source: target
       - kind: choose_role
         source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night
