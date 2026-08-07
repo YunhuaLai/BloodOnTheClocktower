@@ -14,12 +14,13 @@ export function getRoleTypeSummary() {
 }
 
 function renderHomeDirectory() {
+  const counts = state.catalog.counts || {};
   const cards = [
     {
       eyebrow: "角色百科",
       title: "角色目录",
       href: "/roles",
-      count: state.roles.length,
+      count: counts.roles || state.roles.length,
       countLabel: "个角色",
       text: "按身份、能力关键词或所属剧本查角色。",
       action: "查角色",
@@ -29,7 +30,7 @@ function renderHomeDirectory() {
       eyebrow: "剧本 / 板子",
       title: "板子目录",
       href: "/scripts",
-      count: state.scripts.length,
+      count: counts.scripts || state.scripts.length,
       countLabel: "个板子",
       text: "查看剧本介绍、角色表、首夜与其他夜顺序。",
       action: "看板子",
@@ -38,7 +39,7 @@ function renderHomeDirectory() {
       eyebrow: "关键词 / 术语",
       title: "术语目录",
       href: "/terms",
-      count: state.terms.length,
+      count: counts.terms || state.terms.length,
       countLabel: "个术语",
       text: "查常见机制、状态和能力用语。",
       action: "查术语",

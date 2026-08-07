@@ -3,6 +3,6 @@ services:
     name: blood-on-the-clocktower-encyclopedia
     env: node
     plan: free
-    buildCommand: npm install
+    buildCommand: npm ci && npm run build
     startCommand: npm start
     autoDeploy: true

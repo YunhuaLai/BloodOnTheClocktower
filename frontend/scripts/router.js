@@ -1,15 +1,28 @@
 import { renderLoadError, renderNotFound, renderRoleDetail, renderScriptDetail, renderTermDetail } from "./catalog-details.js";
-import { ensureCatalogDetail, ensureFullCatalog, loadBootstrapCatalog } from "./catalog-data.js";
+import { ensureCatalogDetail, ensureFullCatalog, loadBootstrapCatalog, loadHomeCatalog } from "./catalog-data.js";
 import { renderHome } from "./catalog-home.js";
-import { renderRoleIndex, renderRoles, renderScriptIndex, renderScripts, renderTermIndex, syncFilterButtons } from "./catalog-indexes.js";
+import {
+  renderRoleIndex,
+  renderRoles,
+  renderScriptIndex,
+  renderScripts,
+  renderTermIndex,
+  resetRoleRenderLimit,
+  resetScriptRenderLimit,
+  showMoreRoles,
+  showMoreScripts,
+  syncFilterButtons,
+} from "./catalog-indexes.js";
 import { handleNotesAction, handleNotesFieldChange } from "./notes-actions.js";
 import { deleteSavedGames, toggleGameFavorite } from "./notes/notes-game-actions.js";
-import { createDefaultSetupDraft, ensureNotesState } from "./notes-state.js";
+import { createDefaultSetupDraft, ensureNotesState, flushNotesState } from "./notes-state.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
-import { state } from "./state.js";
+import { app, state } from "./state.js";
 
 let savedSwipeState = null;
 let suppressSavedSwipeClick = false;
+let roleSearchTimer = null;
+let scriptSearchTimer = null;
 
 export function scrollToHash() {
   if (!window.location.hash) {
@@ -34,6 +47,7 @@ export async function renderRoute() {
   document.body.classList.toggle("notes-route", isNotesRoute);
 
   if (!segments.length) {
+    await loadHomeCatalog();
     renderHome();
     return;
   }
@@ -41,16 +55,19 @@ export async function renderRoute() {
   window.scrollTo({ top: 0, behavior: "auto" });
 
   if (segments.length === 1 && segments[0] === "scripts") {
+    await loadBootstrapCatalog();
     renderScriptIndex();
     return;
   }
 
   if (segments.length === 1 && segments[0] === "roles") {
+    await loadBootstrapCatalog();
     renderRoleIndex();
     return;
   }
 
   if (segments.length === 1 && segments[0] === "terms") {
+    await loadBootstrapCatalog();
     renderTermIndex();
     return;
   }
@@ -107,8 +124,12 @@ function navigateTo(url) {
 }
 
 async function loadInitialCatalog() {
+  app.innerHTML = `
+    <section class="section" aria-live="polite" aria-busy="true">
+      <div class="empty-state">正在加载资料…</div>
+    </section>
+  `;
   try {
-    await loadBootstrapCatalog();
     await renderRoute();
   } catch (error) {
     console.error(error);
@@ -138,8 +159,23 @@ document.addEventListener("click", (event) => {
   }
 
   state.activeFilter = button.dataset.filter;
+  resetRoleRenderLimit();
   syncFilterButtons();
   renderRoles();
+});
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-catalog-action]");
+  if (!button) {
+    return;
+  }
+
+  event.preventDefault();
+  if (button.dataset.catalogAction === "more-scripts") {
+    showMoreScripts();
+  } else if (button.dataset.catalogAction === "more-roles") {
+    showMoreRoles();
+  }
 });
 
 document.addEventListener("click", (event) => {
@@ -164,12 +200,16 @@ document.addEventListener("click", (event) => {
 document.addEventListener("input", (event) => {
   if (event.target.id === "scriptSearchInput") {
     state.scriptQuery = event.target.value;
-    renderScripts();
+    resetScriptRenderLimit();
+    window.clearTimeout(scriptSearchTimer);
+    scriptSearchTimer = window.setTimeout(renderScripts, 180);
     return;
   }
 
   if (event.target.id === "searchInput") {
-    renderRoles();
+    resetRoleRenderLimit();
+    window.clearTimeout(roleSearchTimer);
+    roleSearchTimer = window.setTimeout(renderRoles, 180);
     return;
   }
 
@@ -181,18 +221,21 @@ document.addEventListener("input", (event) => {
 document.addEventListener("change", (event) => {
   if (event.target.id === "scriptStatusFilter") {
     state.scriptStatusFilter = event.target.value;
+    resetScriptRenderLimit();
     renderScripts();
     return;
   }
 
   if (event.target.id === "scriptLevelFilter") {
     state.scriptLevelFilter = event.target.value;
+    resetScriptRenderLimit();
     renderScripts();
     return;
   }
 
   if (event.target.id === "scriptSort") {
     state.scriptSort = event.target.value;
+    resetScriptRenderLimit();
     renderScripts();
     return;
   }
@@ -276,6 +319,8 @@ window.addEventListener("popstate", () => {
     renderLoadError();
   });
 });
+
+window.addEventListener("pagehide", flushNotesState);
 
 export function startApp() {
   loadInitialCatalog();

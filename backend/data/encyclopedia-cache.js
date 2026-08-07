@@ -1,10 +1,19 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const { augmentEncyclopedia } = require("./catalog");
+const { buildBootstrapData, buildHomeData } = require("./catalog-summaries");
 const { getImageAssetDirectories } = require("./image-assets");
 const { loadLibraryData } = require("./library");
 
-const LIBRARY_DIR = path.join(__dirname, "library");
+const LIBRARY_DIR = process.env.BOTC_LIBRARY_DIR
+  ? path.resolve(process.env.BOTC_LIBRARY_DIR)
+  : path.join(__dirname, "library");
+const COMPILED_DATA_DIR = path.resolve(__dirname, "..", "..", "dist", "data");
+const COMPILED_FILES = {
+  bootstrap: path.join(COMPILED_DATA_DIR, "bootstrap.json"),
+  encyclopedia: path.join(COMPILED_DATA_DIR, "encyclopedia.json"),
+  home: path.join(COMPILED_DATA_DIR, "home.json"),
+};
 
 function getCacheCheckIntervalMs() {
   const configured = Number(process.env.DATA_CACHE_CHECK_INTERVAL_MS);
@@ -19,6 +28,7 @@ const CACHE_CHECK_INTERVAL_MS = getCacheCheckIntervalMs();
 
 let cachedEntry = null;
 let lastSignatureCheckAt = 0;
+const compiledBuffers = new Map();
 
 function collectDirectorySignature(directoryPath) {
   if (!fs.existsSync(directoryPath)) {
@@ -54,100 +64,47 @@ function collectDirectorySignature(directoryPath) {
 }
 
 function collectDataSignature() {
+  if (hasCompiledData()) {
+    const stats = fs.statSync(COMPILED_FILES.encyclopedia);
+    return `compiled:${stats.size}:${stats.mtimeMs}`;
+  }
+
   return [LIBRARY_DIR, ...getImageAssetDirectories()]
     .map((directoryPath) => `${directoryPath}:${collectDirectorySignature(directoryPath)}`)
     .join("|");
+}
+
+function hasCompiledData() {
+  return Object.values(COMPILED_FILES).every((filePath) => fs.existsSync(filePath));
+}
+
+function getCompiledBuffer(kind) {
+  const filePath = COMPILED_FILES[kind];
+  if (!filePath || !hasCompiledData()) {
+    return null;
+  }
+
+  if (!compiledBuffers.has(kind)) {
+    compiledBuffers.set(kind, fs.readFileSync(filePath));
+  }
+
+  return compiledBuffers.get(kind);
 }
 
 function createIndex(items) {
   return new Map((items || []).filter((item) => item?.id).map((item) => [item.id, item]));
 }
 
-function summarizeScript(script) {
-  return {
-    id: script.id,
-    englishName: script.englishName,
-    name: script.name,
-    en: script.en,
-    status: script.status,
-    author: script.author,
-    level: script.level,
-    mood: script.mood,
-    text: script.text,
-    description: script.description,
-    image: script.image,
-    tags: script.tags,
-    roleIds: script.roleIds,
-    travellerIds: script.travellerIds,
-    fabledIds: script.fabledIds,
-    tokenIds: script.tokenIds,
-    nightOrder: script.nightOrder,
-  };
-}
-
-function summarizeRole(role) {
-  return {
-    id: role.id,
-    englishName: role.englishName,
-    name: role.name,
-    en: role.en,
-    type: role.type,
-    summary: role.summary,
-    keywords: role.keywords,
-    ability: role.ability,
-    image: role.image,
-    scriptId: role.scriptId,
-    scriptIds: role.scriptIds,
-    scriptNames: role.scriptNames,
-    script: role.script,
-  };
-}
-
-function summarizeJinx(jinx) {
-  return {
-    id: jinx.id,
-    kind: jinx.kind,
-    name: jinx.name,
-    roleIds: jinx.roleIds,
-    roleNames: jinx.roleNames,
-    unresolvedRoleNames: jinx.unresolvedRoleNames,
-    ruleTags: jinx.ruleTags,
-    appliesWhen: jinx.appliesWhen,
-    rule: jinx.rule,
-    audience: jinx.audience,
-    sourceScriptIds: jinx.sourceScriptIds,
-    source: jinx.source,
-  };
-}
-
-function summarizeTerm(term) {
-  return {
-    id: term.id,
-    name: term.name,
-    category: term.category,
-    summary: term.summary,
-    aliases: term.aliases,
-    relatedRoleIds: term.relatedRoleIds,
-    relatedTermIds: term.relatedTermIds,
-  };
-}
-
-function buildBootstrapData(data) {
-  return {
-    rules: data.rules || [],
-    scripts: (data.scripts || []).map(summarizeScript),
-    roles: (data.roles || []).map(summarizeRole),
-    jinxes: (data.jinxes || []).map(summarizeJinx),
-    terms: (data.terms || []).map(summarizeTerm),
-  };
-}
-
 function buildCacheEntry(signature) {
-  const data = augmentEncyclopedia(loadLibraryData());
+  const compiled = getCompiledBuffer("encyclopedia");
+  const data = compiled
+    ? JSON.parse(compiled.toString("utf8"))
+    : augmentEncyclopedia(loadLibraryData());
 
   return {
     bootstrap: buildBootstrapData(data),
     data,
+    home: buildHomeData(data),
     indexes: {
       scriptsById: createIndex(data.scripts),
       rolesById: createIndex(data.roles),
@@ -179,8 +136,24 @@ function getEncyclopediaData() {
   return getCacheEntry().data;
 }
 
+function getEncyclopediaJson() {
+  return getCompiledBuffer("encyclopedia") || Buffer.from(JSON.stringify(getEncyclopediaData()));
+}
+
 function getBootstrapData() {
   return getCacheEntry().bootstrap;
+}
+
+function getBootstrapJson() {
+  return getCompiledBuffer("bootstrap") || Buffer.from(JSON.stringify(getBootstrapData()));
+}
+
+function getHomeData() {
+  return getCacheEntry().home;
+}
+
+function getHomeJson() {
+  return getCompiledBuffer("home") || Buffer.from(JSON.stringify(getHomeData()));
 }
 
 function getScriptById(id) {
@@ -201,7 +174,11 @@ function getTermById(id) {
 
 module.exports = {
   getBootstrapData,
+  getBootstrapJson,
   getEncyclopediaData,
+  getEncyclopediaJson,
+  getHomeData,
+  getHomeJson,
   getJinxById,
   getRoleById,
   getScriptById,

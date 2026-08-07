@@ -26,6 +26,29 @@ const scriptSortOptions = [
   { value: "role-count", label: "按角色数" },
 ];
 
+const SCRIPT_PAGE_SIZE = 60;
+const ROLE_PAGE_SIZE = 60;
+let scriptRenderLimit = SCRIPT_PAGE_SIZE;
+let roleRenderLimit = ROLE_PAGE_SIZE;
+
+export function resetScriptRenderLimit() {
+  scriptRenderLimit = SCRIPT_PAGE_SIZE;
+}
+
+export function resetRoleRenderLimit() {
+  roleRenderLimit = ROLE_PAGE_SIZE;
+}
+
+export function showMoreScripts() {
+  scriptRenderLimit += SCRIPT_PAGE_SIZE;
+  renderScripts();
+}
+
+export function showMoreRoles() {
+  roleRenderLimit += ROLE_PAGE_SIZE;
+  renderRoles();
+}
+
 export function renderTermIndex() {
   document.title = "术语目录 · 血染钟楼百科";
   app.innerHTML = `
@@ -61,6 +84,7 @@ export function renderTermIndex() {
 }
 
 export function renderScriptIndex() {
+  resetScriptRenderLimit();
   document.title = "板子目录 · 血染钟楼百科";
   const statusCounts = getScriptStatusCounts();
   app.innerHTML = `
@@ -106,6 +130,7 @@ export function renderScriptIndex() {
 }
 
 export function renderRoleIndex() {
+  resetRoleRenderLimit();
   document.title = "角色目录 · 血染钟楼百科";
   app.innerHTML = `
     <section class="collection-hero roles-hero">
@@ -138,13 +163,17 @@ export function renderRoleIndex() {
       </div>
 
       <div class="filters" aria-label="角色筛选">
-        <button class="filter active" data-filter="all">全部</button>
-        <button class="filter" data-filter="townsfolk">镇民</button>
-        <button class="filter" data-filter="outsider">外来者</button>
-        <button class="filter" data-filter="minion">爪牙</button>
-        <button class="filter" data-filter="demon">恶魔</button>
-        <button class="filter" data-filter="traveller">旅行者</button>
-        <button class="filter" data-filter="fabled">传奇</button>
+        <button type="button" class="filter active" data-filter="all">全部</button>
+        <button type="button" class="filter" data-filter="townsfolk">镇民</button>
+        <button type="button" class="filter" data-filter="outsider">外来者</button>
+        <button type="button" class="filter" data-filter="minion">爪牙</button>
+        <button type="button" class="filter" data-filter="demon">恶魔</button>
+        <button type="button" class="filter" data-filter="traveller">旅行者</button>
+        <button type="button" class="filter" data-filter="fabled">传奇</button>
+      </div>
+
+      <div class="script-result-row" aria-live="polite">
+        <span id="roleResultCount"></span>
       </div>
 
       <div class="role-grid" id="roleGrid"></div>
@@ -332,9 +361,10 @@ export function renderScripts() {
   }
 
   const visibleScripts = getVisibleScripts();
+  const renderedScripts = visibleScripts.slice(0, scriptRenderLimit);
   const resultCount = document.querySelector("#scriptResultCount");
   if (resultCount) {
-    resultCount.textContent = `显示 ${visibleScripts.length} / ${state.scripts.length} 个板子`;
+    resultCount.textContent = `显示 ${renderedScripts.length} / 匹配 ${visibleScripts.length} / 共 ${state.scripts.length} 个板子`;
   }
 
   if (!visibleScripts.length) {
@@ -342,13 +372,13 @@ export function renderScripts() {
     return;
   }
 
-  scriptGrid.innerHTML = visibleScripts
+  scriptGrid.innerHTML = renderedScripts
     .map(
       (script) => {
         const status = getScriptStatus(script);
         return `
         <a class="script-card" href="/scripts/${escapeHtml(script.id)}" data-link>
-          <img src="${escapeHtml(script.image)}" alt="${escapeHtml(script.name)}氛围图" />
+          <img src="${escapeHtml(script.image)}" alt="${escapeHtml(script.name)}氛围图" loading="lazy" decoding="async" />
           <div class="script-body">
             <p class="eyebrow">${escapeHtml(script.en || script.englishName || "未命名")} · ${escapeHtml(script.level || "未分级")}</p>
             <div class="script-card-title">
@@ -366,7 +396,9 @@ export function renderScripts() {
       `;
       },
     )
-    .join("");
+    .join("") + (renderedScripts.length < visibleScripts.length
+      ? `<button type="button" class="catalog-load-more" data-catalog-action="more-scripts">继续显示板子</button>`
+      : "");
 }
 
 function roleMatchesSearch(role, query) {
@@ -402,6 +434,10 @@ export function renderRoles() {
       return matchesFilter && roleMatchesSearch(role, query);
     }),
   );
+  const resultCount = document.querySelector("#roleResultCount");
+  if (resultCount) {
+    resultCount.textContent = `匹配 ${visibleRoles.length} / 共 ${state.roles.length} 个角色`;
+  }
 
   if (!visibleRoles.length) {
     roleGrid.innerHTML = `<div class="empty-state">无匹配角色。</div>`;
@@ -409,22 +445,29 @@ export function renderRoles() {
   }
 
   if (state.activeFilter !== "all") {
-    roleGrid.innerHTML = visibleRoles.map(renderRoleCard).join("");
+    const renderedRoles = visibleRoles.slice(0, roleRenderLimit);
+    roleGrid.innerHTML = renderedRoles.map(renderRoleCard).join("") +
+      (renderedRoles.length < visibleRoles.length
+        ? `<button type="button" class="catalog-load-more" data-catalog-action="more-roles">继续显示角色</button>`
+        : "");
     return;
   }
 
+  let renderedRoleCount = 0;
   roleGrid.innerHTML = roleTypeOrder
     .map((type) => {
-      const roles = visibleRoles.filter((role) => role.type === type);
-      if (!roles.length) {
+      const matchingRoles = visibleRoles.filter((role) => role.type === type);
+      if (!matchingRoles.length) {
         return "";
       }
+      const roles = matchingRoles.slice(0, roleRenderLimit);
+      renderedRoleCount += roles.length;
 
       return `
         <section class="role-folder" data-type="${escapeHtml(type)}" aria-labelledby="roleFolder-${escapeHtml(type)}">
           <div class="role-folder-heading">
             <h3 id="roleFolder-${escapeHtml(type)}">${escapeHtml(typeLabels[type] || type)}</h3>
-            <span>${roles.length} 个角色</span>
+            <span>显示 ${roles.length} / ${matchingRoles.length} 个角色</span>
           </div>
           <div class="role-folder-grid">
             ${roles.map(renderRoleCard).join("")}
@@ -432,7 +475,9 @@ export function renderRoles() {
         </section>
       `;
     })
-    .join("");
+    .join("") + (renderedRoleCount < visibleRoles.length
+      ? `<button type="button" class="catalog-load-more" data-catalog-action="more-roles">继续显示各分类角色</button>`
+      : "");
 }
 
 function renderRoleCard(role) {

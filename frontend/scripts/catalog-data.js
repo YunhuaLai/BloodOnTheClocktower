@@ -9,6 +9,7 @@ const detailRequests = {
 
 let bootstrapRequest = null;
 let fullCatalogRequest = null;
+let homeRequest = null;
 
 function replaceById(items, nextItem) {
   const index = items.findIndex((item) => item.id === nextItem.id);
@@ -45,6 +46,42 @@ function applyCatalogData(data, { full = false } = {}) {
   state.terms = data.terms || [];
   state.catalog.bootstrapLoaded = true;
   state.catalog.fullLoaded = Boolean(full);
+  state.catalog.homeLoaded = true;
+  state.catalog.counts = {
+    scripts: state.scripts.length,
+    roles: state.roles.length,
+    jinxes: state.jinxes.length,
+    terms: state.terms.length,
+  };
+}
+
+export async function loadHomeCatalog() {
+  if (state.catalog.homeLoaded) {
+    return;
+  }
+
+  if (state.catalog.bootstrapLoaded || state.catalog.fullLoaded) {
+    state.catalog.homeLoaded = true;
+    return;
+  }
+
+  if (!homeRequest) {
+    homeRequest = fetchJson("/api/home")
+      .then((data) => {
+        state.rules = data.rules || [];
+        state.catalog.counts = {
+          ...state.catalog.counts,
+          ...(data.counts || {}),
+        };
+        state.catalog.homeLoaded = true;
+      })
+      .catch((error) => {
+        homeRequest = null;
+        throw error;
+      });
+  }
+
+  return homeRequest;
 }
 
 export async function loadBootstrapCatalog() {

@@ -122,6 +122,13 @@ export const state = {
   catalog: {
     bootstrapLoaded: false,
     fullLoaded: false,
+    homeLoaded: false,
+    counts: {
+      scripts: 0,
+      roles: 0,
+      jinxes: 0,
+      terms: 0,
+    },
   },
   currentPath: "",
   scriptLevelFilter: "all",

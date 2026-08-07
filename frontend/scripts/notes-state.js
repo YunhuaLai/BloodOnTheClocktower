@@ -4,6 +4,9 @@ import { isTravellerPlayer } from "./notes/notes-core.js";
 import { noteAlignmentOptions, noteConditionOptions, noteModeOptions, noteStatusOptions, noteTagOptions, notesStorageKey, phaseTypeOptions, scriptModeOptions, state, timelineTypeOptions } from "./state.js";
 import { createId, getOptionLabel } from "./utils.js";
 
+const NOTES_SAVE_DELAY_MS = 250;
+let notesSaveTimer = null;
+
 export function clampNumber(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
@@ -507,7 +510,7 @@ export function getNotesGameCount() {
   return state.notes.games.length;
 }
 
-export function saveNotesState() {
+function writeNotesState() {
   try {
     window.localStorage.setItem(
       notesStorageKey,
@@ -519,6 +522,31 @@ export function saveNotesState() {
   } catch (error) {
     console.warn("Failed to save game notes", error);
   }
+}
+
+export function saveNotesState({ immediate = false } = {}) {
+  window.clearTimeout(notesSaveTimer);
+  notesSaveTimer = null;
+
+  if (immediate) {
+    writeNotesState();
+    return;
+  }
+
+  notesSaveTimer = window.setTimeout(() => {
+    notesSaveTimer = null;
+    writeNotesState();
+  }, NOTES_SAVE_DELAY_MS);
+}
+
+export function flushNotesState() {
+  if (notesSaveTimer === null) {
+    return;
+  }
+
+  window.clearTimeout(notesSaveTimer);
+  notesSaveTimer = null;
+  writeNotesState();
 }
 
 export function ensureNotesState() {

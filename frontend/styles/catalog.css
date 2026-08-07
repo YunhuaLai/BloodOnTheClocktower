@@ -995,3 +995,24 @@ a.keyword-chip:hover {
 .role-token strong {
   font-size: 20px;
 }
+
+.catalog-load-more {
+  grid-column: 1 / -1;
+  justify-self: center;
+  min-height: 44px;
+  padding: 0 24px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.catalog-load-more:hover,
+.catalog-load-more:focus-visible {
+  color: #fff;
+  background: var(--ink);
+  border-color: var(--ink);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(23, 19, 27, 0.14);
+}

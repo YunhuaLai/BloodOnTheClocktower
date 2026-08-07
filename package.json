@@ -4,9 +4,11 @@
   "private": true,
   "description": "A web encyclopedia prototype for Blood on the Clocktower.",
   "scripts": {
+    "build": "node scripts/build-library-data.js",
     "start": "node backend/server.js",
-    "check": "node scripts/check-javascript.js && node scripts/validate-library-data.js",
+    "check": "npm run check:js && npm test && npm run validate:data",
     "check:js": "node scripts/check-javascript.js",
+    "test": "node --test tests",
     "validate:data": "node scripts/validate-library-data.js",
     "official:import": "node scripts/manage-official-json.js import",
     "official:export": "node scripts/manage-official-json.js export",

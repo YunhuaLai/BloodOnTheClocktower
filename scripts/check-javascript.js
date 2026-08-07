@@ -4,7 +4,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 
 const ROOT_DIR = path.resolve(__dirname, "..");
-const CHECK_DIRS = ["backend", "frontend", "scripts"];
+const CHECK_DIRS = ["backend", "frontend", "scripts", "tests"];
 
 function collectJavaScriptFiles(directory) {
   return fs.readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
@@ -18,9 +18,10 @@ function collectJavaScriptFiles(directory) {
   });
 }
 
-const files = CHECK_DIRS.flatMap((directory) =>
-  collectJavaScriptFiles(path.join(ROOT_DIR, directory)),
-).sort();
+const files = CHECK_DIRS.flatMap((directory) => {
+  const directoryPath = path.join(ROOT_DIR, directory);
+  return fs.existsSync(directoryPath) ? collectJavaScriptFiles(directoryPath) : [];
+}).sort();
 
 const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "botc-js-check-"));
 

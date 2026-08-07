@@ -3,14 +3,17 @@ const http = require("node:http");
 const path = require("node:path");
 const zlib = require("node:zlib");
 const {
-  getBootstrapData,
+  getBootstrapJson,
   getEncyclopediaData,
+  getEncyclopediaJson,
+  getHomeJson,
   getJinxById,
   getRoleById,
   getScriptById,
   getTermById,
 } = require("./data/encyclopedia-cache");
 const { analyzeWorlds } = require("./deduction/scorer");
+const { validateDeductionGame } = require("./deduction/validation");
 
 const DEFAULT_PORT = Number(process.env.PORT || 3000);
 const MAX_PORT_ATTEMPTS = 20;
@@ -18,6 +21,12 @@ const MAX_JSON_BODY_BYTES = 512 * 1024;
 const MIN_GZIP_BYTES = 1024;
 const ROOT_DIR = path.resolve(__dirname, "..");
 const FRONTEND_DIR = path.join(ROOT_DIR, "frontend");
+const SECURITY_HEADERS = {
+  "Content-Security-Policy": "default-src 'self'; img-src 'self' https: data:; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "X-Content-Type-Options": "nosniff",
+  "X-Frame-Options": "DENY",
+};
 
 const contentTypes = {
   ".css": "text/css; charset=utf-8",
@@ -50,30 +59,33 @@ function writeResponse(request, response, statusCode, headers, body) {
 
   if (!shouldCompress) {
     response.writeHead(statusCode, {
+      ...SECURITY_HEADERS,
       ...headers,
       "Content-Length": buffer.length,
     });
-    response.end(buffer);
+    response.end(request.method === "HEAD" ? undefined : buffer);
     return;
   }
 
   zlib.gzip(buffer, (error, compressed) => {
     if (error) {
       response.writeHead(statusCode, {
+        ...SECURITY_HEADERS,
         ...headers,
         "Content-Length": buffer.length,
       });
-      response.end(buffer);
+      response.end(request.method === "HEAD" ? undefined : buffer);
       return;
     }
 
     response.writeHead(statusCode, {
+      ...SECURITY_HEADERS,
       ...headers,
       "Content-Encoding": "gzip",
       "Content-Length": compressed.length,
       Vary: "Accept-Encoding",
     });
-    response.end(compressed);
+    response.end(request.method === "HEAD" ? undefined : compressed);
   });
 }
 
@@ -85,7 +97,11 @@ function sendJson(request, response, statusCode, payload) {
 }
 
 function sendRawJson(request, response, statusCode, payload) {
-  sendJson(request, response, statusCode, payload);
+  const body = Buffer.isBuffer(payload) ? payload : Buffer.from(JSON.stringify(payload));
+  writeResponse(request, response, statusCode, {
+    "Content-Type": "application/json; charset=utf-8",
+    "Cache-Control": "public, max-age=60, stale-while-revalidate=300",
+  }, body);
 }
 
 function getStaticCacheControl(filePath) {
@@ -182,7 +198,7 @@ function readJsonBody(request, response, onBody) {
 }
 
 function handleApi(request, response) {
-  const requestUrl = new URL(request.url, `http://${request.headers.host}`);
+  const requestUrl = new URL(request.url, "http://localhost");
   const segments = requestUrl.pathname.split("/").filter(Boolean);
 
   if (requestUrl.pathname === "/api/deduction/analyze") {
@@ -192,13 +208,22 @@ function handleApi(request, response) {
     }
 
     readJsonBody(request, response, (payload) => {
-      const data = readData(request, response, "Failed to read deduction data");
-      if (!data) {
+      if (!payload?.game || typeof payload.game !== "object") {
+        sendJson(request, response, 400, { error: "Missing game payload" });
         return;
       }
 
-      if (!payload?.game || typeof payload.game !== "object") {
-        sendJson(request, response, 400, { error: "Missing game payload" });
+      const validationErrors = validateDeductionGame(payload.game);
+      if (validationErrors.length) {
+        sendJson(request, response, 422, {
+          error: "Invalid game payload",
+          details: validationErrors,
+        });
+        return;
+      }
+
+      const data = readData(request, response, "Failed to read deduction data");
+      if (!data) {
         return;
       }
 
@@ -222,9 +247,19 @@ function handleApi(request, response) {
     return;
   }
 
+  if (requestUrl.pathname === "/api/home") {
+    try {
+      sendRawJson(request, response, 200, getHomeJson());
+    } catch (error) {
+      console.error(error);
+      sendJson(request, response, 500, { error: "Failed to read home data" });
+    }
+    return;
+  }
+
   if (requestUrl.pathname === "/api/bootstrap") {
     try {
-      sendRawJson(request, response, 200, getBootstrapData());
+      sendRawJson(request, response, 200, getBootstrapJson());
     } catch (error) {
       console.error(error);
       sendJson(request, response, 500, { error: "Failed to read bootstrap data" });
@@ -233,9 +268,11 @@ function handleApi(request, response) {
   }
 
   if (requestUrl.pathname === "/api/encyclopedia") {
-    const data = readData(request, response, "Failed to read encyclopedia data");
-    if (data) {
-      sendRawJson(request, response, 200, data);
+    try {
+      sendRawJson(request, response, 200, getEncyclopediaJson());
+    } catch (error) {
+      console.error(error);
+      sendJson(request, response, 500, { error: "Failed to read encyclopedia data" });
     }
     return;
   }
@@ -328,7 +365,7 @@ function handleApi(request, response) {
 }
 
 function handleStatic(request, response) {
-  const requestUrl = new URL(request.url, `http://${request.headers.host}`);
+  const requestUrl = new URL(request.url, "http://localhost");
   const pathname = decodeURIComponent(requestUrl.pathname);
   const relativePath = pathname === "/" ? "index.html" : pathname.slice(1);
   const filePath = path.resolve(FRONTEND_DIR, relativePath);
@@ -364,17 +401,27 @@ const server = http.createServer((request, response) => {
     return;
   }
 
-  if (request.url.startsWith("/api/")) {
-    handleApi(request, response);
-    return;
-  }
+  try {
+    if (request.url.startsWith("/api/")) {
+      handleApi(request, response);
+      return;
+    }
 
-  if (request.method !== "GET") {
-    sendJson(request, response, 405, { error: "Method not allowed" });
-    return;
-  }
+    if (request.method !== "GET" && request.method !== "HEAD") {
+      sendJson(request, response, 405, { error: "Method not allowed" });
+      return;
+    }
 
-  handleStatic(request, response);
+    handleStatic(request, response);
+  } catch (error) {
+    if (error instanceof URIError || error instanceof TypeError) {
+      sendJson(request, response, 400, { error: "Malformed request URL" });
+      return;
+    }
+
+    console.error(error);
+    sendJson(request, response, 500, { error: "Internal server error" });
+  }
 });
 
 function listen(port, attemptsLeft = MAX_PORT_ATTEMPTS) {

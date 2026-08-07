@@ -15,7 +15,8 @@
 
 | 任务 | npm 命令 | 直接运行 |
 | --- | --- | --- |
-| 全量检查 JS 与数据 | `npm run check` | `node scripts/check-javascript.js && node scripts/validate-library-data.js` |
+| 构建运行时资料缓存 | `npm run build` | `node scripts/build-library-data.js` |
+| 全量检查 JS、测试与数据 | `npm run check` | `npm run check:js && npm test && npm run validate:data` |
 | 只检查 JS 语法 | `npm run check:js` | `node scripts/check-javascript.js` |
 | 只校验资料库数据 | `npm run validate:data` | `node scripts/validate-library-data.js` |
 | 导入官方 JSON | `npm run official:import -- <json或目录>` | `node scripts/manage-official-json.js import <json或目录>` |

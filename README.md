@@ -30,8 +30,11 @@
 
 ```bash
 npm install
+npm run build
 npm start
 ```
+
+`npm run build` 会把 YAML 资料预编译到忽略提交的 `dist/data/`。服务会优先读取这些构建产物；修改 YAML 后请重新运行构建。若构建产物不存在，服务仍会回退到直接读取 YAML。
 
 打开：[http://localhost:3000](http://localhost:3000)
 
@@ -41,6 +44,8 @@ npm start
 
 ```bash
 npm run check
+npm test
+npm run build
 npm run official:import -- "C:\path\官方剧本文件夹"
 npm run official:export -- s001 ".\dist\暗流涌动.json"
 npm run images:cache -- --kind=roles --limit=20 --dry-run
