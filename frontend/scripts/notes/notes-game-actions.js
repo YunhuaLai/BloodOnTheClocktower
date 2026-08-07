@@ -1,5 +1,5 @@
 import { clampNumber, cloneSuspectedRoles, createActiveGameBackup, createAllGamesBackup, createDefaultPlayer, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, importNotesBackup, saveNotesState } from "../notes-state.js";
-import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getSetupFabledRoleOptions, isFabledRole, isTravellerRole } from "../notes-claims.js";
+import { filterRoleOptions, findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getGameScript, getSetupFabledRoleOptions, isFabledRole, isTravellerRole } from "../notes-claims.js";
 import { createNominationRecord, getDayRecord, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
 import { phaseTypeOptions, state } from "../state.js";
 import { createId } from "../utils.js";
@@ -49,7 +49,7 @@ export function updateSetupDraftField(field, value) {
   }
 
   state.notes.ui.setupDraft = nextDraft;
-  return ["playerCount", "mode", "scriptMode"].includes(field);
+  return ["playerCount", "mode", "scriptMode", "customRoleType"].includes(field);
 }
 
 export function addSetupCustomRole(value) {
@@ -92,6 +92,100 @@ export function removeSetupCustomRole(roleId) {
     ...draft,
     customRoleIds: (Array.isArray(draft.customRoleIds) ? draft.customRoleIds : []).filter(
       (id) => id !== roleIdText,
+    ),
+  };
+  return true;
+}
+
+export function toggleSetupCustomRole(roleId) {
+  const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
+  const role = getBaseRoleOptions().find((item) => item.id === roleId);
+  if (!role) {
+    return false;
+  }
+
+  const selected = new Set(draft.customRoleIds || []);
+  if (selected.has(role.id)) {
+    selected.delete(role.id);
+  } else {
+    selected.add(role.id);
+  }
+  state.notes.ui.setupDraft = {
+    ...draft,
+    scriptMode: "custom",
+    customRoleIds: [...selected],
+  };
+  return true;
+}
+
+export function addFilteredSetupCustomRoles() {
+  const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
+  const matches = filterRoleOptions(
+    getBaseRoleOptions(),
+    draft.customRoleQuery,
+    draft.customRoleType,
+  ).slice(0, 60);
+  if (!matches.length) {
+    window.alert("当前筛选没有可添加的角色。");
+    return false;
+  }
+
+  state.notes.ui.setupDraft = {
+    ...draft,
+    scriptMode: "custom",
+    customRoleIds: [
+      ...new Set([...(draft.customRoleIds || []), ...matches.map((role) => role.id)]),
+    ],
+  };
+  return true;
+}
+
+export function clearSetupCustomRoles() {
+  const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
+  if (!(draft.customRoleIds || []).length || !window.confirm("清空已选基础角色？")) {
+    return false;
+  }
+
+  state.notes.ui.setupDraft = {
+    ...draft,
+    customRoleIds: [],
+  };
+  return true;
+}
+
+export function copySetupRolesFromScript() {
+  const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
+  const script = getGameScript({
+    scriptMode: "script",
+    scriptName: draft.sourceScriptName,
+  });
+  if (!script) {
+    window.alert("没有找到要复制的剧本。");
+    return false;
+  }
+
+  const baseRoleIds = new Set(getBaseRoleOptions().map((role) => role.id));
+  const fabledRoleIds = new Set(
+    getSetupFabledRoleOptions({ scriptMode: "script", scriptId: script.id }).map(
+      (role) => role.id,
+    ),
+  );
+  const customRoleIds = (script.roleIds || []).filter((roleId) =>
+    baseRoleIds.has(roleId),
+  );
+  if (!customRoleIds.length) {
+    window.alert("这个剧本没有可复制的基础角色。");
+    return false;
+  }
+
+  state.notes.ui.setupDraft = {
+    ...draft,
+    scriptMode: "custom",
+    scriptName: draft.scriptName || `${script.name} 副本`,
+    sourceScriptName: script.name,
+    customRoleIds,
+    fabledRoleIds: (script.fabledIds || []).filter((roleId) =>
+      fabledRoleIds.has(roleId),
     ),
   };
   return true;
@@ -140,6 +234,46 @@ export function removeSetupFabledRole(roleId) {
     fabledRoleIds: (Array.isArray(draft.fabledRoleIds) ? draft.fabledRoleIds : []).filter(
       (id) => id !== roleIdText,
     ),
+  };
+  return true;
+}
+
+export function toggleSetupFabledRole(roleId) {
+  const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
+  const role = getSetupFabledRoleOptions(draft).find((item) => item.id === roleId);
+  if (!role) {
+    return false;
+  }
+
+  const selected = new Set(draft.fabledRoleIds || []);
+  if (selected.has(role.id)) {
+    selected.delete(role.id);
+  } else {
+    selected.add(role.id);
+  }
+  state.notes.ui.setupDraft = {
+    ...draft,
+    fabledRoleIds: [...selected],
+  };
+  return true;
+}
+
+export function addFilteredSetupFabledRoles() {
+  const draft = state.notes.ui.setupDraft || createDefaultSetupDraft();
+  const matches = filterRoleOptions(
+    getSetupFabledRoleOptions(draft),
+    draft.fabledRoleQuery,
+  ).slice(0, 40);
+  if (!matches.length) {
+    window.alert("当前筛选没有可添加的传奇角色。");
+    return false;
+  }
+
+  state.notes.ui.setupDraft = {
+    ...draft,
+    fabledRoleIds: [
+      ...new Set([...(draft.fabledRoleIds || []), ...matches.map((role) => role.id)]),
+    ],
   };
   return true;
 }

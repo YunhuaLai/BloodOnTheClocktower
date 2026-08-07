@@ -153,7 +153,7 @@ function serializeWorld(world) {
   };
 }
 
-function normalizeLikelihood(results) {
+function addRelativeMatchScores(results) {
   if (!results.length) {
     return [];
   }
@@ -161,12 +161,12 @@ function normalizeLikelihood(results) {
   const best = Math.min(...results.map((result) => result.cost));
   return results.map((result) => {
     const gap = result.cost - best;
-    const likelihood = Math.max(1, Math.round(96 - gap * 3.2));
+    const matchScore = Math.max(1, Math.round(96 - gap * 3.2));
     const classification = classifyWorld(result);
     return {
       ...result,
       world: serializeWorld(result.world),
-      likelihood,
+      matchScore,
       classification,
       classificationLabel: classificationLabels[classification],
       evilText: formatSeatList(result.world.evilSeats),
@@ -200,7 +200,7 @@ function analyzeWorlds(game, catalog) {
   const { players, observations, unsupported } = extraction;
   const { worlds, setup } = generateWorlds(game, players);
   const context = { catalog, game, players, observations };
-  const evaluated = normalizeLikelihood(
+  const evaluated = addRelativeMatchScores(
     worlds
       .map((world) => evaluateWorld(world, context))
       .sort((left, right) => left.cost - right.cost)

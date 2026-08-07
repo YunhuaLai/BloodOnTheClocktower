@@ -58,6 +58,20 @@
     align-items: end;
   }
 
+  .notes-custom-role-copy {
+    grid-template-columns: minmax(0, 1fr) 120px;
+    align-items: end;
+  }
+
+  .notes-role-picker-filters {
+    grid-template-columns: minmax(0, 1fr) minmax(140px, 180px) 90px;
+    align-items: end;
+  }
+
+  .notes-role-picker-results {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .notes-room-role-control {
     grid-template-columns: minmax(0, 1fr) 104px;
     align-items: end;
@@ -90,6 +104,11 @@
   .story-grimoire-header {
     grid-template-columns: minmax(0, 1fr) auto;
     align-items: start;
+  }
+
+  .story-privacy-bar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
   }
 
   .story-grimoire-meta {

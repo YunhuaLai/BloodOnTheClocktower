@@ -90,6 +90,22 @@ export function getFabledRoleOptions() {
   return sortCatalogRoles(state.roles.filter(isFabledRole));
 }
 
+export function filterRoleOptions(roles, query, type = "all") {
+  const normalizedQuery = normalizeMatchText(query);
+  return (Array.isArray(roles) ? roles : []).filter((role) => {
+    if (type !== "all" && role.type !== type) {
+      return false;
+    }
+
+    return (
+      !normalizedQuery ||
+      roleSearchFields.some((field) =>
+        normalizeMatchText(role?.[field]).includes(normalizedQuery),
+      )
+    );
+  });
+}
+
 export function getTravellerRoleOptions() {
   return sortCatalogRoles(state.roles.filter(isTravellerRole));
 }

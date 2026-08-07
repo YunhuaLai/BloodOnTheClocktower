@@ -1,4 +1,4 @@
-import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getRoomTokenRoleOptions, getGameScript, getSetupFabledRoleOptions, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
+import { filterRoleOptions, findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getRoomTokenRoleOptions, getGameScript, getSetupFabledRoleOptions, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
 import { createDefaultSetupDraft, ensureNotesState, getActiveGame, getDraftOrPlayer } from "../notes-state.js";
 import { getJinxesForRoleIds, getJinxRoleLabel, isJinxObservedForRoleIds } from "../catalog-helpers.js";
 import { app, noteModeOptions, noteTabOptions, roleTypeOrder, scriptModeOptions, state, typeLabels } from "../state.js";
@@ -353,20 +353,79 @@ function renderCustomRoleGroups(draft) {
   `;
 }
 
+function renderSetupRolePickerResults(
+  roles,
+  selectedRoleIds,
+  action,
+  emptyText,
+  limit,
+) {
+  const visibleRoles = roles.slice(0, limit);
+  const selected = new Set(selectedRoleIds || []);
+  return `
+    <div class="notes-role-picker-summary">
+      <span>匹配 ${roles.length} 个，显示 ${visibleRoles.length} 个</span>
+      ${roles.length > limit ? `<small>请继续输入关键词缩小范围</small>` : ""}
+    </div>
+    <div class="notes-role-picker-results">
+      ${
+        visibleRoles.length
+          ? visibleRoles
+              .map(
+                (role) => `
+                  <button
+                    type="button"
+                    class="notes-role-picker-item notes-role-picker-item--${escapeHtml(role.type || "unknown")}${selected.has(role.id) ? " is-selected" : ""}"
+                    data-notes-action="${escapeHtml(action)}"
+                    data-role-id="${escapeHtml(role.id)}"
+                    aria-pressed="${selected.has(role.id) ? "true" : "false"}"
+                  >
+                    <strong>${escapeHtml(role.name)}</strong>
+                    <small>${escapeHtml(typeLabels[role.type] || role.type || "角色")}</small>
+                  </button>
+                `,
+              )
+              .join("")
+          : `<p class="notes-custom-role-empty">${escapeHtml(emptyText)}</p>`
+      }
+    </div>
+  `;
+}
+
 function renderCustomRoleBuilder(draft) {
+  const allRoles = getBaseRoleOptions();
   const selectedCount = getCustomRoleOptionsFromIds(draft.customRoleIds, isBaseRole).length;
+  const matches = filterRoleOptions(
+    allRoles,
+    draft.customRoleQuery,
+    draft.customRoleType,
+  );
 
   return `
     <section class="notes-custom-roles">
       <div class="notes-custom-role-header">
         <div>
           <strong>自定义角色池</strong>
-          <span>${selectedCount} / ${getBaseRoleOptions().length}</span>
+          <span>${selectedCount} / ${allRoles.length}</span>
         </div>
       </div>
-      <div class="notes-custom-role-control">
+      <div class="notes-custom-role-copy">
         <label class="note-field">
-          <span>添加角色</span>
+          <span>从已有剧本复制</span>
+          <input
+            data-setup-field="sourceScriptName"
+            value="${escapeHtml(draft.sourceScriptName || "")}"
+            list="scriptNameList"
+            autocomplete="off"
+            placeholder="输入剧本名"
+          />
+        </label>
+        <button type="button" class="note-icon-button" data-notes-action="copy-script-roles">复制角色</button>
+      </div>
+      ${renderScriptNameDatalist()}
+      <div class="notes-role-picker-filters">
+        <label class="note-field">
+          <span>搜索角色</span>
           <input
             id="customRoleInput"
             name="customRoleQuery"
@@ -379,8 +438,27 @@ function renderCustomRoleBuilder(draft) {
             placeholder="输入角色名"
           />
         </label>
-        <button type="button" class="note-icon-button" data-notes-action="add-custom-role">添加</button>
+        <label class="note-field">
+          <span>角色类型</span>
+          <select data-setup-field="customRoleType">
+            <option value="all"${draft.customRoleType === "all" ? " selected" : ""}>全部类型</option>
+            ${roleTypeOrder
+              .filter((type) => ["townsfolk", "outsider", "minion", "demon"].includes(type))
+              .map(
+                (type) =>
+                  `<option value="${type}"${draft.customRoleType === type ? " selected" : ""}>${escapeHtml(typeLabels[type])}</option>`,
+              )
+              .join("")}
+          </select>
+        </label>
+        <button type="button" class="note-icon-button" data-notes-action="refresh-custom-role-results">筛选</button>
       </div>
+      <div class="notes-role-picker-actions">
+        <button type="button" class="note-icon-button" data-notes-action="add-custom-role">添加精确匹配</button>
+        <button type="button" class="note-icon-button" data-notes-action="add-filtered-custom-roles" ${matches.length ? "" : "disabled"}>批量添加当前显示</button>
+        <button type="button" class="note-icon-button danger" data-notes-action="clear-custom-roles" ${selectedCount ? "" : "disabled"}>清空已选</button>
+      </div>
+      ${renderSetupRolePickerResults(matches, draft.customRoleIds, "toggle-setup-custom-role", "没有匹配角色。", 60)}
       ${renderAllRoleNameDatalist()}
       ${renderCustomRoleGroups(draft)}
     </section>
@@ -439,6 +517,9 @@ function renderFabledRoleBuilder(draft) {
     ? getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole).length
     : availableRoles.length;
   const totalCount = canEditFabled ? getFabledRoleOptions().length : availableRoles.length;
+  const matches = canEditFabled
+    ? filterRoleOptions(availableRoles, draft.fabledRoleQuery)
+    : [];
 
   return `
     <section class="notes-custom-roles notes-fabled-roles">
@@ -466,8 +547,13 @@ function renderFabledRoleBuilder(draft) {
                   placeholder="输入传奇角色名"
                 />
               </label>
-              <button type="button" class="note-icon-button" data-notes-action="add-fabled-role">添加</button>
+              <button type="button" class="note-icon-button" data-notes-action="refresh-fabled-role-results">筛选</button>
             </div>
+            <div class="notes-role-picker-actions">
+              <button type="button" class="note-icon-button" data-notes-action="add-fabled-role">添加精确匹配</button>
+              <button type="button" class="note-icon-button" data-notes-action="add-filtered-fabled-roles" ${matches.length ? "" : "disabled"}>批量添加当前显示</button>
+            </div>
+            ${renderSetupRolePickerResults(matches, draft.fabledRoleIds, "toggle-setup-fabled-role", "没有匹配传奇角色。", 40)}
             ${renderFabledRoleNameDatalist(availableRoles)}
           `
           : ""

@@ -4,6 +4,13 @@ import { getCachedWorldlineAnalysis, loadWorldlineAnalysis } from "./notes-analy
 
 let analysisRenderId = 0;
 
+const deductionStatusLabels = {
+  missing: "尚未建模",
+  candidate: "候选规则待接入",
+  manual: "需要人工判断",
+  world_effect: "涉及全局效果",
+};
+
 function renderObservationList(items, emptyText, limit = 5) {
   if (!items.length) {
     return `<li>${escapeHtml(emptyText)}</li>`;
@@ -53,6 +60,7 @@ function renderBaselineList(items) {
 }
 
 function renderWorldResult(result, index) {
+  const matchScore = result.matchScore ?? result.likelihood ?? 0;
   return `
     <article class="notes-world-card notes-world-card--${escapeHtml(result.classification)}">
       <div class="notes-world-card-head">
@@ -60,7 +68,7 @@ function renderWorldResult(result, index) {
           <strong>局势 ${index + 1}</strong>
           <span>${escapeHtml(result.classificationLabel)}</span>
         </div>
-        <em>${result.likelihood}%</em>
+        <em>匹配 ${matchScore}/100</em>
       </div>
       <p class="notes-world-team">
         恶魔 ${result.world.demonSeat}号；爪牙 ${escapeHtml(result.minionText || "无")}；邪恶方 ${escapeHtml(result.evilText)}
@@ -116,13 +124,23 @@ function renderUnsupported(unsupported) {
 
   return `
     <section class="notes-analysis-signals notes-analysis-signals--muted">
-      <h4>未接入自动推理</h4>
-      <ul>
-        ${unsupported
-          .slice(0, 8)
-          .map((item) => `<li>${escapeHtml(item.label)}</li>`)
-          .join("")}
-      </ul>
+      <h4>未参与本次排序</h4>
+      <p>这些记录会保留，但不会影响下方相对匹配分。</p>
+      <details class="notes-analysis-details">
+        <summary>查看全部 ${unsupported.length} 条</summary>
+        <ul>
+          ${unsupported
+            .map(
+              (item) => `
+                <li>
+                  <span>${escapeHtml(item.label)}</span>
+                  <small>${escapeHtml(deductionStatusLabels[item.status] || item.status || "未支持")}</small>
+                </li>
+              `,
+            )
+            .join("")}
+        </ul>
+      </details>
     </section>
   `;
 }
@@ -142,6 +160,10 @@ function renderEmpty(analysis) {
 
 function renderAnalysisPanel(game, analysis) {
   const evilSlots = analysis.setup.minion + analysis.setup.demon;
+  const totalEvidence = analysis.observations.length + analysis.unsupported.length;
+  const coverage = totalEvidence
+    ? Math.round((analysis.observations.length / totalEvidence) * 100)
+    : 0;
 
   if (!analysis.observations.length && !analysis.unsupported.length) {
     return "";
@@ -152,15 +174,16 @@ function renderAnalysisPanel(game, analysis) {
       <div class="notes-analysis-header">
         <div>
           <p class="eyebrow">局势推理</p>
-          <h3>枚举邪恶方位置，再计算解释成本</h3>
+          <h3>枚举邪恶方位置，再计算解释成本 <small>实验功能</small></h3>
         </div>
         <span>${game.playerCount}人局：邪恶 ${evilSlots}（爪牙 ${analysis.setup.minion} / 恶魔 ${analysis.setup.demon}）</span>
       </div>
 
       <section class="notes-analysis-signals">
-        <h4>已读取的信息</h4>
+        <h4>证据覆盖 ${coverage}%</h4>
+        <p>匹配分只用于比较本次候选局势，不代表真实概率。</p>
         <ul>
-          <li>${escapeHtml(`自动计算 ${analysis.observations.length} 条；枚举 ${analysis.worldsChecked} 个局势；暂未接入 ${analysis.unsupported.length} 条`)}</li>
+          <li>${escapeHtml(`参与排序 ${analysis.observations.length} 条；未参与 ${analysis.unsupported.length} 条；枚举 ${analysis.worldsChecked} 个局势`)}</li>
           ${renderObservationList(analysis.observations, "暂无计算信息", 6)}
         </ul>
       </section>

@@ -69,6 +69,77 @@ function getStorytellerSetupSummary(game) {
     : setupRows;
 }
 
+function renderStorytellerSetupChecklist(game, storyteller, setup) {
+  const residents = game.players.filter((player) => !isTravellerPlayer(player));
+  const assignedCount = residents.filter((player) =>
+    Boolean(String(player.trueRole || "").trim()),
+  ).length;
+  const countsMatch = setup
+    .filter((item) => item.type !== "traveller")
+    .every((item) => item.actual === item.expected);
+  const bluffCount = (storyteller.bluffs || []).filter((value) =>
+    Boolean(String(value || "").trim()),
+  ).length;
+  const specialCount =
+    getScriptIdentityOverlayRoles(game).length + getAssignedSetupAlertRoles(game).length;
+  const items = [
+    {
+      ok: assignedCount === residents.length,
+      text: `身份分配 ${assignedCount}/${residents.length}`,
+    },
+    {
+      ok: countsMatch,
+      text: countsMatch ? "类型人数符合标准配置" : "类型人数需要复核",
+    },
+    {
+      ok: bluffCount === 3,
+      text: `恶魔伪装 ${bluffCount}/3`,
+    },
+    {
+      ok: specialCount === 0,
+      text: specialCount ? `特殊配置 ${specialCount} 项需人工确认` : "无额外配置提醒",
+    },
+  ];
+
+  return `
+    <section class="story-setup-checklist" aria-label="开局检查清单">
+      <strong>开局检查</strong>
+      <div>
+        ${items
+          .map(
+            (item) => `
+              <span class="${item.ok ? "is-ok" : "is-warn"}">
+                ${item.ok ? "✓" : "!"} ${escapeHtml(item.text)}
+              </span>
+            `,
+          )
+          .join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderStorytellerPrivacyBar(storyteller) {
+  const hidden = Boolean(storyteller.privacyShield);
+  return `
+    <section class="story-privacy-bar${hidden ? " is-active" : ""}">
+      <div>
+        <strong>${hidden ? "私密信息已遮挡" : "私密信息可见"}</strong>
+        <span>${hidden ? "身份、伪装、标记和夜间流程均已隐藏。" : "递手机或共享屏幕前建议开启遮罩。"}</span>
+      </div>
+      <div class="story-privacy-actions">
+        <button
+          type="button"
+          class="${hidden ? "primary-link" : "secondary-link"}"
+          data-notes-action="toggle-story-privacy"
+          aria-pressed="${hidden ? "true" : "false"}"
+        >${hidden ? "显示私密信息" : "开启隐私遮罩"}</button>
+        <button type="button" class="secondary-link" data-notes-action="go-home">返回房间</button>
+      </div>
+    </section>
+  `;
+}
+
 function getStorytellerMarkerOptions(game) {
   const markers = getScriptIdentityOverlayRoles(game)
     .flatMap((role) => {
@@ -519,6 +590,7 @@ function renderStorytellerGrimoire(game) {
             )
             .join("")}
         </div>
+        ${renderStorytellerSetupChecklist(game, storyteller, setup)}
         ${renderStorytellerSetupAlerts(game)}
         <div class="story-grimoire-bluffs">
           <span>伪装</span>
@@ -908,8 +980,22 @@ export function renderStorytellerTab(game) {
     `;
   }
 
+  const storyteller = getStorytellerState(game);
+  if (storyteller.privacyShield) {
+    return `
+      <div class="story-console">
+        ${renderStorytellerPrivacyBar(storyteller)}
+        <section class="story-privacy-shield">
+          <strong>说书人私密内容已隐藏</strong>
+          <p>关闭遮罩后恢复魔典、伪装、开局备注和夜间行动。</p>
+        </section>
+      </div>
+    `;
+  }
+
   return `
     <div class="story-console">
+      ${renderStorytellerPrivacyBar(storyteller)}
       ${renderStorytellerGrimoire(game)}
       ${renderNightOrderPanel(game)}
       ${renderPublicBoardPanel(game)}

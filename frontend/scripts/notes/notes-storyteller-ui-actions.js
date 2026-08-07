@@ -8,8 +8,23 @@ import {
   assignRandomStorytellerRoles,
   clearStorytellerAssignments,
 } from "./notes-storyteller-actions.js";
+import { createDefaultStorytellerState, getActiveGame, saveNotesState } from "../notes-state.js";
 
 export function handleStorytellerAction(action, button, notes) {
+  if (action === "toggle-story-privacy") {
+    const game = getActiveGame();
+    if (game) {
+      game.storyteller = {
+        ...createDefaultStorytellerState(),
+        ...(game.storyteller || {}),
+        privacyShield: !game.storyteller?.privacyShield,
+      };
+      saveNotesState();
+      renderNotesPage();
+    }
+    return true;
+  }
+
   if (action === "random-assign-roles") {
     assignRandomStorytellerRoles();
     return true;

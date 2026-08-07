@@ -1,5 +1,6 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
+const { analyzeWorlds } = require("../backend/deduction/scorer");
 const { generateWorlds } = require("../backend/deduction/worlds");
 const { validateDeductionGame } = require("../backend/deduction/validation");
 
@@ -60,4 +61,11 @@ test("largest standard setup keeps world generation bounded", () => {
   const game = makeGame(15);
   const { worlds } = generateWorlds(game, game.players);
   assert.equal(worlds.length, 5460);
+});
+
+test("deduction exposes a relative match score instead of a probability", () => {
+  const analysis = analyzeWorlds(makeGame(5), { roles: [] });
+  assert.ok(analysis.results.length > 0);
+  assert.equal(analysis.results[0].matchScore, 96);
+  assert.equal("likelihood" in analysis.results[0], false);
 });

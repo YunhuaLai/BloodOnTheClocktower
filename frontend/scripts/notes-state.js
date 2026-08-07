@@ -20,6 +20,8 @@ export function createDefaultSetupDraft() {
     scriptName: "",
     customRoleIds: [],
     customRoleQuery: "",
+    customRoleType: "all",
+    sourceScriptName: "",
     fabledRoleIds: [],
     fabledRoleQuery: "",
     playerCount: 10,
@@ -57,6 +59,7 @@ export function createDefaultStorytellerState() {
     bluffs: [],
     setupNotes: "",
     publicNotes: "",
+    privacyShield: false,
   };
 }
 

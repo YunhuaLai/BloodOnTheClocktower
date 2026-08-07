@@ -182,6 +182,9 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
     if (["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
       persistPlayerDraft(playerId);
     }
+    if (refreshInterface) {
+      renderNotesPage();
+    }
   }
 }
 
