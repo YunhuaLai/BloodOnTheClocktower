@@ -1,9 +1,10 @@
-import { clampNumber, cloneSuspectedRoles, createDefaultPlayer, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, saveNotesState } from "../notes-state.js";
+import { clampNumber, cloneSuspectedRoles, createActiveGameBackup, createAllGamesBackup, createDefaultPlayer, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, importNotesBackup, saveNotesState } from "../notes-state.js";
 import { findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getSetupFabledRoleOptions, isFabledRole, isTravellerRole } from "../notes-claims.js";
 import { createNominationRecord, getDayRecord, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
 import { phaseTypeOptions, state } from "../state.js";
 import { createId } from "../utils.js";
 import { formatPhaseLabel, getMaxSeatNumber, isTravellerPlayer } from "./notes-core.js";
+import { getShiftedPhase } from "./notes-phase.js";
 import { renderNotesPage } from "./notes-shell.js";
 
 export function getSelectedPlayerIdForGame(game) {
@@ -456,26 +457,64 @@ export function removeTravellerFromGame(playerId) {
 }
 
 export function exportActiveGame() {
-  const game = getActiveGame();
-  if (!game) {
+  const backup = createActiveGameBackup();
+  if (!backup) {
     return;
   }
 
-  const safeTitle = (game.title || "botc-notes")
+  const safeTitle = (backup.game.title || "botc-notes")
     .trim()
     .replace(/[\\/:*?"<>|\s]+/g, "-")
     .replace(/^-+|-+$/g, "");
-  const blob = new Blob([JSON.stringify(game, null, 2)], {
+  downloadJson(backup, `${safeTitle || "botc-notes"}.json`);
+}
+
+function downloadJson(data, filename) {
+  const blob = new Blob([JSON.stringify(data, null, 2)], {
     type: "application/json;charset=utf-8",
   });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `${safeTitle || "botc-notes"}.json`;
+  link.download = filename;
   document.body.append(link);
   link.click();
   link.remove();
   URL.revokeObjectURL(url);
+}
+
+export function exportAllGames() {
+  const backup = createAllGamesBackup();
+  if (!backup.games.length) {
+    window.alert("暂无可备份的对局。");
+    return;
+  }
+
+  const date = new Date().toISOString().slice(0, 10);
+  downloadJson(backup, `血染钟楼-对局备份-${date}.json`);
+}
+
+export async function importNotesBackupFile(file) {
+  if (!file) {
+    return false;
+  }
+
+  if (file.size > 20 * 1024 * 1024) {
+    window.alert("备份文件超过 20 MB，无法导入。");
+    return false;
+  }
+
+  try {
+    const payload = JSON.parse(await file.text());
+    const importedCount = importNotesBackup(payload);
+    renderNotesPage();
+    window.alert(`已恢复 ${importedCount} 个对局。原有对局未被覆盖。`);
+    return true;
+  } catch (error) {
+    console.warn("Failed to import game notes", error);
+    window.alert(error instanceof Error ? error.message : "备份导入失败。");
+    return false;
+  }
 }
 
 export function shiftGamePhase(game, step) {
@@ -484,28 +523,11 @@ export function shiftGamePhase(game, step) {
   }
 
   const previousPhaseType = game.phaseType;
-  let phaseType = game.phaseType;
-  let phaseNumber = clampNumber(Number(game.phaseNumber) || 1, 1, 99);
-
-  if (step > 0) {
-    for (let index = 0; index < step; index += 1) {
-      if (phaseType === "day") {
-        phaseType = "night";
-      } else {
-        phaseType = "day";
-        phaseNumber = clampNumber(phaseNumber + 1, 1, 99);
-      }
-    }
-  } else {
-    for (let index = 0; index < Math.abs(step); index += 1) {
-      if (phaseType === "night") {
-        phaseType = "day";
-      } else {
-        phaseType = "night";
-        phaseNumber = clampNumber(phaseNumber - 1 || 1, 1, 99);
-      }
-    }
-  }
+  const { phaseType, phaseNumber } = getShiftedPhase(
+    game.phaseType,
+    game.phaseNumber,
+    step,
+  );
 
   game.phaseType = phaseType;
   game.phaseNumber = phaseNumber;
@@ -535,7 +557,7 @@ export function openGameById(gameId) {
   notes.ui.activeTab = "overview";
   notes.ui.creatingGame = false;
   notes.ui.screen = "game";
-  saveNotesState();
+  saveNotesState({ touch: false });
   renderNotesPage();
 }
 
@@ -546,7 +568,8 @@ export function toggleGameFavorite(notes, gameId) {
   }
 
   game.favorite = !game.favorite;
-  saveNotesState();
+  game.updatedAt = new Date().toISOString();
+  saveNotesState({ touch: false });
   renderNotesPage();
 }
 
@@ -598,7 +621,7 @@ export function deleteSavedGames(notes, gameIds, confirmMessage = "删除所选�
     notes.ui.screen = "home";
   }
 
-  saveNotesState();
+  saveNotesState({ touch: false });
   renderNotesPage();
 }
 
@@ -639,7 +662,7 @@ export function handleCreateGame() {
   state.notes.ui.creatingGame = false;
   state.notes.ui.screen = "game";
   state.notes.ui.setupDraft = createDefaultSetupDraft();
-  saveNotesState();
+  saveNotesState({ touch: false });
   renderNotesPage();
 }
 
@@ -659,6 +682,6 @@ export function handleDeleteGame(notes, game) {
     notes.ui.activeTab = "overview";
     notes.ui.screen = "home";
   }
-  saveNotesState();
+  saveNotesState({ touch: false });
   renderNotesPage();
 }

@@ -2,6 +2,7 @@ import { createDefaultSetupDraft } from "../notes-state.js";
 import {
   addSetupCustomRole,
   addSetupFabledRole,
+  exportAllGames,
   handleCreateGame,
   removeSetupCustomRole,
   removeSetupFabledRole,
@@ -9,6 +10,16 @@ import {
 import { renderNotesPage } from "./notes-shell.js";
 
 export function handleSetupAction(action, button, notes) {
+  if (action === "export-all-games") {
+    exportAllGames();
+    return true;
+  }
+
+  if (action === "import-games") {
+    document.querySelector("[data-notes-import]")?.click();
+    return true;
+  }
+
   if (action === "create-game") {
     handleCreateGame();
     return true;

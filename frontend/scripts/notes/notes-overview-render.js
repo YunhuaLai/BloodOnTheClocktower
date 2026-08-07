@@ -12,6 +12,7 @@ function renderOverviewActions() {
   return `
     <div class="notes-overview-actions">
       <button type="button" class="primary-link" data-notes-action="save-game">保存</button>
+      <button type="button" class="secondary-link" data-notes-action="export-game">导出</button>
       <button type="button" class="secondary-link" data-notes-action="go-home">返回</button>
       <button type="button" class="secondary-link danger" data-notes-action="delete-game">删除</button>
     </div>

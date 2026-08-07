@@ -4,6 +4,7 @@ import {
   updateDayExecutionOverride,
   updateGameField,
   updateInferenceField,
+  importNotesBackupFile,
   updateNominationRecordField,
   updateNominationVoter,
   updateSetupDraftField,
@@ -25,6 +26,16 @@ import { handleStorytellerAction } from "./notes/notes-storyteller-ui-actions.js
 import { handleTimelineAction } from "./notes/notes-timeline-actions.js";
 import { state } from "./state.js";
 
+export async function handleNotesImportFile(target) {
+  const file = target?.files?.[0];
+  if (!file) {
+    return;
+  }
+
+  await importNotesBackupFile(file);
+  target.value = "";
+}
+
 export function handleNotesFieldChange(target, refreshInterface = false) {
   if (target.id === "gameSelect") {
     const notes = ensureNotesState();
@@ -32,7 +43,7 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
     notes.ui.creatingGame = false;
     const game = getActiveGame();
     notes.ui.selectedPlayerId = getSelectedPlayerIdForGame(game);
-    saveNotesState();
+    saveNotesState({ touch: false });
     renderNotesPage();
     return;
   }

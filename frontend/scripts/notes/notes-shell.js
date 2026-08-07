@@ -24,6 +24,7 @@ function renderNotesStageBar(game) {
             data-notes-action="advance-phase"
             data-step="-1"
             aria-label="上一阶段"
+            ${game.phaseType === "night" && Number(game.phaseNumber) <= 1 ? "disabled" : ""}
           >-</button>
           <strong>${escapeHtml(formatPhaseLabel(game.phaseType, game.phaseNumber))}</strong>
           <button
@@ -660,7 +661,10 @@ function renderNotesHome(notes) {
       return a.favorite ? -1 : 1;
     }
 
-    return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+    return (
+      new Date(b.updatedAt || b.createdAt).getTime() -
+      new Date(a.updatedAt || a.createdAt).getTime()
+    );
   });
   const selectedCount = selectedGameIds.length;
 
@@ -677,6 +681,13 @@ function renderNotesHome(notes) {
               ? `<button type="button" class="secondary-link" data-notes-action="view-saved">查看已保存</button>`
               : ""
           }
+          ${
+            notes.games.length
+              ? `<button type="button" class="secondary-link" data-notes-action="export-all-games">备份全部</button>`
+              : ""
+          }
+          <button type="button" class="secondary-link" data-notes-action="import-games">导入备份</button>
+          <input type="file" accept=".json,application/json" data-notes-import hidden />
         </div>
       </div>
 

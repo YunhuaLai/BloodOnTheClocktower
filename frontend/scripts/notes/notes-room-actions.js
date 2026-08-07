@@ -33,7 +33,7 @@ export function handleRoomAction(action, button, notes, game) {
   }
 
   if (action === "save-game") {
-    saveNotesState();
+    saveNotesState({ immediate: true, touch: false });
     renderNotesPage();
     return true;
   }

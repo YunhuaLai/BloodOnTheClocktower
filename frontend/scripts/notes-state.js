@@ -1,5 +1,6 @@
 import { isBaseRole, isFabledRole, isTravellerRole, normalizeMatchText } from "./notes-claims.js";
 import { normalizeAutoExecutionApplied, normalizeDayRecords, syncAutoExecutionStatuses } from "./notes/notes-day-records.js";
+import { createGameBackupEnvelope, createNotesBackupEnvelope, getImportableGames, NOTES_SCHEMA_VERSION } from "./notes/notes-backup.js";
 import { isTravellerPlayer } from "./notes/notes-core.js";
 import { noteAlignmentOptions, noteConditionOptions, noteModeOptions, noteStatusOptions, noteTagOptions, notesStorageKey, phaseTypeOptions, scriptModeOptions, state, timelineTypeOptions } from "./state.js";
 import { createId, getOptionLabel } from "./utils.js";
@@ -207,6 +208,8 @@ export function createGameFromSetup(setup, nextIndex = 1) {
   const scriptName = String(setup.scriptName || "").trim();
   const customScriptName = scriptName || "自定义角色池";
 
+  const now = new Date().toISOString();
+
   return {
     id: createId("game"),
     title,
@@ -220,9 +223,10 @@ export function createGameFromSetup(setup, nextIndex = 1) {
     selfSeat,
     mode,
     favorite: false,
-    phaseType: "day",
+    phaseType: "night",
     phaseNumber: 1,
-    createdAt: new Date().toISOString(),
+    createdAt: now,
+    updatedAt: now,
     players: createPlayersForCount(playerCount),
     timeline: [],
     suspectedRoles: [],
@@ -432,6 +436,7 @@ function normalizeGame(game, index) {
     ? game.mode
     : "player";
 
+  const createdAt = game?.createdAt || new Date().toISOString();
   const normalizedGame = {
     id: game?.id || createId("game"),
     title: game?.title || `第 ${index + 1} 局`,
@@ -450,7 +455,8 @@ function normalizeGame(game, index) {
     favorite: Boolean(game?.favorite),
     phaseType: fallbackPhase.phaseType,
     phaseNumber: fallbackPhase.phaseNumber,
-    createdAt: game?.createdAt || new Date().toISOString(),
+    createdAt,
+    updatedAt: game?.updatedAt || createdAt,
     players: normalizedPlayers,
     timeline: Array.isArray(game?.timeline)
       ? game.timeline
@@ -515,6 +521,7 @@ function writeNotesState() {
     window.localStorage.setItem(
       notesStorageKey,
       JSON.stringify({
+        schemaVersion: NOTES_SCHEMA_VERSION,
         activeGameId: state.notes.activeGameId,
         games: state.notes.games,
       }),
@@ -524,9 +531,22 @@ function writeNotesState() {
   }
 }
 
-export function saveNotesState({ immediate = false } = {}) {
+function touchActiveGame() {
+  const game = state.notes.games.find(
+    (item) => item.id === state.notes.activeGameId,
+  );
+  if (game) {
+    game.updatedAt = new Date().toISOString();
+  }
+}
+
+export function saveNotesState({ immediate = false, touch = true } = {}) {
   window.clearTimeout(notesSaveTimer);
   notesSaveTimer = null;
+
+  if (touch) {
+    touchActiveGame();
+  }
 
   if (immediate) {
     writeNotesState();
@@ -537,6 +557,47 @@ export function saveNotesState({ immediate = false } = {}) {
     notesSaveTimer = null;
     writeNotesState();
   }, NOTES_SAVE_DELAY_MS);
+}
+
+export function createActiveGameBackup() {
+  const game = getActiveGame();
+  if (!game) {
+    return null;
+  }
+
+  return createGameBackupEnvelope(game);
+}
+
+export function createAllGamesBackup() {
+  const notes = ensureNotesState();
+  return createNotesBackupEnvelope(notes.games, notes.activeGameId);
+}
+
+export function importNotesBackup(payload) {
+  const notes = ensureNotesState();
+  const sourceGames = getImportableGames(payload);
+
+  const usedIds = new Set(notes.games.map((game) => game.id));
+  const importedGames = sourceGames.map((sourceGame, index) => {
+    const normalized = normalizeGame(sourceGame, notes.games.length + index);
+    if (usedIds.has(normalized.id)) {
+      normalized.id = createId("game");
+    }
+    usedIds.add(normalized.id);
+    normalized.updatedAt = new Date().toISOString();
+    return normalized;
+  });
+
+  notes.games = [...importedGames, ...notes.games];
+  notes.activeGameId = importedGames[0].id;
+  notes.ui.selectedPlayerId = "";
+  notes.ui.selectedSavedGameIds = [];
+  notes.ui.activeTab =
+    importedGames[0].mode === "storyteller" ? "storyteller" : "overview";
+  notes.ui.creatingGame = false;
+  notes.ui.screen = "home";
+  saveNotesState({ immediate: true, touch: false });
+  return importedGames.length;
 }
 
 export function flushNotesState() {

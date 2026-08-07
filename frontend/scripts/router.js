@@ -13,7 +13,11 @@ import {
   showMoreScripts,
   syncFilterButtons,
 } from "./catalog-indexes.js";
-import { handleNotesAction, handleNotesFieldChange } from "./notes-actions.js";
+import {
+  handleNotesAction,
+  handleNotesFieldChange,
+  handleNotesImportFile,
+} from "./notes-actions.js";
 import { deleteSavedGames, toggleGameFavorite } from "./notes/notes-game-actions.js";
 import { createDefaultSetupDraft, ensureNotesState, flushNotesState } from "./notes-state.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
@@ -219,6 +223,11 @@ document.addEventListener("input", (event) => {
 });
 
 document.addEventListener("change", (event) => {
+  if (event.target.matches("[data-notes-import]")) {
+    void handleNotesImportFile(event.target);
+    return;
+  }
+
   if (event.target.id === "scriptStatusFilter") {
     state.scriptStatusFilter = event.target.value;
     resetScriptRenderLimit();
