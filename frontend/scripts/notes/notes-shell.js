@@ -1,4 +1,4 @@
-import { filterRoleOptions, findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getRoomTokenRoleOptions, getGameScript, getSetupFabledRoleOptions, isBaseRole, isCustomRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
+import { filterRoleOptions, findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getClaimRoleOptions, getCustomRoleOptionsFromIds, getFabledRoleOptions, getRoomFabledRoleOptions, getRoomRoleOptions, getRoomTokenRoleOptions, getGameScript, getSetupFabledRoleOptions, isBaseRole, isCustomRoleGame, isFreeRoleGame, isFabledRole, renderAllRoleNameDatalist, renderFabledRoleNameDatalist, renderRoleNameDatalist, renderScriptNameDatalist, renderTravellerRoleNameDatalist } from "../notes-claims.js";
 import { createDefaultSetupDraft, ensureNotesState, getActiveGame, getDraftOrPlayer } from "../notes-state.js";
 import { getJinxesForRoleIds, getJinxRoleLabel, isJinxObservedForRoleIds } from "../catalog-helpers.js";
 import { app, noteModeOptions, noteTabOptions, roleTypeOrder, scriptModeOptions, state, typeLabels } from "../state.js";
@@ -116,7 +116,7 @@ function renderScriptSheetOverlay(game) {
   }
 
   const script = getGameScript(game);
-  const isCustom = isCustomRoleGame(game);
+  const isCustom = isCustomRoleGame(game) || isFreeRoleGame(game);
   const roles = getRoomRoleOptions(game);
   const selectedRoleIds = getOverviewClaimedRoleIds(game);
   const observedRoleIds = getObservedRoomRoleIds(game);
@@ -192,7 +192,7 @@ function renderRoomRoleTools(game) {
   const tokenRoles = getRoomTokenRoleOptions(game);
   const travellerPlayers = getTravellerPlayers(game);
   const travellerOptions = getAvailableTravellerOptions(game);
-  const emptyFabledText = isCustomRoleGame(game) ? "可在创建时添加。" : "当前剧本无传奇。";
+  const emptyFabledText = (isCustomRoleGame(game) || isFreeRoleGame(game)) ? "可在创建时添加。" : "当前剧本无传奇。";
 
   return `
     <section class="notes-room-role-tools">
@@ -264,7 +264,7 @@ function renderRoomRoleTools(game) {
 function renderGameMeta(game) {
   const config = getStandardSetup(game.playerCount);
   const script = getGameScript(game);
-  const isCustom = isCustomRoleGame(game);
+  const isCustom = isCustomRoleGame(game) || isFreeRoleGame(game);
   const roleCount = getRoomRoleOptions(game).length;
   const travellerCount = getTravellerPlayers(game).length;
   const showScriptButton = state.notes.ui.activeTab === "overview";
@@ -466,7 +466,7 @@ function renderCustomRoleBuilder(draft) {
 }
 
 function renderFabledRoleGroups(draft) {
-  const canEditFabled = isCustomRoleGame(draft);
+  const canEditFabled = isCustomRoleGame(draft) || isFreeRoleGame(draft);
   const selectedRoles = canEditFabled
     ? getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole)
     : getSetupFabledRoleOptions(draft);
@@ -511,7 +511,7 @@ function renderFabledRoleGroups(draft) {
 }
 
 function renderFabledRoleBuilder(draft) {
-  const canEditFabled = isCustomRoleGame(draft);
+  const canEditFabled = isCustomRoleGame(draft) || isFreeRoleGame(draft);
   const availableRoles = getSetupFabledRoleOptions(draft);
   const selectedCount = canEditFabled
     ? getCustomRoleOptionsFromIds(draft.fabledRoleIds, isFabledRole).length
@@ -599,7 +599,9 @@ function renderSetupPage(notes) {
           </label>
 
           ${
-            isCustomScriptMode
+            isFreeRoleGame(draft)
+              ? `<div class="notes-setup-preview note-field--wide">开放选人：无需选择剧本或预先添加角色，开局后可直接从全部镇民、外来者、爪牙和恶魔中选择身份。</div>`
+              : isCustomScriptMode
               ? `
                 <label class="note-field note-field--wide">
                   <span>角色池名称</span>

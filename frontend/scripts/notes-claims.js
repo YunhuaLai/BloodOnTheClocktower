@@ -78,6 +78,10 @@ export function isCustomRoleGame(game) {
   return game?.scriptMode === "custom";
 }
 
+export function isFreeRoleGame(game) {
+  return game?.scriptMode === "free";
+}
+
 export function getAllRoleOptions() {
   return sortCatalogRoles(state.roles);
 }
@@ -129,7 +133,7 @@ export function findCatalogRole(value, candidates = state.roles) {
 }
 
 export function getGameScript(game) {
-  if (isCustomRoleGame(game)) {
+  if (isCustomRoleGame(game) || isFreeRoleGame(game)) {
     return null;
   }
 
@@ -201,7 +205,7 @@ function getScriptBaseRoles(game) {
 }
 
 export function getSetupFabledRoleOptions(setup) {
-  if (isCustomRoleGame(setup)) {
+  if (isCustomRoleGame(setup) || isFreeRoleGame(setup)) {
     return getFabledRoleOptions();
   }
 
@@ -217,7 +221,7 @@ export function getSetupFabledRoleOptions(setup) {
 }
 
 export function getRoomFabledRoleOptions(game) {
-  if (isCustomRoleGame(game)) {
+  if (isCustomRoleGame(game) || isFreeRoleGame(game)) {
     return getCustomRoleOptionsFromIds(game?.fabledRoleIds, isFabledRole);
   }
 
@@ -271,6 +275,13 @@ export function getAvailableTravellerOptions(game) {
 }
 
 export function getClaimRoleOptions(game) {
+  if (isFreeRoleGame(game)) {
+    return sortCatalogRoles(uniqueRoles([
+      ...getBaseRoleOptions(),
+      ...getActiveTravellerRoleOptions(game),
+    ]));
+  }
+
   if (isCustomRoleGame(game)) {
     return sortCatalogRoles(
       uniqueRoles([
@@ -303,6 +314,10 @@ export function getRoomRoleOptions(game) {
 }
 
 export function getClaimPickerHint(game) {
+  if (isFreeRoleGame(game)) {
+    return "自由模式：可从全部基础角色中选择身份。";
+  }
+
   if (isCustomRoleGame(game)) {
     const count = getClaimRoleOptions(game).length;
     return count ? `自定义池：${count} 个角色。` : "自定义池为空。";

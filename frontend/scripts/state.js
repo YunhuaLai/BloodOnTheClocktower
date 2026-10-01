@@ -52,6 +52,7 @@ export const noteModeOptions = [
 
 export const scriptModeOptions = [
   { value: "script", label: "固定剧本" },
+  { value: "free", label: "自由模式（开放选人）" },
   { value: "custom", label: "自定义角色池" },
 ];
 

@@ -1,7 +1,7 @@
 import { clampNumber, cloneSuspectedRoles, createActiveGameBackup, createAllGamesBackup, createDefaultPlayer, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, importNotesBackup, saveNotesState } from "../notes-state.js";
 import { filterRoleOptions, findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getGameScript, getSetupFabledRoleOptions, isFabledRole, isTravellerRole } from "../notes-claims.js";
 import { createNominationRecord, getDayRecord, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
-import { phaseTypeOptions, state } from "../state.js";
+import { phaseTypeOptions, scriptModeOptions, state } from "../state.js";
 import { createId } from "../utils.js";
 import { formatPhaseLabel, getMaxSeatNumber, isTravellerPlayer } from "./notes-core.js";
 import { getShiftedPhase } from "./notes-phase.js";
@@ -34,8 +34,8 @@ export function updateSetupDraftField(field, value) {
       nextDraft.selfSeat = 1;
     }
   } else if (field === "scriptMode") {
-    nextDraft.scriptMode = value === "custom" ? "custom" : "script";
-    if (nextDraft.scriptMode === "custom") {
+    nextDraft.scriptMode = scriptModeOptions.some((option) => option.value === value) ? value : "script";
+    if (nextDraft.scriptMode !== "script") {
       nextDraft.scriptId = "";
     } else {
       nextDraft.customRoleQuery = "";
@@ -779,7 +779,7 @@ export function handleCreateGame() {
       ? [...(state.notes.ui.setupDraft?.customRoleIds || [])]
       : [];
   setup.fabledRoleIds =
-    setup.scriptMode === "custom"
+    setup.scriptMode !== "script"
       ? [...(state.notes.ui.setupDraft?.fabledRoleIds || [])]
       : [];
   if (setup.scriptMode === "custom" && !setup.customRoleIds.length) {

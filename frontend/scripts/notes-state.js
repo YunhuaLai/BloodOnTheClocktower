@@ -218,7 +218,7 @@ export function createGameFromSetup(setup, nextIndex = 1) {
     title,
     scriptMode,
     scriptId: scriptMode === "script" ? script?.id || "" : "",
-    scriptName: scriptMode === "custom" ? customScriptName : script?.name || scriptName,
+    scriptName: scriptMode === "free" ? "自由模式" : scriptMode === "custom" ? customScriptName : script?.name || scriptName,
     customRoleIds,
     fabledRoleIds,
     travellerRoleIds,
@@ -444,9 +444,11 @@ function normalizeGame(game, index) {
     id: game?.id || createId("game"),
     title: game?.title || `第 ${index + 1} 局`,
     scriptMode,
-    scriptId: scriptMode === "custom" ? "" : game?.scriptId || "",
+    scriptId: scriptMode !== "script" ? "" : game?.scriptId || "",
     scriptName:
-      scriptMode === "custom"
+      scriptMode === "free"
+        ? "自由模式"
+        : scriptMode === "custom"
         ? game?.scriptName || "自定义角色池"
         : game?.scriptName || "",
     customRoleIds,

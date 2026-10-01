@@ -1,4 +1,4 @@
-import { getClaimPickerHint, getGameScript, isCustomRoleGame } from "../notes-claims.js";
+import { getClaimPickerHint, getGameScript, isCustomRoleGame, isFreeRoleGame } from "../notes-claims.js";
 import { getDraftOrPlayer, getPlayerDraft } from "../notes-state.js";
 import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, noteTagOptions, state, typeLabels } from "../state.js";
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
@@ -289,7 +289,9 @@ function renderClaimControl(player, game) {
   const script = getGameScript(game);
   const placeholder = script
     ? `输入或搜索《${script.name}》角色`
-    : isCustomRoleGame(game)
+    : isFreeRoleGame(game)
+      ? "输入或搜索全部基础角色"
+      : isCustomRoleGame(game)
       ? "输入或搜索自定义角色"
       : "先选剧本";
 

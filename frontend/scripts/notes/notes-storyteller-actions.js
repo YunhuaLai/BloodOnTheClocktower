@@ -1,4 +1,4 @@
-import { getClaimRoleOptions, getGameScript, isCustomRoleGame, isFabledRole, isTravellerRole } from "../notes-claims.js";
+import { getClaimRoleOptions, getGameScript, isCustomRoleGame, isFreeRoleGame, isFabledRole, isTravellerRole } from "../notes-claims.js";
 import { clearPlayerDraft, createDefaultStorytellerState, createEmptyRoleInfo, getActiveGame, saveNotesState } from "../notes-state.js";
 import { roleTypeOrder, state, typeLabels } from "../state.js";
 import { createId } from "../utils.js";
@@ -154,7 +154,7 @@ export function assignRandomStorytellerRoles() {
   }
 
   const script = getGameScript(game);
-  const isCustom = isCustomRoleGame(game);
+  const isCustom = isCustomRoleGame(game) || isFreeRoleGame(game);
   if (!script && !isCustom) {
     window.alert("先选择剧本。");
     return;

@@ -1,4 +1,4 @@
-import { getGameScript, isCustomRoleGame } from "../notes-claims.js";
+import { getGameScript, isCustomRoleGame, isFreeRoleGame } from "../notes-claims.js";
 import { cloneSuspectedRoles, getDraftOrPlayer } from "../notes-state.js";
 import { state } from "../state.js";
 import { escapeHtml } from "../utils.js";
@@ -118,7 +118,7 @@ function renderOverviewSuspectedRoles(game) {
 
 function renderOverviewClaimInput(player, game) {
   const script = getGameScript(game);
-  const placeholder = script || isCustomRoleGame(game) ? "身份" : "先选剧本";
+  const placeholder = script || isCustomRoleGame(game) || isFreeRoleGame(game) ? "身份" : "先选剧本";
 
   return `
     <input

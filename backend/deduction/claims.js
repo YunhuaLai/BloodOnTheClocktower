@@ -11,7 +11,7 @@ function matchesPartial(item, query, fields) {
 }
 
 function getGameScript(game, catalog) {
-  if (game?.scriptMode === "custom") {
+  if (game?.scriptMode === "custom" || game?.scriptMode === "free") {
     return null;
   }
 
@@ -73,6 +73,12 @@ function getRolesFromIds(roles, roleIds, predicate = () => true) {
 
 function getClaimRoleOptions(game, catalog) {
   const roles = catalog?.roles || [];
+  if (game?.scriptMode === "free") {
+    return uniqueRoles([
+      ...roles.filter((role) => ["townsfolk", "outsider", "minion", "demon"].includes(role.type)),
+      ...getRolesFromIds(roles, game?.travellerRoleIds, isTravellerRole),
+    ]);
+  }
   if (game?.scriptMode === "custom") {
     return uniqueRoles([
       ...getRolesFromIds(
