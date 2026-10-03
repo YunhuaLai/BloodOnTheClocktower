@@ -61,6 +61,12 @@ const abilityValueLabels = {
   drunk: "醉",
   self: "自己",
   target: "目标",
+  // Directions are relative to a seated player facing the center of the table.
+  clockwise: "左",
+  counterclockwise: "右",
+  顺时针: "左",
+  逆时针: "右",
+  storyteller_choice: "说书人选择",
   unknown: "?",
 };
 

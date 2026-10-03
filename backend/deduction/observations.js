@@ -197,11 +197,11 @@ function boolLabel(value) {
 
 function directionLabel(value) {
   if (value === "clockwise") {
-    return "顺时针";
+    return "左";
   }
 
   if (value === "counterclockwise") {
-    return "逆时针";
+    return "右";
   }
 
   return "说书人选择";
