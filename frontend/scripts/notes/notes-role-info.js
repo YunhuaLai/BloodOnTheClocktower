@@ -248,11 +248,11 @@ function isTimedRecurringAbility(abilityMeta) {
 
 function getTimedAbilityRowCount(abilityMeta, player, game) {
   const phaseNumber = getPhaseNumber(game);
-  const phaseType = getPhaseType(game);
   const timing = abilityMeta?.phaseTiming || "";
   const usagePattern = abilityMeta?.usagePattern || "";
   const eventTiming = abilityMeta?.eventTiming || "";
-  const nightCount = phaseNumber + (phaseType === "night" ? 1 : 0);
+  // Night N is followed by day N; both phases have reached the same number of nights.
+  const nightCount = phaseNumber;
 
   if (eventTiming === "on_death") {
     return isAliveForAutomaticRows(player) ? 0 : 1;
