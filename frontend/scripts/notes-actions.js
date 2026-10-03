@@ -25,6 +25,7 @@ import { renderNotesPage } from "./notes/notes-shell.js";
 import { handleStorytellerAction } from "./notes/notes-storyteller-ui-actions.js";
 import { handleTimelineAction } from "./notes/notes-timeline-actions.js";
 import { state } from "./state.js";
+import { handleAcquiredAction, handleAcquiredFieldChange } from "./notes/notes-acquired-actions.js";
 
 export async function handleNotesImportFile(target) {
   const file = target?.files?.[0];
@@ -37,6 +38,7 @@ export async function handleNotesImportFile(target) {
 }
 
 export function handleNotesFieldChange(target, refreshInterface = false) {
+  if (handleAcquiredFieldChange(target, refreshInterface)) return;
   if (target.id === "gameSelect") {
     const notes = ensureNotesState();
     notes.activeGameId = target.value;
@@ -204,6 +206,8 @@ export function handleNotesAction(button) {
   if (!game) {
     return;
   }
+
+  if (handleAcquiredAction(action, button)) return;
 
   if (handleRoomAction(action, button, notes, game)) {
     return;

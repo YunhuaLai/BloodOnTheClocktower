@@ -79,6 +79,7 @@ export function createDefaultPlayer(seat, options = {}) {
     extraInfo: "",
     notes: "",
     roleInfo: createEmptyRoleInfo(),
+    acquiredAbilities: [],
     trueRole: options.trueRole || "",
     trueAlignment: options.trueAlignment || "unknown",
     storytellerNotes: "",
@@ -127,7 +128,32 @@ export function clonePlayerForDraft(player) {
     ...player,
     tags: [...(player.tags || [])],
     roleInfo: cloneRoleInfo(player.roleInfo),
+    acquiredAbilities: cloneAcquiredAbilities(player.acquiredAbilities),
   };
+}
+
+export function cloneAcquiredAbilities(abilities) {
+  const phaseNumber = (value) => clampNumber(Math.trunc(Number(value)) || 1, 1, 99);
+  return (Array.isArray(abilities) ? abilities : []).filter((item) => item && typeof item === "object").map((item) => ({
+    id: String(item.id || createId("acquired")),
+    source: item.source === "storyteller" ? "storyteller" : "player",
+    ownerRole: String(item.ownerRole || ""),
+    role: String(item.role || ""),
+    kind: item.kind === "replaceable" ? "replaceable" : "continuous",
+    status: ["pending", "active", "ended"].includes(item.status) ? item.status : "pending",
+    certainty: ["known", "suspected", "unknown"].includes(item.certainty) ? item.certainty : "unknown",
+    startPhaseType: item.startPhaseType === "day" ? "day" : "night",
+    startPhaseNumber: phaseNumber(item.startPhaseNumber),
+    endPhaseType: item.endPhaseType === "day" ? "day" : "night",
+    endPhaseNumber: item.endPhaseNumber ? phaseNumber(item.endPhaseNumber) : null,
+    sourceSeat: String(item.sourceSeat || ""),
+    note: String(item.note || ""),
+    records: (Array.isArray(item.records) ? item.records : []).filter((record) => record && typeof record === "object").map((record) => ({
+      phaseType: record.phaseType === "day" ? "day" : "night",
+      phaseNumber: phaseNumber(record.phaseNumber),
+      roleInfo: cloneRoleInfo(record.roleInfo),
+    })),
+  }));
 }
 
 function createPlayersForCount(playerCount) {
@@ -326,6 +352,7 @@ function normalizePlayer(player, index, options = {}) {
     extraInfo: player?.extraInfo || player?.summary || "",
     notes: notesParts.filter(Boolean).join("\n"),
     roleInfo: cloneRoleInfo(player?.roleInfo),
+    acquiredAbilities: cloneAcquiredAbilities(player?.acquiredAbilities),
     trueRole: player?.trueRole || "",
     trueAlignment,
     storytellerNotes: player?.storytellerNotes || "",

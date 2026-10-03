@@ -526,3 +526,58 @@
   background: var(--ink);
   border-color: var(--ink);
 }
+
+.notes-acquired-panel,
+.notes-acquired-ability {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.notes-acquired-panel > .notes-acquired-ability + .notes-acquired-ability {
+  margin-top: 12px;
+}
+
+.notes-acquired-ability > summary,
+.notes-acquired-record > summary {
+  cursor: pointer;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.notes-acquired-ability > summary > span {
+  margin-left: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.notes-acquired-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.notes-acquired-phase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.notes-acquired-record {
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.notes-acquired-record .notes-roleinfo-section {
+  margin-top: 10px;
+}
+
+.notes-acquired-summary {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}

@@ -5,6 +5,7 @@ import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
 import { formatPhaseLabel, getAliveCount, getSeatLabel, getTotalPlayerCount, isTravellerPlayer } from "./notes-core.js";
 import { getClaimedRole } from "./notes-role-info.js";
 import { renderRoleInfoInputs } from "./notes-role-info-panel.js";
+import { renderAcquiredAbilities } from "./notes-acquired-render.js";
 
 function renderNoteTagButtons(player) {
   return noteTagOptions
@@ -344,6 +345,7 @@ function renderPlayerDetail(player, game) {
       </div>
 
       ${renderRoleInfoInputs(draft, game)}
+      ${renderAcquiredAbilities(draft, game)}
 
       <section class="notes-detail-section">
         <label class="note-field">

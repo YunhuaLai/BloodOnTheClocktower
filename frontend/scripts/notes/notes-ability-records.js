@@ -1,5 +1,6 @@
 import { getGameScript } from "../notes-claims.js";
 import { getDayRecord } from "./notes-day-records.js";
+import { acquiredCertaintyLabels, findAcquiredRole, getAcquiredAbilities } from "./notes-acquired-abilities.js";
 import {
   ensureRoleInfoMatchesClaim,
   formatRoleInfoEntrySummary,
@@ -126,10 +127,52 @@ export function syncAbilityRecordsForPlayer(game, player, source = "player") {
   record.abilityRecords = [
     ...(record.abilityRecords || []).filter(
       (item) =>
+        item.acquiredAbilityId ||
         item.playerId !== player.id ||
         item.source !== normalizedSource ||
         item.phaseType !== phaseType,
     ),
     ...nextRecords,
   ].sort((left, right) => left.order - right.order || Number(left.seat) - Number(right.seat));
+  syncAcquiredAbilityRecords(game, player, normalizedSource);
+}
+
+function syncAcquiredAbilityRecords(game, player, source) {
+  // Rebuild by each action's original phase, including ended abilities.
+  for (const day of game.dayRecords || []) {
+    day.abilityRecords = (day.abilityRecords || []).filter((item) =>
+      !item.acquiredAbilityId || item.playerId !== player.id || item.source !== source,
+    );
+  }
+  for (const ability of getAcquiredAbilities(player, source)) {
+    const role = findAcquiredRole(ability.role);
+    if (!role) continue;
+    for (const action of ability.records || []) {
+      const phaseGame = { ...game, phaseType: action.phaseType, phaseNumber: action.phaseNumber };
+      const targetFields = getRoleInfoNode(role.abilityData, "target").fields;
+      const resultFields = getRoleInfoNode(role.abilityData, "result").fields;
+      const targets = action.roleInfo.targetEntries || [];
+      const results = action.roleInfo.resultEntries || [];
+      for (let index = 0; index < Math.max(targets.length, results.length); index += 1) {
+        const target = formatRoleInfoEntrySummary(targets[index], targetFields);
+        const result = formatRoleInfoEntrySummary(results[index], resultFields);
+        if (!target && !result) continue;
+        const day = getDayRecord(game, action.phaseNumber, true);
+        const uncertainty = source === "player" && ability.certainty !== "known" ? `（${acquiredCertaintyLabels[ability.certainty]}）` : "";
+        day.abilityRecords.push({
+          id: `acquired:${source}:${player.id}:${ability.id}:${action.phaseType}:${action.phaseNumber}:${index}`,
+          acquiredAbilityId: ability.id, source, phaseType: action.phaseType,
+          order: getRoleActionOrder(phaseGame, player, role, source) + index / 100,
+          playerId: player.id, seat: String(player.seat), playerName: player.name || "",
+          roleId: role.id, roleName: `${ability.ownerRole || "获得能力"} · ${role.name}${uncertainty}`,
+          rowIndex: index + 1,
+          text: [target ? `目标 ${target}` : "", result ? `结果 ${result}` : ""].filter(Boolean).join(" / "),
+          updatedAt: new Date().toISOString(),
+        });
+      }
+    }
+  }
+  for (const day of game.dayRecords || []) {
+    day.abilityRecords.sort((a, b) => a.order - b.order || Number(a.seat) - Number(b.seat));
+  }
 }

@@ -82,6 +82,7 @@ function normalizeAbilityRecord(record, playerCount) {
     seat: normalizeSeatValue(record?.seat, playerCount),
     playerName: String(record?.playerName || ""),
     roleId: String(record?.roleId || ""),
+    acquiredAbilityId: String(record?.acquiredAbilityId || ""),
     roleName: String(record?.roleName || ""),
     rowIndex: Math.max(Number(record?.rowIndex) || 1, 1),
     text: String(record?.text || ""),

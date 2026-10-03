@@ -1,4 +1,4 @@
-export const NOTES_SCHEMA_VERSION = 2;
+export const NOTES_SCHEMA_VERSION = 3;
 
 export function createGameBackupEnvelope(game, exportedAt = new Date().toISOString()) {
   return {

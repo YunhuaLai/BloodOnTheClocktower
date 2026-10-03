@@ -2,6 +2,7 @@ import { getClaimRoleOptions, isCustomRoleGame, isFabledRole, isTravellerRole } 
 import { clampNumber, cloneRoleInfo, cloneRoleInfoEntries, createEmptyRoleInfo, getActiveGame } from "../notes-state.js";
 import { state, typeLabels } from "../state.js";
 import { getClaimAbbreviation } from "./notes-core.js";
+import { acquiredPhaseIndex, acquiredPhaseLabel, findAcquiredRole, getCurrentAcquiredAbilities, getAcquiredAbilitySummary, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
 
 // Role ability metadata and summaries. Field/panel renderers live next to this file.
 
@@ -465,6 +466,7 @@ export function formatRoleInfoEntrySummary(entry, fields) {
 }
 
 export function getRoleInfoSummary(player, game = getActiveGame()) {
+  const acquiredSummary = game ? getAcquiredInfoSummary(player, game) : "";
   const abilityData = getRoleAbilityData(player, game);
   const roleInfo = ensureRoleInfoMatchesClaim(player, game);
   const targetNode = getRoleInfoNode(abilityData, "target");
@@ -474,7 +476,7 @@ export function getRoleInfoSummary(player, game = getActiveGame()) {
   const rowCount = Math.max(targetEntries.length, resultEntries.length);
 
   if (!abilityData?.abilityMeta?.recordable || !rowCount) {
-    return "--";
+    return acquiredSummary || "--";
   }
 
   const rows = [];
@@ -488,7 +490,27 @@ export function getRoleInfoSummary(player, game = getActiveGame()) {
     rows.push([targetText, resultText].filter(Boolean).join(">"));
   }
 
-  return rows.length ? rows.join("/") : "--";
+  return [rows.join("/"), acquiredSummary].filter(Boolean).join(" · ") || "--";
+}
+
+function getAcquiredInfoSummary(player, game) {
+  const summary = getAcquiredAbilitySummary(player, game);
+  if (!summary) return "";
+  const phase = acquiredPhaseIndex(game.phaseType, game.phaseNumber);
+  const details = getCurrentAcquiredAbilities(player, game).filter((ability) => isAcquiredAbilityActive(ability, game)).map((ability) => {
+    const role = findAcquiredRole(ability.role);
+    if (!role) return "";
+    const records = [...ability.records].filter((record) => acquiredPhaseIndex(record.phaseType, record.phaseNumber) <= phase)
+      .sort((a, b) => acquiredPhaseIndex(b.phaseType, b.phaseNumber) - acquiredPhaseIndex(a.phaseType, a.phaseNumber));
+    for (const record of records) {
+      const text = ["target", "result"].map((section) => (record.roleInfo[`${section}Entries`] || [])
+        .map((entry) => formatRoleInfoEntrySummary(entry, getRoleInfoNode(role.abilityData, section).fields)).filter(Boolean).join("/"))
+        .filter(Boolean).join(">");
+      if (text) return `${role.name} ${acquiredPhaseLabel(record.phaseType, record.phaseNumber)}：${text}`;
+    }
+    return "";
+  }).filter(Boolean);
+  return [summary, ...details].join(" · ");
 }
 
 export function getRoleInfoSectionLabel(sectionKey, abilityData) {

@@ -6,6 +6,8 @@ import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
 import { formatPhaseLabel, getAliveCount, getMaxSeatNumber, getPlayerLabel, getStandardSetup, getTotalPlayerCount, getTravellerPlayers, isTravellerPlayer } from "./notes-core.js";
 import { renderPlayerCycleField } from "./notes-player-render.js";
 import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
+import { renderAcquiredAbilities } from "./notes-acquired-render.js";
+import { getAcquiredAbilitySummary } from "./notes-acquired-abilities.js";
 import { ensureRoleInfoMatchesClaim, formatRoleInfoEntrySummary, getRoleInfoEntries, getRoleInfoNode, getRoleInfoSectionLabel, isRoleInfoEntryFilled } from "./notes-role-info.js";
 import { getAssignedSetupAlertRoles, getRoleByLooseName, getRoleGlobalMarkers, getRoleSetupNotes, getScriptIdentityOverlayRoles } from "./notes-storyteller-actions.js";
 
@@ -534,6 +536,7 @@ function renderGrimoireInspector(player, game) {
         </label>
       </div>
       ${renderStorytellerMarkerButtons(draft, game)}
+      ${renderAcquiredAbilities(draft, game, "storyteller")}
       <label class="note-checkbox">
         <input
           type="checkbox"
@@ -554,6 +557,7 @@ function renderGrimoireInspector(player, game) {
       </label>
       <div class="story-inspector-ability">
         <strong>${escapeHtml(draft.trueRole || "未设置身份")}</strong>
+        <small class="notes-acquired-summary">${escapeHtml(getAcquiredAbilitySummary(draft, game, "storyteller"))}</small>
         <p>${escapeHtml(role?.ability || "选择身份后显示能力。")}</p>
       </div>
     </aside>

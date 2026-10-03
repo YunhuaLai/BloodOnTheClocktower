@@ -6,6 +6,8 @@ import { getOverviewSecondaryText, isTravellerPlayer } from "./notes-core.js";
 import { renderPlayerCycleField } from "./notes-player-render.js";
 import { renderOverviewRoleInfoInputs } from "./notes-role-info-overview.js";
 import { getRoleInfoSummary } from "./notes-role-info.js";
+import { renderAcquiredAbilities } from "./notes-acquired-render.js";
+import { getAcquiredAbilitySummary } from "./notes-acquired-abilities.js";
 import { renderBeyondWorldlineAnalysis } from "./notes-worldline-analysis.js";
 
 function renderOverviewActions() {
@@ -35,6 +37,7 @@ function renderOverviewInlineEditor(player, game) {
   return `
     <section class="notes-overview-editor" data-player-id="${escapeHtml(player.id)}">
       ${roleInfoInputs}
+      ${renderAcquiredAbilities(draft, game)}
       <label class="note-field note-field--wide">
         <span>额外信息</span>
         <input
@@ -168,6 +171,7 @@ function renderOverviewRows(game) {
             </div>
             <label class="notes-overview-cell notes-overview-cell--claim notes-overview-claim-cell">
               ${renderOverviewClaimInput(draft, game)}
+              ${getAcquiredAbilitySummary(draft, game) ? `<small class="notes-acquired-summary">${escapeHtml(getAcquiredAbilitySummary(draft, game))}</small>` : ""}
             </label>
             <button
               type="button"
