@@ -1,4 +1,5 @@
 import { importantAbilityPhrases, oneInOneOutRoleOrder, roleTypeOrder, state, typeLabels } from "./state.js";
+import { getAbilityMetaTags } from "./ability-meta.js";
 import { escapeHtml } from "./utils.js";
 
 export function getScriptById(id) {
@@ -332,11 +333,30 @@ function renderRichText(value) {
   return html;
 }
 
+export function renderAbilityMetaTags(abilityData) {
+  const { tags, hint } = getAbilityMetaTags(abilityData);
+  if (!tags.length) {
+    return "";
+  }
+
+  return `
+    <div class="ability-meta">
+      <ul class="ability-meta-tags" aria-label="能力分类">
+        ${tags
+          .map((tag) => `<li class="ability-meta-tag ability-meta-tag--${tag.kind}">${escapeHtml(tag.label)}</li>`)
+          .join("")}
+      </ul>
+      ${hint ? `<small class="ability-meta-hint" title="这些分类由程序根据能力文本自动生成，尚未人工审核">${escapeHtml(hint)}</small>` : ""}
+    </div>
+  `;
+}
+
 export function abilityBlock(role) {
   return `
     <section class="ability-block">
       <p class="eyebrow">角色能力</p>
-      <p>${renderRichText(role.ability || role.detail.abilitySummary)}</p>
+      <p class="ability-text">${renderRichText(role.ability || role.detail.abilitySummary)}</p>
+      ${renderAbilityMetaTags(role.abilityData)}
     </section>
   `;
 }

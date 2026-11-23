@@ -3,11 +3,13 @@ import { getDayRecord } from "./notes-day-records.js";
 import { acquiredCertaintyLabels, findAcquiredRole, getAcquiredAbilities } from "./notes-acquired-abilities.js";
 import {
   ensureRoleInfoMatchesClaim,
-  formatRoleInfoEntrySummary,
+  formatRoleInfoPairText,
+  formatRoleInfoRowTexts,
   getClaimedRole,
-  getRoleInfoNode,
   getRoleInfoRows,
 } from "./notes-role-info.js";
+
+const timelineLabels = { target: "目标", result: "结果" };
 import { isPhased } from "./notes-role-info-records.js";
 
 const dayTimingOrder = {
@@ -68,20 +70,12 @@ function buildAbilityRecordsForPlayer(game, player, source, role) {
 
   const subject = getRoleInfoSubject(player, source);
   const roleInfo = ensureRoleInfoMatchesClaim(subject, game);
-  const targetNode = getRoleInfoNode(abilityData, "target");
-  const resultNode = getRoleInfoNode(abilityData, "result");
 
   return getRoleInfoRows(roleInfo)
     .filter((row) => isPhased(row.phaseType))
     .map((row) => {
-      const targetText = formatRoleInfoEntrySummary(row.target, targetNode.fields);
-      const resultText = formatRoleInfoEntrySummary(row.result, resultNode.fields);
-      const text = [
-        targetText ? `目标 ${targetText}` : "",
-        resultText ? `结果 ${resultText}` : "",
-      ]
-        .filter(Boolean)
-        .join(" / ");
+      const { targetText, resultText } = formatRoleInfoRowTexts(row.target, row.result, abilityData);
+      const text = formatRoleInfoPairText(targetText, resultText, timelineLabels);
       if (!text) {
         return null;
       }
@@ -154,14 +148,12 @@ function syncAcquiredAbilityRecords(game, player, source) {
     if (!role) continue;
     for (const action of ability.records || []) {
       const phaseGame = { ...game, phaseType: action.phaseType, phaseNumber: action.phaseNumber };
-      const targetFields = getRoleInfoNode(role.abilityData, "target").fields;
-      const resultFields = getRoleInfoNode(role.abilityData, "result").fields;
       const targets = action.roleInfo.targetEntries || [];
       const results = action.roleInfo.resultEntries || [];
       for (let index = 0; index < Math.max(targets.length, results.length); index += 1) {
-        const target = formatRoleInfoEntrySummary(targets[index], targetFields);
-        const result = formatRoleInfoEntrySummary(results[index], resultFields);
-        if (!target && !result) continue;
+        const { targetText, resultText } = formatRoleInfoRowTexts(targets[index], results[index], role.abilityData);
+        const text = formatRoleInfoPairText(targetText, resultText, timelineLabels);
+        if (!text) continue;
         const day = getDayRecord(game, action.phaseNumber, true);
         const uncertainty = source === "player" && ability.certainty !== "known" ? `（${acquiredCertaintyLabels[ability.certainty]}）` : "";
         day.abilityRecords.push({
@@ -171,7 +163,7 @@ function syncAcquiredAbilityRecords(game, player, source) {
           playerId: player.id, seat: String(player.seat), playerName: player.name || "",
           roleId: role.id, roleName: `${ability.ownerRole || "获得能力"} · ${role.name}${uncertainty}`,
           rowIndex: index + 1,
-          text: [target ? `目标 ${target}` : "", result ? `结果 ${result}` : ""].filter(Boolean).join(" / "),
+          text,
           updatedAt: new Date().toISOString(),
         });
       }

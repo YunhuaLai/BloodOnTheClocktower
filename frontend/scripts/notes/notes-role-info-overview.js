@@ -22,7 +22,7 @@ export function renderOverviewRoleInfoInputs(player, game) {
     maxSeat: clampNumber(getMaxSeatNumber(game) || 15, 1, 25),
     density: "compact",
     title: getRoleInfoSectionLabel("result", abilityData),
-    hint: form.rows.length > 1 ? "按阶段" : "单条",
+    hint: form.rows.length > 1 ? "按阶段" : form.rows.length ? "单条" : "",
     playerId: player.id,
     className: "notes-roleinfo-section--overview",
   });

@@ -9,7 +9,7 @@ import { renderRoleInfoForm } from "./notes-role-info-fields.js";
 import { buildRoleInfoForm, getRoleInfoPhaseRowLabel } from "./notes-role-info-form.js";
 import { renderAcquiredAbilities } from "./notes-acquired-render.js";
 import { getAcquiredAbilitySummary } from "./notes-acquired-abilities.js";
-import { ensureRoleInfoMatchesClaim, formatRoleInfoEntrySummary, getRoleInfoNode, getRoleInfoRows } from "./notes-role-info.js";
+import { ensureRoleInfoMatchesClaim, formatRoleInfoPairText, formatRoleInfoRowTexts, getRoleInfoNode, getRoleInfoRows } from "./notes-role-info.js";
 import { getAssignedSetupAlertRoles, getRoleByLooseName, getRoleGlobalMarkers, getRoleSetupNotes, getScriptIdentityOverlayRoles } from "./notes-storyteller-actions.js";
 
 const storytellerAlignmentOptions = [
@@ -272,14 +272,12 @@ function getStorytellerInfoRecords(game) {
 
     const subject = getStorytellerRoleInfoSubject(player);
     const roleInfo = ensureRoleInfoMatchesClaim(subject, game);
-    const targetNode = getRoleInfoNode(role.abilityData, "target");
-    const resultNode = getRoleInfoNode(role.abilityData, "result");
     const records = [];
 
     getRoleInfoRows(roleInfo).forEach((row) => {
-      const targetText = formatRoleInfoEntrySummary(row.target, targetNode.fields);
-      const resultText = formatRoleInfoEntrySummary(row.result, resultNode.fields);
-      if (!targetText && !resultText) {
+      const { targetText, resultText } = formatRoleInfoRowTexts(row.target, row.result, role.abilityData);
+      const text = formatRoleInfoPairText(targetText, resultText, { target: "选择", result: "告知" });
+      if (!text) {
         return;
       }
 
@@ -288,9 +286,7 @@ function getStorytellerInfoRecords(game) {
         player,
         role,
         phaseLabel: getRoleInfoPhaseRowLabel(row.phaseType, row.phaseNumber, row.entryIndex, role.abilityData),
-        text: [targetText ? `选择 ${targetText}` : "", resultText ? `告知 ${resultText}` : ""]
-          .filter(Boolean)
-          .join(" / "),
+        text,
       });
     });
 

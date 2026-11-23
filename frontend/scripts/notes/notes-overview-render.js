@@ -5,7 +5,7 @@ import { escapeHtml } from "../utils.js";
 import { getOverviewSecondaryText, isTravellerPlayer } from "./notes-core.js";
 import { renderPlayerCycleField } from "./notes-player-render.js";
 import { renderOverviewRoleInfoInputs } from "./notes-role-info-overview.js";
-import { getRoleInfoSummary } from "./notes-role-info.js";
+import { getRoleInfoSummary, getRoleInfoSummaryData } from "./notes-role-info.js";
 import { renderAcquiredAbilities } from "./notes-acquired-render.js";
 import { getAcquiredAbilitySummary } from "./notes-acquired-abilities.js";
 import { renderBeyondWorldlineAnalysis } from "./notes-worldline-analysis.js";
@@ -139,6 +139,27 @@ function renderOverviewClaimInput(player, game) {
   `;
 }
 
+function renderSummaryTag(item) {
+  return `
+    <span class="notes-summary-tag${item.source === "acquired" ? " notes-summary-tag--acquired" : ""}" title="${escapeHtml(
+      [item.roleName, item.phaseTitle].filter(Boolean).join(" "),
+    )}">
+      <b>${escapeHtml([item.roleName, item.phase].filter(Boolean).join(" "))}</b>${escapeHtml(item.text)}
+    </span>
+  `;
+}
+
+// Role ability summary as small phase tags. Only the latest rows are shown; the count tag tells how many exist.
+export function renderOverviewSummary(player, game) {
+  const data = getRoleInfoSummaryData(player, game);
+  const tags = [
+    data.hiddenCount ? `<span class="notes-summary-tag notes-summary-tag--more">共 ${data.total} 条</span>` : "",
+    ...data.items.map(renderSummaryTag),
+    ...data.acquiredItems.map(renderSummaryTag),
+  ].filter(Boolean);
+  return tags.length ? `<span class="notes-summary-tags">${tags.join("")}</span>` : "--";
+}
+
 function renderOverviewRows(game) {
   const expandedPlayerId = state.notes.ui.overviewExpandedPlayerId;
 
@@ -148,6 +169,7 @@ function renderOverviewRows(game) {
       const isSelf = player.seat === game.selfSeat;
       const isTraveller = isTravellerPlayer(player);
       const summaryText = getRoleInfoSummary(draft, game);
+      const summaryHtml = renderOverviewSummary(draft, game);
       const supplementText = getOverviewSecondaryText(draft);
       const isExpanded = expandedPlayerId === player.id;
 
@@ -178,7 +200,8 @@ function renderOverviewRows(game) {
               class="notes-overview-cell notes-overview-cell--summary notes-overview-toggle"
               data-notes-action="toggle-overview-player"
               data-player-id="${escapeHtml(player.id)}"
-            >${escapeHtml(summaryText)}</button>
+              aria-label="${escapeHtml(`技能记录：${summaryText}`)}"
+            >${summaryHtml}</button>
             <div class="notes-overview-cell notes-overview-cell--judgement">
               ${renderOverviewJudgementControls(draft)}
             </div>

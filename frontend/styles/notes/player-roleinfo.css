@@ -727,3 +727,58 @@
 .notes-roleinfo-field--stacked > span {
   white-space: nowrap;
 }
+
+/* Ability text in the detail panel header. Long texts are clamped to two lines on narrow screens only. */
+.notes-roleinfo-ability,
+.notes-roleinfo-ability-text {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.notes-roleinfo-ability-toggle {
+  display: none;
+}
+
+@media (max-width: 720px) {
+  .notes-roleinfo-ability--long:not(.is-expanded) .notes-roleinfo-ability-text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+
+  .notes-roleinfo-ability-toggle {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 12px 0 0;
+    color: var(--teal);
+    background: transparent;
+    border: 0;
+    font-size: 12px;
+    font-weight: 800;
+  }
+}
+
+/* Placeholder row before the ability can be recorded (no inputs). */
+.notes-roleinfo-row--pending {
+  align-items: center;
+  opacity: 0.72;
+}
+
+.notes-roleinfo-row--pending .notes-roleinfo-index--phase {
+  border-style: dashed;
+}
+
+.notes-roleinfo-pending-text {
+  padding: 6px 8px;
+  color: var(--muted);
+  background: #f7f8f4;
+  border: 1px dashed var(--line);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 700;
+}

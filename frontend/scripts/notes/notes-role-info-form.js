@@ -101,6 +101,28 @@ function buildRows({ abilityData, sections, phases, records, game, minEntries })
   return rows;
 }
 
+/**
+ * Greyed placeholder shown instead of input rows before the ability can be recorded.
+ * { phaseType, phaseNumber, label, text }; phaseType is "" when the next chance is not a known phase.
+ * It never carries inputs, so nothing can be entered for a future phase.
+ */
+function getPendingRow(plan, alive, game) {
+  if (plan.kind === "death") {
+    return { phaseType: "", phaseNumber: 0, label: "死亡后", text: "死亡后可录入" };
+  }
+
+  if (plan.kind === "recurring" && !alive) {
+    return { phaseType: "", phaseNumber: 0, label: "已死亡", text: "已死亡，不再自动新增" };
+  }
+
+  if ((plan.kind === "recurring" || plan.kind === "once") && plan.phaseType && !listPlanPhases(plan, game).length) {
+    const label = formatRoleInfoPhaseLabel(plan.phaseType, plan.firstNumber);
+    return { phaseType: plan.phaseType, phaseNumber: plan.firstNumber, label, text: `${label}起可录入` };
+  }
+
+  return { phaseType: "", phaseNumber: 0, label: "未到", text: "未到记录时机" };
+}
+
 function sortPhases(phases) {
   const unique = new Map();
   phases.forEach((phase) => unique.set(phaseKey(phase), phase));
@@ -141,7 +163,7 @@ export function buildRoleInfoForm({ abilityData, roleInfo, player, game, scope =
   const alive = !deadStatuses.includes(player?.status);
   const anyFilled = records.some(recordHasData);
   const perPhaseMax = plan.kind === "untimed" || sections.some((section) => section.repeatMode === "variable") ? 99 : 1;
-  const model = { plan, sections, rows: [], actions: null, emptyReason: "" };
+  const model = { plan, sections, rows: [], actions: null, emptyReason: "", pending: null };
 
   if (!sections.length) {
     return model;
@@ -183,6 +205,7 @@ export function buildRoleInfoForm({ abilityData, roleInfo, player, game, scope =
     } else {
       model.emptyReason = "未到记录时机。";
     }
+    model.pending = getPendingRow(plan, alive, game);
   }
 
   const lastPhased = [...model.rows].reverse().find((row) => isPhased(row.phaseType));
@@ -217,6 +240,7 @@ export function buildAcquiredRecordForm({ abilityData, record, game }) {
     rows,
     actions: buildActions(sections, rows, phase, 99, minimum),
     emptyReason: "",
+    pending: null,
   };
 }
 

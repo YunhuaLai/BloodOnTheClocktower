@@ -1,9 +1,37 @@
 import { clampNumber } from "../notes-state.js";
+import { state } from "../state.js";
 import { escapeHtml } from "../utils.js";
 import { renderRoleInfoForm } from "./notes-role-info-fields.js";
 import { buildRoleInfoForm } from "./notes-role-info-form.js";
 import { getMaxSeatNumber } from "./notes-core.js";
-import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityMetaSummary, getAbilityTimingText, getClaimedRole } from "./notes-role-info.js";
+import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityTimingText, getClaimedRole } from "./notes-role-info.js";
+
+// Ability texts longer than about two lines on a phone get a "展开全文" toggle. The clamp and the toggle only
+// apply on narrow screens (CSS); the expanded state lives in notes.ui so it survives page re-renders.
+const ABILITY_TEXT_COLLAPSE_LENGTH = 44;
+
+export function renderRoleAbilityText(ability, expanded = false) {
+  const text = String(ability || "").trim();
+  if (!text) {
+    return "";
+  }
+
+  if (text.length <= ABILITY_TEXT_COLLAPSE_LENGTH) {
+    return `<p class="notes-roleinfo-ability">${escapeHtml(text)}</p>`;
+  }
+
+  return `
+    <div class="notes-roleinfo-ability notes-roleinfo-ability--long${expanded ? " is-expanded" : ""}">
+      <p class="notes-roleinfo-ability-text">${escapeHtml(text)}</p>
+      <button
+        type="button"
+        class="notes-roleinfo-ability-toggle"
+        data-notes-action="toggle-ability-text"
+        aria-expanded="${expanded ? "true" : "false"}"
+      >${expanded ? "收起" : "展开全文"}</button>
+    </div>
+  `;
+}
 
 export function renderRoleInfoInputs(player, game) {
   if (!player.claim) {
@@ -30,7 +58,7 @@ export function renderRoleInfoInputs(player, game) {
   const maxSeat = clampNumber(getMaxSeatNumber(game) || 15, 1, 25);
   const form = buildRoleInfoForm({ abilityData, roleInfo, player, game });
   const formHtml = abilityData?.abilityMeta?.recordable
-    ? renderRoleInfoForm(form, { game, maxSeat, playerId: player.id, hint: form.rows.length > 1 ? "按阶段" : "单条" })
+    ? renderRoleInfoForm(form, { game, maxSeat, playerId: player.id, hint: form.rows.length > 1 ? "按阶段" : form.rows.length ? "单条" : "" })
     : "";
   const emptyMessage =
     form.sections.length && form.emptyReason
@@ -64,7 +92,7 @@ export function renderRoleInfoInputs(player, game) {
           }
         </div>
       </div>
-      <p class="notes-inline-hint">${escapeHtml(getAbilityMetaSummary(abilityData))}</p>
+      ${renderRoleAbilityText(role.ability, state.notes.ui.abilityTextExpanded)}
       ${
         formHtml
           ? formHtml

@@ -53,6 +53,12 @@ export function handlePlayerUiAction(action, button, notes) {
     return true;
   }
 
+  if (action === "toggle-ability-text") {
+    notes.ui.abilityTextExpanded = !notes.ui.abilityTextExpanded;
+    renderNotesPage();
+    return true;
+  }
+
   if (action === "cycle-player-field") {
     cyclePlayerFieldValue(button.dataset.playerId, button.dataset.field);
     if (shouldPersistInline()) {

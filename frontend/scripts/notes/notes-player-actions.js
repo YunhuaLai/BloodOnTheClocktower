@@ -262,7 +262,8 @@ function buildPlayerSaveSummary(player, game = getActiveGame()) {
     parts.push(`自称 ${player.claim}`);
   }
 
-  const roleInfoSummary = getRoleInfoSummary(player, game);
+  // The saved update keeps every record (the overview shows only the latest few).
+  const roleInfoSummary = getRoleInfoSummary(player, game, { limit: 0 });
   if (roleInfoSummary && roleInfoSummary !== "--") {
     parts.push(`信息 ${roleInfoSummary}`);
   }

@@ -39,6 +39,7 @@ function createNotesUiState() {
     selectedSavedGameIds: [],
     overviewExpandedPlayerId: "",
     overviewExpandedExtraPlayerId: "",
+    abilityTextExpanded: false,
     scriptSheetOpen: false,
     creatingGame: false,
     setupDraft: createDefaultSetupDraft(),
@@ -693,6 +694,10 @@ export function ensureNotesState() {
 
   if (typeof state.notes.ui.overviewExpandedPlayerId !== "string") {
     state.notes.ui.overviewExpandedPlayerId = "";
+  }
+
+  if (typeof state.notes.ui.abilityTextExpanded !== "boolean") {
+    state.notes.ui.abilityTextExpanded = false;
   }
 
   if (typeof state.notes.ui.overviewExpandedExtraPlayerId !== "string") {

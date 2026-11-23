@@ -3,7 +3,7 @@ import { escapeHtml, renderSelectOptions } from "../utils.js";
 import { getMaxSeatNumber } from "./notes-core.js";
 import { renderRoleInfoForm } from "./notes-role-info-fields.js";
 import { buildAcquiredRecordForm } from "./notes-role-info-form.js";
-import { formatRoleInfoEntrySummary, getRoleInfoNode } from "./notes-role-info.js";
+import { formatRoleInfoEntriesTexts } from "./notes-role-info.js";
 import { acquiredCertaintyLabels, acquiredPhaseIndex, acquiredPhaseLabel, acquiredStatusLabels, findAcquiredRole, getAcquiredAbilities, getAcquisitionKind, hasAcquiredRecords, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
 
 function options(labels, selected) {
@@ -28,10 +28,7 @@ function renderAcquiredRecord(ability, record, role, game) {
     maxSeat: getMaxSeatNumber(game),
     className: "notes-roleinfo-form--acquired",
   });
-  const summary = ["target", "result"].flatMap((section) => {
-    const fields = getRoleInfoNode(role.abilityData, section).fields;
-    return (record.roleInfo?.[`${section}Entries`] || []).map((entry) => formatRoleInfoEntrySummary(entry, fields)).filter(Boolean);
-  }).join(" / ");
+  const summary = formatRoleInfoEntriesTexts(record.roleInfo, role.abilityData).join(" / ");
   const isCurrent = record.phaseType === game.phaseType && record.phaseNumber === Number(game.phaseNumber);
   return `<details class="notes-acquired-record" data-acquired-phase-type="${record.phaseType}" data-acquired-phase-number="${record.phaseNumber}" ${isCurrent ? "open" : ""}>
     <summary>${acquiredPhaseLabel(record.phaseType, record.phaseNumber)} · ${escapeHtml(summary || "行动记录")}</summary>

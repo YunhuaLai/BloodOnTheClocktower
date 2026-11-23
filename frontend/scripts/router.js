@@ -258,7 +258,7 @@ document.addEventListener("change", (event) => {
 // `change`, re-render the page before the tap's click, and drop the click. The `input` event has
 // already saved what was typed.
 document.addEventListener("mousedown", (event) => {
-  if (event.target.closest(".notes-roleinfo-step, .notes-roleinfo-segment")) {
+  if (event.target.closest(".notes-roleinfo-step, .notes-roleinfo-segment, .notes-roleinfo-ability-toggle")) {
     event.preventDefault();
   }
 });

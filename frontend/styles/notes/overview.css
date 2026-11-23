@@ -415,3 +415,47 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Role ability summary tags (overview "信息" column). Wrap instead of widening the row. */
+.notes-overview-cell--summary {
+  white-space: normal;
+}
+
+.notes-summary-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  min-width: 0;
+}
+
+.notes-summary-tag {
+  display: inline-block;
+  max-width: 100%;
+  padding: 1px 3px;
+  overflow: hidden;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notes-summary-tag b {
+  margin-right: 2px;
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.notes-summary-tag--acquired b {
+  color: var(--blue);
+}
+
+.notes-summary-tag--more {
+  color: var(--muted);
+  background: transparent;
+  border-style: dashed;
+}

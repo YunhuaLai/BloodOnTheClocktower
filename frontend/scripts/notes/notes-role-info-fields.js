@@ -496,6 +496,16 @@ function renderFormRow(row, game, maxSeat) {
   `;
 }
 
+// Placeholder for a phase that has not started yet (see getPendingRow in notes-role-info-form.js). No inputs.
+function renderPendingRow(pending) {
+  return `
+    <div class="notes-roleinfo-row notes-roleinfo-row--pending" aria-disabled="true">
+      <span class="notes-roleinfo-index notes-roleinfo-index--phase">${escapeHtml(pending.label)}</span>
+      <span class="notes-roleinfo-pending-text">${escapeHtml(pending.text)}</span>
+    </div>
+  `;
+}
+
 // Single-field rows (e.g. one number per night) are packed into a grid with the phase as the label.
 function renderCompactRows(rows, game, maxSeat) {
   const field = rows[0].cells[0].field;
@@ -531,15 +541,17 @@ function renderCompactRows(rows, game, maxSeat) {
  */
 export function renderRoleInfoForm(model, options = {}) {
   const { game, maxSeat = 15, density = "regular", title = "", hint = "", playerId = "", className = "" } = options;
-  if (!model?.rows?.length) {
+  if (!model?.rows?.length && !model?.pending) {
     return "";
   }
 
   const packed =
     density === "compact" && model.rows.length > 1 && model.rows.every((row) => row.cells.length === 1);
-  const rowsHtml = packed
-    ? renderCompactRows(model.rows, game, maxSeat)
-    : model.rows.filter((row) => row.cells.length).map((row) => renderFormRow(row, game, maxSeat)).join("");
+  const rowsHtml = !model.rows.length
+    ? renderPendingRow(model.pending)
+    : packed
+      ? renderCompactRows(model.rows, game, maxSeat)
+      : model.rows.filter((row) => row.cells.length).map((row) => renderFormRow(row, game, maxSeat)).join("");
   const actions = model.actions;
   const actionData = actions
     ? `${playerId ? `data-player-id="${escapeHtml(playerId)}"` : ""} data-section="${escapeHtml(actions.section)}" ${renderPhaseData("", actions)}`

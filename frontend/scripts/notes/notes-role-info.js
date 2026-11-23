@@ -2,56 +2,21 @@ import { getClaimRoleOptions, isCustomRoleGame, isFabledRole, isTravellerRole } 
 import { clampNumber, cloneRoleInfo, createEmptyRoleInfo, createEmptyRoleInfoEntries, getActiveGame } from "../notes-state.js";
 import { state, typeLabels } from "../state.js";
 import { getClaimAbbreviation } from "./notes-core.js";
-import { flattenRoleInfoRecords, isPhasedRoleInfo, isRoleInfoEntryFilled, migrateRoleInfoRowsToRecords } from "./notes-role-info-records.js";
-import { acquiredPhaseIndex, acquiredPhaseLabel, findAcquiredRole, getCurrentAcquiredAbilities, getAcquiredAbilitySummary, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
+import { abilityPageTypeLabels, abilityUsagePatternLabels, getAbilityTimingText } from "../ability-meta.js";
+import {
+  flattenRoleInfoRecords,
+  formatRoleInfoPhaseLabel,
+  formatRoleInfoPhaseShortLabel,
+  isPhased,
+  isPhasedRoleInfo,
+  isRoleInfoEntryFilled,
+  migrateRoleInfoRowsToRecords,
+} from "./notes-role-info-records.js";
+import { acquiredPhaseIndex, findAcquiredRole, getCurrentAcquiredAbilities, getAcquiredAbilitySummary, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
 
 // Role ability metadata and summaries. Field/panel renderers live next to this file.
 
-export const abilityPageTypeLabels = {
-  no_input: "无录入",
-  record_result_only: "只记结果",
-  pick_and_record: "选择并记录",
-  event_triggered: "事件触发",
-  rule_modifier: "规则型",
-};
-
-const abilityPhaseTimingLabels = {
-  setup: "开局",
-  first_night: "首夜",
-  each_night: "每晚",
-  each_night_star: "每晚*",
-  night: "夜间",
-  day: "白天",
-  each_day: "每天",
-  passive: "被动",
-  special: "特殊",
-};
-
-const abilityEventTimingLabels = {
-  on_nomination: "提名时",
-  on_execution: "处决时",
-  on_death: "死亡时",
-  on_attack: "受袭时",
-  on_vote: "投票时",
-  endgame: "残局",
-};
-
-export const abilityUsagePatternLabels = {
-  once: "一次",
-  once_per_game: "本局一次",
-  once_per_day: "每天一次",
-  once_per_night: "每晚一次",
-  repeatable: "可重复",
-  passive: "被动",
-  variable: "不固定",
-};
-
-const abilityActivationModeLabels = {
-  active: "主动",
-  passive: "被动",
-  conditional: "条件触发",
-  reactive: "响应触发",
-};
+export { abilityPageTypeLabels, abilityUsagePatternLabels, getAbilityTimingText };
 
 const abilityValueLabels = {
   yes: "是",
@@ -218,30 +183,6 @@ export function getRoleInfoRows(roleInfo) {
   return flattenRoleInfoRecords(roleInfo?.records);
 }
 
-export function getAbilityTimingText(abilityMeta) {
-  if (abilityMeta?.eventTiming) {
-    return abilityEventTimingLabels[abilityMeta.eventTiming] || "";
-  }
-
-  if (abilityMeta?.phaseTiming) {
-    return abilityPhaseTimingLabels[abilityMeta.phaseTiming] || "";
-  }
-
-  return "";
-}
-
-export function getAbilityMetaSummary(abilityData) {
-  const meta = abilityData?.abilityMeta || {};
-  return [
-    abilityPageTypeLabels[meta.pageType] || "",
-    getAbilityTimingText(meta),
-    abilityUsagePatternLabels[meta.usagePattern] || "",
-    abilityActivationModeLabels[meta.activationMode] || "",
-  ]
-    .filter(Boolean)
-    .join(" / ");
-}
-
 export function getChoiceLabel(value) {
   const normalized = normalizeRoleName(value);
   if (abilityValueLabels[normalized]) {
@@ -297,45 +238,150 @@ export function formatRoleInfoEntrySummary(entry, fields) {
     .join(",");
 }
 
-export function getRoleInfoSummary(player, game = getActiveGame()) {
-  const acquiredSummary = game ? getAcquiredInfoSummary(player, game) : "";
-  const abilityData = getRoleAbilityData(player, game);
-  if (!abilityData?.abilityMeta?.recordable) {
-    return acquiredSummary || "--";
+/**
+ * Join the compact target/result texts of one row.
+ * Without labels: "3,5→是" (summaries). With labels: "目标 3,5 / 结果 是" (timeline, storyteller list).
+ */
+export function formatRoleInfoPairText(targetText, resultText, labels = null) {
+  if (labels) {
+    return [
+      targetText ? `${labels.target} ${targetText}` : "",
+      resultText ? `${labels.result} ${resultText}` : "",
+    ]
+      .filter(Boolean)
+      .join(" / ");
   }
 
-  const roleInfo = ensureRoleInfoMatchesClaim(player, game);
-  const targetNode = getRoleInfoNode(abilityData, "target");
-  const resultNode = getRoleInfoNode(abilityData, "result");
-  const rows = getRoleInfoRows(roleInfo)
-    .map((row) => {
-      const targetText = formatRoleInfoEntrySummary(row.target, targetNode.fields);
-      const resultText = formatRoleInfoEntrySummary(row.result, resultNode.fields);
-      return [targetText, resultText].filter(Boolean).join(">");
-    })
-    .filter(Boolean);
-
-  return [rows.join("/"), acquiredSummary].filter(Boolean).join(" · ") || "--";
+  return targetText && resultText ? `${targetText}→${resultText}` : targetText || resultText || "";
 }
 
-function getAcquiredInfoSummary(player, game) {
-  const summary = getAcquiredAbilitySummary(player, game);
-  if (!summary) return "";
+/** Compact texts of one row ({ target, result } entries) for the given ability. */
+export function formatRoleInfoRowTexts(target, result, abilityData) {
+  return {
+    targetText: formatRoleInfoEntrySummary(target, getRoleInfoNode(abilityData, "target").fields),
+    resultText: formatRoleInfoEntrySummary(result, getRoleInfoNode(abilityData, "result").fields),
+  };
+}
+
+/** Every filled row of a { targetEntries, resultEntries } pair as one text each. */
+export function formatRoleInfoEntriesTexts(roleInfo, abilityData, labels = null) {
+  const targets = roleInfo?.targetEntries || [];
+  const results = roleInfo?.resultEntries || [];
+  const texts = [];
+  for (let index = 0; index < Math.max(targets.length, results.length); index += 1) {
+    const { targetText, resultText } = formatRoleInfoRowTexts(targets[index], results[index], abilityData);
+    const text = formatRoleInfoPairText(targetText, resultText, labels);
+    if (text) texts.push(text);
+  }
+  return texts;
+}
+
+export const ROLE_INFO_SUMMARY_LIMIT = 3;
+
+function getSummaryPhase(phaseType, phaseNumber, abilityData) {
+  if (isPhased(phaseType)) {
+    return {
+      phase: formatRoleInfoPhaseShortLabel(phaseType, phaseNumber),
+      phaseTitle: formatRoleInfoPhaseLabel(phaseType, phaseNumber),
+    };
+  }
+
+  const eventText = abilityData?.abilityMeta?.eventTiming ? getAbilityTimingText(abilityData.abilityMeta) : "";
+  return { phase: eventText || "?", phaseTitle: eventText || "阶段未知" };
+}
+
+function getMainSummaryItems(player, game) {
+  const abilityData = getRoleAbilityData(player, game);
+  if (!abilityData?.abilityMeta?.recordable) {
+    return [];
+  }
+
+  return getRoleInfoRows(ensureRoleInfoMatchesClaim(player, game))
+    .map((row) => {
+      const { targetText, resultText } = formatRoleInfoRowTexts(row.target, row.result, abilityData);
+      return {
+        source: "main",
+        phaseType: row.phaseType,
+        phaseNumber: row.phaseNumber,
+        ...getSummaryPhase(row.phaseType, row.phaseNumber, abilityData),
+        text: formatRoleInfoPairText(targetText, resultText),
+      };
+    })
+    .filter((item) => item.text);
+}
+
+// Latest filled record (up to the current phase) of each active acquired ability.
+function getAcquiredSummaryItems(player, game) {
+  if (!game) return [];
   const phase = acquiredPhaseIndex(game.phaseType, game.phaseNumber);
-  const details = getCurrentAcquiredAbilities(player, game).filter((ability) => isAcquiredAbilityActive(ability, game)).map((ability) => {
-    const role = findAcquiredRole(ability.role);
-    if (!role) return "";
-    const records = [...ability.records].filter((record) => acquiredPhaseIndex(record.phaseType, record.phaseNumber) <= phase)
-      .sort((a, b) => acquiredPhaseIndex(b.phaseType, b.phaseNumber) - acquiredPhaseIndex(a.phaseType, a.phaseNumber));
-    for (const record of records) {
-      const text = ["target", "result"].map((section) => (record.roleInfo[`${section}Entries`] || [])
-        .map((entry) => formatRoleInfoEntrySummary(entry, getRoleInfoNode(role.abilityData, section).fields)).filter(Boolean).join("/"))
-        .filter(Boolean).join(">");
-      if (text) return `${role.name} ${acquiredPhaseLabel(record.phaseType, record.phaseNumber)}：${text}`;
-    }
-    return "";
-  }).filter(Boolean);
-  return [summary, ...details].join(" · ");
+  return getCurrentAcquiredAbilities(player, game)
+    .filter((ability) => isAcquiredAbilityActive(ability, game))
+    .map((ability) => {
+      const role = findAcquiredRole(ability.role);
+      if (!role) return null;
+      const records = [...ability.records]
+        .filter((record) => acquiredPhaseIndex(record.phaseType, record.phaseNumber) <= phase)
+        .sort((a, b) => acquiredPhaseIndex(b.phaseType, b.phaseNumber) - acquiredPhaseIndex(a.phaseType, a.phaseNumber));
+      for (const record of records) {
+        const text = formatRoleInfoEntriesTexts(record.roleInfo, role.abilityData).join(" / ");
+        if (text) {
+          return {
+            source: "acquired",
+            roleName: role.name,
+            phaseType: record.phaseType,
+            phaseNumber: Number(record.phaseNumber),
+            ...getSummaryPhase(record.phaseType, record.phaseNumber, role.abilityData),
+            text,
+          };
+        }
+      }
+      return null;
+    })
+    .filter(Boolean);
+}
+
+/**
+ * Structured role ability summary for rendering as tags.
+ * Returns { items, total, hiddenCount, acquiredItems, acquiredLabel }:
+ * - items: the latest `limit` main-ability rows, oldest first ({ phase: "N1", phaseTitle: "第 1 夜", text: "3,5→是" }).
+ * - total / hiddenCount: number of filled main rows and how many were left out.
+ * - acquiredItems: latest record of each active acquired ability ({ roleName, phase, phaseTitle, text }).
+ * - acquiredLabel: "能力：xx" label of the current acquired abilities (see getAcquiredAbilitySummary).
+ */
+export function getRoleInfoSummaryData(player, game = getActiveGame(), { limit = ROLE_INFO_SUMMARY_LIMIT } = {}) {
+  const all = getMainSummaryItems(player, game);
+  const visible = limit > 0 && all.length > limit ? all.slice(-limit) : all;
+  return {
+    items: visible,
+    total: all.length,
+    hiddenCount: all.length - visible.length,
+    acquiredItems: getAcquiredSummaryItems(player, game),
+    acquiredLabel: game ? getAcquiredAbilitySummary(player, game) : "",
+  };
+}
+
+/** "N1 3,5→是", or "守鸦人 N3 4" for an acquired ability. */
+export function formatRoleInfoSummaryItem(item) {
+  const prefix = [item.roleName, item.phase].filter(Boolean).join(" ");
+  return prefix ? `${prefix} ${item.text}` : item.text;
+}
+
+/**
+ * Plain-text summary, e.g. "N2 3,5→是，N3 2,4→否（共 4 条） · 能力：守鸦人 · 守鸦人 N3 4".
+ * Records are joined with "，" so the text can sit inside "；"-separated lines. Pass { limit: 0 } for every record.
+ */
+export function getRoleInfoSummary(player, game = getActiveGame(), options = {}) {
+  const data = getRoleInfoSummaryData(player, game, options);
+  const main = data.items.map(formatRoleInfoSummaryItem).join("，");
+  return (
+    [
+      main && data.hiddenCount ? `${main}（共 ${data.total} 条）` : main,
+      data.acquiredLabel,
+      ...data.acquiredItems.map(formatRoleInfoSummaryItem),
+    ]
+      .filter(Boolean)
+      .join(" · ") || "--"
+  );
 }
 
 export function getRoleInfoSectionLabel(sectionKey, abilityData) {

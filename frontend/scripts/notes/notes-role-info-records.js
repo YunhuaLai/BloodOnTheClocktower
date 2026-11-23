@@ -31,6 +31,15 @@ export function formatRoleInfoPhaseLabel(phaseType, phaseNumber) {
   return `第 ${phaseNumber} ${phaseType === "day" ? "天" : "夜"}`;
 }
 
+/** Short phase tag for summaries: night 1 -> "N1", day 2 -> "D2" (long form: "第 1 夜" / "第 2 天"). */
+export function formatRoleInfoPhaseShortLabel(phaseType, phaseNumber) {
+  if (!isPhased(phaseType)) {
+    return "";
+  }
+
+  return `${phaseType === "day" ? "D" : "N"}${phaseNumber}`;
+}
+
 function clampPhaseNumber(value) {
   return Math.min(Math.max(Math.trunc(Number(value)) || 1, 1), MAX_PHASE_NUMBER);
 }
