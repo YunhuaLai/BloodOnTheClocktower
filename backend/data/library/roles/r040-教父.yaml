@@ -48,6 +48,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
+  needsReview: true
+  reviewReason: 首夜得知在场外来者与外来者白天死亡后的击杀是两段能力，放在同一张表里（击杀对象 + 在场外来者 + 备注），记录方式需用户确认。
   tags:
     - 特殊机制
     - 开局信息
@@ -60,17 +62,17 @@ abilityData:
     - death
     - outsider
     - minion
-  abilityPattern: manual_record
+  abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.6
     timing:
       phase: special
       event: null
       frequency: variable
     actor:
-      drivenBy: player
+      drivenBy: mixed
     operations:
       - kind: setup_modifier
         adjustments:
@@ -98,7 +100,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 击杀号码
+          label: 击杀对象
           required: false
           optionsSource: null
           options: null
@@ -109,12 +111,28 @@ abilityData:
       repeatMode: variable
       defaultRows: 2
       fields:
+        - key: outsider_role
+          type: role
+          label: 在场外来者
+          required: false
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+          roleTypes:
+            - outsider
         - key: note
           type: text
-          label: 外来者与击杀记录
+          label: 备注
           required: false
           optionsSource: null
           options: null
           min: null
           max: null
           placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

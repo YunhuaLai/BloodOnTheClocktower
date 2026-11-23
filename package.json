@@ -20,6 +20,7 @@
     "deduction:check": "node scripts/sync-deduction-profiles.js",
     "deduction:sync": "node scripts/sync-deduction-profiles.js --write",
     "deduction:audit": "node scripts/audit-deduction-profiles.js",
+    "ability-review:audit": "node scripts/audit-ability-review.js",
     "setup-meta:check": "node scripts/sync-setup-meta.js",
     "setup-meta:sync": "node scripts/sync-setup-meta.js --write",
     "setup-meta:refresh": "node scripts/sync-setup-meta.js --write --refresh",

@@ -41,22 +41,26 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
-    - 每晚
-    - 主动选择
+    - 一次性
+    - 主动选玩家
+    - 复能
   termIds:
     - night
     - death
     - traveler
-  abilityPattern: choose_player_death
+  abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
-      phase: each_night
+      phase: night
       event: null
       frequency: once_per_game
     actor:
@@ -65,10 +69,10 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: death_or_execution_effect
+      - kind: passive_rule
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
@@ -76,13 +80,13 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat
           type: seat
-          label: 死亡玩家号码
-          required: true
+          label: 复能对象
+          required: false
           optionsSource: null
           options: null
           min: 1
@@ -93,7 +97,6 @@ abilityData:
       defaultRows: 0
       fields: []
   deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''
+    status: record_only
+    source: manual
+    label: 只记录行动，不作为信息校验

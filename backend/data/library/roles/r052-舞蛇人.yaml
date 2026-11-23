@@ -40,8 +40,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -53,11 +51,16 @@ abilityData:
     - alignment
     - townsfolk
     - demon
-  abilityPattern: choose_player_status_effect
+  abilityPattern: target_demon_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: each_night
       event: null
@@ -68,6 +71,8 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
+      - kind: learn_boolean
+        question: demon_check
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
@@ -85,7 +90,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -93,11 +98,22 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: swapped
+          type: boolean
+          label: 换成恶魔
+          required: false
+          optionsSource: custom
+          options:
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
   deduction:
     status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''
+    source: manual
+    effectType: alignment_role_change
+    note: 选中恶魔会交换角色与阵营。

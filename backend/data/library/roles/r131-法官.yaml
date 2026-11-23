@@ -40,10 +40,9 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
-    - 事件触发
+    - 一次性
+    - 提名相关
   termIds:
     - nomination
     - vote
@@ -52,38 +51,61 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: null
       event: on_nomination
       frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
-      - kind: protect_player
-      - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_nomination
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null
     eventTiming: on_nomination
     usagePattern: once_per_game
-    activationMode: conditional
-    drivenBy: storyteller
+    activationMode: active
+    drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: nominee
+          type: seat
+          label: 被提名者
+          required: false
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: ruling
+          type: choice
+          label: 裁决
+          required: false
+          optionsSource: custom
+          options:
+            - 处决
+            - 作废
+          min: null
+          max: null
+          placeholder: null
   deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''
+    status: record_only
+    source: manual
+    label: 只记录行动，不作为信息校验

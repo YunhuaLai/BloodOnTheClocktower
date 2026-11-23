@@ -1,3 +1,4 @@
+const { hasHandReviewedAbilityData } = require("./ability-review");
 const { TERMS_FILE, readYamlFile } = require("./library-io");
 
 const WEAK_TEXT_TERM_IDS = new Set(["ability"]);
@@ -216,7 +217,11 @@ function orderRoleAbilityFields(abilityData) {
 
 function applyAbilityTermMetadata(abilityData = {}, roleData = {}, termsConfig = readTermsConfig()) {
   const termIds = inferTermIds(roleData, abilityData, termsConfig);
-  const abilityPattern = inferAbilityPattern(roleData, abilityData, termIds);
+  // termIds are glossary links derived from text and stay in sync; a reviewed abilityPattern was set by hand.
+  const abilityPattern =
+    hasHandReviewedAbilityData(abilityData) && abilityData.abilityPattern
+      ? abilityData.abilityPattern
+      : inferAbilityPattern(roleData, abilityData, termIds);
 
   return orderRoleAbilityFields({
     ...abilityData,
@@ -240,6 +245,7 @@ function getUnmatchedKeywordTokens(roleData = {}, abilityData = {}, termsConfig 
 
 module.exports = {
   applyAbilityTermMetadata,
+  inferAbilityPattern,
   getUnmatchedKeywordTokens,
   readTermsConfig,
 };

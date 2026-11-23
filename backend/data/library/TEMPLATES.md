@@ -40,6 +40,8 @@
   - `sourceAbility` 指回 `roles/*.yaml`，只保存 `roleId`、`officialId`、`sourceHash` 和参与 hash 的字段列表；官方技能文字、类型、提醒标记仍以 `roles` 为准
   - `abilitySemantics` 是从官方文字抽出的技能语义层；它先描述“技能本质做什么”，再派生笔记页 `interactionSchema` 和推理 `deduction`
   - `reviewStatus: auto` 表示自动生成未人工确认；`needs_review` 表示复杂技能需复核；`reviewed` 表示人工确认；`source_changed` 表示官方源文本变化后需要重新确认
+  - `reviewed` 的角色带 `abilitySemantics.review`（审核者、`reviewerKind: ai|human`、日期、范围）；`ai` 表示 AI 审核、尚未经维护者抽查。`sync-*` 脚本不会改写已审核角色的 `abilityPattern` 和 `deduction`
+  - 用 `npm run ability-review:audit -- --script=s001` 按剧本收录数查看审核进度，报告写到 `tmp/`
 
 注意：
 

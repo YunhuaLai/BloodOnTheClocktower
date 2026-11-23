@@ -40,8 +40,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 一次性
     - 主动选玩家
@@ -54,10 +52,15 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
-      phase: night
+      phase: each_night
       event: null
       frequency: once_per_game
     actor:
@@ -70,7 +73,7 @@ abilityData:
         question: team_relation
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: night
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
@@ -83,7 +86,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 号码1
+          label: 查验1
           required: true
           optionsSource: null
           options: null
@@ -92,7 +95,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 号码2
+          label: 查验2
           required: true
           optionsSource: null
           options: null
@@ -105,7 +108,7 @@ abilityData:
       fields:
         - key: same_team
           type: boolean
-          label: 是否同阵营
+          label: 同阵营
           required: true
           optionsSource: custom
           options:

@@ -1,4 +1,3 @@
-const crypto = require("node:crypto");
 const {
   applyAbilityTermMetadata,
   readTermsConfig,
@@ -9,16 +8,11 @@ const {
   writeYamlFile,
 } = require("./lib/library-io");
 const { inferDeductionData } = require("./lib/deduction-profile-inference");
-
-const ROLE_ABILITY_SOURCE_HASH_FIELDS = [
-  "ability",
-  "type",
-  "setup",
-  "reminders",
-  "remindersGlobal",
-  "firstNightReminder",
-  "otherNightReminder",
-];
+const {
+  ROLE_ABILITY_SOURCE_HASH_FIELDS,
+  hasHandReviewedAbilityData,
+  makeSourceAbilityHash,
+} = require("./lib/ability-review");
 
 const FIELD_ORDER = [
   "schemaVersion",
@@ -39,26 +33,12 @@ function stable(value) {
   return JSON.stringify(value);
 }
 
-function hashSourceAbilityPayload(payload) {
-  return crypto.createHash("sha1").update(JSON.stringify(payload)).digest("hex");
-}
-
 function makeSourceAbilityData(role) {
-  const payload = {
-    ability: role.ability || "",
-    type: role.type || "",
-    setup: Boolean(role.setup),
-    reminders: role.reminders || [],
-    remindersGlobal: role.remindersGlobal || [],
-    firstNightReminder: role.firstNightReminder || "",
-    otherNightReminder: role.otherNightReminder || "",
-  };
-
   return {
     source: "role-file",
     roleId: role.id || "",
     officialId: role.englishName || "",
-    sourceHash: hashSourceAbilityPayload(payload),
+    sourceHash: makeSourceAbilityHash(role),
     sourceHashFields: ROLE_ABILITY_SOURCE_HASH_FIELDS,
   };
 }
@@ -268,73 +248,89 @@ function orderEmbeddedAbilityData(abilityData) {
   return ordered;
 }
 
+/**
+ * Fill missing schema parts for one role and refresh term metadata.
+ * Returns { changed, abilityData, schemaUpgraded, sourceAdded, semanticsAdded }.
+ * Reviewed roles keep their abilityPattern (see applyAbilityTermMetadata) and their deduction,
+ * including a deliberately absent one.
+ */
+function syncRoleAbilitySemantics(role, termsConfig) {
+  const before = stable(role.abilityData || null);
+  const reviewed = hasHandReviewedAbilityData(role.abilityData);
+  const abilityData = {
+    ...(role.abilityData || {}),
+  };
+  const counters = { schemaUpgraded: false, sourceAdded: false, semanticsAdded: false };
+
+  if (Number(abilityData.schemaVersion || 1) < 2) {
+    abilityData.schemaVersion = 2;
+    counters.schemaUpgraded = true;
+  }
+
+  if (!abilityData.sourceAbility) {
+    abilityData.sourceAbility = makeSourceAbilityData(role);
+    counters.sourceAdded = true;
+  }
+
+  if (!abilityData.abilitySemantics) {
+    abilityData.abilitySemantics = makeAbilitySemantics(role, abilityData);
+    counters.semanticsAdded = true;
+  }
+
+  if (!abilityData.deduction && !reviewed) {
+    const deduction = inferDeductionData(
+      { id: role.id, englishName: role.englishName, name: role.name, ...abilityData },
+      role,
+    );
+    if (deduction) {
+      abilityData.deduction = deduction;
+    }
+  }
+
+  const withIds = applyAbilityTermMetadata(
+    {
+      id: role.id,
+      englishName: role.englishName,
+      name: role.name,
+      ...abilityData,
+    },
+    role,
+    termsConfig,
+  );
+  const { id, englishName, name, ...embeddedData } = withIds;
+  const nextAbilityData = orderEmbeddedAbilityData(embeddedData);
+
+  return { changed: before !== stable(nextAbilityData), abilityData: nextAbilityData, ...counters };
+}
+
 function main() {
   const write = process.argv.includes("--write");
   const termsConfig = readTermsConfig();
   const roleEntries = readYamlCollection(ROLES_DIR);
-  let changed = 0;
+  const changedIds = [];
   let semanticsAdded = 0;
   let sourceAdded = 0;
   let schemaUpgraded = 0;
 
   roleEntries.forEach((entry) => {
     const role = entry.data;
-    const before = stable(role.abilityData || null);
-    const abilityData = {
-      ...(role.abilityData || {}),
-    };
+    const result = syncRoleAbilitySemantics(role, termsConfig);
+    schemaUpgraded += result.schemaUpgraded ? 1 : 0;
+    sourceAdded += result.sourceAdded ? 1 : 0;
+    semanticsAdded += result.semanticsAdded ? 1 : 0;
 
-    if (Number(abilityData.schemaVersion || 1) < 2) {
-      abilityData.schemaVersion = 2;
-      schemaUpgraded += 1;
-    }
-
-    if (!abilityData.sourceAbility) {
-      abilityData.sourceAbility = makeSourceAbilityData(role);
-      sourceAdded += 1;
-    }
-
-    if (!abilityData.abilitySemantics) {
-      abilityData.abilitySemantics = makeAbilitySemantics(role, abilityData);
-      semanticsAdded += 1;
-    }
-
-    if (!abilityData.deduction) {
-      const deduction = inferDeductionData(
-        { id: role.id, englishName: role.englishName, name: role.name, ...abilityData },
-        role,
-      );
-      if (deduction) {
-        abilityData.deduction = deduction;
-      }
-    }
-
-    const withIds = applyAbilityTermMetadata(
-      {
-        id: role.id,
-        englishName: role.englishName,
-        name: role.name,
-        ...abilityData,
-      },
-      role,
-      termsConfig,
-    );
-    const { id, englishName, name, ...embeddedData } = withIds;
-    const nextAbilityData = orderEmbeddedAbilityData(embeddedData);
-    const after = stable(nextAbilityData);
-
-    if (before !== after) {
-      changed += 1;
+    if (result.changed) {
+      changedIds.push(role.id);
 
       if (write) {
-        role.abilityData = nextAbilityData;
+        role.abilityData = result.abilityData;
         writeYamlFile(entry.filePath, role);
       }
     }
   });
 
   console.log(
-    `${write ? "Synced" : "Checked"} ability semantics: ${changed} file(s) ${
+    `${write ? "Synced" : "Checked"} ability semantics: ${changedIds.length} file(s) ${
       write ? "changed" : "would change"
     }.`,
   );
@@ -342,9 +338,17 @@ function main() {
   console.log(`- sourceAbility added: ${sourceAdded}`);
   console.log(`- abilitySemantics added: ${semanticsAdded}`);
 
-  if (!write && changed) {
+  if (changedIds.length) {
+    console.log(`- ${changedIds.slice(0, 30).join(", ")}${changedIds.length > 30 ? ", ..." : ""}`);
+  }
+
+  if (!write && changedIds.length) {
     console.log("Run with --write to update roles/*.yaml abilityData.");
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { syncRoleAbilitySemantics };

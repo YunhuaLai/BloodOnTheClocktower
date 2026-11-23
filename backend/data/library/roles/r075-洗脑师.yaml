@@ -56,8 +56,13 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: each_night
       event: null
@@ -86,7 +91,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 洗脑对象
           required: true
           optionsSource: null
           options: null
@@ -95,19 +100,20 @@ abilityData:
           placeholder: null
         - key: role
           type: role
-          label: 宣称身份
+          label: 疯狂角色
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - good
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
   deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    status: record_only
+    source: manual
+    label: 只记录行动，不作为信息校验

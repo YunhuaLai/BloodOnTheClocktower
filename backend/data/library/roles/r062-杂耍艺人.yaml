@@ -40,8 +40,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 白天
     - 一次性
@@ -52,8 +50,13 @@ abilityData:
   abilityPattern: target_number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: day
       event: null
@@ -79,11 +82,11 @@ abilityData:
   interactionSchema:
     target:
       repeatMode: variable
-      defaultRows: 5
+      defaultRows: 2
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 猜测对象
           required: true
           optionsSource: null
           options: null
@@ -92,7 +95,7 @@ abilityData:
           placeholder: null
         - key: role
           type: role
-          label: 猜测身份
+          label: 猜测角色
           required: true
           optionsSource: current_script_roles
           options: null
@@ -105,7 +108,7 @@ abilityData:
       fields:
         - key: correct_count
           type: number
-          label: 猜中数量
+          label: 猜中数
           required: true
           optionsSource: null
           options: null

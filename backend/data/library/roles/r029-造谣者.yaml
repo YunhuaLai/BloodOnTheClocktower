@@ -40,8 +40,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 白天
     - 信息型
@@ -54,21 +52,27 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: each_day
       event: null
-      frequency: repeatable
+      frequency: once_per_day
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
+      - kind: manual_record
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: repeatable
+    usagePattern: once_per_day
     activationMode: active
     drivenBy: player
     recordable: true
@@ -84,7 +88,7 @@ abilityData:
         - key: statement
           type: text
           label: 公开声明
-          required: true
+          required: false
           optionsSource: null
           options: null
           min: null
@@ -92,5 +96,5 @@ abilityData:
           placeholder: null
   deduction:
     status: manual
-    source: inferred
+    source: manual
     label: 信息型角色，但需要人工语义归类

@@ -39,8 +39,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -55,8 +53,13 @@ abilityData:
   abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: first_night
       event: null
@@ -89,8 +92,8 @@ abilityData:
           required: true
           optionsSource: null
           options: null
-          min: 0
-          max: 10
+          min: 1
+          max: 7
           placeholder: null
   deduction:
     status: supported

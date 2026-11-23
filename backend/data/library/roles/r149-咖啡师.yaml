@@ -41,15 +41,11 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
-    - 首夜
     - 每晚
     - 信息型
   termIds:
     - night
-    - first-night
     - poisoned
     - drunk
     - information
@@ -58,8 +54,13 @@ abilityData:
   abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: each_night
       event: null
@@ -68,8 +69,7 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: apply_status_effect
-        effect: poison_drunk_or_malfunction
-      - kind: protect_player
+        effect: sober_healthy_or_double
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -80,23 +80,35 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 受益者
+          required: false
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: note
-          type: text
-          label: 记录
+        - key: effect
+          type: choice
+          label: 效果
           required: false
-          optionsSource: null
-          options: null
+          optionsSource: custom
+          options:
+            - 清醒健康
+            - 生效两次
           min: null
           max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          placeholder: null
   deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+    status: world_effect
+    source: manual
+    effectType: poison_drunk
+    note: 受益者清醒健康或能力生效两次。

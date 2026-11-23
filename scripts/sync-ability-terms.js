@@ -18,7 +18,7 @@ function main() {
   const termsConfig = readTermsConfig();
   const roleEntries = readYamlCollection(ROLES_DIR);
   const unmatchedCounts = new Map();
-  let changed = 0;
+  const changedIds = [];
 
   roleEntries.forEach((entry) => {
     const role = entry.data;
@@ -37,7 +37,7 @@ function main() {
     });
 
     if (before !== after) {
-      changed += 1;
+      changedIds.push(role.id);
 
       if (write) {
         const { id, englishName, name, ...embeddedData } = nextData;
@@ -52,10 +52,14 @@ function main() {
     .slice(0, 30);
 
   console.log(
-    `${write ? "Synced" : "Checked"} ability term metadata: ${changed} file(s) ${
+    `${write ? "Synced" : "Checked"} ability term metadata: ${changedIds.length} file(s) ${
       write ? "changed" : "would change"
     }.`,
   );
+
+  if (changedIds.length) {
+    console.log(`- ${changedIds.slice(0, 30).join(", ")}${changedIds.length > 30 ? ", ..." : ""}`);
+  }
 
   if (unmatched.length) {
     console.log("Common unmatched role keywords/tags:");
@@ -64,9 +68,12 @@ function main() {
     });
   }
 
-  if (!write && changed) {
+  if (!write && changedIds.length) {
     console.log("Run with --write to update roles/*.yaml abilityData.");
   }
 }
 
-main();
+
+if (require.main === module) {
+  main();
+}

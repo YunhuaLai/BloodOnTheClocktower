@@ -39,34 +39,36 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
-    - 事件触发
+    - 被动
   termIds:
     - traveler
-  abilityPattern: manual_record
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
-      phase: null
+      phase: passive
       event: null
       frequency: passive
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
+    pageType: rule_modifier
+    phaseTiming: passive
     eventTiming: null
     usagePattern: passive
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

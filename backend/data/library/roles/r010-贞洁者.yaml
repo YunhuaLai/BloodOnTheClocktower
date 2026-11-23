@@ -40,8 +40,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 提名触发
     - 一次性
@@ -53,20 +51,25 @@ abilityData:
   abilityPattern: nomination_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: null
       event: on_nomination
       frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: learn_boolean
-        question: nomination_check
-      - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_nomination
+      - kind: learn_boolean
+        question: nominator_is_townsfolk
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: event_triggered
     phaseTiming: null
@@ -77,16 +80,25 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: nominator
+          type: seat
+          label: 提名者
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
     result:
       repeatMode: once
       defaultRows: 1
       fields:
         - key: triggered
           type: boolean
-          label: 是否触发
+          label: 触发处决
           required: true
           optionsSource: custom
           options:
@@ -96,7 +108,7 @@ abilityData:
           max: null
           placeholder: null
   deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''
+    status: candidate
+    source: manual
+    label: 触发处决说明提名者是镇民（需排除醉酒/中毒）
+    templates: []

@@ -41,8 +41,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 一次性
     - 主动选角色
@@ -55,10 +53,15 @@ abilityData:
   abilityPattern: choose_role_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
-      phase: night
+      phase: each_night
       event: null
       frequency: once_per_game
     actor:
@@ -70,7 +73,7 @@ abilityData:
         effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: night
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
@@ -83,19 +86,20 @@ abilityData:
       fields:
         - key: role
           type: role
-          label: 选择身份
-          required: true
+          label: 获得能力
+          required: false
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - good
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
   deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    status: record_only
+    source: manual
+    label: 记录获得的能力

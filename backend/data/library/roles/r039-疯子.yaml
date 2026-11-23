@@ -46,8 +46,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 每晚
     - 主动选玩家
@@ -59,10 +57,15 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
-      phase: each_night_star
+      phase: each_night
       event: null
       frequency: once_per_night
     actor:
@@ -71,9 +74,10 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
+      - kind: passive_rule
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night_star
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
     activationMode: active
@@ -81,13 +85,13 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: variable
+      defaultRows: 2
       fields:
         - key: seat
           type: seat
-          label: 目标号码
-          required: true
+          label: 攻击对象
+          required: false
           optionsSource: null
           options: null
           min: 1

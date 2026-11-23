@@ -48,14 +48,13 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
-    - 每晚
+    - 每晚*
     - 主动选玩家
     - 击杀型
   termIds:
     - night
+    - other-night
     - poisoned
     - death
     - townsfolk
@@ -65,8 +64,13 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: each_night_star
       event: null
@@ -102,7 +106,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
@@ -115,6 +119,6 @@ abilityData:
       fields: []
   deduction:
     status: world_effect
-    source: inferred
+    source: manual
     effectType: poison_drunk
     note: ''

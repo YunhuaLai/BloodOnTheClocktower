@@ -43,8 +43,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 一次性
     - 主动选玩家
@@ -56,8 +54,13 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: night
       event: null
@@ -86,8 +89,8 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 复活号码
-          required: true
+          label: 复活对象
+          required: false
           optionsSource: null
           options: null
           min: 1
@@ -99,8 +102,8 @@ abilityData:
       fields:
         - key: revived
           type: boolean
-          label: 是否复活成功
-          required: true
+          label: 复活成功
+          required: false
           optionsSource: custom
           options:
             - 'yes'
@@ -109,7 +112,6 @@ abilityData:
           max: null
           placeholder: null
   deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''
+    status: manual
+    source: manual
+    label: 复活成功说明目标是镇民（需人工判断）

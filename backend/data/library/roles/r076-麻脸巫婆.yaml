@@ -39,26 +39,30 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
-    - 每晚
+    - 每晚*
     - 主动选玩家
     - 主动选角色
     - 换身份
   termIds:
     - night
+    - other-night
     - death
     - minion
     - demon
     - storyteller
-  abilityPattern: choose_player_death
+  abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_night
     actor:
@@ -72,7 +76,7 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_night
     activationMode: active
@@ -85,7 +89,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 变身对象
           required: true
           optionsSource: null
           options: null
@@ -94,19 +98,20 @@ abilityData:
           placeholder: null
         - key: role
           type: role
-          label: 新身份
+          label: 新角色
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
   deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    status: world_effect
+    source: manual
+    effectType: alignment_role_change
+    note: 目标可能变成新角色。

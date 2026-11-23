@@ -41,8 +41,6 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
     - 首夜
     - 信息型
@@ -55,8 +53,13 @@ abilityData:
   abilityPattern: role_in_group_hint
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: first_night
       event: null
@@ -86,7 +89,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 号码1
+          label: 候选1
           required: true
           optionsSource: null
           options: null
@@ -95,7 +98,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 号码2
+          label: 候选2
           required: true
           optionsSource: null
           options: null
@@ -104,13 +107,15 @@ abilityData:
           placeholder: null
         - key: role
           type: role
-          label: 身份
+          label: 镇民角色
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - townsfolk
   deduction:
     status: supported
     source: manual

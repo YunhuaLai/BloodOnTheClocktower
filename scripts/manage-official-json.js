@@ -1,8 +1,12 @@
 const fs = require("node:fs");
-const crypto = require("node:crypto");
 const path = require("node:path");
 const { applyAbilityTermMetadata } = require("./lib/ability-term-metadata");
 const { inferDeductionData } = require("./lib/deduction-profile-inference");
+const {
+  ROLE_ABILITY_SOURCE_HASH_FIELDS,
+  hasHandReviewedAbilityData,
+  makeSourceAbilityHash,
+} = require("./lib/ability-review");
 const {
   isJinxTeam,
   jinxAppliesToRoleSet,
@@ -380,12 +384,21 @@ function mergeJinxAbilityIntoFabledRole(roles, officialRole) {
   }
 
   roleData.ability = `${String(roleData.ability || "").trim()}${jinxAbility ? jinxAbility : ""}`;
-  roleData.abilityData = stripEmbeddedAbilityFields(makeRoleAbilityData(roleData, {
+  const mergedOfficialRole = {
     ...officialRole,
     id: roleData.abilityData?.sourceAbility?.officialId || roleData.englishName || roleData.id,
     team: TYPE_TO_TEAM[roleData.type] || roleData.type,
     ability: roleData.ability,
-  }));
+  };
+  roleData.abilityData = stripEmbeddedAbilityFields(
+    hasHandReviewedAbilityData(roleData.abilityData)
+      ? makeExistingRoleAbilityData(
+          { id: roleData.id, englishName: roleData.englishName, name: roleData.name, ...roleData.abilityData },
+          roleData,
+          mergedOfficialRole,
+        )
+      : makeRoleAbilityData(roleData, mergedOfficialRole),
+  );
   writeYamlFile(entry.filePath, roleData);
   return entry;
 }
@@ -414,39 +427,12 @@ function makeRoleData(existingRole, officialRole) {
   };
 }
 
-function hashSourceAbilityPayload(payload) {
-  return crypto
-    .createHash("sha1")
-    .update(JSON.stringify(payload))
-    .digest("hex");
-}
-
-const ROLE_ABILITY_SOURCE_HASH_FIELDS = [
-  "ability",
-  "type",
-  "setup",
-  "reminders",
-  "remindersGlobal",
-  "firstNightReminder",
-  "otherNightReminder",
-];
-
 function makeSourceAbilityData(roleData, officialRole = {}) {
-  const payload = {
-    ability: roleData.ability || "",
-    type: roleData.type || "",
-    setup: Boolean(roleData.setup),
-    reminders: roleData.reminders || [],
-    remindersGlobal: roleData.remindersGlobal || [],
-    firstNightReminder: roleData.firstNightReminder || "",
-    otherNightReminder: roleData.otherNightReminder || "",
-  };
-
   return {
     source: "role-file",
     roleId: roleData.id || "",
     officialId: officialRole.id || roleData.englishName || "",
-    sourceHash: hashSourceAbilityPayload(payload),
+    sourceHash: makeSourceAbilityHash(roleData),
     sourceHashFields: ROLE_ABILITY_SOURCE_HASH_FIELDS,
   };
 }
@@ -853,7 +839,15 @@ function makeExistingRoleAbilityData(existingAbilityData, roleData, officialRole
     sourceAbility,
   };
 
-  if (!existingAbilityData.abilitySemantics || sourceChanged) {
+  if (sourceChanged && hasHandReviewedAbilityData(existingAbilityData)) {
+    // Keep the hand-checked semantics, fields and review record; only flag the role for re-review.
+    nextData.abilitySemantics = {
+      ...existingAbilityData.abilitySemantics,
+      reviewStatus: "source_changed",
+    };
+    nextData.needsReview = true;
+    nextData.reviewReason = "Official ability text changed after review; re-check semantics and note fields.";
+  } else if (!existingAbilityData.abilitySemantics || sourceChanged) {
     const abilityMeta = existingAbilityData.abilityMeta || generatedAbilityData.abilityMeta || {};
     const interactionSchema = existingAbilityData.interactionSchema || generatedAbilityData.interactionSchema || {};
     const target = interactionSchema.target || generatedAbilityData.interactionSchema.target;
@@ -1259,7 +1253,7 @@ function importOfficialJson(inputPath) {
       ? makeExistingRoleAbilityData(existingAbility, roleData, officialRole)
       : makeRoleAbilityData(roleData, officialRole);
 
-    if (!abilityData.deduction) {
+    if (!abilityData.deduction && !hasHandReviewedAbilityData(abilityData)) {
       const deduction = inferDeductionData(abilityData, { ...roleData, ability: officialRole.ability || roleData.ability || "" });
       if (deduction) {
         abilityData.deduction = deduction;
@@ -1614,4 +1608,5 @@ module.exports = {
   importOfficialJsonPath,
   exportOfficialJson,
   inferSetupMeta,
+  makeExistingRoleAbilityData,
 };

@@ -29,6 +29,7 @@
 | 检查推理画像 | `npm run deduction:check` | `node scripts/sync-deduction-profiles.js` |
 | 写入推理画像 | `npm run deduction:sync` | `node scripts/sync-deduction-profiles.js --write` |
 | 审计推理画像覆盖情况 | `npm run deduction:audit` | `node scripts/audit-deduction-profiles.js` |
+| 按剧本收录数审计能力数据审核进度 | `npm run ability-review:audit -- [--script=s001]` | `node scripts/audit-ability-review.js [--script=s001]` |
 | 检查 setupMeta | `npm run setup-meta:check` | `node scripts/sync-setup-meta.js` |
 | 补写缺失 setupMeta | `npm run setup-meta:sync` | `node scripts/sync-setup-meta.js --write` |
 | 刷新已有 setupMeta | `npm run setup-meta:refresh` | `node scripts/sync-setup-meta.js --write --refresh` |
@@ -46,7 +47,19 @@ npm run official:export -- s001 ".\dist\暗流涌动.json"
 npm run images:cache -- --kind=roles --limit=20 --dry-run
 npm run images:cache -- --kind=all --force
 npm run setup-meta:refresh
+npm run ability-review:audit -- --script=s001,s002,s003
 ```
+
+## 能力数据审核报告参数
+
+`audit-ability-review.js` 只读 YAML，按“被多少个剧本收录”给角色排序，列出 `reviewStatus`、`confidence`、可记录但无字段、自由文本字段、泛泛的字段标签、推理状态，以及审核后原文是否又变了。报告写到 `tmp/ability-review-audit[-剧本id].md` 和 `.json`。
+
+- `--script=<id>[,<id>]`：只看这些剧本收录的角色（含旅行者、传奇角色）。
+- `--status=<状态>[,<状态>]`：只看某些审核状态，例如 `needs_review,source_changed`。
+- `--all`：不按剧本过滤时也列出未被任何剧本收录的角色。
+- `--limit=<数量>`：控制台打印的明细条数；报告文件始终包含全部。
+
+已审核（`reviewStatus: reviewed`）的角色由 `abilitySemantics.review` 记录审核者和日期；`sync-*` 脚本不会改写它们的 `abilityPattern` 和 `deduction`，只会刷新 `termIds`。
 
 ## 图片缓存参数
 
@@ -63,5 +76,6 @@ npm run setup-meta:refresh
 - `lib/library-io.js`：共享路径和 YAML 读写。
 - `lib/ability-term-metadata.js`：技能术语与模式推断。
 - `lib/deduction-profile-inference.js`：笔记页推理画像推断。
+- `lib/ability-review.js`：审核状态判断、源文本 hash、审核报告用的字段检查。
 
 新增可直接运行的维护程序时，放在 `scripts/` 顶层并补充 npm script；只有被两个以上命令复用的逻辑才放进 `scripts/lib/`。

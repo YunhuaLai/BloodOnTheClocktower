@@ -39,37 +39,41 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 被动
+    - 处决相关
   termIds:
     - execution
     - alignment
     - traveler
-  abilityPattern: execution_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
-      phase: null
+      phase: passive
       event: on_execution
       frequency: passive
     actor:
       drivenBy: storyteller
     operations:
-      - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_execution
+      - kind: death_or_execution_effect
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
+    pageType: rule_modifier
+    phaseTiming: passive
     eventTiming: on_execution
     usagePattern: passive
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

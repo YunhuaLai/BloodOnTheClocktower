@@ -51,17 +51,22 @@ abilityData:
     - townsfolk
     - minion
     - traveler
-  abilityPattern: execution_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: null
       event: on_execution
-      frequency: variable
+      frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
@@ -69,13 +74,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_execution
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: on_execution
-    usagePattern: variable
+    usagePattern: passive
     activationMode: conditional
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
@@ -87,6 +92,6 @@ abilityData:
       fields: []
   deduction:
     status: world_effect
-    source: inferred
+    source: manual
     effectType: poison_drunk
     note: ''

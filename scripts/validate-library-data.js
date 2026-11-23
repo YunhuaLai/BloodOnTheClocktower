@@ -1,6 +1,7 @@
 const { augmentEncyclopedia } = require("../backend/data/catalog");
 const { loadLibraryData } = require("../backend/data/library");
 const { makeJinxConflictKey } = require("./lib/jinx-utils");
+const { hasReviewedSourceDrift, isReviewedAbilityData } = require("./lib/ability-review");
 
 const KNOWN_SCRIPT_STATUSES = new Set(["draft", "review", "published", "archived"]);
 
@@ -108,6 +109,23 @@ const KNOWN_SEMANTIC_OPERATION_KINDS = new Set([
   "passive_rule",
   "manual_record",
 ]);
+
+const KNOWN_FIELD_TYPES = new Set([
+  "seat",
+  "player",
+  "role",
+  "team",
+  "character_type",
+  "boolean",
+  "number",
+  "status",
+  "choice",
+  "text",
+]);
+
+const KNOWN_REPEAT_MODES = new Set(["none", "once", "sequence", "variable"]);
+const KNOWN_REVIEWER_KINDS = new Set(["ai", "human"]);
+const KNOWN_ROLE_FIELD_TYPES = new Set(["townsfolk", "outsider", "minion", "demon", "traveller", "good", "evil"]);
 
 const ARCHIVED_ORPHAN_ROLE_TYPES = new Set([
   "fabled",
@@ -343,6 +361,7 @@ function validateRoleAbilities(roles, roleAbilities, termIds) {
   const roleById = new Map(roles.map((role) => [role.id, role]));
   const abilityIds = new Set(roleAbilities.map((ability) => ability?.id));
   const legacyGenerated = [];
+  const reviewedDrift = [];
 
   roleAbilities.forEach((ability) => {
     requireString(ability, "id", "role.abilityData");
@@ -383,6 +402,9 @@ function validateRoleAbilities(roles, roleAbilities, termIds) {
     validateSourceAbility(ability, role);
     validateAbilitySemantics(ability);
     validateDeductionProfile(ability);
+    if (isReviewedAbilityData(ability)) {
+      validateReviewedAbility(ability, role, reviewedDrift);
+    }
   });
 
   if (legacyGenerated.length) {
@@ -393,11 +415,108 @@ function validateRoleAbilities(roles, roleAbilities, termIds) {
     );
   }
 
+  if (reviewedDrift.length) {
+    addWarning(
+      `${reviewedDrift.length} reviewed role abilityData entries changed source text after review: ${reviewedDrift
+        .slice(0, 12)
+        .join(", ")}${reviewedDrift.length > 12 ? ", ..." : ""}`,
+    );
+  }
+
   roles.forEach((role) => {
     if (!abilityIds.has(role.id)) {
       addError(`role ${label(role)} is missing abilityData`);
     }
   });
+}
+
+// Reviewed entries are hand-checked: hold them to the schema strictly.
+function validateReviewedAbility(ability, role, reviewedDrift) {
+  const review = ability.abilitySemantics?.review;
+
+  if (!review || typeof review !== "object") {
+    addWarning(`role.abilityData ${label(ability)} is reviewed but has no abilitySemantics.review record`);
+  } else {
+    if (!String(review.reviewer || "").trim()) {
+      addError(`role.abilityData ${label(ability)} abilitySemantics.review is missing reviewer`);
+    }
+    if (!KNOWN_REVIEWER_KINDS.has(review.reviewerKind)) {
+      addError(`role.abilityData ${label(ability)} has unknown abilitySemantics.review.reviewerKind "${review.reviewerKind || ""}"`);
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(review.reviewedAt || ""))) {
+      addError(`role.abilityData ${label(ability)} abilitySemantics.review.reviewedAt must be YYYY-MM-DD`);
+    }
+  }
+
+  if (ability.needsReview) {
+    addWarning(`role.abilityData ${label(ability)} is reviewed but still has needsReview: true`);
+  }
+
+  if (hasReviewedSourceDrift(ability, role)) {
+    reviewedDrift.push(label(ability));
+  }
+
+  ["target", "result"].forEach((section) => {
+    const node = ability.interactionSchema?.[section];
+    if (!node) {
+      return;
+    }
+
+    if (!KNOWN_REPEAT_MODES.has(node.repeatMode)) {
+      addError(`role.abilityData ${label(ability)} ${section}.repeatMode "${node.repeatMode || ""}" is unknown`);
+    }
+
+    const fields = Array.isArray(node.fields) ? node.fields : [];
+    if ((node.repeatMode === "none") !== (fields.length === 0)) {
+      addError(`role.abilityData ${label(ability)} ${section} repeatMode "${node.repeatMode}" does not match its ${fields.length} field(s)`);
+    }
+
+    const keys = new Set();
+    fields.forEach((field) => {
+      const where = `role.abilityData ${label(ability)} ${section}.${field?.key || "?"}`;
+      if (!String(field?.key || "").trim() || keys.has(field.key)) {
+        addError(`${where} needs a unique key`);
+      }
+      keys.add(field?.key);
+      if (!KNOWN_FIELD_TYPES.has(field?.type)) {
+        addError(`${where} has unknown type "${field?.type || ""}"`);
+      }
+      if (!String(field?.label || "").trim()) {
+        addError(`${where} is missing label`);
+      }
+      if (field?.type === "number" && field.min !== null && field.max !== null && Number(field.min) > Number(field.max)) {
+        addError(`${where} has min > max`);
+      }
+      if (field?.type === "choice" && !(Array.isArray(field.options) && field.options.length)) {
+        addError(`${where} choice field needs options`);
+      }
+      if (field?.roleTypes !== undefined && field.roleTypes !== null) {
+        if (field.type !== "role" || !Array.isArray(field.roleTypes) || field.roleTypes.some((type) => !KNOWN_ROLE_FIELD_TYPES.has(type))) {
+          addError(`${where} roleTypes must be a list of character types on a role field`);
+        }
+      }
+    });
+  });
+
+  // A template reference ({ source, keys }) must hit at least one real field, or the analyzer silently gets nothing.
+  (Array.isArray(ability.deduction?.templates) ? ability.deduction.templates : []).forEach((template, index) => {
+    Object.entries(template || {}).forEach(([property, reference]) => {
+      if (!reference || typeof reference !== "object" || !reference.source || !Array.isArray(reference.keys)) {
+        return;
+      }
+      const fieldKeys = (ability.interactionSchema?.[reference.source]?.fields || []).map((field) => field?.key);
+      const nested = Object.values(reference).filter((value) => value && typeof value === "object" && value.source);
+      if (!nested.length && !reference.keys.some((key) => fieldKeys.includes(key))) {
+        addError(
+          `role.abilityData ${label(ability)} deduction.templates[${index}].${property} references ${reference.source} keys [${reference.keys.join(", ")}] but no such field exists`,
+        );
+      }
+    });
+  });
+
+  if (ability.abilityMeta?.recordable && !["target", "result"].some((section) => ability.interactionSchema?.[section]?.fields?.length)) {
+    addWarning(`role.abilityData ${label(ability)} is reviewed and recordable but has no fields`);
+  }
 }
 
 function validateSourceAbility(ability, role) {

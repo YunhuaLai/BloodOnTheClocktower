@@ -52,14 +52,19 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
       phase: null
       event: on_death
       frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
       - kind: choose_player
         count: 1
@@ -82,7 +87,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null

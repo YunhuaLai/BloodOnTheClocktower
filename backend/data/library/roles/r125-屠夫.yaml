@@ -39,38 +39,40 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
   tags:
-    - 事件触发
+    - 被动
+    - 提名相关
   termIds:
     - day
     - nomination
     - execution
     - traveler
-  abilityPattern: nomination_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
-      phase: each_day
-      event: on_nomination
-      frequency: once_per_day
+      phase: passive
+      event: null
+      frequency: passive
     actor:
       drivenBy: storyteller
     operations:
-      - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_nomination
+      - kind: passive_rule
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: each_day
-    eventTiming: on_nomination
-    usagePattern: once_per_day
-    activationMode: conditional
+    pageType: rule_modifier
+    phaseTiming: passive
+    eventTiming: null
+    usagePattern: passive
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
@@ -80,8 +82,3 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: action_history
-    note: ''

@@ -41,22 +41,23 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 驱魔人本人不会得知是否选中恶魔；结果字段 hit_demon 仍接入自动推理（demon_in_group），是否保留为推理依据需用户决定。
   tags:
-    - 每晚
+    - 每晚*
     - 主动选玩家
     - 阻断型
   termIds:
     - night
+    - other-night
     - townsfolk
     - demon
   abilityPattern: target_demon_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: needs_review
+    confidence: 0.6
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_night
     actor:
@@ -69,7 +70,7 @@ abilityData:
         question: demon_check
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_night
     activationMode: active
@@ -82,7 +83,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 驱魔对象
           required: true
           optionsSource: null
           options: null
@@ -95,8 +96,8 @@ abilityData:
       fields:
         - key: hit_demon
           type: boolean
-          label: 命中恶魔
-          required: true
+          label: 选中恶魔
+          required: false
           optionsSource: custom
           options:
             - 'yes'

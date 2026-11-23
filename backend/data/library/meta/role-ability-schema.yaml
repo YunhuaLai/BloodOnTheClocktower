@@ -87,6 +87,9 @@ enums:
     - needs_review
     - reviewed
     - source_changed
+  reviewerKind:
+    - ai
+    - human
   semanticOperationKind:
     - setup_modifier
     - choose_player
@@ -218,6 +221,7 @@ templates:
       schemaVersion: 1
       reviewStatus: needs_review
       confidence: 0.5
+      review: null
       timing:
         phase: each_night
         event: null
@@ -310,6 +314,17 @@ usageRules:
   - >-
     reviewStatus='auto' means generated and not manually checked; 'reviewed' means a human checked it;
     'source_changed' means the source text changed after a previous semantic pass.
+  - >-
+    abilitySemantics.review is an optional provenance record for reviewStatus='reviewed':
+    { reviewer, reviewerKind: ai|human, reviewedAt: YYYY-MM-DD, scope }. reviewerKind='ai' marks
+    an AI-assisted review the maintainer has not spot-checked yet. sourceAbility.sourceHash is
+    refreshed at review time, so a later hash mismatch means the role text changed after review.
+  - >-
+    The sync-* scripts never regenerate abilityPattern or deduction of a reviewed role (termIds are
+    still refreshed from the text). When official JSON re-import finds changed source text on a
+    reviewed role, it only sets reviewStatus='source_changed' and needsReview, keeping the
+    review record and all hand-checked data; roles carrying a review record stay protected from
+    the sync-* scripts until they are re-reviewed (reset reviewStatus and refresh sourceHash).
   - >-
     deduction.status='supported' means the possible-world analyzer can build observations from
     deduction.templates. status='candidate' marks a likely future template but should not be used as

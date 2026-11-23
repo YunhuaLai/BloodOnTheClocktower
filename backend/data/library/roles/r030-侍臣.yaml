@@ -56,10 +56,15 @@ abilityData:
   abilityPattern: choose_role_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: reviewed
+    confidence: 0.9
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: s001/s002/s003 基础剧本审核
     timing:
-      phase: night
+      phase: each_night
       event: null
       frequency: once_per_game
     actor:
@@ -71,7 +76,7 @@ abilityData:
         effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: night
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
@@ -84,8 +89,8 @@ abilityData:
       fields:
         - key: role
           type: role
-          label: 目标身份
-          required: true
+          label: 醉酒角色
+          required: false
           optionsSource: current_script_roles
           options: null
           min: null
