@@ -65,8 +65,8 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
-    confidence: 0.6
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: special
       event: null
@@ -85,6 +85,12 @@ abilityData:
         count: 1
         source: target
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 首夜得知在场外来者（可多条）；外来者白天死亡的当晚击杀。去掉自由文本备注
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: special
@@ -96,11 +102,11 @@ abilityData:
   interactionSchema:
     target:
       repeatMode: variable
-      defaultRows: 2
+      defaultRows: 3
       fields:
         - key: seat
           type: seat
-          label: 击杀对象
+          label: 外来者死后击杀
           required: false
           optionsSource: null
           options: null
@@ -109,9 +115,9 @@ abilityData:
           placeholder: null
     result:
       repeatMode: variable
-      defaultRows: 2
+      defaultRows: 3
       fields:
-        - key: outsider_role
+        - key: role
           type: role
           label: 在场外来者
           required: false
@@ -122,15 +128,6 @@ abilityData:
           placeholder: null
           roleTypes:
             - outsider
-        - key: note
-          type: text
-          label: 备注
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: null
   deduction:
     status: candidate
     source: inferred

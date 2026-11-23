@@ -48,7 +48,8 @@ abilityData:
     - setup
     - drunk
     - storyteller
-  abilityPattern: status_effect
+    - fabled
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -68,13 +69,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: null
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: setup
     eventTiming: null
     usagePattern: passive
     activationMode: conditional
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

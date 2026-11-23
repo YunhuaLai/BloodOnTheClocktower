@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night
       event: null
@@ -69,6 +69,11 @@ abilityData:
         question: boolean_check
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night
@@ -84,7 +89,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -97,7 +102,7 @@ abilityData:
       fields:
         - key: hit_minion
           type: boolean
-          label: 是否命中爪牙
+          label: 命中爪牙
           required: true
           optionsSource: custom
           options:

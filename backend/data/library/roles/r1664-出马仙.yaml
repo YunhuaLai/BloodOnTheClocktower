@@ -64,20 +64,20 @@ abilityData:
         source: target
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_day
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_day
+    usagePattern: once
     activationMode: active
     drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -85,8 +85,8 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: note
           type: text

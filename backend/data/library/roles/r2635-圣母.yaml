@@ -46,7 +46,7 @@ abilityData:
   termIds:
     - day
     - traveler
-  abilityPattern: manual_record
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -61,13 +61,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: null
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: null
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

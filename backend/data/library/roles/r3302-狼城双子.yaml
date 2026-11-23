@@ -91,7 +91,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 号码
+          label: 得知玩家
           required: true
           optionsSource: null
           options: null

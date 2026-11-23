@@ -60,12 +60,12 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: needs_review
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: each_night
+      phase: special
       event: null
-      frequency: once_per_night
+      frequency: variable
     actor:
       drivenBy: storyteller
     operations:
@@ -73,11 +73,17 @@ abilityData:
         adjustments: []
       - kind: learn_team
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 首夜得知一名邪恶玩家，该玩家死亡的当晚再得知一名
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: each_night
+    phaseTiming: special
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: variable
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -87,17 +93,17 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
+      repeatMode: variable
       defaultRows: 3
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: seat
+          type: seat
+          label: 得知的邪恶玩家
           required: true
-          optionsSource: teams
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
   deduction:
     status: candidate

@@ -82,6 +82,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - minion
     result:
       repeatMode: none
       defaultRows: 0

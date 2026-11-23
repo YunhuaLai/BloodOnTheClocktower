@@ -566,6 +566,25 @@
   border-color: var(--teal);
 }
 
+/* Team answers keep their colour: good teal, evil red. */
+.notes-roleinfo-segments--tone-team .notes-roleinfo-segment--good.is-selected {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.notes-roleinfo-segments--tone-team .notes-roleinfo-segment--evil.is-selected {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+/* Longer answer labels (外来者, 说书人选择) shrink instead of overflowing their segment. */
+.notes-roleinfo-segments--bool .notes-roleinfo-segment {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 /* "Or there is none" switch (调查员 无爪牙): one toggle; when on, the fields it replaces are greyed out. */
 .notes-roleinfo-exclusive {
   width: 100%;

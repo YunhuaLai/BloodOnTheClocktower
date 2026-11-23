@@ -86,7 +86,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
@@ -111,7 +111,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 号码
+          label: 得知玩家
           required: true
           optionsSource: null
           options: null
@@ -120,7 +120,7 @@ abilityData:
           placeholder: null
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null

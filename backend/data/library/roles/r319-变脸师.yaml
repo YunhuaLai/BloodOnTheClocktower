@@ -52,8 +52,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_day
       event: null
@@ -63,8 +63,13 @@ abilityData:
     operations:
       - kind: event_trigger
         eventTiming: null
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
-    pageType: event_triggered
+    pageType: record_result_only
     phaseTiming: each_day
     eventTiming: null
     usagePattern: once_per_day
@@ -77,6 +82,15 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role
+          type: role
+          label: 疯狂证明的善良角色
+          required: false
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null

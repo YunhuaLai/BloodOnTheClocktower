@@ -44,6 +44,12 @@ abilityData:
   tags:
     - 被动
   termIds:
+    - night
+    - death
+    - alignment
+    - evil
+    - minion
+    - demon
     - fabled
   abilityPattern: no_input
   abilitySemantics:

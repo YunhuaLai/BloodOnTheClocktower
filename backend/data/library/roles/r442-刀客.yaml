@@ -56,12 +56,12 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: first_night
+      phase: special
       event: null
-      frequency: once_per_game
+      frequency: variable
     actor:
       drivenBy: player
     operations:
@@ -73,11 +73,17 @@ abilityData:
       - kind: learn_role_at_target
         targetSource: target
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 首夜得知爪牙角色，之后某个白天公开选人（每局一次）
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: first_night
+    phaseTiming: special
     eventTiming: null
-    usagePattern: once_per_game
+    usagePattern: variable
     activationMode: active
     drivenBy: player
     recordable: true
@@ -88,21 +94,12 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
-          required: true
+          label: 白天公开选择
+          required: false
           optionsSource: null
           options: null
           min: 1
           max: 15
-          placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
           placeholder: null
     result:
       repeatMode: once
@@ -110,29 +107,16 @@ abilityData:
       fields:
         - key: role
           type: role
-          label: 身份
-          required: true
+          label: 得知的爪牙角色
+          required: false
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - minion
   deduction:
     status: candidate
-    source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    source: manual
+    templates: []

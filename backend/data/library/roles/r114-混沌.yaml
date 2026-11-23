@@ -59,8 +59,8 @@ abilityData:
   abilityPattern: target_demon_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night_star
       event: null
@@ -76,6 +76,11 @@ abilityData:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star
@@ -91,7 +96,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
@@ -104,8 +109,8 @@ abilityData:
       fields:
         - key: poisoned_good
           type: boolean
-          label: 善良中毒
-          required: true
+          label: 触发全体中毒
+          required: false
           optionsSource: custom
           options:
             - 'yes'

@@ -78,20 +78,20 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: active
     drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -100,7 +100,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 选择2
           required: true
           optionsSource: null
           options: null

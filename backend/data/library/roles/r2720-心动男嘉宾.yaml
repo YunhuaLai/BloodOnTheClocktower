@@ -96,6 +96,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - townsfolk
     result:
       repeatMode: sequence
       defaultRows: 3

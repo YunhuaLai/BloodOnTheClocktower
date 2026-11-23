@@ -70,9 +70,9 @@ abilityData:
         effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_day
+    phaseTiming: each_night_star
     eventTiming: null
-    usagePattern: once_per_day
+    usagePattern: once_per_night
     activationMode: active
     drivenBy: player
     recordable: true
@@ -83,7 +83,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 下毒对象
           required: true
           optionsSource: null
           options: null

@@ -50,7 +50,7 @@ abilityData:
     - outsider
     - minion
     - demon
-  abilityPattern: death_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -66,13 +66,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_death
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: on_death
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

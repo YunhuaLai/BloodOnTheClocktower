@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: setup
       event: null
@@ -72,6 +72,12 @@ abilityData:
             max: 1
             source: '[-0~1外来者]'
             note: 配置调整：外来者数量 0 到 +1。
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 现有结构合理，未改动
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup

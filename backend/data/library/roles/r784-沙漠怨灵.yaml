@@ -61,7 +61,7 @@ abilityData:
     - demon
     - madness
     - traveler
-  abilityPattern: nomination_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -86,13 +86,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_nomination
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: setup
     eventTiming: on_nomination
     usagePattern: passive
     activationMode: conditional
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

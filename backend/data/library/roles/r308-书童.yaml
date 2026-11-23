@@ -56,12 +56,12 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: each_night
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: player
     operations:
@@ -69,22 +69,27 @@ abilityData:
         count: 1
         source: target
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: active
     drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null

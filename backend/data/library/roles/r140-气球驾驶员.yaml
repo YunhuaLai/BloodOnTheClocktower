@@ -67,8 +67,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night
       event: null
@@ -85,6 +85,12 @@ abilityData:
             note: 配置调整：外来者数量 0 到 +1。
       - kind: learn_role
         roleType: outsider
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 得知的是一名玩家而不是角色
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -102,14 +108,14 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: role
-          type: role
-          label: 身份
+        - key: seat
+          type: seat
+          label: 得知玩家
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
   deduction:
     status: candidate

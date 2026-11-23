@@ -57,8 +57,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night
       event: null
@@ -70,28 +70,25 @@ abilityData:
         count: 1
         source: target
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 由恶魔猜测，书生本人无可记录信息
   abilityMeta:
-    pageType: pick_and_record
+    pageType: rule_modifier
     phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
     drivenBy: player
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: seat
-          type: seat
-          label: 目标号码
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0

@@ -104,7 +104,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null

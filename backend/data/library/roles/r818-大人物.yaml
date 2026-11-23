@@ -49,8 +49,10 @@ abilityData:
     - Loric
   termIds:
     - nomination
-    - madness
+    - vote
     - death
+    - good
+    - madness
     - fabled
   abilityPattern: nomination_trigger
   abilitySemantics:

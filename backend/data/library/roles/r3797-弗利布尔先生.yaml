@@ -92,7 +92,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -108,6 +108,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - minion
     result:
       repeatMode: sequence
       defaultRows: 3

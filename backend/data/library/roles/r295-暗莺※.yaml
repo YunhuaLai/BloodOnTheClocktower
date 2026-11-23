@@ -44,6 +44,9 @@ abilityData:
   tags:
     - 被动
   termIds:
+    - night
+    - death
+    - townsfolk
     - fabled
   abilityPattern: no_input
   abilitySemantics:

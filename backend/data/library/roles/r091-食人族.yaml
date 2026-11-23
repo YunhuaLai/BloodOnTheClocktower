@@ -57,8 +57,8 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: passive
       event: null
@@ -69,6 +69,12 @@ abilityData:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 被动获得上个被处决者的能力：用“获得的能力”记录，本身不录入
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: passive

@@ -70,9 +70,9 @@ abilityData:
         roleType: townsfolk
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: setup
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: passive
+    usagePattern: once
     activationMode: passive
     drivenBy: system
     recordable: true
@@ -82,18 +82,20 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - townsfolk
   deduction:
     status: candidate
     source: inferred

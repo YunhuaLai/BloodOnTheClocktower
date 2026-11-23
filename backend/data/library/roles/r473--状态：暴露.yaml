@@ -44,6 +44,8 @@ abilityData:
   tags:
     - 被动
   termIds:
+    - death
+    - storyteller
     - fabled
   abilityPattern: no_input
   abilitySemantics:

@@ -49,7 +49,7 @@ abilityData:
     - execution
     - alignment
     - townsfolk
-  abilityPattern: execution_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -67,13 +67,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_execution
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: each_day
     eventTiming: on_execution
     usagePattern: once_per_day
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

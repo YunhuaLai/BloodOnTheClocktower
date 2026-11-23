@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: first_night
       event: null
@@ -64,6 +64,11 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: learn_team
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
@@ -81,12 +86,15 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: direction
+          type: choice
+          label: 最近邪恶方向
           required: true
-          optionsSource: teams
-          options: null
+          optionsSource: custom
+          options:
+            - clockwise
+            - counterclockwise
+            - equal
           min: null
           max: null
           placeholder: null

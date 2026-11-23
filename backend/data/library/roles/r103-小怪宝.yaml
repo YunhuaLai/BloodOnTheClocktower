@@ -55,14 +55,14 @@ abilityData:
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: each_night_star
+      phase: each_night
       event: null
       frequency: once_per_night
     actor:
-      drivenBy: player
+      drivenBy: mixed
     operations:
       - kind: setup_modifier
         adjustments: []
@@ -72,9 +72,14 @@ abilityData:
       - kind: learn_player
         count: 1
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night_star
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
     activationMode: active
@@ -87,7 +92,7 @@ abilityData:
       fields:
         - key: babysitter
           type: seat
-          label: 照看者/恶魔号码
+          label: 照看者
           required: true
           optionsSource: null
           options: null
@@ -100,7 +105,7 @@ abilityData:
       fields:
         - key: death_seat
           type: seat
-          label: 死亡号码
+          label: 当晚死亡
           required: false
           optionsSource: null
           options: null

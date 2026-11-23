@@ -93,7 +93,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 猜测对象
           required: true
           optionsSource: null
           options: null

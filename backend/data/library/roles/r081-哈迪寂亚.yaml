@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night_star
       event: null
@@ -69,6 +69,11 @@ abilityData:
         count: 3
         source: target
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star
@@ -84,8 +89,8 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 号码1
-          required: true
+          label: 选择1
+          required: false
           optionsSource: null
           options: null
           min: 1
@@ -93,8 +98,8 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 号码2
-          required: true
+          label: 选择2
+          required: false
           optionsSource: null
           options: null
           min: 1
@@ -102,8 +107,8 @@ abilityData:
           placeholder: null
         - key: seat3
           type: seat
-          label: 号码3
-          required: true
+          label: 选择3
+          required: false
           optionsSource: null
           options: null
           min: 1
@@ -115,8 +120,8 @@ abilityData:
       fields:
         - key: seat1_choice
           type: choice
-          label: 1号选择
-          required: true
+          label: 1的决定
+          required: false
           optionsSource: custom
           options:
             - live
@@ -126,8 +131,8 @@ abilityData:
           placeholder: null
         - key: seat2_choice
           type: choice
-          label: 2号选择
-          required: true
+          label: 2的决定
+          required: false
           optionsSource: custom
           options:
             - live
@@ -137,8 +142,8 @@ abilityData:
           placeholder: null
         - key: seat3_choice
           type: choice
-          label: 3号选择
-          required: true
+          label: 3的决定
+          required: false
           optionsSource: custom
           options:
             - live

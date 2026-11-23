@@ -34,6 +34,10 @@ const abilityValueLabels = {
   顺时针: "左",
   逆时针: "右",
   storyteller_choice: "说书人选择",
+  equal: "相同",
+  balanced: "均势",
+  live: "生",
+  die: "死",
   unknown: "?",
 };
 

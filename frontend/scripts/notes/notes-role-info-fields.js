@@ -471,6 +471,11 @@ export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, g
 
   if (["team", "character_type", "status", "choice"].includes(field.type)) {
     const options = getRoleInfoFieldOptions(field, game);
+    // A few fixed answers (好/坏, 清/毒/醉, 左/右/相同) are one tap each, like yes/no.
+    if (usesSegmentChoices(field)) {
+      const toneClass = ` notes-roleinfo-segments--bool notes-roleinfo-segments--tone-${field.type === "team" ? "team" : "neutral"}`;
+      return renderSegmentButtons(field, currentValue, options, sharedData, accessibleLabel, "", toneClass);
+    }
     const hasCurrentValue =
       currentValue &&
       options.some((option) => String(option.value) === currentValue);
@@ -503,9 +508,19 @@ export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, g
   `;
 }
 
+export const SEGMENT_CHOICE_LIMIT = 4;
+
+/** Fixed-answer fields shown as segment buttons instead of a dropdown. */
+export function usesSegmentChoices(field) {
+  if (["team", "status", "character_type"].includes(field?.type)) {
+    return true;
+  }
+  return field?.type === "choice" && Array.isArray(field.options) && field.options.length > 0 && field.options.length <= SEGMENT_CHOICE_LIMIT;
+}
+
 // Button-based controls must not sit inside a <label>: tapping the caption would click the first button.
 function usesButtonControl(field) {
-  return ["boolean", "number", "seat", "player"].includes(field?.type);
+  return ["boolean", "number", "seat", "player"].includes(field?.type) || usesSegmentChoices(field);
 }
 
 function getFieldWrapperTag(field) {
@@ -543,7 +558,7 @@ function getFieldMaxColumns(field) {
     return 3;
   }
 
-  if (field?.type === "number") {
+  if (field?.type === "number" || usesSegmentChoices(field)) {
     return 2;
   }
 

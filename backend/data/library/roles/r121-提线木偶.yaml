@@ -60,8 +60,8 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: first_night
       event: null
@@ -73,32 +73,29 @@ abilityData:
         adjustments: []
       - kind: learn_role
         roleType: demon
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 玩家本人不知情，无可记录信息
   abilityMeta:
-    pageType: record_result_only
+    pageType: rule_modifier
     phaseTiming: first_night
     eventTiming: null
     usagePattern: once
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: role
-          type: role
-          label: 身份
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: candidate
     source: inferred

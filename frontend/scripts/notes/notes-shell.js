@@ -884,6 +884,14 @@ function renderGamePage(notes, game) {
       ${renderTabBar()}
     </section>
   `;
+  applySeatAngles(app);
+}
+
+// The CSP (style-src 'self') blocks style="" attributes, so seat positions are set through the CSSOM instead.
+export function applySeatAngles(root) {
+  root?.querySelectorAll?.("[data-seat-angle]").forEach((element) => {
+    element.style.setProperty("--seat-angle", `${Number(element.dataset.seatAngle) || 0}deg`);
+  });
 }
 
 export function renderNotesPage() {

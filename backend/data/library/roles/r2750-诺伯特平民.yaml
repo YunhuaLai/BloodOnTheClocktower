@@ -59,7 +59,7 @@ abilityData:
     - outsider
     - minion
     - demon
-  abilityPattern: manual_record
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -78,13 +78,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: null
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: setup
     eventTiming: null
     usagePattern: passive
     activationMode: conditional
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

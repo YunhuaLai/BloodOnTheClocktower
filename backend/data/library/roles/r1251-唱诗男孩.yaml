@@ -55,22 +55,27 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: each_night
+      phase: null
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments: []
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
-    pageType: record_result_only
-    phaseTiming: each_night
+    pageType: event_triggered
+    phaseTiming: null
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -80,18 +85,18 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+        - key: demon
+          type: seat
+          label: 得知的恶魔
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          min: 1
+          max: 15
+          placeholder: null
   deduction:
     status: manual
     source: inferred

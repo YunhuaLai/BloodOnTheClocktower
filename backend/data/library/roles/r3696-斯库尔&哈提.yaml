@@ -51,7 +51,7 @@ abilityData:
     - night
     - nomination
     - traveler
-  abilityPattern: nomination_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -66,13 +66,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_nomination
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: each_night_star
     eventTiming: on_nomination
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

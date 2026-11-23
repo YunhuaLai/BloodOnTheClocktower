@@ -44,6 +44,13 @@ abilityData:
   tags:
     - 被动
   termIds:
+    - night
+    - first-night
+    - execution
+    - death
+    - alignment
+    - good
+    - evil
     - fabled
   abilityPattern: no_input
   abilitySemantics:

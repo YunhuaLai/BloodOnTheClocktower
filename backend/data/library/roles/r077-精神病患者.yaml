@@ -54,54 +54,51 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: special
+      phase: each_day
       event: null
-      frequency: variable
+      frequency: once_per_day
     actor:
-      drivenBy: player
+      drivenBy: mixed
     operations:
       - kind: choose_player
         count: 1
         source: target
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 猜拳结果罕见，写在额外信息
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: special
+    phaseTiming: each_day
     eventTiming: null
-    usagePattern: variable
+    usagePattern: once_per_day
     activationMode: active
     drivenBy: mixed
     recordable: true
   interactionSchema:
     target:
-      repeatMode: variable
+      repeatMode: sequence
       defaultRows: 3
       fields:
         - key: seat
           type: seat
-          label: 白天击杀号码
-          required: false
+          label: 白天击杀
+          required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
     result:
-      repeatMode: variable
-      defaultRows: 3
-      fields:
-        - key: note
-          type: text
-          label: 猜拳/处决记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: world_effect
     source: inferred

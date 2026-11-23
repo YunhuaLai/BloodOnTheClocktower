@@ -58,12 +58,12 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: special
       event: null
-      frequency: once
+      frequency: variable
     actor:
       drivenBy: player
     operations:
@@ -74,41 +74,82 @@ abilityData:
         source: target
       - kind: choose_role
         source: target
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 首夜三个伪装，第三夜选人变恶魔
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: special
     eventTiming: null
-    usagePattern: once
+    usagePattern: variable
     activationMode: active
     drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: once
-      defaultRows: 1
+      repeatMode: variable
+      defaultRows: 3
       fields:
         - key: seat
           type: seat
-          label: 转化号码
-          required: true
+          label: 转化对象
+          required: false
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: demon_role
+        - key: demon
           type: role
           label: 恶魔角色
-          required: true
+          required: false
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - demon
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: bluff1
+          type: role
+          label: 伪装1
+          required: false
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+          roleTypes:
+            - good
+        - key: bluff2
+          type: role
+          label: 伪装2
+          required: false
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+          roleTypes:
+            - good
+        - key: bluff3
+          type: role
+          label: 伪装3
+          required: false
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+          roleTypes:
+            - good
   deduction:
     status: candidate
     source: inferred

@@ -91,7 +91,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -113,7 +113,7 @@ abilityData:
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null

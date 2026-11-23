@@ -83,9 +83,9 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: passive
+    phaseTiming: each_night_star
     eventTiming: null
-    usagePattern: passive
+    usagePattern: once_per_night
     activationMode: active
     drivenBy: player
     recordable: true
@@ -96,7 +96,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null

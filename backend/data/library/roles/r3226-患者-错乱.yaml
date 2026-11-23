@@ -89,6 +89,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - demon
     result:
       repeatMode: sequence
       defaultRows: 3

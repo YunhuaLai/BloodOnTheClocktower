@@ -57,8 +57,8 @@ abilityData:
   abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: first_night
       event: null
@@ -69,6 +69,11 @@ abilityData:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
@@ -86,16 +91,35 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+        - key: seat1
+          type: seat
+          label: 善良1
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 善良2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
   deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+    status: supported
+    source: manual
+    templates:
+      - type: good_player
+        seat:
+          source: result
+          keys:
+            - seat1
+      - type: good_player
+        seat:
+          source: result
+          keys:
+            - seat2

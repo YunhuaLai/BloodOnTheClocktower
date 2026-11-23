@@ -101,7 +101,7 @@ abilityData:
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null

@@ -63,7 +63,7 @@ abilityData:
       - kind: manual_record
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: each_night
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_night
     activationMode: passive

@@ -22,7 +22,8 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-ability: '[+1镇民，+1外来者，+1爪牙]所有玩家抽取完角色后，再往盲抽袋中加入一枚[谢谢惠顾]，盲抽袋中剩下的角色视为在场，但能力不会生效。每名玩家限一次，在黄昏时拜访说书人交换自己和盲抽袋中的角色，如果抽到邪恶角色则转变为邪恶阵营。如果处决说书人时，盲抽袋中有恶魔，则善良玩家获胜，否则邪恶玩家获胜。如果邪恶玩家数量达到上限，则将盲抽袋中的邪恶角色替换为等量的[谢谢惠顾]，如果因此导致盲抽袋和场上都没有恶魔，说书人要选择一名邪恶玩家照顾小怪宝。'
+ability: >-
+  [+1镇民，+1外来者，+1爪牙]所有玩家抽取完角色后，再往盲抽袋中加入一枚[谢谢惠顾]，盲抽袋中剩下的角色视为在场，但能力不会生效。每名玩家限一次，在黄昏时拜访说书人交换自己和盲抽袋中的角色，如果抽到邪恶角色则转变为邪恶阵营。如果处决说书人时，盲抽袋中有恶魔，则善良玩家获胜，否则邪恶玩家获胜。如果邪恶玩家数量达到上限，则将盲抽袋中的邪恶角色替换为等量的[谢谢惠顾]，如果因此导致盲抽袋和场上都没有恶魔，说书人要选择一名邪恶玩家照顾小怪宝。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
@@ -44,6 +45,15 @@ abilityData:
   tags:
     - 被动
   termIds:
+    - execution
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - outsider
+    - minion
+    - demon
+    - storyteller
     - fabled
   abilityPattern: no_input
   abilitySemantics:

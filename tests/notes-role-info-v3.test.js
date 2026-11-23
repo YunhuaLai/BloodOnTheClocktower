@@ -87,6 +87,8 @@ async function loadFrontend(t) {
     oncePhase: await load("notes/notes-role-info-once-phase.js"),
     overviewRender: await load("notes/notes-overview-render.js"),
     seatPicker: await load("notes/notes-role-info-seat-picker.js"),
+    storyRender: await load("notes/notes-storyteller-render.js"),
+    shell: await load("notes/notes-shell.js"),
   };
   t.after(() => {
     modules.notes.flushNotesState();
@@ -526,4 +528,40 @@ test("seat filters dim seats, number tokens follow the game and seat filters are
   assert.equal(inferSeatFilters(role("每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒。")).status, "ambiguous");
   assert.equal(inferSeatFilters(role("每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。")).status, "none");
   assert.equal(inferSeatFilters(role("选择一名存活的玩家", [{ key: "seat", type: "seat", seatFilter: ["dead"] }])).status, "none", "explicit values are kept");
+});
+
+test("fixed-answer fields are segment buttons, the night helper greys sleeping roles and seat angles avoid inline styles", async (t) => {
+  const modules = await loadFrontend(t);
+  const { fields } = modules;
+  const game = createGame(modules, "night", 2);
+
+  const direction = { key: "direction", type: "choice", label: "最近邪恶方向", options: ["clockwise", "counterclockwise", "equal"] };
+  const html = fields.renderRoleInfoFieldElement("result", 0, direction, "equal", game, 7);
+  assert.doesNotMatch(html, /<select/);
+  assert.match(html, /notes-roleinfo-segments--tone-neutral/);
+  assert.deepEqual([...html.matchAll(/>([^<>]+)<\/button>/g)].map((match) => match[1].trim()), ["左", "右", "相同"]);
+  assert.match(html, /is-selected notes-roleinfo-segment--equal"[^>]*value=""/, "tapping the selected answer clears it");
+  const team = fields.renderRoleInfoFieldElement("result", 0, { key: "team", type: "team", label: "阵营" }, "evil", game, 7);
+  assert.match(team, /notes-roleinfo-segments--tone-team/);
+  const many = { ...direction, options: ["a", "b", "c", "d", "e"] };
+  assert.match(fields.renderRoleInfoFieldElement("result", 0, many, "", game, 7), /<select/, "more than four answers keep the dropdown");
+  assert.equal(fields.usesSegmentChoices({ type: "status" }), true);
+
+  const shell = modules.shell;
+  assert.ok(shell, "shell module loaded");
+  const ravenkeeper = { name: "守鸦人", ability: "如果你在夜晚死亡，你会被唤醒，然后你要选择一名玩家：你会得知他的角色。", abilityData: { abilityMeta: { eventTiming: "on_death" } } };
+  const monk = { name: "僧侣", ability: "每个夜晚*，你要选择除你以外的一名玩家：当晚恶魔的负面能力对他无效。", abilityData: { abilityMeta: { phaseTiming: "each_night_star" } } };
+  const ghost = { name: "幽灵", ability: "每个夜晚，你要选择一名玩家，即使你已死亡。", abilityData: { abilityMeta: { phaseTiming: "each_night" } } };
+  const reason = modules.storyRender.getNightDormantReason;
+  assert.equal(reason({ player: { status: "alive" }, role: ravenkeeper }), "死亡当晚才唤醒");
+  assert.equal(reason({ player: { status: "night-dead" }, role: ravenkeeper }), "");
+  assert.equal(reason({ player: { status: "executed" }, role: monk }), "已死亡");
+  assert.equal(reason({ player: { status: "night-dead" }, role: ghost }), "");
+  assert.equal(reason({ player: null, role: monk }), "");
+
+  const set = [];
+  const element = { dataset: { seatAngle: "-90" }, style: { setProperty: (name, value) => set.push([name, value]) } };
+  shell.applySeatAngles({ querySelectorAll: (selector) => (selector === "[data-seat-angle]" ? [element] : []) });
+  assert.deepEqual(set, [["--seat-angle", "-90deg"]]);
+  shell.applySeatAngles(null);
 });

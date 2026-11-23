@@ -69,9 +69,9 @@ abilityData:
         roleType: outsider
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_game
+    usagePattern: once
     activationMode: active
     drivenBy: player
     recordable: true
@@ -95,7 +95,7 @@ abilityData:
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null

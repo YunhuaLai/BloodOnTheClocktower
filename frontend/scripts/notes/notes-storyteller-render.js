@@ -399,7 +399,7 @@ function renderGrimoireSeat(player, game, index, selectedPlayer) {
     <button
       type="button"
       class="story-grimoire-seat story-grimoire-seat--${escapeHtml(role?.type || (isTraveller ? "traveller" : "unknown"))}${draft.status === "alive" ? "" : " is-dead"}${isSelected ? " is-selected" : ""}${isTraveller ? " is-traveller" : ""}"
-      style="--seat-angle: ${angle}deg;"
+      data-seat-angle="${angle}"
       data-notes-action="select-story-player"
       data-player-id="${escapeHtml(player.id)}"
       aria-pressed="${isSelected ? "true" : "false"}"
@@ -819,9 +819,31 @@ function getNightOrderRoles(game) {
         otherReminder,
         useFirstNightAction,
         hasNightAction,
+        dormantReason: getNightDormantReason(item),
       };
     })
     .filter((item) => item.hasNightAction);
+}
+
+const nightDeadStatuses = ["night-dead", "executed"];
+
+/**
+ * Why an assigned role probably does not wake tonight, or "". The step stays listed (greyed) because the
+ * grimoire may not be updated yet: a 守鸦人 killed tonight still wakes.
+ */
+export function getNightDormantReason(item) {
+  if (!item?.player || !item.role) {
+    return "";
+  }
+  const dead = nightDeadStatuses.includes(item.player.status);
+  const meta = item.role.abilityData?.abilityMeta || {};
+  if (meta.eventTiming === "on_death") {
+    return dead ? "" : "死亡当晚才唤醒";
+  }
+  if (dead && !/即使你已死亡|即使已死亡|死亡后/.test(String(item.role.ability || ""))) {
+    return "已死亡";
+  }
+  return "";
 }
 
 function renderNightOrderPanel(game) {
@@ -851,11 +873,13 @@ function renderNightOrderPanel(game) {
                     ? `${item.player.seat}号 ${item.role.name}`
                     : item.role.name;
                   return `
-                    <details class="story-night-item">
+                    <details class="story-night-item${item.dormantReason ? " is-dormant" : ""}">
                       <summary>
                         <div>
                           <strong>${escapeHtml(roleTitle)}</strong>
-                          <span>${escapeHtml(playerLabel)}${item.newRoleFirstNight ? " · 新入场" : ""}</span>
+                          <span>${escapeHtml(playerLabel)}${item.newRoleFirstNight ? " · 新入场" : ""}${
+                            item.dormantReason ? ` <em class="story-night-dormant">${escapeHtml(item.dormantReason)}</em>` : ""
+                          }</span>
                         </div>
                       </summary>
                       ${renderStorytellerNightRecord(item, game, reminder)}

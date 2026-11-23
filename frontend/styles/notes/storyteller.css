@@ -559,6 +559,27 @@
   color: var(--muted);
 }
 
+/* A step that probably does not happen tonight (alive 守鸦人, dead player): kept for reference, greyed. */
+.story-night-item.is-dormant {
+  border-left-color: var(--line);
+  opacity: 0.62;
+}
+
+.story-night-item.is-dormant[open] {
+  opacity: 1;
+}
+
+.story-night-dormant {
+  padding: 1px 6px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 999px;
+  font-size: 11px;
+  font-style: normal;
+  white-space: nowrap;
+}
+
 .story-night-detail {
   display: grid;
   gap: 10px;

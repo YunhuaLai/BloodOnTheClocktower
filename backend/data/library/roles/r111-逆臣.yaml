@@ -56,14 +56,14 @@ abilityData:
   abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: first_night
-      event: on_death
+      event: null
       frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: mixed
     operations:
       - kind: choose_player
         count: 1
@@ -73,10 +73,15 @@ abilityData:
       - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_death
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
-    pageType: event_triggered
+    pageType: pick_and_record
     phaseTiming: first_night
-    eventTiming: on_death
+    eventTiming: null
     usagePattern: once
     activationMode: conditional
     drivenBy: mixed
@@ -88,7 +93,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 绑定号码
+          label: 绑定对象
           required: true
           optionsSource: null
           options: null
@@ -98,15 +103,6 @@ abilityData:
           seatFilter:
             - notSelf
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: converted_seat
-          type: seat
-          label: 转变号码
-          required: false
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
