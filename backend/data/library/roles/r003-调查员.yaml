@@ -122,6 +122,7 @@ abilityData:
         - key: no_minion
           type: boolean
           label: 无爪牙
+          exclusive: true
           required: false
           optionsSource: custom
           options:

@@ -122,6 +122,7 @@ abilityData:
         - key: no_outsider
           type: boolean
           label: 无外来者
+          exclusive: true
           required: false
           optionsSource: custom
           options:

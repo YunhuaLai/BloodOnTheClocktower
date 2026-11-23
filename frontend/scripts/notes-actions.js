@@ -15,6 +15,7 @@ import {
 import {
   persistPlayerDraft,
   getPlayerDraftRoleInfoEntry,
+  moveOnceRoleInfoPhase,
   updatePlayerDraftRoleInfo,
   updatePlayerField,
 } from "./notes/notes-player-actions.js";
@@ -28,7 +29,7 @@ import { handleTimelineAction } from "./notes/notes-timeline-actions.js";
 import { state } from "./state.js";
 import { applyAcquiredSuggestion, handleAcquiredAction, handleAcquiredFieldChange } from "./notes/notes-acquired-actions.js";
 import { decodeTruthFill, encodeTruthBasis } from "./notes/notes-storyteller-truth-render.js";
-import { getSteppedNumberValue } from "./notes/notes-role-info-fields.js";
+import { getSteppedNumberValue, parsePhaseChoiceValue } from "./notes/notes-role-info-fields.js";
 
 export async function handleNotesImportFile(target) {
   const file = target?.files?.[0];
@@ -166,6 +167,24 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
       persistPlayerDraft(playerId);
     }
     if (shouldRerender && refreshInterface) {
+      renderNotesPage();
+    }
+    return;
+  }
+
+  const phasePicker = target.closest("[data-roleinfo-phase-picker]");
+  const pickerCard = target.closest(".notes-player-detail, .notes-overview-editor");
+  if (phasePicker && pickerCard) {
+    const playerId = pickerCard.dataset.playerId;
+    const changed = moveOnceRoleInfoPhase(
+      playerId,
+      readRoleInfoPhase(phasePicker.dataset, "roleinfoPhase"),
+      parsePhaseChoiceValue(target.value),
+    );
+    if (changed && ["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
+      persistPlayerDraft(playerId);
+    }
+    if (refreshInterface) {
       renderNotesPage();
     }
     return;

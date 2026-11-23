@@ -1,7 +1,8 @@
 import { getClaimRoleOptions } from "../notes-claims.js";
 import { roleTypeOrder, typeLabels } from "../state.js";
 import { escapeHtml } from "../utils.js";
-import { getChoiceLabel } from "./notes-role-info.js";
+import { getChoiceLabel, isExclusiveField, isExclusiveValueOn } from "./notes-role-info.js";
+import { formatRoleInfoPhaseLabel } from "./notes-role-info-records.js";
 
 // Role field filters. `roleTypes` is an optional explicit attribute on the field (see
 // role-ability-schema.yaml); without it the filter is inferred from the field key, then the label.
@@ -92,6 +93,21 @@ export function getNumberButtonValues(field) {
 export function getBooleanFieldOptions(field) {
   const values = Array.isArray(field?.options) && field.options.length ? field.options : ["yes", "no"];
   return values.map((value) => ({ value: String(value), label: getChoiceLabel(value) }));
+}
+
+const booleanTones = ["evil", "good", "neutral"];
+
+/**
+ * Colour meaning of a yes/no field. "evil": yes is bad news for good (占卜师 有恶魔) and shows red, no shows
+ * teal; "good" is the reverse; "neutral" (default) shows both in ink. Set by `tone`, otherwise inferred:
+ * a label about finding a demon / minion / evil player is "evil".
+ */
+export function getBooleanFieldTone(field) {
+  if (booleanTones.includes(field?.tone)) {
+    return field.tone;
+  }
+  const label = String(field?.label || "");
+  return /恶魔|爪牙|邪恶/.test(label) && !/阻止|提示|告知/.test(label) ? "evil" : "neutral";
 }
 
 /** Value to store when a segment is tapped: tapping the selected segment clears the field. */
@@ -296,7 +312,7 @@ function renderRoleTextInput(field, currentValue, filterTypes, sharedData) {
   `;
 }
 
-function renderSegmentButtons(field, currentValue, options, sharedData, accessibleLabel, extraClass = "") {
+function renderSegmentButtons(field, currentValue, options, sharedData, accessibleLabel, extraClass = "", toneClass = "") {
   const knownValues = options.map((option) => option.value);
   // A stored value outside the options (old data, out-of-range number) stays visible and clearable.
   const allOptions =
@@ -305,7 +321,7 @@ function renderSegmentButtons(field, currentValue, options, sharedData, accessib
       : options;
   const countClass = extraClass ? ` notes-roleinfo-segments--n${Math.min(allOptions.length, NUMBER_BUTTON_LIMIT)}` : "";
   return `
-    <div class="notes-roleinfo-segments${extraClass}${countClass}" role="group" aria-label="${escapeHtml(accessibleLabel)}">
+    <div class="notes-roleinfo-segments${extraClass}${countClass}${toneClass}" role="group" aria-label="${escapeHtml(accessibleLabel)}">
       ${extraClass ? `<div class="notes-roleinfo-segment-grid">` : ""}
       ${allOptions
         .map((option) => {
@@ -357,13 +373,31 @@ function renderPhaseData(prefix, phase) {
   return `data-${prefix}phase-type="${escapeHtml(phase.phaseType || "")}" data-${prefix}phase-number="${Number(phase.phaseNumber) || 0}"`;
 }
 
-export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat, phase = null) {
+// One toggle button for an exclusive switch: tap to turn on ("yes"), tap again to clear.
+function renderExclusiveToggle(field, currentValue, sharedData, accessibleLabel) {
+  const on = isExclusiveValueOn(currentValue);
+  return `
+    <button
+      type="button"
+      class="notes-roleinfo-segment notes-roleinfo-exclusive${on ? " is-selected" : ""}"
+      data-notes-action="set-roleinfo-field"
+      value="${on ? "" : "yes"}"
+      aria-pressed="${on ? "true" : "false"}"
+      aria-label="${escapeHtml(accessibleLabel)}"
+      ${sharedData}
+    >${escapeHtml(field.label)}</button>
+  `;
+}
+
+/** disabled: the row's exclusive switch is on, so this field does not apply. */
+export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat, phase = null, disabled = false) {
   const currentValue = String(value ?? "");
   const sharedData = `
     data-roleinfo-section="${escapeHtml(sectionKey)}"
     data-roleinfo-row="${rowIndex}"
     data-roleinfo-field="${escapeHtml(field.key)}"
     ${renderPhaseData("roleinfo-", phase)}
+    ${disabled ? "disabled" : ""}
   `;
 
   if (field.type === "seat" || field.type === "player") {
@@ -382,8 +416,13 @@ export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, g
 
   const accessibleLabel = getFieldAccessibleLabel(field, phase);
 
+  if (isExclusiveField(field)) {
+    return renderExclusiveToggle(field, currentValue, sharedData, accessibleLabel);
+  }
+
   if (field.type === "boolean") {
-    return renderSegmentButtons(field, currentValue, getBooleanFieldOptions(field), sharedData, accessibleLabel);
+    const toneClass = ` notes-roleinfo-segments--bool notes-roleinfo-segments--tone-${getBooleanFieldTone(field)}`;
+    return renderSegmentButtons(field, currentValue, getBooleanFieldOptions(field), sharedData, accessibleLabel, "", toneClass);
   }
 
   if (field.type === "number") {
@@ -439,14 +478,25 @@ function getFieldWrapperTag(field) {
   return usesButtonControl(field) ? "div" : "label";
 }
 
-export function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, maxSeat, phase = null) {
+export function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, maxSeat, phase = null, disabled = false) {
   const tag = getFieldWrapperTag(field);
+  // An exclusive switch carries its own label on the button; the caption reads "或" (… or there is none).
+  const caption = isExclusiveField(field) ? "或" : field.label;
   return `
-    <${tag} class="notes-roleinfo-field">
-      <span>${escapeHtml(field.label)}</span>
-      ${renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat, phase)}
+    <${tag} class="notes-roleinfo-field${disabled ? " is-disabled" : ""}">
+      <span>${escapeHtml(caption)}</span>
+      ${renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat, phase, disabled)}
     </${tag}>
   `;
+}
+
+/** Field keys of a row that an exclusive switch turned on replaces (the switch itself stays enabled). */
+export function getExclusiveDisabledKeys(cells) {
+  const on = cells.find((cell) => isExclusiveField(cell.field) && isExclusiveValueOn(cell.value));
+  if (!on) {
+    return new Set();
+  }
+  return new Set(cells.filter((cell) => cell !== on && cell.section === on.section).map((cell) => `${cell.section}:${cell.field.key}`));
 }
 
 // Most columns a field fits in on a phone-width row.
@@ -482,15 +532,53 @@ function chunk(items, size) {
   return chunks;
 }
 
+export function formatPhaseChoiceValue(phase) {
+  return `${phase.phaseType}:${Number(phase.phaseNumber) || 0}`;
+}
+
+export function parsePhaseChoiceValue(value) {
+  const [phaseType, phaseNumber] = String(value || "").split(":");
+  return { phaseType: phaseType || "", phaseNumber: Number(phaseNumber) || 0 };
+}
+
+// Once-per-game rows label themselves with a phase picker: "this was used on night 3".
+function renderPhasePicker(row) {
+  const currentValue = formatPhaseChoiceValue(row);
+  const known = row.phaseChoices.some((phase) => formatPhaseChoiceValue(phase) === currentValue);
+  return `
+    <select
+      class="notes-roleinfo-index notes-roleinfo-index--phase notes-roleinfo-phase-picker"
+      aria-label="使用阶段"
+      data-roleinfo-phase-picker="true"
+      ${renderPhaseData("roleinfo-", row)}
+    >
+      ${known ? "" : `<option value="${escapeHtml(currentValue)}" selected>${escapeHtml(row.label)}</option>`}
+      ${row.phaseChoices
+        // No spaces ("第2夜"): the picker sits in the narrow phase column next to its arrow.
+        .map((phase) => renderOption(formatPhaseChoiceValue(phase), formatRoleInfoPhaseLabel(phase.phaseType, phase.phaseNumber).replace(/\s+/g, ""), currentValue))
+        .join("")}
+    </select>
+  `;
+}
+
+function renderRowLabel(row) {
+  return row.phaseChoices?.length
+    ? renderPhasePicker(row)
+    : `<span class="notes-roleinfo-index notes-roleinfo-index--phase">${escapeHtml(row.label)}</span>`;
+}
+
 function renderFormRow(row, game, maxSeat, renderRowExtra = null) {
   const phase = { phaseType: row.phaseType, phaseNumber: row.phaseNumber };
   const extra = renderRowExtra ? renderRowExtra(row) : "";
+  const disabledKeys = getExclusiveDisabledKeys(row.cells);
   return `
     <div class="notes-roleinfo-row${row.isCurrent ? " notes-roleinfo-row--current" : ""}">
-      <span class="notes-roleinfo-index notes-roleinfo-index--phase">${escapeHtml(row.label)}</span>
+      ${renderRowLabel(row)}
       <div class="notes-roleinfo-fields notes-roleinfo-fields--${getFieldGridSize(row.cells.map((cell) => cell.field))}">
         ${row.cells
-          .map((cell) => renderRoleInfoFieldControl(cell.section, row.entryIndex, cell.field, cell.value, game, maxSeat, phase))
+          .map((cell) =>
+            renderRoleInfoFieldControl(cell.section, row.entryIndex, cell.field, cell.value, game, maxSeat, phase, disabledKeys.has(`${cell.section}:${cell.field.key}`)),
+          )
           .join("")}
       </div>
       ${extra}

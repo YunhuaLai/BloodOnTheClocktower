@@ -119,13 +119,16 @@ function renderOverviewSuspectedRoles(game) {
   `;
 }
 
-function renderOverviewClaimInput(player, game) {
+export function renderOverviewClaimInput(player, game) {
   const script = getGameScript(game);
   const placeholder = script || isCustomRoleGame(game) || isFreeRoleGame(game) ? "身份" : "先选剧本";
 
+  // Names of 5+ characters (图书管理员) only fit the narrow phone column at a smaller size.
+  const longClass = [...String(player.claim || "")].length >= 5 ? " is-long" : "";
+
   return `
     <input
-      class="notes-overview-claim-input"
+      class="notes-overview-claim-input${longClass}"
       data-player-id="${escapeHtml(player.id)}"
       data-field="claim"
       list="roleNameList"

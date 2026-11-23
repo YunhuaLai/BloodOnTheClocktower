@@ -548,9 +548,43 @@
   border-color: var(--teal);
 }
 
-.notes-roleinfo-segment--no.is-selected {
+/* Yes/no answers: colour only when the field says what the answer means (see getBooleanFieldTone). */
+.notes-roleinfo-segments--bool .notes-roleinfo-segment.is-selected {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.notes-roleinfo-segments--tone-evil .notes-roleinfo-segment--yes.is-selected,
+.notes-roleinfo-segments--tone-good .notes-roleinfo-segment--no.is-selected {
   background: var(--red);
   border-color: var(--red);
+}
+
+.notes-roleinfo-segments--tone-evil .notes-roleinfo-segment--no.is-selected,
+.notes-roleinfo-segments--tone-good .notes-roleinfo-segment--yes.is-selected {
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+/* "Or there is none" switch (调查员 无爪牙): one toggle; when on, the fields it replaces are greyed out. */
+.notes-roleinfo-exclusive {
+  width: 100%;
+  white-space: nowrap;
+}
+
+.notes-roleinfo-exclusive.is-selected {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.notes-roleinfo-field.is-disabled {
+  opacity: 0.4;
+}
+
+.notes-roleinfo-field.is-disabled select,
+.notes-roleinfo-field.is-disabled input,
+.notes-roleinfo-field.is-disabled button {
+  cursor: not-allowed;
 }
 
 /* Number stepper: − [input] + */
@@ -716,6 +750,28 @@
   padding: 0 4px;
   white-space: nowrap;
   font-size: 11px;
+}
+
+/* Once-per-game row: the phase label is a picker ("used on night 3"). A small chevron marks it as tappable. */
+select.notes-roleinfo-phase-picker {
+  width: 100%;
+  min-width: 0;
+  padding: 0 9px 0 1px;
+  color: var(--ink);
+  appearance: none;
+  background-color: var(--surface);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M0 0h8L4 5z' fill='%23767676'/%3E%3C/svg%3E");
+  background-position: right 2px center;
+  background-repeat: no-repeat;
+  border-style: dashed;
+  text-align: center;
+  text-align-last: center;
+  cursor: pointer;
+}
+
+select.notes-roleinfo-phase-picker:focus {
+  border-color: var(--red);
+  outline: none;
 }
 
 .notes-roleinfo-row--current .notes-roleinfo-index--phase,

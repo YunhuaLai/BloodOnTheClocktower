@@ -299,6 +299,15 @@ usageRules:
     (镇民/外来者/爪牙/恶魔, then 好身份/好角色/善良 or 坏身份/坏角色/邪恶). An explicit value
     always wins; roleTypes: [] turns the filter off for a field whose wording would be misread.
   - >-
+    exclusive is an optional attribute on boolean fields for an "or you learn there is none" result
+    (调查员 无爪牙, 图书管理员 无外来者). The notes page renders it as one toggle button; turning it on
+    clears and disables the other fields of the same section row, and summaries show the field label.
+    A boolean whose key starts with no_ is treated as exclusive unless exclusive: false is set.
+  - >-
+    tone is an optional attribute on boolean fields that sets the colour of the selected answer on the notes
+    page: evil (yes is bad news for good, e.g. 占卜师 有恶魔: yes red / no teal), good (the reverse) or
+    neutral (both ink). Without it a label mentioning 恶魔/爪牙/邪恶 is treated as evil, anything else as neutral.
+  - >-
     Number fields with min and max set by hand to a span of at most 6 values render as one-tap
     buttons on the notes page; wider or missing ranges (including the generated 0..15) render as a
     numeric input with -/+ steppers.

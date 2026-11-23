@@ -45,6 +45,10 @@ const roles = [
   ]),
   abilityRole("r902", "被动测试", { phaseTiming: "passive", usagePattern: "passive" }, [], [{ key: "note", type: "text", label: "信息" }]),
   abilityRole("r903", "白天测试", { phaseTiming: "each_day", usagePattern: "once_per_day" }, [seatField("seat")], []),
+  abilityRole("r905", "无爪牙测试", { phaseTiming: "first_night", usagePattern: "once", resultMode: "once" }, [], [
+    seatField("seat1", "候选1"), seatField("seat2", "候选2"), { key: "role", type: "role", label: "爪牙角色" },
+    { key: "no_minion", type: "boolean", label: "无爪牙", exclusive: true, options: ["yes", "no"] },
+  ]),
   abilityRole("r904", "查验测试", { phaseTiming: "each_night", usagePattern: "once_per_night" }, [seatField("seat")], [
     { key: "role", type: "role", label: "身份" },
   ]),
@@ -79,6 +83,9 @@ async function loadFrontend(t) {
     abilityRecords: await load("notes/notes-ability-records.js"),
     panel: await load("notes/notes-role-info-panel.js"),
     overview: await load("notes/notes-role-info-overview.js"),
+    fields: await load("notes/notes-role-info-fields.js"),
+    oncePhase: await load("notes/notes-role-info-once-phase.js"),
+    overviewRender: await load("notes/notes-overview-render.js"),
   };
   t.after(() => {
     modules.notes.flushNotesState();
@@ -178,10 +185,25 @@ test("form rows follow phases, deaths and timing instead of row numbers", async 
   assert.deepEqual(labels(build("调查员", "night", 4)), ["第 1 夜"]);
   assert.deepEqual(labels(build("白天测试", "night", 2)), ["第 1 天"]);
   assert.deepEqual(labels(build("白天测试", "day", 2)), ["第 1 天", "第 2 天"]);
-  // Once-per-game: every eligible night is offered until one is filled.
-  assert.deepEqual(labels(build("刺客测试", "night", 3)), ["第 2 夜", "第 3 夜"]);
+  // Once-per-game: a single row on the latest chance, with a phase picker over every eligible night.
+  const unused = build("刺客测试", "night", 4);
+  assert.deepEqual(labels(unused), ["第 4 夜"]);
+  assert.deepEqual(unused.rows[0].phaseChoices.map((phase) => phase.phaseNumber), [2, 3, 4]);
+  const picked = form.buildRoleInfoForm({
+    abilityData: ri.getRoleAbilityData({ claim: "刺客测试" }, { phaseType: "night", phaseNumber: 4 }),
+    roleInfo: { version: 3, roleId: "r900", records: [] },
+    player: { status: "alive" },
+    game: { phaseType: "night", phaseNumber: 4 },
+    oncePhase: { phaseType: "night", phaseNumber: 2 },
+  });
+  assert.deepEqual(labels(picked), ["第 2 夜"], "the picked phase is used while nothing is recorded");
+  assert.deepEqual(labels(build("刺客测试", "night", 2)), ["第 2 夜"]);
+  assert.equal(build("刺客测试", "night", 2).rows[0].phaseChoices, undefined, "no picker with a single eligible phase");
   const used = { version: 3, roleId: "r900", records: [{ phaseType: "night", phaseNumber: 2, targetEntries: [{ seat: "4" }], resultEntries: [] }] };
   assert.deepEqual(labels(build("刺客测试", "night", 4, { roleInfo: used })), ["第 2 夜"]);
+  // A migrated record of unknown phase gets a picker so a phase can be assigned.
+  const unknown = { version: 3, roleId: "r900", records: [{ phaseType: "", phaseNumber: 0, targetEntries: [{ seat: "4" }], resultEntries: [] }] };
+  assert.equal(build("刺客测试", "night", 2, { roleInfo: unknown }).rows[0].phaseChoices.length, 1);
   // on_death appears once the player is dead, on the night they died.
   assert.equal(build("守鸦测试", "night", 2).emptyReason, "死亡后可录入。");
   assert.deepEqual(labels(build("守鸦测试", "day", 2, { status: "night-dead" })), ["第 2 夜"]);
@@ -370,4 +392,85 @@ test("seat fields render as seat selects and role fields as grouped selects with
   const searchable = modules.panel.renderRoleInfoInputs(checker, game);
   assert.match(searchable, /list="roleNameList"[\s\S]*data-roleinfo-field="role"/);
   state.roles = roles;
+});
+
+test("once-per-game phase picker moves the recorded use and remembers an unused choice", async (t) => {
+  const modules = await loadFrontend(t);
+  const { playerActions, oncePhase, fields } = modules;
+  const game = createGame(modules, "night", 4);
+  const player = game.players[1];
+  player.claim = "刺客测试";
+  const night = (phaseNumber) => ({ phaseType: "night", phaseNumber });
+
+  // Unused: the choice is only remembered, nothing is written.
+  assert.equal(playerActions.moveOnceRoleInfoPhase(player.id, night(4), night(3)), true);
+  assert.deepEqual(oncePhase.getOncePhaseChoice(player.id, "r900"), night(3));
+  assert.deepEqual(playerActions.ensurePlayerDraftForId(player.id).roleInfo.records, []);
+  assert.match(
+    modules.panel.renderRoleInfoInputs(playerActions.ensurePlayerDraftForId(player.id), game),
+    /data-roleinfo-phase-picker="true"\s+data-roleinfo-phase-type="night" data-roleinfo-phase-number="3"/,
+  );
+
+  // Used: the record moves; future phases and an occupied phase are refused.
+  playerActions.updatePlayerDraftRoleInfo(player.id, "target", 0, "seat", "5", night(3));
+  assert.equal(playerActions.moveOnceRoleInfoPhase(player.id, night(3), night(2)), true);
+  assert.deepEqual(phasesOf(playerActions.ensurePlayerDraftForId(player.id).roleInfo), ["night2"]);
+  assert.equal(playerActions.moveOnceRoleInfoPhase(player.id, night(2), night(5)), false, "future phase");
+  const draft = playerActions.ensurePlayerDraftForId(player.id);
+  draft.roleInfo.records.push({ phaseType: "night", phaseNumber: 4, targetEntries: [{ seat: "6" }], resultEntries: [] });
+  assert.equal(playerActions.moveOnceRoleInfoPhase(player.id, night(2), night(4)), false, "occupied phase");
+  assert.equal(draft.roleInfo.records.find((record) => record.phaseNumber === 2).targetEntries[0].seat, "5");
+
+  assert.deepEqual(fields.parsePhaseChoiceValue(fields.formatPhaseChoiceValue(night(3))), night(3));
+});
+
+test("an exclusive 无爪牙 switch is one toggle that clears and disables its row", async (t) => {
+  const modules = await loadFrontend(t);
+  const { playerActions, fields, roleInfo: ri } = modules;
+  const game = createGame(modules, "night", 1);
+  const player = game.players[0];
+  player.claim = "无爪牙测试";
+  const night1 = { phaseType: "night", phaseNumber: 1 };
+  const result = () => playerActions.ensurePlayerDraftForId(player.id).roleInfo.records[0].resultEntries[0];
+
+  playerActions.updatePlayerDraftRoleInfo(player.id, "result", 0, "seat1", "2", night1);
+  playerActions.updatePlayerDraftRoleInfo(player.id, "result", 0, "role", "投毒者", night1);
+  playerActions.updatePlayerDraftRoleInfo(player.id, "result", 0, "no_minion", "yes", night1);
+  assert.deepEqual(result(), { no_minion: "yes" }, "turning the switch on clears the fields it replaces");
+  playerActions.updatePlayerDraftRoleInfo(player.id, "result", 0, "no_minion", "", night1);
+  playerActions.updatePlayerDraftRoleInfo(player.id, "result", 0, "seat1", "3", night1);
+  assert.deepEqual(result(), { no_minion: "", seat1: "3" });
+
+  playerActions.updatePlayerDraftRoleInfo(player.id, "result", 0, "no_minion", "yes", night1);
+  const html = modules.panel.renderRoleInfoInputs(playerActions.ensurePlayerDraftForId(player.id), game);
+  assert.equal((html.match(/notes-roleinfo-exclusive/g) || []).length, 1, "one toggle, not a yes/no pair");
+  assert.match(html, /notes-roleinfo-exclusive is-selected"[\s\S]*?value=""[\s\S]*?aria-pressed="true"/);
+  assert.equal((html.match(/notes-roleinfo-field is-disabled/g) || []).length, 3, "候选1, 候选2 and 爪牙角色 are disabled");
+
+  const field = { key: "no_minion", type: "boolean", label: "无爪牙" };
+  assert.equal(ri.isExclusiveField(field), true, "no_ keys are exclusive by default");
+  assert.equal(ri.isExclusiveField({ ...field, exclusive: false }), false);
+  assert.equal(ri.isExclusiveField({ key: "has_demon", type: "boolean", label: "有恶魔" }), false);
+  assert.equal(ri.formatRoleInfoEntrySummary({ no_minion: "yes" }, [field]), "无爪牙");
+  assert.equal(ri.formatRoleInfoEntrySummary({ no_minion: "no", seat1: "2" }, [{ key: "seat1", type: "seat" }, field]), "2");
+
+  assert.deepEqual(fields.getExclusiveDisabledKeys([
+    { section: "result", field, value: "" },
+    { section: "result", field: { key: "seat1", type: "seat" }, value: "2" },
+  ]), new Set());
+});
+
+test("yes/no colours follow the field tone and long claims shrink in the overview", async (t) => {
+  const modules = await loadFrontend(t);
+  const { fields, overviewRender } = modules;
+  assert.equal(fields.getBooleanFieldTone({ type: "boolean", label: "有恶魔" }), "evil");
+  assert.equal(fields.getBooleanFieldTone({ type: "boolean", label: "阻止恶魔杀人" }), "neutral");
+  assert.equal(fields.getBooleanFieldTone({ type: "boolean", label: "同阵营" }), "neutral");
+  assert.equal(fields.getBooleanFieldTone({ type: "boolean", label: "同阵营", tone: "good" }), "good");
+  const html = fields.renderRoleInfoFieldElement("result", 0, { key: "has_demon", type: "boolean", label: "有恶魔" }, "yes", null, 7);
+  assert.match(html, /notes-roleinfo-segments--bool notes-roleinfo-segments--tone-evil/);
+
+  const game = createGame(modules, "night", 1);
+  assert.match(overviewRender.renderOverviewClaimInput({ id: "p1", claim: "图书管理员" }, game), /notes-overview-claim-input is-long"/);
+  assert.match(overviewRender.renderOverviewClaimInput({ id: "p2", claim: "占卜师" }, game), /notes-overview-claim-input"/);
 });

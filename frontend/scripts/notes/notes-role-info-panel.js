@@ -3,6 +3,7 @@ import { state } from "../state.js";
 import { escapeHtml } from "../utils.js";
 import { renderRoleInfoForm } from "./notes-role-info-fields.js";
 import { buildRoleInfoForm } from "./notes-role-info-form.js";
+import { getOncePhaseChoice } from "./notes-role-info-once-phase.js";
 import { getMaxSeatNumber } from "./notes-core.js";
 import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityTimingText, getClaimedRole } from "./notes-role-info.js";
 
@@ -56,7 +57,8 @@ export function renderRoleInfoInputs(player, game) {
   const abilityData = role.abilityData || null;
   const roleInfo = ensureRoleInfoMatchesClaim(player, game);
   const maxSeat = clampNumber(getMaxSeatNumber(game) || 15, 1, 25);
-  const form = buildRoleInfoForm({ abilityData, roleInfo, player, game });
+  const oncePhase = getOncePhaseChoice(player.id, roleInfo.roleId);
+  const form = buildRoleInfoForm({ abilityData, roleInfo, player, game, oncePhase });
   const formHtml = abilityData?.abilityMeta?.recordable
     ? renderRoleInfoForm(form, { game, maxSeat, playerId: player.id, hint: form.rows.length > 1 ? "按阶段" : form.rows.length ? "单条" : "" })
     : "";

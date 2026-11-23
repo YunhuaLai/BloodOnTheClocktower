@@ -83,6 +83,21 @@ export function getRoleInfoNode(abilityData, sectionKey) {
 
 export { isRoleInfoEntryFilled };
 
+/**
+ * An "or you learn there is none" switch (调查员 无爪牙): a boolean that, when on, replaces the other fields of
+ * its row. Set by `exclusive: true`; a boolean whose key starts with no_ counts as one unless exclusive: false.
+ */
+export function isExclusiveField(field) {
+  if (field?.type !== "boolean") {
+    return false;
+  }
+  return field.exclusive === undefined || field.exclusive === null ? /^no_/.test(String(field.key || "")) : field.exclusive === true;
+}
+
+export function isExclusiveValueOn(value) {
+  return String(value ?? "").trim().toLowerCase() === "yes";
+}
+
 function normalizeLegacyBooleanValue(value) {
   const normalized = normalizeRoleName(value);
   if (["yes", "true", "1", "是"].includes(normalized)) {
@@ -203,6 +218,10 @@ function getCompactFieldValue(field, value) {
   }
 
   const normalized = normalizeRoleName(text);
+
+  if (isExclusiveField(field)) {
+    return isExclusiveValueOn(text) ? String(field.label || "") : "";
+  }
 
   if (field.type === "role") {
     return getClaimAbbreviation(text);

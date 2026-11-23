@@ -2,7 +2,7 @@ import { createEmptyRoleInfoEntries, getActiveGame } from "../notes-state.js";
 import { state } from "../state.js";
 import { createId } from "../utils.js";
 import { ensurePlayerDraftForId, persistPlayerDraft } from "./notes-player-actions.js";
-import { getRoleInfoNode } from "./notes-role-info.js";
+import { getRoleInfoNode, isExclusiveField, isExclusiveValueOn } from "./notes-role-info.js";
 import { acquiredPhaseIndex, findAcquiredRole, getAcquiredMinimumRows, getAcquisitionKind, hasAcquiredRecords, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
 import { renderNotesPage } from "./notes-shell.js";
 
@@ -118,7 +118,11 @@ export function updateAcquiredRecord(playerId, source, abilityId, phaseType, pha
     const values = ["", "yes", "no"];
     value = values[(values.indexOf(String(entries[index][fieldKey] || "")) + 1) % values.length];
   }
-  entries[index][fieldKey] = String(value ?? "");
+  // Turning on an exclusive switch (无爪牙) clears the fields it replaces.
+  entries[index] =
+    isExclusiveField(field) && isExclusiveValueOn(value)
+      ? { [fieldKey]: String(value) }
+      : { ...entries[index], [fieldKey]: String(value ?? "") };
   return true;
 }
 

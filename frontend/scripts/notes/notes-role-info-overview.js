@@ -1,6 +1,7 @@
 import { clampNumber } from "../notes-state.js";
 import { renderRoleInfoForm } from "./notes-role-info-fields.js";
 import { buildRoleInfoForm } from "./notes-role-info-form.js";
+import { getOncePhaseChoice } from "./notes-role-info-once-phase.js";
 import { getMaxSeatNumber } from "./notes-core.js";
 import { ensureRoleInfoMatchesClaim, getClaimedRole, getRoleInfoSectionLabel } from "./notes-role-info.js";
 
@@ -16,7 +17,8 @@ export function renderOverviewRoleInfoInputs(player, game) {
   }
 
   const roleInfo = ensureRoleInfoMatchesClaim(player, game);
-  const form = buildRoleInfoForm({ abilityData, roleInfo, player, game });
+  const oncePhase = getOncePhaseChoice(player.id, roleInfo.roleId);
+  const form = buildRoleInfoForm({ abilityData, roleInfo, player, game, oncePhase });
   return renderRoleInfoForm(form, {
     game,
     maxSeat: clampNumber(getMaxSeatNumber(game) || 15, 1, 25),
