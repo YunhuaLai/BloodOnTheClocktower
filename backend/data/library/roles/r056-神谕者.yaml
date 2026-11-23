@@ -93,7 +93,7 @@ abilityData:
           optionsSource: null
           options: null
           min: 0
-          max: 15
+          max: $evil
           placeholder: null
   deduction:
     status: supported

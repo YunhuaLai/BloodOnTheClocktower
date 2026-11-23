@@ -86,6 +86,7 @@ async function loadFrontend(t) {
     fields: await load("notes/notes-role-info-fields.js"),
     oncePhase: await load("notes/notes-role-info-once-phase.js"),
     overviewRender: await load("notes/notes-overview-render.js"),
+    seatPicker: await load("notes/notes-role-info-seat-picker.js"),
   };
   t.after(() => {
     modules.notes.flushNotesState();
@@ -365,7 +366,7 @@ test("deduction reads v3 records and matches the observations of the v2 data it 
   assert.match(validateDeductionGame(makeGame({ 1: { roleInfo: { version: 3, records: "x" } } })).join("\n"), /records/);
 });
 
-test("seat fields render as seat selects and role fields as grouped selects with a search fallback", async (t) => {
+test("seat fields render as picker buttons and role fields as grouped selects with a search fallback", async (t) => {
   const modules = await loadFrontend(t);
   const { state } = modules;
   const game = createGame(modules, "night", 2);
@@ -375,11 +376,24 @@ test("seat fields render as seat selects and role fields as grouped selects with
   player.claim = "占卜师";
   player.roleInfo = { version: 3, roleId: "r006", records: [{ phaseType: "night", phaseNumber: 1, targetEntries: [{ seat1: "1", seat2: "9" }], resultEntries: [] }] };
 
+  const { seatPicker } = modules;
   const panel = modules.panel.renderRoleInfoInputs(player, game);
   assert.doesNotMatch(panel, /type="number"[^>]*data-roleinfo-field="seat1"/);
-  assert.match(panel, /<option value="1" selected>1号 阿杰<\/option>/);
-  assert.match(panel, /<option value="2">2号（死）<\/option>/);
-  assert.match(panel, /<option value="9" selected>9<\/option>/, "out-of-range stored seat is kept");
+  assert.match(panel, /class="notes-seat-field has-value"[^>]*>1号<\/button>/);
+  assert.match(panel, /class="notes-seat-field has-value"[^>]*>9号<\/button>/, "out-of-range stored seat is kept");
+  assert.doesNotMatch(panel, /notes-seat-picker"/, "closed until a seat field is tapped");
+
+  // Open 查验1 of night 1: the grid lists every seat with names, deaths and the owner, and moves on to seat2.
+  const night1 = { phaseType: "night", phaseNumber: 1 };
+  seatPicker.setOpenSeatPickerKey(seatPicker.getSeatPickerKey(player.id, "target", 0, "seat1", night1));
+  const open = modules.panel.renderRoleInfoInputs(player, game);
+  seatPicker.setOpenSeatPickerKey("");
+  assert.match(open, /class="notes-seat-field has-value is-open"/);
+  assert.match(open, /class="notes-seat-option is-selected"[^>]*value=""[^>]*aria-label="1号 阿杰"/, "tapping the selected seat clears it");
+  assert.match(open, /class="notes-seat-option is-dead"[\s\S]*?<small>死<\/small>/);
+  assert.match(open, /class="notes-seat-option is-self"[\s\S]*?<small>自己<\/small>/);
+  const nextKey = seatPicker.getSeatPickerKey(player.id, "target", 0, "seat2", night1);
+  assert.match(open, new RegExp(`value="4"\\s+data-next-picker-key="${nextKey.replace(/[|]/g, "\\|")}"`));
 
   const checker = game.players[3];
   checker.claim = "送葬者";
@@ -473,4 +487,43 @@ test("yes/no colours follow the field tone and long claims shrink in the overvie
   const game = createGame(modules, "night", 1);
   assert.match(overviewRender.renderOverviewClaimInput({ id: "p1", claim: "图书管理员" }, game), /notes-overview-claim-input is-long"/);
   assert.match(overviewRender.renderOverviewClaimInput({ id: "p2", claim: "占卜师" }, game), /notes-overview-claim-input"/);
+});
+
+test("seat filters dim seats, number tokens follow the game and seat filters are inferred from the text", async (t) => {
+  const modules = await loadFrontend(t);
+  const { seatPicker, fields } = modules;
+  const game = createGame(modules, "night", 2);
+  game.players[1].status = "night-dead";
+
+  const options = seatPicker.getSeatPickerOptions(game, 7, { type: "seat", seatFilter: ["alive", "notSelf"] }, 3);
+  assert.deepEqual(options.filter((option) => option.dim).map((option) => option.seat), [2, 3]);
+  assert.deepEqual(seatPicker.getSeatPickerOptions(game, 7, { type: "seat", seatFilter: ["dead"] }).filter((option) => option.dim).length, 6);
+  assert.equal(seatPicker.getSeatFilterHint({ seatFilter: ["alive", "notSelf"] }), "存活玩家 · 不含自己");
+  assert.deepEqual(seatPicker.getSeatFilters({ seatFilter: ["bogus", "dead"] }), ["dead"]);
+
+  assert.equal(fields.resolveNumberBound("$players", game), 7);
+  assert.equal(fields.resolveNumberBound("$dead", game), 1);
+  assert.equal(fields.resolveNumberBound("$alive", game), 6);
+  assert.equal(fields.resolveNumberBound("$evil", game), 2, "7 players: one minion and the demon");
+  assert.equal(fields.resolveNumberBound("$evil", null), null);
+  assert.equal(fields.resolveNumberBound(15, game), 15);
+  const oracle = { key: "count", type: "number", label: "死亡邪恶数", min: 0, max: "$evil" };
+  const buttons = fields.renderRoleInfoFieldElement("result", 0, oracle, "", game, 7);
+  assert.deepEqual([...buttons.matchAll(/>([^<>]+)<\/button>/g)].map((match) => match[1].trim()), ["0", "1", "2", "+1"]);
+  assert.match(buttons, /value="3"[^>]*>\s*\+1<\/button>/, "+1 goes past the game-dependent maximum");
+  const past = fields.renderRoleInfoFieldElement("result", 0, oracle, "3", game, 7);
+  assert.match(past, /is-selected[^>]*>3<\/button>/, "a value above the maximum stays visible and selected");
+  assert.match(past, /value="4"[^>]*>\s*\+1<\/button>/);
+  const wide = fields.renderRoleInfoFieldElement("result", 0, { ...oracle, max: "$players" }, "", game, 7);
+  assert.match(wide, /notes-roleinfo-stepper/);
+  assert.doesNotMatch(wide, /max="/, "a dynamic maximum never caps the stepper");
+
+  const { inferSeatFilters, inferFiltersFromClause } = require("../scripts/lib/seat-filter-inference");
+  assert.deepEqual(inferFiltersFromClause("选择除你以外的两名存活的玩家"), ["alive", "notSelf"]);
+  assert.deepEqual(inferFiltersFromClause("选择一名死亡的玩家"), ["dead"]);
+  const role = (ability, fieldsList = [{ key: "seat", type: "seat" }]) => ({ ability, abilityData: { interactionSchema: { target: { fields: fieldsList } } } });
+  assert.deepEqual(inferSeatFilters(role("每个夜晚*，你要选择除你以外的一名玩家：当晚恶魔的负面能力对他无效。")), { status: "infer", filters: ["notSelf"], fieldKeys: ["seat"] });
+  assert.equal(inferSeatFilters(role("每个夜晚*，你要选择一名玩家：他死亡。在你的首个夜晚，你要选择一名存活的玩家：他中毒。")).status, "ambiguous");
+  assert.equal(inferSeatFilters(role("每个夜晚，你要选择两名玩家：你会得知他们之中是否有恶魔。")).status, "none");
+  assert.equal(inferSeatFilters(role("选择一名存活的玩家", [{ key: "seat", type: "seat", seatFilter: ["dead"] }])).status, "none", "explicit values are kept");
 });

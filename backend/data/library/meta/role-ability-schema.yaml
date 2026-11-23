@@ -308,6 +308,16 @@ usageRules:
     page: evil (yes is bad news for good, e.g. 占卜师 有恶魔: yes red / no teal), good (the reverse) or
     neutral (both ink). Without it a label mentioning 恶魔/爪牙/邪恶 is treated as evil, anything else as neutral.
   - >-
+    seatFilter is an optional list on seat fields: alive, dead and/or notSelf (alive and dead exclude each
+    other), from wording such as 选择一名存活的玩家 / 死亡的玩家 / 除你以外. The notes page seat grid dims
+    seats outside the filter but keeps them tappable, because the status shown now may differ from the
+    status at the recorded phase.
+  - >-
+    Number min / max may be a game-dependent token instead of a number: $players (non-traveller players),
+    $alive, $dead or $evil (minions + demon of the standard setup). The notes page resolves it for the
+    current game; a resolved span of at most 6 renders buttons plus a "+1" button that goes past the
+    maximum, otherwise an open-ended stepper. Prefer a fixed range when the ability text fixes one.
+  - >-
     Number fields with min and max set by hand to a span of at most 6 values render as one-tap
     buttons on the notes page; wider or missing ranges (including the generated 0..15) render as a
     numeric input with -/+ steppers.

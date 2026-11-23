@@ -58,6 +58,8 @@ function renderAcquiredRecord(ability, record, role, game, player, source) {
     game,
     maxSeat: getMaxSeatNumber(game),
     className: "notes-roleinfo-form--acquired",
+    pickerScope: `${player?.id || ""}:${source}:${ability.id}`,
+    ownerSeat: player?.seat,
     renderRowExtra: getAcquiredTruthRenderer(ability, record, role, player, game, source),
   });
   const summary = formatRoleInfoEntriesTexts(record.roleInfo, role.abilityData).join(" / ");

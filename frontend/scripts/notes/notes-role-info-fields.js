@@ -3,6 +3,8 @@ import { roleTypeOrder, typeLabels } from "../state.js";
 import { escapeHtml } from "../utils.js";
 import { getChoiceLabel, isExclusiveField, isExclusiveValueOn } from "./notes-role-info.js";
 import { formatRoleInfoPhaseLabel } from "./notes-role-info-records.js";
+import { getResidentPlayers, getStandardSetup } from "./notes-core.js";
+import { getOpenSeatPickerKey, getSeatPickerKey, renderSeatFieldButton, renderSeatPicker } from "./notes-role-info-seat-picker.js";
 
 // Role field filters. `roleTypes` is an optional explicit attribute on the field (see
 // role-ability-schema.yaml); without it the filter is inferred from the field key, then the label.
@@ -73,6 +75,49 @@ export function getRoleFieldCandidates(field, roles) {
 // Number fields render as a row of buttons only when the declared range is small. Most role YAML
 // number fields carry an auto-generated 0..15 range, so a small span is a sign it was set by hand.
 export const NUMBER_BUTTON_LIMIT = 6;
+
+const deadStatusList = ["night-dead", "executed"];
+
+/**
+ * Game-dependent number bounds: min / max may be "$players" (non-traveller players), "$alive", "$dead" or
+ * "$evil" (minions + demon of the standard setup for the player count). Without a game they stay unset.
+ */
+export function resolveNumberBound(value, game) {
+  if (typeof value !== "string" || !value.startsWith("$")) {
+    return value;
+  }
+  if (!game) {
+    return null;
+  }
+  const residents = getResidentPlayers(game);
+  const players = residents.length || Number(game.playerCount) || 0;
+  const dead = residents.filter((player) => deadStatusList.includes(player.status)).length;
+  const setup = getStandardSetup(players);
+  const tokens = {
+    $players: players,
+    $alive: players - dead,
+    $dead: dead,
+    $evil: (setup.minion || 0) + (setup.demon || 0),
+  };
+  return value in tokens ? tokens[value] : null;
+}
+
+export function isDynamicNumberBound(value) {
+  return typeof value === "string" && value.startsWith("$");
+}
+
+/** The field with its min / max resolved against the game; `dynamicMax` marks a game-dependent upper bound. */
+export function resolveNumberField(field, game) {
+  if (field?.type !== "number") {
+    return field;
+  }
+  return {
+    ...field,
+    min: resolveNumberBound(field.min, game),
+    max: resolveNumberBound(field.max, game),
+    dynamicMax: isDynamicNumberBound(field.max),
+  };
+}
 
 /** Values for the number button row, or null when the field should use the stepper input. */
 export function getNumberButtonValues(field) {
@@ -202,10 +247,23 @@ function getRoleInfoFieldOptions(field, game) {
   return [];
 }
 
+// Context of the form being rendered (set by renderRoleInfoForm, which renders synchronously):
+// pickerScope keys the seat picker to one form, ownerSeat is the seat of the ability's owner (seatFilter notSelf).
+let formUi = { pickerScope: "", ownerSeat: 0 };
+
+function getFieldSharedData(sectionKey, rowIndex, field, phase, disabled) {
+  return `
+    data-roleinfo-section="${escapeHtml(sectionKey)}"
+    data-roleinfo-row="${rowIndex}"
+    data-roleinfo-field="${escapeHtml(field.key)}"
+    ${renderPhaseData("roleinfo-", phase)}
+    ${disabled ? "disabled" : ""}
+  `;
+}
+
 // Above this many candidates a native <select> gets unwieldy (free mode lists the whole catalog),
 // so role fields fall back to the searchable text input + datalist.
 export const ROLE_SELECT_LIMIT = 80;
-const deadStatuses = ["night-dead", "executed"];
 
 function renderOption(value, label, currentValue) {
   return `<option value="${escapeHtml(value)}"${String(value) === currentValue ? " selected" : ""}>${escapeHtml(label)}</option>`;
@@ -215,32 +273,6 @@ function renderUnknownCurrentOption(currentValue, knownValues) {
   return currentValue && !knownValues.includes(currentValue)
     ? `<option value="${escapeHtml(currentValue)}" selected>${escapeHtml(currentValue)}</option>`
     : "";
-}
-
-export function getSeatOptions(game, maxSeat) {
-  const playersBySeat = new Map((game?.players || []).map((player) => [Number(player.seat), player]));
-  const count = Math.max(Number(maxSeat) || 0, 0);
-  return Array.from({ length: count }, (_, index) => {
-    const seat = index + 1;
-    const player = playersBySeat.get(seat);
-    const name = String(player?.name || "").trim();
-    const dead = deadStatuses.includes(player?.status);
-    return {
-      value: String(seat),
-      label: `${seat}号${dead ? "（死）" : ""}${name ? ` ${name}` : ""}`,
-    };
-  });
-}
-
-function renderSeatSelect(field, currentValue, game, maxSeat, sharedData) {
-  const options = getSeatOptions(game, maxSeat);
-  return `
-    <select aria-label="${escapeHtml(field.label || "号码")}" ${sharedData}>
-      <option value="">—</option>
-      ${renderUnknownCurrentOption(currentValue, options.map((option) => option.value))}
-      ${options.map((option) => renderOption(option.value, option.label, currentValue)).join("")}
-    </select>
-  `;
 }
 
 function renderRoleSelect(field, currentValue, roles, sharedData) {
@@ -325,12 +357,12 @@ function renderSegmentButtons(field, currentValue, options, sharedData, accessib
       ${extraClass ? `<div class="notes-roleinfo-segment-grid">` : ""}
       ${allOptions
         .map((option) => {
-          const selected = option.value === currentValue;
+          const selected = !option.extra && option.value === currentValue;
           return `<button
             type="button"
             class="notes-roleinfo-segment${selected ? ` is-selected notes-roleinfo-segment--${escapeHtml(option.value)}` : ""}"
             data-notes-action="set-roleinfo-field"
-            value="${escapeHtml(getSegmentNextValue(currentValue, option.value))}"
+            value="${escapeHtml(option.extra ? option.value : getSegmentNextValue(currentValue, option.value))}"
             aria-pressed="${selected ? "true" : "false"}"
             ${sharedData}
           >${escapeHtml(option.label)}</button>`;
@@ -392,16 +424,11 @@ function renderExclusiveToggle(field, currentValue, sharedData, accessibleLabel)
 /** disabled: the row's exclusive switch is on, so this field does not apply. */
 export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat, phase = null, disabled = false) {
   const currentValue = String(value ?? "");
-  const sharedData = `
-    data-roleinfo-section="${escapeHtml(sectionKey)}"
-    data-roleinfo-row="${rowIndex}"
-    data-roleinfo-field="${escapeHtml(field.key)}"
-    ${renderPhaseData("roleinfo-", phase)}
-    ${disabled ? "disabled" : ""}
-  `;
+  const sharedData = getFieldSharedData(sectionKey, rowIndex, field, phase, disabled);
 
   if (field.type === "seat" || field.type === "player") {
-    return renderSeatSelect(field, currentValue, game, maxSeat, sharedData);
+    const key = getSeatPickerKey(formUi.pickerScope, sectionKey, rowIndex, field.key, phase);
+    return renderSeatFieldButton(field, currentValue, key, disabled, getFieldAccessibleLabel(field, phase));
   }
 
   if (field.type === "role") {
@@ -426,13 +453,20 @@ export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, g
   }
 
   if (field.type === "number") {
-    const values = getNumberButtonValues(field);
+    const resolved = resolveNumberField(field, game);
+    const values = getNumberButtonValues(resolved);
     if (values) {
       const options = values.map((value) => ({ value, label: value }));
-      return renderSegmentButtons(field, currentValue, options, sharedData, accessibleLabel, " notes-roleinfo-segments--numbers");
+      // A game-dependent maximum can be too low (a death not marked yet, a converted player): "+1" goes past it.
+      if (resolved.dynamicMax) {
+        const top = Math.max(Number(resolved.max), Number(currentValue) || 0);
+        options.push({ value: String(top + 1), label: "+1", extra: true });
+      }
+      return renderSegmentButtons(resolved, currentValue, options, sharedData, accessibleLabel, " notes-roleinfo-segments--numbers");
     }
 
-    return renderNumberStepper(field, currentValue, sharedData, accessibleLabel);
+    // A dynamic maximum only shapes the buttons; the stepper stays open-ended so it never blocks a value.
+    return renderNumberStepper(resolved.dynamicMax ? { ...resolved, max: null } : resolved, currentValue, sharedData, accessibleLabel);
   }
 
   if (["team", "character_type", "status", "choice"].includes(field.type)) {
@@ -471,7 +505,7 @@ export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, g
 
 // Button-based controls must not sit inside a <label>: tapping the caption would click the first button.
 function usesButtonControl(field) {
-  return field?.type === "boolean" || field?.type === "number";
+  return ["boolean", "number", "seat", "player"].includes(field?.type);
 }
 
 function getFieldWrapperTag(field) {
@@ -567,10 +601,50 @@ function renderRowLabel(row) {
     : `<span class="notes-roleinfo-index notes-roleinfo-index--phase">${escapeHtml(row.label)}</span>`;
 }
 
+function isSeatField(field) {
+  return field?.type === "seat" || field?.type === "player";
+}
+
+/**
+ * Seat picker for the open seat cell among `cells`, or "". With `advance`, a pick moves on to the next enabled
+ * seat cell of the list; otherwise (packed rows, where the next cell is another phase) it closes.
+ */
+function renderOpenSeatPicker(cells, game, maxSeat, disabledKeys = new Set(), advance = true) {
+  const openKey = getOpenSeatPickerKey();
+  if (!openKey) {
+    return "";
+  }
+  const seatCells = cells
+    .filter((cell) => isSeatField(cell.field) && !disabledKeys.has(`${cell.section}:${cell.field.key}`))
+    .map((cell) => ({ ...cell, key: getSeatPickerKey(formUi.pickerScope, cell.section, cell.rowIndex, cell.field.key, cell.phase) }));
+  const index = seatCells.findIndex((cell) => cell.key === openKey);
+  if (index < 0) {
+    return "";
+  }
+  const cell = seatCells[index];
+  return renderSeatPicker({
+    field: cell.field,
+    currentValue: String(cell.value ?? ""),
+    sharedData: getFieldSharedData(cell.section, cell.rowIndex, cell.field, cell.phase, false),
+    key: cell.key,
+    nextKey: advance ? seatCells[index + 1]?.key || "" : "",
+    game,
+    maxSeat,
+    ownerSeat: formUi.ownerSeat,
+    accessibleLabel: getFieldAccessibleLabel(cell.field, cell.phase),
+  });
+}
+
 function renderFormRow(row, game, maxSeat, renderRowExtra = null) {
   const phase = { phaseType: row.phaseType, phaseNumber: row.phaseNumber };
   const extra = renderRowExtra ? renderRowExtra(row) : "";
   const disabledKeys = getExclusiveDisabledKeys(row.cells);
+  const picker = renderOpenSeatPicker(
+    row.cells.map((cell) => ({ ...cell, rowIndex: row.entryIndex, phase })),
+    game,
+    maxSeat,
+    disabledKeys,
+  );
   return `
     <div class="notes-roleinfo-row${row.isCurrent ? " notes-roleinfo-row--current" : ""}">
       ${renderRowLabel(row)}
@@ -581,6 +655,7 @@ function renderFormRow(row, game, maxSeat, renderRowExtra = null) {
           )
           .join("")}
       </div>
+      ${picker}
       ${extra}
     </div>
   `;
@@ -619,6 +694,13 @@ function renderCompactRows(rows, game, maxSeat) {
               })
               .join("")}
           </div>
+          ${renderOpenSeatPicker(
+            group.map((row) => ({ ...row.cells[0], rowIndex: row.entryIndex, phase: { phaseType: row.phaseType, phaseNumber: row.phaseNumber } })),
+            game,
+            maxSeat,
+            new Set(),
+            false,
+          )}
         </div>
       `,
     )
@@ -635,6 +717,12 @@ export function renderRoleInfoForm(model, options = {}) {
   if (!model?.rows?.length && !model?.pending) {
     return "";
   }
+
+  const owner = (game?.players || []).find((player) => player.id === playerId);
+  formUi = {
+    pickerScope: options.pickerScope ?? playerId,
+    ownerSeat: Number(options.ownerSeat ?? owner?.seat) || 0,
+  };
 
   const packed =
     !renderRowExtra && density === "compact" && model.rows.length > 1 && model.rows.every((row) => row.cells.length === 1);

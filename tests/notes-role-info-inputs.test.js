@@ -396,3 +396,32 @@ test("accessible labels include the phase and the stepper buttons name their fie
   assert.equal(fields.getSteppedNumberValue("17", -1, { min: 0, max: 15 }), "16");
   assert.equal(fields.getSteppedNumberValue("3", 1, { min: 0, max: null }), "4");
 });
+
+test("seat picker taps go through handleNotesAction: open, pick, move on to the next seat, close", async (t) => {
+  const modules = await loadFrontend(t);
+  const { state, notes, actions } = modules;
+  const game = createGame(modules);
+  state.notes.ui.screen = "game";
+  const teller = game.players[0];
+  teller.claim = "占卜师";
+  const selectors = { ".notes-player-detail, .notes-overview-editor, .story-night-detail": { dataset: { playerId: teller.id } } };
+  const flat = (html) => html.replace(/\s+/g, " ").replace(/ >/g, ">");
+  const render = () => flat(modules.panel.renderRoleInfoInputs(notes.getPlayerDraft(teller.id) || teller, game));
+  const target = () => notes.getPlayerDraft(teller.id)?.roleInfo.records[0]?.targetEntries[0] || {};
+  const pick = (seat) => {
+    const tag = findTags(render(), /data-notes-action="pick-seat"/).find((item) => item.includes(`aria-label="${seat}号`));
+    assert.ok(tag, `seat ${seat} in the open picker`);
+    actions.handleNotesAction(makeElement(tag, selectors));
+  };
+
+  const toggle = findTags(render(), /toggle-seat-picker/).find((tag) => tag.includes('aria-label="第1夜 号码1'));
+  assert.ok(toggle);
+  actions.handleNotesAction(makeElement(toggle));
+  assert.match(render(), /notes-seat-picker-head"> <strong>号码1<\/strong>/);
+  pick(3);
+  assert.deepEqual(target(), { seat1: "3" });
+  assert.match(render(), /<strong>号码2<\/strong>/, "moved on to the next seat field");
+  pick(5);
+  assert.deepEqual(target(), { seat1: "3", seat2: "5" });
+  assert.doesNotMatch(render(), /notes-seat-picker"/, "closed after the last seat field");
+});

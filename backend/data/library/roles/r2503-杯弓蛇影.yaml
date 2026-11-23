@@ -91,6 +91,9 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - alive
+            - notSelf
         - key: role
           type: role
           label: 选择角色

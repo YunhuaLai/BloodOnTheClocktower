@@ -100,6 +100,8 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - alive
     result:
       repeatMode: none
       defaultRows: 0

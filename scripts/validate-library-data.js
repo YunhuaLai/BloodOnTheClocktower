@@ -126,6 +126,9 @@ const KNOWN_FIELD_TYPES = new Set([
 const KNOWN_REPEAT_MODES = new Set(["none", "once", "sequence", "variable"]);
 const KNOWN_REVIEWER_KINDS = new Set(["ai", "human"]);
 const KNOWN_ROLE_FIELD_TYPES = new Set(["townsfolk", "outsider", "minion", "demon", "traveller", "good", "evil"]);
+// Game-dependent number bounds resolved by the notes page (resolveNumberBound in notes-role-info-fields.js).
+const NUMBER_BOUND_TOKENS = new Set(["$players", "$alive", "$dead", "$evil"]);
+const SEAT_FILTERS = new Set(["alive", "dead", "notSelf"]);
 
 const ARCHIVED_ORPHAN_ROLE_TYPES = new Set([
   "fabled",
@@ -484,8 +487,20 @@ function validateReviewedAbility(ability, role, reviewedDrift) {
       if (!String(field?.label || "").trim()) {
         addError(`${where} is missing label`);
       }
-      if (field?.type === "number" && field.min !== null && field.max !== null && Number(field.min) > Number(field.max)) {
+      const isToken = (value) => typeof value === "string" && value.startsWith("$");
+      ["min", "max"].forEach((bound) => {
+        if (isToken(field?.[bound]) && (field.type !== "number" || !NUMBER_BOUND_TOKENS.has(field[bound]))) {
+          addError(`${where} ${bound} "${field[bound]}" must be one of ${[...NUMBER_BOUND_TOKENS].join(", ")} on a number field`);
+        }
+      });
+      if (field?.type === "number" && field.min !== null && field.max !== null && !isToken(field.min) && !isToken(field.max) && Number(field.min) > Number(field.max)) {
         addError(`${where} has min > max`);
+      }
+      if (field?.seatFilter !== undefined && field.seatFilter !== null) {
+        const filters = Array.isArray(field.seatFilter) ? field.seatFilter : [];
+        if (!["seat", "player"].includes(field.type) || !filters.length || filters.some((value) => !SEAT_FILTERS.has(value)) || (filters.includes("alive") && filters.includes("dead"))) {
+          addError(`${where} seatFilter must be a list of alive / dead / notSelf (not both alive and dead) on a seat field`);
+        }
       }
       if (field?.type === "choice" && !(Array.isArray(field.options) && field.options.length)) {
         addError(`${where} choice field needs options`);

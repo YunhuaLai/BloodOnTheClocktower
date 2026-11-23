@@ -26,6 +26,8 @@
 | 写入技能术语 metadata | `npm run ability-terms:sync` | `node scripts/sync-ability-terms.js --write` |
 | 检查技能语义结构 | `npm run ability-semantics:check` | `node scripts/sync-ability-semantics.js` |
 | 写入技能语义结构 | `npm run ability-semantics:sync` | `node scripts/sync-ability-semantics.js --write` |
+| 检查座位过滤（seatFilter） | `npm run seat-filters:check` | `node scripts/sync-seat-filters.js` |
+| 写入座位过滤（已审核角色需加 `--include-reviewed`） | `npm run seat-filters:sync` | `node scripts/sync-seat-filters.js --write` |
 | 检查推理画像 | `npm run deduction:check` | `node scripts/sync-deduction-profiles.js` |
 | 写入推理画像 | `npm run deduction:sync` | `node scripts/sync-deduction-profiles.js --write` |
 | 审计推理画像覆盖情况 | `npm run deduction:audit` | `node scripts/audit-deduction-profiles.js` |

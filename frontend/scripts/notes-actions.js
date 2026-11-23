@@ -30,6 +30,7 @@ import { state } from "./state.js";
 import { applyAcquiredSuggestion, handleAcquiredAction, handleAcquiredFieldChange } from "./notes/notes-acquired-actions.js";
 import { decodeTruthFill, encodeTruthBasis } from "./notes/notes-storyteller-truth-render.js";
 import { getSteppedNumberValue, parsePhaseChoiceValue } from "./notes/notes-role-info-fields.js";
+import { setOpenSeatPickerKey } from "./notes/notes-role-info-seat-picker.js";
 
 export async function handleNotesImportFile(target) {
   const file = target?.files?.[0];
@@ -262,6 +263,20 @@ function handleRoleInfoButtonAction(action, button) {
     return true;
   }
 
+  // Seat picker: open / close, then pick (writes like a segment button and opens the next seat field).
+  if (action === "toggle-seat-picker") {
+    setOpenSeatPickerKey(button.dataset.seatPickerKey || "");
+    renderNotesPage();
+    return true;
+  }
+
+  if (action === "pick-seat") {
+    handleNotesFieldChange(button, false);
+    setOpenSeatPickerKey(button.dataset.nextPickerKey || "");
+    renderNotesPage();
+    return true;
+  }
+
   if (action === "apply-roleinfo-suggestion") {
     applyRoleInfoSuggestion(button);
     return true;
@@ -300,6 +315,11 @@ export function handleNotesAction(button) {
   }
 
   if (handleRoleInfoButtonAction(action, button)) return;
+
+  // A picker left open would reappear when the same player is opened again.
+  if (["switch-tab", "toggle-overview-player", "go-home"].includes(action)) {
+    setOpenSeatPickerKey("");
+  }
 
   if (handleAcquiredAction(action, button)) return;
 

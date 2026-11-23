@@ -91,6 +91,8 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
         - key: seat2
           type: seat
           label: 目标号码2
@@ -100,6 +102,8 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
         - key: seat3
           type: seat
           label: 目标号码3
@@ -109,6 +113,8 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
     result:
       repeatMode: sequence
       defaultRows: 3
