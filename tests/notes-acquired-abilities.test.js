@@ -63,7 +63,7 @@ test("acquired abilities preserve identity, phased history, drafts, backups and 
   game.phaseNumber = 2;
   actions.updateAcquiredAbility(player.id, "player", ability.id, "status", "active");
   assert.equal(ability.startPhaseNumber, 2);
-  assert.equal((renderAcquiredAbilities(notes.getPlayerDraft(player.id), game).match(/data-notes-action="cycle-roleinfo-field"/g) || []).length, 1);
+  assert.equal((renderAcquiredAbilities(notes.getPlayerDraft(player.id), game).match(/data-notes-action="set-roleinfo-field"/g) || []).length, 2);
   actions.updateAcquiredRecord(player.id, "player", ability.id, "night", 2, "target", 0, "first", "2");
   actions.updateAcquiredRecord(player.id, "player", ability.id, "night", 2, "target", 0, "second", "5");
   actions.updateAcquiredRecord(player.id, "player", ability.id, "night", 2, "result", 0, "answer", "", true);

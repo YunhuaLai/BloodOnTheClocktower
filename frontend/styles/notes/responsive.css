@@ -415,26 +415,13 @@
   padding: 10px;
 }
 
-.notes-roleinfo-toggle {
-  width: 100%;
+.notes-overview-editor .notes-roleinfo-segment,
+.notes-overview-editor .notes-roleinfo-step {
   min-height: 36px;
-  padding: 7px 8px;
-  color: var(--ink);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 800;
 }
 
-.notes-roleinfo-toggle--yes {
-  border-color: var(--teal);
-  background: rgba(33, 115, 102, 0.08);
-}
-
-.notes-roleinfo-toggle--no {
-  border-color: var(--red);
-  background: rgba(178, 31, 45, 0.08);
+.notes-overview-editor .notes-roleinfo-field .notes-roleinfo-stepper input {
+  padding: 7px 4px;
 }
 
 .notes-overview-editor .notes-roleinfo-row {

@@ -467,6 +467,127 @@
   border-radius: 6px;
 }
 
+/* Segmented buttons: boolean yes/no and small-range numbers. Wraps instead of overflowing. */
+.notes-roleinfo-segments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-width: 0;
+}
+
+.notes-roleinfo-segment {
+  flex: 1 1 0;
+  min-width: 30px;
+  min-height: 40px;
+  padding: 6px 4px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  touch-action: manipulation;
+}
+
+/* Number buttons: one row when it fits, otherwise fold into rows of 3 (or 2 for four values). */
+.notes-roleinfo-segments--numbers {
+  display: block;
+  container-type: inline-size;
+}
+
+.notes-roleinfo-segment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.notes-roleinfo-segments--n1 .notes-roleinfo-segment-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.notes-roleinfo-segments--n2 .notes-roleinfo-segment-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.notes-roleinfo-segments--n4 .notes-roleinfo-segment-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.notes-roleinfo-segments--n5 .notes-roleinfo-segment-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.notes-roleinfo-segments--n6 .notes-roleinfo-segment-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+@container (max-width: 211px) {
+  .notes-roleinfo-segments--n6 .notes-roleinfo-segment-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@container (max-width: 175px) {
+  .notes-roleinfo-segments--n5 .notes-roleinfo-segment-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@container (max-width: 139px) {
+  .notes-roleinfo-segments--n5 .notes-roleinfo-segment-grid,
+  .notes-roleinfo-segments--n6 .notes-roleinfo-segment-grid,
+  .notes-roleinfo-segments--n4 .notes-roleinfo-segment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.notes-roleinfo-segment.is-selected {
+  color: #fff;
+  background: var(--teal);
+  border-color: var(--teal);
+}
+
+.notes-roleinfo-segment--no.is-selected {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+/* Number stepper: − [input] + */
+.notes-roleinfo-stepper {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr) 36px;
+  gap: 4px;
+  min-width: 0;
+}
+
+.notes-roleinfo-step {
+  min-height: 40px;
+  padding: 0;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1;
+  touch-action: manipulation;
+}
+
+.notes-roleinfo-field .notes-roleinfo-stepper input {
+  min-width: 0;
+  padding: 8px 4px;
+  text-align: center;
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.notes-roleinfo-stepper input::-webkit-outer-spin-button,
+.notes-roleinfo-stepper input::-webkit-inner-spin-button {
+  margin: 0;
+  -webkit-appearance: none;
+}
+
 .notes-roleinfo-actions {
   display: flex;
   flex-wrap: wrap;

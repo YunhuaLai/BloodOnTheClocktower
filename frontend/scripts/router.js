@@ -254,6 +254,15 @@ document.addEventListener("change", (event) => {
   }
 });
 
+// Role-info segment and stepper buttons keep focus where it is: blurring a typed field would fire
+// `change`, re-render the page before the tap's click, and drop the click. The `input` event has
+// already saved what was typed.
+document.addEventListener("mousedown", (event) => {
+  if (event.target.closest(".notes-roleinfo-step, .notes-roleinfo-segment")) {
+    event.preventDefault();
+  }
+});
+
 document.addEventListener("pointerdown", (event) => {
   const swipe = event.target.closest("[data-swipe-game-id]");
   if (

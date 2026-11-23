@@ -257,6 +257,7 @@ templates:
     min: 1
     max: 15
     placeholder: null
+    roleTypes: null
   deduction:
     status: supported
     source: manual
@@ -286,6 +287,17 @@ usageRules:
   - >-
     Role fields should prefer optionsSource='current_script_roles' unless the role explicitly
     references all roles.
+  - >-
+    roleTypes is an optional, hand-set attribute on role fields that limits the candidates to the
+    listed character types (townsfolk, outsider, minion, demon, traveller; 'good' expands to
+    townsfolk + outsider and 'evil' to minion + demon). Without it the notes page infers a filter
+    from the field key (good_/evil_/townsfolk_/outsider_/minion_/demon_ tokens) and then the label
+    (镇民/外来者/爪牙/恶魔, then 好身份/好角色/善良 or 坏身份/坏角色/邪恶). An explicit value
+    always wins; roleTypes: [] turns the filter off for a field whose wording would be misread.
+  - >-
+    Number fields with min and max set by hand to a span of at most 6 values render as one-tap
+    buttons on the notes page; wider or missing ranges (including the generated 0..15) render as a
+    numeric input with -/+ steppers.
   - >-
     Target and result reuse the same field definitions, but remain separate containers because their
     semantics differ.

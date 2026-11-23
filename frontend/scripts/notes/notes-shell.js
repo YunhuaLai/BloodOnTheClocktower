@@ -7,6 +7,7 @@ import { formatPhaseLabel, getAliveCount, getStandardSetup, getTotalPlayerCount,
 import { renderOverviewTab } from "./notes-overview-render.js";
 import { renderPlayersTab } from "./notes-player-render.js";
 import { getClaimedRole } from "./notes-role-info.js";
+import { renderRoleInfoRoleDatalists } from "./notes-role-info-fields.js";
 import { renderStorytellerTab } from "./notes-storyteller-render.js";
 import { renderInferenceTab, renderTimelineTab } from "./notes-timeline-render.js";
 
@@ -878,6 +879,7 @@ function renderGamePage(notes, game) {
       </main>
 
       ${renderRoleNameDatalist(game)}
+      ${renderRoleInfoRoleDatalists(game)}
       ${renderTravellerRoleNameDatalist(game)}
       ${renderTabBar()}
     </section>

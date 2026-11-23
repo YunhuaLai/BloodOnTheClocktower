@@ -26,6 +26,7 @@ import { handleStorytellerAction } from "./notes/notes-storyteller-ui-actions.js
 import { handleTimelineAction } from "./notes/notes-timeline-actions.js";
 import { state } from "./state.js";
 import { handleAcquiredAction, handleAcquiredFieldChange } from "./notes/notes-acquired-actions.js";
+import { getSteppedNumberValue } from "./notes/notes-role-info-fields.js";
 
 export async function handleNotesImportFile(target) {
   const file = target?.files?.[0];
@@ -201,6 +202,29 @@ function readRoleInfoPhase(dataset, prefix) {
   return { phaseType: phaseType || "", phaseNumber: Number(phaseNumber) || 0 };
 }
 
+// Segment and stepper buttons write through the same path as the role-info inputs and selects,
+// so the player panel, overview, storyteller night and acquired-ability forms all share it.
+function handleRoleInfoButtonAction(action, button) {
+  if (action === "set-roleinfo-field") {
+    handleNotesFieldChange(button, true);
+    return true;
+  }
+
+  if (action === "step-roleinfo-field") {
+    const input = button.closest(".notes-roleinfo-stepper")?.querySelector("input[data-roleinfo-field]");
+    if (input) {
+      input.value = getSteppedNumberValue(input.value, Number(button.dataset.step) || 0, {
+        min: input.getAttribute("min"),
+        max: input.getAttribute("max"),
+      });
+      handleNotesFieldChange(input, true);
+    }
+    return true;
+  }
+
+  return false;
+}
+
 export function handleNotesAction(button) {
   const action = button.dataset.notesAction;
   const notes = ensureNotesState();
@@ -217,6 +241,8 @@ export function handleNotesAction(button) {
   if (!game) {
     return;
   }
+
+  if (handleRoleInfoButtonAction(action, button)) return;
 
   if (handleAcquiredAction(action, button)) return;
 

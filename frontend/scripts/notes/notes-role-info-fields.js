@@ -3,9 +3,143 @@ import { roleTypeOrder, typeLabels } from "../state.js";
 import { escapeHtml } from "../utils.js";
 import { getChoiceLabel } from "./notes-role-info.js";
 
+// Role field filters. `roleTypes` is an optional explicit attribute on the field (see
+// role-ability-schema.yaml); without it the filter is inferred from the field key, then the label.
+const teamRoleTypes = {
+  good: ["townsfolk", "outsider"],
+  evil: ["minion", "demon"],
+};
+const characterRoleTypes = ["townsfolk", "outsider", "minion", "demon", "traveller"];
+const keyTypeTokens = {
+  townsfolk: ["townsfolk"],
+  outsider: ["outsider"],
+  minion: ["minion"],
+  demon: ["demon"],
+  good: teamRoleTypes.good,
+  evil: teamRoleTypes.evil,
+};
+// Checked in order: specific character types before the broad good/evil wording.
+const labelTypeRules = [
+  [/镇民/, ["townsfolk"]],
+  [/外来者/, ["outsider"]],
+  [/爪牙/, ["minion"]],
+  [/恶魔/, ["demon"]],
+  [/好身份|好角色|好人|善良/, teamRoleTypes.good],
+  [/坏身份|坏角色|坏人|邪恶/, teamRoleTypes.evil],
+];
+
+function expandRoleTypes(values) {
+  const list = (Array.isArray(values) ? values : [values])
+    .map((value) => String(value || "").trim().toLowerCase())
+    .flatMap((value) => teamRoleTypes[value] || (value === "traveler" ? ["traveller"] : [value]))
+    .filter((value) => characterRoleTypes.includes(value));
+  return list.length ? [...new Set(list)] : null;
+}
+
+/** Character types a role field should list, or null for no filter. */
+export function getRoleFieldTypeFilter(field) {
+  if (!field || field.type !== "role") {
+    return null;
+  }
+
+  if (field.roleTypes !== undefined && field.roleTypes !== null) {
+    return expandRoleTypes(field.roleTypes);
+  }
+
+  const tokens = String(field.key || "").toLowerCase().split(/[^a-z]+/).filter(Boolean);
+  for (const token of ["townsfolk", "outsider", "minion", "demon", "good", "evil"]) {
+    if (tokens.includes(token)) {
+      return [...keyTypeTokens[token]];
+    }
+  }
+
+  const label = String(field.label || "");
+  const rule = labelTypeRules.find(([pattern]) => pattern.test(label));
+  return rule ? [...rule[1]] : null;
+}
+
+/** Filter role options for a field; falls back to every role when the filter would leave none. */
+export function getRoleFieldCandidates(field, roles) {
+  const types = getRoleFieldTypeFilter(field);
+  if (!types) {
+    return roles;
+  }
+
+  const filtered = roles.filter((role) => types.includes(role.type === "traveler" ? "traveller" : role.type));
+  return filtered.length ? filtered : roles;
+}
+
+// Number fields render as a row of buttons only when the declared range is small. Most role YAML
+// number fields carry an auto-generated 0..15 range, so a small span is a sign it was set by hand.
+export const NUMBER_BUTTON_LIMIT = 6;
+
+/** Values for the number button row, or null when the field should use the stepper input. */
+export function getNumberButtonValues(field) {
+  if (field?.type !== "number" || field.min === null || field.max === null || field.min === undefined || field.max === undefined || field.min === "" || field.max === "") {
+    return null;
+  }
+
+  const min = Number(field.min);
+  const max = Number(field.max);
+  if (!Number.isInteger(min) || !Number.isInteger(max) || max < min || max - min + 1 > NUMBER_BUTTON_LIMIT) {
+    return null;
+  }
+
+  return Array.from({ length: max - min + 1 }, (_, index) => String(min + index));
+}
+
+/** Options for a segmented boolean control: custom `options` when present, otherwise yes/no. */
+export function getBooleanFieldOptions(field) {
+  const values = Array.isArray(field?.options) && field.options.length ? field.options : ["yes", "no"];
+  return values.map((value) => ({ value: String(value), label: getChoiceLabel(value) }));
+}
+
+/** Value to store when a segment is tapped: tapping the selected segment clears the field. */
+export function getSegmentNextValue(currentValue, optionValue) {
+  return String(currentValue ?? "") === String(optionValue) ? "" : String(optionValue);
+}
+
+function readBound(value) {
+  if (value === null || value === undefined || value === "") {
+    return null;
+  }
+
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+/**
+ * Next stepper value: blank steps to the lower bound; never below min (or 0 without min) and
+ * + never goes past max. A value already above max (typed, or old data) is not pulled down.
+ */
+export function getSteppedNumberValue(currentValue, step, field = {}) {
+  const lower = readBound(field.min) ?? 0;
+  const upper = readBound(field.max);
+  const text = String(currentValue ?? "").trim();
+  const current = Number(text);
+  if (!text || !Number.isFinite(current)) {
+    return String(lower);
+  }
+
+  const rounded = Math.round(current);
+  let next = Math.max(rounded + Number(step || 0), lower);
+  if (upper !== null && step > 0 && next > upper) {
+    next = Math.max(rounded, upper);
+  }
+  return String(next);
+}
+
+/** Accessible name for a control: the phase (when known) plus the field label, e.g. "第2夜 邻座邪恶数". */
+export function getFieldAccessibleLabel(field, phase) {
+  const number = Number(phase?.phaseNumber) || 0;
+  const phaseText =
+    number > 0 && phase?.phaseType === "night" ? `第${number}夜` : number > 0 && phase?.phaseType === "day" ? `第${number}天` : "";
+  return [phaseText, String(field?.label || "").trim()].filter(Boolean).join(" ");
+}
+
 function getRoleInfoFieldOptions(field, game) {
   if (field.type === "role") {
-    return getClaimRoleOptions(game).map((role) => ({
+    return getRoleFieldCandidates(field, getClaimRoleOptions(game)).map((role) => ({
       value: role.name,
       label: role.name,
     }));
@@ -115,6 +249,106 @@ function renderRoleSelect(field, currentValue, roles, sharedData) {
   `;
 }
 
+// Filtered role inputs over ROLE_SELECT_LIMIT share one datalist per type set. Fields register the
+// set while the tab content renders; the shell then emits the lists next to #roleNameList.
+const pendingRoleLists = new Map();
+
+export function getRoleListId(types) {
+  return `roleNameList-${types.join("-")}`;
+}
+
+export function renderRoleInfoRoleDatalists(game) {
+  const lists = [...pendingRoleLists.values()];
+  pendingRoleLists.clear();
+  if (!lists.length || !game) {
+    return "";
+  }
+
+  const roles = getClaimRoleOptions(game);
+  return lists
+    .map((types) => {
+      const candidates = getRoleFieldCandidates({ type: "role", roleTypes: types }, roles);
+      return `<datalist id="${escapeHtml(getRoleListId(types))}">${candidates
+        .map((role) => `<option value="${escapeHtml(role.name)}" label="${escapeHtml(typeLabels[role.type] || role.type)}"></option>`)
+        .join("")}</datalist>`;
+    })
+    .join("");
+}
+
+function renderRoleTextInput(field, currentValue, filterTypes, sharedData) {
+  let listId = "roleNameList";
+  if (filterTypes) {
+    listId = getRoleListId(filterTypes);
+    pendingRoleLists.set(listId, filterTypes);
+  }
+
+  return `
+    <input
+      type="text"
+      list="${listId}"
+      value="${escapeHtml(currentValue)}"
+      placeholder="${escapeHtml(field.placeholder || field.label)}"
+      autocomplete="off"
+      autocapitalize="off"
+      spellcheck="false"
+      ${sharedData}
+    />
+  `;
+}
+
+function renderSegmentButtons(field, currentValue, options, sharedData, accessibleLabel, extraClass = "") {
+  const knownValues = options.map((option) => option.value);
+  // A stored value outside the options (old data, out-of-range number) stays visible and clearable.
+  const allOptions =
+    currentValue && !knownValues.includes(currentValue)
+      ? [...options, { value: currentValue, label: getChoiceLabel(currentValue) }]
+      : options;
+  const countClass = extraClass ? ` notes-roleinfo-segments--n${Math.min(allOptions.length, NUMBER_BUTTON_LIMIT)}` : "";
+  return `
+    <div class="notes-roleinfo-segments${extraClass}${countClass}" role="group" aria-label="${escapeHtml(accessibleLabel)}">
+      ${extraClass ? `<div class="notes-roleinfo-segment-grid">` : ""}
+      ${allOptions
+        .map((option) => {
+          const selected = option.value === currentValue;
+          return `<button
+            type="button"
+            class="notes-roleinfo-segment${selected ? ` is-selected notes-roleinfo-segment--${escapeHtml(option.value)}` : ""}"
+            data-notes-action="set-roleinfo-field"
+            value="${escapeHtml(getSegmentNextValue(currentValue, option.value))}"
+            aria-pressed="${selected ? "true" : "false"}"
+            ${sharedData}
+          >${escapeHtml(option.label)}</button>`;
+        })
+        .join("")}
+      ${extraClass ? "</div>" : ""}
+    </div>
+  `;
+}
+
+function renderNumberStepper(field, currentValue, sharedData, accessibleLabel) {
+  const minValue = field.min ?? "";
+  const maxValue = field.max ?? "";
+  const name = escapeHtml(accessibleLabel || "数字");
+  return `
+    <div class="notes-roleinfo-stepper" role="group" aria-label="${name}">
+      <button type="button" class="notes-roleinfo-step" data-notes-action="step-roleinfo-field" data-step="-1" aria-label="${name} 减一">−</button>
+      <input
+        type="number"
+        inputmode="numeric"
+        step="1"
+        ${minValue !== "" ? `min="${escapeHtml(minValue)}"` : ""}
+        ${maxValue !== "" ? `max="${escapeHtml(maxValue)}"` : ""}
+        value="${escapeHtml(currentValue)}"
+        placeholder="${escapeHtml(field.placeholder || "—")}"
+        aria-label="${name}"
+        autocomplete="off"
+        ${sharedData}
+      />
+      <button type="button" class="notes-roleinfo-step" data-notes-action="step-roleinfo-field" data-step="1" aria-label="${name} 加一">+</button>
+    </div>
+  `;
+}
+
 function renderPhaseData(prefix, phase) {
   if (!phase) {
     return "";
@@ -137,39 +371,29 @@ export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, g
   }
 
   if (field.type === "role") {
-    const roles = game ? getClaimRoleOptions(game) : [];
+    const allRoles = game ? getClaimRoleOptions(game) : [];
+    const roles = getRoleFieldCandidates(field, allRoles);
     if (roles.length && roles.length <= ROLE_SELECT_LIMIT) {
       return renderRoleSelect(field, currentValue, roles, sharedData);
     }
 
-    return `
-      <input
-        type="text"
-        list="roleNameList"
-        value="${escapeHtml(currentValue)}"
-        placeholder="${escapeHtml(field.placeholder || field.label)}"
-        autocomplete="off"
-        autocapitalize="off"
-        spellcheck="false"
-        ${sharedData}
-      />
-    `;
+    return renderRoleTextInput(field, currentValue, roles !== allRoles ? getRoleFieldTypeFilter(field) : null, sharedData);
   }
 
+  const accessibleLabel = getFieldAccessibleLabel(field, phase);
+
   if (field.type === "boolean") {
-    const buttonText = getChoiceLabel(currentValue || "?");
-    const buttonClass = currentValue ? ` notes-roleinfo-toggle--${escapeHtml(currentValue)}` : "";
-    return `
-      <button
-        type="button"
-        class="notes-roleinfo-toggle${buttonClass}"
-        data-notes-action="cycle-roleinfo-field"
-        data-section="${escapeHtml(sectionKey)}"
-        data-row="${rowIndex}"
-        data-field="${escapeHtml(field.key)}"
-        ${renderPhaseData("", phase)}
-      >${escapeHtml(buttonText)}</button>
-    `;
+    return renderSegmentButtons(field, currentValue, getBooleanFieldOptions(field), sharedData, accessibleLabel);
+  }
+
+  if (field.type === "number") {
+    const values = getNumberButtonValues(field);
+    if (values) {
+      const options = values.map((value) => ({ value, label: value }));
+      return renderSegmentButtons(field, currentValue, options, sharedData, accessibleLabel, " notes-roleinfo-segments--numbers");
+    }
+
+    return renderNumberStepper(field, currentValue, sharedData, accessibleLabel);
   }
 
   if (["team", "character_type", "status", "choice"].includes(field.type)) {
@@ -196,51 +420,58 @@ export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, g
     `;
   }
 
-  const isNumericField = field.type === "number";
-  const inputType = isNumericField ? "number" : "text";
-  const minValue = isNumericField ? field.min ?? "" : "";
-  const maxValue = isNumericField ? field.max ?? "" : "";
-
   return `
     <input
-      type="${inputType}"
-        ${minValue !== "" ? `min="${minValue}"` : ""}
-        ${maxValue !== "" ? `max="${maxValue}"` : ""}
-        ${isNumericField ? 'step="1"' : ""}
-        value="${escapeHtml(currentValue)}"
-        placeholder="${escapeHtml(field.placeholder || field.label)}"
+      type="text"
+      value="${escapeHtml(currentValue)}"
+      placeholder="${escapeHtml(field.placeholder || field.label)}"
       ${sharedData}
     />
   `;
 }
 
+// Button-based controls must not sit inside a <label>: tapping the caption would click the first button.
+function usesButtonControl(field) {
+  return field?.type === "boolean" || field?.type === "number";
+}
+
+function getFieldWrapperTag(field) {
+  return usesButtonControl(field) ? "div" : "label";
+}
+
 export function renderRoleInfoFieldControl(sectionKey, rowIndex, field, value, game, maxSeat, phase = null) {
+  const tag = getFieldWrapperTag(field);
   return `
-    <label class="notes-roleinfo-field">
+    <${tag} class="notes-roleinfo-field">
       <span>${escapeHtml(field.label)}</span>
       ${renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, game, maxSeat, phase)}
-    </label>
+    </${tag}>
   `;
 }
 
-function isCompactField(field) {
-  return ["number", "seat", "player", "boolean"].includes(field?.type);
+// Most columns a field fits in on a phone-width row.
+function getFieldMaxColumns(field) {
+  if (field?.type === "seat" || field?.type === "player") {
+    return 5;
+  }
+
+  if (field?.type === "role" || field?.type === "boolean") {
+    return 3;
+  }
+
+  if (field?.type === "number") {
+    return 2;
+  }
+
+  return 4;
 }
 
-function getFieldGridSize(fields) {
+export function getFieldGridSize(fields) {
   if (!fields.length) {
     return 1;
   }
 
-  if (fields.some((field) => field?.type === "role")) {
-    return Math.min(fields.length, 3);
-  }
-
-  if (fields.every(isCompactField)) {
-    return Math.min(fields.length, 5);
-  }
-
-  return Math.min(fields.length, 4);
+  return Math.min(fields.length, ...fields.map(getFieldMaxColumns));
 }
 
 function chunk(items, size) {
@@ -268,7 +499,8 @@ function renderFormRow(row, game, maxSeat) {
 // Single-field rows (e.g. one number per night) are packed into a grid with the phase as the label.
 function renderCompactRows(rows, game, maxSeat) {
   const field = rows[0].cells[0].field;
-  const size = field?.type === "role" ? 3 : isCompactField(field) ? 5 : 4;
+  const size = getFieldMaxColumns(field);
+  const tag = getFieldWrapperTag(field);
   return chunk(rows, size)
     .map(
       (group) => `
@@ -279,10 +511,10 @@ function renderCompactRows(rows, game, maxSeat) {
                 const cell = row.cells[0];
                 const phase = { phaseType: row.phaseType, phaseNumber: row.phaseNumber };
                 return `
-                  <label class="notes-roleinfo-field notes-roleinfo-field--stacked${row.isCurrent ? " notes-roleinfo-field--current" : ""}">
+                  <${tag} class="notes-roleinfo-field notes-roleinfo-field--stacked${row.isCurrent ? " notes-roleinfo-field--current" : ""}">
                     <span>${escapeHtml(row.label)}</span>
                     ${renderRoleInfoFieldElement(cell.section, row.entryIndex, cell.field, cell.value, game, maxSeat, phase)}
-                  </label>
+                  </${tag}>
                 `;
               })
               .join("")}
