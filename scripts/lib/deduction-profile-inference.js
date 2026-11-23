@@ -102,15 +102,6 @@ const explicitSupportedProfiles = {
       },
     ],
   },
-  r026: {
-    templates: [
-      {
-        type: "demon_in_group",
-        seats: { source: "target", keys: ["seat"] },
-        value: { source: "result", keys: ["hit_demon", "answer", "value"] },
-      },
-    ],
-  },
   r028: {
     templates: [
       {
