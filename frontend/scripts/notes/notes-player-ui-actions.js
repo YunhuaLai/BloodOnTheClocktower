@@ -14,6 +14,15 @@ function shouldPersistInline() {
   return ["overview", "storyteller"].includes(state.notes.ui.activeTab);
 }
 
+function getButtonPhase(button) {
+  const { phaseType, phaseNumber } = button.dataset;
+  if (phaseType === undefined && phaseNumber === undefined) {
+    return null;
+  }
+
+  return { phaseType: phaseType || "", phaseNumber: Number(phaseNumber) || 0 };
+}
+
 export function handlePlayerUiAction(action, button, notes) {
   if (action === "open-player" || action === "select-player") {
     notes.ui.selectedPlayerId = button.dataset.playerId || "";
@@ -63,6 +72,7 @@ export function handlePlayerUiAction(action, button, notes) {
       button.dataset.section || "result",
       Number(button.dataset.row || 0),
       button.dataset.field || "",
+      getButtonPhase(button),
     );
     if (shouldPersistInline() && playerId) {
       persistPlayerDraft(playerId);
@@ -90,6 +100,7 @@ export function handlePlayerUiAction(action, button, notes) {
       button.dataset.playerId,
       button.dataset.section || "target",
       action === "add-roleinfo-row" ? 1 : -1,
+      getButtonPhase(button),
     );
     if (shouldPersistInline()) {
       persistPlayerDraft(button.dataset.playerId);

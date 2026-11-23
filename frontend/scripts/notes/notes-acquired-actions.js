@@ -1,4 +1,4 @@
-import { createEmptyRoleInfo, getActiveGame } from "../notes-state.js";
+import { createEmptyRoleInfoEntries, getActiveGame } from "../notes-state.js";
 import { state } from "../state.js";
 import { createId } from "../utils.js";
 import { ensurePlayerDraftForId, persistPlayerDraft } from "./notes-player-actions.js";
@@ -97,7 +97,7 @@ function getRecordContext(playerId, source, abilityId, phaseType, phaseNumber) {
   let record = ability.records.find((item) => item.phaseType === phaseType && item.phaseNumber === phaseNumber);
   if (!record) {
     if (phaseType !== game.phaseType || phaseNumber !== Number(game.phaseNumber) || !isAcquiredAbilityActive(ability, game)) return null;
-    record = { phaseType, phaseNumber, roleInfo: createEmptyRoleInfo(role.id) };
+    record = { phaseType, phaseNumber, roleInfo: createEmptyRoleInfoEntries(role.id) };
     ability.records.push(record);
   }
   return { ...context, role, record };

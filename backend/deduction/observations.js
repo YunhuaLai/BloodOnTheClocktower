@@ -6,6 +6,7 @@ const {
   hasDayActionHistory,
 } = require("./day-records");
 const { getRoleDeductionProfile, getRoleDeductionReview, templateLabels } = require("./profiles");
+const { describeRowPhase, getRoleInfoRows } = require("./role-info-rows");
 
 const yesValues = new Set(["yes", "true", "1", "是", "有", "命中"]);
 const noValues = new Set(["no", "false", "0", "否", "无", "没有", "未命中"]);
@@ -55,19 +56,7 @@ function describeSeats(seats) {
 }
 
 function getRows(player) {
-  const targetEntries = Array.isArray(player.roleInfo?.targetEntries)
-    ? player.roleInfo.targetEntries
-    : [];
-  const resultEntries = Array.isArray(player.roleInfo?.resultEntries)
-    ? player.roleInfo.resultEntries
-    : [];
-  const rowCount = Math.max(targetEntries.length, resultEntries.length);
-
-  return Array.from({ length: rowCount }, (_, index) => ({
-    target: targetEntries[index] || {},
-    result: resultEntries[index] || {},
-    index,
-  }));
+  return getRoleInfoRows(player?.roleInfo);
 }
 
 function hasRecordedValue(row) {
@@ -287,13 +276,27 @@ function booleanValue(row, template) {
   return booleanFrom(row, template.value);
 }
 
+// The day a row refers to: an explicit field wins; otherwise phased rows use the day that just ended
+// (info learned on night N is about day N - 1), and unphased v2 rows fall back to their position.
 function dayNumberFromRow(row, template) {
   const explicitDay =
     numberFrom(row, template.day) ||
     numberFrom(row, { source: "target", keys: ["day", "dayNumber", "phase"] }) ||
     numberFrom(row, { source: "result", keys: ["day", "dayNumber", "phase"] });
 
-  return explicitDay || row.index + 1;
+  if (explicitDay) {
+    return explicitDay;
+  }
+
+  if (row.phaseType === "night" && row.phaseNumber > 1) {
+    return row.phaseNumber - 1;
+  }
+
+  if (row.phaseType === "day") {
+    return row.phaseNumber;
+  }
+
+  return row.index + 1;
 }
 
 function buildRowObservation(template, source, role, row, players, game, catalog) {
@@ -535,7 +538,7 @@ function buildTemplateObservations(template, source, role, rows, players, game, 
 }
 
 function unsupportedEntry(source, role, row, review) {
-  const rowSuffix = row ? `第${row.index + 1}条` : "已记录";
+  const rowSuffix = row ? describeRowPhase(row) : "已记录";
   return {
     id: `${source.id}:${role?.id || "unknown"}:${row?.index ?? "all"}:unsupported`,
     sourceSeat: Number(source.seat),

@@ -5,10 +5,10 @@ import {
   ensureRoleInfoMatchesClaim,
   formatRoleInfoEntrySummary,
   getClaimedRole,
-  getRoleInfoEntries,
   getRoleInfoNode,
-  isRoleInfoEntryFilled,
+  getRoleInfoRows,
 } from "./notes-role-info.js";
+import { isPhased } from "./notes-role-info-records.js";
 
 const dayTimingOrder = {
   day: 10,
@@ -58,8 +58,9 @@ function getRoleActionOrder(game, player, role, source) {
   return (dayTimingOrder[timing] || 900) * 100 + seat + (source === "storyteller" ? 0.5 : 0);
 }
 
-function buildAbilityRecordsForPlayer(game, player, source) {
-  const role = getRoleForRecord(player, game, source);
+// One timeline item per filled row, attached to the phase the row belongs to.
+// Rows with an unknown phase (migrated legacy data) are not placed on the timeline.
+function buildAbilityRecordsForPlayer(game, player, source, role) {
   const abilityData = role?.abilityData || null;
   if (!role || !abilityData?.abilityMeta?.recordable) {
     return [];
@@ -69,49 +70,46 @@ function buildAbilityRecordsForPlayer(game, player, source) {
   const roleInfo = ensureRoleInfoMatchesClaim(subject, game);
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
-  const targetEntries = getRoleInfoEntries(roleInfo, "target");
-  const resultEntries = getRoleInfoEntries(roleInfo, "result");
-  const rowCount = Math.max(targetEntries.length, resultEntries.length);
-  const order = getRoleActionOrder(game, player, role, source);
-  const records = [];
 
-  for (let index = 0; index < rowCount; index += 1) {
-    const targetEntry = targetEntries[index] || {};
-    const resultEntry = resultEntries[index] || {};
-    if (!isRoleInfoEntryFilled(targetEntry) && !isRoleInfoEntryFilled(resultEntry)) {
-      continue;
-    }
+  return getRoleInfoRows(roleInfo)
+    .filter((row) => isPhased(row.phaseType))
+    .map((row) => {
+      const targetText = formatRoleInfoEntrySummary(row.target, targetNode.fields);
+      const resultText = formatRoleInfoEntrySummary(row.result, resultNode.fields);
+      const text = [
+        targetText ? `目标 ${targetText}` : "",
+        resultText ? `结果 ${resultText}` : "",
+      ]
+        .filter(Boolean)
+        .join(" / ");
+      if (!text) {
+        return null;
+      }
 
-    const targetText = formatRoleInfoEntrySummary(targetEntry, targetNode.fields);
-    const resultText = formatRoleInfoEntrySummary(resultEntry, resultNode.fields);
-    const text = [
-      targetText ? `目标 ${targetText}` : "",
-      resultText ? `结果 ${resultText}` : "",
-    ]
-      .filter(Boolean)
-      .join(" / ");
+      const phaseGame = { ...game, phaseType: row.phaseType, phaseNumber: row.phaseNumber };
+      return {
+        dayNumber: row.phaseNumber,
+        item: {
+          id: `${source}:${row.phaseType}:${row.phaseNumber}:${player.id}:${role.id}:${row.entryIndex}`,
+          source,
+          phaseType: row.phaseType,
+          order: getRoleActionOrder(phaseGame, player, role, source) + row.entryIndex / 100,
+          playerId: player.id,
+          seat: String(player.seat),
+          playerName: player.name || "",
+          roleId: role.id,
+          roleName: role.name,
+          rowIndex: row.entryIndex + 1,
+          text,
+          updatedAt: new Date().toISOString(),
+        },
+      };
+    })
+    .filter(Boolean);
+}
 
-    if (!text) {
-      continue;
-    }
-
-    records.push({
-      id: `${source}:${game.phaseType}:${player.id}:${role.id}:${index}`,
-      source,
-      phaseType: game.phaseType === "night" ? "night" : "day",
-      order: order + index / 100,
-      playerId: player.id,
-      seat: String(player.seat),
-      playerName: player.name || "",
-      roleId: role.id,
-      roleName: role.name,
-      rowIndex: index + 1,
-      text,
-      updatedAt: new Date().toISOString(),
-    });
-  }
-
-  return records;
+function sortAbilityRecords(day) {
+  day.abilityRecords.sort((left, right) => left.order - right.order || Number(left.seat) - Number(right.seat));
 }
 
 export function syncAbilityRecordsForPlayer(game, player, source = "player") {
@@ -119,21 +117,28 @@ export function syncAbilityRecordsForPlayer(game, player, source = "player") {
     return;
   }
 
-  const record = getDayRecord(game, game.phaseNumber || 1, true);
   const normalizedSource = source === "storyteller" ? "storyteller" : "player";
   const phaseType = game.phaseType === "night" ? "night" : "day";
-  const nextRecords = buildAbilityRecordsForPlayer(game, player, normalizedSource);
+  const phaseNumber = Number(game.phaseNumber) || 1;
+  const role = getRoleForRecord(player, game, normalizedSource);
+  const nextRecords = buildAbilityRecordsForPlayer(game, player, normalizedSource, role);
 
-  record.abilityRecords = [
-    ...(record.abilityRecords || []).filter(
+  // Rebuild this player's main-ability items from the phased records. Items of the current role are
+  // replaced everywhere (this also removes copies an older version duplicated into later days);
+  // items of a previously claimed role are kept as history, except in the current phase.
+  for (const day of game.dayRecords || []) {
+    day.abilityRecords = (day.abilityRecords || []).filter(
       (item) =>
         item.acquiredAbilityId ||
         item.playerId !== player.id ||
         item.source !== normalizedSource ||
-        item.phaseType !== phaseType,
-    ),
-    ...nextRecords,
-  ].sort((left, right) => left.order - right.order || Number(left.seat) - Number(right.seat));
+        (!(role && item.roleId === role.id) &&
+          !(item.phaseType === phaseType && Number(day.dayNumber) === phaseNumber)),
+    );
+  }
+  nextRecords.forEach(({ dayNumber, item }) => {
+    getDayRecord(game, dayNumber, true).abilityRecords.push(item);
+  });
   syncAcquiredAbilityRecords(game, player, normalizedSource);
 }
 
@@ -173,6 +178,6 @@ function syncAcquiredAbilityRecords(game, player, source) {
     }
   }
   for (const day of game.dayRecords || []) {
-    day.abilityRecords.sort((a, b) => a.order - b.order || Number(a.seat) - Number(b.seat));
+    sortAbilityRecords(day);
   }
 }

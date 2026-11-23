@@ -581,3 +581,28 @@
   font-size: 11px;
   overflow-wrap: anywhere;
 }
+
+/* Phase-labelled ability record rows (shared role ability form). */
+.notes-roleinfo-form .notes-roleinfo-row {
+  grid-template-columns: 52px minmax(0, 1fr);
+}
+
+.notes-roleinfo-form .notes-roleinfo-row--packed {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.notes-roleinfo-index--phase {
+  padding: 0 4px;
+  white-space: nowrap;
+  font-size: 11px;
+}
+
+.notes-roleinfo-row--current .notes-roleinfo-index--phase,
+.notes-roleinfo-field--current > span {
+  color: var(--teal);
+  border-color: var(--teal);
+}
+
+.notes-roleinfo-field--stacked > span {
+  white-space: nowrap;
+}

@@ -1,9 +1,10 @@
 import { state } from "../state.js";
 import { escapeHtml, renderSelectOptions } from "../utils.js";
 import { getMaxSeatNumber } from "./notes-core.js";
-import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
-import { formatRoleInfoEntrySummary, getRoleInfoNode, getRoleInfoSectionLabel } from "./notes-role-info.js";
-import { acquiredCertaintyLabels, acquiredPhaseIndex, acquiredPhaseLabel, acquiredStatusLabels, findAcquiredRole, getAcquiredAbilities, getAcquiredMinimumRows, getAcquisitionKind, hasAcquiredRecords, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
+import { renderRoleInfoForm } from "./notes-role-info-fields.js";
+import { buildAcquiredRecordForm } from "./notes-role-info-form.js";
+import { formatRoleInfoEntrySummary, getRoleInfoNode } from "./notes-role-info.js";
+import { acquiredCertaintyLabels, acquiredPhaseIndex, acquiredPhaseLabel, acquiredStatusLabels, findAcquiredRole, getAcquiredAbilities, getAcquisitionKind, hasAcquiredRecords, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
 
 function options(labels, selected) {
   return renderSelectOptions(Object.entries(labels).map(([value, label]) => ({ value, label })), selected);
@@ -21,27 +22,12 @@ function phaseFields(prefix, label, ability) {
 }
 
 function renderAcquiredRecord(ability, record, role, game) {
-  const sections = ["target", "result"].map((section) => {
-    const node = getRoleInfoNode(role.abilityData, section);
-    if (node.repeatMode === "none" || !node.fields.length) return "";
-    const entries = record.roleInfo?.[`${section}Entries`] || [];
-    const minimum = getAcquiredMinimumRows(node);
-    const rows = Array.from({ length: Math.max(entries.length, minimum) }, (_, index) => entries[index] || {});
-    const repeatable = ["sequence", "variable"].includes(node.repeatMode);
-    return `<section class="notes-roleinfo-section">
-      <strong>${escapeHtml(getRoleInfoSectionLabel(section, role.abilityData))}</strong>
-      ${rows.map((entry, index) => `<div class="notes-roleinfo-row">
-        <span class="notes-roleinfo-index">${index + 1}</span>
-        <div class="notes-roleinfo-fields notes-roleinfo-fields--${Math.min(node.fields.length, 3)}">
-          ${node.fields.map((field) => renderRoleInfoFieldControl(section, index, field, entry[field.key], game, getMaxSeatNumber(game))).join("")}
-        </div>
-      </div>`).join("")}
-      ${repeatable ? `<div class="notes-roleinfo-actions">
-        <button type="button" class="note-icon-button" data-notes-action="add-roleinfo-row" data-section="${section}">+ 一条</button>
-        <button type="button" class="note-icon-button" data-notes-action="remove-roleinfo-row" data-section="${section}" ${rows.length <= minimum ? "disabled" : ""}>- 末条</button>
-      </div>` : ""}
-    </section>`;
-  }).join("");
+  const form = buildAcquiredRecordForm({ abilityData: role.abilityData, record, game });
+  const sections = renderRoleInfoForm(form, {
+    game,
+    maxSeat: getMaxSeatNumber(game),
+    className: "notes-roleinfo-form--acquired",
+  });
   const summary = ["target", "result"].flatMap((section) => {
     const fields = getRoleInfoNode(role.abilityData, section).fields;
     return (record.roleInfo?.[`${section}Entries`] || []).map((entry) => formatRoleInfoEntrySummary(entry, fields)).filter(Boolean);

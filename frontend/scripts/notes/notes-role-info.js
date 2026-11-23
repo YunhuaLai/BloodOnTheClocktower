@@ -1,7 +1,8 @@
 import { getClaimRoleOptions, isCustomRoleGame, isFabledRole, isTravellerRole } from "../notes-claims.js";
-import { clampNumber, cloneRoleInfo, cloneRoleInfoEntries, createEmptyRoleInfo, getActiveGame } from "../notes-state.js";
+import { clampNumber, cloneRoleInfo, createEmptyRoleInfo, createEmptyRoleInfoEntries, getActiveGame } from "../notes-state.js";
 import { state, typeLabels } from "../state.js";
 import { getClaimAbbreviation } from "./notes-core.js";
+import { flattenRoleInfoRecords, isPhasedRoleInfo, isRoleInfoEntryFilled, migrateRoleInfoRowsToRecords } from "./notes-role-info-records.js";
 import { acquiredPhaseIndex, acquiredPhaseLabel, findAcquiredRole, getCurrentAcquiredAbilities, getAcquiredAbilitySummary, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
 
 // Role ability metadata and summaries. Field/panel renderers live next to this file.
@@ -115,9 +116,7 @@ export function getRoleInfoNode(abilityData, sectionKey) {
   };
 }
 
-export function isRoleInfoEntryFilled(entry) {
-  return Object.values(entry || {}).some((value) => String(value ?? "").trim());
-}
+export { isRoleInfoEntryFilled };
 
 function normalizeLegacyBooleanValue(value) {
   const normalized = normalizeRoleName(value);
@@ -136,7 +135,7 @@ function migrateLegacyRoleInfo(roleInfo, role, abilityData) {
   const legacyEntries = Array.isArray(roleInfo?.entries) ? roleInfo.entries : [];
   const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
-  const nextRoleInfo = createEmptyRoleInfo(role?.id || "");
+  const nextRoleInfo = createEmptyRoleInfoEntries(role?.id || "");
 
   if (roleInfo?.profile === "yes-no-seq") {
     const resultKey = resultNode.fields[0]?.key || "answer";
@@ -177,6 +176,19 @@ function migrateLegacyRoleInfo(roleInfo, role, abilityData) {
   return nextRoleInfo;
 }
 
+function toPhasedRoleInfo(roleId, rows, abilityData) {
+  return {
+    version: 3,
+    roleId,
+    records: migrateRoleInfoRowsToRecords(rows.targetEntries, rows.resultEntries, abilityData?.abilityMeta),
+  };
+}
+
+/**
+ * Returns the player's main ability record in v3 format (phase-tagged records) for the role
+ * currently claimed (or the true role when the caller passes the storyteller subject).
+ * v2 rows and the legacy profile format are migrated here, because the mapping needs the role timing.
+ */
 export function ensureRoleInfoMatchesClaim(player, game = getActiveGame()) {
   const role = getClaimedRole(player, game);
   const abilityData = role?.abilityData || null;
@@ -186,204 +198,24 @@ export function ensureRoleInfoMatchesClaim(player, game = getActiveGame()) {
     return createEmptyRoleInfo(role?.id || "");
   }
 
-  if (current.version === 2) {
-    if (current.roleId && current.roleId !== role.id) {
-      return createEmptyRoleInfo(role.id);
-    }
-
-    if (!current.profile && !current.entries.length) {
-      return {
-        version: 2,
-        roleId: role.id,
-        targetEntries: cloneRoleInfoEntries(current.targetEntries),
-        resultEntries: cloneRoleInfoEntries(current.resultEntries),
-      };
-    }
+  if (current.roleId && current.roleId !== role.id) {
+    return createEmptyRoleInfo(role.id);
   }
 
-  return migrateLegacyRoleInfo(current, role, abilityData);
+  if (isPhasedRoleInfo(current)) {
+    return { version: 3, roleId: role.id, records: current.records };
+  }
+
+  if (current.version === 2 && !current.profile && !current.entries.length) {
+    return toPhasedRoleInfo(role.id, current, abilityData);
+  }
+
+  return toPhasedRoleInfo(role.id, migrateLegacyRoleInfo(current, role, abilityData), abilityData);
 }
 
-export function getRoleInfoEntries(roleInfo, sectionKey) {
-  if (sectionKey === "target") {
-    return cloneRoleInfoEntries(roleInfo?.targetEntries);
-  }
-
-  return cloneRoleInfoEntries(roleInfo?.resultEntries);
-}
-
-function getPhaseNumber(game) {
-  return clampNumber(Number(game?.phaseNumber) || 1, 1, 99);
-}
-
-function getPhaseType(game) {
-  return game?.phaseType === "night" ? "night" : "day";
-}
-
-function getPhaseLabel(game) {
-  const phaseType = getPhaseType(game) === "night" ? "夜晚" : "白天";
-  return `第 ${getPhaseNumber(game)} 天${phaseType}`;
-}
-
-function isAliveForAutomaticRows(player) {
-  return !["night-dead", "executed"].includes(player?.status);
-}
-
-function isOnceOnlyAbility(abilityMeta) {
-  return ["once", "once_per_game", "passive"].includes(
-    abilityMeta?.usagePattern,
-  );
-}
-
-function isTimedRecurringAbility(abilityMeta) {
-  const phaseTiming = abilityMeta?.phaseTiming;
-  const usagePattern = abilityMeta?.usagePattern;
-
-  return (
-    ["once_per_night", "once_per_day", "repeatable"].includes(usagePattern) ||
-    (["each_night", "each_night_star", "each_day"].includes(phaseTiming) &&
-      !isOnceOnlyAbility(abilityMeta))
-  );
-}
-
-function getTimedAbilityRowCount(abilityMeta, player, game) {
-  const phaseNumber = getPhaseNumber(game);
-  const timing = abilityMeta?.phaseTiming || "";
-  const usagePattern = abilityMeta?.usagePattern || "";
-  const eventTiming = abilityMeta?.eventTiming || "";
-  // Night N is followed by day N; both phases have reached the same number of nights.
-  const nightCount = phaseNumber;
-
-  if (eventTiming === "on_death") {
-    return isAliveForAutomaticRows(player) ? 0 : 1;
-  }
-
-  if (eventTiming) {
-    return null;
-  }
-
-  if (isTimedRecurringAbility(abilityMeta) && !isAliveForAutomaticRows(player)) {
-    return 0;
-  }
-
-  const isRecurring = isTimedRecurringAbility(abilityMeta);
-
-  if (timing === "setup" || timing === "first_night") {
-    return 1;
-  }
-
-  if (timing === "each_night") {
-    return isRecurring ? nightCount : nightCount > 0 ? 1 : 0;
-  }
-
-  if (timing === "each_night_star") {
-    const availableNights = Math.max(nightCount - 1, 0);
-    return isRecurring ? availableNights : availableNights > 0 ? 1 : 0;
-  }
-
-  if (timing === "night") {
-    const availableNights = Math.max(nightCount - 1, 0);
-    if (isRecurring) {
-      return availableNights;
-    }
-
-    return availableNights > 0 ? 1 : 0;
-  }
-
-  if (timing === "each_day") {
-    return isRecurring ? phaseNumber : 1;
-  }
-
-  if (timing === "day") {
-    if (isRecurring) {
-      return phaseNumber;
-    }
-
-    return phaseNumber >= 1 ? 1 : 0;
-  }
-
-  if (usagePattern === "once_per_night") {
-    return nightCount;
-  }
-
-  if (usagePattern === "once_per_day") {
-    return phaseNumber;
-  }
-
-  return null;
-}
-
-export function getRoleInfoAvailability(abilityData, player, game) {
-  const abilityMeta = abilityData?.abilityMeta || {};
-  const rowLimit = getTimedAbilityRowCount(abilityMeta, player, game);
-  if (rowLimit === null) {
-    return {
-      timed: false,
-      rowLimit: null,
-      reason: "",
-    };
-  }
-
-  let reason = "";
-  if (rowLimit <= 0) {
-    if (abilityMeta.eventTiming === "on_death") {
-      reason = "死亡后可录入。";
-    } else if (isTimedRecurringAbility(abilityMeta) && !isAliveForAutomaticRows(player)) {
-      reason = "已死亡，不再自动新增。";
-    } else {
-      reason = "未到记录时机。";
-    }
-  }
-
-  return {
-    timed: true,
-    rowLimit,
-    reason,
-  };
-}
-
-export function getRoleInfoRowLimit(abilityData, player, game) {
-  const availability = getRoleInfoAvailability(abilityData, player, game);
-  return availability.timed ? availability.rowLimit : null;
-}
-
-export function getRoleInfoMinimumRows(node, abilityData, player, game) {
-  if (node.repeatMode === "none" || !node.fields.length) {
-    return 0;
-  }
-
-  const rowLimit = getRoleInfoRowLimit(abilityData, player, game);
-  if (rowLimit !== null) {
-    if (rowLimit <= 0) {
-      return 0;
-    }
-
-    return node.repeatMode === "once" ? 1 : rowLimit;
-  }
-
-  return Math.max(node.defaultRows || 0, 1);
-}
-
-export function getDisplayedRoleInfoEntries(
-  roleInfo,
-  node,
-  sectionKey,
-  context = {},
-) {
-  const entries = getRoleInfoEntries(roleInfo, sectionKey);
-  if (node.repeatMode === "none" || !node.fields.length) {
-    return [];
-  }
-
-  const minimumRows = getRoleInfoMinimumRows(
-    node,
-    context.abilityData,
-    context.player,
-    context.game,
-  );
-  const totalRows = Math.max(entries.length, minimumRows);
-
-  return Array.from({ length: totalRows }, (_, index) => entries[index] || {});
+/** Filled rows of a v3 roleInfo in phase order (see flattenRoleInfoRecords). */
+export function getRoleInfoRows(roleInfo) {
+  return flattenRoleInfoRecords(roleInfo?.records);
 }
 
 export function getAbilityTimingText(abilityMeta) {
@@ -468,27 +300,20 @@ export function formatRoleInfoEntrySummary(entry, fields) {
 export function getRoleInfoSummary(player, game = getActiveGame()) {
   const acquiredSummary = game ? getAcquiredInfoSummary(player, game) : "";
   const abilityData = getRoleAbilityData(player, game);
-  const roleInfo = ensureRoleInfoMatchesClaim(player, game);
-  const targetNode = getRoleInfoNode(abilityData, "target");
-  const resultNode = getRoleInfoNode(abilityData, "result");
-  const targetEntries = getRoleInfoEntries(roleInfo, "target");
-  const resultEntries = getRoleInfoEntries(roleInfo, "result");
-  const rowCount = Math.max(targetEntries.length, resultEntries.length);
-
-  if (!abilityData?.abilityMeta?.recordable || !rowCount) {
+  if (!abilityData?.abilityMeta?.recordable) {
     return acquiredSummary || "--";
   }
 
-  const rows = [];
-  for (let index = 0; index < rowCount; index += 1) {
-    const targetText = formatRoleInfoEntrySummary(targetEntries[index], targetNode.fields);
-    const resultText = formatRoleInfoEntrySummary(resultEntries[index], resultNode.fields);
-    if (!targetText && !resultText) {
-      continue;
-    }
-
-    rows.push([targetText, resultText].filter(Boolean).join(">"));
-  }
+  const roleInfo = ensureRoleInfoMatchesClaim(player, game);
+  const targetNode = getRoleInfoNode(abilityData, "target");
+  const resultNode = getRoleInfoNode(abilityData, "result");
+  const rows = getRoleInfoRows(roleInfo)
+    .map((row) => {
+      const targetText = formatRoleInfoEntrySummary(row.target, targetNode.fields);
+      const resultText = formatRoleInfoEntrySummary(row.result, resultNode.fields);
+      return [targetText, resultText].filter(Boolean).join(">");
+    })
+    .filter(Boolean);
 
   return [rows.join("/"), acquiredSummary].filter(Boolean).join(" · ") || "--";
 }

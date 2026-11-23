@@ -2,6 +2,7 @@ import { isBaseRole, isFabledRole, isTravellerRole, normalizeMatchText } from ".
 import { normalizeAutoExecutionApplied, normalizeDayRecords, syncAutoExecutionStatuses } from "./notes/notes-day-records.js";
 import { createGameBackupEnvelope, createNotesBackupEnvelope, getImportableGames, NOTES_SCHEMA_VERSION } from "./notes/notes-backup.js";
 import { isTravellerPlayer } from "./notes/notes-core.js";
+import { cloneRoleInfoRecords, createEmptyPhasedRoleInfo, isPhasedRoleInfo } from "./notes/notes-role-info-records.js";
 import { noteAlignmentOptions, noteConditionOptions, noteModeOptions, noteStatusOptions, noteTagOptions, notesStorageKey, phaseTypeOptions, scriptModeOptions, state, timelineTypeOptions } from "./state.js";
 import { createId, getOptionLabel } from "./utils.js";
 
@@ -88,6 +89,12 @@ export function createDefaultPlayer(seat, options = {}) {
 }
 
 export function createEmptyRoleInfo(roleId = "") {
+  return createEmptyPhasedRoleInfo(roleId);
+}
+
+// Unphased entry container ({ targetEntries, resultEntries }); used inside acquired-ability records,
+// where the enclosing record already carries the phase.
+export function createEmptyRoleInfoEntries(roleId = "") {
   return {
     version: 2,
     roleId,
@@ -102,8 +109,18 @@ export function cloneRoleInfoEntries(entries) {
     : [];
 }
 
+// Keeps whichever format is stored: v3 phase records, v2 rows or the legacy profile/entries format.
+// Older formats are migrated lazily by ensureRoleInfoMatchesClaim, which knows the role's timing.
 export function cloneRoleInfo(roleInfo) {
   const info = roleInfo || {};
+  if (isPhasedRoleInfo(info)) {
+    return {
+      version: 3,
+      roleId: String(info.roleId || ""),
+      records: cloneRoleInfoRecords(info.records),
+    };
+  }
+
   return {
     version: Number(info.version) === 2 ? 2 : info.version || 2,
     roleId: info.roleId || "",

@@ -5,10 +5,11 @@ import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state, t
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
 import { formatPhaseLabel, getAliveCount, getMaxSeatNumber, getPlayerLabel, getStandardSetup, getTotalPlayerCount, getTravellerPlayers, isTravellerPlayer } from "./notes-core.js";
 import { renderPlayerCycleField } from "./notes-player-render.js";
-import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
+import { renderRoleInfoForm } from "./notes-role-info-fields.js";
+import { buildRoleInfoForm, getRoleInfoPhaseRowLabel } from "./notes-role-info-form.js";
 import { renderAcquiredAbilities } from "./notes-acquired-render.js";
 import { getAcquiredAbilitySummary } from "./notes-acquired-abilities.js";
-import { ensureRoleInfoMatchesClaim, formatRoleInfoEntrySummary, getRoleInfoEntries, getRoleInfoNode, getRoleInfoSectionLabel, isRoleInfoEntryFilled } from "./notes-role-info.js";
+import { ensureRoleInfoMatchesClaim, formatRoleInfoEntrySummary, getRoleInfoNode, getRoleInfoRows } from "./notes-role-info.js";
 import { getAssignedSetupAlertRoles, getRoleByLooseName, getRoleGlobalMarkers, getRoleSetupNotes, getScriptIdentityOverlayRoles } from "./notes-storyteller-actions.js";
 
 const storytellerAlignmentOptions = [
@@ -214,72 +215,6 @@ function getPlayerChoicePrompt(role, abilityData) {
     : `记录${firstField.label || "目标"}。`;
 }
 
-function renderStorytellerRoleInfoSection(sectionKey, node, roleInfo, abilityData, game, playerId) {
-  if (node.repeatMode === "none" || !node.fields.length) {
-    return "";
-  }
-
-  const maxSeat = clampNumber(getMaxSeatNumber(game) || 15, 1, 25);
-  const entries = getRoleInfoEntries(roleInfo, sectionKey);
-  const minimumRows =
-    node.repeatMode === "once"
-      ? Math.max(node.defaultRows || 0, 1)
-      : Math.max(node.defaultRows || 0, 1);
-  const filledRows = entries.filter(isRoleInfoEntryFilled).length;
-  const rowCount = Math.max(entries.length, filledRows + 1, minimumRows ? 1 : 0);
-  const rows = Array.from({ length: rowCount }, (_, index) => entries[index] || {});
-
-  return `
-    <section class="story-night-record-section">
-      <div class="notes-roleinfo-section-header">
-        <strong>${escapeHtml(getRoleInfoSectionLabel(sectionKey, abilityData))}</strong>
-        <small>${escapeHtml(sectionKey === "target" ? "玩家选择" : "给出的信息")}</small>
-      </div>
-      <div class="notes-roleinfo-list">
-        ${rows
-          .map(
-            (entry, index) => `
-              <div class="notes-roleinfo-row">
-                <span class="notes-roleinfo-index">${index + 1}</span>
-                <div class="notes-roleinfo-fields notes-roleinfo-fields--${Math.min(Math.max(node.fields.length, 1), 3)}">
-                  ${node.fields
-                    .map((field) =>
-                      renderRoleInfoFieldControl(sectionKey, index, field, entry?.[field.key], game, maxSeat),
-                    )
-                    .join("")}
-                </div>
-              </div>
-            `,
-          )
-          .join("")}
-      </div>
-      ${
-        node.repeatMode === "sequence" || node.repeatMode === "variable"
-          ? `
-            <div class="notes-roleinfo-actions">
-              <button
-                type="button"
-                class="note-icon-button"
-                data-notes-action="add-roleinfo-row"
-                data-player-id="${escapeHtml(playerId)}"
-                data-section="${escapeHtml(sectionKey)}"
-              >+ 一条</button>
-              <button
-                type="button"
-                class="note-icon-button"
-                data-notes-action="remove-roleinfo-row"
-                data-player-id="${escapeHtml(playerId)}"
-                data-section="${escapeHtml(sectionKey)}"
-                ${rows.length <= 1 ? "disabled" : ""}
-              >- 末条</button>
-            </div>
-          `
-          : ""
-      }
-    </section>
-  `;
-}
-
 function renderStorytellerNightRecord(item, game, reminder) {
   if (!item.player) {
     return `<p class="story-night-detail-hint">${escapeHtml(reminder || item.role.ability || "按角色能力处理。")}</p>`;
@@ -289,10 +224,9 @@ function renderStorytellerNightRecord(item, game, reminder) {
   const subject = getStorytellerRoleInfoSubject(draft);
   const abilityData = item.role.abilityData || null;
   const roleInfo = ensureRoleInfoMatchesClaim(subject, game);
-  const targetNode = getRoleInfoNode(abilityData, "target");
   const resultNode = getRoleInfoNode(abilityData, "result");
-  const hasRecordFields =
-    targetNode.fields.length || resultNode.fields.length;
+  const form = buildRoleInfoForm({ abilityData, roleInfo, player: draft, game, scope: "current" });
+  const hasRecordFields = form.rows.length > 0;
 
   return `
     <div class="story-night-detail" data-player-id="${escapeHtml(item.player.id)}">
@@ -302,8 +236,13 @@ function renderStorytellerNightRecord(item, game, reminder) {
         hasRecordFields
           ? `
             <div class="story-night-record-grid">
-              ${renderStorytellerRoleInfoSection("target", targetNode, roleInfo, abilityData, game, item.player.id)}
-              ${renderStorytellerRoleInfoSection("result", resultNode, roleInfo, abilityData, game, item.player.id)}
+              ${renderRoleInfoForm(form, {
+                game,
+                maxSeat: clampNumber(getMaxSeatNumber(game) || 15, 1, 25),
+                hint: "玩家选择 / 给出的信息",
+                playerId: item.player.id,
+                className: "story-night-record-section",
+              })}
             </div>
             ${
               resultNode.fields.some((field) => field.type === "role")
@@ -335,27 +274,25 @@ function getStorytellerInfoRecords(game) {
     const roleInfo = ensureRoleInfoMatchesClaim(subject, game);
     const targetNode = getRoleInfoNode(role.abilityData, "target");
     const resultNode = getRoleInfoNode(role.abilityData, "result");
-    const targetEntries = getRoleInfoEntries(roleInfo, "target");
-    const resultEntries = getRoleInfoEntries(roleInfo, "result");
-    const rowCount = Math.max(targetEntries.length, resultEntries.length);
     const records = [];
 
-    for (let index = 0; index < rowCount; index += 1) {
-      const targetText = formatRoleInfoEntrySummary(targetEntries[index], targetNode.fields);
-      const resultText = formatRoleInfoEntrySummary(resultEntries[index], resultNode.fields);
+    getRoleInfoRows(roleInfo).forEach((row) => {
+      const targetText = formatRoleInfoEntrySummary(row.target, targetNode.fields);
+      const resultText = formatRoleInfoEntrySummary(row.result, resultNode.fields);
       if (!targetText && !resultText) {
-        continue;
+        return;
       }
 
       records.push({
-        id: `${player.id}-${index}`,
+        id: `${player.id}-${row.phaseType || "x"}${row.phaseNumber}-${row.entryIndex}`,
         player,
         role,
+        phaseLabel: getRoleInfoPhaseRowLabel(row.phaseType, row.phaseNumber, row.entryIndex, role.abilityData),
         text: [targetText ? `选择 ${targetText}` : "", resultText ? `告知 ${resultText}` : ""]
           .filter(Boolean)
           .join(" / "),
       });
-    }
+    });
 
     return records;
   });
@@ -954,7 +891,7 @@ function renderPublicBoardPanel(game) {
                   (record) => `
                     <article class="story-info-record">
                       <strong>${record.player.seat}号 ${escapeHtml(record.role.name)}</strong>
-                      <span>${escapeHtml(record.text)}</span>
+                      <span>${escapeHtml(`${record.phaseLabel}：${record.text}`)}</span>
                     </article>
                   `,
                 )

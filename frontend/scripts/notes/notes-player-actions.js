@@ -1,10 +1,12 @@
 import { getClaimRoleOptions } from "../notes-claims.js";
-import { clearPlayerDraft, clonePlayerForDraft, cloneRoleInfo, getActiveGame, getPlayerDraft, saveNotesState, setPlayerDraft } from "../notes-state.js";
+import { clearPlayerDraft, clonePlayerForDraft, getActiveGame, getPlayerDraft, saveNotesState, setPlayerDraft } from "../notes-state.js";
 import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state } from "../state.js";
 import { createId, getOptionLabel } from "../utils.js";
 import { syncAbilityRecordsForPlayer } from "./notes-ability-records.js";
 import { formatPhaseLabel, getPlayerLabel } from "./notes-core.js";
-import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoMinimumRows, getRoleInfoNode, getRoleInfoRowLimit, getRoleInfoSummary, isRoleInfoEntryFilled } from "./notes-role-info.js";
+import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoNode, getRoleInfoSummary } from "./notes-role-info.js";
+import { buildRoleInfoForm } from "./notes-role-info-form.js";
+import { ensureRoleInfoRecord, findRoleInfoRecord, getGamePhase, isPhased, normalizeRecordPhase, phaseOrderIndex, trimRoleInfoRecords } from "./notes-role-info-records.js";
 import { getRoleAlignmentValue, getRoleByLooseName } from "./notes-storyteller-actions.js";
 
 function getRoleInfoSubject(player, game = getActiveGame()) {
@@ -42,40 +44,11 @@ export function ensurePlayerDraftForId(playerId) {
   return draft;
 }
 
-function trimRoleInfoEntry(entry) {
-  return Object.fromEntries(
-    Object.entries(entry || {}).filter(([, value]) => {
-      if (typeof value === "number") {
-        return true;
-      }
-
-      return String(value ?? "").trim();
-    }),
-  );
-}
-
 function trimRoleInfoEntries(roleInfo) {
-  const info = cloneRoleInfo(roleInfo);
-  const nextTargetEntries = [];
-  const nextResultEntries = [];
-  const rowCount = Math.max(info.targetEntries.length, info.resultEntries.length);
-
-  for (let index = 0; index < rowCount; index += 1) {
-    const targetEntry = trimRoleInfoEntry(info.targetEntries[index]);
-    const resultEntry = trimRoleInfoEntry(info.resultEntries[index]);
-    if (!isRoleInfoEntryFilled(targetEntry) && !isRoleInfoEntryFilled(resultEntry)) {
-      continue;
-    }
-
-    nextTargetEntries.push(targetEntry);
-    nextResultEntries.push(resultEntry);
-  }
-
   return {
-    version: 2,
-    roleId: info.roleId || "",
-    targetEntries: nextTargetEntries,
-    resultEntries: nextResultEntries,
+    version: 3,
+    roleId: roleInfo?.roleId || "",
+    records: trimRoleInfoRecords(roleInfo?.records),
   };
 }
 
@@ -137,53 +110,73 @@ function getRoleInfoSectionKey(section) {
   return section === "result" ? "resultEntries" : "targetEntries";
 }
 
-function getLinkedRoleInfoSections(draft, requestedSection, game) {
-  const abilityData = getRoleAbilityData(getRoleInfoSubject(draft, game), game);
-  const targetNode = getRoleInfoNode(abilityData, "target");
-  const resultNode = getRoleInfoNode(abilityData, "result");
-  const targetRepeatable = ["sequence", "variable"].includes(targetNode.repeatMode);
-  const resultRepeatable = ["sequence", "variable"].includes(resultNode.repeatMode);
-
-  if (targetRepeatable && resultRepeatable) {
-    return ["target", "result"];
+function resolveRoleInfoPhase(phase, game) {
+  if (phase && (phase.phaseType !== undefined || phase.phaseNumber !== undefined)) {
+    return normalizeRecordPhase(phase.phaseType, phase.phaseNumber);
   }
 
-  return [requestedSection];
+  return getGamePhase(game);
 }
 
-function getRoleInfoRowCount(roleInfo) {
-  return Math.max(
-    roleInfo?.targetEntries?.length || 0,
-    roleInfo?.resultEntries?.length || 0,
-  );
+// Records can be written for any phase that has started (or an existing record, e.g. a migrated
+// record whose phase is unknown). Future phases are rejected.
+function getWritableRoleInfoRecord(roleInfo, phase, game) {
+  const existing = findRoleInfoRecord(roleInfo, phase.phaseType, phase.phaseNumber);
+  if (existing) {
+    return existing;
+  }
+
+  const current = getGamePhase(game);
+  if (
+    !isPhased(phase.phaseType) ||
+    phaseOrderIndex(phase.phaseType, phase.phaseNumber) > phaseOrderIndex(current.phaseType, current.phaseNumber)
+  ) {
+    return null;
+  }
+
+  return ensureRoleInfoRecord(roleInfo, phase.phaseType, phase.phaseNumber);
 }
 
-export function updatePlayerDraftRoleInfo(playerId, section, index, field, value) {
+function prepareRoleInfoDraft(playerId) {
   const draft = ensurePlayerDraftForId(playerId);
   const game = getActiveGame();
   if (!draft || !game) {
-    return;
+    return null;
   }
 
   const subject = getRoleInfoSubject(draft, game);
-  const safeIndex = Math.max(Number(index) || 0, 0);
   draft.roleInfo = ensureRoleInfoMatchesClaim(subject, game);
   const abilityData = getRoleAbilityData(subject, game);
-  const entryKey = getRoleInfoSectionKey(section);
-  const rowLimit = getRoleInfoRowLimit(abilityData, subject, game);
-  const entryExists = draft.roleInfo[entryKey].length > safeIndex;
-  if (rowLimit !== null && safeIndex >= rowLimit && !entryExists) {
-    return;
+  if (!abilityData?.abilityMeta?.recordable) {
+    return null;
   }
 
-  while (draft.roleInfo[entryKey].length <= safeIndex) {
-    draft.roleInfo[entryKey].push({});
+  return { draft, game, subject, abilityData };
+}
+
+export function updatePlayerDraftRoleInfo(playerId, section, index, field, value, phase = null) {
+  const context = prepareRoleInfoDraft(playerId);
+  if (!context || !["target", "result"].includes(section) || !field) {
+    return false;
   }
 
-  draft.roleInfo[entryKey][safeIndex] = {
-    ...draft.roleInfo[entryKey][safeIndex],
+  const { draft, game } = context;
+  const safeIndex = Math.min(Math.max(Number(index) || 0, 0), 98);
+  const record = getWritableRoleInfoRecord(draft.roleInfo, resolveRoleInfoPhase(phase, game), game);
+  if (!record) {
+    return false;
+  }
+
+  const entries = record[getRoleInfoSectionKey(section)];
+  while (entries.length <= safeIndex) {
+    entries.push({});
+  }
+
+  entries[safeIndex] = {
+    ...entries[safeIndex],
     [field]: value,
   };
+  return true;
 }
 
 function getRoleInfoFieldCycleValues(field) {
@@ -194,82 +187,73 @@ function getRoleInfoFieldCycleValues(field) {
   return [];
 }
 
-export function cyclePlayerDraftRoleInfoField(playerId, section, index, fieldKey) {
-  const draft = ensurePlayerDraftForId(playerId);
-  const game = getActiveGame();
-  if (!draft || !game) {
-    return;
+export function cyclePlayerDraftRoleInfoField(playerId, section, index, fieldKey, phase = null) {
+  const context = prepareRoleInfoDraft(playerId);
+  if (!context) {
+    return false;
   }
 
-  const subject = getRoleInfoSubject(draft, game);
-  const safeIndex = Math.max(Number(index) || 0, 0);
-  draft.roleInfo = ensureRoleInfoMatchesClaim(subject, game);
-  const abilityData = getRoleAbilityData(subject, game);
+  const { draft, game, abilityData } = context;
   const node = getRoleInfoNode(abilityData, section);
   const field = node.fields.find((item) => item.key === fieldKey);
   const values = getRoleInfoFieldCycleValues(field);
   if (!field || !values.length) {
-    return;
+    return false;
   }
 
-  const entryKey = getRoleInfoSectionKey(section);
-  const rowLimit = getRoleInfoRowLimit(abilityData, subject, game);
-  const entryExists = draft.roleInfo[entryKey].length > safeIndex;
-  if (rowLimit !== null && safeIndex >= rowLimit && !entryExists) {
-    return;
-  }
-
-  while (draft.roleInfo[entryKey].length <= safeIndex) {
-    draft.roleInfo[entryKey].push({});
-  }
-
-  const currentValue = String(draft.roleInfo[entryKey][safeIndex]?.[fieldKey] ?? "");
+  const resolvedPhase = resolveRoleInfoPhase(phase, game);
+  const record = findRoleInfoRecord(draft.roleInfo, resolvedPhase.phaseType, resolvedPhase.phaseNumber);
+  const currentValue = String(record?.[getRoleInfoSectionKey(section)]?.[Number(index) || 0]?.[fieldKey] ?? "");
   const currentIndex = values.indexOf(currentValue);
   const nextValue = values[(currentIndex + 1 + values.length) % values.length];
-  updatePlayerDraftRoleInfo(playerId, section, safeIndex, fieldKey, nextValue);
+  return updatePlayerDraftRoleInfo(playerId, section, index, fieldKey, nextValue, resolvedPhase);
 }
 
-export function adjustPlayerDraftRoleInfoRows(playerId, section, step) {
-  const draft = ensurePlayerDraftForId(playerId);
-  const game = getActiveGame();
-  if (!draft || !game || !step) {
-    return;
+export function adjustPlayerDraftRoleInfoRows(playerId, section, step, phase = null) {
+  const context = prepareRoleInfoDraft(playerId);
+  if (!context || !step) {
+    return false;
   }
 
-  const subject = getRoleInfoSubject(draft, game);
-  draft.roleInfo = ensureRoleInfoMatchesClaim(subject, game);
-  const abilityData = getRoleAbilityData(subject, game);
-  const sections = getLinkedRoleInfoSections(draft, section, game);
-  const rowLimit = getRoleInfoRowLimit(abilityData, subject, game);
-
-  if (step > 0) {
-    if (rowLimit !== null && getRoleInfoRowCount(draft.roleInfo) >= rowLimit) {
-      return;
-    }
-
-    sections.forEach((sectionKey) => {
-      const node = getRoleInfoNode(abilityData, sectionKey);
-      if (!["sequence", "variable"].includes(node.repeatMode)) {
-        return;
-      }
-
-      draft.roleInfo[getRoleInfoSectionKey(sectionKey)].push({});
-    });
-    return;
+  const { draft, game, subject, abilityData } = context;
+  const resolvedPhase = resolveRoleInfoPhase(phase, game);
+  const scope = game.mode === "storyteller" && state.notes.ui.activeTab === "storyteller" ? "current" : "all";
+  const form = buildRoleInfoForm({ abilityData, roleInfo: draft.roleInfo, player: subject, game, scope });
+  const actions = form.actions;
+  if (
+    !actions ||
+    actions.phaseType !== resolvedPhase.phaseType ||
+    actions.phaseNumber !== resolvedPhase.phaseNumber ||
+    (step > 0 && !actions.canAdd) ||
+    (step < 0 && !actions.canRemove)
+  ) {
+    return false;
   }
 
+  const record = getWritableRoleInfoRecord(draft.roleInfo, resolvedPhase, game);
+  if (!record) {
+    return false;
+  }
+
+  const displayed = form.rows.filter(
+    (row) => row.phaseType === resolvedPhase.phaseType && row.phaseNumber === resolvedPhase.phaseNumber,
+  ).length;
+  const linkedSections = form.sections
+    .filter((item) => ["sequence", "variable"].includes(item.repeatMode))
+    .map((item) => item.key);
+  const sections = linkedSections.length > 1 ? linkedSections : [section];
   sections.forEach((sectionKey) => {
-    const node = getRoleInfoNode(abilityData, sectionKey);
-    if (!["sequence", "variable"].includes(node.repeatMode)) {
-      return;
+    const entries = record[getRoleInfoSectionKey(sectionKey)];
+    while (entries.length < displayed) {
+      entries.push({});
     }
-
-    const entryKey = getRoleInfoSectionKey(sectionKey);
-    const minimumRows = getRoleInfoMinimumRows(node, abilityData, subject, game);
-    if (draft.roleInfo[entryKey].length > minimumRows) {
-      draft.roleInfo[entryKey].pop();
+    if (step > 0) {
+      entries.push({});
+    } else {
+      entries.length = Math.max(displayed - 1, 0);
     }
   });
+  return true;
 }
 
 function buildPlayerSaveSummary(player, game = getActiveGame()) {
@@ -402,17 +386,22 @@ export function autoFillStorytellerRoleInfoResult(playerId) {
   }
 
   draft.roleInfo = ensureRoleInfoMatchesClaim(subject, game);
-  const targetEntries = draft.roleInfo.targetEntries || [];
-  const targetIndex = Math.max(
-    targetEntries.findLastIndex((entry) => getSeatFromRoleInfoEntry(entry)),
-    0,
-  );
-  const rowLimit = getRoleInfoRowLimit(abilityData, subject, game);
-  const resultEntryExists = draft.roleInfo.resultEntries.length > targetIndex;
-  if (rowLimit !== null && targetIndex >= rowLimit && !resultEntryExists) {
+  const current = getGamePhase(game);
+  const currentIndex = phaseOrderIndex(current.phaseType, current.phaseNumber);
+  // Latest record (up to the current phase) whose target names a seat.
+  const record = [...draft.roleInfo.records]
+    .reverse()
+    .find(
+      (item) =>
+        phaseOrderIndex(item.phaseType, item.phaseNumber) <= currentIndex &&
+        item.targetEntries.some((entry) => getSeatFromRoleInfoEntry(entry)),
+    );
+  if (!record) {
     return false;
   }
 
+  const targetEntries = record.targetEntries;
+  const targetIndex = targetEntries.findLastIndex((entry) => getSeatFromRoleInfoEntry(entry));
   const targetSeat = getSeatFromRoleInfoEntry(targetEntries[targetIndex]);
   const targetPlayer = game.players.find((player) => player.seat === targetSeat);
   const targetRole = getRoleByLooseName(targetPlayer?.trueRole, game);
@@ -421,11 +410,11 @@ export function autoFillStorytellerRoleInfoResult(playerId) {
     return false;
   }
 
-  while (draft.roleInfo.resultEntries.length <= targetIndex) {
-    draft.roleInfo.resultEntries.push({});
+  while (record.resultEntries.length <= targetIndex) {
+    record.resultEntries.push({});
   }
 
-  const resultEntry = { ...(draft.roleInfo.resultEntries[targetIndex] || {}) };
+  const resultEntry = { ...(record.resultEntries[targetIndex] || {}) };
   resultNode.fields.forEach((field) => {
     if (field.type !== "role" || resultEntry[field.key]) {
       return;
@@ -447,7 +436,7 @@ export function autoFillStorytellerRoleInfoResult(playerId) {
     }
   });
 
-  draft.roleInfo.resultEntries[targetIndex] = resultEntry;
+  record.resultEntries[targetIndex] = resultEntry;
   return true;
 }
 

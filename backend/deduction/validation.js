@@ -1,3 +1,5 @@
+const { countRoleInfoRows } = require("./role-info-rows");
+
 const MIN_PLAYER_COUNT = 5;
 const MAX_PLAYER_COUNT = 15;
 const MAX_TRAVELLER_COUNT = 5;
@@ -30,13 +32,12 @@ function validateDeductionGame(game) {
   }
 
   players.forEach((player, index) => {
-    const targetEntries = Array.isArray(player?.roleInfo?.targetEntries)
-      ? player.roleInfo.targetEntries.length
-      : 0;
-    const resultEntries = Array.isArray(player?.roleInfo?.resultEntries)
-      ? player.roleInfo.resultEntries.length
-      : 0;
-    if (Math.max(targetEntries, resultEntries) > MAX_ROLE_INFO_ROWS) {
+    const roleInfo = player?.roleInfo;
+    if (roleInfo && Number(roleInfo.version) === 3 && roleInfo.records !== undefined && !Array.isArray(roleInfo.records)) {
+      errors.push(`players[${index}].roleInfo.records must be an array`);
+      return;
+    }
+    if (countRoleInfoRows(roleInfo) > MAX_ROLE_INFO_ROWS) {
       errors.push(`players[${index}].roleInfo cannot contain more than ${MAX_ROLE_INFO_ROWS} rows`);
     }
   });

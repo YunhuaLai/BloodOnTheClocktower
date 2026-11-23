@@ -1,8 +1,9 @@
 import { clampNumber } from "../notes-state.js";
 import { escapeHtml } from "../utils.js";
-import { renderRoleInfoFieldControl } from "./notes-role-info-fields.js";
+import { renderRoleInfoForm } from "./notes-role-info-fields.js";
+import { buildRoleInfoForm } from "./notes-role-info-form.js";
 import { getMaxSeatNumber } from "./notes-core.js";
-import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityMetaSummary, getAbilityTimingText, getClaimedRole, getDisplayedRoleInfoEntries, getRoleInfoAvailability, getRoleInfoMinimumRows, getRoleInfoNode, getRoleInfoRowLimit, getRoleInfoSectionLabel } from "./notes-role-info.js";
+import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityMetaSummary, getAbilityTimingText, getClaimedRole } from "./notes-role-info.js";
 
 export function renderRoleInfoInputs(player, game) {
   if (!player.claim) {
@@ -26,102 +27,14 @@ export function renderRoleInfoInputs(player, game) {
 
   const abilityData = role.abilityData || null;
   const roleInfo = ensureRoleInfoMatchesClaim(player, game);
-  const targetNode = getRoleInfoNode(abilityData, "target");
-  const resultNode = getRoleInfoNode(abilityData, "result");
   const maxSeat = clampNumber(getMaxSeatNumber(game) || 15, 1, 25);
-  const roleInfoContext = { abilityData, player, game };
-  const availability = getRoleInfoAvailability(abilityData, player, game);
-  const rowLimit = getRoleInfoRowLimit(abilityData, player, game);
-  const renderSection = (sectionKey, node) => {
-    if (node.repeatMode === "none" || !node.fields.length) {
-      return "";
-    }
-
-    const rows = getDisplayedRoleInfoEntries(
-      roleInfo,
-      node,
-      sectionKey,
-      roleInfoContext,
-    );
-    const minimumRows = getRoleInfoMinimumRows(
-      node,
-      abilityData,
-      player,
-      game,
-    );
-    const addDisabled = rowLimit !== null && rows.length >= rowLimit;
-    if (!rows.length) {
-      return "";
-    }
-
-    return `
-      <section class="notes-roleinfo-section">
-        <div class="notes-roleinfo-section-header">
-          <strong>${escapeHtml(getRoleInfoSectionLabel(sectionKey, abilityData))}</strong>
-          <small>${escapeHtml(node.repeatMode === "once" ? "单条" : "多条")}</small>
-        </div>
-        <div class="notes-roleinfo-list">
-          ${rows
-            .map(
-              (entry, index) => `
-                <div class="notes-roleinfo-row">
-                  <span class="notes-roleinfo-index">${index + 1}</span>
-                  <div class="notes-roleinfo-fields notes-roleinfo-fields--${Math.min(
-                    Math.max(node.fields.length, 1),
-                    3,
-                  )}">
-                    ${node.fields
-                      .map((field) =>
-                        renderRoleInfoFieldControl(
-                          sectionKey,
-                          index,
-                          field,
-                          entry?.[field.key],
-                          game,
-                          maxSeat,
-                        ),
-                      )
-                      .join("")}
-                  </div>
-                </div>
-              `,
-            )
-            .join("")}
-        </div>
-        ${
-          node.repeatMode === "sequence" || node.repeatMode === "variable"
-            ? `
-              <div class="notes-roleinfo-actions">
-                <button
-                  type="button"
-                  class="note-icon-button"
-                  data-notes-action="add-roleinfo-row"
-                  data-player-id="${escapeHtml(player.id)}"
-                  data-section="${escapeHtml(sectionKey)}"
-                  ${addDisabled ? "disabled" : ""}
-                >+ 一条</button>
-                <button
-                  type="button"
-                  class="note-icon-button"
-                  data-notes-action="remove-roleinfo-row"
-                  data-player-id="${escapeHtml(player.id)}"
-                  data-section="${escapeHtml(sectionKey)}"
-                  ${rows.length <= minimumRows ? "disabled" : ""}
-                >- 末条</button>
-              </div>
-            `
-            : ""
-        }
-      </section>
-    `;
-  };
-
-  const targetSection = renderSection("target", targetNode);
-  const resultSection = renderSection("result", resultNode);
-  const hasStructuredFields = Boolean(targetNode.fields.length || resultNode.fields.length);
+  const form = buildRoleInfoForm({ abilityData, roleInfo, player, game });
+  const formHtml = abilityData?.abilityMeta?.recordable
+    ? renderRoleInfoForm(form, { game, maxSeat, playerId: player.id, hint: form.rows.length > 1 ? "按阶段" : "单条" })
+    : "";
   const emptyMessage =
-    hasStructuredFields && availability.reason
-      ? availability.reason
+    form.sections.length && form.emptyReason
+      ? form.emptyReason
       : "规则效果，写在额外信息里。";
 
   return `
@@ -153,8 +66,8 @@ export function renderRoleInfoInputs(player, game) {
       </div>
       <p class="notes-inline-hint">${escapeHtml(getAbilityMetaSummary(abilityData))}</p>
       ${
-        targetSection || resultSection
-          ? `${targetSection}${resultSection}`
+        formHtml
+          ? formHtml
           : `
             <div class="notes-roleinfo-empty">
               ${escapeHtml(emptyMessage)}

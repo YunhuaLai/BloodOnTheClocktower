@@ -180,6 +180,7 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
       Number(roleInfoField.dataset.roleinfoRow),
       roleInfoField.dataset.roleinfoField,
       target.value,
+      readRoleInfoPhase(roleInfoField.dataset, "roleinfoPhase"),
     );
     if (["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
       persistPlayerDraft(playerId);
@@ -188,6 +189,16 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
       renderNotesPage();
     }
   }
+}
+
+function readRoleInfoPhase(dataset, prefix) {
+  const phaseType = dataset[`${prefix}Type`];
+  const phaseNumber = dataset[`${prefix}Number`];
+  if (phaseType === undefined && phaseNumber === undefined) {
+    return null;
+  }
+
+  return { phaseType: phaseType || "", phaseNumber: Number(phaseNumber) || 0 };
 }
 
 export function handleNotesAction(button) {

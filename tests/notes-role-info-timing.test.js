@@ -19,34 +19,38 @@ test("nightly role records grow once per night and remain stable through the fol
   fs.writeFileSync(path.join(directory, "package.json"), '{"type":"module"}');
   const load = (name) => import(pathToFileURL(path.join(directory, name)).href);
   const { getShiftedPhase } = await load("notes/notes-phase.js");
-  const { getRoleInfoRowLimit, getDisplayedRoleInfoEntries } = await load("notes/notes-role-info.js");
+  const { buildRoleInfoForm } = await load("notes/notes-role-info-form.js");
   const player = { status: "alive" };
   const ability = (phaseTiming, usagePattern = "once_per_night") => ({
-    abilityMeta: { phaseTiming, usagePattern },
+    abilityMeta: { phaseTiming, usagePattern, recordable: true },
+    interactionSchema: { result: { repeatMode: "sequence", defaultRows: 3, fields: [{ key: "count", type: "number" }] } },
   });
+  const rows = (abilityData, game, roleInfo = { records: [] }) =>
+    buildRoleInfoForm({ abilityData, roleInfo, player, game }).rows;
+  // Phases: night 1, day 1, night 2, day 2, night 3, day 3. A day row only appears once that day starts.
   const cases = [
     { data: ability("each_night"), counts: [1, 1, 2, 2, 3, 3] },
     { data: ability("each_night_star"), counts: [0, 0, 1, 1, 2, 2] },
     { data: ability("night"), counts: [0, 0, 1, 1, 2, 2] },
     { data: ability("special"), counts: [1, 1, 2, 2, 3, 3] },
     { data: ability("first_night", "once"), counts: [1, 1, 1, 1, 1, 1] },
-    { data: ability("each_day", "once_per_day"), counts: [1, 1, 2, 2, 3, 3] },
+    { data: ability("each_day", "once_per_day"), counts: [0, 1, 1, 2, 2, 3] },
   ];
-  const node = { repeatMode: "sequence", defaultRows: 3, fields: [{ key: "count" }] };
   for (const { data, counts } of cases) {
     let phase = { phaseType: "night", phaseNumber: 1 };
     for (const count of counts) {
-      assert.equal(getRoleInfoRowLimit(data, player, phase), count, JSON.stringify({ meta: data.abilityMeta, phase }));
-      assert.equal(getDisplayedRoleInfoEntries({}, node, "result", { abilityData: data, player, game: phase }).length, count);
+      assert.equal(rows(data, phase).length, count, JSON.stringify({ meta: data.abilityMeta, phase }));
       phase = getShiftedPhase(phase.phaseType, phase.phaseNumber, 1);
     }
   }
 
-  const recorded = { resultEntries: [{ count: "0" }, { count: "1" }, { count: "2" }] };
+  const recorded = {
+    records: [0, 1, 2].map((index) => ({
+      phaseType: "night", phaseNumber: index + 1, targetEntries: [], resultEntries: [{ count: String(index) }],
+    })),
+  };
   for (const phaseType of ["night", "day"]) {
-    const entries = getDisplayedRoleInfoEntries(recorded, node, "result", {
-      abilityData: ability("each_night"), player, game: { phaseType, phaseNumber: 2 },
-    });
-    assert.deepEqual(entries, recorded.resultEntries, "existing information must survive the corrected automatic row count");
+    const values = rows(ability("each_night"), { phaseType, phaseNumber: 2 }, recorded).map((row) => row.cells[0].value);
+    assert.deepEqual(values, ["0", "1", "2"], "existing information must survive the automatic row count");
   }
 });

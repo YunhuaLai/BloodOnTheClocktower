@@ -536,3 +536,11 @@
     padding: 8px 6px;
   }
 }
+
+.notes-overview-editor .notes-roleinfo-form .notes-roleinfo-row {
+  grid-template-columns: 46px minmax(0, 1fr);
+}
+
+.notes-overview-editor .notes-roleinfo-form .notes-roleinfo-row--packed {
+  grid-template-columns: minmax(0, 1fr);
+}
