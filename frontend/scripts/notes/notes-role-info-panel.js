@@ -4,6 +4,7 @@ import { escapeHtml } from "../utils.js";
 import { renderRoleInfoForm } from "./notes-role-info-fields.js";
 import { buildRoleInfoForm } from "./notes-role-info-form.js";
 import { getOncePhaseChoice } from "./notes-role-info-once-phase.js";
+import { getPlayerRowExtra } from "./notes-role-info-overview.js";
 import { getMaxSeatNumber } from "./notes-core.js";
 import { abilityPageTypeLabels, abilityUsagePatternLabels, ensureRoleInfoMatchesClaim, getAbilityTimingText, getClaimedRole } from "./notes-role-info.js";
 
@@ -60,7 +61,13 @@ export function renderRoleInfoInputs(player, game) {
   const oncePhase = getOncePhaseChoice(player.id, roleInfo.roleId);
   const form = buildRoleInfoForm({ abilityData, roleInfo, player, game, oncePhase });
   const formHtml = abilityData?.abilityMeta?.recordable
-    ? renderRoleInfoForm(form, { game, maxSeat, playerId: player.id, hint: form.rows.length > 1 ? "按阶段" : form.rows.length ? "单条" : "" })
+    ? renderRoleInfoForm(form, {
+        game,
+        maxSeat,
+        playerId: player.id,
+        hint: form.rows.length > 1 ? "按阶段" : form.rows.length ? "单条" : "",
+        renderRowExtra: getPlayerRowExtra(abilityData, roleInfo, game),
+      })
     : "";
   const emptyMessage =
     form.sections.length && form.emptyReason

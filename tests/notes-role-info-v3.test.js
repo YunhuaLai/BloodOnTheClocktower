@@ -565,3 +565,26 @@ test("fixed-answer fields are segment buttons, the night helper greys sleeping r
   assert.deepEqual(set, [["--seat-angle", "-90deg"]]);
   shell.applySeatAngles(null);
 });
+
+test("player mode offers the executed player's claim to abilities that learn the executed role", async (t) => {
+  const modules = await loadFrontend(t);
+  const game = createGame(modules, "night", 3);
+  game.dayRecords = [
+    { dayNumber: 1, nominations: [], abilityRecords: [], executionOverride: "3" },
+    { dayNumber: 2, nominations: [], abilityRecords: [], executionOverride: "none" },
+  ];
+  game.players[2].claim = "共情者";
+  const undertaker = game.players[0];
+  undertaker.claim = "送葬者";
+
+  const html = modules.overview.renderOverviewRoleInfoInputs(undertaker, game);
+  assert.match(html, /data-notes-action="set-roleinfo-field"[^>]*data-roleinfo-field="role"[^>]*data-roleinfo-phase-number="2"[^>]*value="共情者"/);
+  assert.match(html, /第1天 3号 · 自称共情者/);
+  assert.match(html, /第2天未记录处决/, "the current night says nothing was recorded");
+  game.phaseNumber = 4;
+  assert.doesNotMatch(modules.overview.renderOverviewRoleInfoInputs(undertaker, game), /第2天未记录处决/, "older nights stay quiet");
+  game.phaseNumber = 3;
+
+  game.mode = "storyteller";
+  assert.doesNotMatch(modules.overview.renderOverviewRoleInfoInputs(undertaker, game), /notes-execution-hint/, "storyteller mode uses its own suggestions");
+});
