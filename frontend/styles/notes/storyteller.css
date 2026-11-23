@@ -631,3 +631,77 @@
   color: var(--muted);
   font-weight: 800;
 }
+
+/* Storyteller "应给" truth suggestion under an ability record row (notes-storyteller-truth-render.js). */
+.story-truth {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+  min-width: 0;
+  padding: 6px 8px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  background: #f7f8f4;
+}
+
+.story-truth-label {
+  flex: none;
+  color: var(--teal);
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.story-truth-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-width: 0;
+}
+
+.story-truth-chip {
+  min-height: 36px;
+  min-width: 44px;
+  max-width: 100%;
+  padding: 6px 10px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--teal);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+}
+
+.story-truth-chip.is-applied {
+  color: #fff;
+  background: var(--teal);
+}
+
+.story-truth-hint {
+  flex: 1 1 100%;
+  min-width: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.story-truth--misinfo {
+  border-color: var(--gold);
+}
+
+.story-truth--misinfo .story-truth-label {
+  color: var(--gold);
+}
+
+.story-truth--mismatch {
+  border-style: solid;
+  border-color: var(--gold);
+}
+
+.story-truth--unavailable .story-truth-hint {
+  flex-basis: auto;
+}

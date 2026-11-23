@@ -4,6 +4,8 @@ import { getMaxSeatNumber } from "./notes-core.js";
 import { renderRoleInfoForm } from "./notes-role-info-fields.js";
 import { buildAcquiredRecordForm } from "./notes-role-info-form.js";
 import { formatRoleInfoEntriesTexts } from "./notes-role-info.js";
+import { getRoleByLooseName } from "./notes-storyteller-actions.js";
+import { createTruthRowRenderer } from "./notes-storyteller-truth-render.js";
 import { acquiredCertaintyLabels, acquiredPhaseIndex, acquiredPhaseLabel, acquiredStatusLabels, findAcquiredRole, getAcquiredAbilities, getAcquisitionKind, hasAcquiredRecords, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
 
 function options(labels, selected) {
@@ -21,12 +23,42 @@ function phaseFields(prefix, label, ability) {
   </div>`;
 }
 
-function renderAcquiredRecord(ability, record, role, game) {
+// Storyteller only: truth suggestions for an acquired ability, acting as `player`.
+function getAcquiredTruthRenderer(ability, record, role, player, game, source) {
+  if (source !== "storyteller") {
+    return null;
+  }
+
+  return createTruthRowRenderer({
+    abilityData: role.abilityData,
+    sourceRole: role,
+    source: player,
+    game,
+    resolveRole: (name) => getRoleByLooseName(name, game) || findAcquiredRole(name),
+    rows: ability.records.flatMap((item) => {
+      const targets = item.roleInfo?.targetEntries || [];
+      const results = item.roleInfo?.resultEntries || [];
+      return Array.from({ length: Math.max(targets.length, results.length) }, (_, index) => ({
+        phaseType: item.phaseType,
+        phaseNumber: Number(item.phaseNumber),
+        target: targets[index] || {},
+        result: results[index] || {},
+      }));
+    }),
+    getEntries: (row) => ({
+      target: record.roleInfo?.targetEntries?.[row.entryIndex] || {},
+      result: record.roleInfo?.resultEntries?.[row.entryIndex] || {},
+    }),
+  });
+}
+
+function renderAcquiredRecord(ability, record, role, game, player, source) {
   const form = buildAcquiredRecordForm({ abilityData: role.abilityData, record, game });
   const sections = renderRoleInfoForm(form, {
     game,
     maxSeat: getMaxSeatNumber(game),
     className: "notes-roleinfo-form--acquired",
+    renderRowExtra: getAcquiredTruthRenderer(ability, record, role, player, game, source),
   });
   const summary = formatRoleInfoEntriesTexts(record.roleInfo, role.abilityData).join(" / ");
   const isCurrent = record.phaseType === game.phaseType && record.phaseNumber === Number(game.phaseNumber);
@@ -63,7 +95,7 @@ function renderAbility(ability, player, game, source, listId) {
     </div>
     <p class="notes-inline-hint">${escapeHtml(ability.ownerRole ? `获得时身份：${ability.ownerRole}。` : "")}${locked ? "已有行动记录，换能力请新增一项。" : ""}${ability.status === "pending" ? "满足条件后将状态改为“已获得”，再录入行动。" : ""}</p>
     ${ability.role && !role ? `<p class="notes-inline-hint">未匹配到角色，请从搜索候选中选择。</p>` : ""}
-    ${role ? `<p class="notes-inline-hint">${escapeHtml(role.ability || "")}</p>${records.map((record) => renderAcquiredRecord(ability, record, role, game)).join("")}` : `<p class="notes-inline-hint">能力未知时可先记来源和备注，确定角色后展开对应记录表。</p>`}
+    ${role ? `<p class="notes-inline-hint">${escapeHtml(role.ability || "")}</p>${records.map((record) => renderAcquiredRecord(ability, record, role, game, player, source)).join("")}` : `<p class="notes-inline-hint">能力未知时可先记来源和备注，确定角色后展开对应记录表。</p>`}
     ${!locked ? `<button type="button" class="note-icon-button" data-notes-action="remove-acquired-ability">删除此项</button>` : ""}
   </details>`;
 }

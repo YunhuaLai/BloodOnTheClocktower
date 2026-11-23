@@ -8,6 +8,8 @@ import { renderPlayerCycleField } from "./notes-player-render.js";
 import { renderRoleInfoForm } from "./notes-role-info-fields.js";
 import { buildRoleInfoForm, getRoleInfoPhaseRowLabel } from "./notes-role-info-form.js";
 import { renderAcquiredAbilities } from "./notes-acquired-render.js";
+import { findRoleInfoRecord } from "./notes-role-info-records.js";
+import { createTruthRowRenderer } from "./notes-storyteller-truth-render.js";
 import { getAcquiredAbilitySummary } from "./notes-acquired-abilities.js";
 import { ensureRoleInfoMatchesClaim, formatRoleInfoPairText, formatRoleInfoRowTexts, getRoleInfoNode, getRoleInfoRows } from "./notes-role-info.js";
 import { getAssignedSetupAlertRoles, getRoleByLooseName, getRoleGlobalMarkers, getRoleSetupNotes, getScriptIdentityOverlayRoles } from "./notes-storyteller-actions.js";
@@ -224,8 +226,22 @@ function renderStorytellerNightRecord(item, game, reminder) {
   const subject = getStorytellerRoleInfoSubject(draft);
   const abilityData = item.role.abilityData || null;
   const roleInfo = ensureRoleInfoMatchesClaim(subject, game);
-  const resultNode = getRoleInfoNode(abilityData, "result");
   const form = buildRoleInfoForm({ abilityData, roleInfo, player: draft, game, scope: "current" });
+  const renderRowExtra = createTruthRowRenderer({
+    abilityData,
+    sourceRole: item.role,
+    source: draft,
+    game,
+    resolveRole: (name) => getRoleByLooseName(name, game),
+    rows: getRoleInfoRows(roleInfo),
+    getEntries: (row) => {
+      const record = findRoleInfoRecord(roleInfo, row.phaseType, row.phaseNumber);
+      return {
+        target: record?.targetEntries?.[row.entryIndex] || {},
+        result: record?.resultEntries?.[row.entryIndex] || {},
+      };
+    },
+  });
   const hasRecordFields = form.rows.length > 0;
 
   return `
@@ -242,20 +258,9 @@ function renderStorytellerNightRecord(item, game, reminder) {
                 hint: "玩家选择 / 给出的信息",
                 playerId: item.player.id,
                 className: "story-night-record-section",
+                renderRowExtra,
               })}
             </div>
-            ${
-              resultNode.fields.some((field) => field.type === "role")
-                ? `
-                  <button
-                    type="button"
-                    class="note-icon-button"
-                    data-notes-action="autofill-story-result"
-                    data-player-id="${escapeHtml(item.player.id)}"
-                  >按真实身份预填</button>
-                `
-                : ""
-            }
           `
           : ""
       }

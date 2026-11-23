@@ -1,4 +1,3 @@
-import { getClaimRoleOptions } from "../notes-claims.js";
 import { clearPlayerDraft, clonePlayerForDraft, getActiveGame, getPlayerDraft, saveNotesState, setPlayerDraft } from "../notes-state.js";
 import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state } from "../state.js";
 import { createId, getOptionLabel } from "../utils.js";
@@ -152,6 +151,18 @@ function prepareRoleInfoDraft(playerId) {
   }
 
   return { draft, game, subject, abilityData };
+}
+
+// Current stored entry of one role-info row (read-only; {} when absent).
+export function getPlayerDraftRoleInfoEntry(playerId, section, index, phase = null) {
+  const context = prepareRoleInfoDraft(playerId);
+  if (!context || !["target", "result"].includes(section)) {
+    return {};
+  }
+
+  const resolvedPhase = resolveRoleInfoPhase(phase, context.game);
+  const record = findRoleInfoRecord(context.draft.roleInfo, resolvedPhase.phaseType, resolvedPhase.phaseNumber);
+  return record?.[getRoleInfoSectionKey(section)]?.[Number(index) || 0] || {};
 }
 
 export function updatePlayerDraftRoleInfo(playerId, section, index, field, value, phase = null) {
@@ -340,104 +351,6 @@ export function togglePlayerStoryMarker(playerId, marker) {
     : [...markers, token];
 
   draft.storytellerNotes = nextMarkers.join("、");
-  return true;
-}
-
-function getSeatFromRoleInfoEntry(entry) {
-  const value = entry?.seat || entry?.player || entry?.number || "";
-  const seat = Number.parseInt(value, 10);
-  return Number.isFinite(seat) && seat > 0 ? seat : 0;
-}
-
-function getRoleAlignmentGroup(role) {
-  if (["townsfolk", "outsider"].includes(role?.type)) {
-    return "good";
-  }
-
-  if (["minion", "demon"].includes(role?.type)) {
-    return "evil";
-  }
-
-  return "";
-}
-
-function pickRoleByAlignment(game, alignment, excludedRoleId = "") {
-  return getClaimRoleOptions(game).find(
-    (role) =>
-      role.type !== "fabled" &&
-      role.type !== "traveller" &&
-      role.type !== "traveler" &&
-      role.id !== excludedRoleId &&
-      getRoleAlignmentGroup(role) === alignment,
-  );
-}
-
-export function autoFillStorytellerRoleInfoResult(playerId) {
-  const game = getActiveGame();
-  const draft = ensurePlayerDraftForId(playerId);
-  if (!game || !draft) {
-    return false;
-  }
-
-  const subject = getRoleInfoSubject(draft, game);
-  const abilityData = getRoleAbilityData(subject, game);
-  const resultNode = getRoleInfoNode(abilityData, "result");
-  if (!resultNode.fields.some((field) => field.type === "role")) {
-    return false;
-  }
-
-  draft.roleInfo = ensureRoleInfoMatchesClaim(subject, game);
-  const current = getGamePhase(game);
-  const currentIndex = phaseOrderIndex(current.phaseType, current.phaseNumber);
-  // Latest record (up to the current phase) whose target names a seat.
-  const record = [...draft.roleInfo.records]
-    .reverse()
-    .find(
-      (item) =>
-        phaseOrderIndex(item.phaseType, item.phaseNumber) <= currentIndex &&
-        item.targetEntries.some((entry) => getSeatFromRoleInfoEntry(entry)),
-    );
-  if (!record) {
-    return false;
-  }
-
-  const targetEntries = record.targetEntries;
-  const targetIndex = targetEntries.findLastIndex((entry) => getSeatFromRoleInfoEntry(entry));
-  const targetSeat = getSeatFromRoleInfoEntry(targetEntries[targetIndex]);
-  const targetPlayer = game.players.find((player) => player.seat === targetSeat);
-  const targetRole = getRoleByLooseName(targetPlayer?.trueRole, game);
-  const targetAlignment = getRoleAlignmentGroup(targetRole);
-  if (!targetRole || !targetAlignment) {
-    return false;
-  }
-
-  while (record.resultEntries.length <= targetIndex) {
-    record.resultEntries.push({});
-  }
-
-  const resultEntry = { ...(record.resultEntries[targetIndex] || {}) };
-  resultNode.fields.forEach((field) => {
-    if (field.type !== "role" || resultEntry[field.key]) {
-      return;
-    }
-
-    const keyLabel = `${field.key} ${field.label || ""}`.toLowerCase();
-    const wantsGood = /good|好|善/.test(keyLabel);
-    const wantsEvil = /evil|bad|坏|恶|邪/.test(keyLabel);
-    const desiredAlignment = wantsGood ? "good" : wantsEvil ? "evil" : targetAlignment;
-
-    if (desiredAlignment === targetAlignment) {
-      resultEntry[field.key] = targetRole.name;
-      return;
-    }
-
-    const fakeRole = pickRoleByAlignment(game, desiredAlignment, targetRole.id);
-    if (fakeRole) {
-      resultEntry[field.key] = fakeRole.name;
-    }
-  });
-
-  record.resultEntries[targetIndex] = resultEntry;
   return true;
 }
 

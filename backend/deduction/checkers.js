@@ -163,7 +163,8 @@ function checkObservation(observation, world, context) {
 
     case "nearest_evil_direction": {
       const direction = nearestEvilDirection(world, observation.sourceSeat, context.game.playerCount);
-      return observation.value === "storyteller_choice" || direction === observation.value;
+      // Equidistant: the storyteller may answer either direction.
+      return observation.value === "storyteller_choice" || direction === "storyteller_choice" || direction === observation.value;
     }
 
     default:

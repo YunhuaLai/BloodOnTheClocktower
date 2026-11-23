@@ -14,6 +14,7 @@ import {
 } from "./notes/notes-game-actions.js";
 import {
   persistPlayerDraft,
+  getPlayerDraftRoleInfoEntry,
   updatePlayerDraftRoleInfo,
   updatePlayerField,
 } from "./notes/notes-player-actions.js";
@@ -25,7 +26,8 @@ import { renderNotesPage } from "./notes/notes-shell.js";
 import { handleStorytellerAction } from "./notes/notes-storyteller-ui-actions.js";
 import { handleTimelineAction } from "./notes/notes-timeline-actions.js";
 import { state } from "./state.js";
-import { handleAcquiredAction, handleAcquiredFieldChange } from "./notes/notes-acquired-actions.js";
+import { applyAcquiredSuggestion, handleAcquiredAction, handleAcquiredFieldChange } from "./notes/notes-acquired-actions.js";
+import { decodeTruthFill, encodeTruthBasis } from "./notes/notes-storyteller-truth-render.js";
 import { getSteppedNumberValue } from "./notes/notes-role-info-fields.js";
 
 export async function handleNotesImportFile(target) {
@@ -202,11 +204,47 @@ function readRoleInfoPhase(dataset, prefix) {
   return { phaseType: phaseType || "", phaseNumber: Number(phaseNumber) || 0 };
 }
 
+// Storyteller "应给" chip: writes the suggested result values of one row (only on tap, never automatically).
+function applyRoleInfoSuggestion(button) {
+  const fill = decodeTruthFill(button.dataset.truthFill);
+  if (!Object.keys(fill).length) {
+    return;
+  }
+
+  if (button.closest(".notes-acquired-panel")) {
+    applyAcquiredSuggestion(button, fill, encodeTruthBasis);
+    return;
+  }
+
+  const playerId = button.closest(".story-night-detail")?.dataset.playerId;
+  if (!playerId) {
+    return;
+  }
+
+  const phase = readRoleInfoPhase(button.dataset, "roleinfoPhase");
+  const index = Number(button.dataset.roleinfoRow) || 0;
+  const target = getPlayerDraftRoleInfoEntry(playerId, "target", index, phase);
+  if (encodeTruthBasis(target) !== (button.dataset.truthBasis || "")) {
+    renderNotesPage(); // the target changed since the chip was drawn: show the fresh suggestion instead
+    return;
+  }
+  Object.entries(fill).forEach(([key, value]) => {
+    updatePlayerDraftRoleInfo(playerId, "result", index, key, value, phase);
+  });
+  persistPlayerDraft(playerId);
+  renderNotesPage();
+}
+
 // Segment and stepper buttons write through the same path as the role-info inputs and selects,
 // so the player panel, overview, storyteller night and acquired-ability forms all share it.
 function handleRoleInfoButtonAction(action, button) {
   if (action === "set-roleinfo-field") {
     handleNotesFieldChange(button, true);
+    return true;
+  }
+
+  if (action === "apply-roleinfo-suggestion") {
+    applyRoleInfoSuggestion(button);
     return true;
   }
 

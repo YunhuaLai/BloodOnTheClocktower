@@ -274,7 +274,7 @@ test("edits land on their own phase, saves keep v3 and timeline items are not du
   assert.equal(oldPlayer.roleInfo.records[0].resultEntries[0].has_demon, "no");
 });
 
-test("storyteller mode records the current night and autofills from the true role", async (t) => {
+test("storyteller mode records the current night against the true role", async (t) => {
   const modules = await loadFrontend(t);
   const { playerActions, state, roleInfo: ri } = modules;
   const game = createGame(modules, "night", 2);
@@ -286,7 +286,7 @@ test("storyteller mode records the current night and autofills from the true rol
   game.players[3].trueRole = "投毒者";
 
   assert.equal(playerActions.updatePlayerDraftRoleInfo(checker.id, "target", 0, "seat", "4"), true, "defaults to the current phase");
-  assert.equal(playerActions.autoFillStorytellerRoleInfoResult(checker.id), true);
+  assert.equal(playerActions.updatePlayerDraftRoleInfo(checker.id, "result", 0, "role", "投毒者"), true);
   playerActions.persistPlayerDraft(checker.id);
   assert.deepEqual(checker.roleInfo.records, [{ phaseType: "night", phaseNumber: 2, targetEntries: [{ seat: "4" }], resultEntries: [{ role: "投毒者" }] }]);
   assert.equal(ri.ensureRoleInfoMatchesClaim({ ...checker, claim: checker.trueRole }, game).roleId, "r904");

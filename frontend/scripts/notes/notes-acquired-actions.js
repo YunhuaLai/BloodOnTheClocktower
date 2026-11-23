@@ -170,6 +170,25 @@ export function handleAcquiredFieldChange(target, refreshInterface) {
   return true;
 }
 
+// Storyteller truth suggestion tapped inside an acquired-ability record: write each suggested result value.
+export function applyAcquiredSuggestion(button, fill, basisOf) {
+  const context = getElementContext(button);
+  if (!context) return false;
+  const { playerId, source, abilityId, phaseType, phaseNumber } = context;
+  const index = Number(button.dataset.roleinfoRow) || 0;
+  const target = getRecordContext(playerId, source, abilityId, phaseType, phaseNumber)?.record.roleInfo.targetEntries?.[index] || {};
+  if (basisOf(target) !== (button.dataset.truthBasis || "")) {
+    renderNotesPage(); // stale chip: re-render with the current target
+    return true;
+  }
+  Object.entries(fill).forEach(([key, value]) => {
+    updateAcquiredRecord(playerId, source, abilityId, phaseType, phaseNumber, "result", index, key, value);
+  });
+  persistInline(playerId);
+  renderNotesPage();
+  return true;
+}
+
 export function handleAcquiredAction(action, button) {
   const context = getElementContext(button);
   if (!context) return false;

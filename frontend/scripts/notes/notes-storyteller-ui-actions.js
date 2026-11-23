@@ -1,5 +1,4 @@
 import {
-  autoFillStorytellerRoleInfoResult,
   persistPlayerDraft,
   togglePlayerStoryMarker,
 } from "./notes-player-actions.js";
@@ -44,15 +43,6 @@ export function handleStorytellerAction(action, button, notes) {
   if (action === "toggle-story-marker") {
     const playerId = button.dataset.playerId || "";
     if (togglePlayerStoryMarker(playerId, button.dataset.marker || "")) {
-      persistPlayerDraft(playerId);
-    }
-    renderNotesPage();
-    return true;
-  }
-
-  if (action === "autofill-story-result") {
-    const playerId = button.dataset.playerId || "";
-    if (autoFillStorytellerRoleInfoResult(playerId)) {
       persistPlayerDraft(playerId);
     }
     renderNotesPage();

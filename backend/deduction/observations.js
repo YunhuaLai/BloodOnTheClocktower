@@ -517,7 +517,8 @@ function buildAllTargetsObservation(template, source, role, rows, game, catalog)
       role: compactRole(roleFrom(row, template.guesses.role, catalog)),
     }))
     .filter((guess) => guess.seat && guess.role);
-  const value = numberFrom(rows[0] || {}, template.value);
+  // The count is learnt on a later row (e.g. the night after the guesses): use the first row that has it.
+  const value = rows.map((row) => numberFrom(row, template.value)).find((item) => item !== null) ?? null;
 
   return guesses.length && value !== null
     ? baseObservation(source, role, rows[0] || { index: 0 }, template, `${sourceLabel(source, role)}报${guesses.length}个猜测中猜中${value}个`, {

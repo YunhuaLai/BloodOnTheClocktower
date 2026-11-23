@@ -482,8 +482,9 @@ function chunk(items, size) {
   return chunks;
 }
 
-function renderFormRow(row, game, maxSeat) {
+function renderFormRow(row, game, maxSeat, renderRowExtra = null) {
   const phase = { phaseType: row.phaseType, phaseNumber: row.phaseNumber };
+  const extra = renderRowExtra ? renderRowExtra(row) : "";
   return `
     <div class="notes-roleinfo-row${row.isCurrent ? " notes-roleinfo-row--current" : ""}">
       <span class="notes-roleinfo-index notes-roleinfo-index--phase">${escapeHtml(row.label)}</span>
@@ -492,6 +493,7 @@ function renderFormRow(row, game, maxSeat) {
           .map((cell) => renderRoleInfoFieldControl(cell.section, row.entryIndex, cell.field, cell.value, game, maxSeat, phase))
           .join("")}
       </div>
+      ${extra}
     </div>
   `;
 }
@@ -537,21 +539,22 @@ function renderCompactRows(rows, game, maxSeat) {
 
 /**
  * Render a form model from notes-role-info-form.js.
- * options: { game, maxSeat, density: "regular" | "compact", title, hint, playerId, className }
+ * options: { game, maxSeat, density: "regular" | "compact", title, hint, playerId, className, renderRowExtra }
+ * renderRowExtra(row) -> html appended inside each row (storyteller truth suggestions); disables packing.
  */
 export function renderRoleInfoForm(model, options = {}) {
-  const { game, maxSeat = 15, density = "regular", title = "", hint = "", playerId = "", className = "" } = options;
+  const { game, maxSeat = 15, density = "regular", title = "", hint = "", playerId = "", className = "", renderRowExtra = null } = options;
   if (!model?.rows?.length && !model?.pending) {
     return "";
   }
 
   const packed =
-    density === "compact" && model.rows.length > 1 && model.rows.every((row) => row.cells.length === 1);
+    !renderRowExtra && density === "compact" && model.rows.length > 1 && model.rows.every((row) => row.cells.length === 1);
   const rowsHtml = !model.rows.length
     ? renderPendingRow(model.pending)
     : packed
       ? renderCompactRows(model.rows, game, maxSeat)
-      : model.rows.filter((row) => row.cells.length).map((row) => renderFormRow(row, game, maxSeat)).join("");
+      : model.rows.filter((row) => row.cells.length).map((row) => renderFormRow(row, game, maxSeat, renderRowExtra)).join("");
   const actions = model.actions;
   const actionData = actions
     ? `${playerId ? `data-player-id="${escapeHtml(playerId)}"` : ""} data-section="${escapeHtml(actions.section)}" ${renderPhaseData("", actions)}`
