@@ -52,6 +52,69 @@ function getRoleInfoFieldOptions(field, game) {
   return [];
 }
 
+// Above this many candidates a native <select> gets unwieldy (free mode lists the whole catalog),
+// so role fields fall back to the searchable text input + datalist.
+export const ROLE_SELECT_LIMIT = 80;
+const deadStatuses = ["night-dead", "executed"];
+
+function renderOption(value, label, currentValue) {
+  return `<option value="${escapeHtml(value)}"${String(value) === currentValue ? " selected" : ""}>${escapeHtml(label)}</option>`;
+}
+
+function renderUnknownCurrentOption(currentValue, knownValues) {
+  return currentValue && !knownValues.includes(currentValue)
+    ? `<option value="${escapeHtml(currentValue)}" selected>${escapeHtml(currentValue)}</option>`
+    : "";
+}
+
+export function getSeatOptions(game, maxSeat) {
+  const playersBySeat = new Map((game?.players || []).map((player) => [Number(player.seat), player]));
+  const count = Math.max(Number(maxSeat) || 0, 0);
+  return Array.from({ length: count }, (_, index) => {
+    const seat = index + 1;
+    const player = playersBySeat.get(seat);
+    const name = String(player?.name || "").trim();
+    const dead = deadStatuses.includes(player?.status);
+    return {
+      value: String(seat),
+      label: `${seat}号${dead ? "（死）" : ""}${name ? ` ${name}` : ""}`,
+    };
+  });
+}
+
+function renderSeatSelect(field, currentValue, game, maxSeat, sharedData) {
+  const options = getSeatOptions(game, maxSeat);
+  return `
+    <select aria-label="${escapeHtml(field.label || "号码")}" ${sharedData}>
+      <option value="">—</option>
+      ${renderUnknownCurrentOption(currentValue, options.map((option) => option.value))}
+      ${options.map((option) => renderOption(option.value, option.label, currentValue)).join("")}
+    </select>
+  `;
+}
+
+function renderRoleSelect(field, currentValue, roles, sharedData) {
+  const groups = roleTypeOrder
+    .map((type) => ({ type, roles: roles.filter((role) => role.type === type) }))
+    .filter((group) => group.roles.length);
+  const ungrouped = roles.filter((role) => !roleTypeOrder.includes(role.type));
+  const names = roles.map((role) => role.name);
+  return `
+    <select aria-label="${escapeHtml(field.label || "角色")}" ${sharedData}>
+      <option value="">—</option>
+      ${renderUnknownCurrentOption(currentValue, names)}
+      ${groups
+        .map(
+          (group) => `<optgroup label="${escapeHtml(typeLabels[group.type] || group.type)}">
+            ${group.roles.map((role) => renderOption(role.name, role.name, currentValue)).join("")}
+          </optgroup>`,
+        )
+        .join("")}
+      ${ungrouped.map((role) => renderOption(role.name, role.name, currentValue)).join("")}
+    </select>
+  `;
+}
+
 function renderPhaseData(prefix, phase) {
   if (!phase) {
     return "";
@@ -69,7 +132,16 @@ export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, g
     ${renderPhaseData("roleinfo-", phase)}
   `;
 
+  if (field.type === "seat" || field.type === "player") {
+    return renderSeatSelect(field, currentValue, game, maxSeat, sharedData);
+  }
+
   if (field.type === "role") {
+    const roles = game ? getClaimRoleOptions(game) : [];
+    if (roles.length && roles.length <= ROLE_SELECT_LIMIT) {
+      return renderRoleSelect(field, currentValue, roles, sharedData);
+    }
+
     return `
       <input
         type="text"
@@ -124,16 +196,10 @@ export function renderRoleInfoFieldElement(sectionKey, rowIndex, field, value, g
     `;
   }
 
-  const isNumericField = ["seat", "player", "number"].includes(field.type);
+  const isNumericField = field.type === "number";
   const inputType = isNumericField ? "number" : "text";
-  const minValue =
-    field.type === "seat" || field.type === "player"
-      ? 1
-      : field.min ?? "";
-  const maxValue =
-    field.type === "seat" || field.type === "player"
-      ? maxSeat
-      : field.max ?? "";
+  const minValue = isNumericField ? field.min ?? "" : "";
+  const maxValue = isNumericField ? field.max ?? "" : "";
 
   return `
     <input

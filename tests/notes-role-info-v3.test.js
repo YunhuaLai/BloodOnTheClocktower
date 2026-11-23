@@ -342,3 +342,32 @@ test("deduction reads v3 records and matches the observations of the v2 data it 
   assert.match(validateDeductionGame(oversized).join("\n"), /roleInfo/);
   assert.match(validateDeductionGame(makeGame({ 1: { roleInfo: { version: 3, records: "x" } } })).join("\n"), /records/);
 });
+
+test("seat fields render as seat selects and role fields as grouped selects with a search fallback", async (t) => {
+  const modules = await loadFrontend(t);
+  const { state } = modules;
+  const game = createGame(modules, "night", 2);
+  game.players[0].name = "阿杰";
+  game.players[1].status = "night-dead";
+  const player = game.players[2];
+  player.claim = "占卜师";
+  player.roleInfo = { version: 3, roleId: "r006", records: [{ phaseType: "night", phaseNumber: 1, targetEntries: [{ seat1: "1", seat2: "9" }], resultEntries: [] }] };
+
+  const panel = modules.panel.renderRoleInfoInputs(player, game);
+  assert.doesNotMatch(panel, /type="number"[^>]*data-roleinfo-field="seat1"/);
+  assert.match(panel, /<option value="1" selected>1号 阿杰<\/option>/);
+  assert.match(panel, /<option value="2">2号（死）<\/option>/);
+  assert.match(panel, /<option value="9" selected>9<\/option>/, "out-of-range stored seat is kept");
+
+  const checker = game.players[3];
+  checker.claim = "送葬者";
+  const grouped = modules.panel.renderRoleInfoInputs(checker, game);
+  assert.match(grouped, /<optgroup label="镇民">/);
+  assert.match(grouped, /<optgroup label="恶魔">[\s\S]*<option value="小恶魔">小恶魔<\/option>/);
+  assert.doesNotMatch(grouped, /list="roleNameList"/);
+
+  state.roles = [...roles, ...Array.from({ length: 90 }, (_, index) => ({ id: `x${index}`, name: `填充${index}`, type: "townsfolk", ability: "", abilityData: null }))];
+  const searchable = modules.panel.renderRoleInfoInputs(checker, game);
+  assert.match(searchable, /list="roleNameList"[\s\S]*data-roleinfo-field="role"/);
+  state.roles = roles;
+});
