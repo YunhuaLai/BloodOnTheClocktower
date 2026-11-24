@@ -91,6 +91,8 @@ abilityData:
           placeholder: null
           seatFilter:
             - notSelf
+          aliases:
+            - seat
         - key: seat2
           type: seat
           label: 查验2
@@ -126,6 +128,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+          aliases:
+            - role
         - key: role2
           type: role
           label: 得知角色2

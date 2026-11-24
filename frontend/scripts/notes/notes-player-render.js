@@ -96,7 +96,7 @@ function renderSeatNameEditor(player) {
   const hintText = player.name ? "点击号位可修改称呼" : "点击号位可填写称呼";
 
   return `
-    <details class="notes-seat-editor">
+    <details class="notes-seat-editor" data-details-key="${escapeHtml(`seat-editor:${player.id}`)}">
       <summary class="notes-seat-editor-summary" aria-label="编辑玩家称呼">
         <span class="notes-seat-editor-title">${escapeHtml(seatLabel)}</span>
         <small>${escapeHtml(hintText)}</small>

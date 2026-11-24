@@ -323,6 +323,11 @@ usageRules:
     buttons on the notes page; wider or missing ranges (including the generated 0..15) render as a
     numeric input with -/+ steppers.
   - >-
+    aliases is an optional list of keys a field was saved under before it was renamed (教父 outsider_role ->
+    role). Saved notes are read through it, so renaming a key never hides recorded values; the next save writes
+    the current key. Keep an alias as long as old notes may exist. sync-generated-ability-data.js and the
+    official import add aliases themselves when regeneration renames a key; add one by hand when renaming.
+  - >-
     Target and result reuse the same field definitions, but remain separate containers because their
     semantics differ.
   - >-

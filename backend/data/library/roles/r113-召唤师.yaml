@@ -113,6 +113,8 @@ abilityData:
           placeholder: null
           roleTypes:
             - demon
+          aliases:
+            - demon_role
     result:
       repeatMode: once
       defaultRows: 1

@@ -26,7 +26,34 @@ function asEntries(value) {
   return Array.isArray(value) ? value : [];
 }
 
-function getRoleInfoRows(roleInfo) {
+// A schema field may list `aliases` (keys it was saved under before); old values count as the current key.
+function migrateEntryAliases(entry, fields) {
+  const next = { ...(entry || {}) };
+  (Array.isArray(fields) ? fields : []).forEach((field) => {
+    (Array.isArray(field?.aliases) ? field.aliases : []).forEach((alias) => {
+      if (!alias || alias === field.key || !(alias in next)) return;
+      if (!String(next[field.key] ?? "").trim() && String(next[alias] ?? "").trim()) {
+        next[field.key] = next[alias];
+      }
+      delete next[alias];
+    });
+  });
+  return next;
+}
+
+/** Rows of a roleInfo; pass the role's abilityData to read values saved under renamed field keys. */
+function getRoleInfoRows(roleInfo, abilityData = null) {
+  const rows = getRawRoleInfoRows(roleInfo);
+  const schema = abilityData?.interactionSchema;
+  if (!schema) return rows;
+  return rows.map((row) => ({
+    ...row,
+    target: migrateEntryAliases(row.target, schema.target?.fields),
+    result: migrateEntryAliases(row.result, schema.result?.fields),
+  }));
+}
+
+function getRawRoleInfoRows(roleInfo) {
   if (isPhasedRoleInfo(roleInfo)) {
     const records = roleInfo.records
       .filter((record) => record && typeof record === "object")

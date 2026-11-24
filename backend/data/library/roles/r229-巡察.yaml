@@ -96,6 +96,8 @@ abilityData:
           placeholder: null
           roleTypes:
             - good
+          aliases:
+            - role
         - key: role2
           type: role
           label: 保护角色2

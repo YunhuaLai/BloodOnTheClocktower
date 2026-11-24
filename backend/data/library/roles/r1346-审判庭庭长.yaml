@@ -102,6 +102,8 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+          aliases:
+            - seat
         - key: seat2
           type: seat
           label: 选择2

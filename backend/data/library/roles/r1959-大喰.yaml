@@ -90,6 +90,8 @@ abilityData:
           placeholder: null
           seatFilter:
             - dead
+          aliases:
+            - seat
         - key: seat2
           type: seat
           label: 选择2

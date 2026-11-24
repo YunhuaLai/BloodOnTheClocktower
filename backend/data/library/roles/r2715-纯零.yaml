@@ -93,6 +93,8 @@ abilityData:
           min: 0
           max: 15
           placeholder: null
+          aliases:
+            - count
   deduction:
     status: candidate
     source: inferred

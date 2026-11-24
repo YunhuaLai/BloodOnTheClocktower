@@ -92,6 +92,8 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+          aliases:
+            - seat
         - key: role
           type: role
           label: 猜测角色

@@ -6,6 +6,7 @@ import {
   isPhased,
   isRoleInfoEntryFilled,
   listPlanPhases,
+  migrateEntryAliases,
   phaseOrderIndex,
   sortRoleInfoRecords,
 } from "./notes-role-info-records.js";
@@ -82,7 +83,7 @@ function buildRows({ abilityData, sections, phases, records, game, minEntries })
           if (onceSectionRow[section.key] === null) onceSectionRow[section.key] = rowKey;
           if (onceSectionRow[section.key] !== rowKey) return;
         }
-        const entry = record?.[`${section.key}Entries`]?.[entryIndex] || {};
+        const entry = migrateEntryAliases(record?.[`${section.key}Entries`]?.[entryIndex], section.fields);
         section.fields.forEach((field) => {
           cells.push({ section: section.key, field, value: entry[field.key] ?? "" });
         });

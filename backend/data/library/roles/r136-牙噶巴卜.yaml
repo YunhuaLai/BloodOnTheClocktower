@@ -97,6 +97,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+          aliases:
+            - note
   deduction:
     status: manual
     source: inferred

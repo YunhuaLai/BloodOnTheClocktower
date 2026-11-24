@@ -873,7 +873,7 @@ function renderNightOrderPanel(game) {
                     ? `${item.player.seat}号 ${item.role.name}`
                     : item.role.name;
                   return `
-                    <details class="story-night-item${item.dormantReason ? " is-dormant" : ""}">
+                    <details class="story-night-item${item.dormantReason ? " is-dormant" : ""}" data-details-key="${escapeHtml(`story-night:${item.player?.id || ""}:${item.role.id}`)}">
                       <summary>
                         <div>
                           <strong>${escapeHtml(roleTitle)}</strong>

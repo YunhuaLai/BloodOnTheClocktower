@@ -867,8 +867,31 @@ function renderTabBar() {
   `;
 }
 
+/**
+ * Open / closed state of every keyed <details> (data-details-key) under root, so a re-render (opening a seat
+ * picker, picking a seat) does not collapse the night-order item or acquired-ability record the user is in.
+ */
+export function captureDetailsState(root) {
+  const state = new Map();
+  root?.querySelectorAll?.("details[data-details-key]").forEach((element) => {
+    state.set(element.dataset.detailsKey, Boolean(element.open));
+  });
+  return state;
+}
+
+/** Put back the open / closed state captured before a re-render; new <details> keep their default. */
+export function restoreDetailsState(root, state) {
+  if (!state?.size) return;
+  root?.querySelectorAll?.("details[data-details-key]").forEach((element) => {
+    if (state.has(element.dataset.detailsKey)) {
+      element.open = state.get(element.dataset.detailsKey);
+    }
+  });
+}
+
 function renderGamePage(notes, game) {
   document.title = `${game.title} · 对局房间`;
+  const detailsState = captureDetailsState(app);
   app.innerHTML = `
     <section class="notes-shell">
       ${renderNotesStageBar(game)}
@@ -884,6 +907,7 @@ function renderGamePage(notes, game) {
       ${renderTabBar()}
     </section>
   `;
+  restoreDetailsState(app, detailsState);
   applySeatAngles(app);
 }
 

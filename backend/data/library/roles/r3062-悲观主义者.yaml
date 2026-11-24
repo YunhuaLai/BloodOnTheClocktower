@@ -91,6 +91,8 @@ abilityData:
           placeholder: null
           seatFilter:
             - alive
+          aliases:
+            - seat
         - key: seat2
           type: seat
           label: 查验2

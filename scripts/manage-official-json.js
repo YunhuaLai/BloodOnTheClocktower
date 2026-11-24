@@ -4,6 +4,7 @@ const { applyAbilityTermMetadata } = require("./lib/ability-term-metadata");
 const { inferDeductionData } = require("./lib/deduction-profile-inference");
 const { hasHandReviewedAbilityData } = require("./lib/ability-review");
 const {
+  carryFieldAliases,
   hasOnlyGeneratedFields,
   makeAbilitySemantics,
   makeRoleAbilityData,
@@ -577,7 +578,8 @@ function makeExistingRoleAbilityData(existingAbilityData, roleData, officialRole
     existingAbilityData.generatedFromOfficial === true &&
     hasOnlyGeneratedFields(existingAbilityData, ability)
   ) {
-    return generatedAbilityData;
+    // Saved notes use the old keys: renamed fields keep them as aliases.
+    return carryFieldAliases(existingAbilityData, generatedAbilityData);
   }
 
   const nextData = {

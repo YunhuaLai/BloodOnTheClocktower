@@ -95,6 +95,8 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+          aliases:
+            - seat
     result:
       repeatMode: none
       defaultRows: 0

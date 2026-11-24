@@ -5,6 +5,7 @@ const os = require("node:os");
 const path = require("node:path");
 const { pathToFileURL } = require("node:url");
 const { extractObservations } = require("../backend/deduction/observations");
+const { getRoleInfoRows: getBackendRoleInfoRows } = require("../backend/deduction/role-info-rows");
 const { validateDeductionGame } = require("../backend/deduction/validation");
 
 const seatField = (key, label = key) => ({ key, type: "seat", label });
@@ -52,6 +53,11 @@ const roles = [
   abilityRole("r904", "查验测试", { phaseTiming: "each_night", usagePattern: "once_per_night" }, [seatField("seat")], [
     { key: "role", type: "role", label: "身份" },
   ]),
+  // Renamed keys: outsider_role -> role (教父), seat_old -> seat.
+  abilityRole("r906", "别名测试", { phaseTiming: "each_night", usagePattern: "once_per_night" },
+    [{ ...seatField("seat", "选择对象"), aliases: ["seat_old"] }],
+    [{ key: "role", type: "role", label: "得知角色", aliases: ["outsider_role"] }]),
+  { ...abilityRole("r907", "不可记录测试", { phaseTiming: "passive", usagePattern: "passive" }, [], []), abilityData: { abilityMeta: { recordable: false }, interactionSchema: { target: { repeatMode: "none", defaultRows: 0, fields: [] }, result: { repeatMode: "none", defaultRows: 0, fields: [] } } } },
   { id: "r100", name: "小恶魔", englishName: "imp", type: "demon", ability: "", abilityData: null },
   { id: "r101", name: "投毒者", englishName: "poisoner", type: "minion", ability: "", abilityData: null },
 ];
@@ -587,4 +593,62 @@ test("player mode offers the executed player's claim to abilities that learn the
 
   game.mode = "storyteller";
   assert.doesNotMatch(modules.overview.renderOverviewRoleInfoInputs(undertaker, game), /notes-execution-hint/, "storyteller mode uses its own suggestions");
+});
+
+test("notes saved under renamed field keys stay readable, and non-recordable roles keep their records", async (t) => {
+  const modules = await loadFrontend(t);
+  const { roleInfo: ri, form } = modules;
+  const game = createGame(modules, "night", 2);
+  const saved = { version: 3, roleId: "r906", records: [{ phaseType: "night", phaseNumber: 1, targetEntries: [{ seat_old: "3" }], resultEntries: [{ outsider_role: "小恶魔", removed_note: "说书人说了 abc" }] }] };
+
+  // Main records: aliases move to the current key; an unknown key is kept for the summary.
+  const migrated = ri.ensureRoleInfoMatchesClaim({ claim: "别名测试", roleInfo: saved }, game);
+  assert.deepEqual(migrated.records[0].targetEntries, [{ seat: "3" }]);
+  assert.deepEqual(migrated.records[0].resultEntries, [{ role: "小恶魔", removed_note: "说书人说了 abc" }]);
+  const summary = ri.getRoleInfoSummary({ claim: "别名测试", roleInfo: saved }, game, { limit: 0 });
+  assert.match(summary, /3→/);
+  assert.match(summary, /旧:说书人说了abc/);
+
+  // A value under the current key wins over the alias.
+  const abilityData = modules.state.roles.find((role) => role.id === "r906").abilityData;
+  const fields = abilityData.interactionSchema.target.fields;
+  assert.deepEqual(modules.records.migrateEntryAliases({ seat: "5", seat_old: "3" }, fields), { seat: "5" });
+
+  // Acquired-ability forms read the alias too.
+  const acquired = form.buildAcquiredRecordForm({
+    abilityData,
+    record: { phaseType: "night", phaseNumber: 1, roleInfo: { targetEntries: [{ seat_old: "4" }], resultEntries: [] } },
+    game,
+  });
+  assert.equal(acquired.rows[0].cells.find((cell) => cell.field.key === "seat").value, "4");
+
+  // Backend observations read the alias when given the role's abilityData.
+  assert.equal(getBackendRoleInfoRows(saved, abilityData)[0].result.role, "小恶魔");
+  assert.equal(getBackendRoleInfoRows(saved)[0].result.role, undefined);
+
+  // A role that stopped being recordable keeps what was saved, shown as old values.
+  const kept = { version: 3, roleId: "r907", records: [{ phaseType: "night", phaseNumber: 1, targetEntries: [], resultEntries: [{ note: "旧信息" }] }] };
+  assert.deepEqual(ri.ensureRoleInfoMatchesClaim({ claim: "不可记录测试", roleInfo: kept }, game).records, kept.records);
+  assert.match(ri.getRoleInfoSummary({ claim: "不可记录测试", roleInfo: kept }, game), /旧:旧信息/);
+});
+
+test("re-rendering keeps open night-order items and acquired records open", async (t) => {
+  const modules = await loadFrontend(t);
+  const { shell } = modules;
+  const details = (key, open) => ({ dataset: { detailsKey: key }, open });
+  const root = (elements) => ({ querySelectorAll: () => elements });
+
+  const before = shell.captureDetailsState(root([details("story-night:p1:r006", true), details("acquired-record:p2:player:a1:night1", false)]));
+  // After the re-render every item starts closed (night items) or open (current acquired record) by default.
+  const after = [details("story-night:p1:r006", false), details("acquired-record:p2:player:a1:night1", true), details("story-night:p3:r005", false)];
+  shell.restoreDetailsState(root(after), before);
+  assert.deepEqual(after.map((element) => element.open), [true, false, false]);
+
+  // The markup carries the keys.
+  const game = createGame(modules, "night", 2);
+  game.mode = "storyteller";
+  game.players[0].trueRole = "占卜师";
+  modules.state.notes.ui.activeTab = "storyteller";
+  const html = modules.storyRender.renderStorytellerTab ? modules.storyRender.renderStorytellerTab(game) : "";
+  if (html) assert.match(html, /data-details-key="story-night:/);
 });

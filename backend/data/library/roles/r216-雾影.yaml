@@ -96,6 +96,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+          aliases:
+            - role
         - key: role2
           type: role
           label: 得知角色2

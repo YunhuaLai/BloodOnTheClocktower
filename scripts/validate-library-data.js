@@ -512,6 +512,15 @@ function validateReviewedAbility(ability, role, reviewedDrift) {
       if (field?.tone !== undefined && field.tone !== null && (field.type !== "boolean" || !["evil", "good", "neutral"].includes(field.tone))) {
         addError(`${where} tone must be evil, good or neutral on a boolean field`);
       }
+      if (field?.aliases !== undefined && field.aliases !== null) {
+        const sectionKeys = new Set(fields.map((item) => item?.key));
+        if (
+          !Array.isArray(field.aliases) ||
+          field.aliases.some((alias) => typeof alias !== "string" || !alias.trim() || sectionKeys.has(alias))
+        ) {
+          addError(`${where} aliases must be a list of old keys that no field of the section uses now`);
+        }
+      }
       if (field?.roleTypes !== undefined && field.roleTypes !== null) {
         if (field.type !== "role" || !Array.isArray(field.roleTypes) || field.roleTypes.some((type) => !KNOWN_ROLE_FIELD_TYPES.has(type))) {
           addError(`${where} roleTypes must be a list of character types on a role field`);

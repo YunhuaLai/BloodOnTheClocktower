@@ -14,7 +14,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { ROLES_DIR, SCRIPTS_DIR, readYamlCollection, writeYamlFile } = require("./lib/library-io");
 const { hasHandReviewedAbilityData } = require("./lib/ability-review");
-const { hasOnlyGeneratedFields, makeRoleAbilityData } = require("./lib/ability-generator");
+const { carryFieldAliases, hasOnlyGeneratedFields, makeRoleAbilityData } = require("./lib/ability-generator");
 
 const REPORT_FILE = path.join(__dirname, "..", "tmp", "generated-ability-data.md");
 
@@ -45,7 +45,8 @@ function regenerateRole(role, nightOrders) {
     otherNight: nightOrders.other.has(role.id) || String(role.otherNightReminder || "").trim() ? 1 : 0,
   };
   const { id, englishName, name, ...abilityData } = makeRoleAbilityData(role, officialRole);
-  return abilityData;
+  // Saved notes use the old keys: renamed fields keep them as aliases.
+  return carryFieldAliases(role.abilityData, abilityData);
 }
 
 function describeFields(abilityData, section) {

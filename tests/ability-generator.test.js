@@ -1,6 +1,7 @@
 const test = require("node:test");
 const assert = require("node:assert/strict");
 const {
+  carryFieldAliases,
   hasOnlyGeneratedFields,
   inferUsagePattern,
   isOwnAction,
@@ -88,6 +89,14 @@ test("a choice only counts inside its own clause", () => {
     "guess:number:猜测距离",
   ]);
 
+  // 巨怪: 你的阵营 is a possessive object, not someone choosing you.
+  const troll = generate("每个夜晚，你要选择你的阵营。在最后一个夜晚，一名玩家会得知巨怪在场，即使你已死亡。");
+  assert.deepEqual(fields(troll, "target"), ["team:team:选择阵营"]);
+  assert.equal(troll.abilityMeta.recordable, true);
+  // …but 「选择了你的善良玩家」「选择你的善良玩家」 are other players choosing you.
+  assert.deepEqual(fields(generate("每个夜晚，首个使用其自身能力选择了你的善良玩家会在下一个夜晚死亡。"), "target"), []);
+  assert.deepEqual(fields(generate("以你为中心，夜晚选择你的善良玩家改为选择他与你相同距离的另一侧玩家。", "none"), "target"), []);
+
   // 一名存活的爪牙 is a player.
   assert.deepEqual(fields(generate("在你的首个夜晚，你要选择一名存活的爪牙。只有他死亡时你才会一同死亡。", "first"), "target"), ["seat:seat:选择对象"]);
 });
@@ -130,6 +139,23 @@ test("timing: per-night and per-day limits are not once per game", () => {
 
   const princess = generate("如果你死于处决，所有玩家知道你是维齐尔。", "none");
   assert.equal(princess.abilityMeta.eventTiming, "on_execution");
+});
+
+test("renamed keys are kept as aliases so saved notes stay readable", () => {
+  const schema = (target, result = []) => ({ interactionSchema: { target: { fields: target }, result: { fields: result } } });
+  const before = schema(
+    [{ key: "seat1", type: "seat" }, { key: "seat2", type: "seat" }],
+    [{ key: "outsider_role", type: "role", aliases: ["very_old"] }, { key: "note", type: "text" }],
+  );
+  const after = carryFieldAliases(before, schema([{ key: "seat", type: "seat" }], [{ key: "role", type: "role" }, { key: "count", type: "number" }]));
+  // One old key per new field; seat2 stays an unknown key rather than being folded into seat.
+  assert.deepEqual(after.interactionSchema.target.fields[0].aliases, ["seat1"]);
+  assert.deepEqual(after.interactionSchema.result.fields[0].aliases, ["outsider_role", "very_old"]);
+  // A changed type (note text -> count number) is not an alias.
+  assert.equal(after.interactionSchema.result.fields[1].aliases, undefined);
+  // Existing aliases survive a regeneration that keeps the key.
+  const again = carryFieldAliases(after, schema([{ key: "seat", type: "seat" }], [{ key: "role", type: "role" }]));
+  assert.deepEqual(again.interactionSchema.result.fields[0].aliases, ["outsider_role", "very_old"]);
 });
 
 test("only untouched generator output counts as generated", () => {

@@ -99,6 +99,8 @@ abilityData:
           placeholder: null
           seatFilter:
             - alive
+          aliases:
+            - seat1
     result:
       repeatMode: once
       defaultRows: 1

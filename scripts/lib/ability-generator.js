@@ -142,6 +142,41 @@ const GENERATED_FIELD_TYPES = {
   note: "text",
 };
 
+/**
+ * Keep saved notes readable when fields are renamed: copy `aliases` from `before` onto fields of `after` with
+ * the same key, and when a key of `before` is gone, record it (with its own aliases) as an alias of the first
+ * new field of the same section and type. Mutates and returns `after`.
+ */
+function carryFieldAliases(before, after) {
+  ["target", "result"].forEach((section) => {
+    const oldFields = before?.interactionSchema?.[section]?.fields || [];
+    const newFields = after?.interactionSchema?.[section]?.fields || [];
+    const newKeys = new Set(newFields.map((field) => field.key));
+    const oldKeys = new Set(oldFields.map((field) => field.key));
+    const add = (field, keys) => {
+      const aliases = [...new Set([...(field.aliases || []), ...keys])].filter((key) => key && !newKeys.has(key));
+      if (aliases.length) field.aliases = aliases;
+    };
+
+    // One old key per new field: seat1 + seat2 -> seat keeps seat2's value as an unknown key ("旧:…" in
+    // summaries) instead of dropping it.
+    const taken = new Set();
+    oldFields.forEach((oldField) => {
+      const sameKey = newFields.find((field) => field.key === oldField.key);
+      if (sameKey) {
+        add(sameKey, oldField.aliases || []);
+        return;
+      }
+      const renamed = newFields.find((field) => field.type === oldField.type && !oldKeys.has(field.key) && !taken.has(field.key));
+      if (renamed) {
+        taken.add(renamed.key);
+        add(renamed, [oldField.key, ...(oldField.aliases || [])]);
+      }
+    });
+  });
+  return after;
+}
+
 /** Labels written by this generator, the regex importer before it and the clean-up rules. */
 const GENERATED_FIELD_LABELS = new Set([
   "目标号码", "号码", "死亡玩家号码", "记录", "身份", "目标身份", "选择身份", "选择角色", "猜测角色", "声明角色",
@@ -184,7 +219,11 @@ function findChoices(ability) {
         const prefix = clause.slice(0, match.index);
         const rest = clause.slice(match.index + verb.length);
 
-        if (!isOwnAction(prefix) || /^了?你/.test(rest)) continue;
+        // 「选择你」「选择了你」「选择你的善良玩家」 are someone choosing you; 「选择你的阵营」 is your own choice of
+        // something of yours.
+        if (!isOwnAction(prefix) || /^了你|^你(?!们?的|自己的)|^你们?的[^，。]*?(?:玩家|恶魔|爪牙|镇民|外来者|旅行者|人)/.test(rest)) continue;
+        // 「得知选择你的角色」: the choice is part of what you learn.
+        if (/(?:得知|知道|获知)$/.test(prefix)) continue;
         // 「被你选择的玩家」 refers back to an earlier choice.
         if (verb === "选择" && /^的/.test(rest)) continue;
 
@@ -707,6 +746,7 @@ function makeRoleAbilityData(roleData, officialRole = {}) {
 
 module.exports = {
   GENERATED_FIELD_TYPES,
+  carryFieldAliases,
   classifyLearnObject,
   findChoices,
   findLearnObjects,

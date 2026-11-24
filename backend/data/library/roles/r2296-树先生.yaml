@@ -110,6 +110,8 @@ abilityData:
           seatFilter:
             - alive
             - notSelf
+          aliases:
+            - seat
         - key: seat2
           type: seat
           label: 查验2

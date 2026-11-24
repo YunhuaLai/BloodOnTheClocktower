@@ -9,7 +9,10 @@ import {
   formatRoleInfoPhaseShortLabel,
   isPhased,
   isPhasedRoleInfo,
+  getUnknownEntryValues,
   isRoleInfoEntryFilled,
+  migrateEntryAliases,
+  migrateRecordAliases,
   migrateRoleInfoRowsToRecords,
 } from "./notes-role-info-records.js";
 import { acquiredPhaseIndex, findAcquiredRole, getCurrentAcquiredAbilities, getAcquiredAbilitySummary, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
@@ -178,16 +181,24 @@ export function ensureRoleInfoMatchesClaim(player, game = getActiveGame()) {
   const abilityData = role?.abilityData || null;
   const current = cloneRoleInfo(player?.roleInfo);
 
-  if (!role || !abilityData?.abilityMeta?.recordable) {
-    return createEmptyRoleInfo(role?.id || "");
+  if (!role) {
+    return createEmptyRoleInfo("");
   }
 
   if (current.roleId && current.roleId !== role.id) {
     return createEmptyRoleInfo(role.id);
   }
 
+  // A role that is no longer recordable keeps what was saved for it (shown in summaries), instead of losing it
+  // on the next save.
+  if (!abilityData?.abilityMeta?.recordable) {
+    return isPhasedRoleInfo(current) && current.records.length
+      ? { version: 3, roleId: role.id, records: current.records }
+      : createEmptyRoleInfo(role.id);
+  }
+
   if (isPhasedRoleInfo(current)) {
-    return { version: 3, roleId: role.id, records: current.records };
+    return { version: 3, roleId: role.id, records: current.records.map((record) => migrateRecordAliases(record, abilityData)) };
   }
 
   if (current.version === 2 && !current.profile && !current.entries.length) {
@@ -250,13 +261,21 @@ function getCompactFieldValue(field, value) {
   return text.replace(/\s+/g, "").slice(0, 8);
 }
 
+/**
+ * Compact text of one entry. Values saved under an old key (field aliases) count as the field's value; values
+ * under keys the ability no longer has (a removed or retyped field) are kept at the end as "旧:…".
+ */
 export function formatRoleInfoEntrySummary(entry, fields) {
-  if (!fields.length || !isRoleInfoEntryFilled(entry)) {
+  if (!isRoleInfoEntryFilled(entry)) {
     return "";
   }
 
-  return fields
-    .map((field) => getCompactFieldValue(field, entry?.[field.key]))
+  const migrated = migrateEntryAliases(entry, fields);
+  const unknown = getUnknownEntryValues(migrated, fields).map((value) => value.replace(/\s+/g, "").slice(0, 8));
+  return [
+    ...fields.map((field) => getCompactFieldValue(field, migrated?.[field.key])),
+    unknown.length ? `旧:${unknown.join("/")}` : "",
+  ]
     .filter(Boolean)
     .join(",");
 }
@@ -315,10 +334,11 @@ function getSummaryPhase(phaseType, phaseNumber, abilityData) {
 
 function getMainSummaryItems(player, game) {
   const abilityData = getRoleAbilityData(player, game);
-  if (!abilityData?.abilityMeta?.recordable) {
+  if (!abilityData) {
     return [];
   }
 
+  // A non-recordable ability has no fields: only records saved before it changed show here (as "旧:…").
   return getRoleInfoRows(ensureRoleInfoMatchesClaim(player, game))
     .map((row) => {
       const { targetText, resultText } = formatRoleInfoRowTexts(row.target, row.result, abilityData);

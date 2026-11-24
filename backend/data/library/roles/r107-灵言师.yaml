@@ -109,6 +109,8 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+          aliases:
+            - converted_seat
   deduction:
     status: world_effect
     source: inferred
