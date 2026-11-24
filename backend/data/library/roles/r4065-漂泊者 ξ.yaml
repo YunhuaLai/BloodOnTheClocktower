@@ -96,7 +96,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 提名过邪恶玩家
           required: true
           optionsSource: custom
           options:

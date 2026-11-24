@@ -47,14 +47,15 @@ abilityData:
   tags:
     - 首夜
     - 每晚
-    - 主动选择
+    - 信息型
   termIds:
     - night
     - first-night
+    - information
     - good
     - minion
     - demon
-  abilityPattern: target_role_info
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -64,75 +65,37 @@ abilityData:
       event: null
       frequency: once_per_night
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_player
+      - kind: learn_player
         count: 1
-        source: target
-      - kind: choose_role
-        source: target
-      - kind: learn_role_at_target
-        targetSource: target
   abilityMeta:
-    pageType: pick_and_record
+    pageType: record_result_only
     phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
-    activationMode: active
-    drivenBy: player
+    activationMode: passive
+    drivenBy: storyteller
     recordable: true
   interactionSchema:
     target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
       repeatMode: sequence
       defaultRows: 3
       fields:
         - key: seat
           type: seat
-          label: 查验对象
+          label: 得知玩家
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-    result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 得知角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
   deduction:
-    status: candidate
+    status: manual
     source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    label: 信息型角色，但需要人工语义归类

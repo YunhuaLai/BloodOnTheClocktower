@@ -52,7 +52,7 @@ abilityData:
     - townsfolk
     - minion
     - storyteller
-  abilityPattern: record_result_only
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -64,7 +64,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: manual_record
+      - kind: learn_role
+        roleType: minion
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
@@ -82,18 +83,17 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: direction
-          type: choice
-          label: 方向
+        - key: role
+          type: role
+          label: 得知角色
           required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
+          optionsSource: current_script_roles
+          options: null
           min: null
           max: null
           placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：身份信息
+    templates: []

@@ -66,8 +66,6 @@ abilityData:
       - kind: choose_player
         count: 3
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_role_at_target
         targetSource: target
       - kind: death_or_execution_effect
@@ -117,15 +115,6 @@ abilityData:
           placeholder: null
           seatFilter:
             - notSelf
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
     result:
       repeatMode: sequence
       defaultRows: 3

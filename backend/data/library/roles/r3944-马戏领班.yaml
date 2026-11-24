@@ -39,34 +39,36 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
-    - 事件触发
+    - 首夜
+    - 每晚
   termIds:
+    - night
+    - first-night
     - vote
     - minion
     - storyteller
-  abilityPattern: rule_modifier
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: null
-      event: on_death
+      phase: each_night
+      event: null
       frequency: once_per_game
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: on_death
+      - kind: passive_rule
   abilityMeta:
-    pageType: rule_modifier
-    phaseTiming: null
-    eventTiming: on_death
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
     usagePattern: once_per_game
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
     recordable: false
   interactionSchema:
@@ -78,8 +80,3 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: action_history
-    note: ''

@@ -60,10 +60,9 @@ abilityData:
       event: null
       frequency: once_per_day
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: each_day

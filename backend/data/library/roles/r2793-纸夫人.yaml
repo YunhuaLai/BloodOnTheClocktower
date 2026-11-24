@@ -53,7 +53,7 @@ abilityData:
     - alignment
     - evil
     - demon
-  abilityPattern: choose_player_death
+  abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -69,8 +69,6 @@ abilityData:
         adjustments: []
       - kind: choose_player
         count: 1
-        source: target
-      - kind: choose_role
         source: target
       - kind: death_or_execution_effect
   abilityMeta:
@@ -88,28 +86,23 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 选择对象
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
           options: null
           min: null
           max: null
-          placeholder: null
-    result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

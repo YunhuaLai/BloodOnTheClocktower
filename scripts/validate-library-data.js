@@ -98,6 +98,7 @@ const KNOWN_SEMANTIC_OPERATION_KINDS = new Set([
   "learn_role_in_group",
   "learn_role_at_target",
   "learn_role",
+  "learn_character_type",
   "learn_boolean",
   "learn_number",
   "learn_team",

@@ -54,16 +54,17 @@ abilityData:
     - 首夜
     - 每晚
     - 设置
-    - 主动选择
+    - 信息型
   termIds:
     - day
     - night
     - setup
     - first-night
+    - information
     - townsfolk
     - outsider
     - storyteller
-  abilityPattern: player_info
+  abilityPattern: role_in_group_hint
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -73,7 +74,7 @@ abilityData:
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments:
@@ -82,32 +83,22 @@ abilityData:
             max: 1
             source: '[+0~1外来者]'
             note: 配置调整：外来者数量 0 到 +1。
-      - kind: choose_role
-        source: target
-      - kind: learn_player
-        count: 3
+      - kind: learn_role_in_group
+        seats: 3
+        roleType: outsider
   abilityMeta:
-    pageType: pick_and_record
+    pageType: record_result_only
     phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: active
-    drivenBy: player
+    activationMode: passive
+    drivenBy: storyteller
     recordable: true
   interactionSchema:
     target:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: role
-          type: role
-          label: 猜测角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: once
       defaultRows: 1
@@ -138,6 +129,15 @@ abilityData:
           options: null
           min: 1
           max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
           placeholder: null
   deduction:
     status: candidate

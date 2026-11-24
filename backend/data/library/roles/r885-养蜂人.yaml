@@ -43,46 +43,53 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 每晚
+    - 主动选择
   termIds:
+    - night
     - alignment
     - good
     - evil
     - townsfolk
     - outsider
-  abilityPattern: rule_modifier
+  abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: null
+      phase: each_night
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
-    pageType: rule_modifier
-    phaseTiming: null
+    pageType: pick_and_record
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: conditional
-    drivenBy: storyteller
-    recordable: false
+    activationMode: active
+    drivenBy: player
+    recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: guess_seat
+          type: seat
+          label: 猜测对象
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''

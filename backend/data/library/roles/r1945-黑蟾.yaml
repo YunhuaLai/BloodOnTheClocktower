@@ -59,7 +59,7 @@ abilityData:
       event: on_nomination
       frequency: once_per_day
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
       - kind: event_trigger

@@ -44,58 +44,49 @@ abilityData:
   reviewReason: ''
   tags:
     - 设置
-    - 信息型
+    - 事件触发
   termIds:
     - setup
-    - information
     - vote
     - alignment
     - good
     - minion
     - fabled
-  abilityPattern: team_info
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
       phase: setup
-      event: null
+      event: on_vote
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: learn_team
+      - kind: event_trigger
+        eventTiming: on_vote
   abilityMeta:
-    pageType: record_result_only
+    pageType: rule_modifier
     phaseTiming: setup
-    eventTiming: null
+    eventTiming: on_vote
     usagePattern: passive
     activationMode: conditional
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: team
-          type: team
-          label: 阵营
-          required: true
-          optionsSource: teams
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：阵营信息
-    templates: []
+    effectType: action_history
+    note: ''

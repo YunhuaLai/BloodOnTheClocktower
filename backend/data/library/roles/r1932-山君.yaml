@@ -51,7 +51,7 @@ abilityData:
     - death
     - alive
     - townsfolk
-  abilityPattern: manual_record
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -82,7 +82,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 查验1
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -91,7 +91,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 查验2
+          label: 选择2
           required: true
           optionsSource: null
           options: null
@@ -100,7 +100,7 @@ abilityData:
           placeholder: null
         - key: seat3
           type: seat
-          label: 查验3
+          label: 选择3
           required: true
           optionsSource: null
           options: null
@@ -108,15 +108,6 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -107,7 +107,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 相等
           required: true
           optionsSource: custom
           options:

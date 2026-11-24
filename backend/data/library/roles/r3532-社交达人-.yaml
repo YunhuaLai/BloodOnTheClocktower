@@ -60,7 +60,7 @@ abilityData:
       event: on_nomination
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: event_trigger
         eventTiming: on_nomination

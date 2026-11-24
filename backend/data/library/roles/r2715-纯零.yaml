@@ -59,9 +59,9 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
@@ -69,9 +69,9 @@ abilityData:
         numberKind: distance
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: each_night
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -81,12 +81,12 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: count
+        - key: distance
           type: number
-          label: 数量
+          label: 距离
           required: true
           optionsSource: null
           options: null

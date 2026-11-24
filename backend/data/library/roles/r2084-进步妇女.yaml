@@ -66,6 +66,8 @@ abilityData:
     operations:
       - kind: choose_role
         source: target
+      - kind: learn_role
+        roleType: null
       - kind: learn_number
         numberKind: death_count
   abilityMeta:
@@ -102,6 +104,15 @@ abilityData:
           options: null
           min: 0
           max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
           placeholder: null
   deduction:
     status: candidate

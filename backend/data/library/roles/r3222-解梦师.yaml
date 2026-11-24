@@ -51,7 +51,7 @@ abilityData:
     - good
     - townsfolk
     - storyteller
-  abilityPattern: record_result_only
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -63,6 +63,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
+      - kind: learn_player
+        count: 1
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
@@ -81,15 +83,15 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+        - key: seat
+          type: seat
+          label: 得知玩家
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          min: 1
+          max: 15
+          placeholder: null
   deduction:
     status: manual
     source: inferred

@@ -60,7 +60,13 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
+      - kind: learn_role
+        roleType: null
+      - kind: learn_boolean
+        question: boolean_check
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -78,18 +84,28 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: direction
-          type: choice
-          label: 方向
+        - key: answer
+          type: boolean
+          label: 发动
           required: true
           optionsSource: custom
           options:
-            - clockwise
-            - counterclockwise
+            - 'yes'
+            - 'no'
+          min: null
+          max: null
+          placeholder: null
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
           min: null
           max: null
           placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：身份信息
+    templates: []

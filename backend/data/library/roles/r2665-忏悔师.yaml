@@ -45,15 +45,13 @@ abilityData:
   reviewReason: ''
   tags:
     - 每晚
-    - 信息型
   termIds:
     - day
     - night
-    - information
     - alive
     - townsfolk
     - storyteller
-  abilityPattern: role_info
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -61,40 +59,25 @@ abilityData:
     timing:
       phase: each_day
       event: null
-      frequency: once_per_game
+      frequency: once_per_day
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_role
-        roleType: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_game
+    usagePattern: once_per_day
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: role
-          type: role
-          label: 得知角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -26,6 +26,8 @@
 | 写入技能术语 metadata | `npm run ability-terms:sync` | `node scripts/sync-ability-terms.js --write` |
 | 检查技能语义结构 | `npm run ability-semantics:check` | `node scripts/sync-ability-semantics.js` |
 | 写入技能语义结构 | `npm run ability-semantics:sync` | `node scripts/sync-ability-semantics.js --write` |
+| 检查重新生成未审核角色的能力数据 | `npm run ability-generate:check` | `node scripts/sync-generated-ability-data.js` |
+| 重新生成未审核角色的能力数据 | `npm run ability-generate:sync` | `node scripts/sync-generated-ability-data.js --write` |
 | 检查座位过滤（seatFilter） | `npm run seat-filters:check` | `node scripts/sync-seat-filters.js` |
 | 写入座位过滤（已审核角色需加 `--include-reviewed`） | `npm run seat-filters:sync` | `node scripts/sync-seat-filters.js --write` |
 | 检查推理画像 | `npm run deduction:check` | `node scripts/sync-deduction-profiles.js` |
@@ -63,6 +65,14 @@ npm run ability-review:audit -- --script=s001,s002,s003
 
 已审核（`reviewStatus: reviewed`）的角色由 `abilitySemantics.review` 记录审核者和日期；`sync-*` 脚本不会改写它们的 `abilityPattern` 和 `deduction`，只会刷新 `termIds`。
 
+## 重新生成能力数据
+
+`sync-generated-ability-data.js` 用 `lib/ability-generator.js`（导入官方 JSON 也用它）按当前技能原文重新生成能力数据：笔记页字段、时机、语义、推理画像。生成器按句（。；）和分句（，：）读原文，只把角色自己的选择和得知算作字段（「任何…选择你的玩家」「所有玩家都知道」不算），再按「得知」后面的内容判断字段类型。
+
+只处理仍是生成器原样输出的角色：未审核、`generatedFromOfficial: true`、所有字段的 key / 类型 / 标签都是生成器会写的。手工改过字段或标签的角色会被跳过并列出。报告写到 `tmp/generated-ability-data.md`。
+
+- `--id=<id>[,<id>]`：只处理这些角色。
+
 ## 图片缓存参数
 
 `cache-library-images.js` 支持这些参数：
@@ -76,6 +86,7 @@ npm run ability-review:audit -- --script=s001,s002,s003
 ## 内部模块
 
 - `lib/library-io.js`：共享路径和 YAML 读写。
+- `lib/ability-generator.js`：从技能原文生成 abilityData（导入与重新生成共用）。
 - `lib/ability-term-metadata.js`：技能术语与模式推断。
 - `lib/deduction-profile-inference.js`：笔记页推理画像推断。
 - `lib/ability-review.js`：审核状态判断、源文本 hash、审核报告用的字段检查。

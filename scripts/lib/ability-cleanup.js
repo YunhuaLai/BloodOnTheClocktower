@@ -81,14 +81,20 @@ function ruleNightStar(role) {
   };
 }
 
-/** Label for a single target seat, from what the ability does to the chosen player. */
+/**
+ * Label for a single target seat, from what the ability does to the chosen player. Pass the words from the
+ * choice onwards when the text has several clauses, so an earlier or later sentence does not decide the label.
+ */
 function describeTargetSeat(text) {
+  const dies = /他死亡|他们死亡|杀死|他[^，。；不]{0,8}死亡/.test(text);
   if (/猜测/.test(text)) return "猜测对象";
   if (/交换/.test(text)) return "选择对象";
   if (/你会得知|得知他|得知其/.test(text)) return "查验对象";
-  if (/中毒/.test(text) && !/他死亡/.test(text)) return "下毒对象";
-  if (/他死亡|他们死亡|杀死/.test(text)) return "攻击对象";
-  if (/不会死亡|无效|保护/.test(text)) return "保护对象";
+  // 「你代替他死亡」 protects him; 「即使…他不会死亡」 overrides protection instead of giving it.
+  if (/代替他|替他/.test(text)) return "保护对象";
+  if (/不会死亡|免于死亡|无效|保护/.test(text) && !/即使[^。]*不会死亡/.test(text) && !dies) return "保护对象";
+  if (/中毒/.test(text) && !dies) return "下毒对象";
+  if (dies) return "攻击对象";
   if (/醉酒/.test(text)) return "醉酒对象";
   return "选择对象";
 }

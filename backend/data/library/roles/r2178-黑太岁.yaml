@@ -44,55 +44,39 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 主动选择
+    - 首夜
   termIds:
+    - first-night
     - nomination
     - death
     - minion
-  abilityPattern: nomination_trigger
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
-      event: on_nomination
-      frequency: passive
+      phase: first_night
+      event: null
+      frequency: once
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: pick_and_record
-    phaseTiming: null
-    eventTiming: on_nomination
-    usagePattern: passive
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: seat
-          type: seat
-          label: 选择对象
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: action_history
-    note: ''

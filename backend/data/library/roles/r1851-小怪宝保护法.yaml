@@ -57,19 +57,18 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: null
+      phase: first_night
       event: null
-      frequency: passive
+      frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
     pageType: rule_modifier
-    phaseTiming: null
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: passive
+    usagePattern: once
     activationMode: conditional
     drivenBy: storyteller
     recordable: false

@@ -46,8 +46,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
     - 设置
@@ -63,8 +63,8 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: first_night
       event: null
@@ -81,8 +81,6 @@ abilityData:
             note: 配置调整：外来者数量 +1。
       - kind: choose_player
         count: 1
-        source: target
-      - kind: choose_role
         source: target
       - kind: learn_role_at_target
         targetSource: target
@@ -103,21 +101,12 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 查验对象
+          label: 下毒对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
-          placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
           placeholder: null
     result:
       repeatMode: once

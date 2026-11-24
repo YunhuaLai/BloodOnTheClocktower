@@ -17,6 +17,8 @@
     "ability-terms:sync": "node scripts/sync-ability-terms.js --write",
     "ability-semantics:check": "node scripts/sync-ability-semantics.js",
     "ability-semantics:sync": "node scripts/sync-ability-semantics.js --write",
+    "ability-generate:check": "node scripts/sync-generated-ability-data.js",
+    "ability-generate:sync": "node scripts/sync-generated-ability-data.js --write",
     "seat-filters:check": "node scripts/sync-seat-filters.js",
     "seat-filters:sync": "node scripts/sync-seat-filters.js --write",
     "deduction:check": "node scripts/sync-deduction-profiles.js",

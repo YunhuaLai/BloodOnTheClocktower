@@ -42,35 +42,34 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 首夜
     - 设置
+    - 事件触发
   termIds:
     - setup
-    - first-night
     - townsfolk
     - minion
     - storyteller
-  abilityPattern: no_input
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: first_night
+      phase: setup
       event: null
-      frequency: once
+      frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
   abilityMeta:
-    pageType: no_input
-    phaseTiming: first_night
+    pageType: rule_modifier
+    phaseTiming: setup
     eventTiming: null
-    usagePattern: once
-    activationMode: passive
-    drivenBy: storyteller
+    usagePattern: passive
+    activationMode: conditional
+    drivenBy: system
     recordable: false
   interactionSchema:
     target:

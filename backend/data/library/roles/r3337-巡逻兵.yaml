@@ -96,6 +96,15 @@ abilityData:
           placeholder: null
           roleTypes:
             - minion
+        - key: seat
+          type: seat
+          label: 得知玩家
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
   deduction:
     status: candidate
     source: inferred

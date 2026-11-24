@@ -58,20 +58,20 @@ abilityData:
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
+      phase: first_night
       event: on_nomination
-      frequency: passive
+      frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_nomination
   abilityMeta:
     pageType: rule_modifier
-    phaseTiming: null
+    phaseTiming: first_night
     eventTiming: on_nomination
-    usagePattern: passive
+    usagePattern: once
     activationMode: conditional
     drivenBy: storyteller
     recordable: false

@@ -53,11 +53,11 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_day
       event: null
-      frequency: once_per_night
+      frequency: once_per_day
     actor:
       drivenBy: player
     operations:
@@ -70,7 +70,7 @@ abilityData:
     pageType: pick_and_record
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once_per_day
     activationMode: active
     drivenBy: player
     recordable: true

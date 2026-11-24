@@ -108,9 +108,27 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: role
+        - key: role1
           type: role
-          label: 得知角色
+          label: 得知角色1
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: role2
+          type: role
+          label: 得知角色2
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: role3
+          type: role
+          label: 得知角色3
           required: true
           optionsSource: current_script_roles
           options: null
@@ -120,19 +138,5 @@ abilityData:
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    label: 可模板化：身份信息
+    templates: []

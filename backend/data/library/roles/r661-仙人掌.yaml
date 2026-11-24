@@ -57,7 +57,7 @@ abilityData:
   abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -67,7 +67,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 1
+        count: 2
         source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
@@ -81,12 +81,23 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 醉酒对象
+          label: 选择1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+          seatFilter:
+            - alive
+        - key: seat2
+          type: seat
+          label: 选择2
           required: true
           optionsSource: null
           options: null

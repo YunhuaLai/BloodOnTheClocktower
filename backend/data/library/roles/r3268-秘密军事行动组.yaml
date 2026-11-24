@@ -84,7 +84,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 与恶魔私聊过
           required: true
           optionsSource: custom
           options:

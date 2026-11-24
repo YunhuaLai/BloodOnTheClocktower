@@ -65,7 +65,7 @@ abilityData:
     - evil
     - minion
     - demon
-  abilityPattern: team_info
+  abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -79,7 +79,6 @@ abilityData:
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: learn_team
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
@@ -98,17 +97,16 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: team
-          type: team
-          label: 阵营
-          required: true
-          optionsSource: teams
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
           options: null
           min: null
           max: null
-          placeholder: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
   deduction:
-    status: candidate
+    status: manual
     source: inferred
-    label: 可模板化：阵营信息
-    templates: []
+    label: 信息型角色，但需要人工语义归类

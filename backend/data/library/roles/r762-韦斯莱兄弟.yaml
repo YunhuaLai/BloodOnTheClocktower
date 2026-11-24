@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 每晚
     - 主动选择
@@ -52,12 +52,12 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: each_day
       event: null
-      frequency: once_per_night
+      frequency: once_per_day
     actor:
       drivenBy: player
     operations:
@@ -69,7 +69,7 @@ abilityData:
     pageType: pick_and_record
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once_per_day
     activationMode: active
     drivenBy: player
     recordable: true

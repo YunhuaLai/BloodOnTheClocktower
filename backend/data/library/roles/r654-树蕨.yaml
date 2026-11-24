@@ -52,7 +52,7 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_night_star
       event: null
@@ -62,6 +62,8 @@ abilityData:
     operations:
       - kind: learn_number
         numberKind: count
+      - kind: learn_player
+        count: 1
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star
@@ -86,6 +88,15 @@ abilityData:
           optionsSource: null
           options: null
           min: 0
+          max: 15
+          placeholder: null
+        - key: seat
+          type: seat
+          label: 得知玩家
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
           max: 15
           placeholder: null
   deduction:

@@ -54,22 +54,22 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
-      phase: null
+      phase: first_night
       event: on_death
-      frequency: passive
+      frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_death
   abilityMeta:
     pageType: rule_modifier
-    phaseTiming: null
+    phaseTiming: first_night
     eventTiming: on_death
-    usagePattern: passive
+    usagePattern: once
     activationMode: conditional
     drivenBy: storyteller
     recordable: false

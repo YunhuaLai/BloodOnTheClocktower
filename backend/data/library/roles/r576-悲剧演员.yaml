@@ -57,12 +57,12 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_day
       event: null
-      frequency: once_per_night
+      frequency: once_per_day
     actor:
       drivenBy: storyteller
     operations:
@@ -71,7 +71,7 @@ abilityData:
     pageType: no_input
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once_per_day
     activationMode: passive
     drivenBy: storyteller
     recordable: false

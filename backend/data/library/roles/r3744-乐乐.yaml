@@ -47,13 +47,11 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 设置
-    - 信息型
   termIds:
     - setup
-    - information
     - alignment
     - townsfolk
-  abilityPattern: team_info
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -63,39 +61,24 @@ abilityData:
       event: null
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: learn_team
   abilityMeta:
-    pageType: record_result_only
+    pageType: rule_modifier
     phaseTiming: setup
     eventTiming: null
     usagePattern: passive
     activationMode: passive
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: team
-          type: team
-          label: 阵营
-          required: true
-          optionsSource: teams
-          options: null
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：阵营信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -64,8 +64,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_team
   abilityMeta:
     pageType: pick_and_record
@@ -82,7 +80,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 查验对象
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -91,15 +89,6 @@ abilityData:
           placeholder: null
           seatFilter:
             - notSelf
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
     result:
       repeatMode: once
       defaultRows: 1

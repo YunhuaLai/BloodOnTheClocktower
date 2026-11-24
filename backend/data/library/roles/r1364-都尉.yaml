@@ -94,7 +94,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 有邪恶玩家
           required: true
           optionsSource: custom
           options:

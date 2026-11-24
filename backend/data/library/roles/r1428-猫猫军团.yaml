@@ -57,10 +57,10 @@ abilityData:
     - alive
     - evil
     - townsfolk
-  abilityPattern: record_result_only
+  abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night
@@ -71,6 +71,8 @@ abilityData:
     operations:
       - kind: setup_modifier
         adjustments: []
+      - kind: learn_boolean
+        question: boolean_check
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -88,14 +90,14 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: direction
-          type: choice
-          label: 方向
+        - key: answer
+          type: boolean
+          label: 有邪恶玩家
           required: true
           optionsSource: custom
           options:
-            - clockwise
-            - counterclockwise
+            - 'yes'
+            - 'no'
           min: null
           max: null
           placeholder: null

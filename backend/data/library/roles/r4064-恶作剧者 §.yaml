@@ -58,7 +58,7 @@ abilityData:
     - townsfolk
     - minion
     - demon
-  abilityPattern: target_role_info
+  abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -73,10 +73,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: choose_role
-        source: target
-      - kind: learn_role_at_target
-        targetSource: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star
@@ -99,44 +95,7 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 得知角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+      repeatMode: none
+      defaultRows: 0
+      fields: []

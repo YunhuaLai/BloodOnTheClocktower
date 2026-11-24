@@ -50,10 +50,9 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 设置
-    - 信息型
+    - 事件触发
   termIds:
     - setup
-    - information
     - execution
     - death
     - alive
@@ -61,7 +60,7 @@ abilityData:
     - outsider
     - minion
     - demon
-  abilityPattern: execution_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -80,39 +79,23 @@ abilityData:
             max: 1
             source: '[+1外来者]'
             note: 配置调整：外来者数量 +1。
-      - kind: learn_role
-        roleType: outsider
       - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_execution
   abilityMeta:
-    pageType: record_result_only
+    pageType: rule_modifier
     phaseTiming: setup
     eventTiming: on_execution
     usagePattern: passive
     activationMode: conditional
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 得知角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -89,13 +89,22 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
+        - key: guess
+          type: number
+          label: 猜测数字
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 猜测正确
           required: true
           optionsSource: custom
           options:

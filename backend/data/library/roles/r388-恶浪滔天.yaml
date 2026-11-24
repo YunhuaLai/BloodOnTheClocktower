@@ -42,54 +42,37 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 主动选择
+    - 被动
   termIds:
     - minion
     - fabled
-  abilityPattern: manual_record
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: passive
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_role
-        source: target
+      - kind: passive_rule
   abilityMeta:
-    pageType: pick_and_record
+    pageType: no_input
     phaseTiming: passive
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-          roleTypes:
-            - minion
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

@@ -54,7 +54,7 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_night_star
       event: null
@@ -84,7 +84,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 醉酒对象
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -97,7 +97,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 有爪牙
           required: true
           optionsSource: custom
           options:

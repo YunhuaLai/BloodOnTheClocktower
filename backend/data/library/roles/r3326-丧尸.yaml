@@ -44,39 +44,54 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
+    - 设置
+    - 主动选择
   termIds:
     - night
+    - setup
     - good
     - evil
     - minion
     - demon
-  abilityPattern: no_input
+  abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_night
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
       - kind: setup_modifier
         adjustments: []
+      - kind: choose_player
+        count: 1
+        source: target
   abilityMeta:
-    pageType: no_input
-    phaseTiming: each_night
+    pageType: pick_and_record
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_night
-    activationMode: passive
-    drivenBy: storyteller
-    recordable: false
+    activationMode: active
+    drivenBy: player
+    recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: seat
+          type: seat
+          label: 选择对象
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
     result:
       repeatMode: none
       defaultRows: 0

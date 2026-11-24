@@ -43,14 +43,14 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 主动选择
+    - 被动
   termIds:
     - night
     - poisoned
     - death
     - demon
     - traveler
-  abilityPattern: choose_player_death
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -60,42 +60,25 @@ abilityData:
       event: null
       frequency: passive
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: pick_and_record
+    pageType: no_input
     phaseTiming: passive
     eventTiming: null
     usagePattern: passive
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: seat
-          type: seat
-          label: 下毒对象
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''

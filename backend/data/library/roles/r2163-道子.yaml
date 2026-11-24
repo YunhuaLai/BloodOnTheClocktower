@@ -42,9 +42,10 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 被动
+    - 首夜
   termIds:
     - day
+    - first-night
     - townsfolk
   abilityPattern: no_input
   abilitySemantics:

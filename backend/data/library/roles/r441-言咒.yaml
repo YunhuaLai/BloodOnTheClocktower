@@ -42,7 +42,6 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 首夜
     - 信息型
   termIds:
     - day
@@ -55,26 +54,27 @@ abilityData:
     - good
     - minion
     - fabled
-  abilityPattern: team_info
+  abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: first_night
-      event: null
+      event: on_death
       frequency: once_per_game
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_team
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
-    eventTiming: null
+    eventTiming: on_death
     usagePattern: once_per_game
-    activationMode: passive
+    activationMode: conditional
     drivenBy: storyteller
     recordable: true
   interactionSchema:
@@ -86,17 +86,16 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: team
-          type: team
-          label: 阵营
-          required: true
-          optionsSource: teams
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
           options: null
           min: null
           max: null
-          placeholder: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
   deduction:
-    status: candidate
+    status: manual
     source: inferred
-    label: 可模板化：阵营信息
-    templates: []
+    label: 信息型角色，但需要人工语义归类

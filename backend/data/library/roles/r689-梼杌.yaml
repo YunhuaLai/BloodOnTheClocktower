@@ -46,27 +46,29 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
+    - 首夜
     - 每晚
     - 设置
     - 主动选择
   termIds:
     - night
     - setup
+    - first-night
     - death
     - outsider
     - demon
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: each_night_star
       event: null
-      frequency: once_per_game
+      frequency: once_per_night
     actor:
       drivenBy: player
     operations:
@@ -85,7 +87,7 @@ abilityData:
     pageType: pick_and_record
     phaseTiming: each_night_star
     eventTiming: null
-    usagePattern: once_per_game
+    usagePattern: once_per_night
     activationMode: active
     drivenBy: player
     recordable: true
@@ -107,8 +109,3 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''

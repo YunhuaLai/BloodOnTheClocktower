@@ -69,6 +69,8 @@ abilityData:
     operations:
       - kind: learn_number
         numberKind: count
+      - kind: learn_player
+        count: 3
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -86,6 +88,33 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
+        - key: seat1
+          type: seat
+          label: 候选1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 候选2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 候选3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
         - key: count
           type: number
           label: 数量

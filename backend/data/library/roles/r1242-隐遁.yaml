@@ -51,7 +51,7 @@ abilityData:
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
+      phase: passive
       event: null
       frequency: passive
     actor:
@@ -62,7 +62,7 @@ abilityData:
         source: target
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: null
+    phaseTiming: passive
     eventTiming: null
     usagePattern: passive
     activationMode: active

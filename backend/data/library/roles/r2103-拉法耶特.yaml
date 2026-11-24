@@ -48,14 +48,14 @@ abilityData:
     - execution
     - alive
     - traveler
-  abilityPattern: nomination_trigger
+  abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
       phase: null
-      event: on_nomination
+      event: on_execution
       frequency: once_per_game
     actor:
       drivenBy: player
@@ -64,10 +64,12 @@ abilityData:
         count: 1
         source: target
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: null
-    eventTiming: on_nomination
+    eventTiming: on_execution
     usagePattern: once_per_game
     activationMode: active
     drivenBy: player

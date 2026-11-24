@@ -69,14 +69,12 @@ abilityData:
       event: null
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
-      - kind: event_trigger
-        eventTiming: null
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup

@@ -53,7 +53,7 @@ abilityData:
     - alignment
     - townsfolk
     - demon
-  abilityPattern: choose_role_status_effect
+  abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -67,8 +67,6 @@ abilityData:
     operations:
       - kind: choose_player
         count: 2
-        source: target
-      - kind: choose_role
         source: target
       - kind: learn_team
       - kind: apply_status_effect
@@ -88,7 +86,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 查验1
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -97,21 +95,12 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 查验2
+          label: 选择2
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
-          placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
           placeholder: null
     result:
       repeatMode: sequence

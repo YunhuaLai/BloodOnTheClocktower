@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 事件触发
   termIds:
@@ -54,22 +54,22 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: null
-      event: on_execution
+      event: on_vote
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
       - kind: event_trigger
-        eventTiming: on_execution
+        eventTiming: on_vote
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: null
-    eventTiming: on_execution
+    eventTiming: on_vote
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller

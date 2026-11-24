@@ -51,7 +51,7 @@ abilityData:
     - night
     - first-night
     - townsfolk
-  abilityPattern: target_role_info
+  abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -66,10 +66,6 @@ abilityData:
       - kind: choose_player
         count: 3
         source: target
-      - kind: choose_role
-        source: target
-      - kind: learn_role_at_target
-        targetSource: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
@@ -87,7 +83,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 查验1
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -98,7 +94,7 @@ abilityData:
             - notSelf
         - key: seat2
           type: seat
-          label: 查验2
+          label: 选择2
           required: true
           optionsSource: null
           options: null
@@ -109,7 +105,7 @@ abilityData:
             - notSelf
         - key: seat3
           type: seat
-          label: 查验3
+          label: 选择3
           required: true
           optionsSource: null
           options: null
@@ -118,30 +114,12 @@ abilityData:
           placeholder: null
           seatFilter:
             - notSelf
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 得知角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

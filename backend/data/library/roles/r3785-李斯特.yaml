@@ -65,8 +65,6 @@ abilityData:
       - kind: choose_player
         count: 3
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_number
         numberKind: evil_count
       - kind: apply_status_effect
@@ -117,15 +115,6 @@ abilityData:
           placeholder: null
           seatFilter:
             - notSelf
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
     result:
       repeatMode: sequence
       defaultRows: 3
@@ -140,7 +129,7 @@ abilityData:
           max: 15
           placeholder: null
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

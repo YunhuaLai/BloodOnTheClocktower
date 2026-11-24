@@ -44,14 +44,13 @@ abilityData:
   reviewReason: ''
   tags:
     - 首夜
-    - 主动选择
   termIds:
     - first-night
     - death
     - outsider
     - demon
     - storyteller
-  abilityPattern: manual_record
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -61,44 +60,23 @@ abilityData:
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: pick_and_record
+    pageType: no_input
     phaseTiming: first_night
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: seat
-          type: seat
-          label: 猜测对象
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+      repeatMode: none
+      defaultRows: 0
+      fields: []

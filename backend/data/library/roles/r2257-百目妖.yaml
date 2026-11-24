@@ -81,7 +81,7 @@ abilityData:
             source: '[-1外来者]'
             note: 配置调整：外来者数量 -1。
       - kind: choose_player
-        count: 2
+        count: 3
         source: target
   abilityMeta:
     pageType: pick_and_record
@@ -108,6 +108,15 @@ abilityData:
         - key: seat2
           type: seat
           label: 选择2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 选择3
           required: true
           optionsSource: null
           options: null

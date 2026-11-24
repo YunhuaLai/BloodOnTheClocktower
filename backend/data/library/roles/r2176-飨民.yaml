@@ -43,31 +43,30 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 事件触发
+    - 每晚
   termIds:
+    - night
     - execution
     - outsider
-  abilityPattern: rule_modifier
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
-      event: on_execution
-      frequency: passive
+      phase: each_night
+      event: null
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_execution
   abilityMeta:
-    pageType: rule_modifier
-    phaseTiming: null
-    eventTiming: on_execution
-    usagePattern: passive
-    activationMode: conditional
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
     drivenBy: storyteller
     recordable: false
   interactionSchema:

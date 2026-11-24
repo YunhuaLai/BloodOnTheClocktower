@@ -51,7 +51,7 @@ abilityData:
     - alignment
     - evil
     - townsfolk
-  abilityPattern: team_info
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -63,7 +63,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_team
+      - kind: learn_number
+        numberKind: distance
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
@@ -81,17 +82,17 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: count
+          type: number
+          label: 数量
           required: true
-          optionsSource: teams
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 0
+          max: 15
           placeholder: null
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：阵营信息
+    label: 可模板化：数字信息
     templates: []

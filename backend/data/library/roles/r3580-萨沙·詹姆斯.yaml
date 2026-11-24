@@ -55,7 +55,7 @@ abilityData:
     - evil
     - townsfolk
     - minion
-  abilityPattern: team_info
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -69,7 +69,8 @@ abilityData:
     operations:
       - kind: choose_role
         source: target
-      - kind: learn_team
+      - kind: learn_role
+        roleType: townsfolk
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night
@@ -92,17 +93,15 @@ abilityData:
           min: null
           max: null
           placeholder: null
-          roleTypes:
-            - townsfolk
     result:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: role
+          type: role
+          label: 得知角色
           required: true
-          optionsSource: teams
+          optionsSource: current_script_roles
           options: null
           min: null
           max: null
@@ -110,5 +109,5 @@ abilityData:
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：阵营信息
+    label: 可模板化：身份信息
     templates: []

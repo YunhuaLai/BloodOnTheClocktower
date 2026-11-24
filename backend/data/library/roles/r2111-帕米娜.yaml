@@ -55,7 +55,7 @@ abilityData:
     - evil
     - townsfolk
     - storyteller
-  abilityPattern: target_boolean_check
+  abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -67,9 +67,6 @@ abilityData:
     actor:
       drivenBy: player
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: learn_boolean
         question: vote_check
   abilityMeta:
@@ -85,13 +82,13 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
-          type: seat
-          label: 查验对象
+        - key: number
+          type: number
+          label: 选择数字
           required: true
           optionsSource: null
           options: null
-          min: 1
+          min: 0
           max: 15
           placeholder: null
     result:
@@ -100,7 +97,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 有邪恶阵营
           required: true
           optionsSource: custom
           options:

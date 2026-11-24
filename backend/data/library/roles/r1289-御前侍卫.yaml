@@ -54,27 +54,27 @@ abilityData:
     - death
     - townsfolk
     - demon
-  abilityPattern: role_info
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: each_night
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_role
-        roleType: townsfolk
+      - kind: learn_player
+        count: 1
       - kind: protect_player
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: each_night
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -84,22 +84,19 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: role
-          type: role
-          label: 得知角色
+        - key: seat
+          type: seat
+          label: 得知玩家
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
-          roleTypes:
-            - townsfolk
   deduction:
-    status: candidate
+    status: manual
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    label: 信息型角色，但需要人工语义归类

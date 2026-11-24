@@ -43,32 +43,31 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 事件触发
+    - 被动
   termIds:
     - information
     - townsfolk
     - demon
     - storyteller
-  abilityPattern: rule_modifier
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
+      phase: passive
       event: null
       frequency: once_per_game
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: rule_modifier
-    phaseTiming: null
+    pageType: no_input
+    phaseTiming: passive
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
     recordable: false
   interactionSchema:
@@ -80,8 +79,3 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''

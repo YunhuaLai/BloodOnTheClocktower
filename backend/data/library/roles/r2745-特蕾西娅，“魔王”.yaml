@@ -59,11 +59,11 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: setup
+      phase: first_night
       event: on_death
-      frequency: passive
+      frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
@@ -72,9 +72,9 @@ abilityData:
         eventTiming: on_death
   abilityMeta:
     pageType: rule_modifier
-    phaseTiming: setup
+    phaseTiming: first_night
     eventTiming: on_death
-    usagePattern: passive
+    usagePattern: once
     activationMode: conditional
     drivenBy: system
     recordable: false

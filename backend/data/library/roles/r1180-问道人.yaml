@@ -44,7 +44,7 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 主动选择
   termIds:
     - day
     - death
@@ -52,7 +52,7 @@ abilityData:
     - good
     - townsfolk
     - demon
-  abilityPattern: rule_modifier
+  abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -62,25 +62,52 @@ abilityData:
       event: on_death
       frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
+      - kind: choose_role
+        source: target
+      - kind: learn_role
+        roleType: demon
       - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_death
   abilityMeta:
-    pageType: rule_modifier
+    pageType: pick_and_record
     phaseTiming: null
     eventTiming: on_death
     usagePattern: once_per_game
-    activationMode: conditional
-    drivenBy: storyteller
-    recordable: false
+    activationMode: active
+    drivenBy: player
+    recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

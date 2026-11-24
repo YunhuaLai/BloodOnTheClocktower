@@ -87,6 +87,15 @@ abilityData:
           min: null
           max: null
           placeholder: null
+        - key: guess_role
+          type: role
+          label: 猜测角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
     result:
       repeatMode: sequence
       defaultRows: 3

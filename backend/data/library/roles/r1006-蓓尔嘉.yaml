@@ -64,9 +64,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 2
-        source: target
-      - kind: choose_role
+        count: 1
         source: target
       - kind: death_or_execution_effect
   abilityMeta:
@@ -82,39 +80,16 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat1
+        - key: seat
           type: seat
-          label: 选择1
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
-          placeholder: null
-        - key: seat2
-          type: seat
-          label: 选择2
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
           placeholder: null
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

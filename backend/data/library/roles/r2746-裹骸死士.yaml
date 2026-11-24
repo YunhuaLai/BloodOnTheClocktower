@@ -58,9 +58,9 @@ abilityData:
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: setup
+      phase: first_night
       event: null
-      frequency: passive
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:

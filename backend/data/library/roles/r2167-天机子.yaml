@@ -90,6 +90,15 @@ abilityData:
           min: 0
           max: 15
           placeholder: null
+        - key: distance
+          type: number
+          label: 距离
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
   deduction:
     status: candidate
     source: inferred

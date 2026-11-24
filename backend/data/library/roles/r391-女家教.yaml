@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: first_night
@@ -62,7 +62,7 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: manual_record
+      - kind: learn_character_type
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
@@ -80,15 +80,15 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
+        - key: character_type
+          type: character_type
+          label: 角色类型
+          required: true
+          optionsSource: character_types
           options: null
           min: null
           max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          placeholder: null
   deduction:
     status: manual
     source: inferred

@@ -66,6 +66,8 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: null

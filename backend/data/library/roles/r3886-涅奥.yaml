@@ -49,7 +49,7 @@ abilityData:
     - night
     - evil
     - townsfolk
-  abilityPattern: choose_player_effect
+  abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -61,9 +61,6 @@ abilityData:
     actor:
       drivenBy: player
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: choose_role
         source: target
       - kind: protect_player
@@ -80,15 +77,6 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
-          type: seat
-          label: 保护对象
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
         - key: role
           type: role
           label: 选择角色

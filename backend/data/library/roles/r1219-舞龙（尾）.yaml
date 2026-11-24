@@ -59,20 +59,20 @@ abilityData:
     confidence: 0.45
     timing:
       phase: setup
-      event: on_execution
+      event: on_death
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
       - kind: death_or_execution_effect
       - kind: event_trigger
-        eventTiming: on_execution
+        eventTiming: on_death
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup
-    eventTiming: on_execution
+    eventTiming: on_death
     usagePattern: passive
     activationMode: conditional
     drivenBy: system

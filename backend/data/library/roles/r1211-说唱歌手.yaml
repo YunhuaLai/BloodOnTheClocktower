@@ -56,18 +56,18 @@ abilityData:
     confidence: 0.45
     timing:
       phase: each_day
-      event: on_death
+      event: on_vote
       frequency: once_per_day
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
       - kind: event_trigger
-        eventTiming: on_death
+        eventTiming: on_vote
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: each_day
-    eventTiming: on_death
+    eventTiming: on_vote
     usagePattern: once_per_day
     activationMode: conditional
     drivenBy: storyteller

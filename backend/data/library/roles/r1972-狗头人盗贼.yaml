@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
     - 信息型
@@ -52,11 +52,11 @@ abilityData:
     - good
     - evil
     - traveler
-  abilityPattern: team_info
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: first_night
       event: null
@@ -64,7 +64,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_team
+      - kind: learn_role
+        roleType: null
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
@@ -82,11 +83,29 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: role1
+          type: role
+          label: 得知角色1
           required: true
-          optionsSource: teams
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: role2
+          type: role
+          label: 得知角色2
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: role3
+          type: role
+          label: 得知角色3
+          required: true
+          optionsSource: current_script_roles
           options: null
           min: null
           max: null
@@ -94,5 +113,5 @@ abilityData:
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：阵营信息
+    label: 可模板化：身份信息
     templates: []

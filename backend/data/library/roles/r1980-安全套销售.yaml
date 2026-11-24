@@ -64,8 +64,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_number
         numberKind: count
   abilityMeta:
@@ -83,21 +81,12 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 查验对象
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
-          placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
           placeholder: null
     result:
       repeatMode: sequence
@@ -112,8 +101,3 @@ abilityData:
           min: 0
           max: 15
           placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

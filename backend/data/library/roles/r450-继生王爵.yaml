@@ -45,6 +45,7 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 首夜
+    - 每晚
     - 主动选择
   termIds:
     - night
@@ -55,7 +56,7 @@ abilityData:
   abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: first_night
@@ -66,8 +67,6 @@ abilityData:
     operations:
       - kind: choose_player
         count: 1
-        source: target
-      - kind: choose_role
         source: target
       - kind: learn_role_at_target
         targetSource: target
@@ -93,15 +92,6 @@ abilityData:
           options: null
           min: 1
           max: 15
-          placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
           placeholder: null
     result:
       repeatMode: once

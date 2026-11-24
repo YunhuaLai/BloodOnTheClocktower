@@ -49,36 +49,37 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 首夜
     - 每晚
-    - 设置
     - 主动选择
   termIds:
     - day
     - night
-    - setup
+    - first-night
     - execution
     - minion
     - madness
-  abilityPattern: target_number_info
+  abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night_star
+      phase: each_night
       event: null
       frequency: once_per_night
     actor:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 2
+        count: 1
         source: target
-      - kind: learn_number
-        numberKind: count
+      - kind: choose_role
+        source: target
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night_star
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
     activationMode: active
@@ -89,39 +90,30 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat1
+        - key: seat
           type: seat
-          label: 选择1
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: seat2
-          type: seat
-          label: 选择2
+        - key: role
+          type: role
+          label: 选择角色
           required: true
-          optionsSource: null
+          optionsSource: current_script_roles
           options: null
-          min: 1
-          max: 15
+          min: null
+          max: null
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: count
-          type: number
-          label: 数量
-          required: true
-          optionsSource: null
-          options: null
-          min: 0
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
-    status: world_effect
+    status: candidate
     source: inferred
-    effectType: poison_drunk
-    note: ''
+    label: 可模板化：身份信息
+    templates: []

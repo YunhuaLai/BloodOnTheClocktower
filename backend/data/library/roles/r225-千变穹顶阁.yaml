@@ -42,8 +42,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 主动选择
   termIds:
@@ -55,10 +55,10 @@ abilityData:
   abilityPattern: execution_trigger
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: null
+      phase: each_night_star
       event: on_execution
       frequency: once_per_game
     actor:
@@ -70,9 +70,11 @@ abilityData:
       - kind: choose_role
         source: target
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: null
+    phaseTiming: each_night_star
     eventTiming: on_execution
     usagePattern: once_per_game
     activationMode: active
@@ -80,8 +82,8 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat
           type: seat

@@ -63,7 +63,7 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: manual_record
+      - kind: learn_character_type
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -81,14 +81,12 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: direction
-          type: choice
-          label: 方向
+        - key: character_type
+          type: character_type
+          label: 角色类型
           required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
+          optionsSource: character_types
+          options: null
           min: null
           max: null
           placeholder: null

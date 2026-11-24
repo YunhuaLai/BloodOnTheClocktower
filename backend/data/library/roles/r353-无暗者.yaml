@@ -43,7 +43,6 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 每晚
     - 设置
     - 主动选择
   termIds:
@@ -52,14 +51,14 @@ abilityData:
     - death
     - townsfolk
     - minion
-  abilityPattern: choose_player_death
+  abilityPattern: death_trigger
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_night_star
-      event: null
+      event: on_death
       frequency: once_per_night
     actor:
       drivenBy: player
@@ -70,10 +69,12 @@ abilityData:
         count: 1
         source: target
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star
-    eventTiming: null
+    eventTiming: on_death
     usagePattern: once_per_night
     activationMode: active
     drivenBy: player

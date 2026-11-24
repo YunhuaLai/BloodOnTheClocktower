@@ -119,7 +119,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 同一阵营
           required: true
           optionsSource: custom
           options:

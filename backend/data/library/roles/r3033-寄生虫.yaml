@@ -80,7 +80,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 选择对象
+          label: 保护对象
           required: true
           optionsSource: null
           options: null

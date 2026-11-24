@@ -40,11 +40,13 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 被动
+    - 设置
+    - 事件触发
   termIds:
+    - setup
     - execution
     - alignment
     - good
@@ -55,26 +57,30 @@ abilityData:
     - demon
     - storyteller
     - fabled
-  abilityPattern: no_input
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
-      phase: passive
-      event: null
-      frequency: passive
+      phase: setup
+      event: on_execution
+      frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: passive_rule
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
-    pageType: no_input
-    phaseTiming: passive
-    eventTiming: null
-    usagePattern: passive
-    activationMode: passive
-    drivenBy: storyteller
+    pageType: rule_modifier
+    phaseTiming: setup
+    eventTiming: on_execution
+    usagePattern: once_per_game
+    activationMode: conditional
+    drivenBy: system
     recordable: false
   interactionSchema:
     target:

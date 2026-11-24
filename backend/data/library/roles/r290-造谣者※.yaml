@@ -42,30 +42,32 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 被动
+    - 事件触发
   termIds:
     - day
     - death
     - fabled
-  abilityPattern: no_input
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: passive
-      event: null
-      frequency: passive
+      phase: each_day
+      event: on_death
+      frequency: once_per_day
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: passive_rule
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
-    pageType: no_input
-    phaseTiming: passive
-    eventTiming: null
-    usagePattern: passive
-    activationMode: passive
+    pageType: rule_modifier
+    phaseTiming: each_day
+    eventTiming: on_death
+    usagePattern: once_per_day
+    activationMode: conditional
     drivenBy: storyteller
     recordable: false
   interactionSchema:
@@ -77,3 +79,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: natural_language
+    note: ''

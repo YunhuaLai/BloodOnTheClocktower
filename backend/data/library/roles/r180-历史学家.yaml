@@ -44,21 +44,23 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 首夜
     - 信息型
   termIds:
     - day
+    - first-night
     - information
     - townsfolk
     - storyteller
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: passive
+      phase: first_night
       event: null
       frequency: once_per_game
     actor:
@@ -67,7 +69,7 @@ abilityData:
       - kind: manual_record
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: passive
+    phaseTiming: first_night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: passive
@@ -79,8 +81,8 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: note
           type: text

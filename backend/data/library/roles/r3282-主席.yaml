@@ -63,7 +63,7 @@ abilityData:
     - outsider
     - minion
     - demon
-  abilityPattern: team_info
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -82,7 +82,8 @@ abilityData:
             max: 1
             source: '[-1或+1外来者]'
             note: 配置调整：外来者数量 -1 到 +1。
-      - kind: learn_team
+      - kind: learn_player
+        count: 1
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star
@@ -100,17 +101,16 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: seat
+          type: seat
+          label: 得知玩家
           required: true
-          optionsSource: teams
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
   deduction:
-    status: candidate
+    status: manual
     source: inferred
-    label: 可模板化：阵营信息
-    templates: []
+    label: 信息型角色，但需要人工语义归类

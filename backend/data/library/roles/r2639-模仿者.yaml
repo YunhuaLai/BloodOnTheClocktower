@@ -42,63 +42,63 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
-    - 信息型
+    - 主动选择
   termIds:
     - night
     - first-night
     - drunk
-    - information
     - good
     - evil
     - townsfolk
-  abilityPattern: role_info
+  abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: first_night
       event: null
       frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
-      - kind: learn_role
-        roleType: null
+      - kind: choose_player
+        count: 1
+        source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
-    pageType: record_result_only
+    pageType: pick_and_record
     phaseTiming: first_night
     eventTiming: null
     usagePattern: once
-    activationMode: passive
-    drivenBy: storyteller
+    activationMode: active
+    drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
-    result:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: role
-          type: role
-          label: 得知角色
+        - key: seat
+          type: seat
+          label: 选择对象
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

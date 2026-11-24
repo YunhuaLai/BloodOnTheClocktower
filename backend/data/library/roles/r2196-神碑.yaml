@@ -56,7 +56,7 @@ abilityData:
     - evil
     - demon
     - grimoire
-  abilityPattern: target_role_info
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -71,8 +71,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: learn_role_at_target
-        targetSource: target
       - kind: protect_player
       - kind: death_or_execution_effect
   abilityMeta:
@@ -98,34 +96,6 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 得知角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+      repeatMode: none
+      defaultRows: 0
+      fields: []

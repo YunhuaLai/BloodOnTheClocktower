@@ -64,8 +64,7 @@ abilityData:
       - kind: choose_player
         count: 2
         source: target
-      - kind: choose_role
-        source: target
+      - kind: learn_character_type
       - kind: learn_boolean
         question: boolean_check
   abilityMeta:
@@ -99,22 +98,22 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
+        - key: character_type
+          type: character_type
+          label: 角色类型
+          required: true
+          optionsSource: character_types
+          options: null
+          min: null
+          max: null
+          placeholder: null
         - key: answer
           type: boolean
-          label: 是否
+          label: 有你得知的角色
           required: true
           optionsSource: custom
           options:
@@ -123,8 +122,3 @@ abilityData:
           min: null
           max: null
           placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

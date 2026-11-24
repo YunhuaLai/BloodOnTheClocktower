@@ -39,35 +39,35 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
+    - 设置
     - 事件触发
   termIds:
+    - setup
     - outsider
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: null
+      phase: setup
       event: null
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: event_trigger
-        eventTiming: null
   abilityMeta:
     pageType: rule_modifier
-    phaseTiming: null
+    phaseTiming: setup
     eventTiming: null
     usagePattern: passive
     activationMode: conditional
-    drivenBy: storyteller
+    drivenBy: system
     recordable: false
   interactionSchema:
     target:

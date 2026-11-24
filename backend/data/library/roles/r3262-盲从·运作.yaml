@@ -43,30 +43,32 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 被动
+    - 事件触发
   termIds:
     - nomination
     - execution
     - fabled
-  abilityPattern: no_input
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: passive
-      event: null
+      phase: null
+      event: on_nomination
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: passive_rule
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
-    pageType: no_input
-    phaseTiming: passive
-    eventTiming: null
+    pageType: rule_modifier
+    phaseTiming: null
+    eventTiming: on_nomination
     usagePattern: passive
-    activationMode: passive
+    activationMode: conditional
     drivenBy: storyteller
     recordable: false
   interactionSchema:
@@ -78,3 +80,8 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
+  deduction:
+    status: world_effect
+    source: inferred
+    effectType: action_history
+    note: ''

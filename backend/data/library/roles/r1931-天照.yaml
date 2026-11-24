@@ -40,11 +40,10 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  needsReview: false
+  reviewReason: ''
   tags:
     - 设置
-    - 事件触发
   termIds:
     - setup
     - outsider
@@ -52,26 +51,24 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: setup
-      event: on_death
+      event: null
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
       - kind: protect_player
-      - kind: event_trigger
-        eventTiming: on_death
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup
-    eventTiming: on_death
+    eventTiming: null
     usagePattern: passive
-    activationMode: conditional
+    activationMode: passive
     drivenBy: system
     recordable: false
   interactionSchema:

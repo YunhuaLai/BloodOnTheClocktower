@@ -53,7 +53,7 @@ abilityData:
     - first-night
     - alignment
     - townsfolk
-  abilityPattern: team_info
+  abilityPattern: target_number_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -68,7 +68,8 @@ abilityData:
       - kind: choose_player
         count: 2
         source: target
-      - kind: learn_team
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night
@@ -104,17 +105,17 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: count
+          type: number
+          label: 数量
           required: true
-          optionsSource: teams
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 0
+          max: 15
           placeholder: null
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：阵营信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

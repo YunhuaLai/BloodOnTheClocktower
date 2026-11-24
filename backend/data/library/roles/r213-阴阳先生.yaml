@@ -43,42 +43,41 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  needsReview: false
+  reviewReason: ''
   tags:
+    - 每晚
     - 设置
-    - 事件触发
   termIds:
+    - night
     - setup
     - execution
     - alignment
     - evil
     - townsfolk
     - outsider
-  abilityPattern: rule_modifier
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: setup
-      event: on_execution
-      frequency: passive
+      phase: each_night
+      event: null
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments: []
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_execution
   abilityMeta:
-    pageType: rule_modifier
-    phaseTiming: setup
-    eventTiming: on_execution
-    usagePattern: passive
-    activationMode: conditional
-    drivenBy: system
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
     recordable: false
   interactionSchema:
     target:

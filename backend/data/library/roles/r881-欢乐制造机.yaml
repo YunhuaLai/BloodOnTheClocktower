@@ -48,16 +48,14 @@ abilityData:
   tags:
     - 首夜
     - 每晚
-    - 信息型
   termIds:
     - night
     - first-night
-    - information
     - evil
     - townsfolk
     - demon
     - storyteller
-  abilityPattern: role_info
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -69,38 +67,21 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_role
-        roleType: townsfolk
+      - kind: passive_rule
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 得知角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-          roleTypes:
-            - townsfolk
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

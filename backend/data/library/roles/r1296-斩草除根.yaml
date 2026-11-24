@@ -43,15 +43,14 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 信息型
+    - 被动
   termIds:
-    - information
     - alive
     - evil
     - minion
     - demon
     - fabled
-  abilityPattern: record_result_only
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -63,34 +62,21 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: manual_record
+      - kind: passive_rule
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: passive
     eventTiming: null
     usagePattern: once_per_game
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
-  deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+      repeatMode: none
+      defaultRows: 0
+      fields: []

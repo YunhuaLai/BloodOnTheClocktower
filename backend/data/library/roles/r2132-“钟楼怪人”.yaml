@@ -50,14 +50,14 @@ abilityData:
     - good
     - storyteller
     - traveler
-  abilityPattern: execution_trigger
+  abilityPattern: vote_trigger
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
       phase: null
-      event: on_execution
+      event: on_vote
       frequency: passive
     actor:
       drivenBy: storyteller
@@ -65,10 +65,12 @@ abilityData:
       - kind: learn_role
         roleType: null
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_vote
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null
-    eventTiming: on_execution
+    eventTiming: on_vote
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller

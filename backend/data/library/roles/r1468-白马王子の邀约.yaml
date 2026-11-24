@@ -43,7 +43,7 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 事件触发
+    - 被动
   termIds:
     - day
     - setup
@@ -54,7 +54,7 @@ abilityData:
     - evil
     - storyteller
     - fabled
-  abilityPattern: rule_modifier
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -62,18 +62,17 @@ abilityData:
     timing:
       phase: each_day
       event: null
-      frequency: once_per_game
+      frequency: once_per_day
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: rule_modifier
+    pageType: no_input
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_game
-    activationMode: conditional
+    usagePattern: once_per_day
+    activationMode: passive
     drivenBy: storyteller
     recordable: false
   interactionSchema:

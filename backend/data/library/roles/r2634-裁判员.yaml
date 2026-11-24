@@ -57,7 +57,7 @@ abilityData:
       event: on_execution
       frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
       - kind: event_trigger

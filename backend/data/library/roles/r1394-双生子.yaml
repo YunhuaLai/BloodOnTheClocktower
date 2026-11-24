@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 设置
     - 事件触发
@@ -55,14 +55,14 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: setup
-      event: on_death
+      event: on_execution
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
@@ -70,11 +70,11 @@ abilityData:
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
       - kind: event_trigger
-        eventTiming: on_death
+        eventTiming: on_execution
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup
-    eventTiming: on_death
+    eventTiming: on_execution
     usagePattern: passive
     activationMode: conditional
     drivenBy: system

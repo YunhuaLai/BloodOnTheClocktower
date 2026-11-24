@@ -54,7 +54,7 @@ abilityData:
     - alive
     - evil
     - townsfolk
-  abilityPattern: record_result_only
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -68,6 +68,8 @@ abilityData:
     operations:
       - kind: setup_modifier
         adjustments: []
+      - kind: learn_number
+        numberKind: evil_count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -85,18 +87,17 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: direction
-          type: choice
-          label: 方向
+        - key: count
+          type: number
+          label: 数量
           required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
-          min: null
-          max: null
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
           placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：数字信息
+    templates: []

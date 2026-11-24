@@ -83,9 +83,7 @@ abilityData:
             source: '[-1 外来者]'
             note: 配置调整：外来者数量 -1。
       - kind: choose_player
-        count: 1
-        source: target
-      - kind: choose_role
+        count: 2
         source: target
       - kind: death_or_execution_effect
   abilityMeta:
@@ -101,9 +99,9 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 选择对象
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -112,21 +110,18 @@ abilityData:
           placeholder: null
           seatFilter:
             - alive
-        - key: role
-          type: role
-          label: 选择角色
+        - key: seat2
+          type: seat
+          label: 选择2
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
+          seatFilter:
+            - alive
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

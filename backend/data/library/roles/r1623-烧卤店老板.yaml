@@ -54,7 +54,7 @@ abilityData:
     - townsfolk
     - demon
     - storyteller
-  abilityPattern: target_demon_check
+  abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -69,8 +69,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: learn_boolean
-        question: demon_check
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day
@@ -94,17 +92,6 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: answer
-          type: boolean
-          label: 是否
-          required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []

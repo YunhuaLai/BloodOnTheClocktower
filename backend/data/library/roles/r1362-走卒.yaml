@@ -39,58 +39,41 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
-    - 信息型
   termIds:
     - day
     - first-night
-    - information
     - outsider
-  abilityPattern: record_result_only
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: first_night
+      phase: each_day
       event: null
-      frequency: once
+      frequency: once_per_day
     actor:
       drivenBy: storyteller
     operations:
-      - kind: manual_record
+      - kind: passive_rule
   abilityMeta:
-    pageType: record_result_only
-    phaseTiming: first_night
+    pageType: no_input
+    phaseTiming: each_day
     eventTiming: null
-    usagePattern: once
+    usagePattern: once_per_day
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: direction
-          type: choice
-          label: 方向
-          required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+      repeatMode: none
+      defaultRows: 0
+      fields: []

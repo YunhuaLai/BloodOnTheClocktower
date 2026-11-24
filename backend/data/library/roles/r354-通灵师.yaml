@@ -40,56 +40,81 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  needsReview: false
+  reviewReason: ''
   tags:
-    - 信息型
+    - 首夜
+    - 每晚
+    - 主动选择
   termIds:
     - night
-    - information
+    - first-night
     - death
     - alive
     - townsfolk
-  abilityPattern: record_result_only
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_day
+      phase: each_night_star
       event: null
-      frequency: once_per_day
+      frequency: once_per_night
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
+      - kind: choose_player
+        count: 3
+        source: target
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: record_result_only
-    phaseTiming: each_day
+    pageType: pick_and_record
+    phaseTiming: each_night_star
     eventTiming: null
-    usagePattern: once_per_day
-    activationMode: passive
-    drivenBy: storyteller
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
-    result:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+        - key: seat1
+          type: seat
+          label: 选择1
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
-  deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+          min: 1
+          max: 15
+          placeholder: null
+          seatFilter:
+            - alive
+        - key: seat2
+          type: seat
+          label: 选择2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+          seatFilter:
+            - alive
+        - key: seat3
+          type: seat
+          label: 选择3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+          seatFilter:
+            - alive
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

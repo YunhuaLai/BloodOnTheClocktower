@@ -39,21 +39,23 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
+    - 首夜
     - 主动选择
   termIds:
+    - first-night
     - traveler
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: passive
+      phase: each_night
       event: null
-      frequency: passive
+      frequency: once_per_night
     actor:
       drivenBy: player
     operations:
@@ -62,9 +64,9 @@ abilityData:
         source: target
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: passive
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: passive
+    usagePattern: once_per_night
     activationMode: active
     drivenBy: player
     recordable: true

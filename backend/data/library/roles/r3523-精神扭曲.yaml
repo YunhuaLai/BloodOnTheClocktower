@@ -42,13 +42,13 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 信息型
+    - 被动
   termIds:
     - information
     - minion
     - demon
     - fabled
-  abilityPattern: role_info
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -60,36 +60,21 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_role
-        roleType: minion
+      - kind: passive_rule
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: passive
     eventTiming: null
     usagePattern: passive
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 得知角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

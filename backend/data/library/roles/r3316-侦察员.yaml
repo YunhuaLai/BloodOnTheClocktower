@@ -81,17 +81,24 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: role
+        - key: role1
           type: role
-          label: 得知角色
+          label: 得知角色1
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
-          roleTypes:
-            - demon
+        - key: role2
+          type: role
+          label: 得知角色2
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
   deduction:
     status: candidate
     source: inferred

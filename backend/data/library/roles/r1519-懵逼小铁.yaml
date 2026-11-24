@@ -62,6 +62,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
+      - kind: learn_role
+        roleType: demon
       - kind: learn_number
         numberKind: evil_count
   abilityMeta:
@@ -90,8 +92,26 @@ abilityData:
           min: 0
           max: 15
           placeholder: null
+        - key: role1
+          type: role
+          label: 得知角色1
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: role2
+          type: role
+          label: 得知角色2
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：数字信息
+    label: 可模板化：身份信息
     templates: []

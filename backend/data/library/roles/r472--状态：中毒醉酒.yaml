@@ -59,7 +59,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: passive_rule
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

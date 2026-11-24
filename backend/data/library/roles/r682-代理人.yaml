@@ -53,7 +53,7 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: setup
       event: null
@@ -63,8 +63,6 @@ abilityData:
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: event_trigger
-        eventTiming: null
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup

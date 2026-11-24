@@ -62,7 +62,7 @@ abilityData:
       event: on_nomination
       frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: event_trigger
         eventTiming: on_nomination

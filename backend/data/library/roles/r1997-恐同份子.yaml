@@ -58,9 +58,9 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_day
+      phase: each_night_star
       event: null
-      frequency: once_per_day
+      frequency: once_per_night
     actor:
       drivenBy: player
     operations:
@@ -70,9 +70,9 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_day
+    phaseTiming: each_night_star
     eventTiming: null
-    usagePattern: once_per_day
+    usagePattern: once_per_night
     activationMode: active
     drivenBy: player
     recordable: true

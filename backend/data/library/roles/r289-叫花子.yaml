@@ -54,25 +54,23 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_day
       event: null
-      frequency: once_per_game
+      frequency: once_per_day
     actor:
       drivenBy: player
     operations:
       - kind: choose_player
         count: 1
         source: target
-      - kind: choose_role
-        source: target
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_game
+    usagePattern: once_per_day
     activationMode: active
     drivenBy: player
     recordable: true
@@ -90,23 +88,7 @@ abilityData:
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-          roleTypes:
-            - demon
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

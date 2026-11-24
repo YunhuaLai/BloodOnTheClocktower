@@ -46,14 +46,12 @@ abilityData:
   reviewReason: ''
   tags:
     - 每晚
-    - 信息型
   termIds:
     - day
     - night
-    - information
     - death
     - townsfolk
-  abilityPattern: boolean_info
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -65,38 +63,21 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_boolean
-        question: boolean_check
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: answer
-          type: boolean
-          label: 是否
-          required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -41,23 +41,25 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 每晚
     - 信息型
   termIds:
     - day
+    - night
     - information
     - death
     - townsfolk
     - storyteller
-  abilityPattern: death_trigger
+  abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_day
-      event: on_death
+      event: null
       frequency: once_per_day
     actor:
       drivenBy: storyteller
@@ -66,9 +68,9 @@ abilityData:
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_day
-    eventTiming: on_death
+    eventTiming: null
     usagePattern: once_per_day
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
     recordable: true
   interactionSchema:

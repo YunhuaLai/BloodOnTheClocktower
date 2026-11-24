@@ -52,13 +52,13 @@ abilityData:
     - death
     - minion
     - demon
-  abilityPattern: choose_player_death
+  abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_game
     actor:
@@ -69,10 +69,12 @@ abilityData:
         source: target
       - kind: choose_role
         source: target
+      - kind: learn_role_at_target
+        targetSource: target
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
@@ -80,8 +82,8 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat
           type: seat
@@ -101,14 +103,35 @@ abilityData:
           min: null
           max: null
           placeholder: null
-          roleTypes:
-            - demon
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    label: 可模板化：目标身份信息
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

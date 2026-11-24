@@ -66,6 +66,8 @@ abilityData:
         source: target
       - kind: learn_boolean
         question: nomination_check
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day
@@ -94,7 +96,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 外来者
           required: true
           optionsSource: custom
           options:

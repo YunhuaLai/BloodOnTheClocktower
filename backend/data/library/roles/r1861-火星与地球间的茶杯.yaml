@@ -30,7 +30,7 @@ abilityData:
     source: role-file
     roleId: r1861
     officialId: bootleg
-    sourceHash: 0191baa40dac901eb6d795ddea448147c9e71cfd
+    sourceHash: a214fabbdfbbca2dc2a9a85d899030ac20cea71d
     sourceHashFields:
       - ability
       - type
@@ -59,15 +59,13 @@ abilityData:
       event: null
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: protect_player
-      - kind: event_trigger
-        eventTiming: null
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: setup

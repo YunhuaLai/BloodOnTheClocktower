@@ -41,47 +41,60 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
-    - 事件触发
+    - 首夜
+    - 每晚
+    - 信息型
   termIds:
     - night
+    - first-night
+    - information
     - evil
     - townsfolk
-  abilityPattern: rule_modifier
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_day
+      phase: each_night
       event: null
-      frequency: once_per_day
+      frequency: once_per_game
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: learn_role
+        roleType: null
   abilityMeta:
-    pageType: rule_modifier
-    phaseTiming: each_day
+    pageType: record_result_only
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: once_per_day
-    activationMode: conditional
+    usagePattern: once_per_game
+    activationMode: passive
     drivenBy: storyteller
-    recordable: false
+    recordable: true
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
   deduction:
-    status: world_effect
+    status: candidate
     source: inferred
-    effectType: action_history
-    note: ''
+    label: 可模板化：身份信息
+    templates: []

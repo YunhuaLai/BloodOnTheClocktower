@@ -62,11 +62,11 @@ abilityData:
     - evil
     - outsider
     - minion
-  abilityPattern: target_role_info
+  abilityPattern: choose_role_status_effect
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: first_night
       event: null
@@ -81,13 +81,10 @@ abilityData:
             max: -1
             source: '[-1外来者]'
             note: 配置调整：外来者数量 -1。
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: choose_role
         source: target
-      - kind: learn_role_at_target
-        targetSource: target
+      - kind: learn_player
+        count: 1
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
@@ -103,15 +100,6 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: seat
-          type: seat
-          label: 查验对象
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
         - key: role
           type: role
           label: 选择角色
@@ -125,31 +113,17 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: role
-          type: role
-          label: 得知角色
+        - key: seat
+          type: seat
+          label: 得知玩家
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    label: 可模板化：身份信息
+    templates: []

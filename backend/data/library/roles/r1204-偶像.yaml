@@ -43,8 +43,9 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 信息型
+    - 首夜
   termIds:
+    - first-night
     - poisoned
     - drunk
     - information
@@ -52,47 +53,34 @@ abilityData:
     - good
     - traveler
     - fabled
-  abilityPattern: status_effect
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: passive
+      phase: first_night
       event: null
-      frequency: passive
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
-    pageType: record_result_only
-    phaseTiming: passive
+    pageType: no_input
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: passive
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
-  deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+      repeatMode: none
+      defaultRows: 0
+      fields: []

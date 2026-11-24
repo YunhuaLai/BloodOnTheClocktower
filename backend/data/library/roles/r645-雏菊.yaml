@@ -53,16 +53,16 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
-      phase: each_night
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 1
+        count: 3
         source: target
       - kind: learn_role_at_target
         targetSource: target
@@ -79,9 +79,27 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 选择对象
+          label: 查验1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 查验2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 查验3
           required: true
           optionsSource: null
           options: null
@@ -104,19 +122,5 @@ abilityData:
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    label: 可模板化：身份信息
+    templates: []

@@ -46,7 +46,7 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 每晚
   termIds:
     - night
     - vote
@@ -55,27 +55,25 @@ abilityData:
     - good
     - evil
     - minion
-  abilityPattern: rule_modifier
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: null
-      event: on_death
-      frequency: passive
+      phase: each_night
+      event: null
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_death
   abilityMeta:
-    pageType: rule_modifier
-    phaseTiming: null
-    eventTiming: on_death
-    usagePattern: passive
-    activationMode: conditional
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
     drivenBy: storyteller
     recordable: false
   interactionSchema:

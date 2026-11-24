@@ -63,8 +63,9 @@ abilityData:
     operations:
       - kind: choose_role
         source: target
-      - kind: learn_team
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: null
@@ -90,20 +91,11 @@ abilityData:
           roleTypes:
             - demon
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: team
-          type: team
-          label: 阵营
-          required: true
-          optionsSource: teams
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：阵营信息
+    label: 可模板化：身份信息
     templates: []

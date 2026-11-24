@@ -45,7 +45,7 @@ abilityData:
   reviewReason: ''
   tags:
     - 设置
-    - 主动选择
+    - 事件触发
   termIds:
     - setup
     - information
@@ -53,7 +53,7 @@ abilityData:
     - good
     - storyteller
     - fabled
-  abilityPattern: manual_record
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -63,40 +63,24 @@ abilityData:
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: player
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: choose_role
-        source: target
   abilityMeta:
-    pageType: pick_and_record
+    pageType: rule_modifier
     phaseTiming: setup
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: conditional
+    drivenBy: system
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

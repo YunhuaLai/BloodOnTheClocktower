@@ -44,10 +44,12 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 首夜
     - 每晚
     - 主动选择
   termIds:
     - night
+    - first-night
     - alive
     - alignment
     - townsfolk
@@ -99,7 +101,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 同一阵营
           required: true
           optionsSource: custom
           options:

@@ -89,7 +89,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 攻击对象
+          label: 保护对象
           required: true
           optionsSource: null
           options: null

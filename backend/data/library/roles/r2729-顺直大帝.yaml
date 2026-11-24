@@ -57,7 +57,7 @@ abilityData:
     - outsider
     - minion
     - demon
-  abilityPattern: number_info
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -71,8 +71,9 @@ abilityData:
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: learn_number
-        numberKind: death_count
+      - kind: learn_role
+        roleType: outsider
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star
@@ -90,17 +91,17 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: count
-          type: number
-          label: 数量
+        - key: role
+          type: role
+          label: 得知角色
           required: true
-          optionsSource: null
+          optionsSource: current_script_roles
           options: null
-          min: 0
-          max: 15
+          min: null
+          max: null
           placeholder: null
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：数字信息
+    label: 可模板化：身份信息
     templates: []

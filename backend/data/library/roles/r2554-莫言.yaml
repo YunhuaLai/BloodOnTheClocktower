@@ -54,18 +54,18 @@ abilityData:
     confidence: 0.45
     timing:
       phase: null
-      event: on_nomination
+      event: on_execution
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
       - kind: event_trigger
-        eventTiming: on_nomination
+        eventTiming: on_execution
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: null
-    eventTiming: on_nomination
+    eventTiming: on_execution
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller

@@ -66,6 +66,8 @@ abilityData:
         count: 1
         source: target
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day

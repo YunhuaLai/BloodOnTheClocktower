@@ -84,6 +84,15 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
+        - key: seat
+          type: seat
+          label: 得知玩家
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
         - key: role
           type: role
           label: 得知角色

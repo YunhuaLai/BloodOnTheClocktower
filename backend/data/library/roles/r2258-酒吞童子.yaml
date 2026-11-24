@@ -45,8 +45,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 首夜
     - 每晚
@@ -57,11 +57,11 @@ abilityData:
     - drunk
     - evil
     - minion
-  abilityPattern: target_number_info
+  abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
       phase: each_night
       event: null
@@ -72,8 +72,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: learn_number
-        numberKind: evil_count
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
@@ -99,18 +97,9 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: count
-          type: number
-          label: 数量
-          required: true
-          optionsSource: null
-          options: null
-          min: 0
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: world_effect
     source: inferred

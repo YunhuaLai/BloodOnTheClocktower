@@ -58,9 +58,9 @@ abilityData:
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: each_night
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
@@ -68,9 +68,9 @@ abilityData:
         effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: no_input
-    phaseTiming: each_night
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
     recordable: false

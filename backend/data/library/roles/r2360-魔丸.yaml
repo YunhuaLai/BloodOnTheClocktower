@@ -56,7 +56,7 @@ abilityData:
     - good
     - townsfolk
     - fabled
-  abilityPattern: choose_role_status_effect
+  abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -72,8 +72,6 @@ abilityData:
         adjustments: []
       - kind: choose_player
         count: 1
-        source: target
-      - kind: choose_role
         source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
@@ -92,28 +90,19 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 下毒对象
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

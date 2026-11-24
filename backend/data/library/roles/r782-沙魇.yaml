@@ -58,7 +58,7 @@ abilityData:
     - evil
     - townsfolk
     - minion
-  abilityPattern: status_effect
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -99,20 +99,9 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: direction
-          type: choice
-          label: 方向
-          required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: world_effect
     source: inferred
