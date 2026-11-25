@@ -73,7 +73,7 @@ test("a tie for the most votes executes nobody", async (t) => {
 test("a past day's threshold does not move when players die later", async (t) => {
   const load = await loadFrontend(t);
   const days = await load("notes/notes-day-records.js");
-  const { shiftGamePhase } = await load("notes/notes-game-actions.js");
+  const { applyStatusChange } = await load("notes/notes-death.js");
   const game = createGame(7);
 
   // Day 1: 7 alive, threshold 4; 4 votes on seat 2 executes them.
@@ -81,34 +81,151 @@ test("a past day's threshold does not move when players die later", async (t) =>
   dayOne.nominations.push(nomination(2, [1, 3, 4, 5]));
   days.syncAutoExecutionStatuses(game);
   assert.equal(game.players[1].status, "executed");
+  assert.deepEqual(game.players[1].death, { phaseType: "day", phaseNumber: 1, cause: "execution" });
 
-  // Moving into night 2 freezes day 1 at 7 alive.
-  shiftGamePhase(game, 1);
-  assert.equal(game.phaseNumber, 2);
-  assert.equal(days.getDayRecord(game, 1).aliveCount, 7);
-
-  // Night 2 and night 3 deaths would drop the live count to 4 (threshold 2).
-  game.players[2].status = "night-dead";
-  game.players[3].status = "night-dead";
-  shiftGamePhase(game, 1);
-  shiftGamePhase(game, 1);
-  game.players[4].status = "night-dead";
+  // Deaths are dated by the phase they are marked in.
+  game.phaseType = "day";
+  game.phaseNumber = 2;
+  applyStatusChange(game.players[2], "night-dead", game);
+  applyStatusChange(game.players[3], "night-dead", game);
+  game.phaseType = "night";
+  game.phaseNumber = 3;
+  applyStatusChange(game.players[4], "night-dead", game);
+  assert.deepEqual(game.players[4].death, { phaseType: "night", phaseNumber: 3, cause: "night" });
   days.syncAutoExecutionStatuses(game);
 
   const result = days.resolveDayExecution(game, days.getDayRecord(game, 1));
   assert.equal(result.threshold, 4);
   assert.equal(result.seat, "2");
   assert.equal(game.players[1].status, "executed");
+  assert.equal(days.countAliveForDay(game, 2), 4);
+  assert.equal(days.countAliveForDay(game, 3), 3);
 
-  // Going back does not refreeze; a manual correction does.
-  shiftGamePhase(game, -3);
-  assert.equal(days.getDayRecord(game, 1).aliveCount, 7);
+  // A manual count overrides the derived one.
   days.getDayRecord(game, 1).aliveCount = 9;
   assert.equal(days.resolveDayExecution(game, days.getDayRecord(game, 1)).threshold, 5);
   assert.equal(days.resolveDayExecution(game, days.getDayRecord(game, 1)).seat, "");
 });
 
-test("days without a frozen count still count players executed that day or later", async (t) => {
+test("status changes fill in death phase and cause", async (t) => {
+  const load = await loadFrontend(t);
+  const death = await load("notes/notes-death.js");
+  const game = { phaseType: "night", phaseNumber: 3 };
+  const player = { seat: 4, status: "alive", death: null, ghostVoteUsed: false };
+
+  // Marked executed during night 3: executed at the end of day 2.
+  death.applyStatusChange(player, "executed", game);
+  assert.deepEqual(player.death, { phaseType: "day", phaseNumber: 2, cause: "execution" });
+  assert.equal(death.getDeathBadge(player), "处2");
+
+  // Switching to a non-execution death resets the cause and phase.
+  death.applyStatusChange(player, "night-dead", game);
+  assert.deepEqual(player.death, { phaseType: "night", phaseNumber: 3, cause: "night" });
+
+  // Day deaths keep the night-dead status but show their own badge; a night
+  // phase does not fit a day death, so it moves to the latest day (day 2).
+  death.applyDeathCause(player, "day", game);
+  assert.equal(player.status, "night-dead");
+  assert.deepEqual(player.death, { phaseType: "day", phaseNumber: 2, cause: "day" });
+  assert.equal(death.getDeathBadge(player), "白2");
+  // "Unknown" fits any phase and keeps it.
+  death.applyDeathCause(player, "unknown", game);
+  assert.deepEqual(player.death, { phaseType: "day", phaseNumber: 2, cause: "unknown" });
+  death.applyDeathCause(player, "day", game);
+  death.applyStatusChange(player, "night-dead", game);
+  assert.equal(player.death.cause, "day");
+
+  death.applyDeathPhase(player, "day-2");
+  assert.deepEqual(player.death, { phaseType: "day", phaseNumber: 2, cause: "day" });
+  death.applyDeathPhase(player, "");
+  assert.equal(death.getDeathBadge(player), "白");
+
+  // Choosing execution as the cause also sets the status.
+  death.applyDeathCause(player, "execution", game);
+  assert.equal(player.status, "executed");
+
+  player.ghostVoteUsed = true;
+  death.applyStatusChange(player, "alive", game);
+  assert.equal(player.death, null);
+  assert.equal(player.ghostVoteUsed, false);
+
+  // Legacy dead players without a record get a cause from their status.
+  assert.deepEqual(death.normalizeDeath(undefined, "night-dead"), { phaseType: "", phaseNumber: null, cause: "night" });
+  assert.deepEqual(death.normalizeDeath({ phaseType: "day", phaseNumber: 2 }, "executed"), { phaseType: "day", phaseNumber: 2, cause: "execution" });
+  assert.equal(death.normalizeDeath({ phaseType: "day", phaseNumber: 2 }, "alive"), null);
+
+  assert.deepEqual(
+    death.getDeathPhaseChoices({ phaseType: "day", phaseNumber: 2 }).map((choice) => choice.value),
+    ["night-1", "day-1", "night-2", "day-2"],
+  );
+});
+
+test("an executed player who survives stays alive", async (t) => {
+  const load = await loadFrontend(t);
+  const days = await load("notes/notes-day-records.js");
+  const game = createGame(7);
+  const record = days.getDayRecord(game, 1, true);
+  record.nominations.push(nomination(2, [1, 3, 4, 5]));
+  record.executedSurvived = true;
+  days.syncAutoExecutionStatuses(game);
+  assert.equal(game.players[1].status, "alive");
+  assert.equal(days.resolveDayExecution(game, record).seat, "2");
+
+  // Syncing re-normalizes records, so fetch the live one before each change.
+  days.getDayRecord(game, 1).executedSurvived = false;
+  days.syncAutoExecutionStatuses(game);
+  assert.equal(game.players[1].status, "executed");
+
+  days.getDayRecord(game, 1).executedSurvived = true;
+  days.syncAutoExecutionStatuses(game);
+  assert.equal(game.players[1].status, "alive");
+  assert.equal(game.players[1].death, null);
+  assert.equal(days.getDayRecord(game, 1).executedSurvived, true);
+});
+
+test("votes cast after death mark the dead vote as used", async (t) => {
+  const load = await loadFrontend(t);
+  const days = await load("notes/notes-day-records.js");
+  const death = await load("notes/notes-death.js");
+  const game = createGame(7);
+  days.getDayRecord(game, 1, true).nominations.push(nomination(2, [1, 3, 4, 5]));
+  days.syncAutoExecutionStatuses(game);
+
+  // Seat 2 voted on day 1 while alive: the dead vote is still there.
+  assert.equal(death.isGhostVoteUsed(game, game.players[1]), false);
+
+  days.getDayRecord(game, 2, true).nominations.push(nomination(6, [2, 3]));
+  assert.deepEqual(death.getGhostVoteDays(game, game.players[1]), [2]);
+  assert.equal(death.isGhostVoteUsed(game, game.players[1]), true);
+
+  // Without a death phase nothing can be derived, only the manual flag counts.
+  const unknown = { seat: 3, status: "night-dead", death: { phaseType: "", phaseNumber: null, cause: "night" } };
+  assert.equal(death.isGhostVoteUsed(game, unknown), false);
+  unknown.ghostVoteUsed = true;
+  assert.equal(death.isGhostVoteUsed(game, unknown), true);
+});
+
+test("backend day records follow the same execution rules", () => {
+  const backend = require("../backend/deduction/day-records");
+  const game = createGame(7);
+  game.dayRecords = [{ dayNumber: 1, nominations: [nomination(2, [1, 3, 4, 5]), nomination(6, [1, 2, 3, 7])] }];
+  assert.equal(backend.getDayExecutionSeat(game, 1), 0);
+
+  game.dayRecords = [
+    { dayNumber: 1, nominations: [nomination(2, [1, 3, 4, 5])] },
+    { dayNumber: 2, nominations: [nomination(3, [1, 4, 5])] },
+  ];
+  game.players[1].status = "executed";
+  game.players[1].death = { phaseType: "day", phaseNumber: 1, cause: "execution" };
+  game.players[5].status = "night-dead";
+  game.players[5].death = { phaseType: "night", phaseNumber: 3, cause: "night" };
+  assert.equal(backend.countAliveForDay(game, 1), 7);
+  assert.equal(backend.countAliveForDay(game, 2), 6);
+  assert.equal(backend.getDayExecutionSeat(game, 1), 2);
+  assert.equal(backend.getDayExecutionSeat(game, 2), 3);
+});
+
+test("deaths without a phase fall back to execution records", async (t) => {
   const load = await loadFrontend(t);
   const days = await load("notes/notes-day-records.js");
   const game = createGame(7);
@@ -124,7 +241,7 @@ test("days without a frozen count still count players executed that day or later
   assert.deepEqual(game.players.map((player) => player.status).slice(0, 3), ["alive", "executed", "executed"]);
 });
 
-test("frozen alive counts survive normalisation and old records stay unfrozen", async (t) => {
+test("manual alive counts survive normalisation", async (t) => {
   const load = await loadFrontend(t);
   const days = await load("notes/notes-day-records.js");
   const normalized = days.normalizeDayRecords([

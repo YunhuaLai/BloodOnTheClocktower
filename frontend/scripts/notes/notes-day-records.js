@@ -1,5 +1,6 @@
 import { createId } from "../utils.js";
 import { getMaxSeatNumber } from "./notes-core.js";
+import { isAliveDuringDay, normalizeDeath } from "./notes-death.js";
 
 function clampNumber(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -40,8 +41,9 @@ export function createDayRecord(dayNumber) {
     abilityRecords: [],
     nominations: [],
     executionOverride: "",
-    // Alive count frozen when the game moves past this day, so later deaths
-    // do not change the vote threshold of a day that is already over.
+    // The executed player did not die (Zombuul, Pacifist, Sailor ...).
+    executedSurvived: false,
+    // Manual alive count for the vote threshold; null derives it from deaths.
     aliveCount: null,
     publicRecordSavedAt: "",
   };
@@ -145,6 +147,10 @@ export function normalizeDayRecords(records, playerCount) {
       dayRecord.executionOverride = override || "none";
     }
 
+    if (record?.executedSurvived) {
+      dayRecord.executedSurvived = true;
+    }
+
     const aliveCount = normalizeAliveCount(record?.aliveCount);
     if (aliveCount) {
       dayRecord.aliveCount = aliveCount;
@@ -195,16 +201,18 @@ function getLaterExecutionSeats(game, dayNumber) {
   );
 }
 
-// Alive count derived from current statuses. Night deaths carry no day, so this
-// is only exact for the day currently being played.
+// Alive count while day `dayNumber`'s votes were cast, from each player's death
+// phase. Deaths without a phase fall back to: executed on this day or later
+// counts as alive, anything else as dead.
 export function countAliveForDay(game, dayNumber) {
   const laterExecutionSeats = getLaterExecutionSeats(game, dayNumber);
   return (game?.players || []).filter((player) => {
-    const seat = Number(player.seat);
-    return (
-      player.status === "alive" ||
-      (player.status === "executed" && laterExecutionSeats.has(seat))
-    );
+    const alive = isAliveDuringDay(player, dayNumber);
+    if (alive !== null) {
+      return alive;
+    }
+
+    return player.status === "executed" && laterExecutionSeats.has(Number(player.seat));
   }).length;
 }
 
@@ -215,26 +223,6 @@ export function getDayAliveCount(game, dayNumber, record = null) {
 export function getDayExecutionThreshold(game, dayNumber, record = null) {
   const aliveCount = getDayAliveCount(game, dayNumber, record);
   return Math.max(1, Math.ceil((aliveCount || game?.playerCount || 1) / 2));
-}
-
-// Freezes the alive count of days the game has just moved past (day N ends when
-// the phase number goes above N). Already frozen days keep their value.
-export function freezePassedDayAliveCounts(game, previousPhaseNumber) {
-  if (!game) {
-    return;
-  }
-
-  const currentPhaseNumber = Number(game.phaseNumber) || 1;
-  const fromDay = Number(previousPhaseNumber) || 1;
-  ensureDayRecords(game).forEach((record) => {
-    if (
-      record.dayNumber >= fromDay &&
-      record.dayNumber < currentPhaseNumber &&
-      !normalizeAliveCount(record.aliveCount)
-    ) {
-      record.aliveCount = countAliveForDay(game, record.dayNumber);
-    }
-  });
 }
 
 export function resolveAutomaticDayExecution(game, record) {
@@ -337,6 +325,7 @@ export function syncAutoExecutionStatuses(game) {
     const player = getPlayerBySeat(game, entry.seat);
     if (player?.status === "executed") {
       player.status = "alive";
+      player.death = null;
     }
   });
 
@@ -345,13 +334,17 @@ export function syncAutoExecutionStatuses(game) {
   const applied = [];
   ensureDayRecords(game).forEach((record) => {
     const result = resolveDayExecution(game, record);
-    if (!result.seat) {
+    if (!result.seat || record.executedSurvived) {
       return;
     }
 
     const player = getPlayerBySeat(game, result.seat);
     if (player && player.status !== "night-dead") {
       player.status = "executed";
+      player.death = normalizeDeath(
+        { phaseType: "day", phaseNumber: record.dayNumber, cause: "execution" },
+        "executed",
+      );
     }
 
     applied.push({

@@ -1,5 +1,6 @@
 import { isBaseRole, isFabledRole, isTravellerRole, normalizeMatchText } from "./notes-claims.js";
 import { normalizeAutoExecutionApplied, normalizeDayRecords, syncAutoExecutionStatuses } from "./notes/notes-day-records.js";
+import { normalizeDeath } from "./notes/notes-death.js";
 import { createGameBackupEnvelope, createNotesBackupEnvelope, getImportableGames, NOTES_SCHEMA_VERSION } from "./notes/notes-backup.js";
 import { isTravellerPlayer } from "./notes/notes-core.js";
 import { cloneRoleInfoRecords, createEmptyPhasedRoleInfo, isPhasedRoleInfo } from "./notes/notes-role-info-records.js";
@@ -76,6 +77,8 @@ export function createDefaultPlayer(seat, options = {}) {
     claim: options.claim || "",
     alignment: "unknown",
     status: "alive",
+    death: null,
+    ghostVoteUsed: false,
     condition: "unknown",
     tags: [],
     extraInfo: "",
@@ -144,6 +147,7 @@ export function cloneSuspectedRoles(records) {
 export function clonePlayerForDraft(player) {
   return {
     ...player,
+    death: player.death ? { ...player.death } : null,
     tags: [...(player.tags || [])],
     roleInfo: cloneRoleInfo(player.roleInfo),
     acquiredAbilities: cloneAcquiredAbilities(player.acquiredAbilities),
@@ -365,6 +369,8 @@ function normalizePlayer(player, index, options = {}) {
     claim: player?.claim || "",
     alignment,
     status,
+    death: normalizeDeath(player?.death, status),
+    ghostVoteUsed: status !== "alive" && Boolean(player?.ghostVoteUsed),
     condition,
     tags,
     extraInfo: player?.extraInfo || player?.summary || "",

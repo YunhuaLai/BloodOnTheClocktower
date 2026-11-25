@@ -8,6 +8,7 @@ import { buildRoleInfoForm } from "./notes-role-info-form.js";
 import { getOncePhaseChoice, setOncePhaseChoice } from "./notes-role-info-once-phase.js";
 import { ensureRoleInfoRecord, findRoleInfoRecord, getGamePhase, isPhased, isRoleInfoEntryFilled, normalizeRecordPhase, phaseOrderIndex, sortRoleInfoRecords, trimRoleInfoRecords } from "./notes-role-info-records.js";
 import { getRoleAlignmentValue, getRoleByLooseName } from "./notes-storyteller-actions.js";
+import { applyDeathCause, applyDeathPhase, applyStatusChange, getDeathBadge, isDeadStatus } from "./notes-death.js";
 
 function getRoleInfoSubject(player, game = getActiveGame()) {
   if (game?.mode === "storyteller" && state.notes.ui.activeTab === "storyteller" && player?.trueRole) {
@@ -54,6 +55,21 @@ function trimRoleInfoEntries(roleInfo) {
 
 function updatePlayerDraftField(playerId, field, value) {
   const draft = ensurePlayerDraftForId(playerId);
+  if (draft && field === "deathCause") {
+    applyDeathCause(draft, value, getActiveGame());
+    return true;
+  }
+
+  if (draft && field === "deathPhase") {
+    applyDeathPhase(draft, value);
+    return true;
+  }
+
+  if (draft && field === "ghostVoteUsed") {
+    draft.ghostVoteUsed = isDeadStatus(draft.status) && Boolean(value);
+    return true;
+  }
+
   if (!draft || !(field in draft)) {
     return false;
   }
@@ -63,9 +79,11 @@ function updatePlayerDraftField(playerId, field, value) {
       ? value
       : "unknown";
   } else if (field === "status") {
-    draft.status = noteStatusOptions.some((option) => option.value === value)
-      ? value
-      : "alive";
+    applyStatusChange(
+      draft,
+      noteStatusOptions.some((option) => option.value === value) ? value : "alive",
+      getActiveGame(),
+    );
   } else if (field === "alignment" || field === "trueAlignment") {
     draft[field] = noteAlignmentOptions.some((option) => option.value === value)
       ? value
@@ -335,7 +353,7 @@ function buildPlayerSaveSummary(player, game = getActiveGame()) {
   }
 
   parts.push(`判断 ${getOptionLabel(noteAlignmentOptions, player.alignment)}`);
-  parts.push(`状态 ${getOptionLabel(noteStatusOptions, player.status)}`);
+  parts.push(`状态 ${getDeathBadge(player) || getOptionLabel(noteStatusOptions, player.status)}`);
   parts.push(`状态词 ${getOptionLabel(noteConditionOptions, player.condition)}`);
   return parts.join("；");
 }

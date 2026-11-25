@@ -136,6 +136,14 @@ function renderExecutionOverride(game, record) {
         <span>处决结果</span>
         <strong>${escapeHtml(formatExecutionResult(result))}</strong>
         <small>${getDayAliveCount(game, record.dayNumber, record)} 人存活，票数门槛 ${result.threshold}；自动结算：${escapeHtml(formatExecutionResult(autoResult))}</small>
+        ${
+          result.seat
+            ? `<label class="note-checkbox notes-execution-survived">
+                <input type="checkbox" data-day-executed-survived="${record.dayNumber}"${record.executedSurvived ? " checked" : ""} />
+                <span>被处决者未死亡（僵怖、和平主义者等）</span>
+              </label>`
+            : ""
+        }
       </div>
       <div class="notes-execution-inputs">
       ${renderDayAliveCountSelect(game, record)}
@@ -166,7 +174,7 @@ function renderDayAliveCountSelect(game, record) {
     <label class="note-field">
       <span>当天存活人数</span>
       <select data-day-alive-count="${record.dayNumber}">
-        <option value=""${frozen ? "" : " selected"}>按当前状态（${countAliveForDay(game, record.dayNumber)} 人）</option>
+        <option value=""${frozen ? "" : " selected"}>按死亡记录（${countAliveForDay(game, record.dayNumber)} 人）</option>
         ${counts
           .map((count) => `<option value="${count}"${frozen === count ? " selected" : ""}>${count} 人</option>`)
           .join("")}
@@ -273,7 +281,7 @@ function getStructuredTimelineItems(game, record) {
           meta: "白天末尾",
           text: [
             ...(record.nominations || []).map(formatNominationSummary),
-            `处决结果：${formatExecutionResult(resolveDayExecution(game, record))}`,
+            `处决结果：${formatExecutionResult(resolveDayExecution(game, record))}${record.executedSurvived && resolveDayExecution(game, record).seat ? "（未死亡）" : ""}`,
           ].join("；"),
         },
       ]
