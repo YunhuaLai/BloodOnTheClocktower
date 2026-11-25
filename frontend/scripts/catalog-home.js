@@ -1,4 +1,5 @@
-import { getNotesGameCount } from "./notes-state.js";
+import { ensureNotesState } from "./notes-state.js";
+import { formatPhaseLabel, getAliveCount, getTotalPlayerCount } from "./notes/notes-core.js";
 import { scrollToHash } from "./router.js";
 import { app, roleTypeOrder, state, typeLabels } from "./state.js";
 import { escapeHtml } from "./utils.js";
@@ -110,62 +111,85 @@ function renderHomeRules() {
     .join("");
 }
 
+const HOME_RECENT_GAME_LIMIT = 3;
+
+// Starred games first, then the most recently touched: the same order as the saved-games list.
+export function getRecentGames(games, limit = HOME_RECENT_GAME_LIMIT) {
+  return [...games]
+    .sort((left, right) => {
+      if (Boolean(left.favorite) !== Boolean(right.favorite)) {
+        return left.favorite ? -1 : 1;
+      }
+
+      return (
+        new Date(right.updatedAt || right.createdAt).getTime() -
+        new Date(left.updatedAt || left.createdAt).getTime()
+      );
+    })
+    .slice(0, limit);
+}
+
+export function renderHomeRecentGames(games) {
+  if (!games.length) {
+    return "";
+  }
+
+  return `
+    <aside class="home-recent" aria-labelledby="homeRecentTitle">
+      <h2 class="eyebrow" id="homeRecentTitle">继续对局</h2>
+      <div class="home-recent-list">
+        ${getRecentGames(games)
+          .map(
+            (game) => `
+              <a class="home-recent-game" href="/notes?game=${encodeURIComponent(game.id)}" data-link>
+                <strong>${escapeHtml(game.title)}</strong>
+                <span>${escapeHtml(
+                  [
+                    game.scriptName,
+                    formatPhaseLabel(game.phaseType, game.phaseNumber),
+                    `存活 ${getAliveCount(game)} / ${getTotalPlayerCount(game)}`,
+                  ]
+                    .filter(Boolean)
+                    .join(" · "),
+                )}</span>
+              </a>
+            `,
+          )
+          .join("")}
+      </div>
+      ${
+        games.length > HOME_RECENT_GAME_LIMIT
+          ? `<a class="home-recent-all" href="/notes" data-link>全部 ${games.length} 个对局</a>`
+          : ""
+      }
+    </aside>
+  `;
+}
+
 export function renderHome() {
   document.title = "血染钟楼对局房间";
-  const savedGameCount = getNotesGameCount();
+  const savedGames = ensureNotesState().games;
   app.innerHTML = `
-    <section class="workspace" id="overview">
+    <section class="workspace${savedGames.length ? "" : " workspace--single"}" id="overview">
       <div class="intro-panel">
-        <p class="eyebrow">对局房间</p>
         <h1>
           <span class="home-title-line">今晚的局，</span>
           <span class="home-title-line">从房间开始。</span>
         </h1>
         <p class="lead">
-          创建或继续本地对局，记录座位、身份声明、投票、死亡和每日信息；需要时再打开角色、板子和术语资料。
+          记录座位、身份声明、投票和每日信息，需要时查角色、板子和术语。
         </p>
         <div class="home-actions" aria-label="常用入口">
-          <a class="primary-link primary-link--hero" href="/notes?create=1" data-link>创建房间</a>
-          <a class="secondary-link" href="/notes" data-link>继续对局</a>
+          <a class="primary-link primary-link--hero" href="/notes?create=1" data-link>创建对局</a>
+          ${savedGames.length ? "" : `<a class="secondary-link" href="/notes" data-link>导入备份</a>`}
         </div>
       </div>
 
-      <aside class="room-launch-panel" aria-labelledby="roomLaunchTitle">
-        <p class="eyebrow">开局检查</p>
-        <h2 id="roomLaunchTitle">先定四件事</h2>
-        <p>把对局骨架定下来，后面的记录才不会散。</p>
-        <div class="room-launch-checks" aria-label="开局检查项">
-          <div>
-            <strong>剧本</strong>
-            <span>固定板子或自定义角色池</span>
-          </div>
-          <div>
-            <strong>人数</strong>
-            <span>自动带出基础阵营配置</span>
-          </div>
-          <div>
-            <strong>视角</strong>
-            <span>玩家记录或说书人记录</span>
-          </div>
-          <div>
-            <strong>座位</strong>
-            <span>身份声明、状态和信息落点</span>
-          </div>
-        </div>
-        <a class="room-continue-link" href="/notes" data-link>
-          ${savedGameCount ? `继续 ${savedGameCount} 个已保存对局` : "查看对局房间"}
-        </a>
-      </aside>
+      ${renderHomeRecentGames(savedGames)}
     </section>
 
     <section class="section directory-section" aria-labelledby="directoryTitle">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">资料入口</p>
-          <h2 id="directoryTitle">查需要的资料</h2>
-        </div>
-        <p class="section-note">角色、板子和术语分开查；统计只保留在各自入口里。</p>
-      </div>
+      <h2 class="eyebrow" id="directoryTitle">查资料</h2>
       <div class="directory-grid">
         ${renderHomeDirectory()}
       </div>
@@ -173,11 +197,8 @@ export function renderHome() {
 
     <section class="section rules-section" aria-labelledby="rulesTitle">
       <div class="section-heading">
-        <div>
-          <p class="eyebrow">规则速览</p>
-          <h2 id="rulesTitle">游戏速览</h2>
-        </div>
-        <p class="section-note">给新玩家开局前快速过一遍：先看流程，再看容易忘的规则点。</p>
+        <h2 id="rulesTitle">规则速览</h2>
+        <p class="section-note">开局前快速过一遍：先看流程，再看容易忘的规则点。</p>
       </div>
       <div class="game-overview-grid">
         <div class="game-flow" aria-label="对局流程">

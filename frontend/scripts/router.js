@@ -18,7 +18,7 @@ import {
   handleNotesFieldChange,
   handleNotesImportFile,
 } from "./notes-actions.js";
-import { deleteSavedGames, toggleGameFavorite } from "./notes/notes-game-actions.js";
+import { deleteSavedGames, openGameById, toggleGameFavorite } from "./notes/notes-game-actions.js";
 import { createDefaultSetupDraft, ensureNotesState, flushNotesState } from "./notes-state.js";
 import { renderNotesPage } from "./notes/notes-shell.js";
 import { app, state } from "./state.js";
@@ -42,6 +42,17 @@ export function scrollToHash() {
   });
 }
 
+// Marks the nav entry of the current section (role / script / term detail pages count as their index).
+export function syncNavCurrent(section) {
+  document.querySelectorAll?.(".nav a[data-nav]").forEach((link) => {
+    if (link.dataset.nav === section) {
+      link.setAttribute("aria-current", "page");
+    } else {
+      link.removeAttribute("aria-current");
+    }
+  });
+}
+
 export async function renderRoute() {
   const previousPath = state.currentPath;
   const segments = window.location.pathname.split("/").filter(Boolean);
@@ -49,6 +60,7 @@ export async function renderRoute() {
   state.currentPath = window.location.pathname;
 
   document.body.classList.toggle("notes-route", isNotesRoute);
+  syncNavCurrent(segments[0] || "");
 
   if (!segments.length) {
     await loadHomeCatalog();
@@ -79,7 +91,16 @@ export async function renderRoute() {
   if (segments.length === 1 && segments[0] === "notes") {
     await ensureFullCatalog();
     const notes = ensureNotesState();
-    const shouldCreate = new URLSearchParams(window.location.search).get("create") === "1";
+    const params = new URLSearchParams(window.location.search);
+    const shouldCreate = params.get("create") === "1";
+    const requestedGameId = params.get("game") || "";
+
+    // /notes?game=<id>: the home page's "continue" links open that saved game directly.
+    if (!shouldCreate && notes.games.some((game) => game.id === requestedGameId)) {
+      window.history.replaceState({}, "", "/notes");
+      openGameById(requestedGameId);
+      return;
+    }
 
     if (shouldCreate) {
       notes.ui.creatingGame = true;

@@ -288,3 +288,204 @@
     gap: 10px;
   }
 }
+
+/* Main nav: four sections, current one marked. */
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 4px;
+  font-weight: 700;
+}
+
+.nav a[aria-current="page"] {
+  color: var(--ink);
+  border-color: var(--red);
+}
+
+/* Home: start or resume a game first, reference material below. */
+.workspace {
+  min-height: 0;
+  padding: clamp(28px, 5vw, 64px) clamp(18px, 5vw, 72px);
+  align-items: center;
+}
+
+.workspace--single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.intro-panel h1 {
+  font-size: clamp(34px, 6vw, 60px);
+  line-height: 1.08;
+}
+
+.intro-panel .lead {
+  margin-top: 16px;
+  font-size: 17px;
+}
+
+.home-recent {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+  padding: 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.home-recent .eyebrow {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.home-recent-list {
+  display: grid;
+  gap: 8px;
+}
+
+.home-recent-game {
+  display: grid;
+  gap: 2px;
+  min-height: 56px;
+  padding: 10px 12px;
+  background: #f7f8f4;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.home-recent-game:hover {
+  border-color: var(--ink);
+}
+
+.home-recent-game:focus-visible,
+.home-recent-all:focus-visible {
+  outline: 3px solid rgba(178, 31, 45, 0.3);
+  outline-offset: 2px;
+}
+
+.home-recent-game strong {
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 1.3;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-recent-game span {
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home-recent-all {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  min-height: 44px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.home-recent-all:hover {
+  color: var(--ink);
+}
+
+.directory-section {
+  padding-top: clamp(24px, 4vw, 48px);
+  padding-bottom: clamp(24px, 4vw, 48px);
+}
+
+.directory-section > .eyebrow {
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.directory-card {
+  min-height: 0;
+}
+
+.directory-card h3 {
+  font-size: 22px;
+}
+
+.directory-meta {
+  padding-top: 16px;
+}
+
+.directory-meta strong {
+  font-size: 28px;
+}
+
+.rules-section .section-heading h2 {
+  font-size: 24px;
+}
+
+@media (max-width: 720px) {
+  /* The nav becomes a bottom tab bar. backdrop-filter on .topbar would trap the fixed nav inside it. */
+  .topbar {
+    align-items: center;
+    flex-direction: row;
+    min-height: 56px;
+    background: var(--paper);
+    backdrop-filter: none;
+  }
+
+  .nav {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 30;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 8px;
+    width: auto;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+    background: rgba(244, 245, 241, 0.96);
+    border-top: 1px solid var(--line);
+    backdrop-filter: blur(14px);
+  }
+
+  .nav a {
+    justify-content: center;
+    min-height: 44px;
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  .nav a[aria-current="page"] {
+    color: #fff;
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  .footer {
+    padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+  }
+
+  body.notes-route .footer {
+    padding-bottom: 28px;
+  }
+
+  .directory-card {
+    min-height: 0;
+  }
+
+  .directory-card h3 {
+    font-size: 20px;
+  }
+
+  .directory-meta strong {
+    font-size: 28px;
+  }
+}
