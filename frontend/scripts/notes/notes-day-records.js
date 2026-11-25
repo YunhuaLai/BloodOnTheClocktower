@@ -40,8 +40,16 @@ export function createDayRecord(dayNumber) {
     abilityRecords: [],
     nominations: [],
     executionOverride: "",
+    // Alive count frozen when the game moves past this day, so later deaths
+    // do not change the vote threshold of a day that is already over.
+    aliveCount: null,
     publicRecordSavedAt: "",
   };
+}
+
+export function normalizeAliveCount(value) {
+  const count = Number.parseInt(value, 10);
+  return Number.isFinite(count) && count >= 1 && count <= 99 ? count : null;
 }
 
 export function createNominationRecord() {
@@ -137,6 +145,11 @@ export function normalizeDayRecords(records, playerCount) {
       dayRecord.executionOverride = override || "none";
     }
 
+    const aliveCount = normalizeAliveCount(record?.aliveCount);
+    if (aliveCount) {
+      dayRecord.aliveCount = aliveCount;
+    }
+
     if (record?.publicRecordSavedAt) {
       dayRecord.publicRecordSavedAt = String(record.publicRecordSavedAt);
     }
@@ -173,25 +186,55 @@ export function getDayRecord(game, dayNumber, createIfMissing = false) {
   return record;
 }
 
-function getSameDayAutoExecutionSeats(game, dayNumber) {
+// Seats executed on this day or later: they were still alive during this day.
+function getLaterExecutionSeats(game, dayNumber) {
   return new Set(
     normalizeAutoExecutionApplied(game?.autoExecutionApplied, getMaxSeatNumber(game) || game?.playerCount || 15)
-      .filter((entry) => Number(entry.dayNumber) === Number(dayNumber))
+      .filter((entry) => Number(entry.dayNumber) >= Number(dayNumber))
       .map((entry) => Number(entry.seat)),
   );
 }
 
-export function getDayExecutionThreshold(game, dayNumber) {
-  const sameDayAutoSeats = getSameDayAutoExecutionSeats(game, dayNumber);
-  const aliveCount = (game?.players || []).filter((player) => {
+// Alive count derived from current statuses. Night deaths carry no day, so this
+// is only exact for the day currently being played.
+export function countAliveForDay(game, dayNumber) {
+  const laterExecutionSeats = getLaterExecutionSeats(game, dayNumber);
+  return (game?.players || []).filter((player) => {
     const seat = Number(player.seat);
     return (
       player.status === "alive" ||
-      (player.status === "executed" && sameDayAutoSeats.has(seat))
+      (player.status === "executed" && laterExecutionSeats.has(seat))
     );
   }).length;
+}
 
+export function getDayAliveCount(game, dayNumber, record = null) {
+  return normalizeAliveCount(record?.aliveCount) || countAliveForDay(game, dayNumber);
+}
+
+export function getDayExecutionThreshold(game, dayNumber, record = null) {
+  const aliveCount = getDayAliveCount(game, dayNumber, record);
   return Math.max(1, Math.ceil((aliveCount || game?.playerCount || 1) / 2));
+}
+
+// Freezes the alive count of days the game has just moved past (day N ends when
+// the phase number goes above N). Already frozen days keep their value.
+export function freezePassedDayAliveCounts(game, previousPhaseNumber) {
+  if (!game) {
+    return;
+  }
+
+  const currentPhaseNumber = Number(game.phaseNumber) || 1;
+  const fromDay = Number(previousPhaseNumber) || 1;
+  ensureDayRecords(game).forEach((record) => {
+    if (
+      record.dayNumber >= fromDay &&
+      record.dayNumber < currentPhaseNumber &&
+      !normalizeAliveCount(record.aliveCount)
+    ) {
+      record.aliveCount = countAliveForDay(game, record.dayNumber);
+    }
+  });
 }
 
 export function resolveAutomaticDayExecution(game, record) {
@@ -202,35 +245,41 @@ export function resolveAutomaticDayExecution(game, record) {
       votes: 0,
       threshold: 1,
       nominationId: "",
+      tied: false,
     };
   }
 
-  const threshold = getDayExecutionThreshold(game, record.dayNumber);
-  return (record.nominations || []).reduce(
-    (current, nomination) => {
-      const seatCount = getMaxSeatNumber(game) || game.playerCount;
-      const nomineeSeat = normalizeSeatValue(nomination.nomineeSeat, seatCount);
-      const votes = normalizeVoteSeats(nomination.voterSeats, seatCount).length;
-      if (!nomineeSeat || votes < threshold || votes <= current.votes) {
-        return current;
-      }
+  const threshold = getDayExecutionThreshold(game, record.dayNumber, record);
+  const seatCount = getMaxSeatNumber(game) || game.playerCount;
+  const best = {
+    mode: "auto",
+    seat: "",
+    votes: 0,
+    threshold,
+    nominationId: "",
+    tied: false,
+  };
 
-      return {
-        mode: "auto",
-        seat: nomineeSeat,
-        votes,
-        threshold,
-        nominationId: nomination.id,
-      };
-    },
-    {
-      mode: "auto",
-      seat: "",
-      votes: 0,
-      threshold,
-      nominationId: "",
-    },
-  );
+  (record.nominations || []).forEach((nomination) => {
+    const nomineeSeat = normalizeSeatValue(nomination.nomineeSeat, seatCount);
+    const votes = normalizeVoteSeats(nomination.voterSeats, seatCount).length;
+    if (!nomineeSeat || votes < threshold) {
+      return;
+    }
+
+    if (votes > best.votes) {
+      Object.assign(best, { seat: nomineeSeat, votes, nominationId: nomination.id, tied: false });
+    } else if (votes === best.votes && nomineeSeat !== best.seat) {
+      best.tied = true;
+    }
+  });
+
+  // A tie for the most votes means nobody is about to die.
+  if (best.tied) {
+    return { ...best, seat: "", nominationId: "" };
+  }
+
+  return best;
 }
 
 export function resolveDayExecution(game, record) {
@@ -238,7 +287,7 @@ export function resolveDayExecution(game, record) {
     return resolveAutomaticDayExecution(game, record);
   }
 
-  const threshold = getDayExecutionThreshold(game, record.dayNumber);
+  const threshold = getDayExecutionThreshold(game, record.dayNumber, record);
 
   if (record.executionOverride === "none") {
     return {

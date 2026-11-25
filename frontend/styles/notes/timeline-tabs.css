@@ -53,6 +53,10 @@
   text-transform: uppercase;
 }
 
+.notes-execution-control > .notes-execution-inputs {
+  gap: 8px;
+}
+
 .notes-execution-control strong {
   font-size: 18px;
 }

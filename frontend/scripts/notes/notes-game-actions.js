@@ -1,6 +1,6 @@
 import { clampNumber, cloneSuspectedRoles, createActiveGameBackup, createAllGamesBackup, createDefaultPlayer, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, importNotesBackup, saveNotesState } from "../notes-state.js";
 import { filterRoleOptions, findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getGameScript, getSetupFabledRoleOptions, isFabledRole, isTravellerRole } from "../notes-claims.js";
-import { createNominationRecord, getDayRecord, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
+import { createNominationRecord, freezePassedDayAliveCounts, getDayRecord, normalizeAliveCount, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
 import { phaseTypeOptions, scriptModeOptions, state } from "../state.js";
 import { createId } from "../utils.js";
 import { formatPhaseLabel, getMaxSeatNumber, isTravellerPlayer } from "./notes-core.js";
@@ -289,7 +289,9 @@ export function updateGameField(field, value) {
       ? value
       : "day";
   } else if (field === "phaseNumber") {
+    const previousPhaseNumber = game.phaseNumber;
     game.phaseNumber = clampNumber(Number(value) || 1, 1, 99);
+    freezePassedDayAliveCounts(game, previousPhaseNumber);
   } else {
     game[field] = value;
   }
@@ -493,6 +495,19 @@ export function updateDayExecutionOverride(dayNumber, value) {
   renderNotesPage();
 }
 
+export function updateDayAliveCount(dayNumber, value) {
+  const game = getActiveGame();
+  if (!game) {
+    return;
+  }
+
+  const record = getDayRecord(game, dayNumber, true);
+  record.aliveCount = normalizeAliveCount(value);
+  syncAutoExecutionStatuses(game);
+  saveNotesState();
+  renderNotesPage();
+}
+
 export function saveDayPublicRecord(dayNumber) {
   const game = getActiveGame();
   if (!game) {
@@ -657,6 +672,7 @@ export function shiftGamePhase(game, step) {
   }
 
   const previousPhaseType = game.phaseType;
+  const previousPhaseNumber = game.phaseNumber;
   const { phaseType, phaseNumber } = getShiftedPhase(
     game.phaseType,
     game.phaseNumber,
@@ -665,6 +681,7 @@ export function shiftGamePhase(game, step) {
 
   game.phaseType = phaseType;
   game.phaseNumber = phaseNumber;
+  freezePassedDayAliveCounts(game, previousPhaseNumber);
   if (previousPhaseType === "night" && phaseType === "day") {
     game.players.forEach((player) => {
       player.newRoleFirstNight = false;

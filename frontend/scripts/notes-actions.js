@@ -1,6 +1,7 @@
 import { ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
 import {
   getSelectedPlayerIdForGame,
+  updateDayAliveCount,
   updateDayExecutionOverride,
   updateGameField,
   updateInferenceField,
@@ -87,6 +88,17 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
       Number(executionOverride.dataset.dayExecutionOverride || 1),
       target.value,
     );
+    return;
+  }
+
+  const dayAliveCount = target.closest("[data-day-alive-count]");
+  if (dayAliveCount) {
+    if (refreshInterface) {
+      updateDayAliveCount(
+        Number(dayAliveCount.dataset.dayAliveCount || 1),
+        target.value,
+      );
+    }
     return;
   }
 
