@@ -1,5 +1,4 @@
 import { getRoleScriptLabel, sortCatalogRoles } from "./catalog-helpers.js";
-import { getRoleTypeSummary } from "./catalog-home.js";
 import { app, roleTypeOrder, state, typeLabels } from "./state.js";
 import { escapeHtml } from "./utils.js";
 
@@ -52,30 +51,9 @@ export function showMoreRoles() {
 export function renderTermIndex() {
   document.title = "术语目录 · 血染钟楼百科";
   app.innerHTML = `
-    <section class="collection-hero terms-hero">
-      <a class="back-link" href="/" data-link>返回首页</a>
-      <div class="collection-hero-grid">
-        <div>
-          <p class="eyebrow">关键词 / 术语</p>
-          <h1>术语目录</h1>
-          <p class="lead">
-            按关键词查规则概念。
-          </p>
-        </div>
-        <div class="collection-stats" aria-label="术语目录概览">
-          <strong>${state.terms.length}</strong>
-          <span>个术语</span>
-        </div>
-      </div>
-    </section>
+    ${renderCollectionHeader("术语目录", `${state.terms.length} 个术语`, "termsTitle")}
 
     <section class="section terms-section catalog-section" id="terms" aria-labelledby="termsTitle">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">术语目录</p>
-          <h2 id="termsTitle">按概念查</h2>
-        </div>
-      </div>
       <div class="term-grid" id="termGrid"></div>
     </section>
   `;
@@ -88,36 +66,9 @@ export function renderScriptIndex() {
   document.title = "板子目录 · 血染钟楼百科";
   const statusCounts = getScriptStatusCounts();
   app.innerHTML = `
-    <section class="collection-hero scripts-hero">
-      <a class="back-link" href="/" data-link>返回首页</a>
-      <div class="collection-hero-grid">
-        <div>
-          <p class="eyebrow">剧本 / 板子</p>
-          <h1>板子目录</h1>
-          <p class="lead">
-            查板子、作者和角色表。
-          </p>
-        </div>
-        <div class="collection-stats" aria-label="板子目录概览">
-          <strong>${state.scripts.length}</strong>
-          <span>个板子</span>
-          <div class="script-status-summary">
-            <span>${statusCounts.published} 已上架</span>
-            <span>${statusCounts.draft} 草稿</span>
-            <span>${statusCounts.review} 待复查</span>
-            <span>${statusCounts.archived} 归档</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    ${renderCollectionHeader("板子目录", getScriptCountText(statusCounts), "scriptsTitle")}
 
     <section class="section catalog-section" id="scripts" aria-labelledby="scriptsTitle">
-      <div class="section-heading scripts-heading">
-        <div>
-          <p class="eyebrow">板子目录</p>
-          <h2 id="scriptsTitle">选择今晚的局</h2>
-        </div>
-      </div>
       ${renderScriptControls()}
       <div class="script-result-row">
         <span id="scriptResultCount"></span>
@@ -133,47 +84,29 @@ export function renderRoleIndex() {
   resetRoleRenderLimit();
   document.title = "角色目录 · 血染钟楼百科";
   app.innerHTML = `
-    <section class="collection-hero roles-hero">
-      <a class="back-link" href="/" data-link>返回首页</a>
-      <div class="collection-hero-grid">
-        <div>
-          <p class="eyebrow">角色百科</p>
-          <h1>角色目录</h1>
-          <p class="lead">
-            ${escapeHtml(getRoleTypeSummary())}。
-          </p>
-        </div>
-        <div class="collection-stats" aria-label="角色目录概览">
-          <strong>${state.roles.length}</strong>
-          <span>个角色</span>
-        </div>
-      </div>
-    </section>
+    ${renderCollectionHeader("角色目录", `${state.roles.length} 个角色`, "rolesTitle")}
 
     <section class="section role-browser catalog-section" id="roles" aria-labelledby="rolesTitle">
-      <div class="section-heading role-heading">
-        <div>
-          <p class="eyebrow">角色目录</p>
-          <h2 id="rolesTitle">筛一下再看</h2>
-        </div>
+      <div class="catalog-toolbar">
         <label class="search-box">
-          <span>搜索</span>
-          <input id="searchInput" type="search" placeholder="输入角色、能力关键词或板子" />
+          <span class="visually-hidden">搜索角色</span>
+          <input id="searchInput" type="search" placeholder="搜索角色、能力关键词或板子" />
         </label>
+
+        <div class="filters" aria-label="角色筛选">
+          <button type="button" class="filter active" data-filter="all">全部</button>
+          <button type="button" class="filter" data-filter="townsfolk">镇民</button>
+          <button type="button" class="filter" data-filter="outsider">外来者</button>
+          <button type="button" class="filter" data-filter="minion">爪牙</button>
+          <button type="button" class="filter" data-filter="demon">恶魔</button>
+          <button type="button" class="filter" data-filter="traveller">旅行者</button>
+          <button type="button" class="filter" data-filter="fabled">传奇</button>
+        </div>
       </div>
 
-      <div class="filters" aria-label="角色筛选">
-        <button type="button" class="filter active" data-filter="all">全部</button>
-        <button type="button" class="filter" data-filter="townsfolk">镇民</button>
-        <button type="button" class="filter" data-filter="outsider">外来者</button>
-        <button type="button" class="filter" data-filter="minion">爪牙</button>
-        <button type="button" class="filter" data-filter="demon">恶魔</button>
-        <button type="button" class="filter" data-filter="traveller">旅行者</button>
-        <button type="button" class="filter" data-filter="fabled">传奇</button>
-      </div>
-
-      <div class="script-result-row" aria-live="polite">
+      <div class="script-result-row role-result-row" aria-live="polite">
         <span id="roleResultCount"></span>
+        <button type="button" class="catalog-scope-toggle" id="roleScopeToggle" data-catalog-action="toggle-role-scope"></button>
       </div>
 
       <div class="role-grid" id="roleGrid"></div>
@@ -182,6 +115,25 @@ export function renderRoleIndex() {
 
   renderRoles();
   syncFilterButtons();
+}
+
+// Index pages are lookup tools: one compact title row, then the list. The site top bar already links home.
+function renderCollectionHeader(title, countText, titleId) {
+  return `
+    <section class="collection-hero collection-hero--compact">
+      <h1 id="${escapeHtml(titleId)}">${escapeHtml(title)}</h1>
+      <p class="collection-count">${escapeHtml(countText)}</p>
+    </section>
+  `;
+}
+
+function getScriptCountText(statusCounts) {
+  return [
+    `${state.scripts.length} 个板子`,
+    ...["published", "draft", "review", "archived"]
+      .filter((status) => statusCounts[status])
+      .map((status) => `${statusCounts[status]} ${scriptStatusLabels[status]}`),
+  ].join(" · ");
 }
 
 function renderTerms() {
@@ -410,13 +362,69 @@ function roleMatchesSearch(role, query) {
     role.name,
     getRoleScriptLabel(role),
     typeLabels[role.type],
-    role.summary,
+    getRoleAbilityText(role),
     role.keywords,
   ]
     .join(" ")
     .toLowerCase();
 
   return haystack.includes(query.toLowerCase());
+}
+
+// The bootstrap catalog carries the full ability text; `summary` only exists on older / detail payloads.
+export function getRoleAbilityText(role) {
+  return String(role.ability || role.summary || "").trim();
+}
+
+let publishedScriptCache = { scripts: null, ids: new Set(), names: new Set() };
+
+function getPublishedScripts() {
+  if (publishedScriptCache.scripts !== state.scripts) {
+    const published = state.scripts.filter((script) => getScriptStatus(script) === "published");
+    publishedScriptCache = {
+      scripts: state.scripts,
+      ids: new Set(published.map((script) => script.id)),
+      names: new Set(published.map((script) => script.name)),
+    };
+  }
+
+  return publishedScriptCache;
+}
+
+export function isRoleInPublishedScript(role) {
+  const { ids } = getPublishedScripts();
+  return (role.scriptIds || [role.scriptId]).some((id) => ids.has(id));
+}
+
+// "暗流涌动、黯月初升 等 87 个板子": published scripts first, the rest as a count.
+export function getRoleScriptSummary(role) {
+  const names = (role.scriptNames || []).length ? role.scriptNames : [role.script].filter(Boolean);
+  if (!names.length) {
+    return "未归属板子";
+  }
+
+  const published = getPublishedScripts().names;
+  const ordered = [...names.filter((name) => published.has(name)), ...names.filter((name) => !published.has(name))];
+  const shown = ordered.slice(0, 2).join("、");
+  return ordered.length > 2 ? `${shown} 等 ${ordered.length} 个板子` : shown;
+}
+
+/**
+ * Roles matching the type filter and search, split by scope. Most of the catalog comes from draft homebrew
+ * scripts, so the default scope only lists roles that appear in a published script.
+ */
+export function getRoleMatches(query) {
+  const matched = state.roles.filter((role) => {
+    const matchesFilter = state.activeFilter === "all" || role.type === state.activeFilter;
+    return matchesFilter && roleMatchesSearch(role, query);
+  });
+  const published = matched.filter(isRoleInPublishedScript);
+  const showAll = state.roleScope === "all";
+  return {
+    visible: sortCatalogRoles(showAll ? matched : published),
+    hiddenCount: showAll ? 0 : matched.length - published.length,
+    showAll,
+  };
 }
 
 export function renderRoles() {
@@ -427,20 +435,20 @@ export function renderRoles() {
 
   const searchInput = document.querySelector("#searchInput");
   const query = searchInput?.value.trim() || "";
-  const visibleRoles = sortCatalogRoles(
-    state.roles.filter((role) => {
-      const matchesFilter =
-        state.activeFilter === "all" || role.type === state.activeFilter;
-      return matchesFilter && roleMatchesSearch(role, query);
-    }),
-  );
+  const { visible: visibleRoles, hiddenCount, showAll } = getRoleMatches(query);
   const resultCount = document.querySelector("#roleResultCount");
   if (resultCount) {
-    resultCount.textContent = `匹配 ${visibleRoles.length} / 共 ${state.roles.length} 个角色`;
+    resultCount.textContent = `${visibleRoles.length} 个角色`;
+  }
+  const scopeToggle = document.querySelector("#roleScopeToggle");
+  if (scopeToggle) {
+    scopeToggle.hidden = !showAll && !hiddenCount;
+    scopeToggle.textContent = showAll ? "只看已上架板子的角色" : `另有 ${hiddenCount} 个在草稿板子里，显示全部`;
+    scopeToggle.setAttribute("aria-pressed", showAll ? "true" : "false");
   }
 
   if (!visibleRoles.length) {
-    roleGrid.innerHTML = `<div class="empty-state">无匹配角色。</div>`;
+    roleGrid.innerHTML = `<div class="empty-state">${hiddenCount ? "已上架板子里没有匹配的角色。" : "无匹配角色。"}</div>`;
     return;
   }
 
@@ -487,8 +495,8 @@ function renderRoleCard(role) {
         <h3>${escapeHtml(role.name)}</h3>
         <small>${escapeHtml(typeLabels[role.type] || role.type)}</small>
       </header>
-      <p>${escapeHtml(role.summary)}</p>
-      <div class="script-name">${escapeHtml(getRoleScriptLabel(role))}</div>
+      <p>${escapeHtml(getRoleAbilityText(role))}</p>
+      <div class="script-name">${escapeHtml(getRoleScriptSummary(role))}</div>
     </a>
   `;
 }

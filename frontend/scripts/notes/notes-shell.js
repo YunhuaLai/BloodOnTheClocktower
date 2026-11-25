@@ -11,6 +11,17 @@ import { renderRoleInfoRoleDatalists } from "./notes-role-info-fields.js";
 import { renderStorytellerTab } from "./notes-storyteller-render.js";
 import { renderInferenceTab, renderTimelineTab } from "./notes-timeline-render.js";
 
+// The site top bar is hidden on /notes, so these are the way out to the encyclopedia.
+function renderWikiLinks() {
+  return `
+    <nav class="notes-wiki-links" aria-label="百科">
+      <a href="/roles" data-link>角色</a>
+      <a href="/scripts" data-link>板子</a>
+      <a href="/terms" data-link>术语</a>
+    </nav>
+  `;
+}
+
 function renderNotesStageBar(game) {
   const aliveCount = getAliveCount(game);
 
@@ -41,6 +52,7 @@ function renderNotesStageBar(game) {
         <span>存活</span>
         <strong>${aliveCount} / ${getTotalPlayerCount(game)}</strong>
       </div>
+      <a class="notes-stagebar-link" href="/roles" data-link aria-label="打开角色百科，稍后可回到这局">百科</a>
     </header>
   `;
 }
@@ -270,33 +282,45 @@ function renderGameMeta(game) {
   const travellerCount = getTravellerPlayers(game).length;
   const showScriptButton = state.notes.ui.activeTab === "overview";
 
+  const scriptLabel = game.scriptName || (isCustom ? "自定义角色池" : "未选剧本");
+  const summaryLine = [scriptLabel, `${game.playerCount} 人`, travellerCount ? `旅行者 ${travellerCount}` : ""]
+    .filter(Boolean)
+    .join(" · ");
+
+  // Collapsed by default so every tab starts with its own content; the open state survives re-renders
+  // through data-details-key (see captureDetailsState).
   return `
-    <section class="notes-game-meta">
-      <div class="notes-game-meta-top">
-        <div class="notes-game-meta-title">
-          <p class="eyebrow">当前局</p>
-          <h1>${escapeHtml(game.title)}</h1>
+    <section class="notes-game-meta${showScriptButton ? " has-script-button" : ""}">
+      <details class="notes-game-meta-details" data-details-key="game-meta">
+        <summary class="notes-game-meta-summary">
+          <span class="notes-game-meta-title">
+            <h1>${escapeHtml(game.title)}</h1>
+            <span class="notes-game-meta-line">${escapeHtml(summaryLine)}</span>
+          </span>
+          <span class="notes-game-meta-toggle" aria-hidden="true">详情</span>
+        </summary>
+        <div class="notes-game-meta-body">
+          <p class="notes-game-meta-line">
+            镇民 ${config.townsfolk} / 外来者 ${config.outsider} / 爪牙 ${config.minion} / 恶魔 ${config.demon}
+          </p>
+          <p class="notes-game-meta-line">
+            ${escapeHtml(getOptionLabel(noteModeOptions, game.mode))}视角${isCustom ? ` / ${roleCount} 个角色` : ""}
+          </p>
+          ${renderRoomRoleTools(game)}
         </div>
-        ${
-          showScriptButton
-            ? `
-              <button
-                type="button"
-                class="note-icon-button notes-script-sheet-button"
-                data-notes-action="toggle-script-sheet"
-                ${script || roleCount ? "" : "disabled"}
-              >${isCustom ? "角色池" : "剧本"}</button>
-            `
-            : ""
-        }
-      </div>
-      <p class="notes-game-meta-line">
-        ${game.playerCount} 人 / 镇民 ${config.townsfolk} / 外来者 ${config.outsider} / 爪牙 ${config.minion} / 恶魔 ${config.demon}
-      </p>
-      <p class="notes-game-meta-line">
-        ${escapeHtml(game.scriptName || (isCustom ? "自定义角色池" : "未选剧本"))} / ${escapeHtml(getOptionLabel(noteModeOptions, game.mode))}${isCustom ? ` / ${roleCount} 个角色` : ""}${travellerCount ? ` / 旅行者 ${travellerCount}` : ""}
-      </p>
-      ${renderRoomRoleTools(game)}
+      </details>
+      ${
+        showScriptButton
+          ? `
+            <button
+              type="button"
+              class="note-icon-button notes-script-sheet-button"
+              data-notes-action="toggle-script-sheet"
+              ${script || roleCount ? "" : "disabled"}
+            >${isCustom ? "角色池" : "剧本"}</button>
+          `
+          : ""
+      }
     </section>
     ${showScriptButton ? renderScriptSheetOverlay(game) : ""}
   `;
@@ -761,8 +785,10 @@ function renderNotesHome(notes) {
   app.innerHTML = `
     <section class="notes-home">
       <div class="notes-home-panel">
-        <p class="eyebrow">对局房间</p>
-        <h1>新建一局，或继续之前的对局</h1>
+        <div class="notes-home-top">
+          <h1>对局房间</h1>
+          ${renderWikiLinks()}
+        </div>
         <div class="notes-home-actions">
           <button type="button" class="primary-link" data-notes-action="new-game">创建对局</button>
           ${
@@ -787,11 +813,10 @@ function renderNotesHome(notes) {
               <div class="notes-panel-header">
                 <div>
                   <p class="eyebrow">已保存对局</p>
-                  <h2>继续上次的对局</h2>
                 </div>
                 <div class="notes-saved-bulk-actions">
                   <button type="button" class="secondary-link" data-notes-action="select-all-saved-games">全选</button>
-                  <button type="button" class="secondary-link" data-notes-action="clear-saved-selection" ${selectedCount ? "" : "disabled"}>清空</button>
+                  <button type="button" class="secondary-link" data-notes-action="clear-saved-selection" ${selectedCount ? "" : "disabled"}>取消选择</button>
                   <button type="button" class="secondary-link danger" data-notes-action="delete-selected-games" ${selectedCount ? `aria-label="删除已选择的 ${selectedCount} 个对局"` : "disabled"}>删除${selectedCount ? ` ${selectedCount}` : ""}</button>
                 </div>
               </div>
@@ -892,6 +917,9 @@ export function restoreDetailsState(root, state) {
 function renderGamePage(notes, game) {
   document.title = `${game.title} · 对局房间`;
   const detailsState = captureDetailsState(app);
+  // The player sheet scrolls on its own, and every edit re-renders it: keep it where the user was.
+  const scrolled = app.querySelector?.("[data-scroll-key]");
+  const scrollState = scrolled ? { key: scrolled.dataset.scrollKey, top: scrolled.scrollTop } : null;
   app.innerHTML = `
     <section class="notes-shell">
       ${renderNotesStageBar(game)}
@@ -908,6 +936,12 @@ function renderGamePage(notes, game) {
     </section>
   `;
   restoreDetailsState(app, detailsState);
+  if (scrollState) {
+    const target = app.querySelector?.("[data-scroll-key]");
+    if (target?.dataset.scrollKey === scrollState.key) {
+      target.scrollTop = scrollState.top;
+    }
+  }
   applySeatAngles(app);
 }
 

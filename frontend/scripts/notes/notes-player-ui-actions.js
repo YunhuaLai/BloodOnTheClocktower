@@ -27,6 +27,15 @@ export function handlePlayerUiAction(action, button, notes) {
   if (action === "open-player" || action === "select-player") {
     notes.ui.selectedPlayerId = button.dataset.playerId || "";
     notes.ui.activeTab = "players";
+    notes.ui.playerSheetOpen = true;
+    renderNotesPage();
+    return true;
+  }
+
+  if (action === "close-player-sheet") {
+    // No-op without a draft, so closing an untouched seat adds nothing to the timeline.
+    savePlayerDraft(button.dataset.playerId);
+    notes.ui.playerSheetOpen = false;
     renderNotesPage();
     return true;
   }
@@ -117,13 +126,14 @@ export function handlePlayerUiAction(action, button, notes) {
 
   if (action === "save-player") {
     savePlayerDraft(button.dataset.playerId);
-    notes.ui.activeTab = "overview";
+    notes.ui.playerSheetOpen = false;
     renderNotesPage();
     return true;
   }
 
   if (action === "discard-player") {
     clearPlayerDraft(button.dataset.playerId);
+    notes.ui.playerSheetOpen = false;
     renderNotesPage();
     return true;
   }

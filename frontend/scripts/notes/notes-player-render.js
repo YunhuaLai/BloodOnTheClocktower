@@ -84,11 +84,12 @@ function getSelectedPlayer(game) {
 
 export function renderPlayersTab(game) {
   const selectedPlayer = getSelectedPlayer(game);
+  const sheetOpen = Boolean(state.notes.ui.playerSheetOpen && selectedPlayer);
 
   return `
     <div class="player-page">
-      ${renderPlayerRoundtable(game, selectedPlayer)}
-      ${renderPlayerDetail(selectedPlayer, game)}
+      ${renderPlayerRoundtable(game, sheetOpen ? selectedPlayer : null)}
+      ${sheetOpen ? renderPlayerSheet(selectedPlayer, game) : ""}
     </div>
   `;
 }
@@ -271,7 +272,7 @@ function renderPlayerRoundtable(game, selectedPlayer) {
       <div class="story-grimoire-header">
         <div>
           <p class="eyebrow">玩家圆桌</p>
-          <h2>桌面局势</h2>
+          <p class="notes-inline-hint">点座位记录该玩家。</p>
         </div>
       </div>
 
@@ -322,6 +323,30 @@ function renderClaimControl(player, game) {
   `;
 }
 
+// The player editor opens over the roundtable as a bottom sheet. Tapping the backdrop or 完成 saves and closes,
+// so a half-filled seat is never lost; 取消 is the only way to drop the edits.
+function renderPlayerSheet(player, game) {
+  return `
+    <div class="notes-player-sheet">
+      <button
+        type="button"
+        class="notes-player-sheet-backdrop"
+        data-notes-action="close-player-sheet"
+        data-player-id="${escapeHtml(player.id)}"
+        aria-label="保存并关闭"
+      ></button>
+      <div
+        class="notes-player-sheet-panel"
+        role="dialog"
+        aria-label="${escapeHtml(`${player.seat}号位`)}"
+        data-scroll-key="player-sheet:${escapeHtml(player.id)}"
+      >
+        ${renderPlayerDetail(player, game)}
+      </div>
+    </div>
+  `;
+}
+
 function renderPlayerDetail(player, game) {
   if (!player) {
     return `<div class="empty-state">暂无玩家。</div>`;
@@ -334,11 +359,18 @@ function renderPlayerDetail(player, game) {
     <article class="notes-player-detail" data-player-id="${escapeHtml(player.id)}">
       <header class="notes-player-detail-header">
         <div class="notes-player-title-block">
-          <p class="eyebrow">玩家页</p>
           ${renderSeatNameEditor(draft)}
         </div>
-        ${player.seat === game.selfSeat ? `<span class="notes-self-badge">自己</span>` : ""}
-        ${isTravellerPlayer(player) ? `<span class="notes-self-badge notes-traveller-badge">旅行者</span>` : ""}
+        <div class="notes-player-detail-side">
+          ${player.seat === game.selfSeat ? `<span class="notes-self-badge">自己</span>` : ""}
+          ${isTravellerPlayer(player) ? `<span class="notes-self-badge notes-traveller-badge">旅行者</span>` : ""}
+          <button
+            type="button"
+            class="note-icon-button notes-player-sheet-close"
+            data-notes-action="close-player-sheet"
+            data-player-id="${escapeHtml(player.id)}"
+          >完成</button>
+        </div>
       </header>
 
       <div class="notes-form-grid">
