@@ -251,3 +251,61 @@ test("manual alive counts survive normalisation", async (t) => {
   ], 10);
   assert.deepEqual(normalized.map((record) => record.aliveCount), [8, null, null]);
 });
+
+test("executing an already-dead player keeps their original death", async (t) => {
+  const load = await loadFrontend(t);
+  const days = await load("notes/notes-day-records.js");
+  const game = createGame(7);
+  days.getDayRecord(game, 1, true).nominations.push(nomination(2, [1, 3, 4, 5]));
+  days.getDayRecord(game, 2, true).nominations.push(nomination(2, [1, 3, 4]));
+  days.syncAutoExecutionStatuses(game);
+
+  assert.deepEqual(game.players[1].death, { phaseType: "day", phaseNumber: 1, cause: "execution" });
+  // Day 2: 6 alive, threshold 3, so the second execution still resolves.
+  assert.equal(days.resolveDayExecution(game, days.getDayRecord(game, 2)).threshold, 3);
+  assert.equal(days.getDayExecutionSeat(game, 2), 2);
+  // Re-syncing is stable.
+  days.syncAutoExecutionStatuses(game);
+  assert.deepEqual(game.players[1].death, { phaseType: "day", phaseNumber: 1, cause: "execution" });
+  // Nobody died by execution on day 2.
+  assert.equal(days.getDayExecutionDeathSeat(game, 1), 2);
+  assert.equal(days.getDayExecutionDeathSeat(game, 2), 0);
+});
+
+test("a same-day vote before a daytime death is not a dead vote", async (t) => {
+  const load = await loadFrontend(t);
+  const death = await load("notes/notes-death.js");
+  const game = createGame(7);
+  game.dayRecords = [
+    { dayNumber: 2, nominations: [nomination(5, [3, 4])] },
+    { dayNumber: 3, nominations: [nomination(6, [3])] },
+  ];
+  const slain = { seat: 3, status: "night-dead", death: { phaseType: "day", phaseNumber: 2, cause: "day" } };
+  assert.deepEqual(death.getGhostVoteDays(game, slain), [3]);
+  game.dayRecords.pop();
+  assert.equal(death.isGhostVoteUsed(game, slain), false);
+
+  // A night death on night 2 precedes day 2, so a day-2 vote is a dead vote.
+  const killed = { seat: 4, status: "night-dead", death: { phaseType: "night", phaseNumber: 2, cause: "night" } };
+  assert.deepEqual(death.getGhostVoteDays(game, killed), [2]);
+});
+
+test("surviving executions do not count as death by execution", async (t) => {
+  const load = await loadFrontend(t);
+  const days = await load("notes/notes-day-records.js");
+  const backend = require("../backend/deduction/day-records");
+  const game = createGame(7);
+  days.getDayRecord(game, 1, true).nominations.push(nomination(2, [1, 3, 4, 5]));
+  days.getDayRecord(game, 1).executedSurvived = true;
+  days.syncAutoExecutionStatuses(game);
+
+  assert.equal(days.getDayExecutionSeat(game, 1), 2);
+  assert.equal(days.getDayExecutionDeathSeat(game, 1), 0);
+  assert.equal(backend.getDayExecutionSeat(game, 1), 2);
+  assert.equal(backend.getDayExecutionDeathSeat(game, 1), 0);
+
+  days.getDayRecord(game, 1).executedSurvived = false;
+  days.syncAutoExecutionStatuses(game);
+  assert.equal(days.getDayExecutionDeathSeat(game, 1), 2);
+  assert.equal(backend.getDayExecutionDeathSeat(game, 1), 2);
+});

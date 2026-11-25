@@ -1,4 +1,4 @@
-import { getDayExecutionSeat, getDayNominatorSeats, getDayVotingSeats, hasDayActionHistory } from "./notes-day-records.js";
+import { getDayExecutionDeathSeat, getDayNominatorSeats, getDayVotingSeats, hasDayActionHistory } from "./notes-day-records.js";
 
 // Storyteller-only "what should this ability tell" calculator.
 //
@@ -388,7 +388,7 @@ const handlers = {
     if (!roleRef) return null;
     const day = dayNumberOf(row);
     if (!day) return "无法确定是哪一天的处决";
-    const seat = normalizeSeat(getDayExecutionSeat(game, day), truth);
+    const seat = normalizeSeat(getDayExecutionDeathSeat(game, day), truth);
     if (!seat) return `第${day}天没有记录处决`;
     const target = truth.bySeat.get(seat);
     const missing = requireRole([target]);

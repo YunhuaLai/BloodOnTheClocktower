@@ -188,6 +188,19 @@ function getDayExecutionSeat(game, dayNumber) {
   return result.seat ? Number(result.seat) : 0;
 }
 
+// Seat that died by execution on this day: 0 when nobody was executed, the
+// executed player survived, or they were already dead.
+function getDayExecutionDeathSeat(game, dayNumber) {
+  const record = getDayRecord(game, dayNumber);
+  const seat = getDayExecutionSeat(game, dayNumber);
+  if (!seat || record?.executedSurvived) {
+    return 0;
+  }
+
+  const player = (game?.players || []).find((item) => Number(item.seat) === seat);
+  return isAliveDuringDay(player, dayNumber) === false ? 0 : seat;
+}
+
 function getDayVotingSeats(game, dayNumber) {
   const record = getDayRecord(game, dayNumber);
   if (!record) {
@@ -242,6 +255,7 @@ function hasDayActionHistory(game, dayNumber, actionType) {
 
 module.exports = {
   countAliveForDay,
+  getDayExecutionDeathSeat,
   getDayExecutionSeat,
   resolveDayExecution,
   getDayNominatorSeats,

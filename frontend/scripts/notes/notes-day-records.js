@@ -1,6 +1,6 @@
 import { createId } from "../utils.js";
 import { getMaxSeatNumber } from "./notes-core.js";
-import { isAliveDuringDay, normalizeDeath } from "./notes-death.js";
+import { isAliveDuringDay, isDeadStatus, normalizeDeath } from "./notes-death.js";
 
 function clampNumber(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -338,8 +338,9 @@ export function syncAutoExecutionStatuses(game) {
       return;
     }
 
+    // Executing an already-dead player keeps their original death.
     const player = getPlayerBySeat(game, result.seat);
-    if (player && player.status !== "night-dead") {
+    if (player && !isDeadStatus(player.status)) {
       player.status = "executed";
       player.death = normalizeDeath(
         { phaseType: "day", phaseNumber: record.dayNumber, cause: "execution" },
@@ -355,6 +356,18 @@ export function syncAutoExecutionStatuses(game) {
 
   game.autoExecutionApplied = applied;
   return applied;
+}
+
+// Seat that died by execution on this day (送葬者 and similar): 0 when nobody was
+// executed, the executed player survived, or they were already dead.
+export function getDayExecutionDeathSeat(game, dayNumber) {
+  const record = getDayRecord(game, dayNumber);
+  const seat = getDayExecutionSeat(game, dayNumber);
+  if (!seat || record?.executedSurvived) {
+    return 0;
+  }
+
+  return isAliveDuringDay(getPlayerBySeat(game, seat), dayNumber) === false ? 0 : seat;
 }
 
 export function getDayVotingSeats(game, dayNumber) {

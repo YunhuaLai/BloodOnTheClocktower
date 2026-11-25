@@ -190,6 +190,19 @@ export function isAliveDuringDay(player, dayNumber) {
   return death.phaseNumber > day || (death.phaseNumber === day && death.cause === "execution");
 }
 
+// Whether every vote on day `dayNumber` was certainly cast after the death. A night
+// death precedes that night's day; a day death only precedes later days, since the
+// records do not say whether a vote came before a same-day death.
+function isDeadForWholeDay(player, dayNumber) {
+  const death = normalizeDeath(player?.death, player?.status);
+  if (!death?.phaseType) {
+    return false;
+  }
+
+  const day = Number(dayNumber);
+  return death.phaseType === "night" ? day >= death.phaseNumber : day > death.phaseNumber;
+}
+
 // Days on which the player voted after their death (their dead vote).
 export function getGhostVoteDays(game, player) {
   const seat = String(player?.seat || "");
@@ -199,7 +212,7 @@ export function getGhostVoteDays(game, player) {
 
   return (Array.isArray(game?.dayRecords) ? game.dayRecords : [])
     .filter((record) =>
-      isAliveDuringDay(player, record?.dayNumber) === false &&
+      isDeadForWholeDay(player, record?.dayNumber) &&
       (record.nominations || []).some((nomination) =>
         (nomination.voterSeats || []).map(String).includes(seat),
       ),
