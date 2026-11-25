@@ -186,6 +186,8 @@ export function assignRandomStorytellerRoles() {
     player.trueRole = role?.name || "";
     player.trueAlignment = getRoleAlignmentValue(role);
     player.status = "alive";
+    player.death = null;
+    player.ghostVoteUsed = false;
     player.condition = "sober";
     player.claim = "";
     player.alignment = "unknown";

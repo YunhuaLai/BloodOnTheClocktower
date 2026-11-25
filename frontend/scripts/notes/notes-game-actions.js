@@ -1,6 +1,6 @@
 import { clampNumber, cloneSuspectedRoles, createActiveGameBackup, createAllGamesBackup, createDefaultPlayer, createDefaultSetupDraft, createDefaultStorytellerState, createGameFromSetup, ensureNotesState, getActiveGame, importNotesBackup, saveNotesState } from "../notes-state.js";
 import { filterRoleOptions, findCatalogRole, getAvailableTravellerOptions, getBaseRoleOptions, getGameScript, getSetupFabledRoleOptions, isFabledRole, isTravellerRole } from "../notes-claims.js";
-import { createNominationRecord, getDayRecord, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
+import { createNominationRecord, getDayRecord, normalizeAliveCount, normalizeSeatValue, syncAutoExecutionStatuses } from "./notes-day-records.js";
 import { phaseTypeOptions, scriptModeOptions, state } from "../state.js";
 import { createId } from "../utils.js";
 import { formatPhaseLabel, getMaxSeatNumber, isTravellerPlayer } from "./notes-core.js";
@@ -488,6 +488,32 @@ export function updateDayExecutionOverride(dayNumber, value) {
   record.executionOverride = value === "none"
     ? "none"
     : normalizeSeatValue(value, getMaxSeatNumber(game));
+  syncAutoExecutionStatuses(game);
+  saveNotesState();
+  renderNotesPage();
+}
+
+export function updateDayAliveCount(dayNumber, value) {
+  const game = getActiveGame();
+  if (!game) {
+    return;
+  }
+
+  const record = getDayRecord(game, dayNumber, true);
+  record.aliveCount = normalizeAliveCount(value);
+  syncAutoExecutionStatuses(game);
+  saveNotesState();
+  renderNotesPage();
+}
+
+export function updateDayExecutedSurvived(dayNumber, survived) {
+  const game = getActiveGame();
+  if (!game) {
+    return;
+  }
+
+  const record = getDayRecord(game, dayNumber, true);
+  record.executedSurvived = Boolean(survived);
   syncAutoExecutionStatuses(game);
   saveNotesState();
   renderNotesPage();

@@ -11,6 +11,8 @@ import { renderAcquiredAbilities } from "./notes-acquired-render.js";
 import { findRoleInfoRecord } from "./notes-role-info-records.js";
 import { createTruthRowRenderer } from "./notes-storyteller-truth-render.js";
 import { getAcquiredAbilitySummary } from "./notes-acquired-abilities.js";
+import { getDeathBadge, isGhostVoteUsed } from "./notes-death.js";
+import { renderDeathEditor } from "./notes-death-render.js";
 import { ensureRoleInfoMatchesClaim, formatRoleInfoPairText, formatRoleInfoRowTexts, getRoleInfoNode, getRoleInfoRows } from "./notes-role-info.js";
 import { getAssignedSetupAlertRoles, getRoleByLooseName, getRoleGlobalMarkers, getRoleSetupNotes, getScriptIdentityOverlayRoles } from "./notes-storyteller-actions.js";
 
@@ -21,7 +23,7 @@ const storytellerAlignmentOptions = [
 
 const storytellerStatusOptions = [
   { value: "alive", label: "存活" },
-  { value: "night-dead", label: "夜死" },
+  { value: "night-dead", label: "死亡（非处决）" },
   { value: "executed", label: "处决" },
 ];
 
@@ -353,10 +355,13 @@ function getStorytellerSelectedPlayer(game) {
   );
 }
 
-function getStorytellerMarkerTokens(player) {
+function getStorytellerMarkerTokens(player, game) {
   const tokens = [];
   if (player.status !== "alive") {
-    tokens.push(getOptionLabel(noteStatusOptions, player.status));
+    tokens.push(getDeathBadge(player) || getOptionLabel(noteStatusOptions, player.status));
+    if (isGhostVoteUsed(game, player)) {
+      tokens.push("无票");
+    }
   }
 
   const condition = player.condition === "drunk" ? "drunk" : player.condition;
@@ -392,7 +397,7 @@ function renderGrimoireSeat(player, game, index, selectedPlayer) {
   const role = getStorytellerRole(draft, game);
   const angle = (360 / Math.max(game.players.length, 1)) * index - 90;
   const isSelected = player.id === selectedPlayer?.id;
-  const markerTokens = getStorytellerMarkerTokens(draft);
+  const markerTokens = getStorytellerMarkerTokens(draft, game);
   const isTraveller = isTravellerPlayer(player);
 
   return `
@@ -473,6 +478,7 @@ function renderGrimoireInspector(player, game) {
           </select>
         </label>
       </div>
+      ${renderDeathEditor(draft, game)}
       ${renderStorytellerMarkerButtons(draft, game)}
       ${renderAcquiredAbilities(draft, game, "storyteller")}
       <label class="note-checkbox">

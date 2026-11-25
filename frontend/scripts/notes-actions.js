@@ -1,6 +1,8 @@
 import { ensureNotesState, getActiveGame, saveNotesState } from "./notes-state.js";
 import {
   getSelectedPlayerIdForGame,
+  updateDayAliveCount,
+  updateDayExecutedSurvived,
   updateDayExecutionOverride,
   updateGameField,
   updateInferenceField,
@@ -87,6 +89,28 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
       Number(executionOverride.dataset.dayExecutionOverride || 1),
       target.value,
     );
+    return;
+  }
+
+  const executedSurvived = target.closest("[data-day-executed-survived]");
+  if (executedSurvived) {
+    if (refreshInterface) {
+      updateDayExecutedSurvived(
+        Number(executedSurvived.dataset.dayExecutedSurvived || 1),
+        target.checked,
+      );
+    }
+    return;
+  }
+
+  const dayAliveCount = target.closest("[data-day-alive-count]");
+  if (dayAliveCount) {
+    if (refreshInterface) {
+      updateDayAliveCount(
+        Number(dayAliveCount.dataset.dayAliveCount || 1),
+        target.value,
+      );
+    }
     return;
   }
 

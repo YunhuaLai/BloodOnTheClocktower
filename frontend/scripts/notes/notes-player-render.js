@@ -6,6 +6,8 @@ import { formatPhaseLabel, getAliveCount, getSeatLabel, getTotalPlayerCount, isT
 import { getClaimedRole } from "./notes-role-info.js";
 import { renderRoleInfoInputs } from "./notes-role-info-panel.js";
 import { renderAcquiredAbilities } from "./notes-acquired-render.js";
+import { getDeathBadge, isGhostVoteUsed } from "./notes-death.js";
+import { renderDeathEditor } from "./notes-death-render.js";
 
 function renderNoteTagButtons(player) {
   return noteTagOptions
@@ -157,6 +159,8 @@ function getPlayerCycleFieldClass(field, value) {
 export function renderPlayerCycleField(player, field, label) {
   const value =
     field === "condition" && player[field] === "drunk" ? "poisoned" : player[field];
+  const valueText =
+    (field === "status" && getDeathBadge(player)) || getPlayerCycleValueText(field, value);
 
   return `
     <button
@@ -165,10 +169,10 @@ export function renderPlayerCycleField(player, field, label) {
       data-notes-action="cycle-player-field"
       data-player-id="${escapeHtml(player.id)}"
       data-field="${escapeHtml(field)}"
-      aria-label="${escapeHtml(`${label}：${getPlayerCycleValueText(field, value)}`)}"
+      aria-label="${escapeHtml(`${label}：${valueText}`)}"
     >
       <span>${escapeHtml(label)}</span>
-      <strong>${escapeHtml(getPlayerCycleValueText(field, value))}</strong>
+      <strong>${escapeHtml(valueText)}</strong>
     </button>
   `;
 }
@@ -190,11 +194,14 @@ function getJudgementSummary(player) {
   return `${alignmentShort[player.alignment] || "?"}/${conditionShort[conditionValue] || "?"}`;
 }
 
-function getPlayerTableMarkerTokens(player) {
+function getPlayerTableMarkerTokens(player, game) {
   const tokens = [];
 
   if (player.status !== "alive") {
-    tokens.push(getOptionLabel(noteStatusOptions, player.status));
+    tokens.push(getDeathBadge(player) || getOptionLabel(noteStatusOptions, player.status));
+    if (isGhostVoteUsed(game, player)) {
+      tokens.push("无票");
+    }
   }
 
   if (player.alignment !== "unknown") {
@@ -226,7 +233,7 @@ function renderPlayerRoundtableSeat(player, game, index, selectedPlayer) {
   const isSelected = player.id === selectedPlayer?.id;
   const isSelf = player.seat === game.selfSeat;
   const isTraveller = isTravellerPlayer(player);
-  const markerTokens = getPlayerTableMarkerTokens(draft);
+  const markerTokens = getPlayerTableMarkerTokens(draft, game);
   const seatLabel = draft.name || (isTraveller ? "旅行者" : isSelf ? "自己" : "未命名");
   const claimLabel = draft.claim || "未声明";
   const roleType = role?.type || (isTraveller ? "traveller" : "unknown");
@@ -343,6 +350,7 @@ function renderPlayerDetail(player, game) {
         ${renderPlayerCycleField(draft, "alignment", "判断")}
         ${renderPlayerCycleField(draft, "condition", "醉/毒")}
       </div>
+      ${renderDeathEditor(draft, game)}
 
       ${renderRoleInfoInputs(draft, game)}
       ${renderAcquiredAbilities(draft, game)}

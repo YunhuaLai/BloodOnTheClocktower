@@ -1,5 +1,6 @@
 import { createId } from "../utils.js";
 import { getMaxSeatNumber } from "./notes-core.js";
+import { isAliveDuringDay, isDeadStatus, normalizeDeath } from "./notes-death.js";
 
 function clampNumber(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -40,8 +41,17 @@ export function createDayRecord(dayNumber) {
     abilityRecords: [],
     nominations: [],
     executionOverride: "",
+    // The executed player did not die (Zombuul, Pacifist, Sailor ...).
+    executedSurvived: false,
+    // Manual alive count for the vote threshold; null derives it from deaths.
+    aliveCount: null,
     publicRecordSavedAt: "",
   };
+}
+
+export function normalizeAliveCount(value) {
+  const count = Number.parseInt(value, 10);
+  return Number.isFinite(count) && count >= 1 && count <= 99 ? count : null;
 }
 
 export function createNominationRecord() {
@@ -137,6 +147,15 @@ export function normalizeDayRecords(records, playerCount) {
       dayRecord.executionOverride = override || "none";
     }
 
+    if (record?.executedSurvived) {
+      dayRecord.executedSurvived = true;
+    }
+
+    const aliveCount = normalizeAliveCount(record?.aliveCount);
+    if (aliveCount) {
+      dayRecord.aliveCount = aliveCount;
+    }
+
     if (record?.publicRecordSavedAt) {
       dayRecord.publicRecordSavedAt = String(record.publicRecordSavedAt);
     }
@@ -173,24 +192,36 @@ export function getDayRecord(game, dayNumber, createIfMissing = false) {
   return record;
 }
 
-function getSameDayAutoExecutionSeats(game, dayNumber) {
+// Seats executed on this day or later: they were still alive during this day.
+function getLaterExecutionSeats(game, dayNumber) {
   return new Set(
     normalizeAutoExecutionApplied(game?.autoExecutionApplied, getMaxSeatNumber(game) || game?.playerCount || 15)
-      .filter((entry) => Number(entry.dayNumber) === Number(dayNumber))
+      .filter((entry) => Number(entry.dayNumber) >= Number(dayNumber))
       .map((entry) => Number(entry.seat)),
   );
 }
 
-export function getDayExecutionThreshold(game, dayNumber) {
-  const sameDayAutoSeats = getSameDayAutoExecutionSeats(game, dayNumber);
-  const aliveCount = (game?.players || []).filter((player) => {
-    const seat = Number(player.seat);
-    return (
-      player.status === "alive" ||
-      (player.status === "executed" && sameDayAutoSeats.has(seat))
-    );
-  }).length;
+// Alive count while day `dayNumber`'s votes were cast, from each player's death
+// phase. Deaths without a phase fall back to: executed on this day or later
+// counts as alive, anything else as dead.
+export function countAliveForDay(game, dayNumber) {
+  const laterExecutionSeats = getLaterExecutionSeats(game, dayNumber);
+  return (game?.players || []).filter((player) => {
+    const alive = isAliveDuringDay(player, dayNumber);
+    if (alive !== null) {
+      return alive;
+    }
 
+    return player.status === "executed" && laterExecutionSeats.has(Number(player.seat));
+  }).length;
+}
+
+export function getDayAliveCount(game, dayNumber, record = null) {
+  return normalizeAliveCount(record?.aliveCount) || countAliveForDay(game, dayNumber);
+}
+
+export function getDayExecutionThreshold(game, dayNumber, record = null) {
+  const aliveCount = getDayAliveCount(game, dayNumber, record);
   return Math.max(1, Math.ceil((aliveCount || game?.playerCount || 1) / 2));
 }
 
@@ -202,35 +233,41 @@ export function resolveAutomaticDayExecution(game, record) {
       votes: 0,
       threshold: 1,
       nominationId: "",
+      tied: false,
     };
   }
 
-  const threshold = getDayExecutionThreshold(game, record.dayNumber);
-  return (record.nominations || []).reduce(
-    (current, nomination) => {
-      const seatCount = getMaxSeatNumber(game) || game.playerCount;
-      const nomineeSeat = normalizeSeatValue(nomination.nomineeSeat, seatCount);
-      const votes = normalizeVoteSeats(nomination.voterSeats, seatCount).length;
-      if (!nomineeSeat || votes < threshold || votes <= current.votes) {
-        return current;
-      }
+  const threshold = getDayExecutionThreshold(game, record.dayNumber, record);
+  const seatCount = getMaxSeatNumber(game) || game.playerCount;
+  const best = {
+    mode: "auto",
+    seat: "",
+    votes: 0,
+    threshold,
+    nominationId: "",
+    tied: false,
+  };
 
-      return {
-        mode: "auto",
-        seat: nomineeSeat,
-        votes,
-        threshold,
-        nominationId: nomination.id,
-      };
-    },
-    {
-      mode: "auto",
-      seat: "",
-      votes: 0,
-      threshold,
-      nominationId: "",
-    },
-  );
+  (record.nominations || []).forEach((nomination) => {
+    const nomineeSeat = normalizeSeatValue(nomination.nomineeSeat, seatCount);
+    const votes = normalizeVoteSeats(nomination.voterSeats, seatCount).length;
+    if (!nomineeSeat || votes < threshold) {
+      return;
+    }
+
+    if (votes > best.votes) {
+      Object.assign(best, { seat: nomineeSeat, votes, nominationId: nomination.id, tied: false });
+    } else if (votes === best.votes && nomineeSeat !== best.seat) {
+      best.tied = true;
+    }
+  });
+
+  // A tie for the most votes means nobody is about to die.
+  if (best.tied) {
+    return { ...best, seat: "", nominationId: "" };
+  }
+
+  return best;
 }
 
 export function resolveDayExecution(game, record) {
@@ -238,7 +275,7 @@ export function resolveDayExecution(game, record) {
     return resolveAutomaticDayExecution(game, record);
   }
 
-  const threshold = getDayExecutionThreshold(game, record.dayNumber);
+  const threshold = getDayExecutionThreshold(game, record.dayNumber, record);
 
   if (record.executionOverride === "none") {
     return {
@@ -288,6 +325,7 @@ export function syncAutoExecutionStatuses(game) {
     const player = getPlayerBySeat(game, entry.seat);
     if (player?.status === "executed") {
       player.status = "alive";
+      player.death = null;
     }
   });
 
@@ -296,13 +334,18 @@ export function syncAutoExecutionStatuses(game) {
   const applied = [];
   ensureDayRecords(game).forEach((record) => {
     const result = resolveDayExecution(game, record);
-    if (!result.seat) {
+    if (!result.seat || record.executedSurvived) {
       return;
     }
 
+    // Executing an already-dead player keeps their original death.
     const player = getPlayerBySeat(game, result.seat);
-    if (player && player.status !== "night-dead") {
+    if (player && !isDeadStatus(player.status)) {
       player.status = "executed";
+      player.death = normalizeDeath(
+        { phaseType: "day", phaseNumber: record.dayNumber, cause: "execution" },
+        "executed",
+      );
     }
 
     applied.push({
@@ -313,6 +356,18 @@ export function syncAutoExecutionStatuses(game) {
 
   game.autoExecutionApplied = applied;
   return applied;
+}
+
+// Seat that died by execution on this day (送葬者 and similar): 0 when nobody was
+// executed, the executed player survived, or they were already dead.
+export function getDayExecutionDeathSeat(game, dayNumber) {
+  const record = getDayRecord(game, dayNumber);
+  const seat = getDayExecutionSeat(game, dayNumber);
+  if (!seat || record?.executedSurvived) {
+    return 0;
+  }
+
+  return isAliveDuringDay(getPlayerBySeat(game, seat), dayNumber) === false ? 0 : seat;
 }
 
 export function getDayVotingSeats(game, dayNumber) {

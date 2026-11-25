@@ -1,6 +1,6 @@
 const { getClaimedRole, normalizeMatchText } = require("./claims");
 const {
-  getDayExecutionSeat,
+  getDayExecutionDeathSeat,
   getDayNominatorSeats,
   getDayVotingSeats,
   hasDayActionHistory,
@@ -377,7 +377,7 @@ function buildRowObservation(template, source, role, row, players, game, catalog
   if (template.type === "role_at_day_execution") {
     const targetRole = roleFrom(row, template.role, catalog);
     const dayNumber = dayNumberFromRow(row, template);
-    const targetSeat = getDayExecutionSeat(game, dayNumber);
+    const targetSeat = getDayExecutionDeathSeat(game, dayNumber);
     return targetSeat && targetRole
       ? baseObservation(
           source,

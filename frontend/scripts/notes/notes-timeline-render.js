@@ -1,4 +1,4 @@
-import { getDayRecord, resolveAutomaticDayExecution, resolveDayExecution } from "./notes-day-records.js";
+import { countAliveForDay, getDayAliveCount, getDayRecord, normalizeAliveCount, resolveAutomaticDayExecution, resolveDayExecution } from "./notes-day-records.js";
 import { phaseTypeOptions, state, timelineTypeOptions } from "../state.js";
 import { escapeHtml, getOptionLabel, renderSelectOptions } from "../utils.js";
 import { formatPhaseLabel, getPlayerLabel } from "./notes-core.js";
@@ -119,7 +119,7 @@ function formatNominationSummary(nomination) {
 
 function formatExecutionResult(result) {
   if (!result.seat) {
-    return "无人处决";
+    return result.tied ? `平票（${result.votes} 票），无人处决` : "无人处决";
   }
 
   const suffix = result.mode === "auto" ? `（${result.votes} 票）` : "（手动）";
@@ -135,8 +135,18 @@ function renderExecutionOverride(game, record) {
       <div>
         <span>处决结果</span>
         <strong>${escapeHtml(formatExecutionResult(result))}</strong>
-        <small>票数门槛 ${result.threshold}；自动结算：${escapeHtml(formatExecutionResult(autoResult))}</small>
+        <small>${getDayAliveCount(game, record.dayNumber, record)} 人存活，票数门槛 ${result.threshold}；自动结算：${escapeHtml(formatExecutionResult(autoResult))}</small>
+        ${
+          result.seat
+            ? `<label class="note-checkbox notes-execution-survived">
+                <input type="checkbox" data-day-executed-survived="${record.dayNumber}"${record.executedSurvived ? " checked" : ""} />
+                <span>被处决者未死亡（僵怖、和平主义者等）</span>
+              </label>`
+            : ""
+        }
       </div>
+      <div class="notes-execution-inputs">
+      ${renderDayAliveCountSelect(game, record)}
       <label class="note-field">
         <span>手动更改</span>
         <select data-day-execution-override="${record.dayNumber}">
@@ -150,7 +160,26 @@ function renderExecutionOverride(game, record) {
             .join("")}
         </select>
       </label>
+      </div>
     </div>
+  `;
+}
+
+function renderDayAliveCountSelect(game, record) {
+  const frozen = normalizeAliveCount(record.aliveCount);
+  const maxCount = Math.max(game.players.length, frozen || 0);
+  const counts = Array.from({ length: maxCount }, (_, index) => index + 1);
+
+  return `
+    <label class="note-field">
+      <span>当天存活人数</span>
+      <select data-day-alive-count="${record.dayNumber}">
+        <option value=""${frozen ? "" : " selected"}>按死亡记录（${countAliveForDay(game, record.dayNumber)} 人）</option>
+        ${counts
+          .map((count) => `<option value="${count}"${frozen === count ? " selected" : ""}>${count} 人</option>`)
+          .join("")}
+      </select>
+    </label>
   `;
 }
 
@@ -252,7 +281,7 @@ function getStructuredTimelineItems(game, record) {
           meta: "白天末尾",
           text: [
             ...(record.nominations || []).map(formatNominationSummary),
-            `处决结果：${formatExecutionResult(resolveDayExecution(game, record))}`,
+            `处决结果：${formatExecutionResult(resolveDayExecution(game, record))}${record.executedSurvived && resolveDayExecution(game, record).seat ? "（未死亡）" : ""}`,
           ].join("；"),
         },
       ]
