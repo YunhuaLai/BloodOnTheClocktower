@@ -379,7 +379,6 @@ export function renderTimelineTab(game) {
       <div class="notes-panel-header">
         <div>
           <p class="eyebrow">时间线</p>
-          <h2>按时间顺着记</h2>
         </div>
       </div>
 
@@ -441,7 +440,6 @@ export function renderInferenceTab(game) {
       <div class="notes-panel-header">
         <div>
           <p class="eyebrow">推理</p>
-          <h2>桌面判断</h2>
         </div>
       </div>
 

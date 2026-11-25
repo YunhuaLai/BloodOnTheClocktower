@@ -41,6 +41,7 @@ export function handleRoomAction(action, button, notes, game) {
   if (action === "switch-tab") {
     notes.ui.activeTab = button.dataset.tab || "overview";
     notes.ui.scriptSheetOpen = false;
+    notes.ui.playerSheetOpen = false;
     renderNotesPage();
     return true;
   }

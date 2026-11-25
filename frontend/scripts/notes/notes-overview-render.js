@@ -13,10 +13,10 @@ import { renderBeyondWorldlineAnalysis } from "./notes-worldline-analysis.js";
 function renderOverviewActions() {
   return `
     <div class="notes-overview-actions">
-      <button type="button" class="primary-link" data-notes-action="save-game">保存</button>
+      <button type="button" class="primary-link notes-overview-save" data-notes-action="save-game">保存</button>
+      <button type="button" class="secondary-link" data-notes-action="go-home">返回列表</button>
       <button type="button" class="secondary-link" data-notes-action="export-game">导出</button>
-      <button type="button" class="secondary-link" data-notes-action="go-home">返回</button>
-      <button type="button" class="secondary-link danger" data-notes-action="delete-game">删除</button>
+      <button type="button" class="notes-overview-delete" data-notes-action="delete-game">删除这局</button>
     </div>
   `;
 }
@@ -200,7 +200,7 @@ function renderOverviewRows(game) {
             </label>
             <button
               type="button"
-              class="notes-overview-cell notes-overview-cell--summary notes-overview-toggle"
+              class="notes-overview-cell notes-overview-cell--summary notes-overview-toggle${summaryHtml === "--" ? " is-empty" : ""}"
               data-notes-action="toggle-overview-player"
               data-player-id="${escapeHtml(player.id)}"
               aria-label="${escapeHtml(`技能记录：${summaryText}`)}"
@@ -210,7 +210,7 @@ function renderOverviewRows(game) {
             </div>
             <button
               type="button"
-              class="notes-overview-cell notes-overview-cell--extra notes-overview-toggle"
+              class="notes-overview-cell notes-overview-cell--extra notes-overview-toggle${draft.extraInfo ? "" : " is-empty"}"
               data-notes-action="toggle-overview-player"
               data-player-id="${escapeHtml(player.id)}"
             >${escapeHtml(supplementText)}</button>
@@ -234,9 +234,9 @@ export function renderOverviewTab(game) {
         <span>编号</span>
         <span>状态</span>
         <span>身份</span>
-        <span>摘要</span>
+        <span class="notes-overview-head-wide">摘要</span>
         <span>判断</span>
-        <span>补充</span>
+        <span class="notes-overview-head-wide">补充</span>
       </div>
       <div class="notes-overview-list">
         ${renderOverviewRows(game)}

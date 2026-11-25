@@ -20,8 +20,61 @@
 
 .notes-overview-actions .primary-link,
 .notes-overview-actions .secondary-link {
+  min-height: 44px;
   margin: 0;
   justify-content: center;
+}
+
+/* Deleting is rare and irreversible: keep it off the main button row and the only red control. */
+.notes-overview-delete {
+  grid-column: 1 / -1;
+  justify-self: end;
+  min-height: 44px;
+  padding: 8px 12px;
+  color: var(--red);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.notes-overview-delete:hover {
+  text-decoration: underline;
+}
+
+.notes-overview-delete:focus-visible {
+  outline: 3px solid rgba(178, 31, 45, 0.3);
+  outline-offset: 2px;
+}
+
+/* Inside the notes pages red means destructive, so neutral buttons do not turn red on hover / sticky touch hover. */
+.notes-overview-actions .secondary-link:hover,
+.notes-home-actions .secondary-link:hover,
+.notes-saved-bulk-actions .secondary-link:hover {
+  color: var(--ink);
+  background: #eef1ed;
+  border-color: var(--ink);
+}
+
+.notes-saved-bulk-actions .secondary-link.danger {
+  color: var(--red);
+  border-color: var(--red);
+}
+
+.notes-saved-bulk-actions .secondary-link.danger:hover {
+  color: #fff;
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.notes-saved-bulk-actions .secondary-link:disabled,
+.notes-saved-bulk-actions .secondary-link.danger:disabled {
+  color: var(--muted);
+  background: transparent;
+  border-color: var(--line);
+  cursor: default;
+  opacity: 0.6;
 }
 
 .notes-overview-head,

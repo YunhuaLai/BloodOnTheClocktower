@@ -42,6 +42,7 @@ function createNotesUiState() {
     overviewExpandedExtraPlayerId: "",
     abilityTextExpanded: false,
     scriptSheetOpen: false,
+    playerSheetOpen: false,
     creatingGame: false,
     setupDraft: createDefaultSetupDraft(),
     playerDrafts: {},

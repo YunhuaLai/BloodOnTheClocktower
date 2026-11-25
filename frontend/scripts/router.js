@@ -87,7 +87,10 @@ export async function renderRoute() {
       notes.ui.setupDraft = createDefaultSetupDraft();
       window.history.replaceState({}, "", "/notes");
     } else if (previousPath !== "/notes") {
-      if (notes.ui.screen !== "setup") {
+      // Coming back from an encyclopedia page mid-game (the 百科 link in the stage bar) resumes that game;
+      // a fresh page load still starts on the saved-games list.
+      const resumeGame = Boolean(previousPath) && notes.ui.screen === "game";
+      if (notes.ui.screen !== "setup" && !resumeGame) {
         notes.ui.screen = "home";
       }
     }

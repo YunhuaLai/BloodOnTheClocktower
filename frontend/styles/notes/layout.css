@@ -544,29 +544,51 @@
   line-height: 1;
 }
 
+/* One-line game summary; scoring, mode, fabled and travellers live in the collapsed body. */
 .notes-game-meta {
-  display: grid;
-  gap: 6px;
+  position: relative;
   margin-top: 12px;
-  padding: 14px;
+}
+
+.notes-game-meta-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-height: 56px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.notes-game-meta-summary::-webkit-details-marker {
+  display: none;
+}
+
+.notes-game-meta-summary:focus-visible {
+  outline: 3px solid rgba(178, 31, 45, 0.24);
+  outline-offset: 2px;
+}
+
+/* Room for the 剧本 button, which sits on top of the summary row. */
+.notes-game-meta.has-script-button .notes-game-meta-summary {
+  padding-right: 88px;
 }
 
 .notes-game-meta-title {
   display: grid;
-  gap: 4px;
-}
-
-.notes-game-meta-top {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 10px;
-  align-items: start;
+  gap: 2px;
+  min-width: 0;
 }
 
 .notes-game-meta-title h1 {
   margin: 0;
-  font-size: 24px;
-  line-height: 1.1;
+  overflow: hidden;
+  font-size: 17px;
+  line-height: 1.2;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .notes-game-meta-line {
@@ -574,10 +596,45 @@
   font-size: 13px;
 }
 
+.notes-game-meta-title .notes-game-meta-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.notes-game-meta-toggle {
+  flex: none;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.notes-game-meta-toggle::after {
+  content: " ▾";
+}
+
+.notes-game-meta-details[open] .notes-game-meta-toggle::after {
+  content: " ▴";
+}
+
+.notes-game-meta-body {
+  display: grid;
+  gap: 6px;
+  padding: 0 14px 14px;
+}
+
+.notes-game-meta .notes-script-sheet-button {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  min-width: 68px;
+  min-height: 40px;
+}
+
 .notes-room-role-tools {
   display: grid;
   gap: 10px;
-  margin-top: 8px;
+  margin-top: 4px;
   padding-top: 10px;
   border-top: 1px solid var(--line);
 }
