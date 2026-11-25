@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: first_night
       event: null
@@ -69,8 +69,13 @@ abilityData:
         count: 1
       - kind: event_trigger
         eventTiming: null
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
-    pageType: event_triggered
+    pageType: record_result_only
     phaseTiming: first_night
     eventTiming: null
     usagePattern: once
@@ -79,6 +84,10 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
       repeatMode: once
       defaultRows: 1
       fields:
@@ -91,19 +100,17 @@ abilityData:
           min: null
           max: null
           placeholder: null
-    result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: converted_seat
+        - key: seat
           type: seat
-          label: 转变号码
+          label: 转变玩家
           required: false
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          aliases:
+            - converted_seat
   deduction:
     status: world_effect
     source: inferred

@@ -51,7 +51,7 @@ abilityData:
     - good
     - minion
     - demon
-  abilityPattern: role_info
+  abilityPattern: role_in_group_hint
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -63,7 +63,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_role
+      - kind: learn_role_in_group
+        seats: 2
         roleType: demon
   abilityMeta:
     pageType: record_result_only
@@ -82,9 +83,38 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: role
+        - key: seat1
+          type: seat
+          label: 候选1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 候选2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role1
           type: role
-          label: 身份
+          label: 得知角色1
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+          aliases:
+            - role
+        - key: role2
+          type: role
+          label: 得知角色2
           required: true
           optionsSource: current_script_roles
           options: null

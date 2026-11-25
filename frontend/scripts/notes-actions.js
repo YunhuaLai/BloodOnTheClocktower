@@ -15,6 +15,7 @@ import {
 import {
   persistPlayerDraft,
   getPlayerDraftRoleInfoEntry,
+  moveOnceRoleInfoPhase,
   updatePlayerDraftRoleInfo,
   updatePlayerField,
 } from "./notes/notes-player-actions.js";
@@ -28,7 +29,8 @@ import { handleTimelineAction } from "./notes/notes-timeline-actions.js";
 import { state } from "./state.js";
 import { applyAcquiredSuggestion, handleAcquiredAction, handleAcquiredFieldChange } from "./notes/notes-acquired-actions.js";
 import { decodeTruthFill, encodeTruthBasis } from "./notes/notes-storyteller-truth-render.js";
-import { getSteppedNumberValue } from "./notes/notes-role-info-fields.js";
+import { getSteppedNumberValue, parsePhaseChoiceValue } from "./notes/notes-role-info-fields.js";
+import { setOpenSeatPickerKey } from "./notes/notes-role-info-seat-picker.js";
 
 export async function handleNotesImportFile(target) {
   const file = target?.files?.[0];
@@ -171,6 +173,24 @@ export function handleNotesFieldChange(target, refreshInterface = false) {
     return;
   }
 
+  const phasePicker = target.closest("[data-roleinfo-phase-picker]");
+  const pickerCard = target.closest(".notes-player-detail, .notes-overview-editor");
+  if (phasePicker && pickerCard) {
+    const playerId = pickerCard.dataset.playerId;
+    const changed = moveOnceRoleInfoPhase(
+      playerId,
+      readRoleInfoPhase(phasePicker.dataset, "roleinfoPhase"),
+      parsePhaseChoiceValue(target.value),
+    );
+    if (changed && ["overview", "storyteller"].includes(state.notes.ui.activeTab)) {
+      persistPlayerDraft(playerId);
+    }
+    if (refreshInterface) {
+      renderNotesPage();
+    }
+    return;
+  }
+
   const roleInfoField = target.closest(
     "[data-roleinfo-section][data-roleinfo-row][data-roleinfo-field]",
   );
@@ -243,6 +263,20 @@ function handleRoleInfoButtonAction(action, button) {
     return true;
   }
 
+  // Seat picker: open / close, then pick (writes like a segment button and opens the next seat field).
+  if (action === "toggle-seat-picker") {
+    setOpenSeatPickerKey(button.dataset.seatPickerKey || "");
+    renderNotesPage();
+    return true;
+  }
+
+  if (action === "pick-seat") {
+    handleNotesFieldChange(button, false);
+    setOpenSeatPickerKey(button.dataset.nextPickerKey || "");
+    renderNotesPage();
+    return true;
+  }
+
   if (action === "apply-roleinfo-suggestion") {
     applyRoleInfoSuggestion(button);
     return true;
@@ -281,6 +315,11 @@ export function handleNotesAction(button) {
   }
 
   if (handleRoleInfoButtonAction(action, button)) return;
+
+  // A picker left open would reappear when the same player is opened again.
+  if (["switch-tab", "toggle-overview-player", "go-home"].includes(action)) {
+    setOpenSeatPickerKey("");
+  }
 
   if (handleAcquiredAction(action, button)) return;
 

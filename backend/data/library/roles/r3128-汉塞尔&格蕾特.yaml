@@ -49,30 +49,28 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
-    - 设置
-    - 信息型
+    - 每晚
+    - 主动选择
   termIds:
     - night
-    - setup
     - first-night
-    - information
     - townsfolk
     - minion
-  abilityPattern: boolean_info
+  abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: first_night
+      phase: each_night
       event: null
-      frequency: once
+      frequency: once_per_night
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
       - kind: setup_modifier
         adjustments:
@@ -81,37 +79,46 @@ abilityData:
             max: 1
             source: '[+0~1外来者]'
             note: 配置调整：外来者数量 0 到 +1。
-      - kind: learn_boolean
-        question: boolean_check
+      - kind: choose_role
+        source: target
+      - kind: learn_character_type
   abilityMeta:
-    pageType: record_result_only
-    phaseTiming: first_night
+    pageType: pick_and_record
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: once
-    activationMode: passive
-    drivenBy: storyteller
+    usagePattern: once_per_night
+    activationMode: active
+    drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
-    result:
-      repeatMode: once
-      defaultRows: 1
+      repeatMode: sequence
+      defaultRows: 3
       fields:
-        - key: answer
-          type: boolean
-          label: 是否
+        - key: role
+          type: role
+          label: 选择角色
           required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: character_type
+          type: character_type
+          label: 角色类型
+          required: true
+          optionsSource: character_types
+          options: null
           min: null
           max: null
           placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：身份信息
+    templates: []

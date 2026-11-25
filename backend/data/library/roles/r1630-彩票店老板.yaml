@@ -50,7 +50,7 @@ abilityData:
     - evil
     - townsfolk
     - storyteller
-  abilityPattern: target_boolean_check
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -63,12 +63,10 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
+        count: 3
+        source: target
+      - kind: learn_player
         count: 1
-        source: target
-      - kind: choose_role
-        source: target
-      - kind: learn_boolean
-        question: boolean_check
       - kind: protect_player
   abilityMeta:
     pageType: pick_and_record
@@ -83,41 +81,50 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 目标号码
+          label: 查验1
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
+          aliases:
+            - seat
+        - key: seat2
+          type: seat
+          label: 查验2
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 查验3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
           placeholder: null
     result:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: answer
-          type: boolean
-          label: 是否
+        - key: seat
+          type: seat
+          label: 得知玩家
           required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
-          min: null
-          max: null
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
           placeholder: null
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

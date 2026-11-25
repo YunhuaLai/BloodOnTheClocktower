@@ -47,8 +47,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
     - 每晚
@@ -64,11 +64,11 @@ abilityData:
     - townsfolk
     - outsider
     - demon
-  abilityPattern: choose_role_status_effect
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: each_night_star
       event: null
@@ -85,8 +85,6 @@ abilityData:
             note: 配置调整：外来者数量 -1。
       - kind: choose_player
         count: 2
-        source: target
-      - kind: choose_role
         source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
@@ -106,7 +104,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -115,28 +113,19 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 选择2
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

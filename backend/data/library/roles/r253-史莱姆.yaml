@@ -50,11 +50,13 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 首夜
     - 每晚
     - 设置
   termIds:
     - night
     - setup
+    - first-night
     - drunk
     - death
     - good
@@ -63,7 +65,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night

@@ -44,7 +44,7 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 被动
+    - 每晚
   termIds:
     - day
     - night
@@ -55,12 +55,12 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night_star
       event: null
-      frequency: passive
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
@@ -69,7 +69,7 @@ abilityData:
     pageType: no_input
     phaseTiming: each_night_star
     eventTiming: null
-    usagePattern: passive
+    usagePattern: once_per_night
     activationMode: passive
     drivenBy: storyteller
     recordable: false

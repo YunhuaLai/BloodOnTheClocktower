@@ -42,33 +42,32 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 事件触发
+    - 被动
   termIds:
     - day
     - alive
     - fabled
-  abilityPattern: manual_record
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
-      phase: null
+      phase: each_night
       event: null
-      frequency: passive
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
+    pageType: no_input
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: passive
-    activationMode: conditional
+    usagePattern: once_per_night
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

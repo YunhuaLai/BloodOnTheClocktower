@@ -52,7 +52,7 @@ abilityData:
     - death
     - townsfolk
     - outsider
-  abilityPattern: execution_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -62,7 +62,7 @@ abilityData:
       event: on_execution
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
@@ -70,13 +70,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_execution
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: on_execution
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

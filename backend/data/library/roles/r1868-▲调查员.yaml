@@ -86,7 +86,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 号码1
+          label: 候选1
           required: true
           optionsSource: null
           options: null
@@ -95,7 +95,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 号码2
+          label: 候选2
           required: true
           optionsSource: null
           options: null
@@ -104,13 +104,15 @@ abilityData:
           placeholder: null
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - minion
   deduction:
     status: candidate
     source: inferred

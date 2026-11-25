@@ -50,28 +50,28 @@ abilityData:
     - nomination
     - storyteller
     - fabled
-  abilityPattern: nomination_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_day
+      phase: each_night
       event: on_nomination
-      frequency: once_per_day
+      frequency: once_per_night
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: event_trigger
         eventTiming: on_nomination
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: each_day
+    pageType: rule_modifier
+    phaseTiming: each_night
     eventTiming: on_nomination
-    usagePattern: once_per_day
+    usagePattern: once_per_night
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

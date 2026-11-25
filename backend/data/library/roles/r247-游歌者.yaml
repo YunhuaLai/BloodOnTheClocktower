@@ -51,28 +51,30 @@ abilityData:
     - drunk
     - alive
     - townsfolk
-  abilityPattern: status_effect
+  abilityPattern: target_number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_day
       event: null
-      frequency: once_per_night
+      frequency: once_per_day
     actor:
       drivenBy: player
     operations:
       - kind: choose_player
         count: 1
         source: target
+      - kind: learn_number
+        numberKind: count
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once_per_day
     activationMode: active
     drivenBy: player
     recordable: true
@@ -83,26 +85,28 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 醉酒对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - alive
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+        - key: count
+          type: number
+          label: 数量
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          min: 0
+          max: 15
+          placeholder: null
   deduction:
     status: world_effect
     source: inferred

@@ -45,39 +45,56 @@ abilityData:
   tags:
     - 首夜
     - 每晚
+    - 信息型
   termIds:
     - night
     - first-night
+    - information
     - vote
     - alignment
     - outsider
-  abilityPattern: no_input
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
-      - kind: passive_rule
+      - kind: learn_role
+        roleType: null
   abilityMeta:
-    pageType: no_input
-    phaseTiming: each_night
+    pageType: record_result_only
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
-    recordable: false
+    recordable: true
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+  deduction:
+    status: candidate
+    source: inferred
+    label: 可模板化：身份信息
+    templates: []

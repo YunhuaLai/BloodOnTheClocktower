@@ -50,7 +50,7 @@ abilityData:
     - information
     - evil
     - townsfolk
-  abilityPattern: record_result_only
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -62,7 +62,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: manual_record
+      - kind: learn_number
+        numberKind: distance
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
@@ -80,16 +81,17 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+        - key: count
+          type: number
+          label: 数量
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          min: 0
+          max: 15
+          placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：数字信息
+    templates: []

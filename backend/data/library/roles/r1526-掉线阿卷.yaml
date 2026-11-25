@@ -54,7 +54,7 @@ abilityData:
     - good
     - evil
     - townsfolk
-  abilityPattern: team_info
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -66,7 +66,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_team
+      - kind: learn_role
+        roleType: null
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -84,11 +85,11 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: role
+          type: role
+          label: 得知角色
           required: true
-          optionsSource: teams
+          optionsSource: current_script_roles
           options: null
           min: null
           max: null
@@ -96,5 +97,5 @@ abilityData:
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：阵营信息
+    label: 可模板化：身份信息
     templates: []

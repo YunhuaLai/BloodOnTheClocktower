@@ -45,35 +45,32 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 首夜
-    - 设置
     - 信息型
   termIds:
     - day
-    - setup
     - first-night
     - information
     - death
     - demon
     - storyteller
-  abilityPattern: number_info
+  abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: first_night
+      phase: each_day
       event: null
-      frequency: once
+      frequency: once_per_day
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_number
-        numberKind: death_count
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: first_night
+    phaseTiming: each_day
     eventTiming: null
-    usagePattern: once
+    usagePattern: once_per_day
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -83,20 +80,19 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
+      repeatMode: sequence
+      defaultRows: 3
       fields:
-        - key: count
-          type: number
-          label: 数量
-          required: true
+        - key: note
+          type: text
+          label: 记录
+          required: false
           optionsSource: null
           options: null
-          min: 0
-          max: 15
-          placeholder: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
   deduction:
-    status: candidate
+    status: manual
     source: inferred
-    label: 可模板化：数字信息
-    templates: []
+    label: 信息型角色，但需要人工语义归类

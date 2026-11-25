@@ -83,7 +83,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 正确的
           required: true
           optionsSource: custom
           options:

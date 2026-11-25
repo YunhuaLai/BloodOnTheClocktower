@@ -52,7 +52,7 @@ abilityData:
     - first-night
     - death
     - townsfolk
-  abilityPattern: manual_record
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -84,23 +84,16 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+      repeatMode: none
+      defaultRows: 0
+      fields: []

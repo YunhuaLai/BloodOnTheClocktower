@@ -64,9 +64,9 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_day
+      phase: each_night
       event: null
-      frequency: once_per_day
+      frequency: once_per_night
     actor:
       drivenBy: player
     operations:
@@ -76,9 +76,9 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_day
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: once_per_day
+    usagePattern: once_per_night
     activationMode: active
     drivenBy: player
     recordable: true
@@ -89,7 +89,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -98,7 +98,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 选择2
           required: true
           optionsSource: null
           options: null

@@ -43,13 +43,14 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 主动选择
+    - 信息型
   termIds:
     - day
+    - information
     - townsfolk
     - storyteller
     - fabled
-  abilityPattern: manual_record
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -59,36 +60,36 @@ abilityData:
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_role
-        source: target
+      - kind: learn_role
+        roleType: null
   abilityMeta:
-    pageType: pick_and_record
+    pageType: record_result_only
     phaseTiming: passive
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: active
-    drivenBy: player
+    activationMode: passive
+    drivenBy: storyteller
     recordable: true
   interactionSchema:
     target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
       repeatMode: once
       defaultRows: 1
       fields:
         - key: role
           type: role
-          label: 选择角色
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
-    result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
   deduction:
     status: candidate
     source: inferred

@@ -61,7 +61,7 @@ abilityData:
     - townsfolk
     - outsider
     - minion
-  abilityPattern: death_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -71,7 +71,7 @@ abilityData:
       event: on_death
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments:
@@ -86,13 +86,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_death
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: setup
     eventTiming: on_death
     usagePattern: passive
     activationMode: conditional
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

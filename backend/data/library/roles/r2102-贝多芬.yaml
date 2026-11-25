@@ -49,14 +49,14 @@ abilityData:
     - death
     - storyteller
     - traveler
-  abilityPattern: death_trigger
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
-      event: on_death
+      phase: passive
+      event: null
       frequency: passive
     actor:
       drivenBy: player
@@ -67,8 +67,8 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: null
-    eventTiming: on_death
+    phaseTiming: passive
+    eventTiming: null
     usagePattern: passive
     activationMode: active
     drivenBy: player
@@ -80,7 +80,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null

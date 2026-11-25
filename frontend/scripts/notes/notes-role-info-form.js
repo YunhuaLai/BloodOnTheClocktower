@@ -6,6 +6,7 @@ import {
   isPhased,
   isRoleInfoEntryFilled,
   listPlanPhases,
+  migrateEntryAliases,
   phaseOrderIndex,
   sortRoleInfoRecords,
 } from "./notes-role-info-records.js";
@@ -82,7 +83,7 @@ function buildRows({ abilityData, sections, phases, records, game, minEntries })
           if (onceSectionRow[section.key] === null) onceSectionRow[section.key] = rowKey;
           if (onceSectionRow[section.key] !== rowKey) return;
         }
-        const entry = record?.[`${section.key}Entries`]?.[entryIndex] || {};
+        const entry = migrateEntryAliases(record?.[`${section.key}Entries`]?.[entryIndex], section.fields);
         section.fields.forEach((field) => {
           cells.push({ section: section.key, field, value: entry[field.key] ?? "" });
         });
@@ -123,6 +124,26 @@ function getPendingRow(plan, alive, game) {
   return { phaseType: "", phaseNumber: 0, label: "未到", text: "未到记录时机" };
 }
 
+function samePhase(left, right) {
+  return Boolean(left && right) && left.phaseType === right.phaseType && Number(left.phaseNumber) === Number(right.phaseNumber);
+}
+
+/**
+ * Phase shown for an unused once-per-game ability: the phase picked in the row's phase picker, else the phase of
+ * a draft record being edited, else the latest phase the ability could have been used in.
+ */
+export function pickOncePhase(eligible, records, preferred = null) {
+  const isEligible = (phase) => eligible.some((item) => samePhase(item, phase));
+  if (isEligible(preferred)) {
+    return { phaseType: preferred.phaseType, phaseNumber: Number(preferred.phaseNumber) };
+  }
+  const draft = [...records].reverse().find(isEligible);
+  if (draft) {
+    return { phaseType: draft.phaseType, phaseNumber: draft.phaseNumber };
+  }
+  return eligible[eligible.length - 1] || null;
+}
+
 function sortPhases(phases) {
   const unique = new Map();
   phases.forEach((phase) => unique.set(phaseKey(phase), phase));
@@ -154,8 +175,9 @@ function buildActions(sections, rows, target, perPhaseMax, minimum) {
  * @param {object} params.player player (status is used for death-dependent rows)
  * @param {object} params.game { phaseType, phaseNumber }
  * @param {"all"|"current"} [params.scope] "current" only shows the current phase (storyteller night)
+ * @param {object} [params.oncePhase] phase picked for an unused once-per-game ability ({ phaseType, phaseNumber })
  */
-export function buildRoleInfoForm({ abilityData, roleInfo, player, game, scope = "all" }) {
+export function buildRoleInfoForm({ abilityData, roleInfo, player, game, scope = "all", oncePhase = null }) {
   const sections = getVisibleSections(abilityData);
   const plan = getAbilityPhasePlan(abilityData?.abilityMeta);
   const current = getGamePhase(game);
@@ -170,15 +192,23 @@ export function buildRoleInfoForm({ abilityData, roleInfo, player, game, scope =
   }
 
   let phases = [];
+  let phaseChoices = [];
   if (scope === "current") {
     phases = [current];
+  } else if (plan.kind === "once") {
+    // Once per game: one row, never a row per past phase. Before use it sits on the latest chance; a phase
+    // picker on the row moves it (or the used record) to the phase the ability was actually used in.
+    phaseChoices = listPlanPhases(plan, game);
+    phases = records.filter(recordHasData).map((record) => ({ phaseType: record.phaseType, phaseNumber: record.phaseNumber }));
+    if (!anyFilled) {
+      const chosen = pickOncePhase(phaseChoices, records, oncePhase);
+      if (chosen) phases.push(chosen);
+    }
   } else {
     phases = records.map((record) => ({ phaseType: record.phaseType, phaseNumber: record.phaseNumber }));
     if (plan.kind === "recurring" && alive) {
       phases.push(...listPlanPhases(plan, game));
     } else if (plan.kind === "fixed") {
-      phases.push(...listPlanPhases(plan, game));
-    } else if (plan.kind === "once" && !anyFilled) {
       phases.push(...listPlanPhases(plan, game));
     } else if (plan.kind === "death" && !alive && !anyFilled) {
       phases.push(getDeathPhase(player, game));
@@ -196,6 +226,16 @@ export function buildRoleInfoForm({ abilityData, roleInfo, player, game, scope =
     game,
     minEntries: () => 1,
   });
+
+  // A picker is only useful with somewhere to move to (or to give a migrated record of unknown phase a phase).
+  if (phaseChoices.length) {
+    model.rows.forEach((row) => {
+      const unknown = !isPhased(row.phaseType);
+      if (phaseChoices.length > 1 || unknown || !phaseChoices.some((phase) => samePhase(phase, row))) {
+        row.phaseChoices = phaseChoices;
+      }
+    });
+  }
 
   if (!model.rows.length) {
     if (plan.kind === "death") {

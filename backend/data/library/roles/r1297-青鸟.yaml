@@ -83,9 +83,20 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: role
+        - key: role1
           type: role
-          label: 身份
+          label: 得知角色1
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+          aliases:
+            - role
+        - key: role2
+          type: role
+          label: 得知角色2
           required: true
           optionsSource: current_script_roles
           options: null

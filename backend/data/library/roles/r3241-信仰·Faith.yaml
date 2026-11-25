@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
     - 主动选择
@@ -49,11 +49,11 @@ abilityData:
     - night
     - townsfolk
     - storyteller
-  abilityPattern: role_info
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null
@@ -63,8 +63,8 @@ abilityData:
     operations:
       - kind: choose_role
         source: target
-      - kind: learn_role
-        roleType: null
+      - kind: learn_number
+        numberKind: count
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
@@ -89,18 +89,27 @@ abilityData:
           min: null
           max: null
           placeholder: null
+        - key: number
+          type: number
+          label: 选择数字
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
     result:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: role
-          type: role
-          label: 身份
+        - key: count
+          type: number
+          label: 数量
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 0
+          max: 15
           placeholder: null
   deduction:
     status: candidate

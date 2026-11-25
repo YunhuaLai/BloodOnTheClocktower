@@ -63,7 +63,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 2
+        count: 1
         source: target
       - kind: learn_boolean
         question: team_relation
@@ -80,31 +80,24 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat1
+        - key: seat
           type: seat
-          label: 目标号码1
+          label: 查验对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: seat2
-          type: seat
-          label: 目标号码2
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+          aliases:
+            - seat1
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 属于同一阵营
           required: true
           optionsSource: custom
           options:
@@ -113,20 +106,3 @@ abilityData:
           min: null
           max: null
           placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：两目标阵营关系
-    templates:
-      - type: team_relation
-        seats:
-          source: target
-          keys:
-            - seat1
-            - seat2
-        value:
-          source: result
-          keys:
-            - same_team
-            - answer
-            - value

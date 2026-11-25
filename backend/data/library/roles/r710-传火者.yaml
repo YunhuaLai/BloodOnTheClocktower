@@ -43,16 +43,16 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 事件触发
+    - 被动
   termIds:
     - day
     - evil
     - townsfolk
-  abilityPattern: manual_record
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_day
       event: null
@@ -61,16 +61,14 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: protect_player
-      - kind: event_trigger
-        eventTiming: null
   abilityMeta:
-    pageType: event_triggered
+    pageType: no_input
     phaseTiming: each_day
     eventTiming: null
     usagePattern: once_per_day
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

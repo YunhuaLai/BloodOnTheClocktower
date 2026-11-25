@@ -54,7 +54,7 @@ abilityData:
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
+      phase: passive
       event: null
       frequency: passive
     actor:
@@ -64,10 +64,10 @@ abilityData:
         roleType: null
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: null
+    phaseTiming: passive
     eventTiming: null
     usagePattern: passive
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
     recordable: true
   interactionSchema:
@@ -81,7 +81,7 @@ abilityData:
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null

@@ -46,11 +46,8 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 首夜
-    - 每晚
+    - 被动
   termIds:
-    - night
-    - first-night
     - information
     - minion
     - storyteller
@@ -60,7 +57,7 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night
+      phase: passive
       event: null
       frequency: once_per_game
     actor:
@@ -69,7 +66,7 @@ abilityData:
       - kind: passive_rule
   abilityMeta:
     pageType: no_input
-    phaseTiming: each_night
+    phaseTiming: passive
     eventTiming: null
     usagePattern: once_per_game
     activationMode: passive

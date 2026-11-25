@@ -98,6 +98,7 @@ const KNOWN_SEMANTIC_OPERATION_KINDS = new Set([
   "learn_role_in_group",
   "learn_role_at_target",
   "learn_role",
+  "learn_character_type",
   "learn_boolean",
   "learn_number",
   "learn_team",
@@ -126,6 +127,9 @@ const KNOWN_FIELD_TYPES = new Set([
 const KNOWN_REPEAT_MODES = new Set(["none", "once", "sequence", "variable"]);
 const KNOWN_REVIEWER_KINDS = new Set(["ai", "human"]);
 const KNOWN_ROLE_FIELD_TYPES = new Set(["townsfolk", "outsider", "minion", "demon", "traveller", "good", "evil"]);
+// Game-dependent number bounds resolved by the notes page (resolveNumberBound in notes-role-info-fields.js).
+const NUMBER_BOUND_TOKENS = new Set(["$players", "$alive", "$dead", "$evil"]);
+const SEAT_FILTERS = new Set(["alive", "dead", "notSelf"]);
 
 const ARCHIVED_ORPHAN_ROLE_TYPES = new Set([
   "fabled",
@@ -484,11 +488,38 @@ function validateReviewedAbility(ability, role, reviewedDrift) {
       if (!String(field?.label || "").trim()) {
         addError(`${where} is missing label`);
       }
-      if (field?.type === "number" && field.min !== null && field.max !== null && Number(field.min) > Number(field.max)) {
+      const isToken = (value) => typeof value === "string" && value.startsWith("$");
+      ["min", "max"].forEach((bound) => {
+        if (isToken(field?.[bound]) && (field.type !== "number" || !NUMBER_BOUND_TOKENS.has(field[bound]))) {
+          addError(`${where} ${bound} "${field[bound]}" must be one of ${[...NUMBER_BOUND_TOKENS].join(", ")} on a number field`);
+        }
+      });
+      if (field?.type === "number" && field.min !== null && field.max !== null && !isToken(field.min) && !isToken(field.max) && Number(field.min) > Number(field.max)) {
         addError(`${where} has min > max`);
+      }
+      if (field?.seatFilter !== undefined && field.seatFilter !== null) {
+        const filters = Array.isArray(field.seatFilter) ? field.seatFilter : [];
+        if (!["seat", "player"].includes(field.type) || !filters.length || filters.some((value) => !SEAT_FILTERS.has(value)) || (filters.includes("alive") && filters.includes("dead"))) {
+          addError(`${where} seatFilter must be a list of alive / dead / notSelf (not both alive and dead) on a seat field`);
+        }
       }
       if (field?.type === "choice" && !(Array.isArray(field.options) && field.options.length)) {
         addError(`${where} choice field needs options`);
+      }
+      if (field?.exclusive !== undefined && field.exclusive !== null && (typeof field.exclusive !== "boolean" || (field.exclusive && field.type !== "boolean"))) {
+        addError(`${where} exclusive must be true/false and only true on a boolean field`);
+      }
+      if (field?.tone !== undefined && field.tone !== null && (field.type !== "boolean" || !["evil", "good", "neutral"].includes(field.tone))) {
+        addError(`${where} tone must be evil, good or neutral on a boolean field`);
+      }
+      if (field?.aliases !== undefined && field.aliases !== null) {
+        const sectionKeys = new Set(fields.map((item) => item?.key));
+        if (
+          !Array.isArray(field.aliases) ||
+          field.aliases.some((alias) => typeof alias !== "string" || !alias.trim() || sectionKeys.has(alias))
+        ) {
+          addError(`${where} aliases must be a list of old keys that no field of the section uses now`);
+        }
       }
       if (field?.roleTypes !== undefined && field.roleTypes !== null) {
         if (field.type !== "role" || !Array.isArray(field.roleTypes) || field.roleTypes.some((type) => !KNOWN_ROLE_FIELD_TYPES.has(type))) {

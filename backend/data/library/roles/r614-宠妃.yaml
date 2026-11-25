@@ -43,8 +43,12 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 首夜
+    - 每晚
     - 信息型
   termIds:
+    - night
+    - first-night
     - information
     - death
     - outsider
@@ -52,10 +56,10 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: passive
+      phase: each_night
       event: null
       frequency: once_per_game
     actor:
@@ -64,7 +68,7 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: passive
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: passive
@@ -76,8 +80,8 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: note
           type: text

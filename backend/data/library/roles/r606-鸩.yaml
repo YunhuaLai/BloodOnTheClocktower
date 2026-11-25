@@ -54,10 +54,10 @@ abilityData:
   abilityPattern: choose_role_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: each_night
+      phase: night
       event: null
       frequency: once_per_game
     actor:
@@ -68,9 +68,14 @@ abilityData:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
@@ -78,18 +83,20 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: role
           type: role
-          label: 选择角色
+          label: 选择镇民
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - townsfolk
     result:
       repeatMode: none
       defaultRows: 0

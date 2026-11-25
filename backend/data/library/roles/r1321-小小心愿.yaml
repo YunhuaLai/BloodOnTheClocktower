@@ -43,52 +43,39 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 设置
-    - 主动选择
   termIds:
     - night
     - setup
     - first-night
     - alignment
     - fabled
-  abilityPattern: choose_player_effect
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: setup
+      phase: first_night
       event: null
-      frequency: passive
+      frequency: once
     actor:
-      drivenBy: player
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: choose_player
-        count: 1
-        source: target
   abilityMeta:
-    pageType: pick_and_record
-    phaseTiming: setup
+    pageType: rule_modifier
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: passive
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    usagePattern: once
+    activationMode: passive
+    drivenBy: system
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: seat
-          type: seat
-          label: 目标号码
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0

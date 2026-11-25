@@ -84,7 +84,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 正确
           required: true
           optionsSource: custom
           options:

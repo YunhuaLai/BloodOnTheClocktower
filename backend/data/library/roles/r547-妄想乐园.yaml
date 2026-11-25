@@ -67,7 +67,7 @@ abilityData:
     - evil
     - minion
     - demon
-  abilityPattern: team_info
+  abilityPattern: target_role_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -84,7 +84,8 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: learn_team
+      - kind: learn_role_at_target
+        targetSource: target
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
@@ -101,7 +102,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
@@ -112,11 +113,11 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: role
+          type: role
+          label: 得知角色
           required: true
-          optionsSource: teams
+          optionsSource: current_script_roles
           options: null
           min: null
           max: null
@@ -124,5 +125,19 @@ abilityData:
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：阵营信息
-    templates: []
+    label: 可模板化：目标身份信息
+    templates:
+      - type: role_at_seat
+        seat:
+          source: target
+          keys:
+            - seat
+            - player
+            - target
+            - target_seat
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

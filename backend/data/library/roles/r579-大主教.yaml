@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 每晚
     - 主动选择
@@ -53,10 +53,10 @@ abilityData:
   abilityPattern: target_number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_game
     actor:
@@ -65,13 +65,11 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_number
         numberKind: death_count
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
@@ -79,30 +77,23 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+          seatFilter:
+            - dead
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: count
           type: number
@@ -114,7 +105,7 @@ abilityData:
           max: 15
           placeholder: null
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

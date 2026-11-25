@@ -40,7 +40,7 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 首夜
     - 每晚
@@ -51,25 +51,24 @@ abilityData:
     - information
     - townsfolk
     - demon
-  abilityPattern: boolean_info
+  abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night_star
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_boolean
-        question: demon_check
+      - kind: learn_character_type
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: each_night_star
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -79,17 +78,15 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: answer
-          type: boolean
-          label: 是否
+        - key: character_type
+          type: character_type
+          label: 角色类型
           required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
+          optionsSource: character_types
+          options: null
           min: null
           max: null
           placeholder: null

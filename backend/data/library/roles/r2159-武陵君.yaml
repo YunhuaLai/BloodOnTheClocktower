@@ -56,7 +56,7 @@ abilityData:
     - alive
     - dead-vote
     - traveler
-  abilityPattern: manual_record
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -69,7 +69,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 3
+        count: 1
         source: target
       - kind: death_or_execution_effect
   abilityMeta:
@@ -85,46 +85,21 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: seat1
+        - key: seat
           type: seat
-          label: 目标号码1
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: seat2
-          type: seat
-          label: 目标号码2
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
-        - key: seat3
-          type: seat
-          label: 目标号码3
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+          aliases:
+            - seat1
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: world_effect
     source: inferred

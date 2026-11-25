@@ -42,10 +42,12 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 首夜
     - 每晚
     - 主动选择
   termIds:
     - night
+    - first-night
     - townsfolk
   abilityPattern: manual_record
   abilitySemantics:
@@ -77,7 +79,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null

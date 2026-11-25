@@ -57,7 +57,7 @@ abilityData:
     - death
     - townsfolk
     - minion
-  abilityPattern: role_info
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -71,8 +71,8 @@ abilityData:
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: learn_role
-        roleType: townsfolk
+      - kind: learn_player
+        count: 2
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
@@ -91,23 +91,25 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: role
-          type: role
-          label: 身份
+        - key: seat1
+          type: seat
+          label: 候选1
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 候选2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
           placeholder: null
   deduction:
-    status: supported
+    status: manual
     source: inferred
-    templates:
-      - type: role_at_day_execution
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    label: 信息型角色，但需要人工语义归类

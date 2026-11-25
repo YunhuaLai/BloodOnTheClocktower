@@ -57,10 +57,10 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: each_night_star
+      phase: each_night
       event: null
       frequency: once_per_night
     actor:
@@ -72,9 +72,15 @@ abilityData:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 首夜选宿主，之后每夜攻击：同一行两个字段，按需填写
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night_star
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
     activationMode: active
@@ -87,13 +93,24 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
-          required: true
+          label: 攻击对象
+          required: false
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+        - key: host
+          type: seat
+          label: 宿主（首夜）
+          required: false
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+          seatFilter:
+            - alive
     result:
       repeatMode: none
       defaultRows: 0

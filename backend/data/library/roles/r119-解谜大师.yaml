@@ -54,10 +54,10 @@ abilityData:
   abilityPattern: status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: passive
+      phase: day
       event: null
       frequency: once_per_game
     actor:
@@ -66,9 +66,14 @@ abilityData:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
-    pageType: record_result_only
-    phaseTiming: passive
+    pageType: pick_and_record
+    phaseTiming: day
     eventTiming: null
     usagePattern: once_per_game
     activationMode: passive
@@ -76,22 +81,31 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
-    result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+        - key: drunk_guess
+          type: seat
+          label: 猜测醉酒者
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: demon
+          type: seat
+          label: 得知的恶魔
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
   deduction:
     status: manual
     source: inferred

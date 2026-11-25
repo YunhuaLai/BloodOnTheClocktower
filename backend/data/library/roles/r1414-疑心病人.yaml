@@ -44,11 +44,12 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
-    - 主动选择
+    - 信息型
   termIds:
     - day
     - night
     - poisoned
+    - information
     - good
     - evil
     - minion
@@ -63,35 +64,23 @@ abilityData:
       event: null
       frequency: once_per_night
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
-    pageType: pick_and_record
+    pageType: record_result_only
     phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_night
-    activationMode: active
-    drivenBy: player
+    activationMode: passive
+    drivenBy: storyteller
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: seat
-          type: seat
-          label: 目标号码
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: sequence
       defaultRows: 3
@@ -106,7 +95,6 @@ abilityData:
           max: null
           placeholder: 导入初稿，请按角色能力调整结构化字段。
   deduction:
-    status: world_effect
+    status: manual
     source: inferred
-    effectType: poison_drunk
-    note: ''
+    label: 信息型角色，但需要人工语义归类

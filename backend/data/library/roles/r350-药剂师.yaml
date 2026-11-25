@@ -39,20 +39,23 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
-    - 被动
+    - 首夜
+    - 每晚
   termIds:
+    - night
+    - first-night
     - townsfolk
     - storyteller
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: passive
+      phase: each_night
       event: null
       frequency: once_per_game
     actor:
@@ -61,7 +64,7 @@ abilityData:
       - kind: passive_rule
   abilityMeta:
     pageType: no_input
-    phaseTiming: passive
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_game
     activationMode: passive

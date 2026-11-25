@@ -42,7 +42,7 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
     - 信息型
@@ -55,10 +55,10 @@ abilityData:
     - evil
     - townsfolk
     - demon
-  abilityPattern: boolean_info
+  abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -67,8 +67,6 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_boolean
-        question: demon_check
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
@@ -87,17 +85,15 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: answer
-          type: boolean
-          label: 是否
-          required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
           min: null
           max: null
-          placeholder: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
   deduction:
     status: manual
     source: inferred

@@ -96,7 +96,7 @@ function renderSeatNameEditor(player) {
   const hintText = player.name ? "点击号位可修改称呼" : "点击号位可填写称呼";
 
   return `
-    <details class="notes-seat-editor">
+    <details class="notes-seat-editor" data-details-key="${escapeHtml(`seat-editor:${player.id}`)}">
       <summary class="notes-seat-editor-summary" aria-label="编辑玩家称呼">
         <span class="notes-seat-editor-title">${escapeHtml(seatLabel)}</span>
         <small>${escapeHtml(hintText)}</small>
@@ -228,14 +228,14 @@ function renderPlayerRoundtableSeat(player, game, index, selectedPlayer) {
   const isTraveller = isTravellerPlayer(player);
   const markerTokens = getPlayerTableMarkerTokens(draft);
   const seatLabel = draft.name || (isTraveller ? "旅行者" : isSelf ? "自己" : "未命名");
-  const claimLabel = draft.claim || "未声明身份";
+  const claimLabel = draft.claim || "未声明";
   const roleType = role?.type || (isTraveller ? "traveller" : "unknown");
 
   return `
     <button
       type="button"
       class="story-grimoire-seat player-roundtable-seat story-grimoire-seat--${escapeHtml(roleType)} player-roundtable-seat--judgement-${escapeHtml(draft.alignment || "unknown")}${draft.status === "alive" ? "" : " is-dead"}${isSelected ? " is-selected" : ""}${isSelf ? " is-self" : ""}${isTraveller ? " is-traveller" : ""}"
-      style="--seat-angle: ${angle}deg;"
+      data-seat-angle="${angle}"
       data-notes-action="select-player"
       data-player-id="${escapeHtml(player.id)}"
       aria-pressed="${isSelected ? "true" : "false"}"

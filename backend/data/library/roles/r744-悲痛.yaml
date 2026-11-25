@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: boolean_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -84,7 +84,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 与恶魔邻近
           required: true
           optionsSource: custom
           options:

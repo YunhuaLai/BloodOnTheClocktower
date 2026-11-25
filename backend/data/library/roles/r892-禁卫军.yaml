@@ -44,7 +44,7 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 首夜
   termIds:
     - night
     - first-night
@@ -53,29 +53,27 @@ abilityData:
     - alive
     - minion
     - madness
-  abilityPattern: execution_trigger
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: null
-      event: on_execution
-      frequency: passive
+      phase: first_night
+      event: null
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_execution
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
-    eventTiming: on_execution
-    usagePattern: passive
-    activationMode: conditional
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

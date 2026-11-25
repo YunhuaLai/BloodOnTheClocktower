@@ -67,6 +67,50 @@ function cloneEntries(entries) {
   return Array.isArray(entries) ? entries.map((entry) => ({ ...(entry || {}) })) : [];
 }
 
+// ---------------------------------------------------------------------------
+// Renamed field keys
+//
+// A schema field may list `aliases`: keys the same field was saved under before (教父 outsider_role -> role).
+// Saved entries are read through these helpers so old notes keep their values; the next save writes the
+// current key only.
+
+/** Copy of one entry with values saved under an alias moved to the field's current key. */
+export function migrateEntryAliases(entry, fields) {
+  const next = { ...(entry || {}) };
+  (Array.isArray(fields) ? fields : []).forEach((field) => {
+    (Array.isArray(field?.aliases) ? field.aliases : []).forEach((alias) => {
+      if (!alias || alias === field.key || !(alias in next)) return;
+      if (!String(next[field.key] ?? "").trim() && String(next[alias] ?? "").trim()) {
+        next[field.key] = next[alias];
+      }
+      delete next[alias];
+    });
+  });
+  return next;
+}
+
+/** { targetEntries, resultEntries } of one record with aliases migrated for the ability's fields. */
+export function migrateRecordAliases(record, abilityData) {
+  const schema = abilityData?.interactionSchema || {};
+  return {
+    ...record,
+    targetEntries: cloneEntries(record?.targetEntries).map((entry) => migrateEntryAliases(entry, schema.target?.fields)),
+    resultEntries: cloneEntries(record?.resultEntries).map((entry) => migrateEntryAliases(entry, schema.result?.fields)),
+  };
+}
+
+/** Filled values of an entry under keys the fields do not know (a field that was removed or changed type). */
+export function getUnknownEntryValues(entry, fields) {
+  const known = new Set();
+  (Array.isArray(fields) ? fields : []).forEach((field) => {
+    known.add(field?.key);
+    (Array.isArray(field?.aliases) ? field.aliases : []).forEach((alias) => known.add(alias));
+  });
+  return Object.entries(entry || {})
+    .filter(([key, value]) => !known.has(key) && String(value ?? "").trim())
+    .map(([, value]) => String(value).trim());
+}
+
 export function createEmptyPhasedRoleInfo(roleId = "") {
   return { version: ROLE_INFO_VERSION, roleId, records: [] };
 }

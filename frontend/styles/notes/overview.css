@@ -27,7 +27,8 @@
 .notes-overview-head,
 .notes-overview-row {
   display: grid;
-  grid-template-columns: 28px 38px minmax(40px, 0.56fr) minmax(92px, 1.62fr) 58px minmax(40px, 0.58fr);
+  /* Claim column fits a 4-character name at 12px (5+ characters drop to 10px, see .is-long). */
+  grid-template-columns: 24px 36px 60px minmax(0, 1fr) 58px 34px;
   gap: 1px;
   align-items: center;
 }
@@ -95,9 +96,15 @@
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 800;
   text-align: center;
+}
+
+.notes-overview-claim-input.is-long {
+  padding-right: 2px;
+  padding-left: 2px;
+  font-size: 10px;
 }
 
 .notes-overview-claim-input:focus {

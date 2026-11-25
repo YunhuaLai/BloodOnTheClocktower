@@ -44,10 +44,8 @@ abilityData:
   reviewReason: ''
   tags:
     - 首夜
-    - 每晚
     - 设置
   termIds:
-    - night
     - setup
     - first-night
     - outsider
@@ -58,7 +56,7 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: first_night
       event: null

@@ -55,18 +55,18 @@ abilityData:
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: each_day
+      phase: each_night
       event: null
-      frequency: once_per_day
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
-    phaseTiming: each_day
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: once_per_day
+    usagePattern: once_per_night
     activationMode: passive
     drivenBy: storyteller
     recordable: false

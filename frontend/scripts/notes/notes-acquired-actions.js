@@ -2,7 +2,8 @@ import { createEmptyRoleInfoEntries, getActiveGame } from "../notes-state.js";
 import { state } from "../state.js";
 import { createId } from "../utils.js";
 import { ensurePlayerDraftForId, persistPlayerDraft } from "./notes-player-actions.js";
-import { getRoleInfoNode } from "./notes-role-info.js";
+import { getRoleInfoNode, isExclusiveField, isExclusiveValueOn } from "./notes-role-info.js";
+import { migrateEntryAliases } from "./notes-role-info-records.js";
 import { acquiredPhaseIndex, findAcquiredRole, getAcquiredMinimumRows, getAcquisitionKind, hasAcquiredRecords, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
 import { renderNotesPage } from "./notes-shell.js";
 
@@ -113,12 +114,18 @@ export function updateAcquiredRecord(playerId, source, abilityId, phaseType, pha
   if (!field || node.repeatMode === "none" || (node.repeatMode === "once" && index >= Math.max(node.defaultRows, 1))) return false;
   const entries = record.roleInfo[`${section}Entries`];
   while (entries.length <= index) entries.push({});
+  // A value saved under the field's old key moves to the current key before it is overwritten.
+  entries[index] = migrateEntryAliases(entries[index], node.fields);
   if (cycle) {
     if (field.type !== "boolean") return false;
     const values = ["", "yes", "no"];
     value = values[(values.indexOf(String(entries[index][fieldKey] || "")) + 1) % values.length];
   }
-  entries[index][fieldKey] = String(value ?? "");
+  // Turning on an exclusive switch (无爪牙) clears the fields it replaces.
+  entries[index] =
+    isExclusiveField(field) && isExclusiveValueOn(value)
+      ? { [fieldKey]: String(value) }
+      : { ...entries[index], [fieldKey]: String(value ?? "") };
   return true;
 }
 

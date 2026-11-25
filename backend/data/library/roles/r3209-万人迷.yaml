@@ -40,37 +40,39 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
-    - 设置
-    - 事件触发
+    - 首夜
+    - 每晚
+    - 信息型
   termIds:
     - night
-    - setup
     - first-night
+    - information
     - townsfolk
-  abilityPattern: execution_trigger
+  abilityPattern: role_in_group_hint
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: setup
-      event: on_execution
-      frequency: passive
+      phase: first_night
+      event: null
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: on_execution
+      - kind: learn_role_in_group
+        seats: 3
+        roleType: null
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: setup
-    eventTiming: on_execution
-    usagePattern: passive
-    activationMode: conditional
-    drivenBy: system
+    pageType: record_result_only
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
+    activationMode: passive
+    drivenBy: storyteller
     recordable: true
   interactionSchema:
     target:
@@ -78,11 +80,47 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat1
+          type: seat
+          label: 候选1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 候选2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 候选3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
   deduction:
-    status: world_effect
+    status: candidate
     source: inferred
-    effectType: poison_drunk
-    note: ''
+    label: 可模板化：身份信息
+    templates: []

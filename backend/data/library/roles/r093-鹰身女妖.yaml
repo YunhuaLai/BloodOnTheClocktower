@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night
       event: null
@@ -69,6 +69,11 @@ abilityData:
         count: 2
         source: target
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night
@@ -84,7 +89,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 号码1
+          label: 疯狂者
           required: true
           optionsSource: null
           options: null
@@ -93,7 +98,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 号码2
+          label: 被指认者
           required: true
           optionsSource: null
           options: null

@@ -42,35 +42,33 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 事件触发
+    - 被动
   termIds:
     - night
     - first-night
     - death
     - fabled
-  abilityPattern: death_trigger
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
-      event: on_death
+      phase: passive
+      event: null
       frequency: passive
     actor:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_death
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
-    eventTiming: on_death
+    pageType: no_input
+    phaseTiming: passive
+    eventTiming: null
     usagePattern: passive
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

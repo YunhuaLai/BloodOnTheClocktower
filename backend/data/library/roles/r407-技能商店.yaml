@@ -55,9 +55,9 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: null
+      phase: each_day
       event: on_death
-      frequency: passive
+      frequency: once_per_day
     actor:
       drivenBy: player
     operations:
@@ -73,9 +73,9 @@ abilityData:
         eventTiming: on_death
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: null
+    phaseTiming: each_day
     eventTiming: on_death
-    usagePattern: passive
+    usagePattern: once_per_day
     activationMode: active
     drivenBy: player
     recordable: true
@@ -86,20 +86,22 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - dead
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 中毒/醉酒
           required: true
           optionsSource: custom
           options:

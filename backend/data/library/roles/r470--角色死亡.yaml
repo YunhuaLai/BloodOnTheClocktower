@@ -44,6 +44,7 @@ abilityData:
   tags:
     - 被动
   termIds:
+    - death
     - fabled
   abilityPattern: no_input
   abilitySemantics:
@@ -57,7 +58,7 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: passive_rule
+      - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

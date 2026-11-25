@@ -44,14 +44,13 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 信息型
+    - 被动
   termIds:
-    - information
     - death
     - alignment
     - evil
     - fabled
-  abilityPattern: boolean_info
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -63,38 +62,21 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_boolean
-        question: boolean_check
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: passive
     eventTiming: null
     usagePattern: passive
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: answer
-          type: boolean
-          label: 是否
-          required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+      repeatMode: none
+      defaultRows: 0
+      fields: []

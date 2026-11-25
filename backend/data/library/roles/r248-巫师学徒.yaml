@@ -45,19 +45,19 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 每晚
     - 主动选择
   termIds:
     - night
     - townsfolk
-  abilityPattern: target_role_info
+  abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: each_night_star
       event: null
@@ -70,8 +70,7 @@ abilityData:
         source: target
       - kind: choose_role
         source: target
-      - kind: learn_role_at_target
-        targetSource: target
+      - kind: learn_character_type
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star
@@ -87,7 +86,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 查验对象
           required: true
           optionsSource: null
           options: null
@@ -107,11 +106,11 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: role
-          type: role
-          label: 身份
+        - key: character_type
+          type: character_type
+          label: 角色类型
           required: true
-          optionsSource: current_script_roles
+          optionsSource: character_types
           options: null
           min: null
           max: null
@@ -119,19 +118,5 @@ abilityData:
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    label: 可模板化：身份信息
+    templates: []

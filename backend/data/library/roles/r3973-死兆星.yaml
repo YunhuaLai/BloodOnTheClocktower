@@ -59,7 +59,7 @@ abilityData:
     - death
     - good
     - demon
-  abilityPattern: target_role_info
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -76,8 +76,6 @@ abilityData:
         source: target
       - kind: choose_role
         source: target
-      - kind: learn_role_at_target
-        targetSource: target
       - kind: protect_player
       - kind: death_or_execution_effect
   abilityMeta:
@@ -95,7 +93,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 猜测对象
           required: true
           optionsSource: null
           options: null
@@ -112,34 +110,11 @@ abilityData:
           max: null
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 身份
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    label: 可模板化：身份信息
+    templates: []

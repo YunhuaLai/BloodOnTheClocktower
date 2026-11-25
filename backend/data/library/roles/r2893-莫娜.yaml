@@ -65,8 +65,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_role_at_target
         targetSource: target
   abilityMeta:
@@ -84,29 +82,33 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 查验对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
+          seatFilter:
+            - notSelf
+    result:
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: role1
           type: role
-          label: 选择角色
+          label: 得知角色1
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
-    result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
+          aliases:
+            - role
+        - key: role2
           type: role
-          label: 身份
+          label: 得知角色2
           required: true
           optionsSource: current_script_roles
           options: null
@@ -116,19 +118,5 @@ abilityData:
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    label: 可模板化：身份信息
+    templates: []

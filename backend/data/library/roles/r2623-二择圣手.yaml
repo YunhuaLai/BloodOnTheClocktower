@@ -50,7 +50,7 @@ abilityData:
     - nomination
     - townsfolk
     - traveler
-  abilityPattern: role_info
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -62,8 +62,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_role
-        roleType: null
+      - kind: learn_number
+        numberKind: distance
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star
@@ -81,17 +81,17 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: role
-          type: role
-          label: 身份
+        - key: distance
+          type: number
+          label: 距离
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 0
+          max: 15
           placeholder: null
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：身份信息
+    label: 可模板化：数字信息
     templates: []

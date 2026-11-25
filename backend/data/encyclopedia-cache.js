@@ -126,6 +126,9 @@ function getCacheEntry() {
   lastSignatureCheckAt = now;
 
   if (!cachedEntry || cachedEntry.signature !== signature) {
+    // A rebuild (npm run build) replaced dist/data: drop the raw buffers too, or the JSON endpoints keep
+    // serving the files read before the rebuild until the server restarts.
+    compiledBuffers.clear();
     cachedEntry = buildCacheEntry(signature);
   }
 
@@ -137,6 +140,7 @@ function getEncyclopediaData() {
 }
 
 function getEncyclopediaJson() {
+  getCacheEntry();
   return getCompiledBuffer("encyclopedia") || Buffer.from(JSON.stringify(getEncyclopediaData()));
 }
 
@@ -145,6 +149,7 @@ function getBootstrapData() {
 }
 
 function getBootstrapJson() {
+  getCacheEntry();
   return getCompiledBuffer("bootstrap") || Buffer.from(JSON.stringify(getBootstrapData()));
 }
 
@@ -153,6 +158,7 @@ function getHomeData() {
 }
 
 function getHomeJson() {
+  getCacheEntry();
   return getCompiledBuffer("home") || Buffer.from(JSON.stringify(getHomeData()));
 }
 

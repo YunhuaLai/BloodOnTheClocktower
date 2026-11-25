@@ -59,7 +59,7 @@ abilityData:
     - townsfolk
     - minion
     - demon
-  abilityPattern: role_info
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -73,8 +73,8 @@ abilityData:
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: learn_role
-        roleType: townsfolk
+      - kind: learn_player
+        count: 2
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
@@ -95,17 +95,25 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: role
-          type: role
-          label: 身份
+        - key: seat1
+          type: seat
+          label: 候选1
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 候选2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
           placeholder: null
   deduction:
-    status: candidate
+    status: manual
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    label: 信息型角色，但需要人工语义归类

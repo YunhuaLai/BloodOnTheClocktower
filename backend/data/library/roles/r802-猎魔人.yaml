@@ -42,14 +42,14 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 被动
+    - 主动选择
   termIds:
     - day
     - death
     - townsfolk
     - minion
     - demon
-  abilityPattern: no_input
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -59,22 +59,34 @@ abilityData:
       event: null
       frequency: once_per_day
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
+      - kind: choose_player
+        count: 1
+        source: target
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: no_input
+    pageType: pick_and_record
     phaseTiming: each_day
     eventTiming: null
     usagePattern: once_per_day
-    activationMode: passive
-    drivenBy: storyteller
-    recordable: false
+    activationMode: active
+    drivenBy: player
+    recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: guess_seat
+          type: seat
+          label: 猜测对象
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
     result:
       repeatMode: none
       defaultRows: 0

@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
     - 主动选择
@@ -49,11 +49,11 @@ abilityData:
     - night
     - first-night
     - townsfolk
-  abilityPattern: boolean_info
+  abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: first_night
       event: null
@@ -63,8 +63,7 @@ abilityData:
     operations:
       - kind: choose_role
         source: target
-      - kind: learn_boolean
-        question: boolean_check
+      - kind: learn_character_type
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: first_night
@@ -91,14 +90,12 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: answer
-          type: boolean
-          label: 是否
+        - key: character_type
+          type: character_type
+          label: 角色类型
           required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
+          optionsSource: character_types
+          options: null
           min: null
           max: null
           placeholder: null

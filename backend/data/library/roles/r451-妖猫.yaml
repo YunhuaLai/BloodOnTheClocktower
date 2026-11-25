@@ -59,7 +59,7 @@ abilityData:
   abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night
@@ -89,13 +89,15 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 下毒对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - alive
     result:
       repeatMode: none
       defaultRows: 0

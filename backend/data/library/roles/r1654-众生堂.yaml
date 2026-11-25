@@ -52,13 +52,11 @@ abilityData:
   tags:
     - 首夜
     - 设置
-    - 信息型
   termIds:
     - day
     - night
     - setup
     - first-night
-    - information
     - nomination
     - death
     - alignment
@@ -67,7 +65,7 @@ abilityData:
     - townsfolk
     - outsider
     - demon
-  abilityPattern: number_info
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -86,36 +84,21 @@ abilityData:
             max: -1
             source: '[-1外来者]'
             note: 配置调整：外来者数量 -1。
-      - kind: learn_number
-        numberKind: death_count
+      - kind: death_or_execution_effect
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: first_night
     eventTiming: null
     usagePattern: once
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: count
-          type: number
-          label: 数量
-          required: true
-          optionsSource: null
-          options: null
-          min: 0
-          max: 15
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：数字信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

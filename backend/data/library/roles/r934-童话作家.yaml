@@ -89,13 +89,16 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - alive
+            - notSelf
     result:
       repeatMode: none
       defaultRows: 0

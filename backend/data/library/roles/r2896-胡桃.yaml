@@ -63,6 +63,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
+      - kind: learn_role
+        roleType: null
       - kind: learn_boolean
         question: boolean_check
       - kind: death_or_execution_effect
@@ -85,7 +87,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 為奇數
           required: true
           optionsSource: custom
           options:
@@ -94,7 +96,23 @@ abilityData:
           min: null
           max: null
           placeholder: null
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
   deduction:
-    status: manual
+    status: supported
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    templates:
+      - type: role_at_day_execution
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

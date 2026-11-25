@@ -42,13 +42,12 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 信息型
+    - 事件触发
   termIds:
-    - information
     - storyteller
     - grimoire
     - traveler
-  abilityPattern: role_info
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -58,38 +57,23 @@ abilityData:
       event: null
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: learn_role
-        roleType: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: record_result_only
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: null
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 身份
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

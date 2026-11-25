@@ -41,56 +41,46 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
-    - 主动选择
+    - 事件触发
   termIds:
     - drunk
     - nomination
     - death
     - townsfolk
-  abilityPattern: choose_player_death
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: passive
-      event: null
+      phase: null
+      event: on_nomination
       frequency: passive
     actor:
-      drivenBy: player
+      drivenBy: system
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: protect_player
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
-    pageType: pick_and_record
-    phaseTiming: passive
-    eventTiming: null
+    pageType: rule_modifier
+    phaseTiming: null
+    eventTiming: on_nomination
     usagePattern: passive
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: seat
-          type: seat
-          label: 目标号码
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0

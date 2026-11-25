@@ -44,14 +44,15 @@ abilityData:
   reviewReason: ''
   tags:
     - 首夜
-    - 主动选择
+    - 信息型
   termIds:
     - night
     - first-night
+    - information
     - alive
     - townsfolk
     - minion
-  abilityPattern: manual_record
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -61,44 +62,33 @@ abilityData:
       event: null
       frequency: once
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_role
-        source: target
+      - kind: learn_role
+        roleType: minion
   abilityMeta:
-    pageType: pick_and_record
+    pageType: record_result_only
     phaseTiming: first_night
     eventTiming: null
     usagePattern: once
-    activationMode: active
-    drivenBy: player
+    activationMode: passive
+    drivenBy: storyteller
     recordable: true
   interactionSchema:
     target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
       repeatMode: once
       defaultRows: 1
       fields:
         - key: role
           type: role
-          label: 选择角色
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null
-          min: null
-          max: null
-          placeholder: null
-    result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: direction
-          type: choice
-          label: 方向
-          required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
           min: null
           max: null
           placeholder: null

@@ -63,7 +63,7 @@ abilityData:
     - alignment
     - outsider
     - minion
-  abilityPattern: team_info
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -85,7 +85,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: learn_team
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
@@ -102,7 +101,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -110,20 +109,6 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: team
-          type: team
-          label: 阵营
-          required: true
-          optionsSource: teams
-          options: null
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：阵营信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

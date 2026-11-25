@@ -50,30 +50,30 @@ abilityData:
     - alive
     - outsider
     - madness
-  abilityPattern: execution_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: null
       event: on_execution
       frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: protect_player
       - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_execution
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: on_execution
     usagePattern: once_per_game
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

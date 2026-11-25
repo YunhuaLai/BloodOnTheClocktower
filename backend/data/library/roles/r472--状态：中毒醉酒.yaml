@@ -44,6 +44,8 @@ abilityData:
   tags:
     - 被动
   termIds:
+    - poisoned
+    - drunk
     - fabled
   abilityPattern: no_input
   abilitySemantics:
@@ -57,7 +59,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: passive_rule
+      - kind: apply_status_effect
+        effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: no_input
     phaseTiming: passive

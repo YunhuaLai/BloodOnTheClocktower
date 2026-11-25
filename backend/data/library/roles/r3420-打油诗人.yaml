@@ -66,6 +66,8 @@ abilityData:
       - kind: choose_role
         source: target
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day
@@ -88,6 +90,8 @@ abilityData:
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - minion
     result:
       repeatMode: none
       defaultRows: 0

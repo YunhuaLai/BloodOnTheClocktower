@@ -50,7 +50,7 @@ abilityData:
     - night
     - information
     - townsfolk
-  abilityPattern: boolean_info
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -64,6 +64,8 @@ abilityData:
     operations:
       - kind: learn_boolean
         question: boolean_check
+      - kind: learn_number
+        numberKind: count
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star
@@ -83,7 +85,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 有变化
           required: true
           optionsSource: custom
           options:
@@ -92,7 +94,17 @@ abilityData:
           min: null
           max: null
           placeholder: null
+        - key: count
+          type: number
+          label: 数量
+          required: true
+          optionsSource: null
+          options: null
+          min: 0
+          max: 15
+          placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：数字信息
+    templates: []

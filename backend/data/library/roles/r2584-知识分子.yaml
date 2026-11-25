@@ -39,8 +39,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
     - 主动选择
@@ -53,8 +53,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null
@@ -82,38 +82,44 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 查验1
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 查验2
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
         - key: seat3
           type: seat
-          label: 目标号码3
+          label: 查验3
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 有邪恶阵营
           required: true
           optionsSource: custom
           options:

@@ -42,7 +42,7 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 信息型
   termIds:
@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_day
@@ -68,7 +68,7 @@ abilityData:
     phaseTiming: each_day
     eventTiming: null
     usagePattern: once_per_day
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
     recordable: true
   interactionSchema:

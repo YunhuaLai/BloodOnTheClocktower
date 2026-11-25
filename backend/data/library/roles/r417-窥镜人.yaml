@@ -56,7 +56,7 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_night
       event: null
@@ -83,13 +83,15 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 保护对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
     result:
       repeatMode: none
       defaultRows: 0

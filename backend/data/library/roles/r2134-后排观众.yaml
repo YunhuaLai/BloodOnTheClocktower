@@ -43,33 +43,32 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 事件触发
+    - 被动
   termIds:
     - townsfolk
     - storyteller
     - traveler
-  abilityPattern: manual_record
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
+      phase: passive
       event: null
       frequency: passive
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
+    pageType: no_input
+    phaseTiming: passive
     eventTiming: null
     usagePattern: passive
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

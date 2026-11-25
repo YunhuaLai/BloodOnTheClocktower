@@ -40,37 +40,36 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
-    - 被动
-    - 死亡保护
+    - 首夜
   termIds:
+    - first-night
     - execution
     - death
-    - protected
     - evil
     - townsfolk
-  abilityPattern: rule_modifier
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: passive
-      event: on_death
-      frequency: passive
+      phase: first_night
+      event: null
+      frequency: once
     actor:
-      drivenBy: system
+      drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: rule_modifier
-    phaseTiming: passive
-    eventTiming: on_death
-    usagePattern: passive
+    pageType: no_input
+    phaseTiming: first_night
+    eventTiming: null
+    usagePattern: once
     activationMode: passive
-    drivenBy: system
+    drivenBy: storyteller
     recordable: false
   interactionSchema:
     target:

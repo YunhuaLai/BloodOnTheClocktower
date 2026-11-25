@@ -51,9 +51,11 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 首夜
+    - 每晚
     - 设置
   termIds:
     - day
+    - night
     - setup
     - first-night
     - death
@@ -68,9 +70,9 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: first_night
+      phase: each_night
       event: null
-      frequency: once
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
@@ -84,9 +86,9 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
-    phaseTiming: first_night
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: once
+    usagePattern: once_per_night
     activationMode: passive
     drivenBy: storyteller
     recordable: false

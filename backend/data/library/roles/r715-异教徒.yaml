@@ -41,11 +41,13 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
+    - 每晚
   termIds:
+    - night
     - first-night
     - execution
     - alignment
@@ -54,21 +56,21 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: first_night
+      phase: each_night
       event: null
-      frequency: once
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
-    phaseTiming: first_night
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: once
+    usagePattern: once_per_night
     activationMode: passive
     drivenBy: storyteller
     recordable: false

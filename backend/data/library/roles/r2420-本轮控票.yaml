@@ -51,29 +51,29 @@ abilityData:
     - alive
     - evil
     - fabled
-  abilityPattern: execution_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
       phase: null
-      event: on_execution
+      event: on_vote
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
       - kind: event_trigger
-        eventTiming: on_execution
+        eventTiming: on_vote
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
-    eventTiming: on_execution
+    eventTiming: on_vote
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

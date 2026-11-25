@@ -54,7 +54,7 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_night_star
       event: null
@@ -63,9 +63,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 1
-        source: target
-      - kind: choose_role
+        count: 2
         source: target
       - kind: learn_boolean
         question: boolean_check
@@ -82,23 +80,25 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 目标号码
+          label: 查验1
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
+          aliases:
+            - seat
+        - key: seat2
+          type: seat
+          label: 查验2
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
     result:
       repeatMode: sequence
@@ -106,7 +106,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 和昨晚选择的相等
           required: true
           optionsSource: custom
           options:
@@ -115,8 +115,3 @@ abilityData:
           min: null
           max: null
           placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

@@ -55,7 +55,7 @@ abilityData:
     - evil
     - minion
     - storyteller
-  abilityPattern: target_boolean_check
+  abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -70,8 +70,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: learn_boolean
-        question: boolean_check
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
@@ -88,7 +86,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
@@ -96,20 +94,9 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: answer
-          type: boolean
-          label: 是否
-          required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: world_effect
     source: inferred

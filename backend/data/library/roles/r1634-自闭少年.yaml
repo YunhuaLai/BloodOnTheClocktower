@@ -44,7 +44,7 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 信息型
+    - 事件触发
   termIds:
     - night
     - information
@@ -52,7 +52,7 @@ abilityData:
     - alive
     - outsider
     - demon
-  abilityPattern: death_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -62,36 +62,25 @@ abilityData:
       event: on_death
       frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
-    pageType: record_result_only
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: on_death
     usagePattern: once_per_game
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
-  deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+      repeatMode: none
+      defaultRows: 0
+      fields: []

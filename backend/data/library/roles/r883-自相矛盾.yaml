@@ -42,12 +42,12 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 主动选择
+    - 被动
   termIds:
     - storyteller
     - fabled
     - jinx
-  abilityPattern: manual_record
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -57,39 +57,23 @@ abilityData:
       event: null
       frequency: passive
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_role
-        source: target
       - kind: protect_player
   abilityMeta:
-    pageType: pick_and_record
+    pageType: no_input
     phaseTiming: passive
     eventTiming: null
     usagePattern: passive
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

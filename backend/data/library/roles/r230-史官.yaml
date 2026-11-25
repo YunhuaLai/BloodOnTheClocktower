@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night_star
       event: null
@@ -66,6 +66,11 @@ abilityData:
     operations:
       - kind: learn_number
         numberKind: count
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star
@@ -85,12 +90,12 @@ abilityData:
       fields:
         - key: count
           type: number
-          label: 数量
+          label: 存活镇民数
           required: true
           optionsSource: null
           options: null
           min: 0
-          max: 15
+          max: $alive
           placeholder: null
   deduction:
     status: candidate

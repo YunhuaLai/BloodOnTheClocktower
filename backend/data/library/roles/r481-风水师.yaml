@@ -52,10 +52,10 @@ abilityData:
     - information
     - townsfolk
     - traveler
-  abilityPattern: record_result_only
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -64,7 +64,9 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: manual_record
+      - kind: learn_character_type
+      - kind: learn_player
+        count: 1
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night_star
@@ -82,14 +84,21 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: direction
-          type: choice
-          label: 方向
+        - key: seat
+          type: seat
+          label: 得知玩家
           required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: character_type
+          type: character_type
+          label: 角色类型
+          required: true
+          optionsSource: character_types
+          options: null
           min: null
           max: null
           placeholder: null

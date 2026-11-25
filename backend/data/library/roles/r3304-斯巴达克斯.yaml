@@ -43,14 +43,14 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 主动选择
+    - 事件触发
   termIds:
     - day
     - alignment
     - evil
     - townsfolk
     - outsider
-  abilityPattern: manual_record
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -60,38 +60,28 @@ abilityData:
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: player
+      drivenBy: system
     operations:
-      - kind: choose_role
-        source: target
+      - kind: passive_rule
   abilityMeta:
-    pageType: pick_and_record
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: role
-          type: role
-          label: 猜测角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: natural_language
+    note: ''

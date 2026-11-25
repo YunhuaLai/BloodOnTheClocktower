@@ -49,7 +49,6 @@ abilityData:
   tags:
     - 首夜
     - 每晚
-    - 主动选择
   termIds:
     - day
     - night
@@ -57,7 +56,7 @@ abilityData:
     - execution
     - alive
     - townsfolk
-  abilityPattern: choose_player_effect
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -67,34 +66,22 @@ abilityData:
       event: null
       frequency: once_per_day
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: pick_and_record
+    pageType: no_input
     phaseTiming: each_day
     eventTiming: null
     usagePattern: once_per_day
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: seat
-          type: seat
-          label: 目标号码
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0

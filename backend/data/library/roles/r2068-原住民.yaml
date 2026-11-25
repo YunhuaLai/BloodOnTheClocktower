@@ -43,33 +43,35 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
+    - 每晚
     - 设置
   termIds:
+    - night
     - setup
     - townsfolk
     - outsider
     - storyteller
-  abilityPattern: rule_modifier
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: setup
+      phase: each_night
       event: null
-      frequency: passive
+      frequency: once_per_night
     actor:
-      drivenBy: system
+      drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments: []
   abilityMeta:
-    pageType: rule_modifier
-    phaseTiming: setup
+    pageType: no_input
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: passive
+    usagePattern: once_per_night
     activationMode: passive
-    drivenBy: system
+    drivenBy: storyteller
     recordable: false
   interactionSchema:
     target:

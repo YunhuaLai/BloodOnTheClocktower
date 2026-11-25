@@ -74,8 +74,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_role_at_target
         targetSource: target
       - kind: apply_status_effect
@@ -96,35 +94,30 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+          seatFilter:
+            - alive
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - townsfolk
   deduction:
     status: candidate
     source: inferred

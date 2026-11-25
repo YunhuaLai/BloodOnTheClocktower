@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: target_demon_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: day
       event: null
@@ -70,6 +70,11 @@ abilityData:
       - kind: learn_boolean
         question: demon_check
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: day
@@ -85,7 +90,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 提名号码
+          label: 提名对象
           required: true
           optionsSource: null
           options: null

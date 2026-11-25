@@ -32,7 +32,7 @@ abilityData:
     source: role-file
     roleId: r3484
     officialId: JuRenDeXinXI_ 123
-    sourceHash: a85a1052ce1c6f3ec432fc3b249776c44755831c
+    sourceHash: b6b27a6cb08334a6058d7c18404c72a0e945f20e
     sourceHashFields:
       - ability
       - type
@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 首夜
     - 每晚
@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
       phase: each_night
       event: null

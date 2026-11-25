@@ -63,8 +63,12 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_team
+      - kind: learn_role_in_group
+        seats: 2
+        roleType: null
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
     pageType: record_result_only
     phaseTiming: null
@@ -82,11 +86,29 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: team
-          type: team
-          label: 阵营
+        - key: seat1
+          type: seat
+          label: 候选1
           required: true
-          optionsSource: teams
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 候选2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
           options: null
           min: null
           max: null
@@ -94,5 +116,5 @@ abilityData:
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：阵营信息
+    label: 可模板化：身份信息
     templates: []

@@ -52,24 +52,26 @@ abilityData:
     - alignment
     - storyteller
     - traveler
-  abilityPattern: manual_record
+  abilityPattern: vote_trigger
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
       phase: each_day
-      event: null
+      event: on_vote
       frequency: once_per_day
     actor:
       drivenBy: player
     operations:
       - kind: choose_role
         source: target
+      - kind: event_trigger
+        eventTiming: on_vote
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day
-    eventTiming: null
+    eventTiming: on_vote
     usagePattern: once_per_day
     activationMode: active
     drivenBy: player

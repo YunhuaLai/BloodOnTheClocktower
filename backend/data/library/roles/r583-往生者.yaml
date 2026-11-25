@@ -56,8 +56,8 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_day
       event: null
@@ -67,14 +67,20 @@ abilityData:
     operations:
       - kind: event_trigger
         eventTiming: null
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 问答写在额外信息
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: each_day
     eventTiming: null
     usagePattern: once_per_game
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

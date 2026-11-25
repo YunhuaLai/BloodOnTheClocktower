@@ -53,16 +53,21 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_day
       event: null
       frequency: repeatable
     actor:
-      drivenBy: storyteller
+      drivenBy: mixed
     operations:
       - kind: manual_record
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_day
@@ -83,18 +88,22 @@ abilityData:
         - key: guess
           type: text
           label: 能力猜测
-          required: true
+          required: false
           optionsSource: null
           options: null
           min: null
           max: null
           placeholder: null
         - key: feedback
-          type: text
-          label: 反馈
-          required: true
-          optionsSource: null
-          options: null
+          type: choice
+          label: 准确度
+          required: false
+          optionsSource: custom
+          options:
+            - 冷
+            - 温
+            - 热
+            - 猜中
           min: null
           max: null
           placeholder: null

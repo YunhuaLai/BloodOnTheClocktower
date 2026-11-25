@@ -42,54 +42,40 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 主动选择
+    - 事件触发
   termIds:
     - death
     - alignment
     - outsider
-  abilityPattern: death_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: null
       event: on_death
       frequency: passive
     actor:
-      drivenBy: player
+      drivenBy: system
     operations:
-      - kind: choose_role
-        source: target
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
-    pageType: pick_and_record
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: on_death
     usagePattern: passive
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: conditional
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 猜测角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

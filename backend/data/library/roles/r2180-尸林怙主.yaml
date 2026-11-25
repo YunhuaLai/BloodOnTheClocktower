@@ -42,8 +42,9 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 被动
+    - 每晚
   termIds:
+    - night
     - death
     - minion
   abilityPattern: no_input
@@ -52,18 +53,18 @@ abilityData:
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: passive
+      phase: each_night
       event: null
-      frequency: passive
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
-    phaseTiming: passive
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: passive
+    usagePattern: once_per_night
     activationMode: passive
     drivenBy: storyteller
     recordable: false

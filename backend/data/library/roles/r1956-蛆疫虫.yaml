@@ -63,7 +63,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 2
+        count: 1
         source: target
       - kind: death_or_execution_effect
   abilityMeta:
@@ -79,24 +79,17 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat1
+        - key: seat
           type: seat
-          label: 目标号码1
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: seat2
-          type: seat
-          label: 目标号码2
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+          aliases:
+            - seat1
     result:
       repeatMode: none
       defaultRows: 0

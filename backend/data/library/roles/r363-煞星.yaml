@@ -52,8 +52,8 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night
       event: null
@@ -62,6 +62,12 @@ abilityData:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 现有结构合理，未改动
   abilityMeta:
     pageType: no_input
     phaseTiming: each_night

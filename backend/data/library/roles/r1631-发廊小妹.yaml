@@ -44,14 +44,15 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 主动选择
+    - 信息型
   termIds:
     - day
+    - information
     - alive
     - evil
     - townsfolk
     - storyteller
-  abilityPattern: target_number_info
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -61,35 +62,23 @@ abilityData:
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: learn_number
         numberKind: evil_count
   abilityMeta:
-    pageType: pick_and_record
+    pageType: record_result_only
     phaseTiming: null
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: active
-    drivenBy: player
+    activationMode: conditional
+    drivenBy: storyteller
     recordable: true
   interactionSchema:
     target:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: seat
-          type: seat
-          label: 目标号码
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: once
       defaultRows: 1
@@ -104,7 +93,7 @@ abilityData:
           max: 15
           placeholder: null
   deduction:
-    status: world_effect
+    status: candidate
     source: inferred
-    effectType: poison_drunk
-    note: ''
+    label: 可模板化：数字信息
+    templates: []

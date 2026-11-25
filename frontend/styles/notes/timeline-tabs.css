@@ -368,6 +368,7 @@
   border: 1px solid var(--line);
   border-radius: 8px;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .notes-tab.active {
@@ -377,5 +378,8 @@
 }
 
 .notes-tabbar--storyteller {
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  /* Storyteller mode has fewer tabs: share the full width instead of leaving empty columns. */
+  grid-template-columns: none;
+  grid-auto-columns: minmax(0, 1fr);
+  grid-auto-flow: column;
 }

@@ -51,7 +51,7 @@ abilityData:
     - death
     - minion
     - storyteller
-  abilityPattern: choose_player_death
+  abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -63,9 +63,6 @@ abilityData:
     actor:
       drivenBy: player
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
@@ -80,13 +77,13 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: seat
-          type: seat
-          label: 目标号码
+        - key: number
+          type: number
+          label: 选择数字
           required: true
           optionsSource: null
           options: null
-          min: 1
+          min: 0
           max: 15
           placeholder: null
     result:

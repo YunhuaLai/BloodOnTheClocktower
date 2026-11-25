@@ -43,7 +43,6 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 每晚
     - 主动选择
   termIds:
     - day
@@ -62,7 +61,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 1
+        count: 2
         source: target
       - kind: learn_boolean
         question: boolean_check
@@ -79,9 +78,20 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 目标号码
+          label: 查验1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+          aliases:
+            - seat
+        - key: seat2
+          type: seat
+          label: 查验2
           required: true
           optionsSource: null
           options: null

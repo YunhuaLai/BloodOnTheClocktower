@@ -47,18 +47,16 @@ abilityData:
   reviewReason: ''
   tags:
     - 每晚
-    - 信息型
   termIds:
     - day
     - night
     - drunk
-    - information
     - death
     - alive
     - good
     - evil
     - townsfolk
-  abilityPattern: status_effect
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -66,7 +64,7 @@ abilityData:
     timing:
       phase: each_day
       event: null
-      frequency: once_per_game
+      frequency: once_per_day
     actor:
       drivenBy: storyteller
     operations:
@@ -75,32 +73,19 @@ abilityData:
       - kind: protect_player
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_game
+    usagePattern: once_per_day
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
-  deduction:
-    status: manual
-    source: inferred
-    label: 信息型角色，但需要人工语义归类
+      repeatMode: none
+      defaultRows: 0
+      fields: []

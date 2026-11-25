@@ -63,7 +63,7 @@ abilityData:
     - townsfolk
     - outsider
     - minion
-  abilityPattern: target_role_info
+  abilityPattern: choose_role_status_effect
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -82,8 +82,8 @@ abilityData:
         source: target
       - kind: choose_role
         source: target
-      - kind: learn_role_at_target
-        targetSource: target
+      - kind: learn_player
+        count: 1
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
@@ -102,7 +102,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -122,31 +122,17 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: role
-          type: role
-          label: 身份
+        - key: seat
+          type: seat
+          label: 得知玩家
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
   deduction:
     status: candidate
     source: inferred
-    label: 可模板化：目标身份信息
-    templates:
-      - type: role_at_seat
-        seat:
-          source: target
-          keys:
-            - seat
-            - player
-            - target
-            - target_seat
-        role:
-          source: result
-          keys:
-            - role
-            - character
-            - claim
+    label: 可模板化：身份信息
+    templates: []

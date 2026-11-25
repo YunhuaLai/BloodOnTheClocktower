@@ -44,18 +44,17 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 信息型
+    - 事件触发
   termIds:
     - night
     - first-night
     - drunk
-    - information
     - death
     - good
     - outsider
     - demon
     - grimoire
-  abilityPattern: death_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -65,41 +64,32 @@ abilityData:
       event: on_death
       frequency: once_per_night
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: learn_role
-        roleType: demon
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
-    pageType: record_result_only
+    pageType: rule_modifier
     phaseTiming: each_night_star
     eventTiming: on_death
     usagePattern: once_per_night
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 身份
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

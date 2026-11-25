@@ -46,7 +46,6 @@ abilityData:
   tags:
     - 首夜
     - 每晚
-    - 信息型
   termIds:
     - night
     - first-night
@@ -54,7 +53,7 @@ abilityData:
     - good
     - outsider
     - fabled
-  abilityPattern: number_info
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -66,36 +65,21 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_number
-        numberKind: count
+      - kind: passive_rule
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: count
-          type: number
-          label: 数量
-          required: true
-          optionsSource: null
-          options: null
-          min: 0
-          max: 15
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：数字信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

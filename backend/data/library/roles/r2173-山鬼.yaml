@@ -81,22 +81,26 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 查验1
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 查验2
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
     result:
       repeatMode: sequence
       defaultRows: 3

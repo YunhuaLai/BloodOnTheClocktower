@@ -42,32 +42,34 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 被动
+    - 事件触发
   termIds:
     - execution
     - death
     - outsider
     - demon
     - madness
-  abilityPattern: no_input
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night_star
-      event: null
-      frequency: once_per_game
+      phase: null
+      event: on_execution
+      frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
-    pageType: no_input
-    phaseTiming: each_night_star
-    eventTiming: null
-    usagePattern: once_per_game
-    activationMode: passive
+    pageType: rule_modifier
+    phaseTiming: null
+    eventTiming: on_execution
+    usagePattern: passive
+    activationMode: conditional
     drivenBy: storyteller
     recordable: false
   interactionSchema:

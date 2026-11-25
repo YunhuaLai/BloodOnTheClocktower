@@ -3,9 +3,10 @@ import { noteAlignmentOptions, noteConditionOptions, noteStatusOptions, state } 
 import { createId, getOptionLabel } from "../utils.js";
 import { syncAbilityRecordsForPlayer } from "./notes-ability-records.js";
 import { formatPhaseLabel, getPlayerLabel } from "./notes-core.js";
-import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoNode, getRoleInfoSummary } from "./notes-role-info.js";
+import { ensureRoleInfoMatchesClaim, getRoleAbilityData, getRoleInfoNode, getRoleInfoSummary, isExclusiveField, isExclusiveValueOn } from "./notes-role-info.js";
 import { buildRoleInfoForm } from "./notes-role-info-form.js";
-import { ensureRoleInfoRecord, findRoleInfoRecord, getGamePhase, isPhased, normalizeRecordPhase, phaseOrderIndex, trimRoleInfoRecords } from "./notes-role-info-records.js";
+import { getOncePhaseChoice, setOncePhaseChoice } from "./notes-role-info-once-phase.js";
+import { ensureRoleInfoRecord, findRoleInfoRecord, getGamePhase, isPhased, isRoleInfoEntryFilled, normalizeRecordPhase, phaseOrderIndex, sortRoleInfoRecords, trimRoleInfoRecords } from "./notes-role-info-records.js";
 import { getRoleAlignmentValue, getRoleByLooseName } from "./notes-storyteller-actions.js";
 
 function getRoleInfoSubject(player, game = getActiveGame()) {
@@ -183,10 +184,60 @@ export function updatePlayerDraftRoleInfo(playerId, section, index, field, value
     entries.push({});
   }
 
-  entries[safeIndex] = {
-    ...entries[safeIndex],
-    [field]: value,
-  };
+  // Turning on an exclusive switch (无爪牙) clears the fields it replaces.
+  const schemaField = getRoleInfoNode(context.abilityData, section).fields.find((item) => item.key === field);
+  entries[safeIndex] =
+    isExclusiveField(schemaField) && isExclusiveValueOn(value)
+      ? { [field]: value }
+      : { ...entries[safeIndex], [field]: value };
+  return true;
+}
+
+function recordIsFilled(record) {
+  return [...(record?.targetEntries || []), ...(record?.resultEntries || [])].some(isRoleInfoEntryFilled);
+}
+
+/**
+ * Phase picker of a once-per-game row. An unused row only remembers the choice; a used record moves to the
+ * picked phase. Never moves onto a phase that already holds other recorded information, nor into the future.
+ * Returns true when something changed.
+ */
+export function moveOnceRoleInfoPhase(playerId, fromPhase, toPhase) {
+  const context = prepareRoleInfoDraft(playerId);
+  if (!context) {
+    return false;
+  }
+
+  const { draft, game } = context;
+  const to = normalizeRecordPhase(toPhase?.phaseType, toPhase?.phaseNumber);
+  const current = getGamePhase(game);
+  if (!isPhased(to.phaseType) || phaseOrderIndex(to.phaseType, to.phaseNumber) > phaseOrderIndex(current.phaseType, current.phaseNumber)) {
+    return false;
+  }
+
+  const roleId = draft.roleInfo.roleId;
+  const from = normalizeRecordPhase(fromPhase?.phaseType, fromPhase?.phaseNumber);
+  const record = findRoleInfoRecord(draft.roleInfo, from.phaseType, from.phaseNumber);
+  if (!recordIsFilled(record)) {
+    const previous = getOncePhaseChoice(playerId, roleId);
+    setOncePhaseChoice(playerId, roleId, to);
+    return previous?.phaseType !== to.phaseType || previous?.phaseNumber !== to.phaseNumber;
+  }
+
+  const occupant = findRoleInfoRecord(draft.roleInfo, to.phaseType, to.phaseNumber);
+  if (occupant === record) {
+    return false;
+  }
+  if (recordIsFilled(occupant)) {
+    return false;
+  }
+
+  draft.roleInfo.records = sortRoleInfoRecords(
+    draft.roleInfo.records
+      .filter((item) => item !== occupant)
+      .map((item) => (item === record ? { ...item, ...to } : item)),
+  );
+  setOncePhaseChoice(playerId, roleId, to);
   return true;
 }
 

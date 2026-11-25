@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
     - 主动选择
@@ -57,8 +57,8 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
       phase: each_day
       event: null
@@ -87,7 +87,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -96,7 +96,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 选择2
           required: true
           optionsSource: null
           options: null

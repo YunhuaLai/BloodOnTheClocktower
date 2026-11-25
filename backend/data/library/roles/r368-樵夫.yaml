@@ -50,11 +50,11 @@ abilityData:
     - first-night
     - information
     - townsfolk
-  abilityPattern: boolean_info
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_night
       event: null
@@ -62,8 +62,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_boolean
-        question: boolean_check
+      - kind: learn_role
+        roleType: null
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -81,18 +81,17 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: answer
-          type: boolean
-          label: 是否
+        - key: role
+          type: role
+          label: 得知角色
           required: true
-          optionsSource: custom
-          options:
-            - 'yes'
-            - 'no'
+          optionsSource: current_script_roles
+          options: null
           min: null
           max: null
           placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：身份信息
+    templates: []

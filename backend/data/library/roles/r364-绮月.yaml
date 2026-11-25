@@ -45,11 +45,13 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
+    - 首夜
     - 每晚
     - 设置
   termIds:
     - night
     - setup
+    - first-night
     - death
     - alive
     - good
@@ -59,7 +61,7 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_night_star
       event: null

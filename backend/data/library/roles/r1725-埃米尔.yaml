@@ -40,41 +40,59 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
+    - 首夜
     - 每晚
+    - 信息型
   termIds:
     - night
+    - first-night
+    - information
     - townsfolk
     - demon
-  abilityPattern: no_input
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_night_star
+      phase: each_night
       event: null
-      frequency: once_per_night
+      frequency: once_per_game
     actor:
       drivenBy: storyteller
     operations:
-      - kind: passive_rule
+      - kind: learn_player
+        count: 1
   abilityMeta:
-    pageType: no_input
-    phaseTiming: each_night_star
+    pageType: record_result_only
+    phaseTiming: each_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once_per_game
     activationMode: passive
     drivenBy: storyteller
-    recordable: false
+    recordable: true
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: seat
+          type: seat
+          label: 得知玩家
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+  deduction:
+    status: manual
+    source: inferred
+    label: 信息型角色，但需要人工语义归类

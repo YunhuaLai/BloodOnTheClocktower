@@ -69,14 +69,14 @@ abilityData:
   abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night
       event: null
       frequency: once_per_night
     actor:
-      drivenBy: system
+      drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments:
@@ -87,6 +87,12 @@ abilityData:
             note: 配置调整：外来者数量任意；X 等于初始外来者数量。
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 现有结构合理，未改动
   abilityMeta:
     pageType: rule_modifier
     phaseTiming: each_night

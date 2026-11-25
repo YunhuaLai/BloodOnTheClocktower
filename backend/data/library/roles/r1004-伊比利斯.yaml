@@ -47,23 +47,24 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
+    - 每晚
     - 设置
-    - 事件触发
   termIds:
+    - night
     - setup
     - poisoned
     - execution
     - townsfolk
     - outsider
-  abilityPattern: execution_trigger
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: setup
-      event: on_execution
-      frequency: passive
+      phase: each_night
+      event: null
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
@@ -72,16 +73,14 @@ abilityData:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_execution
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: setup
-    eventTiming: on_execution
-    usagePattern: passive
-    activationMode: conditional
-    drivenBy: system
-    recordable: true
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
@@ -91,8 +90,3 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''

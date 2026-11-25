@@ -32,7 +32,7 @@ abilityData:
     source: role-file
     roleId: r685
     officialId: xunchashaoihwronaklsndfkasnd
-    sourceHash: 198451264bf50e6115da757b9e86b3188e97b498
+    sourceHash: 9e81911cd12bbbff7cd5e01d686956b247ed1510
     sourceHashFields:
       - ability
       - type
@@ -42,7 +42,7 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
     - 主动选择
@@ -54,7 +54,7 @@ abilityData:
   abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -64,7 +64,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 1
+        count: 2
         source: target
       - kind: protect_player
       - kind: death_or_execution_effect
@@ -81,9 +81,20 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 目标号码
+          label: 查验1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+          aliases:
+            - seat
+        - key: seat2
+          type: seat
+          label: 查验2
           required: true
           optionsSource: null
           options: null

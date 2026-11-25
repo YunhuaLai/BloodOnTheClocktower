@@ -41,7 +41,7 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 首夜
     - 每晚
@@ -56,10 +56,10 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_night
     actor:
@@ -70,7 +70,7 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: each_night
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_night
     activationMode: passive
@@ -87,7 +87,7 @@ abilityData:
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null

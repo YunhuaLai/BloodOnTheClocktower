@@ -51,15 +51,15 @@ abilityData:
     - evil
     - outsider
     - demon
-  abilityPattern: status_effect
+  abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: each_day
+      phase: each_night_star
       event: null
-      frequency: once_per_day
+      frequency: once_per_night
     actor:
       drivenBy: player
     operations:
@@ -70,9 +70,9 @@ abilityData:
         effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_day
+    phaseTiming: each_night_star
     eventTiming: null
-    usagePattern: once_per_day
+    usagePattern: once_per_night
     activationMode: active
     drivenBy: player
     recordable: true
@@ -83,7 +83,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 下毒对象
           required: true
           optionsSource: null
           options: null
@@ -91,18 +91,9 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
-          optionsSource: null
-          options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: world_effect
     source: inferred

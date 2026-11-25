@@ -47,8 +47,8 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 每晚
     - 设置
-    - 事件触发
   termIds:
     - day
     - night
@@ -57,14 +57,14 @@ abilityData:
     - death
     - townsfolk
     - outsider
-  abilityPattern: execution_trigger
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night_star
-      event: on_execution
+      event: null
       frequency: once_per_night
     actor:
       drivenBy: storyteller
@@ -72,16 +72,14 @@ abilityData:
       - kind: setup_modifier
         adjustments: []
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_execution
   abilityMeta:
-    pageType: event_triggered
+    pageType: no_input
     phaseTiming: each_night_star
-    eventTiming: on_execution
+    eventTiming: null
     usagePattern: once_per_night
-    activationMode: conditional
-    drivenBy: system
-    recordable: true
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

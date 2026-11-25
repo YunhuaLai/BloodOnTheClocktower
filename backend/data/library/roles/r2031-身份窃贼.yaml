@@ -39,71 +39,42 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  needsReview: false
+  reviewReason: ''
   tags:
     - 每晚
-    - 主动选择
   termIds:
     - day
     - night
     - death
     - traveler
-  abilityPattern: choose_player_death
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_night
+      phase: each_day
       event: null
-      frequency: once_per_game
+      frequency: once_per_day
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
-      - kind: choose_role
-        source: target
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: pick_and_record
-    phaseTiming: each_night
+    pageType: no_input
+    phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_game
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    usagePattern: once_per_day
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: seat
-          type: seat
-          label: 目标号码
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []

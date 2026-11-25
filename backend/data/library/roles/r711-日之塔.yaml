@@ -54,7 +54,7 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_game
     actor:
@@ -63,7 +63,7 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: no_input
-    phaseTiming: each_night
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_game
     activationMode: passive

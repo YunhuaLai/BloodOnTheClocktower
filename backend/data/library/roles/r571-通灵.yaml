@@ -47,58 +47,41 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 主动选择
+    - 被动
   termIds:
     - poisoned
     - evil
     - demon
     - storyteller
     - fabled
-  abilityPattern: choose_player_status_effect
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: passive
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
-      - kind: choose_player
-        count: 1
-        source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
-    pageType: pick_and_record
+    pageType: no_input
     phaseTiming: passive
     eventTiming: null
     usagePattern: once_per_game
-    activationMode: active
-    drivenBy: player
-    recordable: true
+    activationMode: passive
+    drivenBy: storyteller
+    recordable: false
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: seat
-          type: seat
-          label: 目标号码
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''

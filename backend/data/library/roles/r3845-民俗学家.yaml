@@ -73,8 +73,6 @@ abilityData:
       - kind: choose_player
         count: 2
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_role_at_target
         targetSource: target
       - kind: death_or_execution_effect
@@ -93,7 +91,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 查验1
           required: true
           optionsSource: null
           options: null
@@ -102,21 +100,12 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 查验2
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
-          placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
           placeholder: null
     result:
       repeatMode: once
@@ -124,7 +113,7 @@ abilityData:
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null

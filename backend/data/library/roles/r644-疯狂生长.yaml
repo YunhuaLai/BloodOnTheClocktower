@@ -30,7 +30,7 @@ abilityData:
     source: role-file
     roleId: r644
     officialId: _guiyihuayuan
-    sourceHash: 00fef1d268fc0158a7041113690b0eedfe5b54c1
+    sourceHash: fa338e269be70b868ef60aae127d293b0ec41cb5
     sourceHashFields:
       - ability
       - type
@@ -51,10 +51,11 @@ abilityData:
     - evil
     - outsider
     - madness
+    - fabled
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: passive

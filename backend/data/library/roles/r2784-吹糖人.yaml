@@ -49,7 +49,7 @@ abilityData:
     - night
     - first-night
     - townsfolk
-  abilityPattern: number_info
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -63,8 +63,8 @@ abilityData:
     operations:
       - kind: choose_role
         source: target
-      - kind: learn_number
-        numberKind: count
+      - kind: learn_role
+        roleType: null
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night
@@ -91,14 +91,32 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: count
-          type: number
-          label: 数量
+        - key: role1
+          type: role
+          label: 得知角色1
           required: true
-          optionsSource: null
+          optionsSource: current_script_roles
           options: null
-          min: 0
-          max: 15
+          min: null
+          max: null
+          placeholder: null
+        - key: role2
+          type: role
+          label: 得知角色2
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
+        - key: role3
+          type: role
+          label: 得知角色3
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
           placeholder: null
   deduction:
     status: candidate

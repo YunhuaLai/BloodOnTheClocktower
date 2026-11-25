@@ -54,8 +54,8 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: each_night
       event: null
@@ -68,6 +68,11 @@ abilityData:
         source: target
       - kind: learn_boolean
         question: boolean_check
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night
@@ -83,8 +88,8 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
-          required: true
+          label: 选择1
+          required: false
           optionsSource: null
           options: null
           min: 1
@@ -92,8 +97,8 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
-          required: true
+          label: 选择2
+          required: false
           optionsSource: null
           options: null
           min: 1
@@ -101,8 +106,8 @@ abilityData:
           placeholder: null
         - key: seat3
           type: seat
-          label: 目标号码3
-          required: true
+          label: 选择3
+          required: false
           optionsSource: null
           options: null
           min: 1
@@ -114,7 +119,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 有邪恶影响
           required: true
           optionsSource: custom
           options:

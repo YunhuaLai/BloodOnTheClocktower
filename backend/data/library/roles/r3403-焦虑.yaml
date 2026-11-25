@@ -53,7 +53,7 @@ abilityData:
     - townsfolk
     - demon
     - traveler
-  abilityPattern: role_info
+  abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -65,8 +65,7 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_role
-        roleType: demon
+      - kind: learn_character_type
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_night
@@ -84,17 +83,16 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: role
-          type: role
-          label: 身份
+        - key: character_type
+          type: character_type
+          label: 角色类型
           required: true
-          optionsSource: current_script_roles
+          optionsSource: character_types
           options: null
           min: null
           max: null
           placeholder: null
   deduction:
-    status: candidate
+    status: manual
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    label: 信息型角色，但需要人工语义归类

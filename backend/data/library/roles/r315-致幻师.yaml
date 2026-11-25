@@ -43,34 +43,34 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 首夜
   termIds:
+    - first-night
     - alignment
     - good
     - minion
     - traveler
-  abilityPattern: manual_record
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: null
+      phase: first_night
       event: null
-      frequency: passive
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
+    pageType: no_input
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: passive
-    activationMode: conditional
+    usagePattern: once
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

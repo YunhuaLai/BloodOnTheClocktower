@@ -46,31 +46,33 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 每晚
+    - 信息型
   termIds:
     - day
+    - night
+    - information
     - townsfolk
     - storyteller
-  abilityPattern: nomination_trigger
+  abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: null
-      event: on_nomination
-      frequency: passive
+      phase: each_day
+      event: null
+      frequency: once_per_day
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: on_nomination
+      - kind: manual_record
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
-    eventTiming: on_nomination
-    usagePattern: passive
-    activationMode: conditional
+    pageType: record_result_only
+    phaseTiming: each_day
+    eventTiming: null
+    usagePattern: once_per_day
+    activationMode: passive
     drivenBy: storyteller
     recordable: true
   interactionSchema:
@@ -79,11 +81,19 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: sequence
+      defaultRows: 3
+      fields:
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
+          min: null
+          max: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
   deduction:
-    status: world_effect
+    status: manual
     source: inferred
-    effectType: action_history
-    note: ''
+    label: 信息型角色，但需要人工语义归类

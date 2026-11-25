@@ -58,10 +58,10 @@ abilityData:
   abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night
+      phase: each_night_star
       event: null
       frequency: once_per_game
     actor:
@@ -73,7 +73,7 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
@@ -81,12 +81,12 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -95,7 +95,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 选择2
           required: true
           optionsSource: null
           options: null

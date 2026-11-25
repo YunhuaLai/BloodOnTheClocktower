@@ -53,17 +53,17 @@ abilityData:
     - death
     - alive
     - townsfolk
-  abilityPattern: death_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: setup
+      phase: first_night
       event: on_death
-      frequency: passive
+      frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
@@ -71,13 +71,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_death
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: setup
+    pageType: rule_modifier
+    phaseTiming: first_night
     eventTiming: on_death
-    usagePattern: passive
+    usagePattern: once
     activationMode: conditional
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

@@ -48,28 +48,28 @@ abilityData:
     - nomination
     - storyteller
     - fabled
-  abilityPattern: nomination_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: null
       event: on_nomination
       frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: event_trigger
         eventTiming: on_nomination
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: on_nomination
     usagePattern: once_per_game
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

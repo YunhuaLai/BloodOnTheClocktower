@@ -87,13 +87,15 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 查验对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - alive
     result:
       repeatMode: sequence
       defaultRows: 3

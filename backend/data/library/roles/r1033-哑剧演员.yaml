@@ -46,28 +46,28 @@ abilityData:
   termIds:
     - vote
     - traveler
-  abilityPattern: manual_record
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
       phase: null
-      event: null
+      event: on_vote
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: event_trigger
-        eventTiming: null
+        eventTiming: on_vote
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
-    eventTiming: null
+    eventTiming: on_vote
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

@@ -65,6 +65,8 @@ abilityData:
         count: 1
         source: target
       - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_day
@@ -80,13 +82,15 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - dead
     result:
       repeatMode: none
       defaultRows: 0

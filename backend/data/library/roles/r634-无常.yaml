@@ -40,65 +40,47 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
     - 每晚
-    - 信息型
   termIds:
     - night
     - first-night
-    - information
     - vote
     - execution
     - death
     - alive
     - minion
     - grimoire
-  abilityPattern: role_info
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_night
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_role
-        roleType: null
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: record_result_only
-    phaseTiming: each_night
+    pageType: no_input
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 身份
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

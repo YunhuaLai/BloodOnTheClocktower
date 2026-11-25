@@ -43,17 +43,19 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
+    - 首夜
     - 每晚
     - 主动选择
   termIds:
     - night
+    - first-night
     - death
     - good
     - townsfolk
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -82,19 +84,16 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 死亡玩家号码
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
     result:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''

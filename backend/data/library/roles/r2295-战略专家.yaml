@@ -68,8 +68,6 @@ abilityData:
       - kind: choose_player
         count: 3
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_boolean
         question: demon_check
   abilityMeta:
@@ -87,7 +85,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 选择1
           required: true
           optionsSource: null
           options: null
@@ -96,7 +94,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 选择2
           required: true
           optionsSource: null
           options: null
@@ -105,21 +103,12 @@ abilityData:
           placeholder: null
         - key: seat3
           type: seat
-          label: 目标号码3
+          label: 选择3
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
-          placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
           placeholder: null
     result:
       repeatMode: sequence
@@ -127,7 +116,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 均属于同一阵营
           required: true
           optionsSource: custom
           options:

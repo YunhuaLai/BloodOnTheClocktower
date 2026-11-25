@@ -51,7 +51,7 @@ abilityData:
     - death
     - alignment
     - townsfolk
-  abilityPattern: manual_record
+  abilityPattern: team_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -66,6 +66,7 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
+      - kind: learn_team
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
@@ -82,30 +83,30 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 查验对象
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - dead
     result:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: direction
-          type: choice
-          label: 方向
+        - key: team
+          type: team
+          label: 阵营
           required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
+          optionsSource: teams
+          options: null
           min: null
           max: null
           placeholder: null
   deduction:
-    status: world_effect
+    status: candidate
     source: inferred
-    effectType: poison_drunk
-    note: ''
+    label: 可模板化：阵营信息
+    templates: []

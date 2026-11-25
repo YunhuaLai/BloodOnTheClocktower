@@ -22,7 +22,8 @@ reminders: []
 remindersGlobal: []
 firstNightReminder: ''
 otherNightReminder: ''
-ability: '[+1镇民，+1外来者，+1爪牙]所有玩家抽取完角色后，再往盲抽袋中加入一枚[谢谢惠顾]，盲抽袋中剩下的角色视为在场，但能力不会生效。每名玩家限一次，在黄昏时拜访说书人交换自己和盲抽袋中的角色，如果抽到邪恶角色则转变为邪恶阵营。如果处决说书人时，盲抽袋中有恶魔，则善良玩家获胜，否则邪恶玩家获胜。如果邪恶玩家数量达到上限，则将盲抽袋中的邪恶角色替换为等量的[谢谢惠顾]，如果因此导致盲抽袋和场上都没有恶魔，说书人要选择一名邪恶玩家照顾小怪宝。'
+ability: >-
+  [+1镇民，+1外来者，+1爪牙]所有玩家抽取完角色后，再往盲抽袋中加入一枚[谢谢惠顾]，盲抽袋中剩下的角色视为在场，但能力不会生效。每名玩家限一次，在黄昏时拜访说书人交换自己和盲抽袋中的角色，如果抽到邪恶角色则转变为邪恶阵营。如果处决说书人时，盲抽袋中有恶魔，则善良玩家获胜，否则邪恶玩家获胜。如果邪恶玩家数量达到上限，则将盲抽袋中的邪恶角色替换为等量的[谢谢惠顾]，如果因此导致盲抽袋和场上都没有恶魔，说书人要选择一名邪恶玩家照顾小怪宝。
 abilityData:
   schemaVersion: 2
   generatedFromOfficial: true
@@ -39,32 +40,47 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 被动
+    - 设置
+    - 事件触发
   termIds:
+    - setup
+    - execution
+    - alignment
+    - good
+    - evil
+    - townsfolk
+    - outsider
+    - minion
+    - demon
+    - storyteller
     - fabled
-  abilityPattern: no_input
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
-      phase: passive
-      event: null
-      frequency: passive
+      phase: setup
+      event: on_execution
+      frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: passive_rule
+      - kind: setup_modifier
+        adjustments: []
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_execution
   abilityMeta:
-    pageType: no_input
-    phaseTiming: passive
-    eventTiming: null
-    usagePattern: passive
-    activationMode: passive
-    drivenBy: storyteller
+    pageType: rule_modifier
+    phaseTiming: setup
+    eventTiming: on_execution
+    usagePattern: once_per_game
+    activationMode: conditional
+    drivenBy: system
     recordable: false
   interactionSchema:
     target:

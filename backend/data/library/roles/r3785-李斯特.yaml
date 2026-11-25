@@ -65,8 +65,6 @@ abilityData:
       - kind: choose_player
         count: 3
         source: target
-      - kind: choose_role
-        source: target
       - kind: learn_number
         numberKind: evil_count
       - kind: apply_status_effect
@@ -86,40 +84,37 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 查验1
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 查验2
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
         - key: seat3
           type: seat
-          label: 目标号码3
+          label: 查验3
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+          seatFilter:
+            - notSelf
     result:
       repeatMode: sequence
       defaultRows: 3
@@ -134,7 +129,7 @@ abilityData:
           max: 15
           placeholder: null
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

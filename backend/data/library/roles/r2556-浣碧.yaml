@@ -54,25 +54,27 @@ abilityData:
     - townsfolk
     - minion
     - demon
-  abilityPattern: status_effect
+  abilityPattern: number_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: each_night
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
+      - kind: learn_number
+        numberKind: distance
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
   abilityMeta:
     pageType: record_result_only
-    phaseTiming: each_night
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -82,19 +84,20 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+        - key: distance
+          type: number
+          label: 距离
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          min: 0
+          max: 15
+          placeholder: null
   deduction:
-    status: manual
+    status: candidate
     source: inferred
-    label: 信息型角色，但需要人工语义归类
+    label: 可模板化：数字信息
+    templates: []

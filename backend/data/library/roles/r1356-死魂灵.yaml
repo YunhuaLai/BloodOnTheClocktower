@@ -45,6 +45,7 @@ abilityData:
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 首夜
+    - 每晚
   termIds:
     - night
     - first-night
@@ -55,7 +56,7 @@ abilityData:
   abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: first_night

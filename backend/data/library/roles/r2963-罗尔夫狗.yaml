@@ -50,7 +50,7 @@ abilityData:
     - first-night
     - information
     - townsfolk
-  abilityPattern: record_result_only
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -62,7 +62,8 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: manual_record
+      - kind: learn_player
+        count: 2
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
@@ -80,15 +81,24 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+        - key: seat1
+          type: seat
+          label: 候选1
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat2
+          type: seat
+          label: 候选2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
   deduction:
     status: manual
     source: inferred

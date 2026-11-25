@@ -59,7 +59,7 @@ abilityData:
     - death
     - townsfolk
     - outsider
-  abilityPattern: death_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -69,7 +69,7 @@ abilityData:
       event: on_death
       frequency: once_per_night
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments:
@@ -85,13 +85,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_death
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: each_night_star
     eventTiming: on_death
     usagePattern: once_per_night
     activationMode: conditional
     drivenBy: system
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

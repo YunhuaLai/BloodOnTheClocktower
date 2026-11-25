@@ -47,8 +47,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
     - 设置
@@ -68,8 +68,8 @@ abilityData:
   abilityPattern: record_result_only
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null
@@ -101,17 +101,15 @@ abilityData:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: direction
-          type: choice
-          label: 方向
-          required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
+          options: null
           min: null
           max: null
-          placeholder: null
+          placeholder: 导入初稿，请按角色能力调整结构化字段。
   deduction:
     status: manual
     source: inferred

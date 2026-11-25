@@ -83,7 +83,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 查验1
           required: true
           optionsSource: null
           options: null
@@ -92,7 +92,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
+          label: 查验2
           required: true
           optionsSource: null
           options: null

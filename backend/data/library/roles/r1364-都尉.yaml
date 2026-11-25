@@ -81,7 +81,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 查验对象
           required: true
           optionsSource: null
           options: null
@@ -94,7 +94,7 @@ abilityData:
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 有邪恶玩家
           required: true
           optionsSource: custom
           options:

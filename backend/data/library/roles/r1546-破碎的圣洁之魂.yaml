@@ -40,37 +40,36 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 被动
   termIds:
     - setup
     - good
     - evil
     - outsider
     - fabled
-  abilityPattern: manual_record
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: null
+      phase: passive
       event: null
       frequency: passive
     actor:
       drivenBy: storyteller
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
+    pageType: no_input
+    phaseTiming: passive
     eventTiming: null
     usagePattern: passive
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
@@ -80,8 +79,3 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: action_history
-    note: ''

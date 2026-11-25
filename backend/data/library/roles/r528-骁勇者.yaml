@@ -53,7 +53,7 @@ abilityData:
   abilityPattern: target_boolean_check
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night
@@ -63,7 +63,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 1
+        count: 3
         source: target
       - kind: choose_role
         source: target
@@ -82,9 +82,29 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 目标号码
+          label: 查验1
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+          aliases:
+            - seat
+        - key: seat2
+          type: seat
+          label: 查验2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 查验3
           required: true
           optionsSource: null
           options: null
@@ -100,13 +120,15 @@ abilityData:
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - minion
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
         - key: answer
           type: boolean
-          label: 是否
+          label: 有这些角色
           required: true
           optionsSource: custom
           options:

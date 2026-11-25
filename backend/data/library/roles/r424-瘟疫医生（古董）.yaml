@@ -44,35 +44,36 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 事件触发
+    - 首夜
+    - 每晚
   termIds:
+    - night
+    - first-night
     - death
     - outsider
     - minion
     - storyteller
-  abilityPattern: death_trigger
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
-      phase: null
-      event: on_death
-      frequency: passive
+      phase: each_night
+      event: null
+      frequency: once_per_night
     actor:
       drivenBy: storyteller
     operations:
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: on_death
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
-    eventTiming: on_death
-    usagePattern: passive
-    activationMode: conditional
+    pageType: no_input
+    phaseTiming: each_night
+    eventTiming: null
+    usagePattern: once_per_night
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

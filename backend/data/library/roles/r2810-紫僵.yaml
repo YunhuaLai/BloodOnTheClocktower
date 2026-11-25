@@ -45,7 +45,6 @@ abilityData:
   reviewReason: ''
   tags:
     - 首夜
-    - 信息型
   termIds:
     - day
     - setup
@@ -57,7 +56,7 @@ abilityData:
     - good
     - townsfolk
     - minion
-  abilityPattern: number_info
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -69,36 +68,21 @@ abilityData:
     actor:
       drivenBy: storyteller
     operations:
-      - kind: learn_number
-        numberKind: death_count
+      - kind: death_or_execution_effect
   abilityMeta:
-    pageType: record_result_only
+    pageType: no_input
     phaseTiming: each_day
     eventTiming: null
     usagePattern: once_per_day
     activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: count
-          type: number
-          label: 数量
-          required: true
-          optionsSource: null
-          options: null
-          min: 0
-          max: 15
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：数字信息
-    templates: []
+      repeatMode: none
+      defaultRows: 0
+      fields: []

@@ -56,23 +56,29 @@ abilityData:
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
-      phase: each_night
-      event: null
-      frequency: once_per_night
+      phase: null
+      event: on_death
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
       - kind: learn_player
         count: 1
       - kind: death_or_execution_effect
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
+      note: 白天死亡得知善良玩家，夜晚死亡得知邪恶玩家
   abilityMeta:
-    pageType: record_result_only
-    phaseTiming: each_night
-    eventTiming: null
-    usagePattern: once_per_night
+    pageType: event_triggered
+    phaseTiming: null
+    eventTiming: on_death
+    usagePattern: once
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -82,17 +88,28 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat
           type: seat
-          label: 号码
+          label: 得知玩家
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
+          placeholder: null
+        - key: died_at
+          type: choice
+          label: 死于
+          required: true
+          optionsSource: custom
+          options:
+            - 白天
+            - 夜晚
+          min: null
+          max: null
           placeholder: null
   deduction:
     status: manual

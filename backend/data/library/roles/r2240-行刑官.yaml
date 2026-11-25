@@ -43,41 +43,43 @@ abilityData:
       - firstNightReminder
       - otherNightReminder
   needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 首夜
+    - 信息型
   termIds:
     - night
     - first-night
     - drunk
+    - information
     - execution
     - death
     - alive
     - alignment
     - outsider
-  abilityPattern: status_effect
+  abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_day
+      phase: first_night
       event: null
-      frequency: once_per_day
+      frequency: once
     actor:
       drivenBy: storyteller
     operations:
+      - kind: learn_role
+        roleType: null
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
-      - kind: event_trigger
-        eventTiming: null
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: each_day
+    pageType: record_result_only
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_day
-    activationMode: conditional
+    usagePattern: once
+    activationMode: passive
     drivenBy: storyteller
     recordable: true
   interactionSchema:
@@ -86,11 +88,20 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
+      repeatMode: once
+      defaultRows: 1
+      fields:
+        - key: role
+          type: role
+          label: 得知角色
+          required: true
+          optionsSource: current_script_roles
+          options: null
+          min: null
+          max: null
+          placeholder: null
   deduction:
-    status: world_effect
+    status: candidate
     source: inferred
-    effectType: poison_drunk
-    note: ''
+    label: 可模板化：身份信息
+    templates: []

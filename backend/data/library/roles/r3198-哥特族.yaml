@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 每晚
     - 信息型
@@ -55,12 +55,12 @@ abilityData:
   abilityPattern: role_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
       phase: each_night_star
       event: null
-      frequency: once_per_night
+      frequency: once_per_game
     actor:
       drivenBy: storyteller
     operations:
@@ -71,7 +71,7 @@ abilityData:
     pageType: record_result_only
     phaseTiming: each_night_star
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once_per_game
     activationMode: passive
     drivenBy: storyteller
     recordable: true
@@ -81,12 +81,12 @@ abilityData:
       defaultRows: 0
       fields: []
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null
@@ -94,7 +94,13 @@ abilityData:
           max: null
           placeholder: null
   deduction:
-    status: candidate
+    status: supported
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    templates:
+      - type: role_at_day_execution
+        role:
+          source: result
+          keys:
+            - role
+            - character
+            - claim

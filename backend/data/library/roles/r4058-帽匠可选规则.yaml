@@ -39,31 +39,39 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 被动
+    - 事件触发
   termIds:
+    - night
+    - death
+    - alignment
+    - evil
+    - minion
+    - demon
     - fabled
-  abilityPattern: no_input
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
-      phase: passive
-      event: null
+      phase: null
+      event: on_death
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: passive_rule
+      - kind: death_or_execution_effect
+      - kind: event_trigger
+        eventTiming: on_death
   abilityMeta:
-    pageType: no_input
-    phaseTiming: passive
-    eventTiming: null
+    pageType: rule_modifier
+    phaseTiming: null
+    eventTiming: on_death
     usagePattern: passive
-    activationMode: passive
+    activationMode: conditional
     drivenBy: storyteller
     recordable: false
   interactionSchema:

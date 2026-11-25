@@ -41,8 +41,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 每晚
     - 主动选择
@@ -52,11 +52,11 @@ abilityData:
     - alignment
     - evil
     - minion
-  abilityPattern: team_info
+  abilityPattern: manual_record
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.7
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null
@@ -67,7 +67,6 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
-      - kind: learn_team
   abilityMeta:
     pageType: pick_and_record
     phaseTiming: each_night_star
@@ -78,12 +77,12 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null
@@ -91,20 +90,15 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: team
-          type: team
-          label: 阵营
-          required: true
-          optionsSource: teams
+        - key: note
+          type: text
+          label: 记录
+          required: false
+          optionsSource: null
           options: null
           min: null
           max: null
-          placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：阵营信息
-    templates: []
+          placeholder: 导入初稿，请按角色能力调整结构化字段。

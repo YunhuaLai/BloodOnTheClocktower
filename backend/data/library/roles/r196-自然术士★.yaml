@@ -43,12 +43,9 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 首夜
-    - 每晚
     - 主动选择
   termIds:
     - night
-    - first-night
     - alive
     - evil
     - townsfolk
@@ -58,7 +55,7 @@ abilityData:
     reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night
+      phase: passive
       event: null
       frequency: once_per_game
     actor:
@@ -71,7 +68,7 @@ abilityData:
         numberKind: evil_count
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: passive
     eventTiming: null
     usagePattern: once_per_game
     activationMode: active
@@ -79,12 +76,12 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 查验对象
           required: true
           optionsSource: null
           options: null
@@ -92,8 +89,8 @@ abilityData:
           max: 15
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: count
           type: number

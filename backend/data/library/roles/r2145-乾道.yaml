@@ -47,11 +47,12 @@ abilityData:
     - 首夜
     - 每晚
     - 设置
-    - 主动选择
+    - 信息型
   termIds:
     - night
     - setup
     - first-night
+    - information
     - death
     - evil
     - townsfolk
@@ -67,50 +68,41 @@ abilityData:
       event: null
       frequency: once_per_night
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments: []
-      - kind: choose_role
-        source: target
       - kind: learn_role
         roleType: minion
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: pick_and_record
+    pageType: record_result_only
     phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
-    activationMode: active
-    drivenBy: player
+    activationMode: passive
+    drivenBy: storyteller
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: role
-          type: role
-          label: 选择角色
-          required: true
-          optionsSource: current_script_roles
-          options: null
-          min: null
-          max: null
-          placeholder: null
+      repeatMode: none
+      defaultRows: 0
+      fields: []
     result:
       repeatMode: sequence
       defaultRows: 3
       fields:
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - demon
   deduction:
     status: candidate
     source: inferred

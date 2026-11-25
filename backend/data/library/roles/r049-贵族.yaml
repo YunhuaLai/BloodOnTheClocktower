@@ -55,8 +55,8 @@ abilityData:
   abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: reviewed
+    confidence: 0.9
     timing:
       phase: first_night
       event: null
@@ -66,6 +66,11 @@ abilityData:
     operations:
       - kind: learn_player
         count: 3
+    review:
+      reviewer: claude-opus-5-5
+      reviewerKind: ai
+      reviewedAt: '2026-11-23'
+      scope: 常用角色第二批审核（被 ≥30 个剧本收录）
   abilityMeta:
     pageType: record_result_only
     phaseTiming: first_night
@@ -85,7 +90,7 @@ abilityData:
       fields:
         - key: seat1
           type: seat
-          label: 号码1
+          label: 候选1
           required: true
           optionsSource: null
           options: null
@@ -94,7 +99,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 号码2
+          label: 候选2
           required: true
           optionsSource: null
           options: null
@@ -103,7 +108,7 @@ abilityData:
           placeholder: null
         - key: seat3
           type: seat
-          label: 号码3
+          label: 候选3
           required: true
           optionsSource: null
           options: null

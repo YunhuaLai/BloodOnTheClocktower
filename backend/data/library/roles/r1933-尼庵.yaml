@@ -51,7 +51,7 @@ abilityData:
     - drunk
     - townsfolk
     - demon
-  abilityPattern: status_effect
+  abilityPattern: choose_player_status_effect
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -64,7 +64,7 @@ abilityData:
       drivenBy: player
     operations:
       - kind: choose_player
-        count: 1
+        count: 2
         source: target
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
@@ -81,28 +81,34 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 目标号码
+          label: 选择1
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-    result:
-      repeatMode: sequence
-      defaultRows: 3
-      fields:
-        - key: note
-          type: text
-          label: 记录
-          required: false
+          seatFilter:
+            - notSelf
+          aliases:
+            - seat
+        - key: seat2
+          type: seat
+          label: 选择2
+          required: true
           optionsSource: null
           options: null
-          min: null
-          max: null
-          placeholder: 导入初稿，请按角色能力调整结构化字段。
+          min: 1
+          max: 15
+          placeholder: null
+          seatFilter:
+            - notSelf
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
   deduction:
     status: world_effect
     source: inferred

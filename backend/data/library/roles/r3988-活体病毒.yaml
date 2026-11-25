@@ -60,10 +60,10 @@ abilityData:
   abilityPattern: choose_player_death
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
-      phase: each_night_star
+      phase: each_night
       event: null
       frequency: once_per_night
     actor:
@@ -77,7 +77,7 @@ abilityData:
       - kind: death_or_execution_effect
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night_star
+    phaseTiming: each_night
     eventTiming: null
     usagePattern: once_per_night
     activationMode: active
@@ -90,7 +90,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 选择对象
           required: true
           optionsSource: null
           options: null

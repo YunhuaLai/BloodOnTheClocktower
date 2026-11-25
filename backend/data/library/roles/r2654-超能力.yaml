@@ -49,7 +49,7 @@ abilityData:
     - poisoned
     - nomination
     - minion
-  abilityPattern: nomination_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -59,20 +59,20 @@ abilityData:
       event: on_nomination
       frequency: once_per_day
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: event_trigger
         eventTiming: on_nomination
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: each_day
     eventTiming: on_nomination
     usagePattern: once_per_day
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

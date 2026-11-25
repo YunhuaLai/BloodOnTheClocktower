@@ -55,8 +55,8 @@ function describeSeats(seats) {
   return seats.map((seat) => `${seat}号`).join("、");
 }
 
-function getRows(player) {
-  return getRoleInfoRows(player?.roleInfo);
+function getRows(player, abilityData = null) {
+  return getRoleInfoRows(player?.roleInfo, abilityData);
 }
 
 function hasRecordedValue(row) {
@@ -555,7 +555,7 @@ function extractObservations(game, catalog) {
 
   players.forEach((source) => {
     const role = getPlayerRole(source, game, catalog);
-    const rows = getRows(source).filter(hasRecordedValue);
+    const rows = getRows(source, role?.abilityData).filter(hasRecordedValue);
     if (!role || !rows.length) {
       return;
     }

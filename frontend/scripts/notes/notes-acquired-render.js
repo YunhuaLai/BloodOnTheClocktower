@@ -4,6 +4,7 @@ import { getMaxSeatNumber } from "./notes-core.js";
 import { renderRoleInfoForm } from "./notes-role-info-fields.js";
 import { buildAcquiredRecordForm } from "./notes-role-info-form.js";
 import { formatRoleInfoEntriesTexts } from "./notes-role-info.js";
+import { migrateRecordAliases } from "./notes-role-info-records.js";
 import { getRoleByLooseName } from "./notes-storyteller-actions.js";
 import { createTruthRowRenderer } from "./notes-storyteller-truth-render.js";
 import { acquiredCertaintyLabels, acquiredPhaseIndex, acquiredPhaseLabel, acquiredStatusLabels, findAcquiredRole, getAcquiredAbilities, getAcquisitionKind, hasAcquiredRecords, isAcquiredAbilityActive } from "./notes-acquired-abilities.js";
@@ -36,8 +37,7 @@ function getAcquiredTruthRenderer(ability, record, role, player, game, source) {
     game,
     resolveRole: (name) => getRoleByLooseName(name, game) || findAcquiredRole(name),
     rows: ability.records.flatMap((item) => {
-      const targets = item.roleInfo?.targetEntries || [];
-      const results = item.roleInfo?.resultEntries || [];
+      const { targetEntries: targets, resultEntries: results } = migrateRecordAliases(item.roleInfo, role.abilityData);
       return Array.from({ length: Math.max(targets.length, results.length) }, (_, index) => ({
         phaseType: item.phaseType,
         phaseNumber: Number(item.phaseNumber),
@@ -45,10 +45,13 @@ function getAcquiredTruthRenderer(ability, record, role, player, game, source) {
         result: results[index] || {},
       }));
     }),
-    getEntries: (row) => ({
-      target: record.roleInfo?.targetEntries?.[row.entryIndex] || {},
-      result: record.roleInfo?.resultEntries?.[row.entryIndex] || {},
-    }),
+    getEntries: (row) => {
+      const migrated = migrateRecordAliases(record.roleInfo, role.abilityData);
+      return {
+        target: migrated.targetEntries[row.entryIndex] || {},
+        result: migrated.resultEntries[row.entryIndex] || {},
+      };
+    },
   });
 }
 
@@ -58,11 +61,13 @@ function renderAcquiredRecord(ability, record, role, game, player, source) {
     game,
     maxSeat: getMaxSeatNumber(game),
     className: "notes-roleinfo-form--acquired",
+    pickerScope: `${player?.id || ""}:${source}:${ability.id}`,
+    ownerSeat: player?.seat,
     renderRowExtra: getAcquiredTruthRenderer(ability, record, role, player, game, source),
   });
   const summary = formatRoleInfoEntriesTexts(record.roleInfo, role.abilityData).join(" / ");
   const isCurrent = record.phaseType === game.phaseType && record.phaseNumber === Number(game.phaseNumber);
-  return `<details class="notes-acquired-record" data-acquired-phase-type="${record.phaseType}" data-acquired-phase-number="${record.phaseNumber}" ${isCurrent ? "open" : ""}>
+  return `<details class="notes-acquired-record" data-acquired-phase-type="${record.phaseType}" data-acquired-phase-number="${record.phaseNumber}" data-details-key="${escapeHtml(`acquired-record:${player?.id || ""}:${source}:${ability.id}:${record.phaseType}${record.phaseNumber}`)}" ${isCurrent ? "open" : ""}>
     <summary>${acquiredPhaseLabel(record.phaseType, record.phaseNumber)} · ${escapeHtml(summary || "行动记录")}</summary>
     ${sections || `<p class="notes-inline-hint">此能力无需结构化录入，可在能力备注中记录。</p>`}
   </details>`;
@@ -78,7 +83,7 @@ function renderAbility(ability, player, game, source, listId) {
   }
   records.sort((a, b) => acquiredPhaseIndex(a.phaseType, a.phaseNumber) - acquiredPhaseIndex(b.phaseType, b.phaseNumber));
   const phaseText = ability.status === "pending" ? "" : `${acquiredPhaseLabel(ability.startPhaseType, ability.startPhaseNumber)}起${ability.endPhaseNumber ? `，${acquiredPhaseLabel(ability.endPhaseType, ability.endPhaseNumber)}结束` : ""}`;
-  return `<details class="notes-acquired-ability" data-acquired-id="${escapeHtml(ability.id)}" ${ability.status !== "ended" ? "open" : ""}>
+  return `<details class="notes-acquired-ability" data-acquired-id="${escapeHtml(ability.id)}" data-details-key="${escapeHtml(`acquired:${player?.id || ""}:${source}:${ability.id}`)}" ${ability.status !== "ended" ? "open" : ""}>
     <summary><strong>${escapeHtml(role?.name || ability.role || "未知能力")}</strong>
       <span class="notes-roleinfo-tag">${acquiredStatusLabels[ability.status]}</span>
       <span>${escapeHtml(phaseText)}</span>

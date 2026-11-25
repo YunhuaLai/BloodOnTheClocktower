@@ -41,27 +41,29 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
+    - 设置
     - 事件触发
   termIds:
+    - setup
     - drunk
     - nomination
     - good
     - townsfolk
     - outsider
-  abilityPattern: nomination_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: null
+      phase: setup
       event: on_nomination
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: setup_modifier
         adjustments: []
@@ -70,13 +72,13 @@ abilityData:
       - kind: event_trigger
         eventTiming: on_nomination
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
+    pageType: rule_modifier
+    phaseTiming: setup
     eventTiming: on_nomination
     usagePattern: passive
     activationMode: conditional
-    drivenBy: storyteller
-    recordable: true
+    drivenBy: system
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

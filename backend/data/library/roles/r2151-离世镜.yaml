@@ -67,6 +67,8 @@ abilityData:
     operations:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
+      - kind: event_trigger
+        eventTiming: on_nomination
   abilityMeta:
     pageType: record_result_only
     phaseTiming: each_day

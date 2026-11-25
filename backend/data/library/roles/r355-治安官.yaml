@@ -42,63 +42,75 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: Official ability text changed; review semantics and note fields.
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
-    - 设置
-    - 信息型
+    - 每晚
+    - 主动选择
   termIds:
     - day
     - night
-    - setup
     - first-night
-    - information
     - alive
     - townsfolk
     - demon
-  abilityPattern: role_info
+  abilityPattern: choose_player_effect
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: first_night
+      phase: each_night_star
       event: null
-      frequency: once
+      frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: player
     operations:
-      - kind: learn_role
-        roleType: demon
+      - kind: choose_player
+        count: 3
+        source: target
   abilityMeta:
-    pageType: record_result_only
-    phaseTiming: first_night
+    pageType: pick_and_record
+    phaseTiming: each_night_star
     eventTiming: null
-    usagePattern: once
-    activationMode: passive
-    drivenBy: storyteller
+    usagePattern: once_per_game
+    activationMode: active
+    drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: none
-      defaultRows: 0
-      fields: []
-    result:
       repeatMode: once
       defaultRows: 1
       fields:
-        - key: role
-          type: role
-          label: 身份
+        - key: seat1
+          type: seat
+          label: 选择1
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
-  deduction:
-    status: candidate
-    source: inferred
-    label: 可模板化：身份信息
-    templates: []
+        - key: seat2
+          type: seat
+          label: 选择2
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+        - key: seat3
+          type: seat
+          label: 选择3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+    result:
+      repeatMode: none
+      defaultRows: 0
+      fields: []

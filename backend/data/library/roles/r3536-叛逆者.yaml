@@ -46,7 +46,7 @@ abilityData:
     - 事件触发
   termIds:
     - outsider
-  abilityPattern: manual_record
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
@@ -56,20 +56,18 @@ abilityData:
       event: null
       frequency: passive
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
-      - kind: event_trigger
-        eventTiming: null
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: null
     usagePattern: passive
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

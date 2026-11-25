@@ -43,13 +43,10 @@ abilityData:
   needsReview: false
   reviewReason: ''
   tags:
-    - 首夜
-    - 每晚
     - 信息型
   termIds:
     - day
     - night
-    - first-night
     - information
     - alignment
     - traveler
@@ -57,7 +54,7 @@ abilityData:
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
-    confidence: 0.7
+    confidence: 0.75
     timing:
       phase: each_night_star
       event: null

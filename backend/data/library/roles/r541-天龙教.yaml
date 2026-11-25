@@ -59,10 +59,10 @@ abilityData:
     - townsfolk
     - outsider
     - demon
-  abilityPattern: status_effect
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night_star
@@ -76,6 +76,8 @@ abilityData:
       - kind: choose_player
         count: 1
         source: target
+      - kind: learn_player
+        count: 1
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
       - kind: death_or_execution_effect
@@ -94,7 +96,7 @@ abilityData:
       fields:
         - key: seat
           type: seat
-          label: 目标号码
+          label: 攻击对象
           required: true
           optionsSource: null
           options: null
@@ -105,16 +107,14 @@ abilityData:
       repeatMode: sequence
       defaultRows: 3
       fields:
-        - key: direction
-          type: choice
-          label: 方向
+        - key: seat
+          type: seat
+          label: 得知玩家
           required: true
-          optionsSource: custom
-          options:
-            - clockwise
-            - counterclockwise
-          min: null
-          max: null
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
           placeholder: null
   deduction:
     status: world_effect

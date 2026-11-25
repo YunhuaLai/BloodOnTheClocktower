@@ -50,7 +50,7 @@ abilityData:
     - alignment
     - outsider
     - storyteller
-  abilityPattern: manual_record
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -60,18 +60,17 @@ abilityData:
       event: null
       frequency: once_per_game
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
-      - kind: event_trigger
-        eventTiming: null
+      - kind: passive_rule
   abilityMeta:
-    pageType: event_triggered
+    pageType: rule_modifier
     phaseTiming: null
     eventTiming: null
     usagePattern: once_per_game
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

@@ -42,7 +42,7 @@ abilityData:
   needsReview: true
   reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
-    - 事件触发
+    - 被动
   termIds:
     - day
     - drunk
@@ -50,7 +50,7 @@ abilityData:
     - storyteller
     - madness
     - traveler
-  abilityPattern: status_effect
+  abilityPattern: no_input
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: needs_review
@@ -64,16 +64,14 @@ abilityData:
     operations:
       - kind: apply_status_effect
         effect: poison_drunk_or_malfunction
-      - kind: event_trigger
-        eventTiming: null
   abilityMeta:
-    pageType: event_triggered
+    pageType: no_input
     phaseTiming: each_day
     eventTiming: null
     usagePattern: once_per_day
-    activationMode: conditional
+    activationMode: passive
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none
@@ -83,8 +81,3 @@ abilityData:
       repeatMode: none
       defaultRows: 0
       fields: []
-  deduction:
-    status: world_effect
-    source: inferred
-    effectType: poison_drunk
-    note: ''

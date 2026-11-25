@@ -50,13 +50,13 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: false
-  reviewReason: ''
+  needsReview: true
+  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
   tags:
     - 首夜
     - 每晚
     - 设置
-    - 主动选择
+    - 信息型
   termIds:
     - night
     - setup
@@ -67,17 +67,17 @@ abilityData:
     - death
     - outsider
     - minion
-  abilityPattern: target_role_info
+  abilityPattern: role_in_group_hint
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: auto
-    confidence: 0.75
+    reviewStatus: needs_review
+    confidence: 0.45
     timing:
       phase: each_night_star
       event: null
       frequency: once_per_night
     actor:
-      drivenBy: player
+      drivenBy: storyteller
     operations:
       - kind: setup_modifier
         adjustments:
@@ -86,9 +86,6 @@ abilityData:
             max: 1
             source: '[-1或+1外来者]'
             note: 配置调整：外来者数量 -1 到 +1。
-      - kind: choose_player
-        count: 2
-        source: target
       - kind: learn_role_in_group
         seats: 2
         roleType: outsider
@@ -97,21 +94,25 @@ abilityData:
       - kind: protect_player
       - kind: death_or_execution_effect
   abilityMeta:
-    pageType: pick_and_record
+    pageType: record_result_only
     phaseTiming: each_night_star
     eventTiming: null
     usagePattern: once_per_night
-    activationMode: active
-    drivenBy: player
+    activationMode: passive
+    drivenBy: storyteller
     recordable: true
   interactionSchema:
     target:
+      repeatMode: none
+      defaultRows: 0
+      fields: []
+    result:
       repeatMode: sequence
       defaultRows: 3
       fields:
         - key: seat1
           type: seat
-          label: 目标号码1
+          label: 候选1
           required: true
           optionsSource: null
           options: null
@@ -120,29 +121,7 @@ abilityData:
           placeholder: null
         - key: seat2
           type: seat
-          label: 目标号码2
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
-    result:
-      repeatMode: once
-      defaultRows: 1
-      fields:
-        - key: seat1
-          type: seat
-          label: 号码1
-          required: true
-          optionsSource: null
-          options: null
-          min: 1
-          max: 15
-          placeholder: null
-        - key: seat2
-          type: seat
-          label: 号码2
+          label: 候选2
           required: true
           optionsSource: null
           options: null
@@ -151,13 +130,15 @@ abilityData:
           placeholder: null
         - key: role
           type: role
-          label: 身份
+          label: 得知角色
           required: true
           optionsSource: current_script_roles
           options: null
           min: null
           max: null
           placeholder: null
+          roleTypes:
+            - outsider
   deduction:
     status: candidate
     source: inferred

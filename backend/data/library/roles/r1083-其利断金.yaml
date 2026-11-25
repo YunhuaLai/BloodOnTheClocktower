@@ -52,29 +52,29 @@ abilityData:
     - nomination
     - death
     - fabled
-  abilityPattern: nomination_trigger
+  abilityPattern: rule_modifier
   abilitySemantics:
     schemaVersion: 1
     reviewStatus: auto
     confidence: 0.75
     timing:
-      phase: null
+      phase: first_night
       event: on_nomination
-      frequency: passive
+      frequency: once
     actor:
-      drivenBy: storyteller
+      drivenBy: system
     operations:
       - kind: death_or_execution_effect
       - kind: event_trigger
         eventTiming: on_nomination
   abilityMeta:
-    pageType: event_triggered
-    phaseTiming: null
+    pageType: rule_modifier
+    phaseTiming: first_night
     eventTiming: on_nomination
-    usagePattern: passive
+    usagePattern: once
     activationMode: conditional
     drivenBy: storyteller
-    recordable: true
+    recordable: false
   interactionSchema:
     target:
       repeatMode: none

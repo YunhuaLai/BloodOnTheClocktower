@@ -62,7 +62,7 @@ abilityData:
   abilityPattern: target_number_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
+    reviewStatus: needs_review
     confidence: 0.45
     timing:
       phase: each_night
@@ -79,9 +79,7 @@ abilityData:
             source: '[+1外来者]'
             note: 配置调整：外来者数量 +1。
       - kind: choose_player
-        count: 1
-        source: target
-      - kind: choose_role
+        count: 3
         source: target
       - kind: learn_number
         numberKind: count
@@ -95,30 +93,47 @@ abilityData:
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: seat
+        - key: seat1
           type: seat
-          label: 目标号码
+          label: 查验1
           required: true
           optionsSource: null
           options: null
           min: 1
           max: 15
           placeholder: null
-        - key: role
-          type: role
-          label: 选择角色
+          seatFilter:
+            - notSelf
+          aliases:
+            - seat
+        - key: seat2
+          type: seat
+          label: 查验2
           required: true
-          optionsSource: current_script_roles
+          optionsSource: null
           options: null
-          min: null
-          max: null
+          min: 1
+          max: 15
           placeholder: null
+          seatFilter:
+            - notSelf
+        - key: seat3
+          type: seat
+          label: 查验3
+          required: true
+          optionsSource: null
+          options: null
+          min: 1
+          max: 15
+          placeholder: null
+          seatFilter:
+            - notSelf
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: count
           type: number
@@ -130,7 +145,7 @@ abilityData:
           max: 15
           placeholder: null
   deduction:
-    status: candidate
+    status: world_effect
     source: inferred
-    label: 可模板化：身份信息
-    templates: []
+    effectType: poison_drunk
+    note: ''

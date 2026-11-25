@@ -40,8 +40,8 @@ abilityData:
       - remindersGlobal
       - firstNightReminder
       - otherNightReminder
-  needsReview: true
-  reviewReason: 官方能力文本包含复杂结算，需人工确认笔记页记录字段。
+  needsReview: false
+  reviewReason: ''
   tags:
     - 首夜
     - 每晚
@@ -51,34 +51,34 @@ abilityData:
     - first-night
     - outsider
     - demon
-  abilityPattern: number_info
+  abilityPattern: player_info
   abilitySemantics:
     schemaVersion: 1
-    reviewStatus: source_changed
-    confidence: 0.45
+    reviewStatus: auto
+    confidence: 0.75
     timing:
-      phase: each_night
+      phase: first_night
       event: null
-      frequency: once_per_night
+      frequency: once
     actor:
       drivenBy: player
     operations:
       - kind: choose_role
         source: target
-      - kind: learn_number
-        numberKind: count
+      - kind: learn_player
+        count: 1
   abilityMeta:
     pageType: pick_and_record
-    phaseTiming: each_night
+    phaseTiming: first_night
     eventTiming: null
-    usagePattern: once_per_night
+    usagePattern: once
     activationMode: active
     drivenBy: player
     recordable: true
   interactionSchema:
     target:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
         - key: role
           type: role
@@ -90,16 +90,16 @@ abilityData:
           max: null
           placeholder: null
     result:
-      repeatMode: sequence
-      defaultRows: 3
+      repeatMode: once
+      defaultRows: 1
       fields:
-        - key: count
-          type: number
-          label: 数量
+        - key: seat
+          type: seat
+          label: 得知玩家
           required: true
           optionsSource: null
           options: null
-          min: 0
+          min: 1
           max: 15
           placeholder: null
   deduction:

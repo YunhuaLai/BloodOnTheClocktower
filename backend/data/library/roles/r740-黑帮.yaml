@@ -55,7 +55,7 @@ abilityData:
     timing:
       phase: each_day
       event: null
-      frequency: once_per_game
+      frequency: once_per_day
     actor:
       drivenBy: storyteller
     operations:
@@ -64,7 +64,7 @@ abilityData:
     pageType: no_input
     phaseTiming: each_day
     eventTiming: null
-    usagePattern: once_per_game
+    usagePattern: once_per_day
     activationMode: passive
     drivenBy: storyteller
     recordable: false
