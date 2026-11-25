@@ -120,6 +120,7 @@ export const roleTypeOrder = ["townsfolk", "outsider", "minion", "demon", "trave
 
 export const state = {
   activeFilter: "all",
+  roleScope: "published",
   catalog: {
     bootstrapLoaded: false,
     fullLoaded: false,

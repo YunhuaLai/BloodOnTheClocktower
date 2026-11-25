@@ -1060,3 +1060,126 @@ a.keyword-chip:hover {
   outline: none;
   box-shadow: 0 0 0 3px rgba(23, 19, 27, 0.14);
 }
+
+/* Index pages (roles / scripts / terms): compact title row, then the lookup tools. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.collection-hero--compact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 18px clamp(18px, 5vw, 72px) 14px;
+}
+
+.collection-hero--compact h1 {
+  font-size: 28px;
+  line-height: 1.2;
+}
+
+.collection-count {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.collection-hero--compact + .catalog-section {
+  padding-top: 0;
+}
+
+.collection-hero--compact + .catalog-section > :first-child:not(.catalog-toolbar) {
+  margin-top: 18px;
+}
+
+/* Search and type filters stay reachable while scrolling a long list. */
+.catalog-toolbar {
+  position: sticky;
+  top: var(--catalog-sticky-top, 68px);
+  z-index: 10;
+  display: grid;
+  gap: 10px;
+  margin: 0 calc(clamp(18px, 5vw, 72px) * -1) 12px;
+  padding: 12px clamp(18px, 5vw, 72px);
+  background: rgba(244, 245, 241, 0.96);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(14px);
+}
+
+.catalog-toolbar .search-box {
+  width: min(100%, 560px);
+}
+
+.catalog-toolbar .filters {
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin: 0 calc(clamp(18px, 5vw, 72px) * -1);
+  padding: 0 clamp(18px, 5vw, 72px);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.catalog-toolbar .filter {
+  flex: none;
+  min-height: 44px;
+}
+
+.role-result-row {
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+}
+
+.catalog-scope-toggle {
+  min-height: 44px;
+  padding: 6px 12px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.catalog-scope-toggle:hover,
+.catalog-scope-toggle[aria-pressed="true"] {
+  border-color: var(--ink);
+}
+
+.catalog-scope-toggle:focus-visible {
+  outline: 3px solid rgba(178, 31, 45, 0.3);
+  outline-offset: 2px;
+}
+
+/* Role cards lead with the ability; the script list is one muted line. */
+.role-card {
+  min-height: 0;
+  padding: 14px 16px;
+}
+
+.role-card p {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+}
+
+.role-card .script-name {
+  padding-top: 10px;
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

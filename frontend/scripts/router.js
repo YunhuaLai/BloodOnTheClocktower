@@ -182,6 +182,10 @@ document.addEventListener("click", (event) => {
     showMoreScripts();
   } else if (button.dataset.catalogAction === "more-roles") {
     showMoreRoles();
+  } else if (button.dataset.catalogAction === "toggle-role-scope") {
+    state.roleScope = state.roleScope === "all" ? "published" : "all";
+    resetRoleRenderLimit();
+    renderRoles();
   }
 });
 

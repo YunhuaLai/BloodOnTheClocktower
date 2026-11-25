@@ -106,6 +106,8 @@ textarea {
 
 main {
   overflow: hidden;
+  /* clip (unlike hidden) is not a scroll container, so position: sticky inside main still tracks the page. */
+  overflow: clip;
 }
 
 body.notes-route main {

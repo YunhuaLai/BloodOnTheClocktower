@@ -244,3 +244,47 @@
     font-size: 56px;
   }
 }
+
+/* Phones: the two-row top bar scrolls away so the sticky catalog toolbar can own the top edge. */
+@media (max-width: 720px) {
+  .topbar {
+    position: static;
+  }
+
+  .catalog-toolbar {
+    --catalog-sticky-top: 0px;
+  }
+
+  .collection-hero--compact h1 {
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .role-result-row {
+    justify-content: space-between;
+  }
+}
+
+.role-folder-heading h3 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+@media (max-width: 720px) {
+  .role-folder-heading {
+    align-items: baseline;
+    flex-direction: row;
+    gap: 12px;
+    padding-bottom: 8px;
+  }
+
+  .role-folder {
+    gap: 10px;
+  }
+
+  .role-grid,
+  .role-folder-grid {
+    gap: 10px;
+  }
+}
